@@ -1,0 +1,14 @@
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\bin\Debug\SAMPLauncherNET.exe.config
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\bin\Debug\SAMPLauncherNET.exe
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\bin\Debug\SAMPLauncherNET.pdb
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\bin\Debug\MetroFramework.dll
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.csprojResolveAssemblyReference.cache
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.MainForm.resources
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.Properties.Resources.resources
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.csproj.GenerateResource.Cache
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.exe
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.pdb
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\bin\Debug\MetroFramework.Design.dll
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\bin\Debug\MetroFramework.Fonts.dll
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\bin\Debug\MetroTranslator.dll
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.Languages.en-GB.resources
