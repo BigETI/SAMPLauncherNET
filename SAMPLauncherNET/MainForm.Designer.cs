@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Favourites", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Hosted list", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Master list", System.Windows.Forms.HorizontalAlignment.Left);
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Favourites", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Hosted list", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("Master list", System.Windows.Forms.HorizontalAlignment.Left);
             this.serverListView = new MetroFramework.Controls.MetroListView();
             this.pingColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hostNameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -54,6 +55,7 @@
             this.dataColumn6 = new System.Data.DataColumn();
             this.dataColumn1 = new System.Data.DataColumn();
             this.testConnectButton = new MetroFramework.Controls.MetroButton();
+            this.serverListTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.serversDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serversTable)).BeginInit();
             this.SuspendLayout();
@@ -62,9 +64,10 @@
             // 
             this.serverListView.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.serverListView.AllowSorting = true;
-            this.serverListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.serverListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.serverListView.BackColor = System.Drawing.SystemColors.WindowText;
+            this.serverListView.BackColor = System.Drawing.SystemColors.Window;
             this.serverListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.pingColumnHeader,
             this.hostNameColumnHeader,
@@ -75,18 +78,16 @@
             this.ipAndPortColumnHeader});
             this.serverListView.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.serverListView.FullRowSelect = true;
-            listViewGroup4.Header = "Favourites";
-            listViewGroup4.Name = "favouritesListViewGroup";
-            listViewGroup5.Header = "Hosted list";
-            listViewGroup5.Name = "hostedListListViewGroup";
-            listViewGroup6.Header = "Master list";
-            listViewGroup6.Name = "masterListListViewGroup";
+            listViewGroup13.Header = "Favourites";
+            listViewGroup13.Name = "favouritesListViewGroup";
+            listViewGroup14.Header = "Hosted list";
+            listViewGroup14.Name = "hostedListListViewGroup";
+            listViewGroup15.Header = "Master list";
+            listViewGroup15.Name = "masterListListViewGroup";
             this.serverListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup4,
-            listViewGroup5,
-            listViewGroup6});
-            this.serverListView.HotTracking = true;
-            this.serverListView.HoverSelection = true;
+            listViewGroup13,
+            listViewGroup14,
+            listViewGroup15});
             this.serverListView.Location = new System.Drawing.Point(23, 63);
             this.serverListView.Name = "serverListView";
             this.serverListView.OwnerDraw = true;
@@ -139,6 +140,8 @@
             // 
             // languagesComboBox
             // 
+            this.languagesComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.languagesComboBox.FormattingEnabled = true;
             this.languagesComboBox.ItemHeight = 23;
             this.languagesComboBox.Location = new System.Drawing.Point(635, 579);
@@ -149,6 +152,7 @@
             // 
             // showFavouritesCheckBox
             // 
+            this.showFavouritesCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.showFavouritesCheckBox.AutoSize = true;
             this.showFavouritesCheckBox.Checked = true;
             this.showFavouritesCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -163,6 +167,7 @@
             // 
             // showHostedListCheckBox
             // 
+            this.showHostedListCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.showHostedListCheckBox.AutoSize = true;
             this.showHostedListCheckBox.Checked = true;
             this.showHostedListCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -176,6 +181,7 @@
             // 
             // showMasterListCheckBox
             // 
+            this.showMasterListCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.showMasterListCheckBox.AutoSize = true;
             this.showMasterListCheckBox.Checked = true;
             this.showMasterListCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -252,6 +258,7 @@
             // 
             // testConnectButton
             // 
+            this.testConnectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.testConnectButton.Location = new System.Drawing.Point(23, 532);
             this.testConnectButton.Name = "testConnectButton";
             this.testConnectButton.Size = new System.Drawing.Size(75, 23);
@@ -259,6 +266,12 @@
             this.testConnectButton.Text = "Test connect";
             this.testConnectButton.UseSelectable = true;
             this.testConnectButton.Click += new System.EventHandler(this.testConnectButton_Click);
+            // 
+            // serverListTimer
+            // 
+            this.serverListTimer.Enabled = true;
+            this.serverListTimer.Interval = 2000;
+            this.serverListTimer.Tick += new System.EventHandler(this.serverListTimer_Tick);
             // 
             // MainForm
             // 
@@ -306,6 +319,7 @@
         private System.Data.DataColumn dataColumn6;
         private System.Data.DataColumn dataColumn1;
         private MetroFramework.Controls.MetroButton testConnectButton;
+        private System.Windows.Forms.Timer serverListTimer;
     }
 }
 

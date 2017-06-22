@@ -333,19 +333,30 @@ namespace SAMPLauncherNET
             }
         }
 
-        public string[] FetchRowData
+        public bool IsRowDataNotFetched
         {
             get
             {
-                ForceRequest();
-                Thread t = new Thread(delegate () { SendQuery('p'); });
-                t.Start();
-                t.Join(1000);
-                t = new Thread(delegate () { SendQuery('i'); });
-                t.Start();
-                t.Join(1000);
-                return CachedRowData;
+                return (iRequestRequired && pRequestRequired);
             }
+        }
+
+        public bool IsRowDataFetched
+        {
+            get
+            {
+                return ((!iRequestRequired) && (!pRequestRequired));
+            }
+        }
+
+        public void FetchAnyData()
+        {
+            ForceRequest();
+            ThreadPool.QueueUserWorkItem(delegate { SendQuery('p'); });
+            ThreadPool.QueueUserWorkItem(delegate { SendQuery('i'); });
+            ThreadPool.QueueUserWorkItem(delegate { SendQuery('r'); });
+            ThreadPool.QueueUserWorkItem(delegate { SendQuery('c'); });
+            ThreadPool.QueueUserWorkItem(delegate { SendQuery('d'); });
         }
 
         private bool SendQuery(char opcode)
@@ -519,6 +530,7 @@ namespace SAMPLauncherNET
                         socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                         socket.SendTimeout = 5000;
                         socket.ReceiveTimeout = 5000;
+                        FetchAnyData();
                     }
                     else
                     {

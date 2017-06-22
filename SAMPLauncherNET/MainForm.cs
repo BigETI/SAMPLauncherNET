@@ -4,64 +4,57 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 using System;
+using System.Threading.Tasks;
 
 namespace SAMPLauncherNET
 {
     public partial class MainForm : MetroForm
     {
 
+        private static readonly int ProcessorCount = Environment.ProcessorCount;
+
+        private List<KeyValuePair<Server, int>> loadServers = new List<KeyValuePair<Server, int>>();
+
+        private List<KeyValuePair<Server, int>> loadedServers = new List<KeyValuePair<Server, int>>();
+
         public MainForm()
         {
             InitializeComponent();
             TranslatorStyler.LoadTranslationStyle(this, new TranslatorStylerInterface());
             TranslatorStyler.EnumerableToComboBox(languagesComboBox, TranslatorStyler.TranslatorStylerInterface.Languages);
-            serverListView.BeginInvoke(new Action(delegate ()
-                {
-                    Dictionary<string, FavouriteServer> favs = Utils.FavouritesIO;
-                    foreach (FavouriteServer fav in favs.Values)
-                    {
-                        ListViewItem lvi = serverListView.Items.Add("-");
-                        lvi.Tag = fav;
-                        lvi.Group = serverListView.Groups[0];
-                        serverListView.BeginInvoke(new Action(() => FillListViewItem(lvi, fav)));
-                    }
-                    Dictionary<string, Server> list = Utils.FetchHostedList;
-                    foreach (Server hosted in list.Values)
-                    {
-                        ListViewItem lvi = serverListView.Items.Add("-");
-                        lvi.Tag = hosted;
-                        lvi.Group = serverListView.Groups[1];
-                        serverListView.BeginInvoke(new Action(() => FillListViewItem(lvi, hosted)));
-                    }
-                    list = Utils.FetchMasterList;
-                    foreach (Server master in list.Values)
-                    {
-                        ListViewItem lvi = serverListView.Items.Add("-");
-                        lvi.Tag = master;
-                        lvi.Group = serverListView.Groups[2];
-                        serverListView.BeginInvoke(new Action(() => FillListViewItem(lvi, master)));
-                    }
-                }));
-        }
-
-        private void FillListViewItem(ListViewItem listViewItem, Server server)
-        {
-            
-            string[] data = server.CachedRowData;
-            for (int i = 0; i < data.Length; i++)
+            Dictionary<string, FavouriteServer> fl = Utils.FavouritesIO;
+            foreach (FavouriteServer s in fl.Values)
+                loadServers.Add(new KeyValuePair<Server, int>(s, 0));
+            Dictionary<string, Server> l = Utils.FetchHostedList;
+            foreach (Server s in l.Values)
+                loadServers.Add(new KeyValuePair<Server, int>(s, 1));
+            l = Utils.FetchMasterList;
+            foreach (Server s in l.Values)
+                loadServers.Add(new KeyValuePair<Server, int>(s, 2));
+            Thread t = new Thread(() =>
             {
-                if (i == 0)
-                    listViewItem.Text = data[0];
-                else
-                    listViewItem.SubItems.Add(data[i]);
-            }
-            /*listViewItem.Text = server.Ping.ToString();
-            listViewItem.SubItems.Add(server.Hostname);
-            listViewItem.SubItems.Add(server.PlayerCount.ToString());
-            listViewItem.SubItems.Add(server.MaxPlayers.ToString());
-            listViewItem.SubItems.Add(server.Gamemode);
-            listViewItem.SubItems.Add(server.Language);*/
+                while (loadServers.Count > 0)
+                {
+                    List<KeyValuePair<Server, int>> rlist = new List<KeyValuePair<Server, int>>();
+                    foreach (KeyValuePair<Server, int> kv in loadServers)
+                    {
+                        if (kv.Key.IsRowDataFetched)
+                        {
+                            rlist.Add(kv);
+                        }
+                    }
+                    foreach (KeyValuePair<Server, int> kv in rlist)
+                        loadServers.Remove(kv);
+                    lock (loadedServers)
+                    {
+                        loadedServers.AddRange(rlist);
+                    }
+                    rlist.Clear();
+                }
+            });
+            t.Start();
         }
+        
 
         private void showFavouritesCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -70,7 +63,7 @@ namespace SAMPLauncherNET
 
         private void serverListView_Click(object sender, EventArgs e)
         {
-            serverListView.BeginInvoke(new Action(delegate()
+            /*serverListView.BeginInvoke(new Action(delegate ()
             {
                 foreach (ListViewItem lvi in serverListView.SelectedItems)
                 {
@@ -87,7 +80,7 @@ namespace SAMPLauncherNET
                         }
                     }
                 }
-            }));
+            }));*/
         }
 
         private void testConnectButton_Click(object sender, EventArgs e)
@@ -100,7 +93,47 @@ namespace SAMPLauncherNET
                     break;
                 }
             }
-                
+
+        }
+
+        /*
+        ListViewItem lvi = null;
+                        for (int i = 0; i < d.Length; i++)
+                        {
+                            if (i == 0)
+                            {
+                                lvi = serverListView.Items.Add(d[0]);
+                                KeyValuePair<Server, int> kv = servers[i];
+                                lvi.Group = serverListView.Groups[kv.Value];
+                                lvi.Tag = kv.Key;
+                            }
+                            else
+                                lvi.SubItems.Add(d[i]);
+                        }
+            */
+
+        private void serverListTimer_Tick(object sender, EventArgs e)
+        {
+            lock (loadedServers)
+            {
+                foreach (KeyValuePair<Server, int> kv in loadedServers)
+                {
+                    ListViewItem lvi = null;
+                    string[] data = kv.Key.CachedRowData;
+                    for (int i = 0; i < data.Length; i++)
+                    {
+                        if (i == 0)
+                        {
+                            lvi = serverListView.Items.Add(data[0]);
+                            lvi.Group = serverListView.Groups[kv.Value];
+                            lvi.Tag = kv.Key;
+                        }
+                        else
+                            lvi.SubItems.Add(data[i]);
+                    }
+                }
+                loadedServers.Clear();
+            }
         }
     }
 }
