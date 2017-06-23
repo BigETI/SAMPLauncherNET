@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using MetroFramework;
 using MetroTranslatorStyler;
-using System.Reflection;
 
 namespace SAMPLauncherNET
 {

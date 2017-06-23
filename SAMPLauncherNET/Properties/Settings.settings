@@ -9,7 +9,7 @@
       <Value Profile="(Default)">Dark</Value>
     </Setting>
     <Setting Name="Style" Type="MetroFramework.MetroColorStyle" Scope="User">
-      <Value Profile="(Default)">Orange</Value>
+      <Value Profile="(Default)">Blue</Value>
     </Setting>
   </Settings>
 </SettingsFile>

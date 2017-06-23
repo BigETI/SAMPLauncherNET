@@ -22,14 +22,14 @@ namespace SAMPLauncherNET.Languages {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class en_GB {
+    internal class de_DE {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal en_GB() {
+        internal de_DE() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SAMPLauncherNET.Languages {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SAMPLauncherNET.Languages.en-GB", typeof(en_GB).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SAMPLauncherNET.Languages.de-DE", typeof(de_DE).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Audio message off ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Audio Benachrichtigungen ausblenden ähnelt.
         /// </summary>
         internal static string AUDIO_MESSAGE_OFF {
             get {
@@ -70,7 +70,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Audio proxy off ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Audio Proxy nicht verwenden ähnelt.
         /// </summary>
         internal static string AUDIO_PROXY_OFF {
             get {
@@ -79,7 +79,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Abbrechen ähnelt.
         /// </summary>
         internal static string CANCEL {
             get {
@@ -88,7 +88,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Close when launched ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Schließen, wenn ausgeführt ähnelt.
         /// </summary>
         internal static string CLOSE_WHEN_LAUNCHED {
             get {
@@ -97,7 +97,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Connect ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Verbinden ähnelt.
         /// </summary>
         internal static string CONNECT {
             get {
@@ -106,7 +106,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Connect now! ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Jetzt verbinden! ähnelt.
         /// </summary>
         internal static string CONNECT_NOW {
             get {
@@ -115,7 +115,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Connect ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Verbinden ähnelt.
         /// </summary>
         internal static string CONNECT_TITLE {
             get {
@@ -124,7 +124,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Direct to screen textdraw render method (slow) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Direkter Textdraw zu Bildschirm Render Methode (langsam) ähnelt.
         /// </summary>
         internal static string DIRECT_MODE {
             get {
@@ -133,7 +133,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Disable head move ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kopfbewegungen abschalten ähnelt.
         /// </summary>
         internal static string DISABLE_HEAD_MOVE {
             get {
@@ -142,7 +142,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die English ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Englisch (English) ähnelt.
         /// </summary>
         internal static string ENGLISH {
             get {
@@ -151,7 +151,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Font-face ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Schriftart ähnelt.
         /// </summary>
         internal static string FONT_FACE {
             get {
@@ -160,7 +160,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Font-weight - BOLD =off, NORMAL = on ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Schriftstärke - FETT = aus, NORMAL = an ähnelt.
         /// </summary>
         internal static string FONT_WEIGHT {
             get {
@@ -169,7 +169,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die FPS limit ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die FPS Limit ähnelt.
         /// </summary>
         internal static string FPS_LIMIT {
             get {
@@ -178,7 +178,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die German (Deutsch) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Deutsch ähnelt.
         /// </summary>
         internal static string GERMAN {
             get {
@@ -187,7 +187,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die GitHub project SAMPLauncherNET ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die GitHub Projekt SAMPLauncherNET ähnelt.
         /// </summary>
         internal static string GITHUB_PROJECT {
             get {
@@ -196,7 +196,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Enable IME (Input Method Editor) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die IME (Input Method Editor) freischalten ähnelt.
         /// </summary>
         internal static string IME {
             get {
@@ -205,7 +205,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Last chatlog ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Letzter Chatprotokoll ähnelt.
         /// </summary>
         internal static string LAST_CHATLOG_TITLE {
             get {
@@ -214,7 +214,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Launch debug mode ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Debug Modus starten ähnelt.
         /// </summary>
         internal static string LAUNCH_DEBUG_MODE {
             get {
@@ -223,7 +223,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Launch singleplayer mode ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Singleplayer Modus starten ähnelt.
         /// </summary>
         internal static string LAUNCH_SINGLEPLAYER_MODE {
             get {
@@ -241,7 +241,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Multi core ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Multi Core ähnelt.
         /// </summary>
         internal static string MULTI_CORE {
             get {
@@ -250,7 +250,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Do you need help? Join SA:MP forums... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Brauchst du Hilfe? Trete in den SA:MP Foren ein... ähnelt.
         /// </summary>
         internal static string NEED_HELP_FORUMS {
             get {
@@ -259,7 +259,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die No nametag status ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kein Namensschildstatus ähnelt.
         /// </summary>
         internal static string NO_NAMETAG_STATUS {
             get {
@@ -277,7 +277,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Options... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Optionen... ähnelt.
         /// </summary>
         internal static string OPTIONS {
             get {
@@ -286,7 +286,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Options ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Optionen ähnelt.
         /// </summary>
         internal static string OPTIONS_TITLE {
             get {
@@ -295,7 +295,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Page size ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Seitengröße ähnelt.
         /// </summary>
         internal static string PAGE_SIZE {
             get {
@@ -304,7 +304,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Select language... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sprache... (Language) ähnelt.
         /// </summary>
         internal static string SELECT_LANGUAGE {
             get {
@@ -313,7 +313,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Show favourites ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige Favoriten ähnelt.
         /// </summary>
         internal static string SHOW_FAVOURITES {
             get {
@@ -322,7 +322,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Show gallery... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige Gallery ähnelt.
         /// </summary>
         internal static string SHOW_GALLERY {
             get {
@@ -331,7 +331,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Show hosted list ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige Hosted Liste ähnelt.
         /// </summary>
         internal static string SHOW_HOSTED_LIST {
             get {
@@ -340,7 +340,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Show last chatlog... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige letzten Chatprotokoll... ähnelt.
         /// </summary>
         internal static string SHOW_LAST_CHATLOG {
             get {
@@ -349,7 +349,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Show master list ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige Master Liste ähnelt.
         /// </summary>
         internal static string SHOW_MASTER_LIST {
             get {
@@ -358,7 +358,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Don&apos;t save username ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Benutzernamen nicht speichern ähnelt.
         /// </summary>
         internal static string TEMPORARY_USERNAME {
             get {
@@ -367,7 +367,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Timestamp ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zeitstempel ähnelt.
         /// </summary>
         internal static string TIMESTAMP {
             get {

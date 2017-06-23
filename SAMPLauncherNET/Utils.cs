@@ -27,9 +27,21 @@ namespace SAMPLauncherNET
 
         public static readonly string ConfigPath = Environment.GetEnvironmentVariable("USERPROFILE") + "\\Documents\\GTA San Andreas User Files\\SAMP";
 
-        public static readonly string ExePath = GTASAExe.Substring(0, GTASAExe.Length - 11);
+        public static readonly string ExeDir = GTASAExe.Substring(0, GTASAExe.Length - 11);
 
-        public static readonly string SAMPDLL = ExePath + "\\samp.dll";
+        public static readonly string SAMPDLLPath = ExeDir + "\\samp.dll";
+
+        public static readonly string SAMPDebugPath = ExeDir + "\\samp_debug.exe";
+
+        public static readonly string GalleryPath = ConfigPath + "\\screens";
+
+        public static readonly string ChatlogPath = ConfigPath + "\\chatlog.txt";
+
+        public static readonly string SAMPConfigPath = ConfigPath + "\\sa-mp.cfg";
+
+        public static readonly string ForumsURL = "http://forum.sa-mp.com/index.php";
+
+        public static readonly string GitHubProjectURL = "https://github.com/BigETI/SAMPLauncherNET";
 
         public static Dictionary<string, Server> FetchMasterList
         {
@@ -167,6 +179,37 @@ namespace SAMPLauncherNET
             }
         }
 
+        public static string Chatlog
+        {
+            get
+            {
+                string ret = "";
+                try
+                {
+                    using (FileStream fs = File.Open(ChatlogPath, FileMode.Open))
+                    {
+                        using (StreamReader sr = new StreamReader(fs, Encoding.Default))
+                        {
+                            ret = sr.ReadToEnd();
+                        }
+                    }
+                }
+                catch
+                {
+
+                }
+                return ret;
+            }
+        }
+
+        public static SAMPConfig SAMPConfig
+        {
+            get
+            {
+                return new SAMPConfig(new INIFile(SAMPConfigPath));
+            }
+        }
+
         private static Dictionary<string, Server> FetchIPList(string listName)
         {
             Dictionary<string, Server> ret = new Dictionary<string, Server>();
@@ -187,7 +230,7 @@ namespace SAMPLauncherNET
             return ret;
         }
 
-        public static void LaunchSAMP(Server server)
+        public static void LaunchSAMP(Server server, string username, bool quitWhenDone, Form f)
         {
             if (server != null)
             {
@@ -196,18 +239,20 @@ namespace SAMPLauncherNET
                     IntPtr mh = Kernel32.GetModuleHandle("kernel32.dll");
                     if (mh != IntPtr.Zero)
                     {
-                        IntPtr pa = Kernel32.GetProcAddress(mh, "LoadLibraryA");
+                        IntPtr pa = Kernel32.GetProcAddress(mh, "LoadLibraryW");
                         if (pa != IntPtr.Zero)
                         {
                             Kernel32.PROCESS_INFORMATION process_info;
                             Kernel32.STARTUPINFO startup_info = new Kernel32.STARTUPINFO();
-                            if (Kernel32.CreateProcess(GTASAExe, "-c -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + Username, IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExePath, ref startup_info, out process_info))
+                            if (Kernel32.CreateProcess(GTASAExe, "-c -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + username, IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
                             {
-                                IntPtr ptr = Kernel32.VirtualAllocEx(process_info.hProcess, IntPtr.Zero, (uint)(SAMPDLL.Length), Kernel32.AllocationType.Reserve | Kernel32.AllocationType.Commit, Kernel32.MemoryProtection.ReadWrite);
+                                IntPtr ptr = Kernel32.VirtualAllocEx(process_info.hProcess, IntPtr.Zero, (uint)(SAMPDLLPath.Length + 1) * 2U, Kernel32.AllocationType.Reserve | Kernel32.AllocationType.Commit, Kernel32.MemoryProtection.ReadWrite);
                                 if (ptr != IntPtr.Zero)
                                 {
                                     int nobw = 0;
-                                    if (Kernel32.WriteProcessMemory(process_info.hProcess, ptr, Encoding.ASCII.GetBytes(SAMPDLL), (uint)(SAMPDLL.Length), out nobw))
+                                    byte[] p = Encoding.Unicode.GetBytes(SAMPDLLPath);
+                                    byte[] nt = Encoding.Unicode.GetBytes("\0");
+                                    if (Kernel32.WriteProcessMemory(process_info.hProcess, ptr, p, (uint)(p.Length), out nobw) && Kernel32.WriteProcessMemory(process_info.hProcess, new IntPtr(ptr.ToInt64() + p.LongLength), nt, (uint)(nt.Length), out nobw))
                                     {
                                         uint tid = 0U;
                                         IntPtr rt = Kernel32.CreateRemoteThread(process_info.hProcess, IntPtr.Zero, 0U, pa, ptr, /* CREATE_SUSPENDED */ 0x4, out tid);
@@ -224,10 +269,76 @@ namespace SAMPLauncherNET
                                 }
                                 Kernel32.ResumeThread(process_info.hThread);
                                 Kernel32.CloseHandle(process_info.hProcess);
+                                if (quitWhenDone)
+                                    f.Close();
                             }
                         }
                     }
                 }
+            }
+        }
+
+        public static void LaunchSAMPDebugMode(bool quitWhenDone, Form f)
+        {
+            try
+            {
+                Process.Start(SAMPDebugPath);
+                if (quitWhenDone)
+                    f.Close();
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        public static void LaunchSingleplayerMode(bool quitWhenDone, Form f)
+        {
+            try
+            {
+                Process.Start(GTASAExe);
+                if (quitWhenDone)
+                    f.Close();
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        public static void ShowGallery()
+        {
+            try
+            {
+                Process.Start("explorer.exe", GalleryPath);
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        public static void OpenForums()
+        {
+            try
+            {
+                Process.Start(ForumsURL);
+            }
+            catch
+            {
+
+            }
+        }
+
+        public static void OpenGitHubProject()
+        {
+            try
+            {
+                Process.Start(GitHubProjectURL);
+            }
+            catch
+            {
+
             }
         }
 
@@ -250,6 +361,18 @@ namespace SAMPLauncherNET
                 }
             }
             return ret;
+        }
+
+        public static void DisposeAll(IDisposable[] list)
+        {
+            if (list != null)
+            {
+                foreach (IDisposable i in list)
+                {
+                    if (i != null)
+                        i.Dispose();
+                }
+            }
         }
     }
 }

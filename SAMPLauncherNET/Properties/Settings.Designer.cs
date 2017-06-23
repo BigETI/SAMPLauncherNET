@@ -49,7 +49,7 @@ namespace SAMPLauncherNET.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Orange")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Blue")]
         public global::MetroFramework.MetroColorStyle Style {
             get {
                 return ((global::MetroFramework.MetroColorStyle)(this["Style"]));
