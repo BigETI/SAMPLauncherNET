@@ -19,11 +19,17 @@ namespace SAMPLauncherNET
 
         private Thread thread = null;
 
+        private Thread rowThread = null;
+
+        private bool rowThreadSuccess = false;
+
         private Dictionary<string, Server> registeredServers = new Dictionary<string, Server>();
 
-        private bool sendRowUpdate = false;
+        //private bool sendRowUpdate = false;
 
-        private bool sendAnyUpdate = false;
+        //private bool sendAnyUpdate = false;
+
+        private int serverCount = 0;
 
         public MainForm()
         {
@@ -39,6 +45,8 @@ namespace SAMPLauncherNET
             l = Utils.FetchMasterList;
             foreach (Server s in l.Values)
                 loadServers.Add(new KeyValuePair<Server, int>(s, 2));
+            serverCount = loadServers.Count;
+            UpdateServerCount();
             thread = new Thread(() =>
             {
                 while (loadServers.Count > 0)
@@ -66,19 +74,47 @@ namespace SAMPLauncherNET
             thread.Start();
         }
 
+        private void EnterRow()
+        {
+            if (rowThread != null)
+            {
+                rowThread.Abort();
+                rowThread = null;
+            }
+            rowThreadSuccess = false;
+            foreach (DataGridViewRow dgvr in serversGrid.SelectedRows)
+            {
+                string ipp = dgvr.Cells[dgvr.Cells.Count - 2].Value.ToString();
+                if (registeredServers.ContainsKey(ipp))
+                {
+                    Server server = registeredServers[ipp];
+                    if (server.IsRowRowPlayerAndRulesFetched)
+                        ReloadSelectedServerRow();
+                    else
+                    {
+                        serverInfoPanel.Visible = false;
+                        serversSplitter.Visible = false;
+                    }
+                    rowThread = new Thread(() => RequestServerInfo(server));
+                    rowThread.Start();
+                    break;
+                }
+            }
+        }
+
+        private void UpdateServerCount()
+        {
+            serverCountLabel.Text = "Servers: " + serversDataTable.Rows.Count + "/" + serverCount;
+        }
+
         private void ReloadSelectedServerRow()
         {
-            sendAnyUpdate = !sendAnyUpdate;
             foreach (DataGridViewRow dgvr in serversGrid.SelectedRows)
             {
                 string ipp = dgvr.Cells[dgvr.Cells.Count - 2].Value.ToString();
                 if (registeredServers.ContainsKey(ipp))
                 {
                     Server s = registeredServers[ipp];
-                    if (sendAnyUpdate)
-                        s.FetchAnyData();
-                    else
-                        s.FetchRowData();
                     DateTime timestamp = DateTime.Now;
                     while (s.IsRowDataNotFetched)
                     {
@@ -88,10 +124,21 @@ namespace SAMPLauncherNET
                     object[] row = s.CachedRowData;
                     for (int i = 0; i < row.Length; i++)
                         dgvr.Cells[i].Value = row[i];
-                    if (sendAnyUpdate)
-                        ReloadServerInfo();
+                    ReloadServerInfo();
                 }
                 break;
+            }
+            serverInfoPanel.Visible = true;
+            serversSplitter.Visible = true;
+        }
+
+        private void RequestServerInfo(Server server)
+        {
+            while (true)
+            {
+                server.FetchRowPlayerAndRulesData();
+                rowThreadSuccess = true;
+                Thread.Sleep(2000);
             }
         }
 
@@ -208,10 +255,13 @@ namespace SAMPLauncherNET
                         registeredServers.Add(ipp, kv.Key);
                 }
                 loadedServers.Clear();
+                UpdateServerCount();
             }
-            sendRowUpdate = !sendRowUpdate;
-            if (sendRowUpdate)
+            if (rowThreadSuccess)
+            {
+                rowThreadSuccess = false;
                 ReloadSelectedServerRow();
+            }
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -232,8 +282,16 @@ namespace SAMPLauncherNET
                 }
                 loadedServers.Clear();
             }
-            thread.Abort();
-            Visible = false;
+            if (thread != null)
+            {
+                thread.Abort();
+                thread = null;
+            }
+            if (rowThread != null)
+            {
+                rowThread.Abort();
+                rowThread = null;
+            }
         }
 
         private void showGenericRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -248,12 +306,7 @@ namespace SAMPLauncherNET
 
         private void serversGrid_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            serversGrid.BeginInvoke(new Action(() =>
-            {
-                ReloadServerInfo();
-            }));
-            serverInfoPanel.Visible = true;
-            serversSplitter.Visible = true;
+            EnterRow();
         }
 
         private void launchSingleplayerModeButton_Click(object sender, EventArgs e)

@@ -82,6 +82,7 @@
             this.rulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainSplitter = new System.Windows.Forms.Splitter();
             this.filterPanel = new MetroFramework.Controls.MetroPanel();
+            this.serverCountLabel = new MetroFramework.Controls.MetroLabel();
             this.showLastChatlogLink = new MetroFramework.Controls.MetroLink();
             this.needHelpForumsLink = new MetroFramework.Controls.MetroLink();
             this.showGalleryLink = new MetroFramework.Controls.MetroLink();
@@ -590,6 +591,7 @@
             // filterPanel
             // 
             this.filterPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.filterPanel.Controls.Add(this.serverCountLabel);
             this.filterPanel.Controls.Add(this.showLastChatlogLink);
             this.filterPanel.Controls.Add(this.needHelpForumsLink);
             this.filterPanel.Controls.Add(this.showGalleryLink);
@@ -613,6 +615,16 @@
             this.filterPanel.VerticalScrollbarBarColor = true;
             this.filterPanel.VerticalScrollbarHighlightOnWheel = false;
             this.filterPanel.VerticalScrollbarSize = 10;
+            // 
+            // serverCountLabel
+            // 
+            this.serverCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.serverCountLabel.Location = new System.Drawing.Point(159, 135);
+            this.serverCountLabel.Name = "serverCountLabel";
+            this.serverCountLabel.Size = new System.Drawing.Size(363, 23);
+            this.serverCountLabel.TabIndex = 11;
+            this.serverCountLabel.Text = "Servers: 0/0";
             // 
             // showLastChatlogLink
             // 
@@ -859,6 +871,7 @@
         private MetroFramework.Controls.MetroLink optionsLink;
         private MetroFramework.Controls.MetroLink gitHubProjectLink;
         private MetroFramework.Controls.MetroLink showLastChatlogLink;
+        private MetroFramework.Controls.MetroLabel serverCountLabel;
     }
 }
 

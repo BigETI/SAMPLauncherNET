@@ -381,14 +381,32 @@ namespace SAMPLauncherNET
             }
         }
 
+        public bool IsRowRowPlayerAndRulesFetched
+        {
+            get
+            {
+                return ((!iRequestRequired) && (!pRequestRequired) && (!rRequestRequired) && (!cRequestRequired));
+            }
+        }
+
         public void FetchAnyData()
+        {
+            FetchAnyDataAsync();
+            foreach (Thread t in threads)
+            {
+                if (t != null)
+                    t.Join();
+            }
+        }
+
+        public void FetchAnyDataAsync()
         {
             if (threads != null)
             {
                 foreach (Thread t in threads)
                 {
                     if (t != null)
-                        t.Interrupt();
+                        t.Abort();
                 }
             }
             ForceRequest();
@@ -407,6 +425,16 @@ namespace SAMPLauncherNET
 
         public void FetchRowData()
         {
+            FetchRowDataAsync();
+            foreach (Thread t in threads)
+            {
+                if (t != null)
+                    t.Join();
+            }
+        }
+
+        public void FetchRowDataAsync()
+        {
             if (threads != null)
             {
                 foreach (Thread t in threads)
@@ -420,6 +448,39 @@ namespace SAMPLauncherNET
             threads = new Thread[2];
             threads[0] = new Thread(() => SendQuery('p'));
             threads[1] = new Thread(() => SendQuery('i'));
+            foreach (Thread t in threads)
+            {
+                if (t != null)
+                    t.Start();
+            }
+        }
+
+        public void FetchRowPlayerAndRulesData()
+        {
+            FetchRowPlayerAndRulesDataAsync();
+            foreach (Thread t in threads)
+            {
+                if (t != null)
+                    t.Join();
+            }
+        }
+
+        public void FetchRowPlayerAndRulesDataAsync()
+        {
+            if (threads != null)
+            {
+                foreach (Thread t in threads)
+                {
+                    if (t != null)
+                        t.Abort();
+                }
+            }
+            ForceRequest();
+            threads = new Thread[5];
+            threads[0] = new Thread(() => SendQuery('p'));
+            threads[1] = new Thread(() => SendQuery('i'));
+            threads[2] = new Thread(() => SendQuery('r'));
+            threads[3] = new Thread(() => SendQuery('c'));
             foreach (Thread t in threads)
             {
                 if (t != null)
@@ -492,8 +553,7 @@ namespace SAMPLauncherNET
                                                 hasPassword = (reader.ReadByte() != 0);
                                                 playerCount = reader.ReadUInt16();
                                                 maxPlayers = reader.ReadUInt16();
-                                                byte[] hnbs = reader.ReadBytes(reader.ReadInt32());
-                                                hostname = QueryEncoding.GetString(hnbs);
+                                                hostname = QueryEncoding.GetString(reader.ReadBytes(reader.ReadInt32()));
                                                 gamemode = QueryEncoding.GetString(reader.ReadBytes(reader.ReadInt32()));
                                                 language = QueryEncoding.GetString(reader.ReadBytes(reader.ReadInt32()));
                                                 iRequestRequired = false;
@@ -597,7 +657,7 @@ namespace SAMPLauncherNET
                         socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                         socket.SendTimeout = 1000;
                         socket.ReceiveTimeout = 1000;
-                        FetchRowData();
+                        FetchRowDataAsync();
                     }
                     else
                     {
