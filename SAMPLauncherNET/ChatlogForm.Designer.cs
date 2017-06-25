@@ -55,7 +55,6 @@
             this.chatlogTextBox.Multiline = true;
             this.chatlogTextBox.Name = "chatlogTextBox";
             this.chatlogTextBox.PasswordChar = '\0';
-            this.chatlogTextBox.PromptText = "No chatlog found...";
             this.chatlogTextBox.ReadOnly = true;
             this.chatlogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.chatlogTextBox.SelectedText = "";

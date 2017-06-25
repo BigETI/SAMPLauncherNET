@@ -34,6 +34,8 @@
             this.connectButton = new MetroFramework.Controls.MetroButton();
             this.cancelButton = new MetroFramework.Controls.MetroButton();
             this.tempUsernameCheckBox = new MetroFramework.Controls.MetroCheckBox();
+            this.serverPasswordTextBox = new MetroFramework.Controls.MetroTextBox();
+            this.serverPasswordLabel = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // usernameTextBox
@@ -57,7 +59,6 @@
             this.usernameTextBox.MaxLength = 32767;
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.PasswordChar = '\0';
-            this.usernameTextBox.PromptText = "Player...";
             this.usernameTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.usernameTextBox.SelectedText = "";
             this.usernameTextBox.SelectionLength = 0;
@@ -70,12 +71,15 @@
             this.usernameTextBox.WaterMark = "Player...";
             this.usernameTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.usernameTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.usernameTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.usernameTextBox_KeyUp);
             // 
             // usernameLabel
             // 
+            this.usernameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.usernameLabel.Location = new System.Drawing.Point(23, 60);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(100, 23);
+            this.usernameLabel.Size = new System.Drawing.Size(426, 23);
             this.usernameLabel.Style = MetroFramework.MetroColorStyle.Orange;
             this.usernameLabel.TabIndex = 0;
             this.usernameLabel.Text = "{$USERNAME$}";
@@ -83,11 +87,11 @@
             // connectButton
             // 
             this.connectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.connectButton.Location = new System.Drawing.Point(23, 136);
+            this.connectButton.Location = new System.Drawing.Point(23, 188);
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(200, 23);
             this.connectButton.Style = MetroFramework.MetroColorStyle.Orange;
-            this.connectButton.TabIndex = 3;
+            this.connectButton.TabIndex = 5;
             this.connectButton.Text = "{$CONNECT_NOW$}";
             this.connectButton.UseSelectable = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
@@ -96,11 +100,11 @@
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.Location = new System.Drawing.Point(229, 136);
+            this.cancelButton.Location = new System.Drawing.Point(229, 188);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(220, 23);
             this.cancelButton.Style = MetroFramework.MetroColorStyle.Orange;
-            this.cancelButton.TabIndex = 4;
+            this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "{$CANCEL$}";
             this.cancelButton.UseSelectable = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -116,18 +120,65 @@
             this.tempUsernameCheckBox.Text = "{$TEMPORARY_USERNAME$}";
             this.tempUsernameCheckBox.UseSelectable = true;
             // 
+            // serverPasswordTextBox
+            // 
+            this.serverPasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.serverPasswordTextBox.CustomButton.Image = null;
+            this.serverPasswordTextBox.CustomButton.Location = new System.Drawing.Point(404, 1);
+            this.serverPasswordTextBox.CustomButton.Name = "";
+            this.serverPasswordTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.serverPasswordTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.serverPasswordTextBox.CustomButton.TabIndex = 1;
+            this.serverPasswordTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.serverPasswordTextBox.CustomButton.UseSelectable = true;
+            this.serverPasswordTextBox.CustomButton.Visible = false;
+            this.serverPasswordTextBox.Lines = new string[0];
+            this.serverPasswordTextBox.Location = new System.Drawing.Point(23, 159);
+            this.serverPasswordTextBox.MaxLength = 32767;
+            this.serverPasswordTextBox.Name = "serverPasswordTextBox";
+            this.serverPasswordTextBox.PasswordChar = '\0';
+            this.serverPasswordTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.serverPasswordTextBox.SelectedText = "";
+            this.serverPasswordTextBox.SelectionLength = 0;
+            this.serverPasswordTextBox.SelectionStart = 0;
+            this.serverPasswordTextBox.ShortcutsEnabled = true;
+            this.serverPasswordTextBox.Size = new System.Drawing.Size(426, 23);
+            this.serverPasswordTextBox.Style = MetroFramework.MetroColorStyle.Orange;
+            this.serverPasswordTextBox.TabIndex = 4;
+            this.serverPasswordTextBox.UseSelectable = true;
+            this.serverPasswordTextBox.WaterMark = "...";
+            this.serverPasswordTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.serverPasswordTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // serverPasswordLabel
+            // 
+            this.serverPasswordLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.serverPasswordLabel.Location = new System.Drawing.Point(23, 133);
+            this.serverPasswordLabel.Name = "serverPasswordLabel";
+            this.serverPasswordLabel.Size = new System.Drawing.Size(426, 23);
+            this.serverPasswordLabel.Style = MetroFramework.MetroColorStyle.Orange;
+            this.serverPasswordLabel.TabIndex = 3;
+            this.serverPasswordLabel.Text = "{$SERVER_PASSWORD$}";
+            // 
             // ConnectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 182);
+            this.ClientSize = new System.Drawing.Size(472, 234);
+            this.Controls.Add(this.serverPasswordLabel);
+            this.Controls.Add(this.serverPasswordTextBox);
             this.Controls.Add(this.tempUsernameCheckBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.connectButton);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.usernameTextBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(472, 182);
+            this.MinimumSize = new System.Drawing.Size(472, 234);
             this.Name = "ConnectForm";
             this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "{$CONNECT_TITLE$}";
@@ -143,5 +194,7 @@
         private MetroFramework.Controls.MetroButton connectButton;
         private MetroFramework.Controls.MetroButton cancelButton;
         private MetroFramework.Controls.MetroCheckBox tempUsernameCheckBox;
+        private MetroFramework.Controls.MetroTextBox serverPasswordTextBox;
+        private MetroFramework.Controls.MetroLabel serverPasswordLabel;
     }
 }

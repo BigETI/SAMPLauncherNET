@@ -138,6 +138,12 @@
   <data name="CONNECT_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Verbinden</value>
   </data>
+  <data name="CONNECT_WITH_RCON" xml:space="preserve">
+    <value>Verbinde mit RCON</value>
+  </data>
+  <data name="DEBUG_MODE" xml:space="preserve">
+    <value>Debug Modus</value>
+  </data>
   <data name="DIRECT_MODE" xml:space="preserve">
     <value>Direkter Textdraw zu Bildschirm Render Methode (langsam)</value>
   </data>
@@ -146,6 +152,12 @@
   </data>
   <data name="ENGLISH" xml:space="preserve">
     <value>Englisch (English)</value>
+  </data>
+  <data name="ERROR" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="EXTENDED_SERVER_INFORMATION_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Erweiterte Server Informationen</value>
   </data>
   <data name="FONT_FACE" xml:space="preserve">
     <value>Schriftart</value>
@@ -156,14 +168,29 @@
   <data name="FPS_LIMIT" xml:space="preserve">
     <value>FPS Limit</value>
   </data>
+  <data name="GAMEMODE" xml:space="preserve">
+    <value>Spielmodus</value>
+  </data>
   <data name="GERMAN" xml:space="preserve">
     <value>Deutsch</value>
   </data>
   <data name="GITHUB_PROJECT" xml:space="preserve">
     <value>GitHub Projekt SAMPLauncherNET</value>
   </data>
+  <data name="HOSTNAME" xml:space="preserve">
+    <value>Hostname</value>
+  </data>
   <data name="IME" xml:space="preserve">
     <value>IME (Input Method Editor) freischalten</value>
+  </data>
+  <data name="INPUT_ERROR" xml:space="preserve">
+    <value>Eingabefehler</value>
+  </data>
+  <data name="IP_AND_PORT" xml:space="preserve">
+    <value>IP und Port</value>
+  </data>
+  <data name="LANGUAGE" xml:space="preserve">
+    <value>Sprache</value>
   </data>
   <data name="LAST_CHATLOG_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Letzter Chatprotokoll</value>
@@ -198,8 +225,35 @@
   <data name="PAGE_SIZE" xml:space="preserve">
     <value>Seitengröße</value>
   </data>
+  <data name="PLAYERS" xml:space="preserve">
+    <value>Spieler</value>
+  </data>
+  <data name="PLEASE_TYPE_IN_USERNAME" xml:space="preserve">
+    <value>Bitte gebe einen Benutzernamen ein.</value>
+  </data>
+  <data name="RCON_PASSWORD" xml:space="preserve">
+    <value>RCON Passwort</value>
+  </data>
+  <data name="RCON_PASSWORD_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - RCON Passwort</value>
+  </data>
   <data name="SELECT_LANGUAGE" xml:space="preserve">
     <value>Sprache... (Language)</value>
+  </data>
+  <data name="SERVERS" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="SERVER_PASSWORD" xml:space="preserve">
+    <value>Server Passwort</value>
+  </data>
+  <data name="SERVER_PASSWORD_FIELD_IS_EMPTY" xml:space="preserve">
+    <value>Server Passwort Eingabefeld ist leer.\r\n\r\nMöchtest du fortfahren?</value>
+  </data>
+  <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
+    <value>Server Passwort Einagefeld ist leer.</value>
+  </data>
+  <data name="SHOW_EXTENDED_SERVER_INFORMATION" xml:space="preserve">
+    <value>Zeige erweiterte Serverinformationen</value>
   </data>
   <data name="SHOW_FAVOURITES" xml:space="preserve">
     <value>Zeige Favoriten</value>

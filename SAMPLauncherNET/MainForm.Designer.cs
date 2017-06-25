@@ -69,6 +69,11 @@
             this.languageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iPAndPortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serverContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectWithRCONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serverToolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.showExtendedServerInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serversSplitter = new System.Windows.Forms.Splitter();
             this.serverInfoPanel = new MetroFramework.Controls.MetroPanel();
             this.playersGrid = new MetroFramework.Controls.MetroGrid();
@@ -82,6 +87,7 @@
             this.rulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainSplitter = new System.Windows.Forms.Splitter();
             this.filterPanel = new MetroFramework.Controls.MetroPanel();
+            this.debugCheckBox = new MetroFramework.Controls.MetroCheckBox();
             this.serverCountLabel = new MetroFramework.Controls.MetroLabel();
             this.showLastChatlogLink = new MetroFramework.Controls.MetroLink();
             this.needHelpForumsLink = new MetroFramework.Controls.MetroLink();
@@ -103,6 +109,7 @@
             this.mainPanel.SuspendLayout();
             this.serversPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.serversGrid)).BeginInit();
+            this.serverContextMenu.SuspendLayout();
             this.serverInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playersGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
@@ -127,7 +134,7 @@
             // serverListTimer
             // 
             this.serverListTimer.Enabled = true;
-            this.serverListTimer.Interval = 2000;
+            this.serverListTimer.Interval = 500;
             this.serverListTimer.Tick += new System.EventHandler(this.serverListTimer_Tick);
             // 
             // serversDataSet
@@ -305,6 +312,7 @@
             this.languageDataGridViewTextBoxColumn,
             this.iPAndPortDataGridViewTextBoxColumn,
             this.groupIDDataGridViewTextBoxColumn});
+            this.serversGrid.ContextMenuStrip = this.serverContextMenu;
             this.serversGrid.DataSource = this.serversBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -395,6 +403,43 @@
             this.groupIDDataGridViewTextBoxColumn.Name = "groupIDDataGridViewTextBoxColumn";
             this.groupIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.groupIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // serverContextMenu
+            // 
+            this.serverContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connectToolStripMenuItem,
+            this.connectWithRCONToolStripMenuItem,
+            this.serverToolStripSeparator,
+            this.showExtendedServerInformationToolStripMenuItem});
+            this.serverContextMenu.Name = "serverContextMenu";
+            this.serverContextMenu.Size = new System.Drawing.Size(321, 76);
+            this.serverContextMenu.Style = MetroFramework.MetroColorStyle.Orange;
+            // 
+            // connectToolStripMenuItem
+            // 
+            this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
+            this.connectToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.connectToolStripMenuItem.Text = "{$CONNECT$}";
+            this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
+            // 
+            // connectWithRCONToolStripMenuItem
+            // 
+            this.connectWithRCONToolStripMenuItem.Name = "connectWithRCONToolStripMenuItem";
+            this.connectWithRCONToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.connectWithRCONToolStripMenuItem.Text = "{$CONNECT_WITH_RCON$}";
+            this.connectWithRCONToolStripMenuItem.Click += new System.EventHandler(this.connectWithRCONToolStripMenuItem_Click);
+            // 
+            // serverToolStripSeparator
+            // 
+            this.serverToolStripSeparator.Name = "serverToolStripSeparator";
+            this.serverToolStripSeparator.Size = new System.Drawing.Size(317, 6);
+            // 
+            // showExtendedServerInformationToolStripMenuItem
+            // 
+            this.showExtendedServerInformationToolStripMenuItem.Name = "showExtendedServerInformationToolStripMenuItem";
+            this.showExtendedServerInformationToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.showExtendedServerInformationToolStripMenuItem.Text = "{$SHOW_EXTENDED_SERVER_INFORMATION$}";
+            this.showExtendedServerInformationToolStripMenuItem.Click += new System.EventHandler(this.showExtendedServerInformationToolStripMenuItem_Click);
             // 
             // serversSplitter
             // 
@@ -591,6 +636,7 @@
             // filterPanel
             // 
             this.filterPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.filterPanel.Controls.Add(this.debugCheckBox);
             this.filterPanel.Controls.Add(this.serverCountLabel);
             this.filterPanel.Controls.Add(this.showLastChatlogLink);
             this.filterPanel.Controls.Add(this.needHelpForumsLink);
@@ -616,6 +662,21 @@
             this.filterPanel.VerticalScrollbarHighlightOnWheel = false;
             this.filterPanel.VerticalScrollbarSize = 10;
             // 
+            // debugCheckBox
+            // 
+            this.debugCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.debugCheckBox.AutoSize = true;
+            this.debugCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.debugCheckBox.Checked = true;
+            this.debugCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.debugCheckBox.Location = new System.Drawing.Point(609, 27);
+            this.debugCheckBox.Name = "debugCheckBox";
+            this.debugCheckBox.Size = new System.Drawing.Size(119, 15);
+            this.debugCheckBox.Style = MetroFramework.MetroColorStyle.Orange;
+            this.debugCheckBox.TabIndex = 8;
+            this.debugCheckBox.Text = "{$DEBUG_MODE$}";
+            this.debugCheckBox.UseSelectable = true;
+            // 
             // serverCountLabel
             // 
             this.serverCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -624,7 +685,7 @@
             this.serverCountLabel.Name = "serverCountLabel";
             this.serverCountLabel.Size = new System.Drawing.Size(363, 23);
             this.serverCountLabel.TabIndex = 11;
-            this.serverCountLabel.Text = "Servers: 0/0";
+            this.serverCountLabel.Text = "{$SERVERS$}";
             // 
             // showLastChatlogLink
             // 
@@ -648,7 +709,7 @@
             this.needHelpForumsLink.Name = "needHelpForumsLink";
             this.needHelpForumsLink.Size = new System.Drawing.Size(363, 15);
             this.needHelpForumsLink.Style = MetroFramework.MetroColorStyle.Orange;
-            this.needHelpForumsLink.TabIndex = 10;
+            this.needHelpForumsLink.TabIndex = 12;
             this.needHelpForumsLink.Text = "{$NEED_HELP_FORUMS$}";
             this.needHelpForumsLink.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.needHelpForumsLink.UseSelectable = true;
@@ -688,7 +749,7 @@
             this.launchSingleplayerModeButton.Location = new System.Drawing.Point(528, 135);
             this.launchSingleplayerModeButton.Name = "launchSingleplayerModeButton";
             this.launchSingleplayerModeButton.Size = new System.Drawing.Size(200, 23);
-            this.launchSingleplayerModeButton.TabIndex = 8;
+            this.launchSingleplayerModeButton.TabIndex = 9;
             this.launchSingleplayerModeButton.Text = "{$LAUNCH_SINGLEPLAYER_MODE$}";
             this.launchSingleplayerModeButton.UseSelectable = true;
             this.launchSingleplayerModeButton.Click += new System.EventHandler(this.launchSingleplayerModeButton_Click);
@@ -699,7 +760,7 @@
             this.launchDebugModeButton.Location = new System.Drawing.Point(528, 164);
             this.launchDebugModeButton.Name = "launchDebugModeButton";
             this.launchDebugModeButton.Size = new System.Drawing.Size(200, 23);
-            this.launchDebugModeButton.TabIndex = 9;
+            this.launchDebugModeButton.TabIndex = 10;
             this.launchDebugModeButton.Text = "{$LAUNCH_DEBUG_MODE$}";
             this.launchDebugModeButton.UseSelectable = true;
             this.launchDebugModeButton.Click += new System.EventHandler(this.launchDebugModeButton_Click);
@@ -804,6 +865,7 @@
             this.mainPanel.ResumeLayout(false);
             this.serversPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.serversGrid)).EndInit();
+            this.serverContextMenu.ResumeLayout(false);
             this.serverInfoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.playersGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
@@ -872,6 +934,12 @@
         private MetroFramework.Controls.MetroLink gitHubProjectLink;
         private MetroFramework.Controls.MetroLink showLastChatlogLink;
         private MetroFramework.Controls.MetroLabel serverCountLabel;
+        private MetroFramework.Controls.MetroContextMenu serverContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem connectWithRCONToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator serverToolStripSeparator;
+        private System.Windows.Forms.ToolStripMenuItem showExtendedServerInformationToolStripMenuItem;
+        private MetroFramework.Controls.MetroCheckBox debugCheckBox;
     }
 }
 

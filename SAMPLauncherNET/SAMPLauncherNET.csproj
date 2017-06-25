@@ -65,6 +65,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -87,6 +88,12 @@
     </Compile>
     <Compile Include="ConnectForm.Designer.cs">
       <DependentUpon>ConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtendedServerInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExtendedServerInformationForm.Designer.cs">
+      <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FavouriteServer.cs" />
     <Compile Include="INIFile.cs" />
@@ -116,6 +123,12 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RCONPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RCONPasswordForm.Designer.cs">
+      <DependentUpon>RCONPasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SAMPConfig.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="TranslatorStylerInterface.cs" />
@@ -125,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtendedServerInformationForm.resx">
+      <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Languages\de-DE.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -150,6 +166,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RCONPasswordForm.resx">
+      <DependentUpon>RCONPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -25,10 +25,6 @@ namespace SAMPLauncherNET
 
         private Dictionary<string, Server> registeredServers = new Dictionary<string, Server>();
 
-        //private bool sendRowUpdate = false;
-
-        //private bool sendAnyUpdate = false;
-
         private int serverCount = 0;
 
         public MainForm()
@@ -104,7 +100,7 @@ namespace SAMPLauncherNET
 
         private void UpdateServerCount()
         {
-            serverCountLabel.Text = "Servers: " + serversDataTable.Rows.Count + "/" + serverCount;
+            serverCountLabel.Text = Translator.GetTranslation("SERVERS") + ": " + serversDataTable.Rows.Count + "/" + serverCount;
         }
 
         private void ReloadSelectedServerRow()
@@ -219,21 +215,27 @@ namespace SAMPLauncherNET
                 rulesGrid.Rows[si].Selected = true;
         }
 
-        private void connectButton_Click(object sender, EventArgs e)
+        private void Connect(string rconPassword = null)
         {
             foreach (DataGridViewRow dgvr in serversGrid.SelectedRows)
             {
                 string ipp = dgvr.Cells[dgvr.Cells.Count - 2].Value.ToString();
                 if (registeredServers.ContainsKey(ipp))
                 {
-                    ConnectForm cf = new ConnectForm();
+                    Server server = registeredServers[ipp];
+                    ConnectForm cf = new ConnectForm(server.HasPassword);
                     DialogResult result = cf.ShowDialog();
                     DialogResult = DialogResult.None;
                     if (result == DialogResult.OK)
-                        Utils.LaunchSAMP(registeredServers[ipp], cf.Username, closeWhenLaunchedCheckBox.Checked, this);
+                        Utils.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, debugCheckBox.Checked, closeWhenLaunchedCheckBox.Checked, this);
                     break;
                 }
             }
+        }
+
+        private void connectButton_Click(object sender, EventArgs e)
+        {
+            Connect();
         }
 
         private void serverListTimer_Tick(object sender, EventArgs e)
@@ -362,6 +364,24 @@ namespace SAMPLauncherNET
                 Properties.Settings.Default.Save();
                 Application.Restart();
             }
+        }
+
+        private void connectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Connect();
+        }
+
+        private void connectWithRCONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RCONPasswordForm rconf = new RCONPasswordForm();
+            Connect();
+        }
+
+        private void showExtendedServerInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            serverListTimer.Stop();
+            serverListTimer.Start();
         }
     }
 }

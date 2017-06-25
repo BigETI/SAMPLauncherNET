@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using MetroTranslatorStyler;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -136,7 +137,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(e.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 return ret;
             }
@@ -230,7 +231,7 @@ namespace SAMPLauncherNET
             return ret;
         }
 
-        public static void LaunchSAMP(Server server, string username, bool quitWhenDone, Form f)
+        public static void LaunchSAMP(Server server, string username, string serverPassword, string rconPassword, bool debug, bool quitWhenDone, Form f)
         {
             if (server != null)
             {
@@ -244,7 +245,7 @@ namespace SAMPLauncherNET
                         {
                             Kernel32.PROCESS_INFORMATION process_info;
                             Kernel32.STARTUPINFO startup_info = new Kernel32.STARTUPINFO();
-                            if (Kernel32.CreateProcess(GTASAExe, "-c -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + username, IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
+                            if (Kernel32.CreateProcess(GTASAExe, "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPPortString + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)) + (debug ? " -d" : ""), IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
                             {
                                 IntPtr ptr = Kernel32.VirtualAllocEx(process_info.hProcess, IntPtr.Zero, (uint)(SAMPDLLPath.Length + 1) * 2U, Kernel32.AllocationType.Reserve | Kernel32.AllocationType.Commit, Kernel32.MemoryProtection.ReadWrite);
                                 if (ptr != IntPtr.Zero)

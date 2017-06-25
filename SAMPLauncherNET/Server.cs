@@ -330,7 +330,7 @@ namespace SAMPLauncherNET
                     ret[4] = gamemode;
                     ret[5] = language;
                 }
-                ret[6] = IPv4AddressString + ":" + port;
+                ret[6] = IPPortString;
                 return ret;
             }
         }
@@ -360,7 +360,7 @@ namespace SAMPLauncherNET
                     ret[4] = gamemode;
                     ret[5] = language;
                 }
-                ret[6] = IPv4AddressString + ":" + port;
+                ret[6] = IPPortString;
                 return ret;
             }
         }
@@ -386,6 +386,22 @@ namespace SAMPLauncherNET
             get
             {
                 return ((!iRequestRequired) && (!pRequestRequired) && (!rRequestRequired) && (!cRequestRequired));
+            }
+        }
+
+        public bool IsPingDataFetched
+        {
+            get
+            {
+                return (!pRequestRequired);
+            }
+        }
+
+        public bool IsInformationDataFetched
+        {
+            get
+            {
+                return (!iRequestRequired);
             }
         }
 
@@ -475,12 +491,75 @@ namespace SAMPLauncherNET
                         t.Abort();
                 }
             }
-            ForceRequest();
+            pRequestRequired = true;
+            iRequestRequired = true;
+            rRequestRequired = true;
+            cRequestRequired = true;
             threads = new Thread[5];
             threads[0] = new Thread(() => SendQuery('p'));
             threads[1] = new Thread(() => SendQuery('i'));
             threads[2] = new Thread(() => SendQuery('r'));
             threads[3] = new Thread(() => SendQuery('c'));
+            foreach (Thread t in threads)
+            {
+                if (t != null)
+                    t.Start();
+            }
+        }
+
+        public void FetchPingData()
+        {
+            FetchPingDataAsync();
+            foreach (Thread t in threads)
+            {
+                if (t != null)
+                    t.Join();
+            }
+        }
+
+        public void FetchPingDataAsync()
+        {
+            if (threads != null)
+            {
+                foreach (Thread t in threads)
+                {
+                    if (t != null)
+                        t.Abort();
+                }
+            }
+            pRequestRequired = true;
+            threads = new Thread[1];
+            threads[0] = new Thread(() => SendQuery('p'));
+            foreach (Thread t in threads)
+            {
+                if (t != null)
+                    t.Start();
+            }
+        }
+
+        public void FetchInformationData()
+        {
+            FetchInformationDataAsync();
+            foreach (Thread t in threads)
+            {
+                if (t != null)
+                    t.Join();
+            }
+        }
+
+        public void FetchInformationDataAsync()
+        {
+            if (threads != null)
+            {
+                foreach (Thread t in threads)
+                {
+                    if (t != null)
+                        t.Abort();
+                }
+            }
+            iRequestRequired = true;
+            threads = new Thread[1];
+            threads[0] = new Thread(() => SendQuery('i'));
             foreach (Thread t in threads)
             {
                 if (t != null)
@@ -526,7 +605,7 @@ namespace SAMPLauncherNET
 
         private void Receive()
         {
-            uint c = 0U;
+            //uint c = 0U;
             try
             {
                 EndPoint endpoint = new IPEndPoint(IPAddress, port);
@@ -711,7 +790,7 @@ namespace SAMPLauncherNET
 
         public FavouriteServer ToFavouriteServer(string cachedName = "", string serverPassword = "", string rconPassword = "")
         {
-            return new FavouriteServer(IPv4AddressString + ":" + port, serverPassword, rconPassword);
+            return new FavouriteServer(IPPortString, serverPassword, rconPassword);
         }
 
         public void Dispose()

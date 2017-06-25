@@ -124,6 +124,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Verbinde mit RCON ähnelt.
+        /// </summary>
+        internal static string CONNECT_WITH_RCON {
+            get {
+                return ResourceManager.GetString("CONNECT_WITH_RCON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Debug Modus ähnelt.
+        /// </summary>
+        internal static string DEBUG_MODE {
+            get {
+                return ResourceManager.GetString("DEBUG_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Direkter Textdraw zu Bildschirm Render Methode (langsam) ähnelt.
         /// </summary>
         internal static string DIRECT_MODE {
@@ -147,6 +165,24 @@ namespace SAMPLauncherNET.Languages {
         internal static string ENGLISH {
             get {
                 return ResourceManager.GetString("ENGLISH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler ähnelt.
+        /// </summary>
+        internal static string ERROR {
+            get {
+                return ResourceManager.GetString("ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Erweiterte Server Informationen ähnelt.
+        /// </summary>
+        internal static string EXTENDED_SERVER_INFORMATION_TITLE {
+            get {
+                return ResourceManager.GetString("EXTENDED_SERVER_INFORMATION_TITLE", resourceCulture);
             }
         }
         
@@ -178,6 +214,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Spielmodus ähnelt.
+        /// </summary>
+        internal static string GAMEMODE {
+            get {
+                return ResourceManager.GetString("GAMEMODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Deutsch ähnelt.
         /// </summary>
         internal static string GERMAN {
@@ -196,11 +241,47 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Hostname ähnelt.
+        /// </summary>
+        internal static string HOSTNAME {
+            get {
+                return ResourceManager.GetString("HOSTNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die IME (Input Method Editor) freischalten ähnelt.
         /// </summary>
         internal static string IME {
             get {
                 return ResourceManager.GetString("IME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Eingabefehler ähnelt.
+        /// </summary>
+        internal static string INPUT_ERROR {
+            get {
+                return ResourceManager.GetString("INPUT_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die IP und Port ähnelt.
+        /// </summary>
+        internal static string IP_AND_PORT {
+            get {
+                return ResourceManager.GetString("IP_AND_PORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sprache ähnelt.
+        /// </summary>
+        internal static string LANGUAGE {
+            get {
+                return ResourceManager.GetString("LANGUAGE", resourceCulture);
             }
         }
         
@@ -304,11 +385,92 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Spieler ähnelt.
+        /// </summary>
+        internal static string PLAYERS {
+            get {
+                return ResourceManager.GetString("PLAYERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte gebe einen Benutzernamen ein. ähnelt.
+        /// </summary>
+        internal static string PLEASE_TYPE_IN_USERNAME {
+            get {
+                return ResourceManager.GetString("PLEASE_TYPE_IN_USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die RCON Passwort ähnelt.
+        /// </summary>
+        internal static string RCON_PASSWORD {
+            get {
+                return ResourceManager.GetString("RCON_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - RCON Passwort ähnelt.
+        /// </summary>
+        internal static string RCON_PASSWORD_TITLE {
+            get {
+                return ResourceManager.GetString("RCON_PASSWORD_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Sprache... (Language) ähnelt.
         /// </summary>
         internal static string SELECT_LANGUAGE {
             get {
                 return ResourceManager.GetString("SELECT_LANGUAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Server Passwort ähnelt.
+        /// </summary>
+        internal static string SERVER_PASSWORD {
+            get {
+                return ResourceManager.GetString("SERVER_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Server Passwort Eingabefeld ist leer.\r\n\r\nMöchtest du fortfahren? ähnelt.
+        /// </summary>
+        internal static string SERVER_PASSWORD_FIELD_IS_EMPTY {
+            get {
+                return ResourceManager.GetString("SERVER_PASSWORD_FIELD_IS_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Server Passwort Einagefeld ist leer. ähnelt.
+        /// </summary>
+        internal static string SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE {
+            get {
+                return ResourceManager.GetString("SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Server ähnelt.
+        /// </summary>
+        internal static string SERVERS {
+            get {
+                return ResourceManager.GetString("SERVERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige erweiterte Serverinformationen ähnelt.
+        /// </summary>
+        internal static string SHOW_EXTENDED_SERVER_INFORMATION {
+            get {
+                return ResourceManager.GetString("SHOW_EXTENDED_SERVER_INFORMATION", resourceCulture);
             }
         }
         
