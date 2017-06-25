@@ -91,6 +91,7 @@
             this.rconPasswordTextBox.MaxLength = 32767;
             this.rconPasswordTextBox.Name = "rconPasswordTextBox";
             this.rconPasswordTextBox.PasswordChar = '\0';
+            this.rconPasswordTextBox.PromptText = "{$INSERT_RCON_PASSWORD_HERE$}";
             this.rconPasswordTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.rconPasswordTextBox.SelectedText = "";
             this.rconPasswordTextBox.SelectionLength = 0;
@@ -100,7 +101,7 @@
             this.rconPasswordTextBox.Style = MetroFramework.MetroColorStyle.Orange;
             this.rconPasswordTextBox.TabIndex = 1;
             this.rconPasswordTextBox.UseSelectable = true;
-            this.rconPasswordTextBox.WaterMark = "...";
+            this.rconPasswordTextBox.WaterMark = "{$INSERT_RCON_PASSWORD_HERE$}";
             this.rconPasswordTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.rconPasswordTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.rconPasswordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.rconPasswordTextBox_KeyUp);

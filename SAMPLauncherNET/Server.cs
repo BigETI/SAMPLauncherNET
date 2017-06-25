@@ -279,6 +279,24 @@ namespace SAMPLauncherNET
             }
         }
 
+        public Dictionary<byte, Player>.ValueCollection PlayerValues
+        {
+            get
+            {
+                if (dRequestRequired)
+                    SendQuery('d');
+                return players.Values;
+            }
+        }
+
+        public Task<Dictionary<byte, Player>.ValueCollection> PlayerValuesAsync
+        {
+            get
+            {
+                return Task.Factory.StartNew(() => PlayerValues);
+            }
+        }
+
         public uint Ping
         {
             get
@@ -405,26 +423,23 @@ namespace SAMPLauncherNET
             }
         }
 
+        public bool IsInformativePlayerDataFetched
+        {
+            get
+            {
+                return (!dRequestRequired);
+            }
+        }
+
         public void FetchAnyData()
         {
             FetchAnyDataAsync();
-            foreach (Thread t in threads)
-            {
-                if (t != null)
-                    t.Join();
-            }
+            JoinAllThreads();
         }
 
         public void FetchAnyDataAsync()
         {
-            if (threads != null)
-            {
-                foreach (Thread t in threads)
-                {
-                    if (t != null)
-                        t.Abort();
-                }
-            }
+            AbortAllThreads();
             ForceRequest();
             threads = new Thread[5];
             threads[0] = new Thread(() => SendQuery('p'));
@@ -432,122 +447,93 @@ namespace SAMPLauncherNET
             threads[2] = new Thread(() => SendQuery('r'));
             threads[3] = new Thread(() => SendQuery('c'));
             threads[4] = new Thread(() => SendQuery('d'));
-            foreach (Thread t in threads)
-            {
-                if (t != null)
-                    t.Start();
-            }
+            StartAllThreads();
         }
 
         public void FetchRowData()
         {
             FetchRowDataAsync();
-            foreach (Thread t in threads)
-            {
-                if (t != null)
-                    t.Join();
-            }
+            JoinAllThreads();
         }
 
         public void FetchRowDataAsync()
         {
-            if (threads != null)
-            {
-                foreach (Thread t in threads)
-                {
-                    if (t != null)
-                        t.Interrupt();
-                }
-            }
+            AbortAllThreads();
             pRequestRequired = true;
             iRequestRequired = true;
             threads = new Thread[2];
             threads[0] = new Thread(() => SendQuery('p'));
             threads[1] = new Thread(() => SendQuery('i'));
-            foreach (Thread t in threads)
-            {
-                if (t != null)
-                    t.Start();
-            }
+            StartAllThreads();
         }
 
         public void FetchRowPlayerAndRulesData()
         {
             FetchRowPlayerAndRulesDataAsync();
-            foreach (Thread t in threads)
-            {
-                if (t != null)
-                    t.Join();
-            }
+            JoinAllThreads();
         }
 
         public void FetchRowPlayerAndRulesDataAsync()
         {
-            if (threads != null)
-            {
-                foreach (Thread t in threads)
-                {
-                    if (t != null)
-                        t.Abort();
-                }
-            }
+            AbortAllThreads();
             pRequestRequired = true;
             iRequestRequired = true;
             rRequestRequired = true;
             cRequestRequired = true;
-            threads = new Thread[5];
+            threads = new Thread[4];
             threads[0] = new Thread(() => SendQuery('p'));
             threads[1] = new Thread(() => SendQuery('i'));
             threads[2] = new Thread(() => SendQuery('r'));
             threads[3] = new Thread(() => SendQuery('c'));
-            foreach (Thread t in threads)
-            {
-                if (t != null)
-                    t.Start();
-            }
+            StartAllThreads();
         }
 
         public void FetchPingData()
         {
             FetchPingDataAsync();
-            foreach (Thread t in threads)
-            {
-                if (t != null)
-                    t.Join();
-            }
+            JoinAllThreads();
         }
 
         public void FetchPingDataAsync()
         {
-            if (threads != null)
-            {
-                foreach (Thread t in threads)
-                {
-                    if (t != null)
-                        t.Abort();
-                }
-            }
+            AbortAllThreads();
             pRequestRequired = true;
             threads = new Thread[1];
             threads[0] = new Thread(() => SendQuery('p'));
-            foreach (Thread t in threads)
-            {
-                if (t != null)
-                    t.Start();
-            }
+            StartAllThreads();
         }
 
         public void FetchInformationData()
         {
             FetchInformationDataAsync();
-            foreach (Thread t in threads)
-            {
-                if (t != null)
-                    t.Join();
-            }
+            JoinAllThreads();
         }
 
         public void FetchInformationDataAsync()
+        {
+            AbortAllThreads();
+            iRequestRequired = true;
+            threads = new Thread[1];
+            threads[0] = new Thread(() => SendQuery('i'));
+            StartAllThreads();
+        }
+
+        public void FetchInformativePlayerData()
+        {
+            FetchInformativePlayerDataAsync();
+            JoinAllThreads();
+        }
+
+        public void FetchInformativePlayerDataAsync()
+        {
+            AbortAllThreads();
+            iRequestRequired = true;
+            threads = new Thread[1];
+            threads[0] = new Thread(() => SendQuery('d'));
+            StartAllThreads();
+        }
+
+        private void AbortAllThreads()
         {
             if (threads != null)
             {
@@ -557,13 +543,41 @@ namespace SAMPLauncherNET
                         t.Abort();
                 }
             }
-            iRequestRequired = true;
-            threads = new Thread[1];
-            threads[0] = new Thread(() => SendQuery('i'));
+        }
+
+        private void StartAllThreads()
+        {
             foreach (Thread t in threads)
             {
                 if (t != null)
-                    t.Start();
+                {
+                    try
+                    {
+                        t.Start();
+                    }
+                    catch
+                    {
+                        //
+                    }
+                }
+            }
+        }
+
+        private void JoinAllThreads()
+        {
+            foreach (Thread t in threads)
+            {
+                if (t != null)
+                {
+                    try
+                    {
+                        t.Join();
+                    }
+                    catch
+                    {
+                        //
+                    }
+                }
             }
         }
 

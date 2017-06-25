@@ -35,3 +35,5 @@ C:\dev\Repos\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.csproj.Ge
 C:\dev\Repos\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.exe
 C:\dev\Repos\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.pdb
 C:\dev\Repos\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.ExtendedServerInformationForm.resources
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.ExtendedServerInformationForm.resources
+X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.RCONPasswordForm.resources

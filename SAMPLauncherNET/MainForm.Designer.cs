@@ -667,8 +667,6 @@
             this.debugCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.debugCheckBox.AutoSize = true;
             this.debugCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.debugCheckBox.Checked = true;
-            this.debugCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.debugCheckBox.Location = new System.Drawing.Point(609, 27);
             this.debugCheckBox.Name = "debugCheckBox";
             this.debugCheckBox.Size = new System.Drawing.Size(119, 15);

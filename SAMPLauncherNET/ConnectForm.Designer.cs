@@ -59,6 +59,7 @@
             this.usernameTextBox.MaxLength = 32767;
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.PasswordChar = '\0';
+            this.usernameTextBox.PromptText = "{$INSERT_PLAYER_NAME_HERE$}";
             this.usernameTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.usernameTextBox.SelectedText = "";
             this.usernameTextBox.SelectionLength = 0;
@@ -68,7 +69,7 @@
             this.usernameTextBox.Style = MetroFramework.MetroColorStyle.Orange;
             this.usernameTextBox.TabIndex = 1;
             this.usernameTextBox.UseSelectable = true;
-            this.usernameTextBox.WaterMark = "Player...";
+            this.usernameTextBox.WaterMark = "{$INSERT_PLAYER_NAME_HERE$}";
             this.usernameTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.usernameTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.usernameTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.usernameTextBox_KeyUp);
@@ -141,6 +142,7 @@
             this.serverPasswordTextBox.MaxLength = 32767;
             this.serverPasswordTextBox.Name = "serverPasswordTextBox";
             this.serverPasswordTextBox.PasswordChar = '\0';
+            this.serverPasswordTextBox.PromptText = "{$INSERT_SERVER_PASSWORD_HERE$}";
             this.serverPasswordTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.serverPasswordTextBox.SelectedText = "";
             this.serverPasswordTextBox.SelectionLength = 0;
@@ -150,7 +152,7 @@
             this.serverPasswordTextBox.Style = MetroFramework.MetroColorStyle.Orange;
             this.serverPasswordTextBox.TabIndex = 4;
             this.serverPasswordTextBox.UseSelectable = true;
-            this.serverPasswordTextBox.WaterMark = "...";
+            this.serverPasswordTextBox.WaterMark = "{$INSERT_SERVER_PASSWORD_HERE$}";
             this.serverPasswordTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.serverPasswordTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 

@@ -268,6 +268,33 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Füge einen Benutzernamen hier ein... ähnelt.
+        /// </summary>
+        internal static string INSERT_PLAYER_NAME_HERE {
+            get {
+                return ResourceManager.GetString("INSERT_PLAYER_NAME_HERE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Füge den RCON Passwort hier ein... ähnelt.
+        /// </summary>
+        internal static string INSERT_RCON_PASSWORD_HERE {
+            get {
+                return ResourceManager.GetString("INSERT_RCON_PASSWORD_HERE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Füge den Server Passwort hier ein... ähnelt.
+        /// </summary>
+        internal static string INSERT_SERVER_PASSWORD_HERE {
+            get {
+                return ResourceManager.GetString("INSERT_SERVER_PASSWORD_HERE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die IP und Port ähnelt.
         /// </summary>
         internal static string IP_AND_PORT {
@@ -340,6 +367,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Keinen Chatprotokoll gefunden... ähnelt.
+        /// </summary>
+        internal static string NO_CHATLOG_FOUND {
+            get {
+                return ResourceManager.GetString("NO_CHATLOG_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Kein Namensschildstatus ähnelt.
         /// </summary>
         internal static string NO_NAMETAG_STATUS {
@@ -381,6 +417,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string PAGE_SIZE {
             get {
                 return ResourceManager.GetString("PAGE_SIZE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Verzögerung ähnelt.
+        /// </summary>
+        internal static string PING {
+            get {
+                return ResourceManager.GetString("PING", resourceCulture);
             }
         }
         

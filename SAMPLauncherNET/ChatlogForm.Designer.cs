@@ -55,6 +55,7 @@
             this.chatlogTextBox.Multiline = true;
             this.chatlogTextBox.Name = "chatlogTextBox";
             this.chatlogTextBox.PasswordChar = '\0';
+            this.chatlogTextBox.PromptText = "{$NO_CHATLOG_FOUND$}";
             this.chatlogTextBox.ReadOnly = true;
             this.chatlogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.chatlogTextBox.SelectedText = "";
@@ -65,7 +66,7 @@
             this.chatlogTextBox.Style = MetroFramework.MetroColorStyle.Orange;
             this.chatlogTextBox.TabIndex = 0;
             this.chatlogTextBox.UseSelectable = true;
-            this.chatlogTextBox.WaterMark = "No chatlog found...";
+            this.chatlogTextBox.WaterMark = "{$NO_CHATLOG_FOUND$}";
             this.chatlogTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.chatlogTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 

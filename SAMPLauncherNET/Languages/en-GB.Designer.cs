@@ -268,6 +268,33 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Insert player name here... ähnelt.
+        /// </summary>
+        internal static string INSERT_PLAYER_NAME_HERE {
+            get {
+                return ResourceManager.GetString("INSERT_PLAYER_NAME_HERE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Insert RCON password here... ähnelt.
+        /// </summary>
+        internal static string INSERT_RCON_PASSWORD_HERE {
+            get {
+                return ResourceManager.GetString("INSERT_RCON_PASSWORD_HERE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Insert server password here... ähnelt.
+        /// </summary>
+        internal static string INSERT_SERVER_PASSWORD_HERE {
+            get {
+                return ResourceManager.GetString("INSERT_SERVER_PASSWORD_HERE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die IP and port ähnelt.
         /// </summary>
         internal static string IP_AND_PORT {
@@ -340,6 +367,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No chatlog found... ähnelt.
+        /// </summary>
+        internal static string NO_CHATLOG_FOUND {
+            get {
+                return ResourceManager.GetString("NO_CHATLOG_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die No nametag status ähnelt.
         /// </summary>
         internal static string NO_NAMETAG_STATUS {
@@ -381,6 +417,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string PAGE_SIZE {
             get {
                 return ResourceManager.GetString("PAGE_SIZE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ping ähnelt.
+        /// </summary>
+        internal static string PING {
+            get {
+                return ResourceManager.GetString("PING", resourceCulture);
             }
         }
         

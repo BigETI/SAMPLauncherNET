@@ -27,6 +27,24 @@ namespace SAMPLauncherNET
 
         private int serverCount = 0;
 
+        public Server SelectedServer
+        {
+            get
+            {
+                Server ret = null;
+                foreach (DataGridViewRow dgvr in serversGrid.SelectedRows)
+                {
+                    string ipp = dgvr.Cells[dgvr.Cells.Count - 2].Value.ToString();
+                    if (registeredServers.ContainsKey(ipp))
+                    {
+                        ret = registeredServers[ipp];
+                        break;
+                    }
+                }
+                return ret;
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -78,23 +96,18 @@ namespace SAMPLauncherNET
                 rowThread = null;
             }
             rowThreadSuccess = false;
-            foreach (DataGridViewRow dgvr in serversGrid.SelectedRows)
+            Server server = SelectedServer;
+            if (server != null)
             {
-                string ipp = dgvr.Cells[dgvr.Cells.Count - 2].Value.ToString();
-                if (registeredServers.ContainsKey(ipp))
+                if (server.IsRowRowPlayerAndRulesFetched)
+                    ReloadSelectedServerRow();
+                else
                 {
-                    Server server = registeredServers[ipp];
-                    if (server.IsRowRowPlayerAndRulesFetched)
-                        ReloadSelectedServerRow();
-                    else
-                    {
-                        serverInfoPanel.Visible = false;
-                        serversSplitter.Visible = false;
-                    }
-                    rowThread = new Thread(() => RequestServerInfo(server));
-                    rowThread.Start();
-                    break;
+                    serverInfoPanel.Visible = false;
+                    serversSplitter.Visible = false;
                 }
+                rowThread = new Thread(() => RequestServerInfo(server));
+                rowThread.Start();
             }
         }
 
@@ -142,53 +155,44 @@ namespace SAMPLauncherNET
         {
             int si = 0;
             bool cs = false;
-            Server server = null;
-            foreach (DataGridViewRow dgvr in playersGrid.SelectedRows)
-            {
-                si = dgvr.Index;
-                break;
-            }
-            foreach (DataGridViewRow dgvr in serversGrid.SelectedRows)
-            {
-                string ipp = dgvr.Cells[dgvr.Cells.Count - 2].Value.ToString();
-                if (registeredServers.ContainsKey(ipp))
-                {
-                    server = registeredServers[ipp];
-                    playersDataTable.Clear();
-                    try
-                    {
-                        int i = 0;
-                        foreach (string client in server.ClientKeys)
-                        {
-                            DataRow dr = playersDataTable.NewRow();
-                            object[] row = new object[2];
-                            row[0] = client;
-                            row[1] = server.GetScoreFromClient(client);
-                            dr.ItemArray = row;
-                            playersDataTable.Rows.Add(dr);
-                            if (i == si)
-                                cs = true;
-                            ++i;
-                        }
-                    }
-                    catch
-                    {
-                        //
-                    }
-                }
-                break;
-            }
-            if (cs)
-                playersGrid.Rows[si].Selected = true;
-            si = 0;
-            cs = false;
-            foreach (DataGridViewRow dgvr in rulesGrid.SelectedRows)
-            {
-                si = dgvr.Index;
-                break;
-            }
+            Server server = SelectedServer;
             if (server != null)
             {
+                foreach (DataGridViewRow dgvr in playersGrid.SelectedRows)
+                {
+                    si = dgvr.Index;
+                    break;
+                }
+                playersDataTable.Clear();
+                try
+                {
+                    int i = 0;
+                    foreach (string client in server.ClientKeys)
+                    {
+                        DataRow dr = playersDataTable.NewRow();
+                        object[] row = new object[2];
+                        row[0] = client;
+                        row[1] = server.GetScoreFromClient(client);
+                        dr.ItemArray = row;
+                        playersDataTable.Rows.Add(dr);
+                        if (i == si)
+                            cs = true;
+                        ++i;
+                    }
+                }
+                catch
+                {
+                    //
+                }
+                if (cs)
+                    playersGrid.Rows[si].Selected = true;
+                si = 0;
+                cs = false;
+                foreach (DataGridViewRow dgvr in rulesGrid.SelectedRows)
+                {
+                    si = dgvr.Index;
+                    break;
+                }
                 rulesDataTable.Clear();
                 try
                 {
@@ -210,26 +214,21 @@ namespace SAMPLauncherNET
                 {
                     //
                 }
+                if (cs)
+                    rulesGrid.Rows[si].Selected = true;
             }
-            if (cs)
-                rulesGrid.Rows[si].Selected = true;
         }
 
         private void Connect(string rconPassword = null)
         {
-            foreach (DataGridViewRow dgvr in serversGrid.SelectedRows)
+            Server server = SelectedServer;
+            if (server != null)
             {
-                string ipp = dgvr.Cells[dgvr.Cells.Count - 2].Value.ToString();
-                if (registeredServers.ContainsKey(ipp))
-                {
-                    Server server = registeredServers[ipp];
-                    ConnectForm cf = new ConnectForm(server.HasPassword);
-                    DialogResult result = cf.ShowDialog();
-                    DialogResult = DialogResult.None;
-                    if (result == DialogResult.OK)
-                        Utils.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, debugCheckBox.Checked, closeWhenLaunchedCheckBox.Checked, this);
-                    break;
-                }
+                ConnectForm cf = new ConnectForm(!(server.HasPassword));
+                DialogResult result = cf.ShowDialog();
+                DialogResult = DialogResult.None;
+                if (result == DialogResult.OK)
+                    Utils.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, debugCheckBox.Checked, closeWhenLaunchedCheckBox.Checked, this);
             }
         }
 
@@ -379,9 +378,15 @@ namespace SAMPLauncherNET
 
         private void showExtendedServerInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            serverListTimer.Stop();
-            serverListTimer.Start();
+            Server server = SelectedServer;
+            if (server != null)
+            {
+                serverListTimer.Stop();
+                ExtendedServerInformationForm esif = new ExtendedServerInformationForm(server);
+                esif.ShowDialog();
+                DialogResult = DialogResult.None;
+                serverListTimer.Start();
+            }
         }
     }
 }

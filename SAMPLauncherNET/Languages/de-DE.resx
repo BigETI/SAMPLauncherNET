@@ -186,6 +186,15 @@
   <data name="INPUT_ERROR" xml:space="preserve">
     <value>Eingabefehler</value>
   </data>
+  <data name="INSERT_PLAYER_NAME_HERE" xml:space="preserve">
+    <value>Füge einen Benutzernamen hier ein...</value>
+  </data>
+  <data name="INSERT_RCON_PASSWORD_HERE" xml:space="preserve">
+    <value>Füge den RCON Passwort hier ein...</value>
+  </data>
+  <data name="INSERT_SERVER_PASSWORD_HERE" xml:space="preserve">
+    <value>Füge den Server Passwort hier ein...</value>
+  </data>
   <data name="IP_AND_PORT" xml:space="preserve">
     <value>IP und Port</value>
   </data>
@@ -210,6 +219,9 @@
   <data name="NEED_HELP_FORUMS" xml:space="preserve">
     <value>Brauchst du Hilfe? Trete in den SA:MP Foren ein...</value>
   </data>
+  <data name="NO_CHATLOG_FOUND" xml:space="preserve">
+    <value>Keinen Chatprotokoll gefunden...</value>
+  </data>
   <data name="NO_NAMETAG_STATUS" xml:space="preserve">
     <value>Kein Namensschildstatus</value>
   </data>
@@ -224,6 +236,9 @@
   </data>
   <data name="PAGE_SIZE" xml:space="preserve">
     <value>Seitengröße</value>
+  </data>
+  <data name="PING" xml:space="preserve">
+    <value>Verzögerung</value>
   </data>
   <data name="PLAYERS" xml:space="preserve">
     <value>Spieler</value>

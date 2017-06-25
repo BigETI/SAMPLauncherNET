@@ -60,7 +60,8 @@
     <Reference Include="MetroFramework.Fonts">
       <HintPath>libs\MetroFramework.Fonts.dll</HintPath>
     </Reference>
-    <Reference Include="MetroTranslator">
+    <Reference Include="MetroTranslator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>libs\MetroTranslator.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -178,6 +179,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TODO.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

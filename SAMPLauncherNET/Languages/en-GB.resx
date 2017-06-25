@@ -186,6 +186,15 @@
   <data name="INPUT_ERROR" xml:space="preserve">
     <value>Input error</value>
   </data>
+  <data name="INSERT_PLAYER_NAME_HERE" xml:space="preserve">
+    <value>Insert player name here...</value>
+  </data>
+  <data name="INSERT_RCON_PASSWORD_HERE" xml:space="preserve">
+    <value>Insert RCON password here...</value>
+  </data>
+  <data name="INSERT_SERVER_PASSWORD_HERE" xml:space="preserve">
+    <value>Insert server password here...</value>
+  </data>
   <data name="IP_AND_PORT" xml:space="preserve">
     <value>IP and port</value>
   </data>
@@ -210,6 +219,9 @@
   <data name="NEED_HELP_FORUMS" xml:space="preserve">
     <value>Do you need help? Join SA:MP forums...</value>
   </data>
+  <data name="NO_CHATLOG_FOUND" xml:space="preserve">
+    <value>No chatlog found...</value>
+  </data>
   <data name="NO_NAMETAG_STATUS" xml:space="preserve">
     <value>No nametag status</value>
   </data>
@@ -224,6 +236,9 @@
   </data>
   <data name="PAGE_SIZE" xml:space="preserve">
     <value>Page size</value>
+  </data>
+  <data name="PING" xml:space="preserve">
+    <value>Ping</value>
   </data>
   <data name="PLAYERS" xml:space="preserve">
     <value>Players</value>
