@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ADD_SERVER_TO_FAVOURITES" xml:space="preserve">
+    <value>Füge Server zu den Favoriten hinzu</value>
+  </data>
+  <data name="ALREADY_IN_FAVOURITES" xml:space="preserve">
+    <value>Bereits in den Favoriten</value>
+  </data>
   <data name="AUDIO_MESSAGE_OFF" xml:space="preserve">
     <value>Audio Benachrichtigungen ausblenden</value>
   </data>
@@ -201,14 +207,14 @@
   <data name="INSERT_FILTER_HERE" xml:space="preserve">
     <value>Füge einen Filter hier ein...</value>
   </data>
-  <data name="INSERT_PLAYER_NAME_HERE" xml:space="preserve">
-    <value>Füge einen Benutzernamen hier ein...</value>
-  </data>
   <data name="INSERT_RCON_PASSWORD_HERE" xml:space="preserve">
     <value>Füge den RCON Passwort hier ein...</value>
   </data>
   <data name="INSERT_SERVER_PASSWORD_HERE" xml:space="preserve">
     <value>Füge den Server Passwort hier ein...</value>
+  </data>
+  <data name="INSERT_USERNAME_HERE" xml:space="preserve">
+    <value>Füge einen Benutzernamen hier ein...</value>
   </data>
   <data name="IP_AND_PORT" xml:space="preserve">
     <value>IP und Port</value>
@@ -233,6 +239,9 @@
   </data>
   <data name="NEED_HELP_FORUMS" xml:space="preserve">
     <value>Brauchst du Hilfe? Trete in den SA:MP Foren ein...</value>
+  </data>
+  <data name="NOT_IN_FAVOURITES" xml:space="preserve">
+    <value>Nicht in den Favoriten</value>
   </data>
   <data name="NO_CHATLOG_FOUND" xml:space="preserve">
     <value>Keinen Chatprotokoll gefunden...</value>
@@ -267,6 +276,9 @@
   <data name="RCON_PASSWORD_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - RCON Passwort</value>
   </data>
+  <data name="REMOVE_SERVER_FROM_FAVOURITES" xml:space="preserve">
+    <value>Entferne Server aus den Favoriten</value>
+  </data>
   <data name="SELECT_LANGUAGE" xml:space="preserve">
     <value>Sprache... (Language)</value>
   </data>
@@ -275,6 +287,12 @@
   </data>
   <data name="SERVERS" xml:space="preserve">
     <value>Server</value>
+  </data>
+  <data name="SERVER_ALREADY_IN_FAVOURITES" xml:space="preserve">
+    <value>Dieser Server ist bereits in deinen Favoriten.</value>
+  </data>
+  <data name="SERVER_NOT_IN_FAVOURITES" xml:space="preserve">
+    <value>Dieser Server ist nicht in deinen Favoriten.</value>
   </data>
   <data name="SERVER_PASSWORD" xml:space="preserve">
     <value>Server Passwort</value>
@@ -308,5 +326,8 @@
   </data>
   <data name="TIMESTAMP" xml:space="preserve">
     <value>Zeitstempel</value>
+  </data>
+  <data name="USERNAME" xml:space="preserve">
+    <value>Benutzername</value>
   </data>
 </root>

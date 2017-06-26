@@ -35,11 +35,14 @@ namespace SAMPLauncherNET
                 Server ret = null;
                 foreach (DataGridViewRow dgvr in serversGrid.SelectedRows)
                 {
-                    string ipp = dgvr.Cells[dgvr.Cells.Count - 2].Value.ToString();
-                    if (registeredServers.ContainsKey(ipp))
+                    if (dgvr.Cells[dgvr.Cells.Count - 2].Value != null)
                     {
-                        ret = registeredServers[ipp];
-                        break;
+                        string ipp = dgvr.Cells[dgvr.Cells.Count - 2].Value.ToString();
+                        if (registeredServers.ContainsKey(ipp))
+                        {
+                            ret = registeredServers[ipp];
+                            break;
+                        }
                     }
                 }
                 return ret;
@@ -71,7 +74,7 @@ namespace SAMPLauncherNET
                     {
                         foreach (KeyValuePair<Server, int> kv in loadServers)
                         {
-                            if (kv.Key.IsDataFetched(ERequestType.Ping) && kv.Key.IsDataFetched(ERequestType.Information))
+                            if (kv.Key.IsDataFetched(ERequestType.Ping) || kv.Key.IsDataFetched(ERequestType.Information))
                                 rlist.Add(kv);
                         }
                         foreach (KeyValuePair<Server, int> kv in rlist)
@@ -114,20 +117,23 @@ namespace SAMPLauncherNET
         {
             foreach (DataGridViewRow dgvr in serversGrid.SelectedRows)
             {
-                string ipp = dgvr.Cells[dgvr.Cells.Count - 2].Value.ToString();
-                if (registeredServers.ContainsKey(ipp))
+                if (dgvr.Cells[dgvr.Cells.Count - 2].Value != null)
                 {
-                    Server s = registeredServers[ipp];
-                    DateTime timestamp = DateTime.Now;
-                    while ((!s.IsDataFetched(ERequestType.Ping)) || (!s.IsDataFetched(ERequestType.Information)))
+                    string ipp = dgvr.Cells[dgvr.Cells.Count - 2].Value.ToString();
+                    if (registeredServers.ContainsKey(ipp))
                     {
-                        if (DateTime.Now.Subtract(timestamp).TotalMilliseconds >= 1000)
-                            break;
+                        Server s = registeredServers[ipp];
+                        DateTime timestamp = DateTime.Now;
+                        while ((!s.IsDataFetched(ERequestType.Ping)) || (!s.IsDataFetched(ERequestType.Information)))
+                        {
+                            if (DateTime.Now.Subtract(timestamp).TotalMilliseconds >= 1000)
+                                break;
+                        }
+                        object[] row = s.CachedRowData;
+                        for (int i = 0; i < row.Length; i++)
+                            dgvr.Cells[i].Value = row[i];
+                        ReloadServerInfo();
                     }
-                    object[] row = s.CachedRowData;
-                    for (int i = 0; i < row.Length; i++)
-                        dgvr.Cells[i].Value = row[i];
-                    ReloadServerInfo();
                 }
                 break;
             }
@@ -248,6 +254,18 @@ namespace SAMPLauncherNET
                 filter.Append("%'");
             }
             serversBindingSource.Filter = filter.ToString();
+        }
+
+        private void ReloadFavourites(Dictionary<string, FavouriteServer> servers)
+        {
+            DataRow[] rows = serversDataTable.Select("GroupID=0");
+            foreach (DataRow row in rows)
+                row.Delete();
+            lock (loadServers)
+            {
+                foreach (FavouriteServer s in servers.Values)
+                    loadServers.Add(new KeyValuePair<Server, int>(s, 0));
+            }
         }
 
         private void connectButton_Click(object sender, EventArgs e)
@@ -410,6 +428,40 @@ namespace SAMPLauncherNET
         private void filterTextBox_TextChanged(object sender, EventArgs e)
         {
             UpdateServerListFilter();
+        }
+
+        private void addServerToFavouritesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Server server = SelectedServer;
+            if (server != null)
+            {
+                Dictionary<string, FavouriteServer> servers = Utils.FavouritesIO;
+                if (servers.ContainsKey(server.IPPortString))
+                    MessageBox.Show(Translator.GetTranslation("SERVER_ALREADY_IN_FAVOURITES"), Translator.GetTranslation("ALREADY_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    servers.Add(server.IPPortString, server.ToFavouriteServer(server.Hostname));
+                    Utils.FavouritesIO = servers;
+                    ReloadFavourites(servers);
+                }
+            }
+        }
+
+        private void removeServerFromFavouritesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Server server = SelectedServer;
+            if (server != null)
+            {
+                Dictionary<string, FavouriteServer> servers = Utils.FavouritesIO;
+                if (servers.ContainsKey(server.IPPortString))
+                {
+                    servers.Remove(server.IPPortString);
+                    Utils.FavouritesIO = servers;
+                    ReloadFavourites(servers);
+                }
+                else
+                    MessageBox.Show(Translator.GetTranslation("SERVER_NOT_IN_FAVOURITES"), Translator.GetTranslation("NOT_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

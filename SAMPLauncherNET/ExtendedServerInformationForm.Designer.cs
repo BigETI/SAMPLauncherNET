@@ -35,25 +35,31 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExtendedServerInformationForm));
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.mainPanel = new MetroFramework.Controls.MetroPanel();
+            this.serverInfoAndPlayersPanel = new MetroFramework.Controls.MetroPanel();
             this.playersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.playersDataSet = new System.Data.DataSet();
+            this.playersRulesDataSet = new System.Data.DataSet();
             this.playersDataTable = new System.Data.DataTable();
             this.idDataColumn = new System.Data.DataColumn();
             this.nameDataColumn = new System.Data.DataColumn();
             this.scoreDataColumn = new System.Data.DataColumn();
             this.pingDataColumn = new System.Data.DataColumn();
-            this.pingChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.mainSplitter = new System.Windows.Forms.Splitter();
-            this.serverInfoAndPlayersPanel = new MetroFramework.Controls.MetroPanel();
-            this.serverInfoAndPingSplitter = new System.Windows.Forms.Splitter();
+            this.pingChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.playersRulesPanel = new MetroFramework.Controls.MetroPanel();
             this.playersGrid = new MetroFramework.Controls.MetroGrid();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.rulesGrid = new MetroFramework.Controls.MetroGrid();
+            this.serverInfoAndPingSplitter = new System.Windows.Forms.Splitter();
             this.serverInfoPanel = new MetroFramework.Controls.MetroPanel();
             this.pingLabel = new MetroFramework.Controls.MetroLabel();
             this.ipAndPortLabel = new MetroFramework.Controls.MetroLabel();
@@ -61,14 +67,24 @@
             this.gamemodeLabel = new MetroFramework.Controls.MetroLabel();
             this.playersLabel = new MetroFramework.Controls.MetroLabel();
             this.hostnameLabel = new MetroFramework.Controls.MetroLabel();
+            this.rulesDataTable = new System.Data.DataTable();
+            this.dataColumn1 = new System.Data.DataColumn();
+            this.dataColumn2 = new System.Data.DataColumn();
+            this.rulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ruleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainPanel.SuspendLayout();
+            this.serverInfoAndPlayersPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersRulesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pingChart)).BeginInit();
-            this.serverInfoAndPlayersPanel.SuspendLayout();
+            this.playersRulesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playersGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).BeginInit();
             this.serverInfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // updateTimer
@@ -96,17 +112,35 @@
             this.mainPanel.VerticalScrollbarHighlightOnWheel = false;
             this.mainPanel.VerticalScrollbarSize = 10;
             // 
+            // serverInfoAndPlayersPanel
+            // 
+            this.serverInfoAndPlayersPanel.Controls.Add(this.serverInfoPanel);
+            this.serverInfoAndPlayersPanel.Controls.Add(this.serverInfoAndPingSplitter);
+            this.serverInfoAndPlayersPanel.Controls.Add(this.playersRulesPanel);
+            this.serverInfoAndPlayersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.serverInfoAndPlayersPanel.HorizontalScrollbarBarColor = true;
+            this.serverInfoAndPlayersPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.serverInfoAndPlayersPanel.HorizontalScrollbarSize = 10;
+            this.serverInfoAndPlayersPanel.Location = new System.Drawing.Point(0, 0);
+            this.serverInfoAndPlayersPanel.Name = "serverInfoAndPlayersPanel";
+            this.serverInfoAndPlayersPanel.Size = new System.Drawing.Size(754, 361);
+            this.serverInfoAndPlayersPanel.TabIndex = 6;
+            this.serverInfoAndPlayersPanel.VerticalScrollbarBarColor = true;
+            this.serverInfoAndPlayersPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.serverInfoAndPlayersPanel.VerticalScrollbarSize = 10;
+            // 
             // playersBindingSource
             // 
             this.playersBindingSource.DataMember = "Players";
-            this.playersBindingSource.DataSource = this.playersDataSet;
+            this.playersBindingSource.DataSource = this.playersRulesDataSet;
             this.playersBindingSource.Sort = "ID";
             // 
-            // playersDataSet
+            // playersRulesDataSet
             // 
-            this.playersDataSet.DataSetName = "PlayersDataSet";
-            this.playersDataSet.Tables.AddRange(new System.Data.DataTable[] {
-            this.playersDataTable});
+            this.playersRulesDataSet.DataSetName = "PlayersRulesDataSet";
+            this.playersRulesDataSet.Tables.AddRange(new System.Data.DataTable[] {
+            this.playersDataTable,
+            this.rulesDataTable});
             // 
             // playersDataTable
             // 
@@ -140,6 +174,15 @@
             this.pingDataColumn.DataType = typeof(uint);
             this.pingDataColumn.DefaultValue = ((uint)(0u));
             // 
+            // mainSplitter
+            // 
+            this.mainSplitter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.mainSplitter.Location = new System.Drawing.Point(0, 361);
+            this.mainSplitter.Name = "mainSplitter";
+            this.mainSplitter.Size = new System.Drawing.Size(754, 3);
+            this.mainSplitter.TabIndex = 5;
+            this.mainSplitter.TabStop = false;
+            // 
             // pingChart
             // 
             this.pingChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -171,40 +214,22 @@
             this.pingChart.Size = new System.Drawing.Size(754, 150);
             this.pingChart.TabIndex = 4;
             // 
-            // mainSplitter
+            // playersRulesPanel
             // 
-            this.mainSplitter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.mainSplitter.Location = new System.Drawing.Point(0, 361);
-            this.mainSplitter.Name = "mainSplitter";
-            this.mainSplitter.Size = new System.Drawing.Size(754, 3);
-            this.mainSplitter.TabIndex = 5;
-            this.mainSplitter.TabStop = false;
-            // 
-            // serverInfoAndPlayersPanel
-            // 
-            this.serverInfoAndPlayersPanel.Controls.Add(this.serverInfoAndPingSplitter);
-            this.serverInfoAndPlayersPanel.Controls.Add(this.playersGrid);
-            this.serverInfoAndPlayersPanel.Controls.Add(this.serverInfoPanel);
-            this.serverInfoAndPlayersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.serverInfoAndPlayersPanel.HorizontalScrollbarBarColor = true;
-            this.serverInfoAndPlayersPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.serverInfoAndPlayersPanel.HorizontalScrollbarSize = 10;
-            this.serverInfoAndPlayersPanel.Location = new System.Drawing.Point(0, 0);
-            this.serverInfoAndPlayersPanel.Name = "serverInfoAndPlayersPanel";
-            this.serverInfoAndPlayersPanel.Size = new System.Drawing.Size(754, 361);
-            this.serverInfoAndPlayersPanel.TabIndex = 6;
-            this.serverInfoAndPlayersPanel.VerticalScrollbarBarColor = true;
-            this.serverInfoAndPlayersPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.serverInfoAndPlayersPanel.VerticalScrollbarSize = 10;
-            // 
-            // serverInfoAndPingSplitter
-            // 
-            this.serverInfoAndPingSplitter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.serverInfoAndPingSplitter.Location = new System.Drawing.Point(451, 0);
-            this.serverInfoAndPingSplitter.Name = "serverInfoAndPingSplitter";
-            this.serverInfoAndPingSplitter.Size = new System.Drawing.Size(3, 361);
-            this.serverInfoAndPingSplitter.TabIndex = 7;
-            this.serverInfoAndPingSplitter.TabStop = false;
+            this.playersRulesPanel.Controls.Add(this.playersGrid);
+            this.playersRulesPanel.Controls.Add(this.splitter1);
+            this.playersRulesPanel.Controls.Add(this.rulesGrid);
+            this.playersRulesPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.playersRulesPanel.HorizontalScrollbarBarColor = true;
+            this.playersRulesPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.playersRulesPanel.HorizontalScrollbarSize = 10;
+            this.playersRulesPanel.Location = new System.Drawing.Point(454, 0);
+            this.playersRulesPanel.Name = "playersRulesPanel";
+            this.playersRulesPanel.Size = new System.Drawing.Size(300, 361);
+            this.playersRulesPanel.TabIndex = 8;
+            this.playersRulesPanel.VerticalScrollbarBarColor = true;
+            this.playersRulesPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.playersRulesPanel.VerticalScrollbarSize = 10;
             // 
             // playersGrid
             // 
@@ -240,12 +265,12 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.playersGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.playersGrid.Dock = System.Windows.Forms.DockStyle.Right;
+            this.playersGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.playersGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.playersGrid.EnableHeadersVisualStyles = false;
             this.playersGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.playersGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.playersGrid.Location = new System.Drawing.Point(454, 0);
+            this.playersGrid.Location = new System.Drawing.Point(0, 0);
             this.playersGrid.MultiSelect = false;
             this.playersGrid.Name = "playersGrid";
             this.playersGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -259,9 +284,9 @@
             this.playersGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.playersGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.playersGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.playersGrid.Size = new System.Drawing.Size(300, 361);
+            this.playersGrid.Size = new System.Drawing.Size(300, 158);
             this.playersGrid.Style = MetroFramework.MetroColorStyle.Orange;
-            this.playersGrid.TabIndex = 6;
+            this.playersGrid.TabIndex = 11;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -287,6 +312,79 @@
             this.pingDataGridViewTextBoxColumn.HeaderText = "Ping";
             this.pingDataGridViewTextBoxColumn.Name = "pingDataGridViewTextBoxColumn";
             // 
+            // splitter1
+            // 
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitter1.Location = new System.Drawing.Point(0, 158);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(300, 3);
+            this.splitter1.TabIndex = 10;
+            this.splitter1.TabStop = false;
+            // 
+            // rulesGrid
+            // 
+            this.rulesGrid.AllowUserToAddRows = false;
+            this.rulesGrid.AllowUserToDeleteRows = false;
+            this.rulesGrid.AllowUserToResizeRows = false;
+            this.rulesGrid.AutoGenerateColumns = false;
+            this.rulesGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.rulesGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.rulesGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rulesGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.rulesGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rulesGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.rulesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rulesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ruleDataGridViewTextBoxColumn,
+            this.valueDataGridViewTextBoxColumn});
+            this.rulesGrid.DataSource = this.rulesBindingSource;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.rulesGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            this.rulesGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.rulesGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.rulesGrid.EnableHeadersVisualStyles = false;
+            this.rulesGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.rulesGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.rulesGrid.Location = new System.Drawing.Point(0, 161);
+            this.rulesGrid.MultiSelect = false;
+            this.rulesGrid.Name = "rulesGrid";
+            this.rulesGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rulesGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.rulesGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.rulesGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.rulesGrid.Size = new System.Drawing.Size(300, 200);
+            this.rulesGrid.Style = MetroFramework.MetroColorStyle.Orange;
+            this.rulesGrid.TabIndex = 9;
+            // 
+            // serverInfoAndPingSplitter
+            // 
+            this.serverInfoAndPingSplitter.Dock = System.Windows.Forms.DockStyle.Right;
+            this.serverInfoAndPingSplitter.Location = new System.Drawing.Point(451, 0);
+            this.serverInfoAndPingSplitter.Name = "serverInfoAndPingSplitter";
+            this.serverInfoAndPingSplitter.Size = new System.Drawing.Size(3, 361);
+            this.serverInfoAndPingSplitter.TabIndex = 10;
+            this.serverInfoAndPingSplitter.TabStop = false;
+            // 
             // serverInfoPanel
             // 
             this.serverInfoPanel.Controls.Add(this.pingLabel);
@@ -301,9 +399,9 @@
             this.serverInfoPanel.HorizontalScrollbarSize = 10;
             this.serverInfoPanel.Location = new System.Drawing.Point(0, 0);
             this.serverInfoPanel.Name = "serverInfoPanel";
-            this.serverInfoPanel.Size = new System.Drawing.Size(754, 361);
+            this.serverInfoPanel.Size = new System.Drawing.Size(451, 361);
             this.serverInfoPanel.Style = MetroFramework.MetroColorStyle.Orange;
-            this.serverInfoPanel.TabIndex = 5;
+            this.serverInfoPanel.TabIndex = 11;
             this.serverInfoPanel.VerticalScrollbarBarColor = true;
             this.serverInfoPanel.VerticalScrollbarHighlightOnWheel = false;
             this.serverInfoPanel.VerticalScrollbarSize = 10;
@@ -314,7 +412,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pingLabel.Location = new System.Drawing.Point(3, 95);
             this.pingLabel.Name = "pingLabel";
-            this.pingLabel.Size = new System.Drawing.Size(748, 19);
+            this.pingLabel.Size = new System.Drawing.Size(445, 19);
             this.pingLabel.TabIndex = 5;
             this.pingLabel.Text = "{$PING$}";
             // 
@@ -324,7 +422,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ipAndPortLabel.Location = new System.Drawing.Point(3, 76);
             this.ipAndPortLabel.Name = "ipAndPortLabel";
-            this.ipAndPortLabel.Size = new System.Drawing.Size(748, 19);
+            this.ipAndPortLabel.Size = new System.Drawing.Size(445, 19);
             this.ipAndPortLabel.TabIndex = 4;
             this.ipAndPortLabel.Text = "{$IP_AND_PORT$}";
             // 
@@ -334,7 +432,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.languageLabel.Location = new System.Drawing.Point(3, 57);
             this.languageLabel.Name = "languageLabel";
-            this.languageLabel.Size = new System.Drawing.Size(748, 19);
+            this.languageLabel.Size = new System.Drawing.Size(445, 19);
             this.languageLabel.TabIndex = 3;
             this.languageLabel.Text = "{$LANGUAGE$}";
             // 
@@ -344,7 +442,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gamemodeLabel.Location = new System.Drawing.Point(3, 38);
             this.gamemodeLabel.Name = "gamemodeLabel";
-            this.gamemodeLabel.Size = new System.Drawing.Size(748, 19);
+            this.gamemodeLabel.Size = new System.Drawing.Size(445, 19);
             this.gamemodeLabel.TabIndex = 2;
             this.gamemodeLabel.Text = "{$GAMEMODE$}";
             // 
@@ -354,7 +452,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.playersLabel.Location = new System.Drawing.Point(3, 19);
             this.playersLabel.Name = "playersLabel";
-            this.playersLabel.Size = new System.Drawing.Size(748, 19);
+            this.playersLabel.Size = new System.Drawing.Size(445, 19);
             this.playersLabel.TabIndex = 1;
             this.playersLabel.Text = "{$PLAYERS$}";
             // 
@@ -364,9 +462,43 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hostnameLabel.Location = new System.Drawing.Point(3, 0);
             this.hostnameLabel.Name = "hostnameLabel";
-            this.hostnameLabel.Size = new System.Drawing.Size(748, 19);
+            this.hostnameLabel.Size = new System.Drawing.Size(445, 19);
             this.hostnameLabel.TabIndex = 0;
             this.hostnameLabel.Text = "{$HOSTNAME$}";
+            // 
+            // rulesDataTable
+            // 
+            this.rulesDataTable.Columns.AddRange(new System.Data.DataColumn[] {
+            this.dataColumn1,
+            this.dataColumn2});
+            this.rulesDataTable.TableName = "Rules";
+            // 
+            // dataColumn1
+            // 
+            this.dataColumn1.ColumnName = "Rule";
+            this.dataColumn1.DefaultValue = "";
+            // 
+            // dataColumn2
+            // 
+            this.dataColumn2.ColumnName = "Value";
+            this.dataColumn2.DefaultValue = "";
+            // 
+            // rulesBindingSource
+            // 
+            this.rulesBindingSource.DataMember = "Rules";
+            this.rulesBindingSource.DataSource = this.playersRulesDataSet;
+            // 
+            // ruleDataGridViewTextBoxColumn
+            // 
+            this.ruleDataGridViewTextBoxColumn.DataPropertyName = "Rule";
+            this.ruleDataGridViewTextBoxColumn.HeaderText = "Rule";
+            this.ruleDataGridViewTextBoxColumn.Name = "ruleDataGridViewTextBoxColumn";
+            // 
+            // valueDataGridViewTextBoxColumn
+            // 
+            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
+            this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
+            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
             // 
             // ExtendedServerInformationForm
             // 
@@ -380,13 +512,17 @@
             this.Text = "{$EXTENDED_SERVER_INFORMATION_TITLE$}";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ExtendedServerInformationForm_FormClosed);
             this.mainPanel.ResumeLayout(false);
+            this.serverInfoAndPlayersPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersRulesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pingChart)).EndInit();
-            this.serverInfoAndPlayersPanel.ResumeLayout(false);
+            this.playersRulesPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.playersGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).EndInit();
             this.serverInfoPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rulesDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -394,7 +530,7 @@
         #endregion
         private System.Windows.Forms.Timer updateTimer;
         private MetroFramework.Controls.MetroPanel mainPanel;
-        private System.Data.DataSet playersDataSet;
+        private System.Data.DataSet playersRulesDataSet;
         private System.Data.DataTable playersDataTable;
         private System.Windows.Forms.BindingSource playersBindingSource;
         private System.Data.DataColumn idDataColumn;
@@ -402,12 +538,8 @@
         private System.Data.DataColumn scoreDataColumn;
         private System.Data.DataColumn pingDataColumn;
         private MetroFramework.Controls.MetroPanel serverInfoAndPlayersPanel;
-        private System.Windows.Forms.Splitter serverInfoAndPingSplitter;
-        private MetroFramework.Controls.MetroGrid playersGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Splitter mainSplitter;
+        private System.Windows.Forms.DataVisualization.Charting.Chart pingChart;
         private MetroFramework.Controls.MetroPanel serverInfoPanel;
         private MetroFramework.Controls.MetroLabel pingLabel;
         private MetroFramework.Controls.MetroLabel ipAndPortLabel;
@@ -415,7 +547,20 @@
         private MetroFramework.Controls.MetroLabel gamemodeLabel;
         private MetroFramework.Controls.MetroLabel playersLabel;
         private MetroFramework.Controls.MetroLabel hostnameLabel;
-        private System.Windows.Forms.Splitter mainSplitter;
-        private System.Windows.Forms.DataVisualization.Charting.Chart pingChart;
+        private System.Windows.Forms.Splitter serverInfoAndPingSplitter;
+        private MetroFramework.Controls.MetroPanel playersRulesPanel;
+        private MetroFramework.Controls.MetroGrid playersGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Splitter splitter1;
+        private MetroFramework.Controls.MetroGrid rulesGrid;
+        private System.Data.DataTable rulesDataTable;
+        private System.Data.DataColumn dataColumn1;
+        private System.Data.DataColumn dataColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ruleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource rulesBindingSource;
     }
 }

@@ -19,7 +19,9 @@ namespace SAMPLauncherNET
 
         private Thread serverInformationThread = null;
 
-        private Thread serverInformativePlayersThread = null;
+        private Thread serverDetailedClientsThread = null;
+        
+        private Thread serverRulesThread = null;
 
         private string hostname = "";
 
@@ -32,6 +34,8 @@ namespace SAMPLauncherNET
         private string language = "";
 
         private List<Player> players = new List<Player>();
+
+        private Dictionary<string, string> rules = new Dictionary<string, string>();
 
         public ExtendedServerInformationForm(Server server)
         {
@@ -81,7 +85,7 @@ namespace SAMPLauncherNET
                 }
             });
             serverInformationThread.Start();
-            serverInformativePlayersThread = new Thread(() =>
+            serverDetailedClientsThread = new Thread(() =>
             {
                 while (true)
                 {
@@ -97,7 +101,25 @@ namespace SAMPLauncherNET
                     Thread.Sleep(2000);
                 }
             });
-            serverInformativePlayersThread.Start();
+            serverDetailedClientsThread.Start();
+            serverRulesThread = new Thread(() =>
+            {
+                while (true)
+                {
+                    server.FetchData(ERequestType.Rules);
+                    if (server.IsDataFetched(ERequestType.Rules))
+                    {
+                        lock (rules)
+                        {
+                            rules.Clear();
+                            foreach (string key in server.RuleKeys)
+                                rules.Add(key, server.GetRuleValue(key));
+                        }
+                    }
+                    Thread.Sleep(2000);
+                }
+            });
+            serverRulesThread.Start();
         }
 
         private void ExtendedServerInformationForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -112,10 +134,15 @@ namespace SAMPLauncherNET
                 serverInformationThread.Abort();
                 serverInformationThread = null;
             }
-            if (serverInformativePlayersThread != null)
+            if (serverDetailedClientsThread != null)
             {
-                serverInformativePlayersThread.Abort();
-                serverInformativePlayersThread = null;
+                serverDetailedClientsThread.Abort();
+                serverDetailedClientsThread = null;
+            }
+            if (serverRulesThread != null)
+            {
+                serverRulesThread.Abort();
+                serverRulesThread = null;
             }
         }
 
@@ -167,6 +194,32 @@ namespace SAMPLauncherNET
                 }
                 if (cs)
                     playersGrid.Rows[si].Selected = true;
+            }
+            lock (rules)
+            {
+                int si = -1;
+                bool cs = false;
+                foreach (DataGridViewRow dgvr in rulesGrid.SelectedRows)
+                {
+                    si = dgvr.Index;
+                    break;
+                }
+                rulesDataTable.Clear();
+                int i = 0;
+                foreach (KeyValuePair<string, string> rule in rules)
+                {
+                    DataRow dr = rulesDataTable.NewRow();
+                    object[] data = new object[2];
+                    data[0] = rule.Key;
+                    data[1] = rule.Value;
+                    dr.ItemArray = data;
+                    rulesDataTable.Rows.Add(dr);
+                    if (i == si)
+                        cs = true;
+                    ++i;
+                }
+                if (cs)
+                    rulesGrid.Rows[si].Selected = true;
             }
         }
     }

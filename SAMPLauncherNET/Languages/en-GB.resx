@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ADD_SERVER_TO_FAVOURITES" xml:space="preserve">
+    <value>Add server to favourites</value>
+  </data>
+  <data name="ALREADY_IN_FAVOURITES" xml:space="preserve">
+    <value>Already in favourites</value>
+  </data>
   <data name="AUDIO_MESSAGE_OFF" xml:space="preserve">
     <value>Audio message off</value>
   </data>
@@ -201,14 +207,14 @@
   <data name="INSERT_FILTER_HERE" xml:space="preserve">
     <value>Insert filter here...</value>
   </data>
-  <data name="INSERT_PLAYER_NAME_HERE" xml:space="preserve">
-    <value>Insert player name here...</value>
-  </data>
   <data name="INSERT_RCON_PASSWORD_HERE" xml:space="preserve">
     <value>Insert RCON password here...</value>
   </data>
   <data name="INSERT_SERVER_PASSWORD_HERE" xml:space="preserve">
     <value>Insert server password here...</value>
+  </data>
+  <data name="INSERT_USERNAME_HERE" xml:space="preserve">
+    <value>Insert player name here...</value>
   </data>
   <data name="IP_AND_PORT" xml:space="preserve">
     <value>IP and port</value>
@@ -233,6 +239,9 @@
   </data>
   <data name="NEED_HELP_FORUMS" xml:space="preserve">
     <value>Do you need help? Join SA:MP forums...</value>
+  </data>
+  <data name="NOT_IN_FAVOURITES" xml:space="preserve">
+    <value>Not in favourites</value>
   </data>
   <data name="NO_CHATLOG_FOUND" xml:space="preserve">
     <value>No chatlog found...</value>
@@ -267,6 +276,9 @@
   <data name="RCON_PASSWORD_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - RCON password</value>
   </data>
+  <data name="REMOVE_SERVER_FROM_FAVOURITES" xml:space="preserve">
+    <value>Remove server from favourites</value>
+  </data>
   <data name="SELECT_LANGUAGE" xml:space="preserve">
     <value>Select language...</value>
   </data>
@@ -275,6 +287,12 @@
   </data>
   <data name="SERVERS" xml:space="preserve">
     <value>Servers</value>
+  </data>
+  <data name="SERVER_ALREADY_IN_FAVOURITES" xml:space="preserve">
+    <value>This server is already in your favourites.</value>
+  </data>
+  <data name="SERVER_NOT_IN_FAVOURITES" xml:space="preserve">
+    <value>This server is not in your favourites.</value>
   </data>
   <data name="SERVER_PASSWORD" xml:space="preserve">
     <value>Server password</value>
@@ -308,5 +326,8 @@
   </data>
   <data name="TIMESTAMP" xml:space="preserve">
     <value>Timestamp</value>
+  </data>
+  <data name="USERNAME" xml:space="preserve">
+    <value>Username</value>
   </data>
 </root>

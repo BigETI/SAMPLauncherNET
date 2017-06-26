@@ -68,7 +68,7 @@
             this.usernameTextBox.Style = MetroFramework.MetroColorStyle.Orange;
             this.usernameTextBox.TabIndex = 1;
             this.usernameTextBox.UseSelectable = true;
-            this.usernameTextBox.WaterMark = "{$INSERT_PLAYER_NAME_HERE$}";
+            this.usernameTextBox.WaterMark = "{$INSERT_USERNAME_HERE$}";
             this.usernameTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.usernameTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.usernameTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.usernameTextBox_KeyUp);

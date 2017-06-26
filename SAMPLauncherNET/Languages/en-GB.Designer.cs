@@ -61,6 +61,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add server to favourites ähnelt.
+        /// </summary>
+        internal static string ADD_SERVER_TO_FAVOURITES {
+            get {
+                return ResourceManager.GetString("ADD_SERVER_TO_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Already in favourites ähnelt.
+        /// </summary>
+        internal static string ALREADY_IN_FAVOURITES {
+            get {
+                return ResourceManager.GetString("ALREADY_IN_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Audio message off ähnelt.
         /// </summary>
         internal static string AUDIO_MESSAGE_OFF {
@@ -313,15 +331,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Insert player name here... ähnelt.
-        /// </summary>
-        internal static string INSERT_PLAYER_NAME_HERE {
-            get {
-                return ResourceManager.GetString("INSERT_PLAYER_NAME_HERE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Insert RCON password here... ähnelt.
         /// </summary>
         internal static string INSERT_RCON_PASSWORD_HERE {
@@ -336,6 +345,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string INSERT_SERVER_PASSWORD_HERE {
             get {
                 return ResourceManager.GetString("INSERT_SERVER_PASSWORD_HERE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Insert player name here... ähnelt.
+        /// </summary>
+        internal static string INSERT_USERNAME_HERE {
+            get {
+                return ResourceManager.GetString("INSERT_USERNAME_HERE", resourceCulture);
             }
         }
         
@@ -430,6 +448,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Not in favourites ähnelt.
+        /// </summary>
+        internal static string NOT_IN_FAVOURITES {
+            get {
+                return ResourceManager.GetString("NOT_IN_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die OK ähnelt.
         /// </summary>
         internal static string OK {
@@ -511,6 +538,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove server from favourites ähnelt.
+        /// </summary>
+        internal static string REMOVE_SERVER_FROM_FAVOURITES {
+            get {
+                return ResourceManager.GetString("REMOVE_SERVER_FROM_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Select language... ähnelt.
         /// </summary>
         internal static string SELECT_LANGUAGE {
@@ -525,6 +561,24 @@ namespace SAMPLauncherNET.Languages {
         internal static string SELECT_SERVER_LIST {
             get {
                 return ResourceManager.GetString("SELECT_SERVER_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die This server is already in your favourites. ähnelt.
+        /// </summary>
+        internal static string SERVER_ALREADY_IN_FAVOURITES {
+            get {
+                return ResourceManager.GetString("SERVER_ALREADY_IN_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die This server is not in your favourites. ähnelt.
+        /// </summary>
+        internal static string SERVER_NOT_IN_FAVOURITES {
+            get {
+                return ResourceManager.GetString("SERVER_NOT_IN_FAVOURITES", resourceCulture);
             }
         }
         
@@ -633,6 +687,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string TIMESTAMP {
             get {
                 return ResourceManager.GetString("TIMESTAMP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Username ähnelt.
+        /// </summary>
+        internal static string USERNAME {
+            get {
+                return ResourceManager.GetString("USERNAME", resourceCulture);
             }
         }
     }

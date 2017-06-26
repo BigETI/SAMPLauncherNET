@@ -364,54 +364,6 @@ namespace SAMPLauncherNET
             }
         }
 
-        /*public bool IsRowDataNotFetched
-        {
-            get
-            {
-                return (requestsRequired[ERequestType.Information] || requestsRequired[ERequestType.Ping]);
-            }
-        }
-
-        public bool IsRowDataFetched
-        {
-            get
-            {
-                return ((!requestsRequired[ERequestType.Information]) && (!requestsRequired[ERequestType.Ping]));
-            }
-        }
-
-        public bool IsRowRowPlayerAndRulesFetched
-        {
-            get
-            {
-                return ((!requestsRequired[ERequestType.Information]) && (!requestsRequired[ERequestType.Ping]) && (!requestsRequired[ERequestType.Rules]) && (!requestsRequired[ERequestType.Clients]));
-            }
-        }
-
-        public bool IsPingDataFetched
-        {
-            get
-            {
-                return (!pRequestRequired);
-            }
-        }
-
-        public bool IsInformationDataFetched
-        {
-            get
-            {
-                return (!iRequestRequired);
-            }
-        }
-
-        public bool IsInformativePlayerDataFetched
-        {
-            get
-            {
-                return (!dRequestRequired);
-            }
-        }*/
-
         public bool IsDataFetched(ERequestType requestType)
         {
             return !(requestsRequired[requestType]);

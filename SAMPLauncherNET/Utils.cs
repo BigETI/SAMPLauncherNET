@@ -127,7 +127,7 @@ namespace SAMPLauncherNET
                                             ip = ip + ":" + port;
                                             FavouriteServer s = new FavouriteServer(ip, cn, sp, rp);
                                             if (s.IsValid)
-                                                ret.Add(ip, s);
+                                                ret.Add(s.IPPortString, s);
                                         }
                                     }
                                 }
@@ -151,23 +151,23 @@ namespace SAMPLauncherNET
                         {
                             using (BinaryWriter writer = new BinaryWriter(fs))
                             {
-                                writer.Write("SAMP");
+                                writer.Write("SAMP".ToCharArray());
                                 writer.Write(1);
                                 writer.Write(value.Count);
                                 foreach (KeyValuePair<string, FavouriteServer> kv in value)
                                 {
-                                    writer.Write(kv.Key.Length);
-                                    writer.Write(kv.Key);
-                                    writer.Write(kv.Value.Port);
+                                    writer.Write(kv.Value.IPv4AddressString.Length);
+                                    writer.Write(kv.Value.IPv4AddressString.ToCharArray());
+                                    writer.Write((uint)(kv.Value.Port));
                                     string t = kv.Value.Hostname;
                                     writer.Write(t.Length);
-                                    writer.Write(t);
+                                    writer.Write(t.ToCharArray());
                                     t = kv.Value.ServerPassword;
                                     writer.Write(t.Length);
-                                    writer.Write(t);
+                                    writer.Write(t.ToCharArray());
                                     t = kv.Value.RCONPassword;
                                     writer.Write(t.Length);
-                                    writer.Write(t);
+                                    writer.Write(t.ToCharArray());
                                 }
                             }
                         }
