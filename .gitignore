@@ -295,6 +295,6 @@ __pycache__/
 *.xsd.cs
 
 *.cache
-*.csproj.FileListAbsolute.*
-SAMPLauncherNET/bin/
-SAMPLauncherNET/obj/
+SAMPLauncherNET/obj/Debug/SAMPLauncherNET.csproj.FileListAbsolute.txt
+./SAMPLauncherNET/bin/
+./SAMPLauncherNET/obj/
