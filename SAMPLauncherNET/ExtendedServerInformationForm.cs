@@ -43,8 +43,8 @@ namespace SAMPLauncherNET
             {
                 while (true)
                 {
-                    server.FetchPingData();
-                    if (server.IsPingDataFetched)
+                    server.FetchData(ERequestType.Ping);
+                    if (server.IsDataFetched(ERequestType.Ping))
                     {
                         lock (pingList)
                         {
@@ -59,8 +59,8 @@ namespace SAMPLauncherNET
             {
                 while (true)
                 {
-                    server.FetchInformationData();
-                    if (server.IsInformationDataFetched)
+                    server.FetchData(ERequestType.Information);
+                    if (server.IsDataFetched(ERequestType.Information))
                     {
                         lock (hostname)
                         {
@@ -85,8 +85,8 @@ namespace SAMPLauncherNET
             {
                 while (true)
                 {
-                    server.FetchInformativePlayerData();
-                    if (server.IsInformativePlayerDataFetched)
+                    server.FetchData(ERequestType.DetailedClients);
+                    if (server.IsDataFetched(ERequestType.DetailedClients))
                     {
                         lock (players)
                         {

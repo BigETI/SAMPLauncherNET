@@ -90,6 +90,7 @@
     <Compile Include="ConnectForm.Designer.cs">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ERequestType.cs" />
     <Compile Include="ExtendedServerInformationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +131,7 @@
     <Compile Include="RCONPasswordForm.Designer.cs">
       <DependentUpon>RCONPasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RequestsRequired.cs" />
     <Compile Include="SAMPConfig.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="TranslatorStylerInterface.cs" />

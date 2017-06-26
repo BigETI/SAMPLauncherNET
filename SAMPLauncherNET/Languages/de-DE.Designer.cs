@@ -187,6 +187,42 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Filtere Hostname ähnelt.
+        /// </summary>
+        internal static string FILTER_HOSTNAME {
+            get {
+                return ResourceManager.GetString("FILTER_HOSTNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Filtere IP und Port ähnelt.
+        /// </summary>
+        internal static string FILTER_IP_AND_PORT {
+            get {
+                return ResourceManager.GetString("FILTER_IP_AND_PORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Filtere Sprache ähnelt.
+        /// </summary>
+        internal static string FILTER_LANGUAGE {
+            get {
+                return ResourceManager.GetString("FILTER_LANGUAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Filtere Modus ähnelt.
+        /// </summary>
+        internal static string FILTER_MODE {
+            get {
+                return ResourceManager.GetString("FILTER_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Schriftart ähnelt.
         /// </summary>
         internal static string FONT_FACE {
@@ -264,6 +300,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string INPUT_ERROR {
             get {
                 return ResourceManager.GetString("INPUT_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Füge einen Filter hier ein... ähnelt.
+        /// </summary>
+        internal static string INSERT_FILTER_HERE {
+            get {
+                return ResourceManager.GetString("INSERT_FILTER_HERE", resourceCulture);
             }
         }
         
@@ -471,6 +516,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string SELECT_LANGUAGE {
             get {
                 return ResourceManager.GetString("SELECT_LANGUAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wähle eine Serverliste aus ähnelt.
+        /// </summary>
+        internal static string SELECT_SERVER_LIST {
+            get {
+                return ResourceManager.GetString("SELECT_SERVER_LIST", resourceCulture);
             }
         }
         

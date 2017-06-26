@@ -5,6 +5,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System;
 using System.Data;
+using System.Text;
 
 namespace SAMPLauncherNET
 {
@@ -70,10 +71,8 @@ namespace SAMPLauncherNET
                     {
                         foreach (KeyValuePair<Server, int> kv in loadServers)
                         {
-                            if (kv.Key.IsRowDataFetched)
-                            {
+                            if (kv.Key.IsDataFetched(ERequestType.Ping) && kv.Key.IsDataFetched(ERequestType.Information))
                                 rlist.Add(kv);
-                            }
                         }
                         foreach (KeyValuePair<Server, int> kv in rlist)
                             loadServers.Remove(kv);
@@ -99,13 +98,8 @@ namespace SAMPLauncherNET
             Server server = SelectedServer;
             if (server != null)
             {
-                if (server.IsRowRowPlayerAndRulesFetched)
+                if (server.IsDataFetched(ERequestType.Ping) && server.IsDataFetched(ERequestType.Information) && server.IsDataFetched(ERequestType.Rules) && server.IsDataFetched(ERequestType.Clients))
                     ReloadSelectedServerRow();
-                else
-                {
-                    serverInfoPanel.Visible = false;
-                    serversSplitter.Visible = false;
-                }
                 rowThread = new Thread(() => RequestServerInfo(server));
                 rowThread.Start();
             }
@@ -125,7 +119,7 @@ namespace SAMPLauncherNET
                 {
                     Server s = registeredServers[ipp];
                     DateTime timestamp = DateTime.Now;
-                    while (s.IsRowDataNotFetched)
+                    while ((!s.IsDataFetched(ERequestType.Ping)) || (!s.IsDataFetched(ERequestType.Information)))
                     {
                         if (DateTime.Now.Subtract(timestamp).TotalMilliseconds >= 1000)
                             break;
@@ -137,16 +131,14 @@ namespace SAMPLauncherNET
                 }
                 break;
             }
-            serverInfoPanel.Visible = true;
-            serversSplitter.Visible = true;
         }
 
         private void RequestServerInfo(Server server)
         {
             while (true)
             {
-                server.FetchRowPlayerAndRulesData();
-                rowThreadSuccess = true;
+                server.FetchMultiData(new ERequestType[] { ERequestType.Ping, ERequestType.Information, ERequestType.Clients, ERequestType.Rules });
+                rowThreadSuccess = (server.IsDataFetched(ERequestType.Ping) && server.IsDataFetched(ERequestType.Information) && server.IsDataFetched(ERequestType.Clients) && server.IsDataFetched(ERequestType.Rules));
                 Thread.Sleep(2000);
             }
         }
@@ -228,8 +220,34 @@ namespace SAMPLauncherNET
                 DialogResult result = cf.ShowDialog();
                 DialogResult = DialogResult.None;
                 if (result == DialogResult.OK)
-                    Utils.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, debugCheckBox.Checked, closeWhenLaunchedCheckBox.Checked, this);
+                    Utils.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, false, closeWhenLaunchedCheckBox.Checked, this);
             }
+        }
+
+        private void UpdateServerListFilter()
+        {
+            int gid = 0;
+            string ft = filterTextBox.Text.Trim();
+            StringBuilder filter = new StringBuilder("GroupID=");
+            if (showHostedListRadioButton.Checked)
+                gid = 1;
+            else if (showMasterListRadioButton.Checked)
+                gid = 2;
+            filter.Append(gid);
+            if (ft.Length > 0)
+            {
+                if (filterHostnameRadioButton.Checked)
+                    filter.Append(" AND `Hostname` LIKE '%");
+                else if (filterModeRadioButton.Checked)
+                    filter.Append(" AND `Mode` LIKE '%");
+                else if (filterLanguageRadioButton.Checked)
+                    filter.Append(" AND `Language` LIKE '%");
+                else
+                    filter.Append(" AND `IP and port` LIKE '%");
+                filter.Append(ft);
+                filter.Append("%'");
+            }
+            serversBindingSource.Filter = filter.ToString();
         }
 
         private void connectButton_Click(object sender, EventArgs e)
@@ -295,14 +313,9 @@ namespace SAMPLauncherNET
             }
         }
 
-        private void showGenericRadioButton_CheckedChanged(object sender, EventArgs e)
+        private void selectGenericListRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            int gid = 0;
-            if (showHostedListRadioButton.Checked)
-                gid = 1;
-            else if (showMasterListRadioButton.Checked)
-                gid = 2;
-            serversBindingSource.Filter = "GroupID=" + gid;
+            UpdateServerListFilter();
         }
 
         private void serversGrid_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -387,6 +400,16 @@ namespace SAMPLauncherNET
                 DialogResult = DialogResult.None;
                 serverListTimer.Start();
             }
+        }
+
+        private void filterGenericRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateServerListFilter();
+        }
+
+        private void filterTextBox_TextChanged(object sender, EventArgs e)
+        {
+            UpdateServerListFilter();
         }
     }
 }

@@ -233,9 +233,9 @@ namespace SAMPLauncherNET
 
         public static void LaunchSAMP(Server server, string username, string serverPassword, string rconPassword, bool debug, bool quitWhenDone, Form f)
         {
-            if (server != null)
+            if ((server != null) || debug)
             {
-                if (server.IsValid)
+                if (debug || server.IsValid)
                 {
                     IntPtr mh = Kernel32.GetModuleHandle("kernel32.dll");
                     if (mh != IntPtr.Zero)
@@ -245,7 +245,7 @@ namespace SAMPLauncherNET
                         {
                             Kernel32.PROCESS_INFORMATION process_info;
                             Kernel32.STARTUPINFO startup_info = new Kernel32.STARTUPINFO();
-                            if (Kernel32.CreateProcess(GTASAExe, "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPPortString + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)) + (debug ? " -d" : ""), IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
+                            if (Kernel32.CreateProcess(GTASAExe, debug ? "-d" : "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPPortString + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)), IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
                             {
                                 IntPtr ptr = Kernel32.VirtualAllocEx(process_info.hProcess, IntPtr.Zero, (uint)(SAMPDLLPath.Length + 1) * 2U, Kernel32.AllocationType.Reserve | Kernel32.AllocationType.Commit, Kernel32.MemoryProtection.ReadWrite);
                                 if (ptr != IntPtr.Zero)
@@ -283,9 +283,7 @@ namespace SAMPLauncherNET
         {
             try
             {
-                Process.Start(SAMPDebugPath);
-                if (quitWhenDone)
-                    f.Close();
+                LaunchSAMP(null, "", null, null, true, quitWhenDone, f);
             }
             catch
             {

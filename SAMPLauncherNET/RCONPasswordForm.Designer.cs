@@ -91,7 +91,6 @@
             this.rconPasswordTextBox.MaxLength = 32767;
             this.rconPasswordTextBox.Name = "rconPasswordTextBox";
             this.rconPasswordTextBox.PasswordChar = '\0';
-            this.rconPasswordTextBox.PromptText = "{$INSERT_RCON_PASSWORD_HERE$}";
             this.rconPasswordTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.rconPasswordTextBox.SelectedText = "";
             this.rconPasswordTextBox.SelectionLength = 0;

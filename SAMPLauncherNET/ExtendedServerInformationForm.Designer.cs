@@ -38,17 +38,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExtendedServerInformationForm));
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.mainPanel = new MetroFramework.Controls.MetroPanel();
-            this.serverInfoAndPingPanel = new MetroFramework.Controls.MetroPanel();
-            this.serverInfoPanel = new MetroFramework.Controls.MetroPanel();
-            this.hostnameLabel = new MetroFramework.Controls.MetroLabel();
-            this.serverInfoAndPingSplitter = new System.Windows.Forms.Splitter();
-            this.pingChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.mainSplitter = new System.Windows.Forms.Splitter();
-            this.playersGrid = new MetroFramework.Controls.MetroGrid();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.playersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.playersDataSet = new System.Data.DataSet();
             this.playersDataTable = new System.Data.DataTable();
@@ -56,19 +45,30 @@
             this.nameDataColumn = new System.Data.DataColumn();
             this.scoreDataColumn = new System.Data.DataColumn();
             this.pingDataColumn = new System.Data.DataColumn();
-            this.playersLabel = new MetroFramework.Controls.MetroLabel();
-            this.gamemodeLabel = new MetroFramework.Controls.MetroLabel();
-            this.languageLabel = new MetroFramework.Controls.MetroLabel();
-            this.ipAndPortLabel = new MetroFramework.Controls.MetroLabel();
+            this.pingChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.mainSplitter = new System.Windows.Forms.Splitter();
+            this.serverInfoAndPlayersPanel = new MetroFramework.Controls.MetroPanel();
+            this.serverInfoAndPingSplitter = new System.Windows.Forms.Splitter();
+            this.playersGrid = new MetroFramework.Controls.MetroGrid();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serverInfoPanel = new MetroFramework.Controls.MetroPanel();
             this.pingLabel = new MetroFramework.Controls.MetroLabel();
+            this.ipAndPortLabel = new MetroFramework.Controls.MetroLabel();
+            this.languageLabel = new MetroFramework.Controls.MetroLabel();
+            this.gamemodeLabel = new MetroFramework.Controls.MetroLabel();
+            this.playersLabel = new MetroFramework.Controls.MetroLabel();
+            this.hostnameLabel = new MetroFramework.Controls.MetroLabel();
             this.mainPanel.SuspendLayout();
-            this.serverInfoAndPingPanel.SuspendLayout();
-            this.serverInfoPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pingChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pingChart)).BeginInit();
+            this.serverInfoAndPlayersPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playersGrid)).BeginInit();
+            this.serverInfoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // updateTimer
@@ -82,9 +82,9 @@
             this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainPanel.Controls.Add(this.serverInfoAndPingPanel);
+            this.mainPanel.Controls.Add(this.serverInfoAndPlayersPanel);
             this.mainPanel.Controls.Add(this.mainSplitter);
-            this.mainPanel.Controls.Add(this.playersGrid);
+            this.mainPanel.Controls.Add(this.pingChart);
             this.mainPanel.HorizontalScrollbarBarColor = true;
             this.mainPanel.HorizontalScrollbarHighlightOnWheel = false;
             this.mainPanel.HorizontalScrollbarSize = 10;
@@ -96,62 +96,49 @@
             this.mainPanel.VerticalScrollbarHighlightOnWheel = false;
             this.mainPanel.VerticalScrollbarSize = 10;
             // 
-            // serverInfoAndPingPanel
+            // playersBindingSource
             // 
-            this.serverInfoAndPingPanel.Controls.Add(this.serverInfoPanel);
-            this.serverInfoAndPingPanel.Controls.Add(this.serverInfoAndPingSplitter);
-            this.serverInfoAndPingPanel.Controls.Add(this.pingChart);
-            this.serverInfoAndPingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.serverInfoAndPingPanel.HorizontalScrollbarBarColor = true;
-            this.serverInfoAndPingPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.serverInfoAndPingPanel.HorizontalScrollbarSize = 10;
-            this.serverInfoAndPingPanel.Location = new System.Drawing.Point(0, 0);
-            this.serverInfoAndPingPanel.Name = "serverInfoAndPingPanel";
-            this.serverInfoAndPingPanel.Size = new System.Drawing.Size(451, 514);
-            this.serverInfoAndPingPanel.TabIndex = 0;
-            this.serverInfoAndPingPanel.VerticalScrollbarBarColor = true;
-            this.serverInfoAndPingPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.serverInfoAndPingPanel.VerticalScrollbarSize = 10;
+            this.playersBindingSource.DataMember = "Players";
+            this.playersBindingSource.DataSource = this.playersDataSet;
+            this.playersBindingSource.Sort = "ID";
             // 
-            // serverInfoPanel
+            // playersDataSet
             // 
-            this.serverInfoPanel.Controls.Add(this.pingLabel);
-            this.serverInfoPanel.Controls.Add(this.ipAndPortLabel);
-            this.serverInfoPanel.Controls.Add(this.languageLabel);
-            this.serverInfoPanel.Controls.Add(this.gamemodeLabel);
-            this.serverInfoPanel.Controls.Add(this.playersLabel);
-            this.serverInfoPanel.Controls.Add(this.hostnameLabel);
-            this.serverInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.serverInfoPanel.HorizontalScrollbarBarColor = true;
-            this.serverInfoPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.serverInfoPanel.HorizontalScrollbarSize = 10;
-            this.serverInfoPanel.Location = new System.Drawing.Point(0, 0);
-            this.serverInfoPanel.Name = "serverInfoPanel";
-            this.serverInfoPanel.Size = new System.Drawing.Size(451, 361);
-            this.serverInfoPanel.Style = MetroFramework.MetroColorStyle.Orange;
-            this.serverInfoPanel.TabIndex = 0;
-            this.serverInfoPanel.VerticalScrollbarBarColor = true;
-            this.serverInfoPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.serverInfoPanel.VerticalScrollbarSize = 10;
+            this.playersDataSet.DataSetName = "PlayersDataSet";
+            this.playersDataSet.Tables.AddRange(new System.Data.DataTable[] {
+            this.playersDataTable});
             // 
-            // hostnameLabel
+            // playersDataTable
             // 
-            this.hostnameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hostnameLabel.Location = new System.Drawing.Point(3, 0);
-            this.hostnameLabel.Name = "hostnameLabel";
-            this.hostnameLabel.Size = new System.Drawing.Size(445, 19);
-            this.hostnameLabel.TabIndex = 0;
-            this.hostnameLabel.Text = "{$HOSTNAME$}";
+            this.playersDataTable.Columns.AddRange(new System.Data.DataColumn[] {
+            this.idDataColumn,
+            this.nameDataColumn,
+            this.scoreDataColumn,
+            this.pingDataColumn});
+            this.playersDataTable.TableName = "Players";
             // 
-            // serverInfoAndPingSplitter
+            // idDataColumn
             // 
-            this.serverInfoAndPingSplitter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.serverInfoAndPingSplitter.Location = new System.Drawing.Point(0, 361);
-            this.serverInfoAndPingSplitter.Name = "serverInfoAndPingSplitter";
-            this.serverInfoAndPingSplitter.Size = new System.Drawing.Size(451, 3);
-            this.serverInfoAndPingSplitter.TabIndex = 1;
-            this.serverInfoAndPingSplitter.TabStop = false;
+            this.idDataColumn.ColumnName = "ID";
+            this.idDataColumn.DataType = typeof(byte);
+            this.idDataColumn.DefaultValue = ((byte)(0));
+            // 
+            // nameDataColumn
+            // 
+            this.nameDataColumn.ColumnName = "Name";
+            this.nameDataColumn.DefaultValue = "";
+            // 
+            // scoreDataColumn
+            // 
+            this.scoreDataColumn.ColumnName = "Score";
+            this.scoreDataColumn.DataType = typeof(int);
+            this.scoreDataColumn.DefaultValue = 0;
+            // 
+            // pingDataColumn
+            // 
+            this.pingDataColumn.ColumnName = "Ping";
+            this.pingDataColumn.DataType = typeof(uint);
+            this.pingDataColumn.DefaultValue = ((uint)(0u));
             // 
             // pingChart
             // 
@@ -181,17 +168,43 @@
             series1.Name = "Ping";
             series1.YValuesPerPoint = 6;
             this.pingChart.Series.Add(series1);
-            this.pingChart.Size = new System.Drawing.Size(451, 150);
-            this.pingChart.TabIndex = 2;
+            this.pingChart.Size = new System.Drawing.Size(754, 150);
+            this.pingChart.TabIndex = 4;
             // 
             // mainSplitter
             // 
-            this.mainSplitter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.mainSplitter.Location = new System.Drawing.Point(451, 0);
+            this.mainSplitter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.mainSplitter.Location = new System.Drawing.Point(0, 361);
             this.mainSplitter.Name = "mainSplitter";
-            this.mainSplitter.Size = new System.Drawing.Size(3, 514);
-            this.mainSplitter.TabIndex = 1;
+            this.mainSplitter.Size = new System.Drawing.Size(754, 3);
+            this.mainSplitter.TabIndex = 5;
             this.mainSplitter.TabStop = false;
+            // 
+            // serverInfoAndPlayersPanel
+            // 
+            this.serverInfoAndPlayersPanel.Controls.Add(this.serverInfoAndPingSplitter);
+            this.serverInfoAndPlayersPanel.Controls.Add(this.playersGrid);
+            this.serverInfoAndPlayersPanel.Controls.Add(this.serverInfoPanel);
+            this.serverInfoAndPlayersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.serverInfoAndPlayersPanel.HorizontalScrollbarBarColor = true;
+            this.serverInfoAndPlayersPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.serverInfoAndPlayersPanel.HorizontalScrollbarSize = 10;
+            this.serverInfoAndPlayersPanel.Location = new System.Drawing.Point(0, 0);
+            this.serverInfoAndPlayersPanel.Name = "serverInfoAndPlayersPanel";
+            this.serverInfoAndPlayersPanel.Size = new System.Drawing.Size(754, 361);
+            this.serverInfoAndPlayersPanel.TabIndex = 6;
+            this.serverInfoAndPlayersPanel.VerticalScrollbarBarColor = true;
+            this.serverInfoAndPlayersPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.serverInfoAndPlayersPanel.VerticalScrollbarSize = 10;
+            // 
+            // serverInfoAndPingSplitter
+            // 
+            this.serverInfoAndPingSplitter.Dock = System.Windows.Forms.DockStyle.Right;
+            this.serverInfoAndPingSplitter.Location = new System.Drawing.Point(451, 0);
+            this.serverInfoAndPingSplitter.Name = "serverInfoAndPingSplitter";
+            this.serverInfoAndPingSplitter.Size = new System.Drawing.Size(3, 361);
+            this.serverInfoAndPingSplitter.TabIndex = 7;
+            this.serverInfoAndPingSplitter.TabStop = false;
             // 
             // playersGrid
             // 
@@ -246,9 +259,9 @@
             this.playersGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.playersGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.playersGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.playersGrid.Size = new System.Drawing.Size(300, 514);
+            this.playersGrid.Size = new System.Drawing.Size(300, 361);
             this.playersGrid.Style = MetroFramework.MetroColorStyle.Orange;
-            this.playersGrid.TabIndex = 2;
+            this.playersGrid.TabIndex = 6;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -274,89 +287,26 @@
             this.pingDataGridViewTextBoxColumn.HeaderText = "Ping";
             this.pingDataGridViewTextBoxColumn.Name = "pingDataGridViewTextBoxColumn";
             // 
-            // playersBindingSource
+            // serverInfoPanel
             // 
-            this.playersBindingSource.DataMember = "Players";
-            this.playersBindingSource.DataSource = this.playersDataSet;
-            this.playersBindingSource.Sort = "ID";
-            // 
-            // playersDataSet
-            // 
-            this.playersDataSet.DataSetName = "PlayersDataSet";
-            this.playersDataSet.Tables.AddRange(new System.Data.DataTable[] {
-            this.playersDataTable});
-            // 
-            // playersDataTable
-            // 
-            this.playersDataTable.Columns.AddRange(new System.Data.DataColumn[] {
-            this.idDataColumn,
-            this.nameDataColumn,
-            this.scoreDataColumn,
-            this.pingDataColumn});
-            this.playersDataTable.TableName = "Players";
-            // 
-            // idDataColumn
-            // 
-            this.idDataColumn.ColumnName = "ID";
-            this.idDataColumn.DataType = typeof(byte);
-            this.idDataColumn.DefaultValue = ((byte)(0));
-            // 
-            // nameDataColumn
-            // 
-            this.nameDataColumn.ColumnName = "Name";
-            this.nameDataColumn.DefaultValue = "";
-            // 
-            // scoreDataColumn
-            // 
-            this.scoreDataColumn.ColumnName = "Score";
-            this.scoreDataColumn.DataType = typeof(int);
-            this.scoreDataColumn.DefaultValue = 0;
-            // 
-            // pingDataColumn
-            // 
-            this.pingDataColumn.ColumnName = "Ping";
-            this.pingDataColumn.DataType = typeof(uint);
-            this.pingDataColumn.DefaultValue = ((uint)(0u));
-            // 
-            // playersLabel
-            // 
-            this.playersLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.playersLabel.Location = new System.Drawing.Point(3, 19);
-            this.playersLabel.Name = "playersLabel";
-            this.playersLabel.Size = new System.Drawing.Size(445, 19);
-            this.playersLabel.TabIndex = 1;
-            this.playersLabel.Text = "{$PLAYERS$}";
-            // 
-            // gamemodeLabel
-            // 
-            this.gamemodeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gamemodeLabel.Location = new System.Drawing.Point(3, 38);
-            this.gamemodeLabel.Name = "gamemodeLabel";
-            this.gamemodeLabel.Size = new System.Drawing.Size(445, 19);
-            this.gamemodeLabel.TabIndex = 2;
-            this.gamemodeLabel.Text = "{$GAMEMODE$}";
-            // 
-            // languageLabel
-            // 
-            this.languageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.languageLabel.Location = new System.Drawing.Point(3, 57);
-            this.languageLabel.Name = "languageLabel";
-            this.languageLabel.Size = new System.Drawing.Size(445, 19);
-            this.languageLabel.TabIndex = 3;
-            this.languageLabel.Text = "{$LANGUAGE$}";
-            // 
-            // ipAndPortLabel
-            // 
-            this.ipAndPortLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ipAndPortLabel.Location = new System.Drawing.Point(3, 76);
-            this.ipAndPortLabel.Name = "ipAndPortLabel";
-            this.ipAndPortLabel.Size = new System.Drawing.Size(445, 19);
-            this.ipAndPortLabel.TabIndex = 4;
-            this.ipAndPortLabel.Text = "{$IP_AND_PORT$}";
+            this.serverInfoPanel.Controls.Add(this.pingLabel);
+            this.serverInfoPanel.Controls.Add(this.ipAndPortLabel);
+            this.serverInfoPanel.Controls.Add(this.languageLabel);
+            this.serverInfoPanel.Controls.Add(this.gamemodeLabel);
+            this.serverInfoPanel.Controls.Add(this.playersLabel);
+            this.serverInfoPanel.Controls.Add(this.hostnameLabel);
+            this.serverInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.serverInfoPanel.HorizontalScrollbarBarColor = true;
+            this.serverInfoPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.serverInfoPanel.HorizontalScrollbarSize = 10;
+            this.serverInfoPanel.Location = new System.Drawing.Point(0, 0);
+            this.serverInfoPanel.Name = "serverInfoPanel";
+            this.serverInfoPanel.Size = new System.Drawing.Size(754, 361);
+            this.serverInfoPanel.Style = MetroFramework.MetroColorStyle.Orange;
+            this.serverInfoPanel.TabIndex = 5;
+            this.serverInfoPanel.VerticalScrollbarBarColor = true;
+            this.serverInfoPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.serverInfoPanel.VerticalScrollbarSize = 10;
             // 
             // pingLabel
             // 
@@ -364,9 +314,59 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pingLabel.Location = new System.Drawing.Point(3, 95);
             this.pingLabel.Name = "pingLabel";
-            this.pingLabel.Size = new System.Drawing.Size(445, 19);
+            this.pingLabel.Size = new System.Drawing.Size(748, 19);
             this.pingLabel.TabIndex = 5;
             this.pingLabel.Text = "{$PING$}";
+            // 
+            // ipAndPortLabel
+            // 
+            this.ipAndPortLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ipAndPortLabel.Location = new System.Drawing.Point(3, 76);
+            this.ipAndPortLabel.Name = "ipAndPortLabel";
+            this.ipAndPortLabel.Size = new System.Drawing.Size(748, 19);
+            this.ipAndPortLabel.TabIndex = 4;
+            this.ipAndPortLabel.Text = "{$IP_AND_PORT$}";
+            // 
+            // languageLabel
+            // 
+            this.languageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.languageLabel.Location = new System.Drawing.Point(3, 57);
+            this.languageLabel.Name = "languageLabel";
+            this.languageLabel.Size = new System.Drawing.Size(748, 19);
+            this.languageLabel.TabIndex = 3;
+            this.languageLabel.Text = "{$LANGUAGE$}";
+            // 
+            // gamemodeLabel
+            // 
+            this.gamemodeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gamemodeLabel.Location = new System.Drawing.Point(3, 38);
+            this.gamemodeLabel.Name = "gamemodeLabel";
+            this.gamemodeLabel.Size = new System.Drawing.Size(748, 19);
+            this.gamemodeLabel.TabIndex = 2;
+            this.gamemodeLabel.Text = "{$GAMEMODE$}";
+            // 
+            // playersLabel
+            // 
+            this.playersLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.playersLabel.Location = new System.Drawing.Point(3, 19);
+            this.playersLabel.Name = "playersLabel";
+            this.playersLabel.Size = new System.Drawing.Size(748, 19);
+            this.playersLabel.TabIndex = 1;
+            this.playersLabel.Text = "{$PLAYERS$}";
+            // 
+            // hostnameLabel
+            // 
+            this.hostnameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.hostnameLabel.Location = new System.Drawing.Point(3, 0);
+            this.hostnameLabel.Name = "hostnameLabel";
+            this.hostnameLabel.Size = new System.Drawing.Size(748, 19);
+            this.hostnameLabel.TabIndex = 0;
+            this.hostnameLabel.Text = "{$HOSTNAME$}";
             // 
             // ExtendedServerInformationForm
             // 
@@ -380,13 +380,13 @@
             this.Text = "{$EXTENDED_SERVER_INFORMATION_TITLE$}";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ExtendedServerInformationForm_FormClosed);
             this.mainPanel.ResumeLayout(false);
-            this.serverInfoAndPingPanel.ResumeLayout(false);
-            this.serverInfoPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pingChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pingChart)).EndInit();
+            this.serverInfoAndPlayersPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.playersGrid)).EndInit();
+            this.serverInfoPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -394,28 +394,28 @@
         #endregion
         private System.Windows.Forms.Timer updateTimer;
         private MetroFramework.Controls.MetroPanel mainPanel;
-        private MetroFramework.Controls.MetroPanel serverInfoAndPingPanel;
-        private MetroFramework.Controls.MetroPanel serverInfoPanel;
-        private System.Windows.Forms.Splitter serverInfoAndPingSplitter;
-        private System.Windows.Forms.DataVisualization.Charting.Chart pingChart;
-        private System.Windows.Forms.Splitter mainSplitter;
-        private MetroFramework.Controls.MetroGrid playersGrid;
         private System.Data.DataSet playersDataSet;
         private System.Data.DataTable playersDataTable;
         private System.Windows.Forms.BindingSource playersBindingSource;
         private System.Data.DataColumn idDataColumn;
+        private System.Data.DataColumn nameDataColumn;
+        private System.Data.DataColumn scoreDataColumn;
+        private System.Data.DataColumn pingDataColumn;
+        private MetroFramework.Controls.MetroPanel serverInfoAndPlayersPanel;
+        private System.Windows.Forms.Splitter serverInfoAndPingSplitter;
+        private MetroFramework.Controls.MetroGrid playersGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pingDataGridViewTextBoxColumn;
-        private System.Data.DataColumn nameDataColumn;
-        private System.Data.DataColumn scoreDataColumn;
-        private System.Data.DataColumn pingDataColumn;
-        private MetroFramework.Controls.MetroLabel hostnameLabel;
+        private MetroFramework.Controls.MetroPanel serverInfoPanel;
         private MetroFramework.Controls.MetroLabel pingLabel;
         private MetroFramework.Controls.MetroLabel ipAndPortLabel;
         private MetroFramework.Controls.MetroLabel languageLabel;
         private MetroFramework.Controls.MetroLabel gamemodeLabel;
         private MetroFramework.Controls.MetroLabel playersLabel;
+        private MetroFramework.Controls.MetroLabel hostnameLabel;
+        private System.Windows.Forms.Splitter mainSplitter;
+        private System.Windows.Forms.DataVisualization.Charting.Chart pingChart;
     }
 }

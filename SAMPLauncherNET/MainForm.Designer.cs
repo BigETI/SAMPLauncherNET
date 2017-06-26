@@ -85,9 +85,22 @@
             this.ruleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mainSplitter = new System.Windows.Forms.Splitter();
-            this.filterPanel = new MetroFramework.Controls.MetroPanel();
-            this.debugCheckBox = new MetroFramework.Controls.MetroCheckBox();
+            this.inputPanel = new MetroFramework.Controls.MetroPanel();
+            this.selectFilterPanel = new MetroFramework.Controls.MetroPanel();
+            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.filterRadioPanel = new MetroFramework.Controls.MetroPanel();
+            this.filterIPAndPortRadioButton = new MetroFramework.Controls.MetroRadioButton();
+            this.filterHostnameRadioButton = new MetroFramework.Controls.MetroRadioButton();
+            this.filterLanguageRadioButton = new MetroFramework.Controls.MetroRadioButton();
+            this.filterModeRadioButton = new MetroFramework.Controls.MetroRadioButton();
+            this.filterTextBox = new MetroFramework.Controls.MetroTextBox();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.selectRadioPanel = new MetroFramework.Controls.MetroPanel();
+            this.showFavouritesRadioButton = new MetroFramework.Controls.MetroRadioButton();
+            this.showMasterListRadioButton = new MetroFramework.Controls.MetroRadioButton();
+            this.showHostedListRadioButton = new MetroFramework.Controls.MetroRadioButton();
+            this.selectLabel = new MetroFramework.Controls.MetroLabel();
             this.serverCountLabel = new MetroFramework.Controls.MetroLabel();
             this.showLastChatlogLink = new MetroFramework.Controls.MetroLink();
             this.needHelpForumsLink = new MetroFramework.Controls.MetroLink();
@@ -96,9 +109,6 @@
             this.launchSingleplayerModeButton = new MetroFramework.Controls.MetroButton();
             this.launchDebugModeButton = new MetroFramework.Controls.MetroButton();
             this.closeWhenLaunchedCheckBox = new MetroFramework.Controls.MetroCheckBox();
-            this.showMasterListRadioButton = new MetroFramework.Controls.MetroRadioButton();
-            this.showHostedListRadioButton = new MetroFramework.Controls.MetroRadioButton();
-            this.showFavouritesRadioButton = new MetroFramework.Controls.MetroRadioButton();
             this.connectButton = new MetroFramework.Controls.MetroButton();
             this.gitHubProjectLink = new MetroFramework.Controls.MetroLink();
             ((System.ComponentModel.ISupportInitialize)(this.serversDataSet)).BeginInit();
@@ -115,7 +125,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesBindingSource)).BeginInit();
-            this.filterPanel.SuspendLayout();
+            this.inputPanel.SuspendLayout();
+            this.selectFilterPanel.SuspendLayout();
+            this.metroPanel2.SuspendLayout();
+            this.filterRadioPanel.SuspendLayout();
+            this.metroPanel1.SuspendLayout();
+            this.selectRadioPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // languagesComboBox
@@ -251,8 +266,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.Controls.Add(this.serversPanel);
-            this.mainPanel.Controls.Add(this.mainSplitter);
-            this.mainPanel.Controls.Add(this.filterPanel);
+            this.mainPanel.Controls.Add(this.inputPanel);
             this.mainPanel.HorizontalScrollbarBarColor = true;
             this.mainPanel.HorizontalScrollbarHighlightOnWheel = false;
             this.mainPanel.HorizontalScrollbarSize = 10;
@@ -276,7 +290,7 @@
             this.serversPanel.HorizontalScrollbarSize = 10;
             this.serversPanel.Location = new System.Drawing.Point(0, 0);
             this.serversPanel.Name = "serversPanel";
-            this.serversPanel.Size = new System.Drawing.Size(733, 315);
+            this.serversPanel.Size = new System.Drawing.Size(733, 273);
             this.serversPanel.Style = MetroFramework.MetroColorStyle.Orange;
             this.serversPanel.TabIndex = 0;
             this.serversPanel.VerticalScrollbarBarColor = true;
@@ -342,7 +356,7 @@
             this.serversGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.serversGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.serversGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.serversGrid.Size = new System.Drawing.Size(530, 315);
+            this.serversGrid.Size = new System.Drawing.Size(530, 273);
             this.serversGrid.Style = MetroFramework.MetroColorStyle.Orange;
             this.serversGrid.TabIndex = 0;
             this.serversGrid.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.serversGrid_RowEnter);
@@ -446,10 +460,9 @@
             this.serversSplitter.Dock = System.Windows.Forms.DockStyle.Right;
             this.serversSplitter.Location = new System.Drawing.Point(530, 0);
             this.serversSplitter.Name = "serversSplitter";
-            this.serversSplitter.Size = new System.Drawing.Size(3, 315);
+            this.serversSplitter.Size = new System.Drawing.Size(3, 273);
             this.serversSplitter.TabIndex = 2;
             this.serversSplitter.TabStop = false;
-            this.serversSplitter.Visible = false;
             // 
             // serverInfoPanel
             // 
@@ -463,13 +476,12 @@
             this.serverInfoPanel.HorizontalScrollbarSize = 10;
             this.serverInfoPanel.Location = new System.Drawing.Point(533, 0);
             this.serverInfoPanel.Name = "serverInfoPanel";
-            this.serverInfoPanel.Size = new System.Drawing.Size(200, 315);
+            this.serverInfoPanel.Size = new System.Drawing.Size(200, 273);
             this.serverInfoPanel.Style = MetroFramework.MetroColorStyle.Orange;
             this.serverInfoPanel.TabIndex = 1;
             this.serverInfoPanel.VerticalScrollbarBarColor = true;
             this.serverInfoPanel.VerticalScrollbarHighlightOnWheel = false;
             this.serverInfoPanel.VerticalScrollbarSize = 10;
-            this.serverInfoPanel.Visible = false;
             // 
             // playersGrid
             // 
@@ -522,7 +534,7 @@
             this.playersGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.playersGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.playersGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.playersGrid.Size = new System.Drawing.Size(198, 168);
+            this.playersGrid.Size = new System.Drawing.Size(198, 126);
             this.playersGrid.Style = MetroFramework.MetroColorStyle.Orange;
             this.playersGrid.TabIndex = 0;
             // 
@@ -546,7 +558,7 @@
             // serverInfoSplitter
             // 
             this.serverInfoSplitter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.serverInfoSplitter.Location = new System.Drawing.Point(0, 168);
+            this.serverInfoSplitter.Location = new System.Drawing.Point(0, 126);
             this.serverInfoSplitter.Name = "serverInfoSplitter";
             this.serverInfoSplitter.Size = new System.Drawing.Size(198, 3);
             this.serverInfoSplitter.TabIndex = 2;
@@ -589,7 +601,7 @@
             this.rulesGrid.EnableHeadersVisualStyles = false;
             this.rulesGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.rulesGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.rulesGrid.Location = new System.Drawing.Point(0, 171);
+            this.rulesGrid.Location = new System.Drawing.Point(0, 129);
             this.rulesGrid.MultiSelect = false;
             this.rulesGrid.Name = "rulesGrid";
             this.rulesGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -624,62 +636,267 @@
             this.rulesBindingSource.DataMember = "Rules";
             this.rulesBindingSource.DataSource = this.serversDataSet;
             // 
-            // mainSplitter
+            // inputPanel
             // 
-            this.mainSplitter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.mainSplitter.Location = new System.Drawing.Point(0, 315);
-            this.mainSplitter.Name = "mainSplitter";
-            this.mainSplitter.Size = new System.Drawing.Size(733, 3);
-            this.mainSplitter.TabIndex = 2;
-            this.mainSplitter.TabStop = false;
+            this.inputPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.inputPanel.Controls.Add(this.selectFilterPanel);
+            this.inputPanel.Controls.Add(this.serverCountLabel);
+            this.inputPanel.Controls.Add(this.showLastChatlogLink);
+            this.inputPanel.Controls.Add(this.needHelpForumsLink);
+            this.inputPanel.Controls.Add(this.showGalleryLink);
+            this.inputPanel.Controls.Add(this.optionsLink);
+            this.inputPanel.Controls.Add(this.launchSingleplayerModeButton);
+            this.inputPanel.Controls.Add(this.launchDebugModeButton);
+            this.inputPanel.Controls.Add(this.closeWhenLaunchedCheckBox);
+            this.inputPanel.Controls.Add(this.connectButton);
+            this.inputPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.inputPanel.HorizontalScrollbarBarColor = true;
+            this.inputPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.inputPanel.HorizontalScrollbarSize = 10;
+            this.inputPanel.Location = new System.Drawing.Point(0, 273);
+            this.inputPanel.Name = "inputPanel";
+            this.inputPanel.Size = new System.Drawing.Size(733, 237);
+            this.inputPanel.Style = MetroFramework.MetroColorStyle.Orange;
+            this.inputPanel.TabIndex = 1;
+            this.inputPanel.VerticalScrollbarBarColor = true;
+            this.inputPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.inputPanel.VerticalScrollbarSize = 10;
             // 
-            // filterPanel
+            // selectFilterPanel
             // 
-            this.filterPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.filterPanel.Controls.Add(this.debugCheckBox);
-            this.filterPanel.Controls.Add(this.serverCountLabel);
-            this.filterPanel.Controls.Add(this.showLastChatlogLink);
-            this.filterPanel.Controls.Add(this.needHelpForumsLink);
-            this.filterPanel.Controls.Add(this.showGalleryLink);
-            this.filterPanel.Controls.Add(this.optionsLink);
-            this.filterPanel.Controls.Add(this.launchSingleplayerModeButton);
-            this.filterPanel.Controls.Add(this.launchDebugModeButton);
-            this.filterPanel.Controls.Add(this.closeWhenLaunchedCheckBox);
-            this.filterPanel.Controls.Add(this.showMasterListRadioButton);
-            this.filterPanel.Controls.Add(this.showHostedListRadioButton);
-            this.filterPanel.Controls.Add(this.showFavouritesRadioButton);
-            this.filterPanel.Controls.Add(this.connectButton);
-            this.filterPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.filterPanel.HorizontalScrollbarBarColor = true;
-            this.filterPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.filterPanel.HorizontalScrollbarSize = 10;
-            this.filterPanel.Location = new System.Drawing.Point(0, 318);
-            this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(733, 192);
-            this.filterPanel.Style = MetroFramework.MetroColorStyle.Orange;
-            this.filterPanel.TabIndex = 1;
-            this.filterPanel.VerticalScrollbarBarColor = true;
-            this.filterPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.filterPanel.VerticalScrollbarSize = 10;
+            this.selectFilterPanel.Controls.Add(this.metroPanel2);
+            this.selectFilterPanel.Controls.Add(this.splitter1);
+            this.selectFilterPanel.Controls.Add(this.metroPanel1);
+            this.selectFilterPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.selectFilterPanel.HorizontalScrollbarBarColor = true;
+            this.selectFilterPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.selectFilterPanel.HorizontalScrollbarSize = 10;
+            this.selectFilterPanel.Location = new System.Drawing.Point(0, 0);
+            this.selectFilterPanel.Name = "selectFilterPanel";
+            this.selectFilterPanel.Size = new System.Drawing.Size(731, 109);
+            this.selectFilterPanel.TabIndex = 13;
+            this.selectFilterPanel.VerticalScrollbarBarColor = true;
+            this.selectFilterPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.selectFilterPanel.VerticalScrollbarSize = 10;
             // 
-            // debugCheckBox
+            // metroPanel2
             // 
-            this.debugCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.debugCheckBox.AutoSize = true;
-            this.debugCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.debugCheckBox.Location = new System.Drawing.Point(609, 27);
-            this.debugCheckBox.Name = "debugCheckBox";
-            this.debugCheckBox.Size = new System.Drawing.Size(119, 15);
-            this.debugCheckBox.Style = MetroFramework.MetroColorStyle.Orange;
-            this.debugCheckBox.TabIndex = 8;
-            this.debugCheckBox.Text = "{$DEBUG_MODE$}";
-            this.debugCheckBox.UseSelectable = true;
+            this.metroPanel2.Controls.Add(this.filterRadioPanel);
+            this.metroPanel2.Controls.Add(this.filterTextBox);
+            this.metroPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel2.HorizontalScrollbarBarColor = true;
+            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.HorizontalScrollbarSize = 10;
+            this.metroPanel2.Location = new System.Drawing.Point(305, 0);
+            this.metroPanel2.Name = "metroPanel2";
+            this.metroPanel2.Size = new System.Drawing.Size(426, 109);
+            this.metroPanel2.TabIndex = 10;
+            this.metroPanel2.VerticalScrollbarBarColor = true;
+            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.VerticalScrollbarSize = 10;
+            // 
+            // filterRadioPanel
+            // 
+            this.filterRadioPanel.Controls.Add(this.filterIPAndPortRadioButton);
+            this.filterRadioPanel.Controls.Add(this.filterHostnameRadioButton);
+            this.filterRadioPanel.Controls.Add(this.filterLanguageRadioButton);
+            this.filterRadioPanel.Controls.Add(this.filterModeRadioButton);
+            this.filterRadioPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.filterRadioPanel.HorizontalScrollbarBarColor = true;
+            this.filterRadioPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.filterRadioPanel.HorizontalScrollbarSize = 10;
+            this.filterRadioPanel.Location = new System.Drawing.Point(0, 23);
+            this.filterRadioPanel.Name = "filterRadioPanel";
+            this.filterRadioPanel.Size = new System.Drawing.Size(426, 86);
+            this.filterRadioPanel.TabIndex = 8;
+            this.filterRadioPanel.VerticalScrollbarBarColor = true;
+            this.filterRadioPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.filterRadioPanel.VerticalScrollbarSize = 10;
+            // 
+            // filterIPAndPortRadioButton
+            // 
+            this.filterIPAndPortRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterIPAndPortRadioButton.Location = new System.Drawing.Point(4, 66);
+            this.filterIPAndPortRadioButton.Name = "filterIPAndPortRadioButton";
+            this.filterIPAndPortRadioButton.Size = new System.Drawing.Size(420, 15);
+            this.filterIPAndPortRadioButton.Style = MetroFramework.MetroColorStyle.Orange;
+            this.filterIPAndPortRadioButton.TabIndex = 4;
+            this.filterIPAndPortRadioButton.Text = "{$FILTER_IP_AND_PORT$}";
+            this.filterIPAndPortRadioButton.UseSelectable = true;
+            this.filterIPAndPortRadioButton.CheckedChanged += new System.EventHandler(this.filterGenericRadioButton_CheckedChanged);
+            // 
+            // filterHostnameRadioButton
+            // 
+            this.filterHostnameRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterHostnameRadioButton.Checked = true;
+            this.filterHostnameRadioButton.Location = new System.Drawing.Point(3, 3);
+            this.filterHostnameRadioButton.Name = "filterHostnameRadioButton";
+            this.filterHostnameRadioButton.Size = new System.Drawing.Size(420, 15);
+            this.filterHostnameRadioButton.Style = MetroFramework.MetroColorStyle.Orange;
+            this.filterHostnameRadioButton.TabIndex = 1;
+            this.filterHostnameRadioButton.TabStop = true;
+            this.filterHostnameRadioButton.Text = "{$FILTER_HOSTNAME$}";
+            this.filterHostnameRadioButton.UseSelectable = true;
+            this.filterHostnameRadioButton.CheckedChanged += new System.EventHandler(this.filterGenericRadioButton_CheckedChanged);
+            // 
+            // filterLanguageRadioButton
+            // 
+            this.filterLanguageRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterLanguageRadioButton.Location = new System.Drawing.Point(3, 45);
+            this.filterLanguageRadioButton.Name = "filterLanguageRadioButton";
+            this.filterLanguageRadioButton.Size = new System.Drawing.Size(420, 15);
+            this.filterLanguageRadioButton.Style = MetroFramework.MetroColorStyle.Orange;
+            this.filterLanguageRadioButton.TabIndex = 3;
+            this.filterLanguageRadioButton.Text = "{$FILTER_LANGUAGE$}";
+            this.filterLanguageRadioButton.UseSelectable = true;
+            this.filterLanguageRadioButton.CheckedChanged += new System.EventHandler(this.filterGenericRadioButton_CheckedChanged);
+            // 
+            // filterModeRadioButton
+            // 
+            this.filterModeRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterModeRadioButton.Location = new System.Drawing.Point(3, 24);
+            this.filterModeRadioButton.Name = "filterModeRadioButton";
+            this.filterModeRadioButton.Size = new System.Drawing.Size(420, 15);
+            this.filterModeRadioButton.Style = MetroFramework.MetroColorStyle.Orange;
+            this.filterModeRadioButton.TabIndex = 2;
+            this.filterModeRadioButton.Text = "{$FILTER_MODE$}";
+            this.filterModeRadioButton.UseSelectable = true;
+            this.filterModeRadioButton.CheckedChanged += new System.EventHandler(this.filterGenericRadioButton_CheckedChanged);
+            // 
+            // filterTextBox
+            // 
+            // 
+            // 
+            // 
+            this.filterTextBox.CustomButton.Image = null;
+            this.filterTextBox.CustomButton.Location = new System.Drawing.Point(404, 1);
+            this.filterTextBox.CustomButton.Name = "";
+            this.filterTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.filterTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.filterTextBox.CustomButton.TabIndex = 1;
+            this.filterTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.filterTextBox.CustomButton.UseSelectable = true;
+            this.filterTextBox.CustomButton.Visible = false;
+            this.filterTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.filterTextBox.Lines = new string[0];
+            this.filterTextBox.Location = new System.Drawing.Point(0, 0);
+            this.filterTextBox.MaxLength = 32767;
+            this.filterTextBox.Name = "filterTextBox";
+            this.filterTextBox.PasswordChar = '\0';
+            this.filterTextBox.PromptText = "{$INSERT_FILTER_HERE$}";
+            this.filterTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.filterTextBox.SelectedText = "";
+            this.filterTextBox.SelectionLength = 0;
+            this.filterTextBox.SelectionStart = 0;
+            this.filterTextBox.ShortcutsEnabled = true;
+            this.filterTextBox.Size = new System.Drawing.Size(426, 23);
+            this.filterTextBox.TabIndex = 5;
+            this.filterTextBox.UseSelectable = true;
+            this.filterTextBox.WaterMark = "{$INSERT_FILTER_HERE$}";
+            this.filterTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.filterTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(302, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 109);
+            this.splitter1.TabIndex = 9;
+            this.splitter1.TabStop = false;
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.Controls.Add(this.selectRadioPanel);
+            this.metroPanel1.Controls.Add(this.selectLabel);
+            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(302, 109);
+            this.metroPanel1.TabIndex = 8;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // selectRadioPanel
+            // 
+            this.selectRadioPanel.Controls.Add(this.showFavouritesRadioButton);
+            this.selectRadioPanel.Controls.Add(this.showMasterListRadioButton);
+            this.selectRadioPanel.Controls.Add(this.showHostedListRadioButton);
+            this.selectRadioPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.selectRadioPanel.HorizontalScrollbarBarColor = true;
+            this.selectRadioPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.selectRadioPanel.HorizontalScrollbarSize = 10;
+            this.selectRadioPanel.Location = new System.Drawing.Point(0, 23);
+            this.selectRadioPanel.Name = "selectRadioPanel";
+            this.selectRadioPanel.Size = new System.Drawing.Size(302, 65);
+            this.selectRadioPanel.TabIndex = 7;
+            this.selectRadioPanel.VerticalScrollbarBarColor = true;
+            this.selectRadioPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.selectRadioPanel.VerticalScrollbarSize = 10;
+            // 
+            // showFavouritesRadioButton
+            // 
+            this.showFavouritesRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.showFavouritesRadioButton.Checked = true;
+            this.showFavouritesRadioButton.Location = new System.Drawing.Point(3, 3);
+            this.showFavouritesRadioButton.Name = "showFavouritesRadioButton";
+            this.showFavouritesRadioButton.Size = new System.Drawing.Size(296, 15);
+            this.showFavouritesRadioButton.Style = MetroFramework.MetroColorStyle.Orange;
+            this.showFavouritesRadioButton.TabIndex = 1;
+            this.showFavouritesRadioButton.TabStop = true;
+            this.showFavouritesRadioButton.Text = "{$SHOW_FAVOURITES$}";
+            this.showFavouritesRadioButton.UseSelectable = true;
+            this.showFavouritesRadioButton.CheckedChanged += new System.EventHandler(this.selectGenericListRadioButton_CheckedChanged);
+            // 
+            // showMasterListRadioButton
+            // 
+            this.showMasterListRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.showMasterListRadioButton.Location = new System.Drawing.Point(3, 45);
+            this.showMasterListRadioButton.Name = "showMasterListRadioButton";
+            this.showMasterListRadioButton.Size = new System.Drawing.Size(296, 15);
+            this.showMasterListRadioButton.Style = MetroFramework.MetroColorStyle.Orange;
+            this.showMasterListRadioButton.TabIndex = 3;
+            this.showMasterListRadioButton.Text = "{$SHOW_MASTER_LIST$}";
+            this.showMasterListRadioButton.UseSelectable = true;
+            this.showMasterListRadioButton.CheckedChanged += new System.EventHandler(this.selectGenericListRadioButton_CheckedChanged);
+            // 
+            // showHostedListRadioButton
+            // 
+            this.showHostedListRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.showHostedListRadioButton.Location = new System.Drawing.Point(3, 24);
+            this.showHostedListRadioButton.Name = "showHostedListRadioButton";
+            this.showHostedListRadioButton.Size = new System.Drawing.Size(296, 15);
+            this.showHostedListRadioButton.Style = MetroFramework.MetroColorStyle.Orange;
+            this.showHostedListRadioButton.TabIndex = 2;
+            this.showHostedListRadioButton.Text = "{$SHOW_HOSTED_LIST$}";
+            this.showHostedListRadioButton.UseSelectable = true;
+            this.showHostedListRadioButton.CheckedChanged += new System.EventHandler(this.selectGenericListRadioButton_CheckedChanged);
+            // 
+            // selectLabel
+            // 
+            this.selectLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.selectLabel.Location = new System.Drawing.Point(0, 0);
+            this.selectLabel.Name = "selectLabel";
+            this.selectLabel.Size = new System.Drawing.Size(302, 23);
+            this.selectLabel.TabIndex = 6;
+            this.selectLabel.Text = "{$SELECT_SERVER_LIST$}";
             // 
             // serverCountLabel
             // 
             this.serverCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.serverCountLabel.Location = new System.Drawing.Point(159, 135);
+            this.serverCountLabel.Location = new System.Drawing.Point(159, 180);
             this.serverCountLabel.Name = "serverCountLabel";
             this.serverCountLabel.Size = new System.Drawing.Size(363, 23);
             this.serverCountLabel.TabIndex = 11;
@@ -689,7 +906,7 @@
             // 
             this.showLastChatlogLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.showLastChatlogLink.Location = new System.Drawing.Point(3, 111);
+            this.showLastChatlogLink.Location = new System.Drawing.Point(3, 157);
             this.showLastChatlogLink.Name = "showLastChatlogLink";
             this.showLastChatlogLink.Size = new System.Drawing.Size(522, 15);
             this.showLastChatlogLink.Style = MetroFramework.MetroColorStyle.Orange;
@@ -703,7 +920,7 @@
             // 
             this.needHelpForumsLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.needHelpForumsLink.Location = new System.Drawing.Point(159, 172);
+            this.needHelpForumsLink.Location = new System.Drawing.Point(159, 217);
             this.needHelpForumsLink.Name = "needHelpForumsLink";
             this.needHelpForumsLink.Size = new System.Drawing.Size(363, 15);
             this.needHelpForumsLink.Style = MetroFramework.MetroColorStyle.Orange;
@@ -717,7 +934,7 @@
             // 
             this.showGalleryLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.showGalleryLink.Location = new System.Drawing.Point(3, 90);
+            this.showGalleryLink.Location = new System.Drawing.Point(3, 136);
             this.showGalleryLink.Name = "showGalleryLink";
             this.showGalleryLink.Size = new System.Drawing.Size(522, 15);
             this.showGalleryLink.Style = MetroFramework.MetroColorStyle.Orange;
@@ -731,7 +948,7 @@
             // 
             this.optionsLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.optionsLink.Location = new System.Drawing.Point(3, 69);
+            this.optionsLink.Location = new System.Drawing.Point(3, 115);
             this.optionsLink.Name = "optionsLink";
             this.optionsLink.Size = new System.Drawing.Size(522, 15);
             this.optionsLink.Style = MetroFramework.MetroColorStyle.Orange;
@@ -744,7 +961,7 @@
             // launchSingleplayerModeButton
             // 
             this.launchSingleplayerModeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.launchSingleplayerModeButton.Location = new System.Drawing.Point(528, 135);
+            this.launchSingleplayerModeButton.Location = new System.Drawing.Point(528, 180);
             this.launchSingleplayerModeButton.Name = "launchSingleplayerModeButton";
             this.launchSingleplayerModeButton.Size = new System.Drawing.Size(200, 23);
             this.launchSingleplayerModeButton.TabIndex = 9;
@@ -755,7 +972,7 @@
             // launchDebugModeButton
             // 
             this.launchDebugModeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.launchDebugModeButton.Location = new System.Drawing.Point(528, 164);
+            this.launchDebugModeButton.Location = new System.Drawing.Point(528, 209);
             this.launchDebugModeButton.Name = "launchDebugModeButton";
             this.launchDebugModeButton.Size = new System.Drawing.Size(200, 23);
             this.launchDebugModeButton.TabIndex = 10;
@@ -765,12 +982,12 @@
             // 
             // closeWhenLaunchedCheckBox
             // 
-            this.closeWhenLaunchedCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeWhenLaunchedCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.closeWhenLaunchedCheckBox.AutoSize = true;
             this.closeWhenLaunchedCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.closeWhenLaunchedCheckBox.Checked = true;
             this.closeWhenLaunchedCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.closeWhenLaunchedCheckBox.Location = new System.Drawing.Point(543, 6);
+            this.closeWhenLaunchedCheckBox.Location = new System.Drawing.Point(543, 157);
             this.closeWhenLaunchedCheckBox.Name = "closeWhenLaunchedCheckBox";
             this.closeWhenLaunchedCheckBox.Size = new System.Drawing.Size(185, 15);
             this.closeWhenLaunchedCheckBox.Style = MetroFramework.MetroColorStyle.Orange;
@@ -778,49 +995,11 @@
             this.closeWhenLaunchedCheckBox.Text = "{$CLOSE_WHEN_LAUNCHED$}";
             this.closeWhenLaunchedCheckBox.UseSelectable = true;
             // 
-            // showMasterListRadioButton
-            // 
-            this.showMasterListRadioButton.AutoSize = true;
-            this.showMasterListRadioButton.Location = new System.Drawing.Point(3, 48);
-            this.showMasterListRadioButton.Name = "showMasterListRadioButton";
-            this.showMasterListRadioButton.Size = new System.Drawing.Size(155, 15);
-            this.showMasterListRadioButton.Style = MetroFramework.MetroColorStyle.Orange;
-            this.showMasterListRadioButton.TabIndex = 3;
-            this.showMasterListRadioButton.Text = "{$SHOW_MASTER_LIST$}";
-            this.showMasterListRadioButton.UseSelectable = true;
-            this.showMasterListRadioButton.CheckedChanged += new System.EventHandler(this.showGenericRadioButton_CheckedChanged);
-            // 
-            // showHostedListRadioButton
-            // 
-            this.showHostedListRadioButton.AutoSize = true;
-            this.showHostedListRadioButton.Location = new System.Drawing.Point(3, 27);
-            this.showHostedListRadioButton.Name = "showHostedListRadioButton";
-            this.showHostedListRadioButton.Size = new System.Drawing.Size(155, 15);
-            this.showHostedListRadioButton.Style = MetroFramework.MetroColorStyle.Orange;
-            this.showHostedListRadioButton.TabIndex = 2;
-            this.showHostedListRadioButton.Text = "{$SHOW_HOSTED_LIST$}";
-            this.showHostedListRadioButton.UseSelectable = true;
-            this.showHostedListRadioButton.CheckedChanged += new System.EventHandler(this.showGenericRadioButton_CheckedChanged);
-            // 
-            // showFavouritesRadioButton
-            // 
-            this.showFavouritesRadioButton.AutoSize = true;
-            this.showFavouritesRadioButton.Checked = true;
-            this.showFavouritesRadioButton.Location = new System.Drawing.Point(3, 6);
-            this.showFavouritesRadioButton.Name = "showFavouritesRadioButton";
-            this.showFavouritesRadioButton.Size = new System.Drawing.Size(148, 15);
-            this.showFavouritesRadioButton.Style = MetroFramework.MetroColorStyle.Orange;
-            this.showFavouritesRadioButton.TabIndex = 1;
-            this.showFavouritesRadioButton.TabStop = true;
-            this.showFavouritesRadioButton.Text = "{$SHOW_FAVOURITES$}";
-            this.showFavouritesRadioButton.UseSelectable = true;
-            this.showFavouritesRadioButton.CheckedChanged += new System.EventHandler(this.showGenericRadioButton_CheckedChanged);
-            // 
             // connectButton
             // 
             this.connectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.connectButton.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.connectButton.Location = new System.Drawing.Point(3, 135);
+            this.connectButton.Location = new System.Drawing.Point(3, 180);
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(150, 52);
             this.connectButton.TabIndex = 0;
@@ -869,8 +1048,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesBindingSource)).EndInit();
-            this.filterPanel.ResumeLayout(false);
-            this.filterPanel.PerformLayout();
+            this.inputPanel.ResumeLayout(false);
+            this.inputPanel.PerformLayout();
+            this.selectFilterPanel.ResumeLayout(false);
+            this.metroPanel2.ResumeLayout(false);
+            this.filterRadioPanel.ResumeLayout(false);
+            this.metroPanel1.ResumeLayout(false);
+            this.selectRadioPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -889,14 +1073,10 @@
         private System.Data.DataColumn ipAndPortDataColumn;
         private System.Windows.Forms.BindingSource serversBindingSource;
         private MetroFramework.Controls.MetroPanel mainPanel;
-        private MetroFramework.Controls.MetroPanel filterPanel;
+        private MetroFramework.Controls.MetroPanel inputPanel;
         private MetroFramework.Controls.MetroButton connectButton;
-        private System.Windows.Forms.Splitter mainSplitter;
         private System.Data.DataColumn groupIDDataColumn;
         private System.Data.DataTable playersDataTable;
-        private MetroFramework.Controls.MetroRadioButton showFavouritesRadioButton;
-        private MetroFramework.Controls.MetroRadioButton showMasterListRadioButton;
-        private MetroFramework.Controls.MetroRadioButton showHostedListRadioButton;
         private System.Windows.Forms.BindingSource playersBindingSource;
         private System.Data.DataColumn playerDataColumn;
         private System.Data.DataColumn scoreDataColumn;
@@ -937,7 +1117,21 @@
         private System.Windows.Forms.ToolStripMenuItem connectWithRCONToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator serverToolStripSeparator;
         private System.Windows.Forms.ToolStripMenuItem showExtendedServerInformationToolStripMenuItem;
-        private MetroFramework.Controls.MetroCheckBox debugCheckBox;
+        private MetroFramework.Controls.MetroPanel selectFilterPanel;
+        private MetroFramework.Controls.MetroTextBox filterTextBox;
+        private MetroFramework.Controls.MetroLabel selectLabel;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroPanel selectRadioPanel;
+        private MetroFramework.Controls.MetroRadioButton showFavouritesRadioButton;
+        private MetroFramework.Controls.MetroRadioButton showMasterListRadioButton;
+        private MetroFramework.Controls.MetroRadioButton showHostedListRadioButton;
+        private MetroFramework.Controls.MetroPanel metroPanel2;
+        private MetroFramework.Controls.MetroPanel filterRadioPanel;
+        private MetroFramework.Controls.MetroRadioButton filterIPAndPortRadioButton;
+        private MetroFramework.Controls.MetroRadioButton filterHostnameRadioButton;
+        private MetroFramework.Controls.MetroRadioButton filterLanguageRadioButton;
+        private MetroFramework.Controls.MetroRadioButton filterModeRadioButton;
+        private System.Windows.Forms.Splitter splitter1;
     }
 }
 

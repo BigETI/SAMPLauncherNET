@@ -15,7 +15,6 @@ X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.ChatlogForm.reso
 X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.OptionsForm.resources
 X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.ConnectForm.resources
 X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.Languages.de-DE.resources
-X:\cs\SAMPLauncherNET\SAMPLauncherNET\obj\Debug\SAMPLauncherNET.csprojResolveAssemblyReference.cache
 C:\dev\Repos\SAMPLauncherNET\SAMPLauncherNET\bin\Debug\SAMPLauncherNET.exe.config
 C:\dev\Repos\SAMPLauncherNET\SAMPLauncherNET\bin\Debug\SAMPLauncherNET.exe
 C:\dev\Repos\SAMPLauncherNET\SAMPLauncherNET\bin\Debug\SAMPLauncherNET.pdb

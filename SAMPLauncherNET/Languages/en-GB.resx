@@ -159,6 +159,18 @@
   <data name="EXTENDED_SERVER_INFORMATION_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Extended server information</value>
   </data>
+  <data name="FILTER_HOSTNAME" xml:space="preserve">
+    <value>Filter hostname</value>
+  </data>
+  <data name="FILTER_IP_AND_PORT" xml:space="preserve">
+    <value>Filter IP and port</value>
+  </data>
+  <data name="FILTER_LANGUAGE" xml:space="preserve">
+    <value>Filter language</value>
+  </data>
+  <data name="FILTER_MODE" xml:space="preserve">
+    <value>Filter mode</value>
+  </data>
   <data name="FONT_FACE" xml:space="preserve">
     <value>Font-face</value>
   </data>
@@ -185,6 +197,9 @@
   </data>
   <data name="INPUT_ERROR" xml:space="preserve">
     <value>Input error</value>
+  </data>
+  <data name="INSERT_FILTER_HERE" xml:space="preserve">
+    <value>Insert filter here...</value>
   </data>
   <data name="INSERT_PLAYER_NAME_HERE" xml:space="preserve">
     <value>Insert player name here...</value>
@@ -254,6 +269,9 @@
   </data>
   <data name="SELECT_LANGUAGE" xml:space="preserve">
     <value>Select language...</value>
+  </data>
+  <data name="SELECT_SERVER_LIST" xml:space="preserve">
+    <value>Select server list</value>
   </data>
   <data name="SERVERS" xml:space="preserve">
     <value>Servers</value>

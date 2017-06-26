@@ -25,15 +25,7 @@ namespace SAMPLauncherNET
 
         private DateTime[] timestamp = new DateTime[2];
 
-        private bool iRequestRequired = true;
-
-        private bool rRequestRequired = true;
-
-        private bool cRequestRequired = true;
-
-        private bool dRequestRequired = true;
-
-        private bool pRequestRequired = true;
+        private RequestsRequired requestsRequired = new RequestsRequired();
 
         private bool hasPassword = false;
 
@@ -57,7 +49,7 @@ namespace SAMPLauncherNET
 
         private uint ping = 0U;
 
-        private Thread[] threads = null;
+        private Thread[] threads = new Thread[5];
 
         public uint IPv4AddressInt
         {
@@ -121,8 +113,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                if (iRequestRequired)
-                    SendQuery('i');
+                SendQueryWhenRequired(ERequestType.Information);
                 return hasPassword;
             }
         }
@@ -139,8 +130,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                if (iRequestRequired)
-                    SendQuery('i');
+                SendQueryWhenRequired(ERequestType.Information);
                 return playerCount;
             }
         }
@@ -157,8 +147,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                if (iRequestRequired)
-                    SendQuery('i');
+                SendQueryWhenRequired(ERequestType.Information);
                 return maxPlayers;
             }
         }
@@ -175,8 +164,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                if (iRequestRequired)
-                    SendQuery('i');
+                SendQueryWhenRequired(ERequestType.Information);
                 return hostname;
             }
         }
@@ -193,8 +181,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                if (iRequestRequired)
-                    SendQuery('i');
+                SendQueryWhenRequired(ERequestType.Information);
                 return gamemode;
             }
         }
@@ -211,8 +198,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                if (iRequestRequired)
-                    SendQuery('i');
+                SendQueryWhenRequired(ERequestType.Information);
                 return language;
             }
         }
@@ -229,8 +215,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                if (rRequestRequired)
-                    SendQuery('r');
+                SendQueryWhenRequired(ERequestType.Rules);
                 return rules.Keys;
             }
         }
@@ -247,8 +232,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                if (cRequestRequired)
-                    SendQuery('c');
+                SendQueryWhenRequired(ERequestType.Clients);
                 return clients.Keys;
             }
         }
@@ -265,8 +249,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                if (dRequestRequired)
-                    SendQuery('d');
+                SendQueryWhenRequired(ERequestType.DetailedClients);
                 return players.Keys;
             }
         }
@@ -283,8 +266,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                if (dRequestRequired)
-                    SendQuery('d');
+                SendQueryWhenRequired(ERequestType.DetailedClients);
                 return players.Values;
             }
         }
@@ -301,8 +283,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                if (pRequestRequired)
-                    SendQuery('p');
+                SendQueryWhenRequired(ERequestType.Ping);
                 return ping;
             }
         }
@@ -328,11 +309,11 @@ namespace SAMPLauncherNET
             get
             {
                 string[] ret = new string[7];
-                if (pRequestRequired)
+                if (requestsRequired[ERequestType.Ping])
                     ret[0] = "-";
                 else
                     ret[0] = ping.ToString();
-                if (iRequestRequired)
+                if (requestsRequired[ERequestType.Information])
                 {
                     ret[1] = "-";
                     ret[2] = "-";
@@ -358,11 +339,11 @@ namespace SAMPLauncherNET
             get
             {
                 object[] ret = new object[7];
-                if (pRequestRequired)
+                if (requestsRequired[ERequestType.Ping])
                     ret[0] = 0U;
                 else
                     ret[0] = ping;
-                if (iRequestRequired)
+                if (requestsRequired[ERequestType.Information])
                 {
                     ret[1] = "";
                     ret[2] = (ushort)0;
@@ -383,11 +364,11 @@ namespace SAMPLauncherNET
             }
         }
 
-        public bool IsRowDataNotFetched
+        /*public bool IsRowDataNotFetched
         {
             get
             {
-                return (iRequestRequired || pRequestRequired);
+                return (requestsRequired[ERequestType.Information] || requestsRequired[ERequestType.Ping]);
             }
         }
 
@@ -395,7 +376,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                return ((!iRequestRequired) && (!pRequestRequired));
+                return ((!requestsRequired[ERequestType.Information]) && (!requestsRequired[ERequestType.Ping]));
             }
         }
 
@@ -403,7 +384,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                return ((!iRequestRequired) && (!pRequestRequired) && (!rRequestRequired) && (!cRequestRequired));
+                return ((!requestsRequired[ERequestType.Information]) && (!requestsRequired[ERequestType.Ping]) && (!requestsRequired[ERequestType.Rules]) && (!requestsRequired[ERequestType.Clients]));
             }
         }
 
@@ -429,6 +410,11 @@ namespace SAMPLauncherNET
             {
                 return (!dRequestRequired);
             }
+        }*/
+
+        public bool IsDataFetched(ERequestType requestType)
+        {
+            return !(requestsRequired[requestType]);
         }
 
         public void FetchAnyData()
@@ -442,15 +428,39 @@ namespace SAMPLauncherNET
             AbortAllThreads();
             ForceRequest();
             threads = new Thread[5];
-            threads[0] = new Thread(() => SendQuery('p'));
-            threads[1] = new Thread(() => SendQuery('i'));
-            threads[2] = new Thread(() => SendQuery('r'));
-            threads[3] = new Thread(() => SendQuery('c'));
-            threads[4] = new Thread(() => SendQuery('d'));
-            StartAllThreads();
+            lock (threads)
+            {
+                threads[0] = new Thread(() => SendQuery(ERequestType.Ping));
+                threads[1] = new Thread(() => SendQuery(ERequestType.Information));
+                threads[2] = new Thread(() => SendQuery(ERequestType.Rules));
+                threads[3] = new Thread(() => SendQuery(ERequestType.Clients));
+                threads[4] = new Thread(() => SendQuery(ERequestType.DetailedClients));
+                StartAllThreads();
+            }
         }
 
-        public void FetchRowData()
+        public void FetchMultiData(ERequestType[] requestTypes)
+        {
+            Dictionary<ERequestType, Thread> ts = new Dictionary<ERequestType, Thread>();
+            foreach (ERequestType rt in requestTypes)
+            {
+                if (!(ts.ContainsKey(rt)))
+                {
+                    AbortThread(rt);
+                    requestsRequired[rt] = true;
+                    Thread t = new Thread(() => SendQuery(rt));
+                    threads[(int)rt] = t;
+                    ts.Add(rt, t);
+                    t.Start();
+                }
+            }
+            foreach (Thread t in ts.Values)
+            {
+                t.Join();
+            }
+        }
+
+        /*public void FetchRowData()
         {
             FetchRowDataAsync();
             JoinAllThreads();
@@ -462,9 +472,12 @@ namespace SAMPLauncherNET
             pRequestRequired = true;
             iRequestRequired = true;
             threads = new Thread[2];
-            threads[0] = new Thread(() => SendQuery('p'));
-            threads[1] = new Thread(() => SendQuery('i'));
-            StartAllThreads();
+            lock (threads)
+            {
+                threads[0] = new Thread(() => SendQuery('p'));
+                threads[1] = new Thread(() => SendQuery('i'));
+                StartAllThreads();
+            }
         }
 
         public void FetchRowPlayerAndRulesData()
@@ -481,11 +494,14 @@ namespace SAMPLauncherNET
             rRequestRequired = true;
             cRequestRequired = true;
             threads = new Thread[4];
-            threads[0] = new Thread(() => SendQuery('p'));
-            threads[1] = new Thread(() => SendQuery('i'));
-            threads[2] = new Thread(() => SendQuery('r'));
-            threads[3] = new Thread(() => SendQuery('c'));
-            StartAllThreads();
+            lock (threads)
+            {
+                threads[0] = new Thread(() => SendQuery('p'));
+                threads[1] = new Thread(() => SendQuery('i'));
+                threads[2] = new Thread(() => SendQuery('r'));
+                threads[3] = new Thread(() => SendQuery('c'));
+                StartAllThreads();
+            }
         }
 
         public void FetchPingData()
@@ -499,8 +515,11 @@ namespace SAMPLauncherNET
             AbortAllThreads();
             pRequestRequired = true;
             threads = new Thread[1];
-            threads[0] = new Thread(() => SendQuery('p'));
-            StartAllThreads();
+            lock (threads)
+            {
+                threads[0] = new Thread(() => SendQuery('p'));
+                StartAllThreads();
+            }
         }
 
         public void FetchInformationData()
@@ -514,8 +533,11 @@ namespace SAMPLauncherNET
             AbortAllThreads();
             iRequestRequired = true;
             threads = new Thread[1];
-            threads[0] = new Thread(() => SendQuery('i'));
-            StartAllThreads();
+            lock (threads)
+            {
+                threads[0] = new Thread(() => SendQuery('i'));
+                StartAllThreads();
+            }
         }
 
         public void FetchInformativePlayerData()
@@ -529,18 +551,54 @@ namespace SAMPLauncherNET
             AbortAllThreads();
             iRequestRequired = true;
             threads = new Thread[1];
-            threads[0] = new Thread(() => SendQuery('d'));
-            StartAllThreads();
+            lock (threads)
+            {
+                threads[0] = new Thread(() => SendQuery('d'));
+                StartAllThreads();
+            }
+        }*/
+
+        public void FetchData(ERequestType requestType)
+        {
+            AbortThread(requestType);
+            requestsRequired[requestType] = true;
+            SendQuery(requestType);
+        }
+
+        public void FetchDataAsync(ERequestType requestType)
+        {
+            AbortThread(requestType);
+            requestsRequired[requestType] = true;
+            SendQueryAsync(requestType);
+        }
+
+        private void AbortThread(ERequestType requestType)
+        {
+            lock (threads)
+            {
+                int index = (int)requestType;
+                if (threads[index] != null)
+                {
+                    threads[index].Abort();
+                    threads[index] = null;
+                }
+            }
         }
 
         private void AbortAllThreads()
         {
             if (threads != null)
             {
-                foreach (Thread t in threads)
+                lock (threads)
                 {
-                    if (t != null)
-                        t.Abort();
+                    for (int i = 0; i < threads.Length; i++)
+                    {
+                        if (threads[i] != null)
+                        {
+                            threads[i].Abort();
+                            threads[i] = null;
+                        }
+                    }
                 }
             }
         }
@@ -581,7 +639,22 @@ namespace SAMPLauncherNET
             }
         }
 
-        private bool SendQuery(char opcode)
+        private void SendQueryAsync(ERequestType requestType)
+        {
+            int index = (int)requestType;
+            threads[index] = new Thread(() => SendQuery(requestType));
+            threads[index].Start();
+        }
+
+        private bool SendQueryWhenRequired(ERequestType requestType)
+        {
+            bool ret = true;
+            if (requestsRequired[requestType])
+                ret = SendQuery(requestType);
+            return ret;
+        }
+
+        private bool SendQuery(ERequestType requestType)
         {
             bool ret = false;
             try
@@ -591,11 +664,12 @@ namespace SAMPLauncherNET
                 {
                     using (BinaryWriter writer = new BinaryWriter(stream))
                     {
+                        char op_code = RequestsRequired.GetOpCode(requestType);
                         writer.Write("SAMP".ToCharArray());
                         writer.Write(ipv4AddressUInt);
                         writer.Write(port);
-                        writer.Write(opcode);
-                        if (opcode == 'p')
+                        writer.Write(op_code);
+                        if (op_code == 'p')
                         {
                             Random r = new Random();
                             r.NextBytes(randomNumbers);
@@ -641,6 +715,15 @@ namespace SAMPLauncherNET
                                     {
                                         switch (reader.ReadChar())
                                         {
+                                            // Ping
+                                            case 'p':
+                                                if (Utils.AreEqual(randomNumbers, reader.ReadBytes(4)))
+                                                {
+                                                    ping = (uint)(timestamp[1].Subtract(timestamp[0]).TotalMilliseconds);
+                                                    requestsRequired[ERequestType.Ping] = false;
+                                                }
+                                                break;
+
                                             // Information
                                             case 'i':
                                                 hasPassword = (reader.ReadByte() != 0);
@@ -649,7 +732,7 @@ namespace SAMPLauncherNET
                                                 hostname = QueryEncoding.GetString(reader.ReadBytes(reader.ReadInt32()));
                                                 gamemode = QueryEncoding.GetString(reader.ReadBytes(reader.ReadInt32()));
                                                 language = QueryEncoding.GetString(reader.ReadBytes(reader.ReadInt32()));
-                                                iRequestRequired = false;
+                                                requestsRequired[ERequestType.Information] = false;
                                                 break;
 
                                             // Rules
@@ -663,7 +746,7 @@ namespace SAMPLauncherNET
                                                         k = QueryEncoding.GetString(reader.ReadBytes(reader.ReadByte()));
                                                         rules.Add(k, QueryEncoding.GetString(reader.ReadBytes(reader.ReadByte())));
                                                     }
-                                                    rRequestRequired = false;
+                                                    requestsRequired[ERequestType.Rules] = false;
                                                 }
                                                 break;
 
@@ -679,7 +762,7 @@ namespace SAMPLauncherNET
                                                         k = QueryEncoding.GetString(reader.ReadBytes(reader.ReadByte()));
                                                         clients.Add(k, reader.ReadInt32());
                                                     }
-                                                    cRequestRequired = false;
+                                                    requestsRequired[ERequestType.Clients] = false;
                                                 }
                                                 break;
 
@@ -700,16 +783,7 @@ namespace SAMPLauncherNET
                                                         p = reader.ReadUInt32();
                                                         players.Add(id, new Player(id, pn, s, p));
                                                     }
-                                                    dRequestRequired = false;
-                                                }
-                                                break;
-
-                                            // Ping
-                                            case 'p':
-                                                if (Utils.AreEqual(randomNumbers, reader.ReadBytes(4)))
-                                                {
-                                                    ping = (uint)(timestamp[1].Subtract(timestamp[0]).TotalMilliseconds);
-                                                    pRequestRequired = false;
+                                                    requestsRequired[ERequestType.DetailedClients] = false;
                                                 }
                                                 break;
                                         }
@@ -750,7 +824,8 @@ namespace SAMPLauncherNET
                         socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                         socket.SendTimeout = 1000;
                         socket.ReceiveTimeout = 1000;
-                        FetchRowDataAsync();
+                        FetchDataAsync(ERequestType.Ping);
+                        FetchDataAsync(ERequestType.Information);
                     }
                     else
                     {
@@ -763,20 +838,17 @@ namespace SAMPLauncherNET
 
         public void ForceRequest()
         {
-            iRequestRequired = true;
-            rRequestRequired = true;
-            cRequestRequired = true;
-            dRequestRequired = true;
-            pRequestRequired = true;
+            requestsRequired[ERequestType.Ping] = true;
+            requestsRequired[ERequestType.Information] = true;
+            requestsRequired[ERequestType.Rules] = true;
+            requestsRequired[ERequestType.Clients] = true;
+            requestsRequired[ERequestType.DetailedClients] = true;
         }
 
         public string GetRuleValue(string ruleName)
         {
             string ret = "";
-            if (rRequestRequired)
-            {
-                SendQuery('r');
-            }
+            SendQueryWhenRequired(ERequestType.Rules);
             if (rules.ContainsKey(ruleName))
                 ret = rules[ruleName];
             return ret;
@@ -785,8 +857,7 @@ namespace SAMPLauncherNET
         public int GetScoreFromClient(string clientName)
         {
             int ret = 0;
-            if (cRequestRequired)
-                SendQuery('c');
+            SendQueryWhenRequired(ERequestType.Clients);
             if (clients.ContainsKey(clientName))
                 ret = clients[clientName];
             return ret;
@@ -795,8 +866,7 @@ namespace SAMPLauncherNET
         public Player GetPlayer(byte id)
         {
             Player ret = null;
-            if (dRequestRequired)
-                SendQuery('d');
+            SendQueryWhenRequired(ERequestType.DetailedClients);
             if (players.ContainsKey(id))
                 ret = players[id];
             return ret;
@@ -809,12 +879,7 @@ namespace SAMPLauncherNET
 
         public void Dispose()
         {
-            if (threads != null)
-            {
-                foreach (Thread t in threads)
-                    t.Abort();
-                threads = null;
-            }
+            AbortAllThreads();
             if (socket != null)
             {
                 socket.Dispose();

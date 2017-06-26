@@ -59,7 +59,6 @@
             this.usernameTextBox.MaxLength = 32767;
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.PasswordChar = '\0';
-            this.usernameTextBox.PromptText = "{$INSERT_PLAYER_NAME_HERE$}";
             this.usernameTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.usernameTextBox.SelectedText = "";
             this.usernameTextBox.SelectionLength = 0;
@@ -142,7 +141,6 @@
             this.serverPasswordTextBox.MaxLength = 32767;
             this.serverPasswordTextBox.Name = "serverPasswordTextBox";
             this.serverPasswordTextBox.PasswordChar = '\0';
-            this.serverPasswordTextBox.PromptText = "{$INSERT_SERVER_PASSWORD_HERE$}";
             this.serverPasswordTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.serverPasswordTextBox.SelectedText = "";
             this.serverPasswordTextBox.SelectionLength = 0;
