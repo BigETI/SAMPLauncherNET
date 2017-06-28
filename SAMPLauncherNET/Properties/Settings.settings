@@ -5,11 +5,11 @@
     <Setting Name="Language" Type="System.String" Scope="User">
       <Value Profile="(Default)">en-GB</Value>
     </Setting>
-    <Setting Name="Theme" Type="MetroFramework.MetroThemeStyle" Scope="User">
+    <Setting Name="Theme" Type="MetroFramework.MetroThemeStyle" Scope="Application">
       <Value Profile="(Default)">Dark</Value>
     </Setting>
-    <Setting Name="Style" Type="MetroFramework.MetroColorStyle" Scope="User">
-      <Value Profile="(Default)">Blue</Value>
+    <Setting Name="Style" Type="MetroFramework.MetroColorStyle" Scope="Application">
+      <Value Profile="(Default)">Purple</Value>
     </Setting>
   </Settings>
 </SettingsFile>

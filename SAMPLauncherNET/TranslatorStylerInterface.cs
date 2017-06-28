@@ -16,7 +16,7 @@ namespace SAMPLauncherNET
             }
             set
             {
-                Properties.Settings.Default.Language = value;
+                Properties.Settings.Default["Language"] = value;
             }
         }
 
@@ -44,7 +44,7 @@ namespace SAMPLauncherNET
             }
             set
             {
-                Properties.Settings.Default.Theme = value;
+                Properties.Settings.Default["Theme"] = value;
             }
         }
         public MetroColorStyle UseStyle
@@ -55,7 +55,7 @@ namespace SAMPLauncherNET
             }
             set
             {
-                Properties.Settings.Default.Style = value;
+                Properties.Settings.Default["Style"] = value;
             }
         }
 

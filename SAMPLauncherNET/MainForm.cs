@@ -390,7 +390,7 @@ namespace SAMPLauncherNET
             if (i >= 0)
             {
                 List<Language> langs = new List<Language>(TranslatorStyler.TranslatorStylerInterface.Languages);
-                Properties.Settings.Default.Language = langs[i].Culture;
+                Properties.Settings.Default["Language"] = langs[i].Culture;
                 Properties.Settings.Default.Save();
                 Application.Restart();
             }

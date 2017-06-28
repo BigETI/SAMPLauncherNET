@@ -35,27 +35,21 @@ namespace SAMPLauncherNET.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Dark")]
         public global::MetroFramework.MetroThemeStyle Theme {
             get {
                 return ((global::MetroFramework.MetroThemeStyle)(this["Theme"]));
             }
-            set {
-                this["Theme"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Blue")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Purple")]
         public global::MetroFramework.MetroColorStyle Style {
             get {
                 return ((global::MetroFramework.MetroColorStyle)(this["Style"]));
-            }
-            set {
-                this["Style"] = value;
             }
         }
     }
