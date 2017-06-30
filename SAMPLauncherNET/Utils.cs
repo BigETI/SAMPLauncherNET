@@ -1,8 +1,8 @@
-﻿using MetroTranslatorStyler;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -37,6 +37,8 @@ namespace SAMPLauncherNET
         public static readonly string GalleryPath = ConfigPath + "\\screens";
 
         public static readonly string ChatlogPath = ConfigPath + "\\chatlog.txt";
+
+        public static readonly string SavedPositionsPath = ConfigPath + "\\savedpositions.txt";
 
         public static readonly string SAMPConfigPath = ConfigPath + "\\sa-mp.cfg";
 
@@ -119,11 +121,13 @@ namespace SAMPLauncherNET
                                         int sc = reader.ReadInt32();
                                         for (int i = 0; i < sc; i++)
                                         {
-                                            string ip = new string(reader.ReadChars(reader.ReadInt32()));
+                                            
+                                            
+                                            string ip = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
                                             ushort port = (ushort)(reader.ReadUInt32());
-                                            string cn = new string(reader.ReadChars(reader.ReadInt32()));
-                                            string sp = new string(reader.ReadChars(reader.ReadInt32()));
-                                            string rp = new string(reader.ReadChars(reader.ReadInt32()));
+                                            string cn = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
+                                            string sp = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
+                                            string rp = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
                                             ip = ip + ":" + port;
                                             FavouriteServer s = new FavouriteServer(ip, cn, sp, rp);
                                             if (s.IsValid)
@@ -135,9 +139,9 @@ namespace SAMPLauncherNET
                         }
                     }
                 }
-                catch (Exception e)
+                catch
                 {
-                    MessageBox.Show(e.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //
                 }
                 return ret;
             }
@@ -156,18 +160,19 @@ namespace SAMPLauncherNET
                                 writer.Write(value.Count);
                                 foreach (KeyValuePair<string, FavouriteServer> kv in value)
                                 {
-                                    writer.Write(kv.Value.IPv4AddressString.Length);
-                                    writer.Write(kv.Value.IPv4AddressString.ToCharArray());
+                                    byte[] data = Encoding.Default.GetBytes(kv.Value.IPv4AddressString);
+                                    writer.Write(data.Length);
+                                    writer.Write(data);
                                     writer.Write((uint)(kv.Value.Port));
-                                    string t = kv.Value.Hostname;
-                                    writer.Write(t.Length);
-                                    writer.Write(t.ToCharArray());
-                                    t = kv.Value.ServerPassword;
-                                    writer.Write(t.Length);
-                                    writer.Write(t.ToCharArray());
-                                    t = kv.Value.RCONPassword;
-                                    writer.Write(t.Length);
-                                    writer.Write(t.ToCharArray());
+                                    data = Encoding.Default.GetBytes(kv.Value.Hostname);
+                                    writer.Write(data.Length);
+                                    writer.Write(data);
+                                    data = Encoding.Default.GetBytes(kv.Value.ServerPassword);
+                                    writer.Write(data.Length);
+                                    writer.Write(data);
+                                    data = Encoding.Default.GetBytes(kv.Value.RCONPassword);
+                                    writer.Write(data.Length);
+                                    writer.Write(data);
                                 }
                             }
                         }
@@ -203,18 +208,41 @@ namespace SAMPLauncherNET
             }
         }
 
+        public static string SavedPositions
+        {
+            get
+            {
+                string ret = "";
+                try
+                {
+                    using (FileStream fs = File.Open(SavedPositionsPath, FileMode.Open))
+                    {
+                        using (StreamReader sr = new StreamReader(fs, Encoding.Default))
+                        {
+                            ret = sr.ReadToEnd();
+                        }
+                    }
+                }
+                catch
+                {
+
+                }
+                return ret;
+            }
+        }
+
         public static SAMPConfig SAMPConfig
         {
             get
             {
-                return new SAMPConfig(new INIFile(SAMPConfigPath));
+                return new SAMPConfig(SAMPConfigPath);
             }
         }
 
         private static Dictionary<string, Server> FetchIPList(string listName)
         {
             Dictionary<string, Server> ret = new Dictionary<string, Server>();
-            using (WebClient wc = new WebClient())
+            using (WebClientEx wc = new WebClientEx(5000))
             {
                 wc.Headers.Set(HttpRequestHeader.ContentType, APIHTTPContentType);
                 wc.Headers.Set(HttpRequestHeader.Host, APIHTTPHost);
@@ -245,7 +273,7 @@ namespace SAMPLauncherNET
                         {
                             Kernel32.PROCESS_INFORMATION process_info;
                             Kernel32.STARTUPINFO startup_info = new Kernel32.STARTUPINFO();
-                            if (Kernel32.CreateProcess(GTASAExe, debug ? "-d" : "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPPortString + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)), IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
+                            if (Kernel32.CreateProcess(GTASAExe, debug ? "-d" : "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)), IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
                             {
                                 IntPtr ptr = Kernel32.VirtualAllocEx(process_info.hProcess, IntPtr.Zero, (uint)(SAMPDLLPath.Length + 1) * 2U, Kernel32.AllocationType.Reserve | Kernel32.AllocationType.Commit, Kernel32.MemoryProtection.ReadWrite);
                                 if (ptr != IntPtr.Zero)
@@ -314,6 +342,27 @@ namespace SAMPLauncherNET
             catch
             {
                 //
+            }
+        }
+
+        public static Dictionary<string, Image> GalleryImages
+        {
+            get
+            {
+                Dictionary<string, Image> ret = new Dictionary<string, Image>();
+                string[] files = Directory.GetFiles(GalleryPath, "*.png");
+                foreach (string file in files)
+                {
+                    try
+                    {
+                        ret.Add(file, Image.FromFile(file));
+                    }
+                    catch
+                    {
+                        //
+                    }
+                }
+                return ret;
             }
         }
 

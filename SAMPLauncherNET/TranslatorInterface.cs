@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using MetroFramework;
-using MetroTranslatorStyler;
+using WinFormsTranslator;
 
 namespace SAMPLauncherNET
 {
-    public class TranslatorStylerInterface : ITranslatorStylerInterface
+    public class TranslatorInterface : ITranslatorInterface
     {
+
         private Language[] languages = new Language[] { new Language("ENGLISH", "en-GB"), new Language("GERMAN", "de-DE") };
 
         public string Language
@@ -33,29 +33,6 @@ namespace SAMPLauncherNET
             get
             {
                 return languages;
-            }
-        }
-
-        public MetroThemeStyle UseTheme
-        {
-            get
-            {
-                return Properties.Settings.Default.Theme;
-            }
-            set
-            {
-                Properties.Settings.Default["Theme"] = value;
-            }
-        }
-        public MetroColorStyle UseStyle
-        {
-            get
-            {
-                return Properties.Settings.Default.Style;
-            }
-            set
-            {
-                Properties.Settings.Default["Style"] = value;
             }
         }
 

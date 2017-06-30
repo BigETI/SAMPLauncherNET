@@ -1,22 +1,32 @@
-﻿using MetroFramework.Forms;
-using MetroTranslatorStyler;
-using System.Collections.Generic;
-using System.Threading;
-using System.Windows.Forms;
+﻿using INIEngine;
+using MaterialSkin;
+using MaterialSkin.Controls;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using WinFormsTranslator;
 
 namespace SAMPLauncherNET
 {
-    public partial class MainForm : MetroForm
+    public partial class MainForm : MaterialForm
     {
 
-        private static readonly int ProcessorCount = Environment.ProcessorCount;
+        private MaterialSkinManager materialSkinManager = null;
 
         private List<KeyValuePair<Server, int>> loadServers = new List<KeyValuePair<Server, int>>();
 
         private List<KeyValuePair<Server, int>> loadedServers = new List<KeyValuePair<Server, int>>();
+
+        private Dictionary<string, Server> registeredServers = new Dictionary<string, Server>();
 
         private Thread thread = null;
 
@@ -24,20 +34,20 @@ namespace SAMPLauncherNET
 
         private bool rowThreadSuccess = false;
 
-        private Dictionary<string, Server> registeredServers = new Dictionary<string, Server>();
+        private int[] serverCount = new int[] { 0, 0, 0 };
 
-        private int serverCount = 0;
+        private SAMPConfig config = Utils.SAMPConfig;
 
         public Server SelectedServer
         {
             get
             {
                 Server ret = null;
-                foreach (DataGridViewRow dgvr in serversGrid.SelectedRows)
+                foreach (DataGridViewRow dgvr in serversGridView.SelectedRows)
                 {
-                    if (dgvr.Cells[dgvr.Cells.Count - 2].Value != null)
+                    if (dgvr.Cells[dgvr.Cells.Count - 1].Value != null)
                     {
-                        string ipp = dgvr.Cells[dgvr.Cells.Count - 2].Value.ToString();
+                        string ipp = dgvr.Cells[dgvr.Cells.Count - 1].Value.ToString();
                         if (registeredServers.ContainsKey(ipp))
                         {
                             ret = registeredServers[ipp];
@@ -52,18 +62,45 @@ namespace SAMPLauncherNET
         public MainForm()
         {
             InitializeComponent();
-            TranslatorStyler.LoadTranslationStyle(this, new TranslatorStylerInterface());
-            TranslatorStyler.EnumerableToComboBox(languagesComboBox, TranslatorStyler.TranslatorStylerInterface.Languages);
+            Translator.LoadTranslation(this);
+            Translator.EnumerableToComboBox(languagesComboBox, Translator.TranslatorInterface.Languages);
+            int i = 0;
+            foreach (Language language in Translator.TranslatorInterface.Languages)
+            {
+                if (language.Culture == (string)(Properties.Settings.Default["Language"]))
+                {
+                    languagesComboBox.SelectedIndex = i;
+                    break;
+                }
+                ++i;
+            }
+
+            materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue700, Primary.Blue800, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
+            //materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange400, Primary.DeepOrange600, Primary.DeepOrange100, Accent.Orange100, TextShade.WHITE);
+
+            galleryFileSystemWatcher.Path = Utils.GalleryPath;
+            textFileSystemWatcher.Path = Utils.ConfigPath;
+
+            lastChatlogTextBox.Text = Utils.Chatlog;
+            savedPositionsTextBox.Text = Utils.SavedPositions;
+
+            ReloadConfig();
+
             Dictionary<string, FavouriteServer> fl = Utils.FavouritesIO;
+            serverCount[0] = fl.Count;
             foreach (FavouriteServer s in fl.Values)
                 loadServers.Add(new KeyValuePair<Server, int>(s, 0));
             Dictionary<string, Server> l = Utils.FetchHostedList;
+            serverCount[1] = l.Count;
             foreach (Server s in l.Values)
                 loadServers.Add(new KeyValuePair<Server, int>(s, 1));
             l = Utils.FetchMasterList;
+            serverCount[2] = l.Count;
             foreach (Server s in l.Values)
                 loadServers.Add(new KeyValuePair<Server, int>(s, 2));
-            serverCount = loadServers.Count;
             UpdateServerCount();
             thread = new Thread(() =>
             {
@@ -90,6 +127,24 @@ namespace SAMPLauncherNET
             thread.Start();
         }
 
+        private void UpdateServerCount()
+        {
+            StringBuilder sb = new StringBuilder(Translator.GetTranslation("SERVERS"));
+            sb.Append(": ");
+            bool first = true;
+            for (int i = 0; i < 3; i++)
+            {
+                if (first)
+                    first = false;
+                else
+                    sb.Append(", ");
+                sb.Append(serversDataTable.Select("GroupID=" + i).Length.ToString());
+                sb.Append("/");
+                sb.Append(serverCount[i].ToString());
+            }
+            serverCountLabel.Text = sb.ToString();
+        }
+
         private void EnterRow()
         {
             if (rowThread != null)
@@ -108,44 +163,36 @@ namespace SAMPLauncherNET
             }
         }
 
-        private void UpdateServerCount()
-        {
-            serverCountLabel.Text = Translator.GetTranslation("SERVERS") + ": " + serversDataTable.Rows.Count + "/" + serverCount;
-        }
-
         private void ReloadSelectedServerRow()
         {
-            foreach (DataGridViewRow dgvr in serversGrid.SelectedRows)
+            foreach (DataGridViewRow dgvr in serversGridView.SelectedRows)
             {
-                if (dgvr.Cells[dgvr.Cells.Count - 2].Value != null)
+                if (dgvr.Cells[dgvr.Cells.Count - 1].Value != null)
                 {
-                    string ipp = dgvr.Cells[dgvr.Cells.Count - 2].Value.ToString();
+                    string ipp = dgvr.Cells[dgvr.Cells.Count - 1].Value.ToString();
                     if (registeredServers.ContainsKey(ipp))
                     {
-                        Server s = registeredServers[ipp];
+                        Server server = registeredServers[ipp];
                         DateTime timestamp = DateTime.Now;
-                        while ((!s.IsDataFetched(ERequestType.Ping)) || (!s.IsDataFetched(ERequestType.Information)))
+                        while ((!server.IsDataFetched(ERequestType.Ping)) && (!server.IsDataFetched(ERequestType.Information)))
                         {
                             if (DateTime.Now.Subtract(timestamp).TotalMilliseconds >= 1000)
                                 break;
                         }
-                        object[] row = s.CachedRowData;
-                        for (int i = 0; i < row.Length; i++)
-                            dgvr.Cells[i].Value = row[i];
+                        if (server.IsDataFetched(ERequestType.Ping))
+                            dgvr.Cells[1].Value = server.Ping;
+                        if (server.IsDataFetched(ERequestType.Information))
+                        {
+                            dgvr.Cells[2].Value = server.Hostname;
+                            dgvr.Cells[3].Value = server.PlayerCount;
+                            dgvr.Cells[4].Value = server.MaxPlayers;
+                            dgvr.Cells[5].Value = server.Gamemode;
+                            dgvr.Cells[6].Value = server.Language;
+                        }
                         ReloadServerInfo();
                     }
                 }
                 break;
-            }
-        }
-
-        private void RequestServerInfo(Server server)
-        {
-            while (true)
-            {
-                server.FetchMultiData(new ERequestType[] { ERequestType.Ping, ERequestType.Information, ERequestType.Clients, ERequestType.Rules });
-                rowThreadSuccess = (server.IsDataFetched(ERequestType.Ping) && server.IsDataFetched(ERequestType.Information) && server.IsDataFetched(ERequestType.Clients) && server.IsDataFetched(ERequestType.Rules));
-                Thread.Sleep(2000);
             }
         }
 
@@ -156,7 +203,7 @@ namespace SAMPLauncherNET
             Server server = SelectedServer;
             if (server != null)
             {
-                foreach (DataGridViewRow dgvr in playersGrid.SelectedRows)
+                foreach (DataGridViewRow dgvr in playersGridView.SelectedRows)
                 {
                     si = dgvr.Index;
                     break;
@@ -183,10 +230,10 @@ namespace SAMPLauncherNET
                     //
                 }
                 if (cs)
-                    playersGrid.Rows[si].Selected = true;
+                    playersGridView.Rows[si].Selected = true;
                 si = 0;
                 cs = false;
-                foreach (DataGridViewRow dgvr in rulesGrid.SelectedRows)
+                foreach (DataGridViewRow dgvr in rulesGridView.SelectedRows)
                 {
                     si = dgvr.Index;
                     break;
@@ -213,27 +260,24 @@ namespace SAMPLauncherNET
                     //
                 }
                 if (cs)
-                    rulesGrid.Rows[si].Selected = true;
+                    rulesGridView.Rows[si].Selected = true;
             }
         }
 
-        private void Connect(string rconPassword = null)
+        private void RequestServerInfo(Server server)
         {
-            Server server = SelectedServer;
-            if (server != null)
+            while (true)
             {
-                ConnectForm cf = new ConnectForm(!(server.HasPassword));
-                DialogResult result = cf.ShowDialog();
-                DialogResult = DialogResult.None;
-                if (result == DialogResult.OK)
-                    Utils.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, false, closeWhenLaunchedCheckBox.Checked, this);
+                server.FetchMultiData(new ERequestType[] { ERequestType.Ping, ERequestType.Information, ERequestType.Clients, ERequestType.Rules });
+                rowThreadSuccess = (server.IsDataFetched(ERequestType.Ping) && server.IsDataFetched(ERequestType.Information) && server.IsDataFetched(ERequestType.Clients) && server.IsDataFetched(ERequestType.Rules));
+                Thread.Sleep(2000);
             }
         }
 
         private void UpdateServerListFilter()
         {
             int gid = 0;
-            string ft = filterTextBox.Text.Trim();
+            string ft = filterSingleLineTextField.Text.Trim();
             StringBuilder filter = new StringBuilder("GroupID=");
             if (showHostedListRadioButton.Checked)
                 gid = 1;
@@ -268,9 +312,110 @@ namespace SAMPLauncherNET
             }
         }
 
-        private void connectButton_Click(object sender, EventArgs e)
+        private void Connect(string rconPassword = null)
         {
-            Connect();
+            Server server = SelectedServer;
+            if (server != null)
+            {
+                ConnectForm cf = new ConnectForm(!(server.HasPassword));
+                DialogResult result = cf.ShowDialog();
+                DialogResult = DialogResult.None;
+                if (result == DialogResult.OK)
+                    Utils.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, false, closeWhenLaunchedCheckBox.Checked, this);
+            }
+        }
+
+        private void ReloadGallery()
+        {
+            if (mainTabControl.SelectedTab == galleryPage)
+            {
+                galleryListView.Clear();
+                galleryImageList.Images.Clear();
+                Dictionary<string, Image> images = Utils.GalleryImages;
+                int i = 0;
+                foreach (KeyValuePair<string, Image> kv in images)
+                {
+                    galleryImageList.Images.Add(kv.Value);
+                    ListViewItem lvi = galleryListView.Items.Add(kv.Key.Substring(Utils.GalleryPath.Length + 1), i);
+                    lvi.Tag = kv.Key;
+                    ++i;
+                }
+            }
+        }
+
+        private void ViewSelectedImage()
+        {
+            foreach (ListViewItem item in galleryListView.SelectedItems)
+            {
+                string file_name = (string)(item.Tag);
+                if (File.Exists(file_name))
+                    Process.Start(file_name);
+            }
+        }
+
+        private void DeleteSelectedImage()
+        {
+            List<string> files = new List<string>();
+            foreach (ListViewItem item in galleryListView.SelectedItems)
+            {
+                string file_name = (string)(item.Tag);
+                if (File.Exists(file_name))
+                    files.Add(file_name);
+            }
+            if (files.Count > 0)
+            {
+                if (MessageBox.Show(Translator.GetTranslation("DELETE_SELECTED_IMAGES"), Translator.GetTranslation("DELETE_SELECTED_IMAGES_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    galleryFileSystemWatcher.EnableRaisingEvents = false;
+                    foreach (string file in files)
+                    {
+                        try
+                        {
+                            File.Delete(file);
+                        }
+                        catch
+                        {
+                            //
+                        }
+                    }
+                    galleryFileSystemWatcher.EnableRaisingEvents = true;
+                    ReloadGallery();
+                }
+            }
+        }
+
+        public void SaveConfig()
+        {
+            config.PageSize = int.Parse(pageSizeSingleLineTextField.Text);
+            config.FPSLimit = fpsLimitTrackBar.Value;
+            config.DisableHeadMovement = disableHeadMoveCheckBox.Checked;
+            config.Timestamp = timestampCheckBox.Checked;
+            config.IME = imeCheckBox.Checked;
+            config.MultiCore = multiCoreCheckBox.Checked;
+            config.DirectMode = directModeCheckBox.Checked;
+            config.AudioMessageOff = audioMessageOffCheckBox.Checked;
+            config.AudioProxyOff = audioProxyOffCheckBox.Checked;
+            config.NoNametagStatus = noNametagStatusCheckBox.Checked;
+            config.FontFace = fontFaceSingleLineTextField.Text;
+            config.FontWeight = fontWeightCheckBox.Checked;
+            config.Save();
+        }
+
+        private void ReloadConfig()
+        {
+            pageSizeSingleLineTextField.Text = config.PageSize.ToString();
+            fpsLimitTrackBar.Value = config.FPSLimit;
+            fpsLimitSingleLineTextField.Text = fpsLimitTrackBar.Value.ToString();
+            disableHeadMoveCheckBox.Checked = config.DisableHeadMovement;
+            timestampCheckBox.Checked = config.Timestamp;
+            imeCheckBox.Checked = config.IME;
+            multiCoreCheckBox.Checked = config.MultiCore;
+            directModeCheckBox.Checked = config.DirectMode;
+            audioMessageOffCheckBox.Checked = config.AudioMessageOff;
+            audioProxyOffCheckBox.Checked = config.AudioProxyOff;
+            noNametagStatusCheckBox.Checked = config.NoNametagStatus;
+            fontFaceSingleLineTextField.Text = config.FontFace;
+            fontWeightCheckBox.Checked = config.FontWeight;
         }
 
         private void serverListTimer_Tick(object sender, EventArgs e)
@@ -280,16 +425,33 @@ namespace SAMPLauncherNET
                 foreach (KeyValuePair<Server, int> kv in loadedServers)
                 {
                     DataRow dr = serversDataTable.NewRow();
-                    object[] data = kv.Key.CachedRowData;
-                    object[] row = new object[data.Length + 1];
-                    for (int i = 0; i < data.Length; i++)
-                        row[i] = data[i];
-                    row[data.Length] = kv.Value;
+                    object[] row = new object[8];
+                    row[0] = kv.Value;
+                    if (kv.Key.IsDataFetched(ERequestType.Ping))
+                        row[1] = kv.Key.Ping;
+                    else
+                        row[1] = 1000U;
+                    if (kv.Key.IsDataFetched(ERequestType.Information))
+                    {
+                        row[2] = kv.Key.Hostname;
+                        row[3] = kv.Key.PlayerCount;
+                        row[4] = kv.Key.MaxPlayers;
+                        row[5] = kv.Key.Gamemode;
+                        row[6] = kv.Key.Language;
+                    }
+                    else
+                    {
+                        row[2] = "-";
+                        row[3] = 0;
+                        row[4] = 0;
+                        row[5] = "-";
+                        row[6] = "-";
+                    }
+                    row[7] = kv.Key.IPPortString;
                     dr.ItemArray = row;
                     serversDataTable.Rows.Add(dr);
-                    string ipp = data[data.Length - 1].ToString();
-                    if (!(registeredServers.ContainsKey(ipp)))
-                        registeredServers.Add(ipp, kv.Key);
+                    if (!(registeredServers.ContainsKey(kv.Key.IPPortString)))
+                        registeredServers.Add(kv.Key.IPPortString, kv.Key);
                 }
                 loadedServers.Clear();
                 UpdateServerCount();
@@ -299,6 +461,11 @@ namespace SAMPLauncherNET
                 rowThreadSuccess = false;
                 ReloadSelectedServerRow();
             }
+        }
+
+        private void serversGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            EnterRow();
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -331,19 +498,99 @@ namespace SAMPLauncherNET
             }
         }
 
-        private void selectGenericListRadioButton_CheckedChanged(object sender, EventArgs e)
+        private void languagesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int i = languagesComboBox.SelectedIndex;
+            if (i >= 0)
+            {
+                List<Language> langs = new List<Language>(Translator.TranslatorInterface.Languages);
+                if (Translator.ChangeLanguage(langs[i]))
+                    Application.Restart();
+            }
+        }
+
+        private void gitHubProjectPictureBox_Click(object sender, EventArgs e)
+        {
+            Utils.OpenGitHubProject();
+        }
+
+        private void genericGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            // null route
+            e.ThrowException = false;
+        }
+
+        private void filterSingleLineTextField_TextChanged(object sender, EventArgs e)
         {
             UpdateServerListFilter();
         }
 
-        private void serversGrid_RowEnter(object sender, DataGridViewCellEventArgs e)
+        private void filterGenericRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            EnterRow();
+            UpdateServerListFilter();
         }
 
-        private void launchSingleplayerModeButton_Click(object sender, EventArgs e)
+        private void genericPictureBox_MouseEnter(object sender, EventArgs e)
         {
-            Utils.LaunchSingleplayerMode(closeWhenLaunchedCheckBox.Checked, this);
+            Cursor = Cursors.Hand;
+        }
+
+        private void genericPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Default;
+        }
+
+        private void mainTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ReloadGallery();
+        }
+
+        private void galleryFileSystemWatcher_GenericChanged(object sender, System.IO.FileSystemEventArgs e)
+        {
+            ReloadGallery();
+        }
+
+        private void galleryFileSystemWatcher_Renamed(object sender, System.IO.RenamedEventArgs e)
+        {
+            ReloadGallery();
+        }
+
+        private void galleryViewPictureBox_Click(object sender, EventArgs e)
+        {
+            ViewSelectedImage();
+        }
+
+        private void galleryDeletePictureBox_Click(object sender, EventArgs e)
+        {
+            DeleteSelectedImage();
+        }
+
+        private void galleryListView_DoubleClick(object sender, EventArgs e)
+        {
+            ViewSelectedImage();
+        }
+
+        private void showGalleryPictureBox_Click(object sender, EventArgs e)
+        {
+            Utils.ShowGallery();
+        }
+
+        private void galleryListView_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Return:
+                    ViewSelectedImage();
+                    break;
+                case Keys.Delete:
+                    DeleteSelectedImage();
+                    break;
+            }
+        }
+
+        private void connectButton_Click(object sender, EventArgs e)
+        {
+            Connect();
         }
 
         private void launchDebugModeButton_Click(object sender, EventArgs e)
@@ -351,60 +598,65 @@ namespace SAMPLauncherNET
             Utils.LaunchSAMPDebugMode(closeWhenLaunchedCheckBox.Checked, this);
         }
 
-        private void optionsLink_Click(object sender, EventArgs e)
+        private void launchSingleplayerButton_Click(object sender, EventArgs e)
         {
-            OptionsForm of = new OptionsForm();
-            serverListTimer.Stop();
-            of.ShowDialog();
-            DialogResult = DialogResult.None;
-            serverListTimer.Start();
+            Utils.LaunchSingleplayerMode(closeWhenLaunchedCheckBox.Checked, this);
         }
 
-        private void showGalleryLink_Click(object sender, EventArgs e)
+        private void textFileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
-            Utils.ShowGallery();
-        }
-
-        private void needHelpForumsLink_Click(object sender, EventArgs e)
-        {
-            Utils.OpenForums();
-        }
-
-        private void gitHubProjectLink_Click(object sender, EventArgs e)
-        {
-            Utils.OpenGitHubProject();
-        }
-
-        private void showLastChatLogLink_Click(object sender, EventArgs e)
-        {
-            ChatlogForm cf = new ChatlogForm();
-            serverListTimer.Stop();
-            cf.ShowDialog();
-            DialogResult = DialogResult.None;
-            serverListTimer.Start();
-        }
-
-        private void languagesComboBox_TextChanged(object sender, EventArgs e)
-        {
-            int i = languagesComboBox.SelectedIndex;
-            if (i >= 0)
+            switch (e.Name)
             {
-                List<Language> langs = new List<Language>(TranslatorStyler.TranslatorStylerInterface.Languages);
-                Properties.Settings.Default["Language"] = langs[i].Culture;
-                Properties.Settings.Default.Save();
-                Application.Restart();
+                case "chatlog.txt":
+                    lastChatlogTextBox.Text = Utils.Chatlog;
+                    break;
+                case "savedpositions.txt":
+                    savedPositionsTextBox.Text = Utils.SavedPositions;
+                    break;
             }
         }
 
-        private void connectToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveConfigButton_Click(object sender, EventArgs e)
         {
-            Connect();
+            SaveConfig();
         }
 
-        private void connectWithRCONToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pageSizeSingleLineTextField_TextChanged(object sender, EventArgs e)
         {
-            RCONPasswordForm rconf = new RCONPasswordForm();
-            Connect();
+            int v = 0;
+            if (!(int.TryParse(pageSizeSingleLineTextField.Text, out v)))
+                pageSizeSingleLineTextField.Text = "0";
+        }
+
+        private void fpsLimitTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            fpsLimitSingleLineTextField.Text = fpsLimitTrackBar.Value.ToString();
+        }
+
+        private void fpsLimitSingleLineTextField_TextChanged(object sender, EventArgs e)
+        {
+            int v = 0;
+            if (int.TryParse(fpsLimitSingleLineTextField.Text, out v))
+            {
+                if (v < fpsLimitTrackBar.Minimum)
+                    v = fpsLimitTrackBar.Minimum;
+                else if (v > fpsLimitTrackBar.Maximum)
+                    v = fpsLimitTrackBar.Maximum;
+                if (fpsLimitSingleLineTextField.Text != v.ToString())
+                    fpsLimitSingleLineTextField.Text = v.ToString();
+                if (fpsLimitTrackBar.Value != v)
+                    fpsLimitTrackBar.Value = v;
+            }
+            else
+            {
+                fpsLimitSingleLineTextField.Text = fpsLimitTrackBar.Minimum.ToString();
+                fpsLimitTrackBar.Value = fpsLimitTrackBar.Minimum;
+            }
+        }
+
+        private void revertConfigButton_Click(object sender, EventArgs e)
+        {
+            ReloadConfig();
         }
 
         private void showExtendedServerInformationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -418,16 +670,6 @@ namespace SAMPLauncherNET
                 DialogResult = DialogResult.None;
                 serverListTimer.Start();
             }
-        }
-
-        private void filterGenericRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateServerListFilter();
-        }
-
-        private void filterTextBox_TextChanged(object sender, EventArgs e)
-        {
-            UpdateServerListFilter();
         }
 
         private void addServerToFavouritesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -462,6 +704,22 @@ namespace SAMPLauncherNET
                 else
                     MessageBox.Show(Translator.GetTranslation("SERVER_NOT_IN_FAVOURITES"), Translator.GetTranslation("NOT_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void showGenericRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateServerListFilter();
+        }
+
+        private void connectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void connectWithRCONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RCONPasswordForm rconf = new RCONPasswordForm();
+            Connect(rconf.RCONPassword);
         }
     }
 }

@@ -5,22 +5,23 @@ namespace SAMPLauncherNET
     public class FavouriteServer : Server
     {
 
-        private string cachedHostName;
-
         private string serverPassword;
 
         private string rconPassword;
 
-        public override string Hostname
+        /*public override string Hostname
         {
             get
             {
-                Task<string> hn = HostnameAsync;
-                if (hn.Wait(100))
-                    cachedHostName = hn.Result;
+                if (requestsRequired[ERequestType.Information])
+                {
+                    Task<string> hn = HostnameAsync;
+                    if (hn.Wait(100))
+                        cachedHostName = hn.Result;
+                }
                 return cachedHostName;
             }
-        }
+        }*/
 
         public string ServerPassword
         {
@@ -38,9 +39,10 @@ namespace SAMPLauncherNET
             }
         }
 
-        public FavouriteServer(string ipAddressAndPortString, string cachedHostName = "", string serverPassword = "", string rconPassword = "") : base(ipAddressAndPortString)
+        public FavouriteServer(string ipAddressAndPortString, string cachedHostname = "", string serverPassword = "", string rconPassword = "") : base(ipAddressAndPortString, false)
         {
-            this.cachedHostName = cachedHostName;
+            requestsRequired[ERequestType.Information] = false;
+            hostname = cachedHostname;
             this.serverPassword = serverPassword;
             this.rconPassword = rconPassword;
         }

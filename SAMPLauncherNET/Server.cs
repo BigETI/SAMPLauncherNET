@@ -25,7 +25,7 @@ namespace SAMPLauncherNET
 
         private DateTime[] timestamp = new DateTime[2];
 
-        private RequestsRequired requestsRequired = new RequestsRequired();
+        protected RequestsRequired requestsRequired = new RequestsRequired();
 
         private bool hasPassword = false;
 
@@ -33,7 +33,7 @@ namespace SAMPLauncherNET
 
         private ushort maxPlayers = 0;
 
-        private string hostname = "";
+        protected string hostname = "";
 
         private string gamemode = "";
 
@@ -304,66 +304,6 @@ namespace SAMPLauncherNET
             }
         }
 
-        public string[] CachedStringData
-        {
-            get
-            {
-                string[] ret = new string[7];
-                if (requestsRequired[ERequestType.Ping])
-                    ret[0] = "-";
-                else
-                    ret[0] = ping.ToString();
-                if (requestsRequired[ERequestType.Information])
-                {
-                    ret[1] = "-";
-                    ret[2] = "-";
-                    ret[3] = "-";
-                    ret[4] = "-";
-                    ret[5] = "-";
-                }
-                else
-                {
-                    ret[1] = hostname;
-                    ret[2] = playerCount.ToString();
-                    ret[3] = maxPlayers.ToString();
-                    ret[4] = gamemode;
-                    ret[5] = language;
-                }
-                ret[6] = IPPortString;
-                return ret;
-            }
-        }
-
-        public object[] CachedRowData
-        {
-            get
-            {
-                object[] ret = new object[7];
-                if (requestsRequired[ERequestType.Ping])
-                    ret[0] = 0U;
-                else
-                    ret[0] = ping;
-                if (requestsRequired[ERequestType.Information])
-                {
-                    ret[1] = "";
-                    ret[2] = (ushort)0;
-                    ret[3] = (ushort)0;
-                    ret[4] = "";
-                    ret[5] = "";
-                }
-                else
-                {
-                    ret[1] = hostname;
-                    ret[2] = playerCount;
-                    ret[3] = maxPlayers;
-                    ret[4] = gamemode;
-                    ret[5] = language;
-                }
-                ret[6] = IPPortString;
-                return ret;
-            }
-        }
-
         public bool IsDataFetched(ERequestType requestType)
         {
             return !(requestsRequired[requestType]);
@@ -411,104 +351,6 @@ namespace SAMPLauncherNET
                 t.Join();
             }
         }
-
-        /*public void FetchRowData()
-        {
-            FetchRowDataAsync();
-            JoinAllThreads();
-        }
-
-        public void FetchRowDataAsync()
-        {
-            AbortAllThreads();
-            pRequestRequired = true;
-            iRequestRequired = true;
-            threads = new Thread[2];
-            lock (threads)
-            {
-                threads[0] = new Thread(() => SendQuery('p'));
-                threads[1] = new Thread(() => SendQuery('i'));
-                StartAllThreads();
-            }
-        }
-
-        public void FetchRowPlayerAndRulesData()
-        {
-            FetchRowPlayerAndRulesDataAsync();
-            JoinAllThreads();
-        }
-
-        public void FetchRowPlayerAndRulesDataAsync()
-        {
-            AbortAllThreads();
-            pRequestRequired = true;
-            iRequestRequired = true;
-            rRequestRequired = true;
-            cRequestRequired = true;
-            threads = new Thread[4];
-            lock (threads)
-            {
-                threads[0] = new Thread(() => SendQuery('p'));
-                threads[1] = new Thread(() => SendQuery('i'));
-                threads[2] = new Thread(() => SendQuery('r'));
-                threads[3] = new Thread(() => SendQuery('c'));
-                StartAllThreads();
-            }
-        }
-
-        public void FetchPingData()
-        {
-            FetchPingDataAsync();
-            JoinAllThreads();
-        }
-
-        public void FetchPingDataAsync()
-        {
-            AbortAllThreads();
-            pRequestRequired = true;
-            threads = new Thread[1];
-            lock (threads)
-            {
-                threads[0] = new Thread(() => SendQuery('p'));
-                StartAllThreads();
-            }
-        }
-
-        public void FetchInformationData()
-        {
-            FetchInformationDataAsync();
-            JoinAllThreads();
-        }
-
-        public void FetchInformationDataAsync()
-        {
-            AbortAllThreads();
-            iRequestRequired = true;
-            threads = new Thread[1];
-            lock (threads)
-            {
-                threads[0] = new Thread(() => SendQuery('i'));
-                StartAllThreads();
-            }
-        }
-
-        public void FetchInformativePlayerData()
-        {
-            FetchInformativePlayerDataAsync();
-            JoinAllThreads();
-        }
-
-        public void FetchInformativePlayerDataAsync()
-        {
-            AbortAllThreads();
-            iRequestRequired = true;
-            threads = new Thread[1];
-            lock (threads)
-            {
-                threads[0] = new Thread(() => SendQuery('d'));
-                StartAllThreads();
-            }
-        }*/
 
         public void FetchData(ERequestType requestType)
         {
@@ -645,7 +487,6 @@ namespace SAMPLauncherNET
 
         private void Receive()
         {
-            //uint c = 0U;
             try
             {
                 EndPoint endpoint = new IPEndPoint(IPAddress, port);
@@ -752,7 +593,7 @@ namespace SAMPLauncherNET
             }
         }
 
-        public Server(string ipAddressAndPortString)
+        public Server(string ipAddressAndPortString, bool fetchData = true)
         {
             string[] parts = ipAddressAndPortString.Trim().Split(new char[] { '.', ':' });
             uint n;
@@ -776,8 +617,11 @@ namespace SAMPLauncherNET
                         socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                         socket.SendTimeout = 1000;
                         socket.ReceiveTimeout = 1000;
-                        FetchDataAsync(ERequestType.Ping);
-                        FetchDataAsync(ERequestType.Information);
+                        if (fetchData)
+                        {
+                            FetchDataAsync(ERequestType.Ping);
+                            FetchDataAsync(ERequestType.Information);
+                        }
                     }
                     else
                     {

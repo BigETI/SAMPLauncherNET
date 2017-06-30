@@ -61,6 +61,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die About ähnelt.
+        /// </summary>
+        internal static string ABOUT {
+            get {
+                return ResourceManager.GetString("ABOUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Add server to favourites ähnelt.
         /// </summary>
         internal static string ADD_SERVER_TO_FAVOURITES {
@@ -75,6 +84,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string ALREADY_IN_FAVOURITES {
             get {
                 return ResourceManager.GetString("ALREADY_IN_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die API ähnelt.
+        /// </summary>
+        internal static string API {
+            get {
+                return ResourceManager.GetString("API", resourceCulture);
             }
         }
         
@@ -156,6 +174,24 @@ namespace SAMPLauncherNET.Languages {
         internal static string DEBUG_MODE {
             get {
                 return ResourceManager.GetString("DEBUG_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you really want to delete the selected images? ähnelt.
+        /// </summary>
+        internal static string DELETE_SELECTED_IMAGES {
+            get {
+                return ResourceManager.GetString("DELETE_SELECTED_IMAGES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete selected images ähnelt.
+        /// </summary>
+        internal static string DELETE_SELECTED_IMAGES_TITLE {
+            get {
+                return ResourceManager.GetString("DELETE_SELECTED_IMAGES_TITLE", resourceCulture);
             }
         }
         
@@ -250,7 +286,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Font-weight - BOLD =off, NORMAL = on ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Font-weight ähnelt.
         /// </summary>
         internal static string FONT_WEIGHT {
             get {
@@ -264,6 +300,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string FPS_LIMIT {
             get {
                 return ResourceManager.GetString("FPS_LIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Gallery ähnelt.
+        /// </summary>
+        internal static string GALLERY {
+            get {
+                return ResourceManager.GetString("GALLERY", resourceCulture);
             }
         }
         
@@ -376,11 +421,11 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Last chatlog ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Last chatlog ähnelt.
         /// </summary>
-        internal static string LAST_CHATLOG_TITLE {
+        internal static string LAST_CHATLOG {
             get {
-                return ResourceManager.GetString("LAST_CHATLOG_TITLE", resourceCulture);
+                return ResourceManager.GetString("LAST_CHATLOG", resourceCulture);
             }
         }
         
@@ -394,11 +439,11 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Launch singleplayer mode ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Launch singleplayer ähnelt.
         /// </summary>
-        internal static string LAUNCH_SINGLEPLAYER_MODE {
+        internal static string LAUNCH_SINGLEPLAYER {
             get {
-                return ResourceManager.GetString("LAUNCH_SINGLEPLAYER_MODE", resourceCulture);
+                return ResourceManager.GetString("LAUNCH_SINGLEPLAYER", resourceCulture);
             }
         }
         
@@ -466,7 +511,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Options... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Options ähnelt.
         /// </summary>
         internal static string OPTIONS {
             get {
@@ -547,7 +592,34 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Select language... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Revert config ähnelt.
+        /// </summary>
+        internal static string REVERT_CONFIG {
+            get {
+                return ResourceManager.GetString("REVERT_CONFIG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Save ähnelt.
+        /// </summary>
+        internal static string SAVE {
+            get {
+                return ResourceManager.GetString("SAVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Saved positions ähnelt.
+        /// </summary>
+        internal static string SAVED_POSITIONS {
+            get {
+                return ResourceManager.GetString("SAVED_POSITIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select language ähnelt.
         /// </summary>
         internal static string SELECT_LANGUAGE {
             get {
@@ -615,6 +687,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string SERVERS {
             get {
                 return ResourceManager.GetString("SERVERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Server filter ähnelt.
+        /// </summary>
+        internal static string SERVERS_FILTER {
+            get {
+                return ResourceManager.GetString("SERVERS_FILTER", resourceCulture);
             }
         }
         

@@ -1,4 +1,4 @@
 ﻿To-Do list
 
-- Design changes
+- Design changes (discard MetroFramework)
 - Testing

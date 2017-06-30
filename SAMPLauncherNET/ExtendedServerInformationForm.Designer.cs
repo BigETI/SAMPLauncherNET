@@ -38,150 +38,75 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExtendedServerInformationForm));
-            this.updateTimer = new System.Windows.Forms.Timer(this.components);
-            this.mainPanel = new MetroFramework.Controls.MetroPanel();
-            this.serverInfoAndPlayersPanel = new MetroFramework.Controls.MetroPanel();
-            this.playersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.playersRulesDataSet = new System.Data.DataSet();
-            this.playersDataTable = new System.Data.DataTable();
-            this.idDataColumn = new System.Data.DataColumn();
-            this.nameDataColumn = new System.Data.DataColumn();
-            this.scoreDataColumn = new System.Data.DataColumn();
-            this.pingDataColumn = new System.Data.DataColumn();
-            this.mainSplitter = new System.Windows.Forms.Splitter();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.mainTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.pingChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.playersRulesPanel = new MetroFramework.Controls.MetroPanel();
-            this.playersGrid = new MetroFramework.Controls.MetroGrid();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.rulesGrid = new MetroFramework.Controls.MetroGrid();
-            this.serverInfoAndPingSplitter = new System.Windows.Forms.Splitter();
-            this.serverInfoPanel = new MetroFramework.Controls.MetroPanel();
-            this.pingLabel = new MetroFramework.Controls.MetroLabel();
-            this.ipAndPortLabel = new MetroFramework.Controls.MetroLabel();
-            this.languageLabel = new MetroFramework.Controls.MetroLabel();
-            this.gamemodeLabel = new MetroFramework.Controls.MetroLabel();
-            this.playersLabel = new MetroFramework.Controls.MetroLabel();
-            this.hostnameLabel = new MetroFramework.Controls.MetroLabel();
+            this.informationSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.serverSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.playersGridView = new System.Windows.Forms.DataGridView();
+            this.rulesGridView = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.hostnameLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.playersLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.gamemodeLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.languageLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.ipAndPortLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.pingLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.serversDataSet = new System.Data.DataSet();
+            this.playersDataTable = new System.Data.DataTable();
+            this.playerDataColumn = new System.Data.DataColumn();
+            this.scoreDataColumn = new System.Data.DataColumn();
             this.rulesDataTable = new System.Data.DataTable();
+            this.ruleDataColumn = new System.Data.DataColumn();
+            this.valueDataColumn = new System.Data.DataColumn();
+            this.playersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataColumn1 = new System.Data.DataColumn();
             this.dataColumn2 = new System.Data.DataColumn();
-            this.rulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.playerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ruleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mainPanel.SuspendLayout();
-            this.serverInfoAndPlayersPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersRulesDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).BeginInit();
+            this.updateTimer = new System.Windows.Forms.Timer(this.components);
+            this.mainTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pingChart)).BeginInit();
-            this.playersRulesPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.playersGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).BeginInit();
-            this.serverInfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.informationSplitContainer)).BeginInit();
+            this.informationSplitContainer.Panel1.SuspendLayout();
+            this.informationSplitContainer.Panel2.SuspendLayout();
+            this.informationSplitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.serverSplitContainer)).BeginInit();
+            this.serverSplitContainer.Panel1.SuspendLayout();
+            this.serverSplitContainer.Panel2.SuspendLayout();
+            this.serverSplitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playersGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesGridView)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.serversDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // updateTimer
+            // mainTableLayoutPanel
             // 
-            this.updateTimer.Enabled = true;
-            this.updateTimer.Interval = 500;
-            this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
-            // 
-            // mainPanel
-            // 
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.mainTableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainPanel.Controls.Add(this.serverInfoAndPlayersPanel);
-            this.mainPanel.Controls.Add(this.mainSplitter);
-            this.mainPanel.Controls.Add(this.pingChart);
-            this.mainPanel.HorizontalScrollbarBarColor = true;
-            this.mainPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.mainPanel.HorizontalScrollbarSize = 10;
-            this.mainPanel.Location = new System.Drawing.Point(23, 63);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(754, 514);
-            this.mainPanel.TabIndex = 0;
-            this.mainPanel.VerticalScrollbarBarColor = true;
-            this.mainPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.mainPanel.VerticalScrollbarSize = 10;
-            // 
-            // serverInfoAndPlayersPanel
-            // 
-            this.serverInfoAndPlayersPanel.Controls.Add(this.serverInfoPanel);
-            this.serverInfoAndPlayersPanel.Controls.Add(this.serverInfoAndPingSplitter);
-            this.serverInfoAndPlayersPanel.Controls.Add(this.playersRulesPanel);
-            this.serverInfoAndPlayersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.serverInfoAndPlayersPanel.HorizontalScrollbarBarColor = true;
-            this.serverInfoAndPlayersPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.serverInfoAndPlayersPanel.HorizontalScrollbarSize = 10;
-            this.serverInfoAndPlayersPanel.Location = new System.Drawing.Point(0, 0);
-            this.serverInfoAndPlayersPanel.Name = "serverInfoAndPlayersPanel";
-            this.serverInfoAndPlayersPanel.Size = new System.Drawing.Size(754, 361);
-            this.serverInfoAndPlayersPanel.TabIndex = 6;
-            this.serverInfoAndPlayersPanel.VerticalScrollbarBarColor = true;
-            this.serverInfoAndPlayersPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.serverInfoAndPlayersPanel.VerticalScrollbarSize = 10;
-            // 
-            // playersBindingSource
-            // 
-            this.playersBindingSource.DataMember = "Players";
-            this.playersBindingSource.DataSource = this.playersRulesDataSet;
-            this.playersBindingSource.Sort = "ID";
-            // 
-            // playersRulesDataSet
-            // 
-            this.playersRulesDataSet.DataSetName = "PlayersRulesDataSet";
-            this.playersRulesDataSet.Tables.AddRange(new System.Data.DataTable[] {
-            this.playersDataTable,
-            this.rulesDataTable});
-            // 
-            // playersDataTable
-            // 
-            this.playersDataTable.Columns.AddRange(new System.Data.DataColumn[] {
-            this.idDataColumn,
-            this.nameDataColumn,
-            this.scoreDataColumn,
-            this.pingDataColumn});
-            this.playersDataTable.TableName = "Players";
-            // 
-            // idDataColumn
-            // 
-            this.idDataColumn.ColumnName = "ID";
-            this.idDataColumn.DataType = typeof(byte);
-            this.idDataColumn.DefaultValue = ((byte)(0));
-            // 
-            // nameDataColumn
-            // 
-            this.nameDataColumn.ColumnName = "Name";
-            this.nameDataColumn.DefaultValue = "";
-            // 
-            // scoreDataColumn
-            // 
-            this.scoreDataColumn.ColumnName = "Score";
-            this.scoreDataColumn.DataType = typeof(int);
-            this.scoreDataColumn.DefaultValue = 0;
-            // 
-            // pingDataColumn
-            // 
-            this.pingDataColumn.ColumnName = "Ping";
-            this.pingDataColumn.DataType = typeof(uint);
-            this.pingDataColumn.DefaultValue = ((uint)(0u));
-            // 
-            // mainSplitter
-            // 
-            this.mainSplitter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.mainSplitter.Location = new System.Drawing.Point(0, 361);
-            this.mainSplitter.Name = "mainSplitter";
-            this.mainSplitter.Size = new System.Drawing.Size(754, 3);
-            this.mainSplitter.TabIndex = 5;
-            this.mainSplitter.TabStop = false;
+            this.mainTableLayoutPanel.ColumnCount = 1;
+            this.mainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.mainTableLayoutPanel.Controls.Add(this.pingChart, 0, 1);
+            this.mainTableLayoutPanel.Controls.Add(this.informationSplitContainer, 0, 0);
+            this.mainTableLayoutPanel.Location = new System.Drawing.Point(12, 69);
+            this.mainTableLayoutPanel.Name = "mainTableLayoutPanel";
+            this.mainTableLayoutPanel.RowCount = 2;
+            this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.mainTableLayoutPanel.Size = new System.Drawing.Size(753, 444);
+            this.mainTableLayoutPanel.TabIndex = 0;
             // 
             // pingChart
             // 
@@ -194,12 +119,12 @@
             chartArea1.BackColor = System.Drawing.Color.DimGray;
             chartArea1.Name = "ChartArea1";
             this.pingChart.ChartAreas.Add(chartArea1);
-            this.pingChart.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pingChart.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             legend1.ForeColor = System.Drawing.Color.White;
             legend1.Name = "Legend1";
             this.pingChart.Legends.Add(legend1);
-            this.pingChart.Location = new System.Drawing.Point(0, 364);
+            this.pingChart.Location = new System.Drawing.Point(3, 297);
             this.pingChart.Name = "pingChart";
             this.pingChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.pingChart.PaletteCustomColors = new System.Drawing.Color[] {
@@ -211,356 +136,423 @@
             series1.Name = "Ping";
             series1.YValuesPerPoint = 6;
             this.pingChart.Series.Add(series1);
-            this.pingChart.Size = new System.Drawing.Size(754, 150);
-            this.pingChart.TabIndex = 4;
+            this.pingChart.Size = new System.Drawing.Size(747, 144);
+            this.pingChart.TabIndex = 8;
             // 
-            // playersRulesPanel
+            // informationSplitContainer
             // 
-            this.playersRulesPanel.Controls.Add(this.playersGrid);
-            this.playersRulesPanel.Controls.Add(this.splitter1);
-            this.playersRulesPanel.Controls.Add(this.rulesGrid);
-            this.playersRulesPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.playersRulesPanel.HorizontalScrollbarBarColor = true;
-            this.playersRulesPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.playersRulesPanel.HorizontalScrollbarSize = 10;
-            this.playersRulesPanel.Location = new System.Drawing.Point(454, 0);
-            this.playersRulesPanel.Name = "playersRulesPanel";
-            this.playersRulesPanel.Size = new System.Drawing.Size(300, 361);
-            this.playersRulesPanel.TabIndex = 8;
-            this.playersRulesPanel.VerticalScrollbarBarColor = true;
-            this.playersRulesPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.playersRulesPanel.VerticalScrollbarSize = 10;
+            this.informationSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.informationSplitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.informationSplitContainer.Location = new System.Drawing.Point(3, 3);
+            this.informationSplitContainer.Name = "informationSplitContainer";
             // 
-            // playersGrid
+            // informationSplitContainer.Panel1
             // 
-            this.playersGrid.AllowUserToAddRows = false;
-            this.playersGrid.AllowUserToDeleteRows = false;
-            this.playersGrid.AllowUserToResizeRows = false;
-            this.playersGrid.AutoGenerateColumns = false;
-            this.playersGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.playersGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.playersGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.playersGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.playersGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.playersGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.playersGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.playersGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.informationSplitContainer.Panel1.Controls.Add(this.flowLayoutPanel1);
+            // 
+            // informationSplitContainer.Panel2
+            // 
+            this.informationSplitContainer.Panel2.Controls.Add(this.serverSplitContainer);
+            this.informationSplitContainer.Size = new System.Drawing.Size(747, 288);
+            this.informationSplitContainer.SplitterDistance = 424;
+            this.informationSplitContainer.TabIndex = 9;
+            // 
+            // serverSplitContainer
+            // 
+            this.serverSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.serverSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.serverSplitContainer.Name = "serverSplitContainer";
+            this.serverSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // serverSplitContainer.Panel1
+            // 
+            this.serverSplitContainer.Panel1.Controls.Add(this.playersGridView);
+            // 
+            // serverSplitContainer.Panel2
+            // 
+            this.serverSplitContainer.Panel2.Controls.Add(this.rulesGridView);
+            this.serverSplitContainer.Size = new System.Drawing.Size(319, 288);
+            this.serverSplitContainer.SplitterDistance = 175;
+            this.serverSplitContainer.TabIndex = 0;
+            // 
+            // playersGridView
+            // 
+            this.playersGridView.AllowUserToAddRows = false;
+            this.playersGridView.AllowUserToDeleteRows = false;
+            this.playersGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(155)))), ((int)(((byte)(209)))));
+            this.playersGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.playersGridView.AutoGenerateColumns = false;
+            this.playersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.playersGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.playersGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.playersGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.playersGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.playersGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.playersGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.playersGridView.ColumnHeadersHeight = 32;
+            this.playersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.playersGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
+            this.playerDataGridViewTextBoxColumn,
             this.scoreDataGridViewTextBoxColumn,
             this.pingDataGridViewTextBoxColumn});
-            this.playersGrid.DataSource = this.playersBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.playersGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.playersGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playersGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.playersGrid.EnableHeadersVisualStyles = false;
-            this.playersGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.playersGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.playersGrid.Location = new System.Drawing.Point(0, 0);
-            this.playersGrid.MultiSelect = false;
-            this.playersGrid.Name = "playersGrid";
-            this.playersGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.playersGridView.DataSource = this.playersBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.playersGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.playersGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.playersGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.playersGrid.Size = new System.Drawing.Size(300, 158);
-            this.playersGrid.Style = MetroFramework.MetroColorStyle.Orange;
-            this.playersGrid.TabIndex = 11;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(200)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.playersGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.playersGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playersGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.playersGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.playersGridView.Location = new System.Drawing.Point(0, 0);
+            this.playersGridView.MultiSelect = false;
+            this.playersGridView.Name = "playersGridView";
+            this.playersGridView.ReadOnly = true;
+            this.playersGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.playersGridView.RowHeadersVisible = false;
+            this.playersGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.playersGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.playersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.playersGridView.Size = new System.Drawing.Size(319, 175);
+            this.playersGridView.TabIndex = 2;
+            // 
+            // rulesGridView
+            // 
+            this.rulesGridView.AllowUserToAddRows = false;
+            this.rulesGridView.AllowUserToDeleteRows = false;
+            this.rulesGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(155)))), ((int)(((byte)(209)))));
+            this.rulesGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.rulesGridView.AutoGenerateColumns = false;
+            this.rulesGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.rulesGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.rulesGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rulesGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.rulesGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.rulesGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rulesGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.rulesGridView.ColumnHeadersHeight = 32;
+            this.rulesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.rulesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ruleDataGridViewTextBoxColumn,
+            this.valueDataGridViewTextBoxColumn});
+            this.rulesGridView.DataSource = this.rulesBindingSource;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(200)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.rulesGridView.DefaultCellStyle = dataGridViewCellStyle7;
+            this.rulesGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rulesGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.rulesGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.rulesGridView.Location = new System.Drawing.Point(0, 0);
+            this.rulesGridView.MultiSelect = false;
+            this.rulesGridView.Name = "rulesGridView";
+            this.rulesGridView.ReadOnly = true;
+            this.rulesGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.rulesGridView.RowHeadersVisible = false;
+            this.rulesGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.rulesGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.rulesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.rulesGridView.Size = new System.Drawing.Size(319, 109);
+            this.rulesGridView.TabIndex = 2;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.hostnameLabel);
+            this.flowLayoutPanel1.Controls.Add(this.playersLabel);
+            this.flowLayoutPanel1.Controls.Add(this.gamemodeLabel);
+            this.flowLayoutPanel1.Controls.Add(this.languageLabel);
+            this.flowLayoutPanel1.Controls.Add(this.ipAndPortLabel);
+            this.flowLayoutPanel1.Controls.Add(this.pingLabel);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(424, 288);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // hostnameLabel
+            // 
+            this.hostnameLabel.AutoSize = true;
+            this.hostnameLabel.Depth = 0;
+            this.hostnameLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.hostnameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.hostnameLabel.Location = new System.Drawing.Point(3, 0);
+            this.hostnameLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.hostnameLabel.Name = "hostnameLabel";
+            this.hostnameLabel.Size = new System.Drawing.Size(117, 19);
+            this.hostnameLabel.TabIndex = 0;
+            this.hostnameLabel.Text = "{$HOSTNAME$}";
+            // 
+            // playersLabel
+            // 
+            this.playersLabel.AutoSize = true;
+            this.playersLabel.Depth = 0;
+            this.playersLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.playersLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.playersLabel.Location = new System.Drawing.Point(3, 19);
+            this.playersLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.playersLabel.Name = "playersLabel";
+            this.playersLabel.Size = new System.Drawing.Size(98, 19);
+            this.playersLabel.TabIndex = 1;
+            this.playersLabel.Text = "{$PLAYERS$}";
+            // 
+            // gamemodeLabel
+            // 
+            this.gamemodeLabel.AutoSize = true;
+            this.gamemodeLabel.Depth = 0;
+            this.gamemodeLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.gamemodeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.gamemodeLabel.Location = new System.Drawing.Point(3, 38);
+            this.gamemodeLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.gamemodeLabel.Name = "gamemodeLabel";
+            this.gamemodeLabel.Size = new System.Drawing.Size(119, 19);
+            this.gamemodeLabel.TabIndex = 2;
+            this.gamemodeLabel.Text = "{$GAMEMODE$}";
+            // 
+            // languageLabel
+            // 
+            this.languageLabel.AutoSize = true;
+            this.languageLabel.Depth = 0;
+            this.languageLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.languageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.languageLabel.Location = new System.Drawing.Point(3, 57);
+            this.languageLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.languageLabel.Name = "languageLabel";
+            this.languageLabel.Size = new System.Drawing.Size(113, 19);
+            this.languageLabel.TabIndex = 3;
+            this.languageLabel.Text = "{$LANGUAGE$}";
+            // 
+            // ipAndPortLabel
+            // 
+            this.ipAndPortLabel.AutoSize = true;
+            this.ipAndPortLabel.Depth = 0;
+            this.ipAndPortLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.ipAndPortLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ipAndPortLabel.Location = new System.Drawing.Point(3, 76);
+            this.ipAndPortLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ipAndPortLabel.Name = "ipAndPortLabel";
+            this.ipAndPortLabel.Size = new System.Drawing.Size(130, 19);
+            this.ipAndPortLabel.TabIndex = 4;
+            this.ipAndPortLabel.Text = "{$IP_AND_PORT$}";
+            // 
+            // pingLabel
+            // 
+            this.pingLabel.AutoSize = true;
+            this.pingLabel.Depth = 0;
+            this.pingLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.pingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pingLabel.Location = new System.Drawing.Point(3, 95);
+            this.pingLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pingLabel.Name = "pingLabel";
+            this.pingLabel.Size = new System.Drawing.Size(69, 19);
+            this.pingLabel.TabIndex = 5;
+            this.pingLabel.Text = "{$PING$}";
+            // 
+            // serversDataSet
+            // 
+            this.serversDataSet.DataSetName = "serversDataSet";
+            this.serversDataSet.Tables.AddRange(new System.Data.DataTable[] {
+            this.playersDataTable,
+            this.rulesDataTable});
+            // 
+            // playersDataTable
+            // 
+            this.playersDataTable.Columns.AddRange(new System.Data.DataColumn[] {
+            this.playerDataColumn,
+            this.scoreDataColumn,
+            this.dataColumn1,
+            this.dataColumn2});
+            this.playersDataTable.TableName = "Players";
+            // 
+            // playerDataColumn
+            // 
+            this.playerDataColumn.ColumnName = "ID";
+            this.playerDataColumn.DataType = typeof(byte);
+            this.playerDataColumn.DefaultValue = 0;
+            // 
+            // scoreDataColumn
+            // 
+            this.scoreDataColumn.ColumnName = "Player";
+            this.scoreDataColumn.DefaultValue = "";
+            // 
+            // rulesDataTable
+            // 
+            this.rulesDataTable.Columns.AddRange(new System.Data.DataColumn[] {
+            this.ruleDataColumn,
+            this.valueDataColumn});
+            this.rulesDataTable.TableName = "Rules";
+            // 
+            // ruleDataColumn
+            // 
+            this.ruleDataColumn.ColumnName = "Rule";
+            this.ruleDataColumn.DefaultValue = "";
+            // 
+            // valueDataColumn
+            // 
+            this.valueDataColumn.ColumnName = "Value";
+            this.valueDataColumn.DefaultValue = "";
+            // 
+            // playersBindingSource
+            // 
+            this.playersBindingSource.DataMember = "Players";
+            this.playersBindingSource.DataSource = this.serversDataSet;
+            // 
+            // rulesBindingSource
+            // 
+            this.rulesBindingSource.DataMember = "Rules";
+            this.rulesBindingSource.DataSource = this.serversDataSet;
+            // 
+            // dataColumn1
+            // 
+            this.dataColumn1.ColumnName = "Score";
+            this.dataColumn1.DataType = typeof(int);
+            this.dataColumn1.DefaultValue = 0;
+            // 
+            // dataColumn2
+            // 
+            this.dataColumn2.ColumnName = "Ping";
+            this.dataColumn2.DataType = typeof(uint);
+            this.dataColumn2.DefaultValue = ((uint)(0u));
             // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
             this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // nameDataGridViewTextBoxColumn
+            // playerDataGridViewTextBoxColumn
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.playerDataGridViewTextBoxColumn.DataPropertyName = "Player";
+            this.playerDataGridViewTextBoxColumn.HeaderText = "Player";
+            this.playerDataGridViewTextBoxColumn.Name = "playerDataGridViewTextBoxColumn";
+            this.playerDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // scoreDataGridViewTextBoxColumn
             // 
             this.scoreDataGridViewTextBoxColumn.DataPropertyName = "Score";
             this.scoreDataGridViewTextBoxColumn.HeaderText = "Score";
             this.scoreDataGridViewTextBoxColumn.Name = "scoreDataGridViewTextBoxColumn";
+            this.scoreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pingDataGridViewTextBoxColumn
             // 
             this.pingDataGridViewTextBoxColumn.DataPropertyName = "Ping";
             this.pingDataGridViewTextBoxColumn.HeaderText = "Ping";
             this.pingDataGridViewTextBoxColumn.Name = "pingDataGridViewTextBoxColumn";
-            // 
-            // splitter1
-            // 
-            this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter1.Location = new System.Drawing.Point(0, 158);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(300, 3);
-            this.splitter1.TabIndex = 10;
-            this.splitter1.TabStop = false;
-            // 
-            // rulesGrid
-            // 
-            this.rulesGrid.AllowUserToAddRows = false;
-            this.rulesGrid.AllowUserToDeleteRows = false;
-            this.rulesGrid.AllowUserToResizeRows = false;
-            this.rulesGrid.AutoGenerateColumns = false;
-            this.rulesGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.rulesGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.rulesGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rulesGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.rulesGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.rulesGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.rulesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.rulesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ruleDataGridViewTextBoxColumn,
-            this.valueDataGridViewTextBoxColumn});
-            this.rulesGrid.DataSource = this.rulesBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.rulesGrid.DefaultCellStyle = dataGridViewCellStyle5;
-            this.rulesGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.rulesGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.rulesGrid.EnableHeadersVisualStyles = false;
-            this.rulesGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.rulesGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.rulesGrid.Location = new System.Drawing.Point(0, 161);
-            this.rulesGrid.MultiSelect = false;
-            this.rulesGrid.Name = "rulesGrid";
-            this.rulesGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.rulesGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.rulesGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.rulesGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.rulesGrid.Size = new System.Drawing.Size(300, 200);
-            this.rulesGrid.Style = MetroFramework.MetroColorStyle.Orange;
-            this.rulesGrid.TabIndex = 9;
-            // 
-            // serverInfoAndPingSplitter
-            // 
-            this.serverInfoAndPingSplitter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.serverInfoAndPingSplitter.Location = new System.Drawing.Point(451, 0);
-            this.serverInfoAndPingSplitter.Name = "serverInfoAndPingSplitter";
-            this.serverInfoAndPingSplitter.Size = new System.Drawing.Size(3, 361);
-            this.serverInfoAndPingSplitter.TabIndex = 10;
-            this.serverInfoAndPingSplitter.TabStop = false;
-            // 
-            // serverInfoPanel
-            // 
-            this.serverInfoPanel.Controls.Add(this.pingLabel);
-            this.serverInfoPanel.Controls.Add(this.ipAndPortLabel);
-            this.serverInfoPanel.Controls.Add(this.languageLabel);
-            this.serverInfoPanel.Controls.Add(this.gamemodeLabel);
-            this.serverInfoPanel.Controls.Add(this.playersLabel);
-            this.serverInfoPanel.Controls.Add(this.hostnameLabel);
-            this.serverInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.serverInfoPanel.HorizontalScrollbarBarColor = true;
-            this.serverInfoPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.serverInfoPanel.HorizontalScrollbarSize = 10;
-            this.serverInfoPanel.Location = new System.Drawing.Point(0, 0);
-            this.serverInfoPanel.Name = "serverInfoPanel";
-            this.serverInfoPanel.Size = new System.Drawing.Size(451, 361);
-            this.serverInfoPanel.Style = MetroFramework.MetroColorStyle.Orange;
-            this.serverInfoPanel.TabIndex = 11;
-            this.serverInfoPanel.VerticalScrollbarBarColor = true;
-            this.serverInfoPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.serverInfoPanel.VerticalScrollbarSize = 10;
-            // 
-            // pingLabel
-            // 
-            this.pingLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pingLabel.Location = new System.Drawing.Point(3, 95);
-            this.pingLabel.Name = "pingLabel";
-            this.pingLabel.Size = new System.Drawing.Size(445, 19);
-            this.pingLabel.TabIndex = 5;
-            this.pingLabel.Text = "{$PING$}";
-            // 
-            // ipAndPortLabel
-            // 
-            this.ipAndPortLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ipAndPortLabel.Location = new System.Drawing.Point(3, 76);
-            this.ipAndPortLabel.Name = "ipAndPortLabel";
-            this.ipAndPortLabel.Size = new System.Drawing.Size(445, 19);
-            this.ipAndPortLabel.TabIndex = 4;
-            this.ipAndPortLabel.Text = "{$IP_AND_PORT$}";
-            // 
-            // languageLabel
-            // 
-            this.languageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.languageLabel.Location = new System.Drawing.Point(3, 57);
-            this.languageLabel.Name = "languageLabel";
-            this.languageLabel.Size = new System.Drawing.Size(445, 19);
-            this.languageLabel.TabIndex = 3;
-            this.languageLabel.Text = "{$LANGUAGE$}";
-            // 
-            // gamemodeLabel
-            // 
-            this.gamemodeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gamemodeLabel.Location = new System.Drawing.Point(3, 38);
-            this.gamemodeLabel.Name = "gamemodeLabel";
-            this.gamemodeLabel.Size = new System.Drawing.Size(445, 19);
-            this.gamemodeLabel.TabIndex = 2;
-            this.gamemodeLabel.Text = "{$GAMEMODE$}";
-            // 
-            // playersLabel
-            // 
-            this.playersLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.playersLabel.Location = new System.Drawing.Point(3, 19);
-            this.playersLabel.Name = "playersLabel";
-            this.playersLabel.Size = new System.Drawing.Size(445, 19);
-            this.playersLabel.TabIndex = 1;
-            this.playersLabel.Text = "{$PLAYERS$}";
-            // 
-            // hostnameLabel
-            // 
-            this.hostnameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hostnameLabel.Location = new System.Drawing.Point(3, 0);
-            this.hostnameLabel.Name = "hostnameLabel";
-            this.hostnameLabel.Size = new System.Drawing.Size(445, 19);
-            this.hostnameLabel.TabIndex = 0;
-            this.hostnameLabel.Text = "{$HOSTNAME$}";
-            // 
-            // rulesDataTable
-            // 
-            this.rulesDataTable.Columns.AddRange(new System.Data.DataColumn[] {
-            this.dataColumn1,
-            this.dataColumn2});
-            this.rulesDataTable.TableName = "Rules";
-            // 
-            // dataColumn1
-            // 
-            this.dataColumn1.ColumnName = "Rule";
-            this.dataColumn1.DefaultValue = "";
-            // 
-            // dataColumn2
-            // 
-            this.dataColumn2.ColumnName = "Value";
-            this.dataColumn2.DefaultValue = "";
-            // 
-            // rulesBindingSource
-            // 
-            this.rulesBindingSource.DataMember = "Rules";
-            this.rulesBindingSource.DataSource = this.playersRulesDataSet;
+            this.pingDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ruleDataGridViewTextBoxColumn
             // 
             this.ruleDataGridViewTextBoxColumn.DataPropertyName = "Rule";
             this.ruleDataGridViewTextBoxColumn.HeaderText = "Rule";
             this.ruleDataGridViewTextBoxColumn.Name = "ruleDataGridViewTextBoxColumn";
+            this.ruleDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // valueDataGridViewTextBoxColumn
             // 
             this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
             this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
             this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
+            this.valueDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // updateTimer
+            // 
+            this.updateTimer.Enabled = true;
+            this.updateTimer.Interval = 500;
+            this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
             // 
             // ExtendedServerInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.mainPanel);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.ClientSize = new System.Drawing.Size(777, 525);
+            this.Controls.Add(this.mainTableLayoutPanel);
             this.Name = "ExtendedServerInformationForm";
-            this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "{$EXTENDED_SERVER_INFORMATION_TITLE$}";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ExtendedServerInformationForm_FormClosed);
-            this.mainPanel.ResumeLayout(false);
-            this.serverInfoAndPlayersPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersRulesDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).EndInit();
+            this.mainTableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pingChart)).EndInit();
-            this.playersRulesPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.playersGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rulesGrid)).EndInit();
-            this.serverInfoPanel.ResumeLayout(false);
+            this.informationSplitContainer.Panel1.ResumeLayout(false);
+            this.informationSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.informationSplitContainer)).EndInit();
+            this.informationSplitContainer.ResumeLayout(false);
+            this.serverSplitContainer.Panel1.ResumeLayout(false);
+            this.serverSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.serverSplitContainer)).EndInit();
+            this.serverSplitContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.playersGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesGridView)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.serversDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Timer updateTimer;
-        private MetroFramework.Controls.MetroPanel mainPanel;
-        private System.Data.DataSet playersRulesDataSet;
-        private System.Data.DataTable playersDataTable;
-        private System.Windows.Forms.BindingSource playersBindingSource;
-        private System.Data.DataColumn idDataColumn;
-        private System.Data.DataColumn nameDataColumn;
-        private System.Data.DataColumn scoreDataColumn;
-        private System.Data.DataColumn pingDataColumn;
-        private MetroFramework.Controls.MetroPanel serverInfoAndPlayersPanel;
-        private System.Windows.Forms.Splitter mainSplitter;
+
+        private System.Windows.Forms.TableLayoutPanel mainTableLayoutPanel;
         private System.Windows.Forms.DataVisualization.Charting.Chart pingChart;
-        private MetroFramework.Controls.MetroPanel serverInfoPanel;
-        private MetroFramework.Controls.MetroLabel pingLabel;
-        private MetroFramework.Controls.MetroLabel ipAndPortLabel;
-        private MetroFramework.Controls.MetroLabel languageLabel;
-        private MetroFramework.Controls.MetroLabel gamemodeLabel;
-        private MetroFramework.Controls.MetroLabel playersLabel;
-        private MetroFramework.Controls.MetroLabel hostnameLabel;
-        private System.Windows.Forms.Splitter serverInfoAndPingSplitter;
-        private MetroFramework.Controls.MetroPanel playersRulesPanel;
-        private MetroFramework.Controls.MetroGrid playersGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pingDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Splitter splitter1;
-        private MetroFramework.Controls.MetroGrid rulesGrid;
-        private System.Data.DataTable rulesDataTable;
+        private System.Windows.Forms.SplitContainer informationSplitContainer;
+        private System.Windows.Forms.SplitContainer serverSplitContainer;
+        private System.Windows.Forms.DataGridView playersGridView;
+        private System.Windows.Forms.DataGridView rulesGridView;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private MaterialSkin.Controls.MaterialLabel hostnameLabel;
+        private MaterialSkin.Controls.MaterialLabel playersLabel;
+        private MaterialSkin.Controls.MaterialLabel gamemodeLabel;
+        private MaterialSkin.Controls.MaterialLabel languageLabel;
+        private MaterialSkin.Controls.MaterialLabel ipAndPortLabel;
+        private MaterialSkin.Controls.MaterialLabel pingLabel;
+        private System.Data.DataSet serversDataSet;
+        private System.Data.DataTable playersDataTable;
+        private System.Data.DataColumn playerDataColumn;
+        private System.Data.DataColumn scoreDataColumn;
         private System.Data.DataColumn dataColumn1;
         private System.Data.DataColumn dataColumn2;
+        private System.Data.DataTable rulesDataTable;
+        private System.Data.DataColumn ruleDataColumn;
+        private System.Data.DataColumn valueDataColumn;
+        private System.Windows.Forms.BindingSource playersBindingSource;
+        private System.Windows.Forms.BindingSource rulesBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn playerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pingDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ruleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource rulesBindingSource;
+        private System.Windows.Forms.Timer updateTimer;
     }
 }

@@ -34,23 +34,5 @@ namespace SAMPLauncherNET.Properties {
                 this["Language"] = value;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Dark")]
-        public global::MetroFramework.MetroThemeStyle Theme {
-            get {
-                return ((global::MetroFramework.MetroThemeStyle)(this["Theme"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Purple")]
-        public global::MetroFramework.MetroColorStyle Style {
-            get {
-                return ((global::MetroFramework.MetroColorStyle)(this["Style"]));
-            }
-        }
     }
 }

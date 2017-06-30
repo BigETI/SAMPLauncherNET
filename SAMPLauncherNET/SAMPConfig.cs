@@ -1,19 +1,24 @@
-﻿namespace SAMPLauncherNET
+﻿using INIEngine;
+using System.IO;
+
+namespace SAMPLauncherNET
 {
     public class SAMPConfig
     {
 
-        private INIFile iniFile;
+        private string path;
+
+        private INI ini;
 
         public int PageSize
         {
             get
             {
-                return iniFile.ReadInt("pagesize", 10);
+                return ini.GetInt32("pagesize", 10);
             }
             set
             {
-                iniFile.WriteInt("pagesize", value);
+                ini.SetValue("pagesize", value);
             }
         }
 
@@ -21,7 +26,7 @@
         {
             get
             {
-                int ret = iniFile.ReadInt("fpslimit", 50);
+                int ret = ini.GetInt32("fpslimit", 50);
                 if (ret < 20)
                     ret = 20;
                 else if (ret > 90)
@@ -34,7 +39,7 @@
                     value = 20;
                 else if (value > 90)
                     value = 90;
-                iniFile.WriteInt("fpslimit", value);
+                ini.SetValue("fpslimit", value);
             }
         }
 
@@ -42,11 +47,11 @@
         {
             get
             {
-                return iniFile.ReadBool("disableheadmove", false);
+                return ini.GetBool("disableheadmove", false);
             }
             set
             {
-                iniFile.WriteBool("disableheadmove", value, true);
+                ini.SetValue("disableheadmove", value ? 1 : 0);
             }
         }
 
@@ -54,11 +59,11 @@
         {
             get
             {
-                return iniFile.ReadBool("timestamp");
+                return ini.GetBool("timestamp");
             }
             set
             {
-                iniFile.WriteBool("timestamp", value, true);
+                ini.SetValue("timestamp", value ? 1 : 0);
             }
         }
 
@@ -66,11 +71,11 @@
         {
             get
             {
-                return iniFile.ReadBool("ime");
+                return ini.GetBool("ime");
             }
             set
             {
-                iniFile.WriteBool("ime", value, true);
+                ini.SetValue("ime", value ? 1 : 0);
             }
         }
 
@@ -78,11 +83,11 @@
         {
             get
             {
-                return iniFile.ReadBool("multicore", true);
+                return ini.GetBool("multicore", true);
             }
             set
             {
-                iniFile.WriteBool("multicore", value, true);
+                ini.SetValue("multicore", value ? 1 : 0);
             }
         }
 
@@ -90,11 +95,11 @@
         {
             get
             {
-                return iniFile.ReadBool("directmode", false);
+                return ini.GetBool("directmode", false);
             }
             set
             {
-                iniFile.WriteBool("directmode", value, true);
+                ini.SetValue("directmode", value ? 1 : 0);
             }
         }
 
@@ -102,11 +107,11 @@
         {
             get
             {
-                return iniFile.ReadBool("audiomsgoff", false);
+                return ini.GetBool("audiomsgoff", false);
             }
             set
             {
-                iniFile.WriteBool("audiomsgoff", value, true);
+                ini.SetValue("audiomsgoff", value ? 1 : 0);
             }
         }
 
@@ -114,11 +119,11 @@
         {
             get
             {
-                return iniFile.ReadBool("audioproxyoff", false);
+                return ini.GetBool("audioproxyoff", false);
             }
             set
             {
-                iniFile.WriteBool("audiomsgoff", value, true);
+                ini.SetValue("audiomsgoff", value ? 1 : 0);
             }
         }
 
@@ -126,11 +131,11 @@
         {
             get
             {
-                return iniFile.ReadBool("nonametagstatus", false);
+                return ini.GetBool("nonametagstatus", false);
             }
             set
             {
-                iniFile.WriteBool("nonametagstatus", value, true);
+                ini.SetValue("nonametagstatus", value ? 1 : 0);
             }
         }
 
@@ -138,11 +143,11 @@
         {
             get
             {
-                return iniFile.Read("fontface");
+                return ini.GetString("fontface");
             }
             set
             {
-                iniFile.Write("fontface", value);
+                ini.SetString("fontface", value);
             }
         }
 
@@ -150,17 +155,34 @@
         {
             get
             {
-                return iniFile.ReadBool("fontweight", false);
+                return ini.GetBool("fontweight", false);
             }
             set
             {
-                iniFile.WriteBool("fontweight", value, true);
+                ini.SetValue("fontweight", value ? 1 : 0);
             }
         }
 
-        public SAMPConfig(INIFile iniFile)
+        public SAMPConfig(string path)
         {
-            this.iniFile = iniFile;
+            this.path = path;
+            ini = INIFile.Open(path);
+        }
+
+        public void Save()
+        {
+            try
+            {
+                using (FileStream fs = File.Open(path, FileMode.Create))
+                {
+                    Stream s = ini.ToStream();
+                    s.CopyTo(fs);
+                }
+            }
+            catch
+            {
+                //
+            }
         }
     }
 }

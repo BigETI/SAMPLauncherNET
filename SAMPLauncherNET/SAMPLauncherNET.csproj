@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SAMPLauncherNET</RootNamespace>
     <AssemblyName>SAMPLauncherNET</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,18 +52,12 @@
     <ApplicationIcon>samp.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MetroFramework">
-      <HintPath>libs\MetroFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="MetroFramework.Design">
-      <HintPath>libs\MetroFramework.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="MetroFramework.Fonts">
-      <HintPath>libs\MetroFramework.Fonts.dll</HintPath>
-    </Reference>
-    <Reference Include="MetroTranslator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="INIEngine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>libs\MetroTranslator.dll</HintPath>
+      <HintPath>libs\INIEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin">
+      <HintPath>libs\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -76,14 +71,11 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WinFormsTranslator">
+      <HintPath>libs\WinFormsTranslator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChatlogForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChatlogForm.Designer.cs">
-      <DependentUpon>ChatlogForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ConnectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,7 +90,6 @@
       <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FavouriteServer.cs" />
-    <Compile Include="INIFile.cs" />
     <Compile Include="Kernel32.cs" />
     <Compile Include="Languages\de-DE.Designer.cs">
       <DependentUpon>de-DE.resx</DependentUpon>
@@ -116,12 +107,6 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OptionsForm.Designer.cs">
-      <DependentUpon>OptionsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,11 +119,11 @@
     <Compile Include="RequestsRequired.cs" />
     <Compile Include="SAMPConfig.cs" />
     <Compile Include="Server.cs" />
-    <Compile Include="TranslatorStylerInterface.cs" />
+    <Compile Include="TranslatorInterface.cs" />
     <Compile Include="Utils.cs" />
-    <EmbeddedResource Include="ChatlogForm.resx">
-      <DependentUpon>ChatlogForm.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="WebClientEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,9 +140,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OptionsForm.resx">
-      <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -199,6 +181,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="view_icon.png" />
+    <None Include="samp_logo.png" />
+    <None Include="options_icon.png" />
+    <None Include="logs_icon.png" />
+    <None Include="github_icon.png" />
+    <None Include="delete_icon.png" />
+    <None Include="open_folder_icon.png" />
     <Content Include="samp.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

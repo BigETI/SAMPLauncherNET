@@ -1,16 +1,15 @@
-﻿using MetroFramework.Forms;
-using MetroTranslatorStyler;
+﻿using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading;
 using System.Windows.Forms;
+using WinFormsTranslator;
 
 namespace SAMPLauncherNET
 {
-    public partial class ExtendedServerInformationForm : MetroForm
+    public partial class ExtendedServerInformationForm : MaterialForm
     {
-
         Server server = null;
 
         private List<uint> pingList = new List<uint>();
@@ -20,7 +19,7 @@ namespace SAMPLauncherNET
         private Thread serverInformationThread = null;
 
         private Thread serverDetailedClientsThread = null;
-        
+
         private Thread serverRulesThread = null;
 
         private string hostname = "";
@@ -41,7 +40,7 @@ namespace SAMPLauncherNET
         {
             this.server = server;
             InitializeComponent();
-            TranslatorStyler.LoadTranslationStyle(this, TranslatorStyler.TranslatorStylerInterface);
+            Translator.LoadTranslation(this);
             ipAndPortLabel.Text = Translator.GetTranslation("IP_AND_PORT") + ": " + server.IPPortString;
             serverPingThread = new Thread(() =>
             {
@@ -171,7 +170,7 @@ namespace SAMPLauncherNET
             {
                 int si = -1;
                 bool cs = false;
-                foreach (DataGridViewRow dgvr in playersGrid.SelectedRows)
+                foreach (DataGridViewRow dgvr in playersGridView.SelectedRows)
                 {
                     si = dgvr.Index;
                     break;
@@ -193,13 +192,13 @@ namespace SAMPLauncherNET
                     ++i;
                 }
                 if (cs)
-                    playersGrid.Rows[si].Selected = true;
+                    playersGridView.Rows[si].Selected = true;
             }
             lock (rules)
             {
                 int si = -1;
                 bool cs = false;
-                foreach (DataGridViewRow dgvr in rulesGrid.SelectedRows)
+                foreach (DataGridViewRow dgvr in rulesGridView.SelectedRows)
                 {
                     si = dgvr.Index;
                     break;
@@ -219,7 +218,7 @@ namespace SAMPLauncherNET
                     ++i;
                 }
                 if (cs)
-                    rulesGrid.Rows[si].Selected = true;
+                    rulesGridView.Rows[si].Selected = true;
             }
         }
     }

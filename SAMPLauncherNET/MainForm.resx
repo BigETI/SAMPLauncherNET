@@ -117,23 +117,80 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="serverListTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="serversDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>150, 17</value>
+  <metadata name="serversContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>523, 56</value>
   </metadata>
   <metadata name="serversBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>282, 17</value>
   </metadata>
-  <metadata name="serverContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>775, 17</value>
+  <metadata name="serversDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>150, 17</value>
   </metadata>
   <metadata name="playersBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>450, 17</value>
   </metadata>
   <metadata name="rulesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>619, 17</value>
+  </metadata>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>933, 17</value>
+  </metadata>
+  <metadata name="galleryImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>208, 56</value>
+  </metadata>
+  <data name="noNametagStatusCheckBox.ToolTip" xml:space="preserve">
+    <value>If this option is set to OFF,
+players will see an hourglass icon next to other players' nametags when they are paused.
+This is enabled (OFF) by default. This option can be changed in-game using the client-side /nametagstatus command.</value>
+  </data>
+  <data name="audioMessageOffCheckBox.ToolTip" xml:space="preserve">
+    <value>If this option is set to ON,
+no 'Audio Stream: [URL]' messages will be displayed in the chat window when the server plays an audio stream.
+This option can be toggle in-game using the client-side /audiomsg command.</value>
+  </data>
+  <data name="disableHeadMoveCheckBox.ToolTip" xml:space="preserve">
+    <value>This option controls whether player's heads move in the direction they are looking.
+ON disables head movements, OFF enables it.
+This option can be toggled in-game with the client-side /headmove command.</value>
+  </data>
+  <data name="fpsLimitTrackBar.ToolTip" xml:space="preserve">
+    <value>This allows players to set a specific FPS limit,
+when the frame limiter option is enabled in the GTA:SA menu.
+Values accepted are 20 to 90.
+The default set by SA-MP is 50.
+This option can be changed in-game with the client-side /fpslimit command.</value>
+  </data>
+  <data name="fpsLimitSingleLineTextField.ToolTip" xml:space="preserve">
+    <value>This allows players to set a specific FPS limit,
+when the frame limiter option is enabled in the GTA:SA menu.
+Values accepted are 20 to 90.
+The default set by SA-MP is 50.
+This option can be changed in-game with the client-side /fpslimit command.</value>
+  </data>
+  <data name="fpsLimitLabel.ToolTip" xml:space="preserve">
+    <value>This allows players to set a specific FPS limit,
+when the frame limiter option is enabled in the GTA:SA menu.
+Values accepted are 20 to 90.
+The default set by SA-MP is 50.
+This option can be changed in-game with the client-side /fpslimit command.</value>
+  </data>
+  <data name="pageSizeSingleLineTextField.ToolTip" xml:space="preserve">
+    <value>This allows players to set the number of lines displayed in the chat window.
+It may be set between 10 and 20 lines.
+The default is 10 lines.
+This option can be set in-game using the client-side /pagesize command.</value>
+  </data>
+  <data name="pageSizeLabel.ToolTip" xml:space="preserve">
+    <value>This allows players to set the number of lines displayed in the chat window.
+It may be set between 10 and 20 lines.
+The default is 10 lines.
+This option can be set in-game using the client-side /pagesize command.</value>
+  </data>
+  <metadata name="serverListTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="galleryFileSystemWatcher.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -178,4 +235,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
+  <metadata name="textFileSystemWatcher.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>348, 56</value>
+  </metadata>
 </root>

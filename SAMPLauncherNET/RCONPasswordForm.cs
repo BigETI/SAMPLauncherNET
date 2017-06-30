@@ -1,11 +1,13 @@
-﻿using MetroFramework.Forms;
+﻿using MaterialSkin.Controls;
 using System;
 using System.Windows.Forms;
+using WinFormsTranslator;
 
 namespace SAMPLauncherNET
 {
-    public partial class RCONPasswordForm : MetroForm
+    public partial class RCONPasswordForm : MaterialForm
     {
+
         public string RCONPassword
         {
             get
@@ -17,6 +19,7 @@ namespace SAMPLauncherNET
         public RCONPasswordForm()
         {
             InitializeComponent();
+            Translator.LoadTranslation(this);
         }
 
         private void connectButton_Click(object sender, EventArgs e)

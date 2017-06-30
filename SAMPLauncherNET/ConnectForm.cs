@@ -1,19 +1,19 @@
-﻿using MetroFramework.Forms;
-using MetroTranslatorStyler;
+﻿using MaterialSkin.Controls;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using WinFormsTranslator;
 
 namespace SAMPLauncherNET
 {
-    public partial class ConnectForm : MetroForm
+    public partial class ConnectForm : MaterialForm
     {
-        
+
         public string Username
         {
             get
             {
-                return usernameTextBox.Text.Trim();
+                return usernameSingleLineTextField.Text.Trim();
             }
         }
 
@@ -21,21 +21,22 @@ namespace SAMPLauncherNET
         {
             get
             {
-                return serverPasswordTextBox.Text;
+                return serverPasswordSingleLineTextField.Text;
             }
         }
 
         public ConnectForm(bool noPasswordMode)
         {
             InitializeComponent();
-            TranslatorStyler.LoadTranslationStyle(this, TranslatorStyler.TranslatorStylerInterface);
-            usernameTextBox.Text = Utils.Username;
+            Translator.LoadTranslation(this);
+            usernameSingleLineTextField.Text = Utils.Username;
             if (noPasswordMode)
             {
                 serverPasswordLabel.Visible = false;
-                serverPasswordTextBox.Visible = false;
-                MinimumSize = new Size(472, 182);
-                Size = MinimumSize;
+                serverPasswordSingleLineTextField.Visible = false;
+                Size sz = new Size(MinimumSize.Width, MinimumSize.Height - 55);
+                MaximumSize = sz;
+                MinimumSize = sz;
             }
         }
 
@@ -46,7 +47,7 @@ namespace SAMPLauncherNET
             else
             {
                 bool success = true;
-                if (serverPasswordTextBox.Visible && (ServerPassword.Trim().Length <= 0))
+                if (serverPasswordSingleLineTextField.Visible && (ServerPassword.Trim().Length <= 0))
                     success = (MessageBox.Show(Translator.GetTranslation("SERVER_PASSWORD_FIELD_IS_EMPTY"), Translator.GetTranslation("SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
                 if (success)
                 {
@@ -68,7 +69,7 @@ namespace SAMPLauncherNET
             Close();
         }
 
-        private void usernameTextBox_KeyUp(object sender, KeyEventArgs e)
+        private void genericSingleLineTextField_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {

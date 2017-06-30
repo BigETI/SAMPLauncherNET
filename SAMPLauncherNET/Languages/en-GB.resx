@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ABOUT" xml:space="preserve">
+    <value>About</value>
+  </data>
   <data name="ADD_SERVER_TO_FAVOURITES" xml:space="preserve">
     <value>Add server to favourites</value>
   </data>
   <data name="ALREADY_IN_FAVOURITES" xml:space="preserve">
     <value>Already in favourites</value>
+  </data>
+  <data name="API" xml:space="preserve">
+    <value>API</value>
   </data>
   <data name="AUDIO_MESSAGE_OFF" xml:space="preserve">
     <value>Audio message off</value>
@@ -149,6 +155,12 @@
   </data>
   <data name="DEBUG_MODE" xml:space="preserve">
     <value>Debug mode</value>
+  </data>
+  <data name="DELETE_SELECTED_IMAGES" xml:space="preserve">
+    <value>Do you really want to delete the selected images?</value>
+  </data>
+  <data name="DELETE_SELECTED_IMAGES_TITLE" xml:space="preserve">
+    <value>Delete selected images</value>
   </data>
   <data name="DIRECT_MODE" xml:space="preserve">
     <value>Direct to screen textdraw render method (slow)</value>
@@ -181,10 +193,13 @@
     <value>Font-face</value>
   </data>
   <data name="FONT_WEIGHT" xml:space="preserve">
-    <value>Font-weight - BOLD =off, NORMAL = on</value>
+    <value>Font-weight</value>
   </data>
   <data name="FPS_LIMIT" xml:space="preserve">
     <value>FPS limit</value>
+  </data>
+  <data name="GALLERY" xml:space="preserve">
+    <value>Gallery</value>
   </data>
   <data name="GAMEMODE" xml:space="preserve">
     <value>Gamemode</value>
@@ -222,8 +237,8 @@
   <data name="LANGUAGE" xml:space="preserve">
     <value>Language</value>
   </data>
-  <data name="LAST_CHATLOG_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Last chatlog</value>
+  <data name="LAST_CHATLOG" xml:space="preserve">
+    <value>Last chatlog</value>
   </data>
   <data name="LAUNCHER_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Launcher</value>
@@ -231,8 +246,8 @@
   <data name="LAUNCH_DEBUG_MODE" xml:space="preserve">
     <value>Launch debug mode</value>
   </data>
-  <data name="LAUNCH_SINGLEPLAYER_MODE" xml:space="preserve">
-    <value>Launch singleplayer mode</value>
+  <data name="LAUNCH_SINGLEPLAYER" xml:space="preserve">
+    <value>Launch singleplayer</value>
   </data>
   <data name="MULTI_CORE" xml:space="preserve">
     <value>Multi core</value>
@@ -253,7 +268,7 @@
     <value>OK</value>
   </data>
   <data name="OPTIONS" xml:space="preserve">
-    <value>Options...</value>
+    <value>Options</value>
   </data>
   <data name="OPTIONS_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Options</value>
@@ -279,14 +294,26 @@
   <data name="REMOVE_SERVER_FROM_FAVOURITES" xml:space="preserve">
     <value>Remove server from favourites</value>
   </data>
+  <data name="REVERT_CONFIG" xml:space="preserve">
+    <value>Revert config</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SAVED_POSITIONS" xml:space="preserve">
+    <value>Saved positions</value>
+  </data>
   <data name="SELECT_LANGUAGE" xml:space="preserve">
-    <value>Select language...</value>
+    <value>Select language</value>
   </data>
   <data name="SELECT_SERVER_LIST" xml:space="preserve">
     <value>Select server list</value>
   </data>
   <data name="SERVERS" xml:space="preserve">
     <value>Servers</value>
+  </data>
+  <data name="SERVERS_FILTER" xml:space="preserve">
+    <value>Server filter</value>
   </data>
   <data name="SERVER_ALREADY_IN_FAVOURITES" xml:space="preserve">
     <value>This server is already in your favourites.</value>
