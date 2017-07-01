@@ -40,6 +40,8 @@ namespace SAMPLauncherNET
 
         private SAMPConfig config = Utils.SAMPConfig;
 
+        private bool queryFirstServer = true;
+
         public Server SelectedServer
         {
             get
@@ -450,6 +452,11 @@ namespace SAMPLauncherNET
                     serversDataTable.Rows.Add(dr);
                     if (!(registeredServers.ContainsKey(kv.Key.IPPortString)))
                         registeredServers.Add(kv.Key.IPPortString, kv.Key);
+                    if (queryFirstServer)
+                    {
+                        queryFirstServer = false;
+                        EnterRow();
+                    }
                 }
                 loadedServers.Clear();
                 UpdateServerCount();
