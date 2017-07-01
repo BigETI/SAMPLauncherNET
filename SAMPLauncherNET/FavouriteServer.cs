@@ -9,20 +9,6 @@ namespace SAMPLauncherNET
 
         private string rconPassword;
 
-        /*public override string Hostname
-        {
-            get
-            {
-                if (requestsRequired[ERequestType.Information])
-                {
-                    Task<string> hn = HostnameAsync;
-                    if (hn.Wait(100))
-                        cachedHostName = hn.Result;
-                }
-                return cachedHostName;
-            }
-        }*/
-
         public string ServerPassword
         {
             get

@@ -55,6 +55,14 @@
             this.modeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.languageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iPAndPortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serversContextMenuStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectWithRCONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.showExtendedServerInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.addServerToFavouritesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeServerFromFavouritesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serversBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.serversDataSet = new System.Data.DataSet();
             this.serversDataTable = new System.Data.DataTable();
@@ -145,14 +153,6 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.galleryFileSystemWatcher = new System.IO.FileSystemWatcher();
             this.textFileSystemWatcher = new System.IO.FileSystemWatcher();
-            this.serversContextMenuStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectWithRCONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.showExtendedServerInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.addServerToFavouritesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeServerFromFavouritesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTabControl.SuspendLayout();
             this.serversPage.SuspendLayout();
             this.serversLayoutPanel.SuspendLayout();
@@ -161,6 +161,7 @@
             this.serversSplitContainer.Panel2.SuspendLayout();
             this.serversSplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.serversGridView)).BeginInit();
+            this.serversContextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.serversBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serversDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serversDataTable)).BeginInit();
@@ -196,7 +197,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fpsLimitTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryFileSystemWatcher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textFileSystemWatcher)).BeginInit();
-            this.serversContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -281,9 +281,9 @@
             this.serversGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.serversGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -383,6 +383,67 @@
             this.iPAndPortDataGridViewTextBoxColumn.HeaderText = "IP and port";
             this.iPAndPortDataGridViewTextBoxColumn.Name = "iPAndPortDataGridViewTextBoxColumn";
             this.iPAndPortDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // serversContextMenuStrip
+            // 
+            this.serversContextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.serversContextMenuStrip.Depth = 0;
+            this.serversContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connectToolStripMenuItem,
+            this.connectWithRCONToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.showExtendedServerInformationToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.addServerToFavouritesToolStripMenuItem,
+            this.removeServerFromFavouritesToolStripMenuItem});
+            this.serversContextMenuStrip.MouseState = MaterialSkin.MouseState.HOVER;
+            this.serversContextMenuStrip.Name = "serversContextMenuStrip";
+            this.serversContextMenuStrip.Size = new System.Drawing.Size(321, 126);
+            // 
+            // connectToolStripMenuItem
+            // 
+            this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
+            this.connectToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.connectToolStripMenuItem.Text = "{$CONNECT$}";
+            this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
+            // 
+            // connectWithRCONToolStripMenuItem
+            // 
+            this.connectWithRCONToolStripMenuItem.Name = "connectWithRCONToolStripMenuItem";
+            this.connectWithRCONToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.connectWithRCONToolStripMenuItem.Text = "{$CONNECT_WITH_RCON$}";
+            this.connectWithRCONToolStripMenuItem.Click += new System.EventHandler(this.connectWithRCONToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(317, 6);
+            // 
+            // showExtendedServerInformationToolStripMenuItem
+            // 
+            this.showExtendedServerInformationToolStripMenuItem.Name = "showExtendedServerInformationToolStripMenuItem";
+            this.showExtendedServerInformationToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.showExtendedServerInformationToolStripMenuItem.Text = "{$SHOW_EXTENDED_SERVER_INFORMATION$}";
+            this.showExtendedServerInformationToolStripMenuItem.Click += new System.EventHandler(this.showExtendedServerInformationToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(317, 6);
+            // 
+            // addServerToFavouritesToolStripMenuItem
+            // 
+            this.addServerToFavouritesToolStripMenuItem.Name = "addServerToFavouritesToolStripMenuItem";
+            this.addServerToFavouritesToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.addServerToFavouritesToolStripMenuItem.Text = "{$ADD_SERVER_TO_FAVOURITES$}";
+            this.addServerToFavouritesToolStripMenuItem.Click += new System.EventHandler(this.addServerToFavouritesToolStripMenuItem_Click);
+            // 
+            // removeServerFromFavouritesToolStripMenuItem
+            // 
+            this.removeServerFromFavouritesToolStripMenuItem.Name = "removeServerFromFavouritesToolStripMenuItem";
+            this.removeServerFromFavouritesToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.removeServerFromFavouritesToolStripMenuItem.Text = "{$REMOVE_SERVER_FROM_FAVOURITES$}";
+            this.removeServerFromFavouritesToolStripMenuItem.Click += new System.EventHandler(this.removeServerFromFavouritesToolStripMenuItem_Click);
             // 
             // serversBindingSource
             // 
@@ -1601,67 +1662,6 @@
             this.textFileSystemWatcher.SynchronizingObject = this;
             this.textFileSystemWatcher.Changed += new System.IO.FileSystemEventHandler(this.textFileSystemWatcher_Changed);
             // 
-            // serversContextMenuStrip
-            // 
-            this.serversContextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.serversContextMenuStrip.Depth = 0;
-            this.serversContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.connectToolStripMenuItem,
-            this.connectWithRCONToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.showExtendedServerInformationToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.addServerToFavouritesToolStripMenuItem,
-            this.removeServerFromFavouritesToolStripMenuItem});
-            this.serversContextMenuStrip.MouseState = MaterialSkin.MouseState.HOVER;
-            this.serversContextMenuStrip.Name = "serversContextMenuStrip";
-            this.serversContextMenuStrip.Size = new System.Drawing.Size(321, 126);
-            // 
-            // connectToolStripMenuItem
-            // 
-            this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-            this.connectToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
-            this.connectToolStripMenuItem.Text = "{$CONNECT$}";
-            this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
-            // 
-            // connectWithRCONToolStripMenuItem
-            // 
-            this.connectWithRCONToolStripMenuItem.Name = "connectWithRCONToolStripMenuItem";
-            this.connectWithRCONToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
-            this.connectWithRCONToolStripMenuItem.Text = "{$CONNECT_WITH_RCON$}";
-            this.connectWithRCONToolStripMenuItem.Click += new System.EventHandler(this.connectWithRCONToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(317, 6);
-            // 
-            // showExtendedServerInformationToolStripMenuItem
-            // 
-            this.showExtendedServerInformationToolStripMenuItem.Name = "showExtendedServerInformationToolStripMenuItem";
-            this.showExtendedServerInformationToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
-            this.showExtendedServerInformationToolStripMenuItem.Text = "{$SHOW_EXTENDED_SERVER_INFORMATION$}";
-            this.showExtendedServerInformationToolStripMenuItem.Click += new System.EventHandler(this.showExtendedServerInformationToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(317, 6);
-            // 
-            // addServerToFavouritesToolStripMenuItem
-            // 
-            this.addServerToFavouritesToolStripMenuItem.Name = "addServerToFavouritesToolStripMenuItem";
-            this.addServerToFavouritesToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
-            this.addServerToFavouritesToolStripMenuItem.Text = "{$ADD_SERVER_TO_FAVOURITES$}";
-            this.addServerToFavouritesToolStripMenuItem.Click += new System.EventHandler(this.addServerToFavouritesToolStripMenuItem_Click);
-            // 
-            // removeServerFromFavouritesToolStripMenuItem
-            // 
-            this.removeServerFromFavouritesToolStripMenuItem.Name = "removeServerFromFavouritesToolStripMenuItem";
-            this.removeServerFromFavouritesToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
-            this.removeServerFromFavouritesToolStripMenuItem.Text = "{$REMOVE_SERVER_FROM_FAVOURITES$}";
-            this.removeServerFromFavouritesToolStripMenuItem.Click += new System.EventHandler(this.removeServerFromFavouritesToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1682,6 +1682,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.serversSplitContainer)).EndInit();
             this.serversSplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.serversGridView)).EndInit();
+            this.serversContextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.serversBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serversDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serversDataTable)).EndInit();
@@ -1725,7 +1726,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fpsLimitTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryFileSystemWatcher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textFileSystemWatcher)).EndInit();
-            this.serversContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

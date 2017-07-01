@@ -304,6 +304,45 @@ namespace SAMPLauncherNET
             }
         }
 
+        public Server(string ipAddressAndPortString, bool fetchData = true)
+        {
+            string[] parts = ipAddressAndPortString.Trim().Split(new char[] { '.', ':' });
+            uint n;
+            if (parts.Length == 5)
+            {
+                isValid = true;
+                for (int i = 0; i < 4; i++)
+                {
+                    if (uint.TryParse(parts[i], out n))
+                        ipv4AddressUInt |= n << (i * 8);
+                    else
+                    {
+                        isValid = false;
+                        break;
+                    }
+                }
+                if (isValid)
+                {
+                    if (ushort.TryParse(parts[4], out port))
+                    {
+                        socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                        socket.SendTimeout = 1000;
+                        socket.ReceiveTimeout = 1000;
+                        if (fetchData)
+                        {
+                            FetchDataAsync(ERequestType.Ping);
+                            FetchDataAsync(ERequestType.Information);
+                        }
+                    }
+                    else
+                    {
+                        ipv4AddressUInt = 0U;
+                        isValid = false;
+                    }
+                }
+            }
+        }
+
         public bool IsDataFetched(ERequestType requestType)
         {
             return !(requestsRequired[requestType]);
@@ -590,45 +629,6 @@ namespace SAMPLauncherNET
             catch
             {
                 //
-            }
-        }
-
-        public Server(string ipAddressAndPortString, bool fetchData = true)
-        {
-            string[] parts = ipAddressAndPortString.Trim().Split(new char[] { '.', ':' });
-            uint n;
-            if (parts.Length == 5)
-            {
-                isValid = true;
-                for (int i = 0; i < 4; i++)
-                {
-                    if (uint.TryParse(parts[i], out n))
-                        ipv4AddressUInt |= n << (i * 8);
-                    else
-                    {
-                        isValid = false;
-                        break;
-                    }
-                }
-                if (isValid)
-                {
-                    if (ushort.TryParse(parts[4], out port))
-                    {
-                        socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-                        socket.SendTimeout = 1000;
-                        socket.ReceiveTimeout = 1000;
-                        if (fetchData)
-                        {
-                            FetchDataAsync(ERequestType.Ping);
-                            FetchDataAsync(ERequestType.Information);
-                        }
-                    }
-                    else
-                    {
-                        ipv4AddressUInt = 0U;
-                        isValid = false;
-                    }
-                }
             }
         }
 

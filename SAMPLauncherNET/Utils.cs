@@ -14,17 +14,9 @@ namespace SAMPLauncherNET
     public static class Utils
     {
 
-        public static readonly string APIHTTPURL = "http://lists.sa-mp.com/0.3.7/";
+        public const string APIHTTPURL = "http://lists.sa-mp.com/0.3.7/";
 
-        public static readonly string APIHTTPContentType = "text/html";
-
-        public static readonly string APIHTTPHost = "lists.sa-mp.com";
-
-        public static readonly string APIHTTPAccept = "text/html, */*";
-
-        public static readonly string APIHTTPUserAgent = "Mozilla/3.0 (compatible; SA:MP v0.3.7)";
-
-        public static readonly string RegistryKey = "HKEY_CURRENT_USER\\SOFTWARE\\SAMP";
+        public const string RegistryKey = "HKEY_CURRENT_USER\\SOFTWARE\\SAMP";
 
         public static readonly string ConfigPath = Environment.GetEnvironmentVariable("USERPROFILE") + "\\Documents\\GTA San Andreas User Files\\SAMP";
 
@@ -42,11 +34,13 @@ namespace SAMPLauncherNET
 
         public static readonly string SAMPConfigPath = ConfigPath + "\\sa-mp.cfg";
 
-        public static readonly string ForumsURL = "http://forum.sa-mp.com/index.php";
+        public static readonly string UserDataDatPath = ConfigPath + "\\USERDATA.DAT";
 
-        public static readonly string GitHubProjectURL = "https://github.com/BigETI/SAMPLauncherNET";
+        public const string ForumsURL = "http://forum.sa-mp.com/index.php";
 
-        public static Dictionary<string, Server> FetchMasterList
+        public const string GitHubProjectURL = "https://github.com/BigETI/SAMPLauncherNET";
+
+        /*public static Dictionary<string, Server> FetchMasterList
         {
             get
             {
@@ -60,7 +54,7 @@ namespace SAMPLauncherNET
             {
                 return FetchIPList("hosted");
             }
-        }
+        }*/
 
         public static string Username
         {
@@ -100,7 +94,7 @@ namespace SAMPLauncherNET
             }
         }
 
-        public static Dictionary<string, FavouriteServer> FavouritesIO
+        /*public static Dictionary<string, FavouriteServer> FavouritesIO
         {
             get
             {
@@ -121,8 +115,6 @@ namespace SAMPLauncherNET
                                         int sc = reader.ReadInt32();
                                         for (int i = 0; i < sc; i++)
                                         {
-                                            
-                                            
                                             string ip = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
                                             ushort port = (ushort)(reader.ReadUInt32());
                                             string cn = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
@@ -151,7 +143,7 @@ namespace SAMPLauncherNET
                 {
                     try
                     {
-                        using (FileStream fs = File.Open(Environment.GetEnvironmentVariable("USERPROFILE") + "\\Documents\\GTA San Andreas User Files\\SAMP\\USERDATA.DAT", FileMode.Create))
+                        using (FileStream fs = File.Open(UserDataDatPath, FileMode.Create))
                         {
                             using (BinaryWriter writer = new BinaryWriter(fs))
                             {
@@ -183,7 +175,7 @@ namespace SAMPLauncherNET
                     }
                 }
             }
-        }
+        }*/
 
         public static string Chatlog
         {
@@ -239,25 +231,32 @@ namespace SAMPLauncherNET
             }
         }
 
-        private static Dictionary<string, Server> FetchIPList(string listName)
+        /*private static Dictionary<string, Server> FetchIPList(string listName)
         {
             Dictionary<string, Server> ret = new Dictionary<string, Server>();
-            using (WebClientEx wc = new WebClientEx(5000))
+            try
             {
-                wc.Headers.Set(HttpRequestHeader.ContentType, APIHTTPContentType);
-                wc.Headers.Set(HttpRequestHeader.Host, APIHTTPHost);
-                wc.Headers.Set(HttpRequestHeader.Accept, APIHTTPAccept);
-                wc.Headers.Set(HttpRequestHeader.UserAgent, APIHTTPUserAgent);
-                string[] ips = wc.DownloadString(APIHTTPURL + listName).Split(new char[] { '\n' });
-                foreach (string ip in ips)
+                using (WebClientEx wc = new WebClientEx(5000))
                 {
-                    Server s = new Server(ip);
-                    if (s.IsValid)
-                        ret.Add(ip.Trim(), s);
+                    wc.Headers.Set(HttpRequestHeader.ContentType, APIHTTPContentType);
+                    wc.Headers.Set(HttpRequestHeader.Host, APIHTTPHost);
+                    wc.Headers.Set(HttpRequestHeader.Accept, APIHTTPAccept);
+                    wc.Headers.Set(HttpRequestHeader.UserAgent, APIHTTPUserAgent);
+                    string[] ips = wc.DownloadString(APIHTTPURL + listName).Split(new char[] { '\n' });
+                    foreach (string ip in ips)
+                    {
+                        Server s = new Server(ip);
+                        if (s.IsValid)
+                            ret.Add(ip.Trim(), s);
+                    }
                 }
             }
+            catch
+            {
+                //
+            }
             return ret;
-        }
+        }*/
 
         public static void LaunchSAMP(Server server, string username, string serverPassword, string rconPassword, bool debug, bool quitWhenDone, Form f)
         {

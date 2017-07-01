@@ -34,6 +34,8 @@ namespace SAMPLauncherNET
 
         private bool rowThreadSuccess = false;
 
+        private ServerListConnector[] serverListConnectors = new ServerListConnector[] { new ServerListConnector(EServerListType.ClassicFavourites, Utils.UserDataDatPath), new ServerListConnector(EServerListType.ClassicSAMP, Utils.APIHTTPURL + "hosted"), new ServerListConnector(EServerListType.ClassicSAMP, Utils.APIHTTPURL + "servers") };
+
         private int[] serverCount = new int[] { 0, 0, 0 };
 
         private SAMPConfig config = Utils.SAMPConfig;
@@ -89,18 +91,14 @@ namespace SAMPLauncherNET
 
             ReloadConfig();
 
-            Dictionary<string, FavouriteServer> fl = Utils.FavouritesIO;
-            serverCount[0] = fl.Count;
-            foreach (FavouriteServer s in fl.Values)
-                loadServers.Add(new KeyValuePair<Server, int>(s, 0));
-            Dictionary<string, Server> l = Utils.FetchHostedList;
-            serverCount[1] = l.Count;
-            foreach (Server s in l.Values)
-                loadServers.Add(new KeyValuePair<Server, int>(s, 1));
-            l = Utils.FetchMasterList;
-            serverCount[2] = l.Count;
-            foreach (Server s in l.Values)
-                loadServers.Add(new KeyValuePair<Server, int>(s, 2));
+            Dictionary<string, Server> l;
+            for (i = 0; i < serverListConnectors.Length; i++)
+            {
+                l = serverListConnectors[i].ServerListIO;
+                serverCount[i] = l.Count;
+                foreach (Server s in l.Values)
+                    loadServers.Add(new KeyValuePair<Server, int>(s, i));
+            }
             UpdateServerCount();
             thread = new Thread(() =>
             {
@@ -300,15 +298,15 @@ namespace SAMPLauncherNET
             serversBindingSource.Filter = filter.ToString();
         }
 
-        private void ReloadFavourites(Dictionary<string, FavouriteServer> servers)
+        private void ReloadFavourites(Dictionary<string, Server> servers)
         {
             DataRow[] rows = serversDataTable.Select("GroupID=0");
             foreach (DataRow row in rows)
                 row.Delete();
             lock (loadServers)
             {
-                foreach (FavouriteServer s in servers.Values)
-                    loadServers.Add(new KeyValuePair<Server, int>(s, 0));
+                foreach (Server server in servers.Values)
+                    loadServers.Add(new KeyValuePair<Server, int>(server, 0));
             }
         }
 
@@ -677,13 +675,13 @@ namespace SAMPLauncherNET
             Server server = SelectedServer;
             if (server != null)
             {
-                Dictionary<string, FavouriteServer> servers = Utils.FavouritesIO;
+                Dictionary<string, Server> servers = serverListConnectors[0].ServerListIO;
                 if (servers.ContainsKey(server.IPPortString))
                     MessageBox.Show(Translator.GetTranslation("SERVER_ALREADY_IN_FAVOURITES"), Translator.GetTranslation("ALREADY_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     servers.Add(server.IPPortString, server.ToFavouriteServer(server.Hostname));
-                    Utils.FavouritesIO = servers;
+                    serverListConnectors[0].ServerListIO = servers;
                     ReloadFavourites(servers);
                 }
             }
@@ -694,11 +692,11 @@ namespace SAMPLauncherNET
             Server server = SelectedServer;
             if (server != null)
             {
-                Dictionary<string, FavouriteServer> servers = Utils.FavouritesIO;
+                Dictionary<string, Server> servers = serverListConnectors[0].ServerListIO;
                 if (servers.ContainsKey(server.IPPortString))
                 {
                     servers.Remove(server.IPPortString);
-                    Utils.FavouritesIO = servers;
+                    serverListConnectors[0].ServerListIO = servers;
                     ReloadFavourites(servers);
                 }
                 else

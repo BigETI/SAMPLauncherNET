@@ -221,5 +221,11 @@ namespace SAMPLauncherNET
                     rulesGridView.Rows[si].Selected = true;
             }
         }
+
+        private void genericGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            // null route
+            e.ThrowException = false;
+        }
     }
 }

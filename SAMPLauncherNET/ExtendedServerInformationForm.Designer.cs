@@ -43,9 +43,6 @@
             this.mainTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.pingChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.informationSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.serverSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.playersGridView = new System.Windows.Forms.DataGridView();
-            this.rulesGridView = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.hostnameLabel = new MaterialSkin.Controls.MaterialLabel();
             this.playersLabel = new MaterialSkin.Controls.MaterialLabel();
@@ -53,23 +50,26 @@
             this.languageLabel = new MaterialSkin.Controls.MaterialLabel();
             this.ipAndPortLabel = new MaterialSkin.Controls.MaterialLabel();
             this.pingLabel = new MaterialSkin.Controls.MaterialLabel();
-            this.serversDataSet = new System.Data.DataSet();
-            this.playersDataTable = new System.Data.DataTable();
-            this.playerDataColumn = new System.Data.DataColumn();
-            this.scoreDataColumn = new System.Data.DataColumn();
-            this.rulesDataTable = new System.Data.DataTable();
-            this.ruleDataColumn = new System.Data.DataColumn();
-            this.valueDataColumn = new System.Data.DataColumn();
-            this.playersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataColumn1 = new System.Data.DataColumn();
-            this.dataColumn2 = new System.Data.DataColumn();
+            this.serverSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.playersGridView = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.playerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.playersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.serversDataSet = new System.Data.DataSet();
+            this.playersDataTable = new System.Data.DataTable();
+            this.playerDataColumn = new System.Data.DataColumn();
+            this.scoreDataColumn = new System.Data.DataColumn();
+            this.dataColumn1 = new System.Data.DataColumn();
+            this.dataColumn2 = new System.Data.DataColumn();
+            this.rulesDataTable = new System.Data.DataTable();
+            this.ruleDataColumn = new System.Data.DataColumn();
+            this.valueDataColumn = new System.Data.DataColumn();
+            this.rulesGridView = new System.Windows.Forms.DataGridView();
             this.ruleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.mainTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pingChart)).BeginInit();
@@ -77,17 +77,17 @@
             this.informationSplitContainer.Panel1.SuspendLayout();
             this.informationSplitContainer.Panel2.SuspendLayout();
             this.informationSplitContainer.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.serverSplitContainer)).BeginInit();
             this.serverSplitContainer.Panel1.SuspendLayout();
             this.serverSplitContainer.Panel2.SuspendLayout();
             this.serverSplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playersGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rulesGridView)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serversDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesDataTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,8 +110,8 @@
             // 
             // pingChart
             // 
-            this.pingChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.pingChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.pingChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.pingChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
@@ -120,7 +120,7 @@
             chartArea1.Name = "ChartArea1";
             this.pingChart.ChartAreas.Add(chartArea1);
             this.pingChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             legend1.ForeColor = System.Drawing.Color.White;
             legend1.Name = "Legend1";
             this.pingChart.Legends.Add(legend1);
@@ -156,130 +156,6 @@
             this.informationSplitContainer.Size = new System.Drawing.Size(747, 288);
             this.informationSplitContainer.SplitterDistance = 424;
             this.informationSplitContainer.TabIndex = 9;
-            // 
-            // serverSplitContainer
-            // 
-            this.serverSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.serverSplitContainer.Location = new System.Drawing.Point(0, 0);
-            this.serverSplitContainer.Name = "serverSplitContainer";
-            this.serverSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // serverSplitContainer.Panel1
-            // 
-            this.serverSplitContainer.Panel1.Controls.Add(this.playersGridView);
-            // 
-            // serverSplitContainer.Panel2
-            // 
-            this.serverSplitContainer.Panel2.Controls.Add(this.rulesGridView);
-            this.serverSplitContainer.Size = new System.Drawing.Size(319, 288);
-            this.serverSplitContainer.SplitterDistance = 175;
-            this.serverSplitContainer.TabIndex = 0;
-            // 
-            // playersGridView
-            // 
-            this.playersGridView.AllowUserToAddRows = false;
-            this.playersGridView.AllowUserToDeleteRows = false;
-            this.playersGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(155)))), ((int)(((byte)(209)))));
-            this.playersGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.playersGridView.AutoGenerateColumns = false;
-            this.playersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.playersGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.playersGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.playersGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.playersGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.playersGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.playersGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.playersGridView.ColumnHeadersHeight = 32;
-            this.playersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.playersGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.playerDataGridViewTextBoxColumn,
-            this.scoreDataGridViewTextBoxColumn,
-            this.pingDataGridViewTextBoxColumn});
-            this.playersGridView.DataSource = this.playersBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(200)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.playersGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.playersGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playersGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.playersGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.playersGridView.Location = new System.Drawing.Point(0, 0);
-            this.playersGridView.MultiSelect = false;
-            this.playersGridView.Name = "playersGridView";
-            this.playersGridView.ReadOnly = true;
-            this.playersGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.playersGridView.RowHeadersVisible = false;
-            this.playersGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.playersGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.playersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.playersGridView.Size = new System.Drawing.Size(319, 175);
-            this.playersGridView.TabIndex = 2;
-            // 
-            // rulesGridView
-            // 
-            this.rulesGridView.AllowUserToAddRows = false;
-            this.rulesGridView.AllowUserToDeleteRows = false;
-            this.rulesGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(155)))), ((int)(((byte)(209)))));
-            this.rulesGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.rulesGridView.AutoGenerateColumns = false;
-            this.rulesGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.rulesGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.rulesGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rulesGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.rulesGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.rulesGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.rulesGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.rulesGridView.ColumnHeadersHeight = 32;
-            this.rulesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.rulesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ruleDataGridViewTextBoxColumn,
-            this.valueDataGridViewTextBoxColumn});
-            this.rulesGridView.DataSource = this.rulesBindingSource;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(200)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.rulesGridView.DefaultCellStyle = dataGridViewCellStyle7;
-            this.rulesGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rulesGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.rulesGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.rulesGridView.Location = new System.Drawing.Point(0, 0);
-            this.rulesGridView.MultiSelect = false;
-            this.rulesGridView.Name = "rulesGridView";
-            this.rulesGridView.ReadOnly = true;
-            this.rulesGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.rulesGridView.RowHeadersVisible = false;
-            this.rulesGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.rulesGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.rulesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.rulesGridView.Size = new System.Drawing.Size(319, 109);
-            this.rulesGridView.TabIndex = 2;
             // 
             // flowLayoutPanel1
             // 
@@ -374,71 +250,78 @@
             this.pingLabel.TabIndex = 5;
             this.pingLabel.Text = "{$PING$}";
             // 
-            // serversDataSet
+            // serverSplitContainer
             // 
-            this.serversDataSet.DataSetName = "serversDataSet";
-            this.serversDataSet.Tables.AddRange(new System.Data.DataTable[] {
-            this.playersDataTable,
-            this.rulesDataTable});
+            this.serverSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.serverSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.serverSplitContainer.Name = "serverSplitContainer";
+            this.serverSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // playersDataTable
+            // serverSplitContainer.Panel1
             // 
-            this.playersDataTable.Columns.AddRange(new System.Data.DataColumn[] {
-            this.playerDataColumn,
-            this.scoreDataColumn,
-            this.dataColumn1,
-            this.dataColumn2});
-            this.playersDataTable.TableName = "Players";
+            this.serverSplitContainer.Panel1.Controls.Add(this.playersGridView);
             // 
-            // playerDataColumn
+            // serverSplitContainer.Panel2
             // 
-            this.playerDataColumn.ColumnName = "ID";
-            this.playerDataColumn.DataType = typeof(byte);
-            this.playerDataColumn.DefaultValue = 0;
+            this.serverSplitContainer.Panel2.Controls.Add(this.rulesGridView);
+            this.serverSplitContainer.Size = new System.Drawing.Size(319, 288);
+            this.serverSplitContainer.SplitterDistance = 175;
+            this.serverSplitContainer.TabIndex = 0;
             // 
-            // scoreDataColumn
+            // playersGridView
             // 
-            this.scoreDataColumn.ColumnName = "Player";
-            this.scoreDataColumn.DefaultValue = "";
-            // 
-            // rulesDataTable
-            // 
-            this.rulesDataTable.Columns.AddRange(new System.Data.DataColumn[] {
-            this.ruleDataColumn,
-            this.valueDataColumn});
-            this.rulesDataTable.TableName = "Rules";
-            // 
-            // ruleDataColumn
-            // 
-            this.ruleDataColumn.ColumnName = "Rule";
-            this.ruleDataColumn.DefaultValue = "";
-            // 
-            // valueDataColumn
-            // 
-            this.valueDataColumn.ColumnName = "Value";
-            this.valueDataColumn.DefaultValue = "";
-            // 
-            // playersBindingSource
-            // 
-            this.playersBindingSource.DataMember = "Players";
-            this.playersBindingSource.DataSource = this.serversDataSet;
-            // 
-            // rulesBindingSource
-            // 
-            this.rulesBindingSource.DataMember = "Rules";
-            this.rulesBindingSource.DataSource = this.serversDataSet;
-            // 
-            // dataColumn1
-            // 
-            this.dataColumn1.ColumnName = "Score";
-            this.dataColumn1.DataType = typeof(int);
-            this.dataColumn1.DefaultValue = 0;
-            // 
-            // dataColumn2
-            // 
-            this.dataColumn2.ColumnName = "Ping";
-            this.dataColumn2.DataType = typeof(uint);
-            this.dataColumn2.DefaultValue = ((uint)(0u));
+            this.playersGridView.AllowUserToAddRows = false;
+            this.playersGridView.AllowUserToDeleteRows = false;
+            this.playersGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(155)))), ((int)(((byte)(209)))));
+            this.playersGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.playersGridView.AutoGenerateColumns = false;
+            this.playersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.playersGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.playersGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.playersGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.playersGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.playersGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.playersGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.playersGridView.ColumnHeadersHeight = 32;
+            this.playersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.playersGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn,
+            this.playerDataGridViewTextBoxColumn,
+            this.scoreDataGridViewTextBoxColumn,
+            this.pingDataGridViewTextBoxColumn});
+            this.playersGridView.DataSource = this.playersBindingSource;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(200)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.playersGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.playersGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playersGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.playersGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.playersGridView.Location = new System.Drawing.Point(0, 0);
+            this.playersGridView.MultiSelect = false;
+            this.playersGridView.Name = "playersGridView";
+            this.playersGridView.ReadOnly = true;
+            this.playersGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.playersGridView.RowHeadersVisible = false;
+            this.playersGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.playersGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.playersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.playersGridView.Size = new System.Drawing.Size(319, 175);
+            this.playersGridView.TabIndex = 2;
+            this.playersGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -468,6 +351,120 @@
             this.pingDataGridViewTextBoxColumn.Name = "pingDataGridViewTextBoxColumn";
             this.pingDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // playersBindingSource
+            // 
+            this.playersBindingSource.DataMember = "Players";
+            this.playersBindingSource.DataSource = this.serversDataSet;
+            // 
+            // serversDataSet
+            // 
+            this.serversDataSet.DataSetName = "serversDataSet";
+            this.serversDataSet.Tables.AddRange(new System.Data.DataTable[] {
+            this.playersDataTable,
+            this.rulesDataTable});
+            // 
+            // playersDataTable
+            // 
+            this.playersDataTable.Columns.AddRange(new System.Data.DataColumn[] {
+            this.playerDataColumn,
+            this.scoreDataColumn,
+            this.dataColumn1,
+            this.dataColumn2});
+            this.playersDataTable.TableName = "Players";
+            // 
+            // playerDataColumn
+            // 
+            this.playerDataColumn.ColumnName = "ID";
+            this.playerDataColumn.DataType = typeof(byte);
+            this.playerDataColumn.DefaultValue = ((byte)(0));
+            // 
+            // scoreDataColumn
+            // 
+            this.scoreDataColumn.ColumnName = "Player";
+            this.scoreDataColumn.DefaultValue = "";
+            // 
+            // dataColumn1
+            // 
+            this.dataColumn1.ColumnName = "Score";
+            this.dataColumn1.DataType = typeof(int);
+            this.dataColumn1.DefaultValue = 0;
+            // 
+            // dataColumn2
+            // 
+            this.dataColumn2.ColumnName = "Ping";
+            this.dataColumn2.DataType = typeof(uint);
+            this.dataColumn2.DefaultValue = ((uint)(0u));
+            // 
+            // rulesDataTable
+            // 
+            this.rulesDataTable.Columns.AddRange(new System.Data.DataColumn[] {
+            this.ruleDataColumn,
+            this.valueDataColumn});
+            this.rulesDataTable.TableName = "Rules";
+            // 
+            // ruleDataColumn
+            // 
+            this.ruleDataColumn.ColumnName = "Rule";
+            this.ruleDataColumn.DefaultValue = "";
+            // 
+            // valueDataColumn
+            // 
+            this.valueDataColumn.ColumnName = "Value";
+            this.valueDataColumn.DefaultValue = "";
+            // 
+            // rulesGridView
+            // 
+            this.rulesGridView.AllowUserToAddRows = false;
+            this.rulesGridView.AllowUserToDeleteRows = false;
+            this.rulesGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(155)))), ((int)(((byte)(209)))));
+            this.rulesGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.rulesGridView.AutoGenerateColumns = false;
+            this.rulesGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.rulesGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.rulesGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rulesGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.rulesGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.rulesGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rulesGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.rulesGridView.ColumnHeadersHeight = 32;
+            this.rulesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.rulesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ruleDataGridViewTextBoxColumn,
+            this.valueDataGridViewTextBoxColumn});
+            this.rulesGridView.DataSource = this.rulesBindingSource;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(200)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.rulesGridView.DefaultCellStyle = dataGridViewCellStyle7;
+            this.rulesGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rulesGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.rulesGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.rulesGridView.Location = new System.Drawing.Point(0, 0);
+            this.rulesGridView.MultiSelect = false;
+            this.rulesGridView.Name = "rulesGridView";
+            this.rulesGridView.ReadOnly = true;
+            this.rulesGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.rulesGridView.RowHeadersVisible = false;
+            this.rulesGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.rulesGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.rulesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.rulesGridView.Size = new System.Drawing.Size(319, 109);
+            this.rulesGridView.TabIndex = 2;
+            this.rulesGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
+            // 
             // ruleDataGridViewTextBoxColumn
             // 
             this.ruleDataGridViewTextBoxColumn.DataPropertyName = "Rule";
@@ -481,6 +478,11 @@
             this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
             this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
             this.valueDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rulesBindingSource
+            // 
+            this.rulesBindingSource.DataMember = "Rules";
+            this.rulesBindingSource.DataSource = this.serversDataSet;
             // 
             // updateTimer
             // 
@@ -504,18 +506,18 @@
             this.informationSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.informationSplitContainer)).EndInit();
             this.informationSplitContainer.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.serverSplitContainer.Panel1.ResumeLayout(false);
             this.serverSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.serverSplitContainer)).EndInit();
             this.serverSplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.playersGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rulesGridView)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serversDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesDataTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
