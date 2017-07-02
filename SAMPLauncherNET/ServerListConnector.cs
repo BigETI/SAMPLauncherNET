@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Runtime.Serialization.Json;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SAMPLauncherNET
 {
@@ -13,8 +11,6 @@ namespace SAMPLauncherNET
     {
 
         public const string APIHTTPContentType = "text/html";
-
-        public const string APIHTTPHost = "lists.sa-mp.com";
 
         public const string APIHTTPAccept = "text/html, */*";
 
@@ -77,7 +73,6 @@ namespace SAMPLauncherNET
                             using (WebClientEx wc = new WebClientEx(5000))
                             {
                                 wc.Headers.Set(HttpRequestHeader.ContentType, APIHTTPContentType);
-                                wc.Headers.Set(HttpRequestHeader.Host, APIHTTPHost);
                                 wc.Headers.Set(HttpRequestHeader.Accept, APIHTTPAccept);
                                 wc.Headers.Set(HttpRequestHeader.UserAgent, APIHTTPUserAgent);
                                 string[] ips = wc.DownloadString(endpoint).Split(new char[] { '\n' });
@@ -89,9 +84,9 @@ namespace SAMPLauncherNET
                                 }
                             }
                         }
-                        catch
+                        catch (Exception e)
                         {
-                            //
+                            Console.Error.WriteLine(e.Message);
                         }
                         break;
                     case EServerListType.BackendRESTful:
@@ -100,7 +95,6 @@ namespace SAMPLauncherNET
                             using (WebClientEx wc = new WebClientEx(5000))
                             {
                                 wc.Headers.Set(HttpRequestHeader.ContentType, APIHTTPContentType);
-                                wc.Headers.Set(HttpRequestHeader.Host, APIHTTPHost);
                                 wc.Headers.Set(HttpRequestHeader.Accept, APIHTTPAccept);
                                 wc.Headers.Set(HttpRequestHeader.UserAgent, APIHTTPUserAgent);
                                 using (MemoryStream stream = new MemoryStream(wc.DownloadData(endpoint)))

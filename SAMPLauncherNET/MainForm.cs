@@ -1,17 +1,13 @@
-﻿using INIEngine;
-using MaterialSkin;
+﻿using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsTranslator;
 
@@ -113,6 +109,11 @@ namespace SAMPLauncherNET
                         {
                             if (kv.Key.IsDataFetched(ERequestType.Ping) || kv.Key.IsDataFetched(ERequestType.Information))
                                 rlist.Add(kv);
+                            else
+                            {
+                                kv.Key.SendQueryWhenExpired(ERequestType.Ping, 5000U);
+                                kv.Key.SendQueryWhenExpired(ERequestType.Information, 5000U);
+                            }
                         }
                         foreach (KeyValuePair<Server, int> kv in rlist)
                             loadServers.Remove(kv);
@@ -145,8 +146,9 @@ namespace SAMPLauncherNET
             serverCountLabel.Text = sb.ToString();
         }
 
-        private void EnterRow()
+        private bool EnterRow()
         {
+            bool ret = false;
             if (rowThread != null)
             {
                 rowThread.Abort();
@@ -160,7 +162,9 @@ namespace SAMPLauncherNET
                     ReloadSelectedServerRow();
                 rowThread = new Thread(() => RequestServerInfo(server));
                 rowThread.Start();
+                ret = true;
             }
+            return ret;
         }
 
         private void ReloadSelectedServerRow()
@@ -298,6 +302,7 @@ namespace SAMPLauncherNET
                 filter.Append("%'");
             }
             serversBindingSource.Filter = filter.ToString();
+            EnterRow();
         }
 
         private void ReloadFavourites(Dictionary<string, Server> servers)
@@ -453,10 +458,7 @@ namespace SAMPLauncherNET
                     if (!(registeredServers.ContainsKey(kv.Key.IPPortString)))
                         registeredServers.Add(kv.Key.IPPortString, kv.Key);
                     if (queryFirstServer)
-                    {
-                        queryFirstServer = false;
-                        EnterRow();
-                    }
+                        queryFirstServer = !(EnterRow());
                 }
                 loadedServers.Clear();
                 UpdateServerCount();

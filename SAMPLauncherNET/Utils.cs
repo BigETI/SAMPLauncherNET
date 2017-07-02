@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Net;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -39,22 +38,6 @@ namespace SAMPLauncherNET
         public const string ForumsURL = "http://forum.sa-mp.com/index.php";
 
         public const string GitHubProjectURL = "https://github.com/BigETI/SAMPLauncherNET";
-
-        /*public static Dictionary<string, Server> FetchMasterList
-        {
-            get
-            {
-                return FetchIPList("servers");
-            }
-        }
-
-        public static Dictionary<string, Server> FetchHostedList
-        {
-            get
-            {
-                return FetchIPList("hosted");
-            }
-        }*/
 
         public static string Username
         {
@@ -93,89 +76,6 @@ namespace SAMPLauncherNET
                 return ret;
             }
         }
-
-        /*public static Dictionary<string, FavouriteServer> FavouritesIO
-        {
-            get
-            {
-                Dictionary<string, FavouriteServer> ret = new Dictionary<string, FavouriteServer>();
-                try
-                {
-                    using (FileStream fs = File.Open(ConfigPath + "\\USERDATA.DAT", FileMode.Open))
-                    {
-                        using (BinaryReader reader = new BinaryReader(fs))
-                        {
-                            if (fs.Length >= 16)
-                            {
-                                string samp = new string(reader.ReadChars(4));
-                                if (samp == "SAMP")
-                                {
-                                    if (reader.ReadUInt32() == 1U)
-                                    {
-                                        int sc = reader.ReadInt32();
-                                        for (int i = 0; i < sc; i++)
-                                        {
-                                            string ip = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
-                                            ushort port = (ushort)(reader.ReadUInt32());
-                                            string cn = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
-                                            string sp = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
-                                            string rp = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
-                                            ip = ip + ":" + port;
-                                            FavouriteServer s = new FavouriteServer(ip, cn, sp, rp);
-                                            if (s.IsValid)
-                                                ret.Add(s.IPPortString, s);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                catch
-                {
-                    //
-                }
-                return ret;
-            }
-            set
-            {
-                if (value != null)
-                {
-                    try
-                    {
-                        using (FileStream fs = File.Open(UserDataDatPath, FileMode.Create))
-                        {
-                            using (BinaryWriter writer = new BinaryWriter(fs))
-                            {
-                                writer.Write("SAMP".ToCharArray());
-                                writer.Write(1);
-                                writer.Write(value.Count);
-                                foreach (KeyValuePair<string, FavouriteServer> kv in value)
-                                {
-                                    byte[] data = Encoding.Default.GetBytes(kv.Value.IPv4AddressString);
-                                    writer.Write(data.Length);
-                                    writer.Write(data);
-                                    writer.Write((uint)(kv.Value.Port));
-                                    data = Encoding.Default.GetBytes(kv.Value.Hostname);
-                                    writer.Write(data.Length);
-                                    writer.Write(data);
-                                    data = Encoding.Default.GetBytes(kv.Value.ServerPassword);
-                                    writer.Write(data.Length);
-                                    writer.Write(data);
-                                    data = Encoding.Default.GetBytes(kv.Value.RCONPassword);
-                                    writer.Write(data.Length);
-                                    writer.Write(data);
-                                }
-                            }
-                        }
-                    }
-                    catch
-                    {
-                        //
-                    }
-                }
-            }
-        }*/
 
         public static string Chatlog
         {
@@ -230,33 +130,6 @@ namespace SAMPLauncherNET
                 return new SAMPConfig(SAMPConfigPath);
             }
         }
-
-        /*private static Dictionary<string, Server> FetchIPList(string listName)
-        {
-            Dictionary<string, Server> ret = new Dictionary<string, Server>();
-            try
-            {
-                using (WebClientEx wc = new WebClientEx(5000))
-                {
-                    wc.Headers.Set(HttpRequestHeader.ContentType, APIHTTPContentType);
-                    wc.Headers.Set(HttpRequestHeader.Host, APIHTTPHost);
-                    wc.Headers.Set(HttpRequestHeader.Accept, APIHTTPAccept);
-                    wc.Headers.Set(HttpRequestHeader.UserAgent, APIHTTPUserAgent);
-                    string[] ips = wc.DownloadString(APIHTTPURL + listName).Split(new char[] { '\n' });
-                    foreach (string ip in ips)
-                    {
-                        Server s = new Server(ip);
-                        if (s.IsValid)
-                            ret.Add(ip.Trim(), s);
-                    }
-                }
-            }
-            catch
-            {
-                //
-            }
-            return ret;
-        }*/
 
         public static void LaunchSAMP(Server server, string username, string serverPassword, string rconPassword, bool debug, bool quitWhenDone, Form f)
         {

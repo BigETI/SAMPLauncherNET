@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace SAMPLauncherNET
+﻿namespace SAMPLauncherNET
 {
     public class FavouriteServer : Server
     {

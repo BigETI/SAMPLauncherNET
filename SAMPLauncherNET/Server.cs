@@ -13,7 +13,7 @@ namespace SAMPLauncherNET
     {
         private static readonly Encoding QueryEncoding = Encoding.Default;
 
-        Socket socket = null;
+        private Socket socket = null;
 
         private uint ipv4AddressUInt = 0U;
 
@@ -476,6 +476,7 @@ namespace SAMPLauncherNET
         {
             int index = (int)requestType;
             threads[index] = new Thread(() => SendQuery(requestType));
+            requestsRequired.SetLastRequestTime(requestType);
             threads[index].Start();
         }
 
@@ -487,9 +488,18 @@ namespace SAMPLauncherNET
             return ret;
         }
 
+        public void SendQueryWhenExpired(ERequestType requestType, uint milliseconds)
+        {
+            uint t = (uint)(DateTime.Now.Subtract(requestsRequired.GetLastRequestTime(requestType)).TotalMilliseconds);
+            if (t >= milliseconds)
+                SendQueryAsync(requestType);
+                
+        }
+
         private bool SendQuery(ERequestType requestType)
         {
             bool ret = false;
+            requestsRequired.SetLastRequestTime(requestType);
             try
             {
                 EndPoint endpoint = new IPEndPoint(IPAddress, Port);
