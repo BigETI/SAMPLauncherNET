@@ -6,8 +6,7 @@ SAMPLauncherNET is a more modern approach to San Andreas Multiplayer.
 It is capable to do more things than the native San Andreas Multiplayer launcher.
 
 # How to use?
-Download and move binaries into the root directory of GTA San Andreas,
-where San Andreas Multiplayer is installed
+Download and move the binaries into any directory you prefer, which should have read and write permissions.
 
 # Where can I get a current build of SAMPLauncherNET
 There are no builds available right now, because it is still in development.
