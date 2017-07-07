@@ -30,13 +30,13 @@ namespace SAMPLauncherNET
 
         private bool rowThreadSuccess = false;
 
-        private ServerListConnector[] serverListConnectors = new ServerListConnector[] { new ServerListConnector(EServerListType.ClassicFavourites, Utils.UserDataDatPath), new ServerListConnector(EServerListType.ClassicSAMP, Utils.APIHTTPURL + "hosted"), new ServerListConnector(EServerListType.ClassicSAMP, Utils.APIHTTPURL + "servers") };
+        private List<ServerListConnector> api = new List<ServerListConnector>();
 
-        private int[] serverCount = new int[] { 0, 0, 0 };
-
-        private SAMPConfig config = Utils.SAMPConfig;
+        private SAMPConfig config = SAMP.SAMPConfig;
 
         private bool queryFirstServer = true;
+
+        private int selectedAPIIndex = -1;
 
         public Server SelectedServer
         {
@@ -59,10 +59,26 @@ namespace SAMPLauncherNET
             }
         }
 
+        private bool IsInFavouriteList
+        {
+            get
+            {
+                bool ret = false;
+                if ((selectedAPIIndex >= 0) && (selectedAPIIndex < api.Count))
+                {
+                    ServerListConnector slc = api[selectedAPIIndex];
+                    ret = ((slc.ServerListType == EServerListType.Favourites) || (slc.ServerListType == EServerListType.LegacyFavourites));
+                }
+                return ret;
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();
+            Size sz = revertConfigButton.Size;
             Translator.LoadTranslation(this);
+            revertConfigButton.Location = new Point(revertConfigButton.Location.X + (sz.Width - revertConfigButton.Size.Width), revertConfigButton.Location.Y);
             Translator.EnumerableToComboBox(languagesComboBox, Translator.TranslatorInterface.Languages);
             int i = 0;
             foreach (Language language in Translator.TranslatorInterface.Languages)
@@ -81,26 +97,17 @@ namespace SAMPLauncherNET
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue700, Primary.Blue800, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
             //materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange400, Primary.DeepOrange600, Primary.DeepOrange100, Accent.Orange100, TextShade.WHITE);
 
-            galleryFileSystemWatcher.Path = Utils.GalleryPath;
-            textFileSystemWatcher.Path = Utils.ConfigPath;
+            galleryFileSystemWatcher.Path = SAMP.GalleryPath;
+            textFileSystemWatcher.Path = SAMP.ConfigPath;
 
-            lastChatlogTextBox.Text = Utils.Chatlog;
-            savedPositionsTextBox.Text = Utils.SavedPositions;
+            lastChatlogTextBox.Text = SAMP.Chatlog;
+            savedPositionsTextBox.Text = SAMP.SavedPositions;
 
             ReloadConfig();
-
-            Dictionary<string, Server> l;
-            for (i = 0; i < serverListConnectors.Length; i++)
-            {
-                l = serverListConnectors[i].ServerListIO;
-                serverCount[i] = l.Count;
-                foreach (Server s in l.Values)
-                    loadServers.Add(new KeyValuePair<Server, int>(s, i));
-            }
-            UpdateServerCount();
+            ReloadAPI();
             thread = new Thread(() =>
             {
-                while (loadServers.Count > 0)
+                while (true)
                 {
                     List<KeyValuePair<Server, int>> rlist = new List<KeyValuePair<Server, int>>();
                     lock (loadServers)
@@ -128,22 +135,80 @@ namespace SAMPLauncherNET
             thread.Start();
         }
 
+        private void ClearAPI()
+        {
+            selectAPIComboBox.Items.Clear();
+            selectedAPIIndex = -1;
+            lock (api)
+            {
+                api.Clear();
+            }
+            apiDataTable.Clear();
+            lock (loadServers)
+            {
+                loadServers.Clear();
+            }
+            lock (loadedServers)
+            {
+                loadedServers.Clear();
+            }
+            lock (registeredServers)
+            {
+                registeredServers.Clear();
+            }
+            serversDataTable.Clear();
+        }
+
+        private void ReloadAPI()
+        {
+            ClearAPI();
+            lock (api)
+            {
+                api.AddRange(SAMP.APIIO);
+                selectAPIComboBox.Items.AddRange(api.ToArray());
+                lock (apiDataTable)
+                {
+                    for (int i = 0; i < api.Count; i++)
+                    {
+                        DataRow dr = apiDataTable.NewRow();
+                        ServerListConnector slc = api[i];
+                        dr.ItemArray = new object[] { i, slc.Name, slc.ServerListType.ToString(), slc.Endpoint };
+                        apiDataTable.Rows.Add(dr);
+                    }
+                }
+                if (api.Count > 0)
+                    selectAPIComboBox.SelectedIndex = 0;
+            }
+        }
+
+        private void SelectAPI()
+        {
+            int index = selectAPIComboBox.SelectedIndex;
+            if ((index >= 0) && (index < api.Count))
+            {
+                lock (loadServers)
+                {
+                    ServerListConnector slc = api[index];
+                    if (slc.NotLoaded)
+                    {
+                        slc.NotLoaded = false;
+                        Dictionary<string, Server> l = slc.ServerListIO;
+                        foreach (Server server in l.Values)
+                            loadServers.Add(new KeyValuePair<Server, int>(server, index));
+                    }
+                }
+                UpdateServerListFilter();
+                UpdateServerCount();
+            }
+        }
+
         private void UpdateServerCount()
         {
-            StringBuilder sb = new StringBuilder(Translator.GetTranslation("SERVERS"));
-            sb.Append(": ");
-            bool first = true;
-            for (int i = 0; i < 3; i++)
-            {
-                if (first)
-                    first = false;
-                else
-                    sb.Append(", ");
-                sb.Append(serversDataTable.Select("GroupID=" + i).Length.ToString());
-                sb.Append("/");
-                sb.Append(serverCount[i].ToString());
-            }
-            serverCountLabel.Text = sb.ToString();
+            uint c = 0U;
+            int index = selectedAPIIndex;
+            if ((index >= 0) && (index < api.Count))
+                c = api[index].ServerCount;
+            serverCountLabel.Text = Translator.GetTranslation("SERVERS") + ": " + c;
         }
 
         private bool EnterRow()
@@ -280,14 +345,9 @@ namespace SAMPLauncherNET
 
         private void UpdateServerListFilter()
         {
-            int gid = 0;
             string ft = filterSingleLineTextField.Text.Trim();
             StringBuilder filter = new StringBuilder("GroupID=");
-            if (showHostedListRadioButton.Checked)
-                gid = 1;
-            else if (showMasterListRadioButton.Checked)
-                gid = 2;
-            filter.Append(gid);
+            filter.Append(selectedAPIIndex.ToString());
             if (ft.Length > 0)
             {
                 if (filterHostnameRadioButton.Checked)
@@ -305,15 +365,15 @@ namespace SAMPLauncherNET
             EnterRow();
         }
 
-        private void ReloadFavourites(Dictionary<string, Server> servers)
+        private void ReloadFavourites(Dictionary<string, Server> servers, int index)
         {
-            DataRow[] rows = serversDataTable.Select("GroupID=0");
+            DataRow[] rows = serversDataTable.Select("GroupID=" + index);
             foreach (DataRow row in rows)
                 row.Delete();
             lock (loadServers)
             {
                 foreach (Server server in servers.Values)
-                    loadServers.Add(new KeyValuePair<Server, int>(server, 0));
+                    loadServers.Add(new KeyValuePair<Server, int>(server, index));
             }
         }
 
@@ -326,7 +386,7 @@ namespace SAMPLauncherNET
                 DialogResult result = cf.ShowDialog();
                 DialogResult = DialogResult.None;
                 if (result == DialogResult.OK)
-                    Utils.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, false, closeWhenLaunchedCheckBox.Checked, this);
+                    SAMP.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, false, closeWhenLaunchedCheckBox.Checked, this);
             }
         }
 
@@ -336,12 +396,12 @@ namespace SAMPLauncherNET
             {
                 galleryListView.Clear();
                 galleryImageList.Images.Clear();
-                Dictionary<string, Image> images = Utils.GalleryImages;
+                Dictionary<string, Image> images = SAMP.GalleryImages;
                 int i = 0;
                 foreach (KeyValuePair<string, Image> kv in images)
                 {
                     galleryImageList.Images.Add(kv.Value);
-                    ListViewItem lvi = galleryListView.Items.Add(kv.Key.Substring(Utils.GalleryPath.Length + 1), i);
+                    ListViewItem lvi = galleryListView.Items.Add(kv.Key.Substring(SAMP.GalleryPath.Length + 1), i);
                     lvi.Tag = kv.Key;
                     ++i;
                 }
@@ -423,6 +483,83 @@ namespace SAMPLauncherNET
             fontWeightCheckBox.Checked = config.FontWeight;
         }
 
+        private void AddSelectedAPI()
+        {
+            APIForm apif = new APIForm();
+            DialogResult result = apif.ShowDialog();
+            DialogResult = DialogResult.None;
+            if (result == DialogResult.OK)
+            {
+                List<ServerListConnector> api = SAMP.APIIO;
+                api.Add(new ServerListConnector(apif.API));
+                SAMP.APIIO = api;
+                ReloadAPI();
+            }
+        }
+
+        private void EditSelectedAPI()
+        {
+            foreach (DataGridViewRow dgvr in apiGridView.SelectedRows)
+            {
+                int index = (int)(dgvr.Cells[0].Value);
+                if ((index >= 0) && (index < api.Count))
+                {
+                    ServerListConnector slc = api[index];
+                    APIForm apif = new APIForm(slc.APIDataContract);
+                    DialogResult result = apif.ShowDialog();
+                    DialogResult = DialogResult.None;
+                    if (result == DialogResult.OK)
+                    {
+                        api[index] = new ServerListConnector(apif.API);
+                        SAMP.APIIO = api;
+                        ReloadAPI();
+                    }
+                }
+                break;
+            }
+        }
+
+        private void RemoveSelectedAPI()
+        {
+            if (MessageBox.Show(Translator.GetTranslation("REMOVE_API"), Translator.GetTranslation("REMOVE_API_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                foreach (DataGridViewRow dgvr in apiGridView.SelectedRows)
+                {
+                    int index = (int)(dgvr.Cells[0].Value);
+                    if ((index >= 0) && (index < api.Count))
+                    {
+                        api.RemoveAt(index);
+                        SAMP.APIIO = api;
+                        ReloadAPI();
+                    }
+                    break;
+                }
+            }
+        }
+
+        private void RemoveSelectionFromFavourites(bool promptWhenError = true)
+        {
+            if (IsInFavouriteList)
+            {
+                Server server = SelectedServer;
+                if (server != null)
+                {
+                    if (MessageBox.Show(Translator.GetTranslation("REMOVE_SERVER_FROM_FAVOURITES"), Translator.GetTranslation("REMOVE_SERVER_FROM_FAVOURITES_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        Dictionary<string, Server> servers = api[selectedAPIIndex].ServerListIO;
+                        if (servers.ContainsKey(server.IPPortString))
+                        {
+                            servers.Remove(server.IPPortString);
+                            api[selectedAPIIndex].ServerListIO = servers;
+                            ReloadFavourites(servers, selectedAPIIndex);
+                        }
+                    }
+                }
+            }
+            else if (promptWhenError)
+                MessageBox.Show(Translator.GetTranslation("SERVER_NOT_IN_FAVOURITES"), Translator.GetTranslation("NOT_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         private void serverListTimer_Tick(object sender, EventArgs e)
         {
             lock (loadedServers)
@@ -459,6 +596,11 @@ namespace SAMPLauncherNET
                         registeredServers.Add(kv.Key.IPPortString, kv.Key);
                     if (queryFirstServer)
                         queryFirstServer = !(EnterRow());
+                    lock (api)
+                    {
+                        if ((kv.Value >= 0) && (kv.Value < api.Count))
+                            ++api[kv.Value].ServerCount;
+                    }
                 }
                 loadedServers.Clear();
                 UpdateServerCount();
@@ -518,7 +660,7 @@ namespace SAMPLauncherNET
 
         private void gitHubProjectPictureBox_Click(object sender, EventArgs e)
         {
-            Utils.OpenGitHubProject();
+            SAMP.OpenGitHubProject();
         }
 
         private void genericGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -579,7 +721,7 @@ namespace SAMPLauncherNET
 
         private void showGalleryPictureBox_Click(object sender, EventArgs e)
         {
-            Utils.ShowGallery();
+            SAMP.ShowGallery();
         }
 
         private void galleryListView_KeyUp(object sender, KeyEventArgs e)
@@ -602,12 +744,12 @@ namespace SAMPLauncherNET
 
         private void launchDebugModeButton_Click(object sender, EventArgs e)
         {
-            Utils.LaunchSAMPDebugMode(closeWhenLaunchedCheckBox.Checked, this);
+            SAMP.LaunchSAMPDebugMode(closeWhenLaunchedCheckBox.Checked, this);
         }
 
         private void launchSingleplayerButton_Click(object sender, EventArgs e)
         {
-            Utils.LaunchSingleplayerMode(closeWhenLaunchedCheckBox.Checked, this);
+            SAMP.LaunchSingleplayerMode(closeWhenLaunchedCheckBox.Checked, this);
         }
 
         private void textFileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
@@ -615,10 +757,10 @@ namespace SAMPLauncherNET
             switch (e.Name)
             {
                 case "chatlog.txt":
-                    lastChatlogTextBox.Text = Utils.Chatlog;
+                    lastChatlogTextBox.Text = SAMP.Chatlog;
                     break;
                 case "savedpositions.txt":
-                    savedPositionsTextBox.Text = Utils.SavedPositions;
+                    savedPositionsTextBox.Text = SAMP.SavedPositions;
                     break;
             }
         }
@@ -684,49 +826,130 @@ namespace SAMPLauncherNET
             Server server = SelectedServer;
             if (server != null)
             {
-                Dictionary<string, Server> servers = serverListConnectors[0].ServerListIO;
-                if (servers.ContainsKey(server.IPPortString))
-                    MessageBox.Show(Translator.GetTranslation("SERVER_ALREADY_IN_FAVOURITES"), Translator.GetTranslation("ALREADY_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                List<IndexedServerListConnector> connectors = new List<IndexedServerListConnector>();
+                for (int i = 0; i < api.Count; i++)
+                {
+                    ServerListConnector slc = api[i];
+                    if ((slc.ServerListType == EServerListType.Favourites) || (slc.ServerListType == EServerListType.LegacyFavourites))
+                        connectors.Add(new IndexedServerListConnector(slc, i));
+                }
+                if (connectors.Count <= 0)
+                    MessageBox.Show(Translator.GetTranslation("NO_FAVOURITES"), Translator.GetTranslation("NO_FAVOURITES_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
-                    servers.Add(server.IPPortString, server.ToFavouriteServer(server.Hostname));
-                    serverListConnectors[0].ServerListIO = servers;
-                    ReloadFavourites(servers);
+                    IndexedServerListConnector islc = null;
+                    if (connectors.Count > 1)
+                    {
+                        FavouriteListsForm flf = new FavouriteListsForm(connectors);
+                        DialogResult result = flf.ShowDialog();
+                        DialogResult = DialogResult.None;
+                        if (result == DialogResult.OK)
+                            islc = flf.SelectedServerListConnector;
+                    }
+                    else
+                        islc = connectors[0];
+                    if (islc != null)
+                    {
+                        ServerListConnector slc = islc.ServerListConnector;
+                        Dictionary<string, Server> servers = slc.ServerListIO;
+                        if (servers.ContainsKey(server.IPPortString))
+                            MessageBox.Show(Translator.GetTranslation("SERVER_ALREADY_IN_FAVOURITES"), Translator.GetTranslation("ALREADY_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            servers.Add(server.IPPortString, server.ToFavouriteServer(server.Hostname, server.Gamemode));
+                            slc.ServerListIO = servers;
+                            ReloadFavourites(servers, islc.Index);
+                        }
+                    }
                 }
             }
         }
 
         private void removeServerFromFavouritesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Server server = SelectedServer;
-            if (server != null)
-            {
-                Dictionary<string, Server> servers = serverListConnectors[0].ServerListIO;
-                if (servers.ContainsKey(server.IPPortString))
-                {
-                    servers.Remove(server.IPPortString);
-                    serverListConnectors[0].ServerListIO = servers;
-                    ReloadFavourites(servers);
-                }
-                else
-                    MessageBox.Show(Translator.GetTranslation("SERVER_NOT_IN_FAVOURITES"), Translator.GetTranslation("NOT_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void showGenericRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateServerListFilter();
+            RemoveSelectionFromFavourites();
         }
 
         private void connectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //
+            Connect();
         }
 
         private void connectWithRCONToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RCONPasswordForm rconf = new RCONPasswordForm();
-            Connect(rconf.RCONPassword);
+            DialogResult result = rconf.ShowDialog();
+            DialogResult = DialogResult.None;
+            if (result == DialogResult.OK)
+                Connect(rconf.RCONPassword);
+        }
+
+        private void serversGridView_DoubleClick(object sender, EventArgs e)
+        {
+            Connect();
+        }
+
+        private void selectAPIComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedAPIIndex = selectAPIComboBox.SelectedIndex;
+            SelectAPI();
+        }
+
+        private void gitHubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SAMP.OpenGitHubProject();
+        }
+
+        private void apiAddPictureBox_Click(object sender, EventArgs e)
+        {
+            AddSelectedAPI();
+        }
+
+        private void apiRemovePictureBox_Click(object sender, EventArgs e)
+        {
+            RemoveSelectedAPI();
+        }
+
+        private void apiEditPictureBox_Click(object sender, EventArgs e)
+        {
+            EditSelectedAPI();
+        }
+
+        private void addNewAPIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddSelectedAPI();
+        }
+
+        private void editSelectedAPIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditSelectedAPI();
+        }
+
+        private void removeSelectedAPIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveSelectedAPI();
+        }
+
+        private void apiGridView_DoubleClick(object sender, EventArgs e)
+        {
+            EditSelectedAPI();
+        }
+
+        private void serversGridView_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                RemoveSelectionFromFavourites(false);
+            }
+        }
+
+        private void revertAPIListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(Translator.GetTranslation("REVERT_API_LIST"), Translator.GetTranslation("REVERT_API_LIST_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                SAMP.RevertAPI();
+                ReloadAPI();
+            }
         }
     }
 }

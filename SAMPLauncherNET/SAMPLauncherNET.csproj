@@ -77,6 +77,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APIDataContract.cs" />
+    <Compile Include="APIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APIForm.Designer.cs">
+      <DependentUpon>APIForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BackendRESTfulServer.cs" />
     <Compile Include="ConnectForm.cs">
       <SubType>Form</SubType>
@@ -92,7 +99,15 @@
     <Compile Include="ExtendedServerInformationForm.Designer.cs">
       <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FavouriteDataContract.cs" />
     <Compile Include="FavouriteServer.cs" />
+    <Compile Include="FavouriteListsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FavouriteListsForm.Designer.cs">
+      <DependentUpon>FavouriteListsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IndexedServerListConnector.cs" />
     <Compile Include="Kernel32.cs" />
     <Compile Include="Languages\de-DE.Designer.cs">
       <DependentUpon>de-DE.resx</DependentUpon>
@@ -130,15 +145,22 @@
     <Compile Include="ServerListConnector.cs" />
     <Compile Include="ServerDataContract.cs" />
     <Compile Include="TranslatorInterface.cs" />
+    <Compile Include="SAMP.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="WebClientEx.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="APIForm.resx">
+      <DependentUpon>APIForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExtendedServerInformationForm.resx">
       <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FavouriteListsForm.resx">
+      <DependentUpon>FavouriteListsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Languages\de-DE.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -191,6 +213,9 @@
     <None Include="github_icon.png" />
     <None Include="delete_icon.png" />
     <None Include="open_folder_icon.png" />
+    <None Include="github_large_icon.png" />
+    <None Include="new_icon.png" />
+    <None Include="edit_icon.png" />
     <Content Include="samp.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

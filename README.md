@@ -13,7 +13,7 @@ where San Andreas Multiplayer is installed
 There are no builds available right now, because it is still in development.
 
 # How to contribute
-There are 2 ways you can contribute
+Fork this project, commit your changes and create a pull request.
 
 ## Translations
 Translation files are located at https://github.com/BigETI/SAMPLauncherNET/tree/master/SAMPLauncherNET/Languages ,
@@ -23,7 +23,4 @@ https://msdn.microsoft.com/en-us/library/cc233982.aspx
 For example the `language tag` of spanish in Spain is `es-ES`.
 
 ## Code
-Do you think that you found something in the source code that should be changed?
-Create a clone of this project and a new branch.
-Edit that branch and commit.
-If you're done commiting, create a pull request for that branch.
+You can change anything within the source code to contribute.

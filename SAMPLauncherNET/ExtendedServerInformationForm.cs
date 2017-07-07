@@ -10,6 +10,8 @@ namespace SAMPLauncherNET
 {
     public partial class ExtendedServerInformationForm : MaterialForm
     {
+        private const uint PingCountLimit = 50U;
+
         Server server = null;
 
         private List<uint> pingList = new List<uint>();
@@ -52,6 +54,8 @@ namespace SAMPLauncherNET
                         lock (pingList)
                         {
                             pingList.Add(server.Ping);
+                            while (pingList.Count > PingCountLimit)
+                                pingList.RemoveAt(0);
                         }
                     }
                     Thread.Sleep(1000);

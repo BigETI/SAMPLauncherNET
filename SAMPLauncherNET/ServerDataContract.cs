@@ -5,14 +5,19 @@ namespace SAMPLauncherNET
     [DataContract]
     public class ServerDataContract
     {
-        public string Host;
+        [DataMember(Name = "Host")]
+        public string host;
 
-        public string Hostname;
+        [DataMember(Name = "Hostname")]
+        public string hostname;
 
-        public string Gamemode;
+        [DataMember(Name = "Gamemode")]
+        public string gamemode;
 
-        public string Language;
+        [DataMember(Name = "Language")]
+        public string language;
 
-        public int MaxPlayers;
+        [DataMember(Name = "MaxPlayers")]
+        public int maxPlayers;
     }
 }

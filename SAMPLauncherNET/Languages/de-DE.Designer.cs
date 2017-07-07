@@ -70,7 +70,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Füge Server zu den Favoriten hinzu ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die SAMPLauncher NET ist ein Launcher für San Andreas Multiplayer.
+        ///
+        ///Diese Software bleibt für immer kostenlos und ist mit GPLv3 lizenziert.
+        ///
+        ///Das Projekt befindet sich auf ähnelt.
+        /// </summary>
+        internal static string ABOUT_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("ABOUT_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Neue API hinzufügen ähnelt.
+        /// </summary>
+        internal static string ADD_NEW_API {
+            get {
+                return ResourceManager.GetString("ADD_NEW_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Favorit hinzufügen ähnelt.
         /// </summary>
         internal static string ADD_SERVER_TO_FAVOURITES {
             get {
@@ -93,6 +115,87 @@ namespace SAMPLauncherNET.Languages {
         internal static string API {
             get {
                 return ResourceManager.GetString("API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die API Zugriffspunkt ähnelt.
+        /// </summary>
+        internal static string API_ENDPOINT {
+            get {
+                return ResourceManager.GetString("API_ENDPOINT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte füge einen validen API Zugriffspunkt hinzu. ähnelt.
+        /// </summary>
+        internal static string API_ENDPOINT_MISSING {
+            get {
+                return ResourceManager.GetString("API_ENDPOINT_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die API Zugriffspunkt fehlt ähnelt.
+        /// </summary>
+        internal static string API_ENDPOINT_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("API_ENDPOINT_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die API Name ähnelt.
+        /// </summary>
+        internal static string API_NAME {
+            get {
+                return ResourceManager.GetString("API_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte füge einen API Namen hinzu ähnelt.
+        /// </summary>
+        internal static string API_NAME_MISSING {
+            get {
+                return ResourceManager.GetString("API_NAME_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die API Name fehlt ähnelt.
+        /// </summary>
+        internal static string API_NAME_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("API_NAME_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die API Typ ähnelt.
+        /// </summary>
+        internal static string API_TYPE {
+            get {
+                return ResourceManager.GetString("API_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte selektiere einen API Typ ähnelt.
+        /// </summary>
+        internal static string API_TYPE_MISSING {
+            get {
+                return ResourceManager.GetString("API_TYPE_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die API Typ fehlt ähnelt.
+        /// </summary>
+        internal static string API_TYPE_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("API_TYPE_MISSING_TITLE", resourceCulture);
             }
         }
         
@@ -214,6 +317,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - API bearbeiten ähnelt.
+        /// </summary>
+        internal static string EDIT_API_TITLE {
+            get {
+                return ResourceManager.GetString("EDIT_API_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Selektierte API bearbeiten ähnelt.
+        /// </summary>
+        internal static string EDIT_SELECTED_API {
+            get {
+                return ResourceManager.GetString("EDIT_SELECTED_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Englisch (English) ähnelt.
         /// </summary>
         internal static string ENGLISH {
@@ -237,6 +358,24 @@ namespace SAMPLauncherNET.Languages {
         internal static string EXTENDED_SERVER_INFORMATION_TITLE {
             get {
                 return ResourceManager.GetString("EXTENDED_SERVER_INFORMATION_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte selektiere eine Favoritenliste ähnelt.
+        /// </summary>
+        internal static string FAVOURITE_LIST_NOT_SELECTED {
+            get {
+                return ResourceManager.GetString("FAVOURITE_LIST_NOT_SELECTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Favoritenliste nicht selektiert ähnelt.
+        /// </summary>
+        internal static string FAVOURITE_LIST_NOT_SELECTED_TITLE {
+            get {
+                return ResourceManager.GetString("FAVOURITE_LIST_NOT_SELECTED_TITLE", resourceCulture);
             }
         }
         
@@ -475,11 +614,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - API hinzuifügen ähnelt.
+        /// </summary>
+        internal static string NEW_API_TITLE {
+            get {
+                return ResourceManager.GetString("NEW_API_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Keinen Chatprotokoll gefunden... ähnelt.
         /// </summary>
         internal static string NO_CHATLOG_FOUND {
             get {
                 return ResourceManager.GetString("NO_CHATLOG_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Es existieren keine Favoritenlisten. Um eine neue Favoritenliste zu erstellen, gehe zum &quot;API&quot; Tab, und erstelle eine neue Favoritenliste, oder stelle die Standarteintrage wieder her. ähnelt.
+        /// </summary>
+        internal static string NO_FAVOURITES {
+            get {
+                return ResourceManager.GetString("NO_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Keine Favoritenlisten ähnelt.
+        /// </summary>
+        internal static string NO_FAVOURITES_TITLE {
+            get {
+                return ResourceManager.GetString("NO_FAVOURITES_TITLE", resourceCulture);
             }
         }
         
@@ -583,11 +749,65 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Entferne Server aus den Favoriten ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Möchtest du wirklich die selektierte APIs unwideruflich löschen? ähnelt.
+        /// </summary>
+        internal static string REMOVE_API {
+            get {
+                return ResourceManager.GetString("REMOVE_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Selektierte API löschen ähnelt.
+        /// </summary>
+        internal static string REMOVE_API_TITLE {
+            get {
+                return ResourceManager.GetString("REMOVE_API_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Selektierte API entfernen ähnelt.
+        /// </summary>
+        internal static string REMOVE_SELECTED_API {
+            get {
+                return ResourceManager.GetString("REMOVE_SELECTED_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Möchtest du wirklich diesen Server von deinen Favoriten löschen? ähnelt.
         /// </summary>
         internal static string REMOVE_SERVER_FROM_FAVOURITES {
             get {
                 return ResourceManager.GetString("REMOVE_SERVER_FROM_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Favorit entfernen ähnelt.
+        /// </summary>
+        internal static string REMOVE_SERVER_FROM_FAVOURITES_TITLE {
+            get {
+                return ResourceManager.GetString("REMOVE_SERVER_FROM_FAVOURITES_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Möchtest du wirklich die API Liste zu ihrem Ursprungszustand zurücksetzen? ähnelt.
+        /// </summary>
+        internal static string REVERT_API_LIST {
+            get {
+                return ResourceManager.GetString("REVERT_API_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die API Liste zurücksetzen ähnelt.
+        /// </summary>
+        internal static string REVERT_API_LIST_TITLE {
+            get {
+                return ResourceManager.GetString("REVERT_API_LIST_TITLE", resourceCulture);
             }
         }
         
@@ -615,6 +835,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string SAVED_POSITIONS {
             get {
                 return ResourceManager.GetString("SAVED_POSITIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wähle eine Server Liste aus ähnelt.
+        /// </summary>
+        internal static string SELECT_API {
+            get {
+                return ResourceManager.GetString("SELECT_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Selektiere Favoritenliste ähnelt.
+        /// </summary>
+        internal static string SELECT_FAVOURITE_LIST_TITLE {
+            get {
+                return ResourceManager.GetString("SELECT_FAVOURITE_LIST_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Selektiere Favoritenliste ähnelt.
+        /// </summary>
+        internal static string SELECT_FAVOURITES_LIST {
+            get {
+                return ResourceManager.GetString("SELECT_FAVOURITES_LIST", resourceCulture);
             }
         }
         
@@ -700,7 +947,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige erweiterte Serverinformationen ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Erweiterte Serverinformationen ähnelt.
         /// </summary>
         internal static string SHOW_EXTENDED_SERVER_INFORMATION {
             get {
@@ -709,7 +956,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige Favoriten ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Favoriten ähnelt.
         /// </summary>
         internal static string SHOW_FAVOURITES {
             get {
@@ -727,15 +974,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige Hosted Liste ähnelt.
-        /// </summary>
-        internal static string SHOW_HOSTED_LIST {
-            get {
-                return ResourceManager.GetString("SHOW_HOSTED_LIST", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Zeige letzten Chatprotokoll... ähnelt.
         /// </summary>
         internal static string SHOW_LAST_CHATLOG {
@@ -745,11 +983,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige Master Liste ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Abw. kompatible Favoriten ähnelt.
         /// </summary>
-        internal static string SHOW_MASTER_LIST {
+        internal static string SHOW_LEGACY_FAVOURITES {
             get {
-                return ResourceManager.GetString("SHOW_MASTER_LIST", resourceCulture);
+                return ResourceManager.GetString("SHOW_LEGACY_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Hosted Liste ähnelt.
+        /// </summary>
+        internal static string SHOW_LEGACY_HOSTED_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_LEGACY_HOSTED_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Master Liste ähnelt.
+        /// </summary>
+        internal static string SHOW_LEGACY_MASTER_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_LEGACY_MASTER_LIST", resourceCulture);
             }
         }
         

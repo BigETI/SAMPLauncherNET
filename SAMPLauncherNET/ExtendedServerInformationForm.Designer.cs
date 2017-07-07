@@ -111,7 +111,7 @@
             // pingChart
             // 
             this.pingChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.pingChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.pingChart.BorderlineColor = System.Drawing.SystemColors.ActiveBorder;
             chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
@@ -141,6 +141,7 @@
             // 
             // informationSplitContainer
             // 
+            this.informationSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.informationSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.informationSplitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.informationSplitContainer.Location = new System.Drawing.Point(3, 3);
@@ -169,7 +170,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(424, 288);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(422, 286);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // hostnameLabel
@@ -264,8 +265,8 @@
             // serverSplitContainer.Panel2
             // 
             this.serverSplitContainer.Panel2.Controls.Add(this.rulesGridView);
-            this.serverSplitContainer.Size = new System.Drawing.Size(319, 288);
-            this.serverSplitContainer.SplitterDistance = 175;
+            this.serverSplitContainer.Size = new System.Drawing.Size(317, 286);
+            this.serverSplitContainer.SplitterDistance = 173;
             this.serverSplitContainer.TabIndex = 0;
             // 
             // playersGridView
@@ -319,7 +320,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
             this.playersGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.playersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.playersGridView.Size = new System.Drawing.Size(319, 175);
+            this.playersGridView.Size = new System.Drawing.Size(317, 173);
             this.playersGridView.TabIndex = 2;
             this.playersGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             // 
@@ -461,7 +462,7 @@
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
             this.rulesGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.rulesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.rulesGridView.Size = new System.Drawing.Size(319, 109);
+            this.rulesGridView.Size = new System.Drawing.Size(317, 109);
             this.rulesGridView.TabIndex = 2;
             this.rulesGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             // 

@@ -11,7 +11,6 @@ namespace SAMPLauncherNET
 {
     public class Server : IDisposable
     {
-        private static readonly Encoding QueryEncoding = Encoding.Default;
 
         private Socket socket = null;
 
@@ -35,7 +34,7 @@ namespace SAMPLauncherNET
 
         protected string hostname = "";
 
-        private string gamemode = "";
+        protected string gamemode = "";
 
         private string language = "";
 
@@ -160,7 +159,7 @@ namespace SAMPLauncherNET
             }
         }
 
-        public virtual string Hostname
+        public string Hostname
         {
             get
             {
@@ -304,6 +303,18 @@ namespace SAMPLauncherNET
             }
         }
 
+        public FavouriteDataContract FavouriteDataContract
+        {
+            get
+            {
+                FavouriteDataContract ret = new FavouriteDataContract();
+                ret.host = IPPortString;
+                ret.hostname = Hostname;
+                ret.mode = Gamemode;
+                return ret;
+            }
+        }
+
         public Server(string ipAddressAndPortString, bool fetchData = true)
         {
             string[] parts = ipAddressAndPortString.Trim().Split(new char[] { '.', ':' });
@@ -382,7 +393,14 @@ namespace SAMPLauncherNET
                     Thread t = new Thread(() => SendQuery(rt));
                     threads[(int)rt] = t;
                     ts.Add(rt, t);
-                    t.Start();
+                    try
+                    {
+                        t.Start();
+                    }
+                    catch
+                    {
+                        //
+                    }
                 }
             }
             foreach (Thread t in ts.Values)
@@ -571,9 +589,9 @@ namespace SAMPLauncherNET
                                                 hasPassword = (reader.ReadByte() != 0);
                                                 playerCount = reader.ReadUInt16();
                                                 maxPlayers = reader.ReadUInt16();
-                                                hostname = QueryEncoding.GetString(reader.ReadBytes(reader.ReadInt32()));
-                                                gamemode = QueryEncoding.GetString(reader.ReadBytes(reader.ReadInt32()));
-                                                language = QueryEncoding.GetString(reader.ReadBytes(reader.ReadInt32()));
+                                                hostname = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
+                                                gamemode = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
+                                                language = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
                                                 requestsRequired[ERequestType.Information] = false;
                                                 break;
 
@@ -583,10 +601,17 @@ namespace SAMPLauncherNET
                                                     int rc = reader.ReadInt16();
                                                     string k;
                                                     rules.Clear();
-                                                    for (int i = 0; i < rc; i++)
+                                                    try
                                                     {
-                                                        k = QueryEncoding.GetString(reader.ReadBytes(reader.ReadByte()));
-                                                        rules.Add(k, QueryEncoding.GetString(reader.ReadBytes(reader.ReadByte())));
+                                                        for (int i = 0; i < rc; i++)
+                                                        {
+                                                            k = Encoding.Default.GetString(reader.ReadBytes(reader.ReadByte()));
+                                                            rules.Add(k, Encoding.Default.GetString(reader.ReadBytes(reader.ReadByte())));
+                                                        }
+                                                    }
+                                                    catch
+                                                    {
+                                                        //
                                                     }
                                                     requestsRequired[ERequestType.Rules] = false;
                                                 }
@@ -598,11 +623,18 @@ namespace SAMPLauncherNET
                                                     int pc = reader.ReadInt16();
                                                     string k;
                                                     clients.Clear();
-                                                    for (int i = 0; i < pc; i++)
+                                                    try
                                                     {
-                                                        // Name and score
-                                                        k = QueryEncoding.GetString(reader.ReadBytes(reader.ReadByte()));
-                                                        clients.Add(k, reader.ReadInt32());
+                                                        for (int i = 0; i < pc; i++)
+                                                        {
+                                                            // Name and score
+                                                            k = Encoding.Default.GetString(reader.ReadBytes(reader.ReadByte()));
+                                                            clients.Add(k, reader.ReadInt32());
+                                                        }
+                                                    }
+                                                    catch
+                                                    {
+                                                        //
                                                     }
                                                     requestsRequired[ERequestType.Clients] = false;
                                                 }
@@ -617,13 +649,20 @@ namespace SAMPLauncherNET
                                                     uint p;
                                                     playerCount = reader.ReadUInt16();
                                                     players.Clear();
-                                                    for (ushort i = 0; i != playerCount; i++)
+                                                    try
                                                     {
-                                                        id = reader.ReadByte();
-                                                        pn = QueryEncoding.GetString(reader.ReadBytes(reader.ReadByte()));
-                                                        s = reader.ReadInt32();
-                                                        p = reader.ReadUInt32();
-                                                        players.Add(id, new Player(id, pn, s, p));
+                                                        for (ushort i = 0; i != playerCount; i++)
+                                                        {
+                                                            id = reader.ReadByte();
+                                                            pn = Encoding.Default.GetString(reader.ReadBytes(reader.ReadByte()));
+                                                            s = reader.ReadInt32();
+                                                            p = reader.ReadUInt32();
+                                                            players.Add(id, new Player(id, pn, s, p));
+                                                        }
+                                                    }
+                                                    catch
+                                                    {
+                                                        //
                                                     }
                                                     requestsRequired[ERequestType.DetailedClients] = false;
                                                 }
@@ -678,9 +717,9 @@ namespace SAMPLauncherNET
             return ret;
         }
 
-        public FavouriteServer ToFavouriteServer(string cachedName = "", string serverPassword = "", string rconPassword = "")
+        public FavouriteServer ToFavouriteServer(string cachedName = "", string cachedGamemode = "", string serverPassword = "", string rconPassword = "")
         {
-            return new FavouriteServer(IPPortString, serverPassword, rconPassword);
+            return new FavouriteServer(IPPortString, cachedName, cachedGamemode, serverPassword, rconPassword);
         }
 
         public void Dispose()

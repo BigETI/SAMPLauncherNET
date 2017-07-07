@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConnectForm));
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.mainFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.usernameLabel = new MaterialSkin.Controls.MaterialLabel();
             this.usernameSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tempUsernameCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
@@ -37,26 +37,26 @@
             this.serverPasswordSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.connectButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.cancelButton = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.mainFlowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // mainFlowLayoutPanel
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.mainFlowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.flowLayoutPanel1.Controls.Add(this.usernameLabel);
-            this.flowLayoutPanel1.Controls.Add(this.usernameSingleLineTextField);
-            this.flowLayoutPanel1.Controls.Add(this.tempUsernameCheckBox);
-            this.flowLayoutPanel1.Controls.Add(this.serverPasswordLabel);
-            this.flowLayoutPanel1.Controls.Add(this.serverPasswordSingleLineTextField);
-            this.flowLayoutPanel1.Controls.Add(this.connectButton);
-            this.flowLayoutPanel1.Controls.Add(this.cancelButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 64);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(462, 172);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.mainFlowLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.mainFlowLayoutPanel.Controls.Add(this.usernameLabel);
+            this.mainFlowLayoutPanel.Controls.Add(this.usernameSingleLineTextField);
+            this.mainFlowLayoutPanel.Controls.Add(this.tempUsernameCheckBox);
+            this.mainFlowLayoutPanel.Controls.Add(this.serverPasswordLabel);
+            this.mainFlowLayoutPanel.Controls.Add(this.serverPasswordSingleLineTextField);
+            this.mainFlowLayoutPanel.Controls.Add(this.connectButton);
+            this.mainFlowLayoutPanel.Controls.Add(this.cancelButton);
+            this.mainFlowLayoutPanel.Location = new System.Drawing.Point(5, 64);
+            this.mainFlowLayoutPanel.Name = "mainFlowLayoutPanel";
+            this.mainFlowLayoutPanel.Size = new System.Drawing.Size(462, 172);
+            this.mainFlowLayoutPanel.TabIndex = 0;
             // 
             // usernameLabel
             // 
@@ -170,23 +170,24 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(472, 248);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.mainFlowLayoutPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(472, 248);
             this.MinimumSize = new System.Drawing.Size(472, 248);
             this.Name = "ConnectForm";
             this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "{$CONNECT_TITLE$}";
             this.TopMost = true;
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            this.mainFlowLayoutPanel.ResumeLayout(false);
+            this.mainFlowLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel mainFlowLayoutPanel;
         private MaterialSkin.Controls.MaterialLabel usernameLabel;
         private MaterialSkin.Controls.MaterialSingleLineTextField usernameSingleLineTextField;
         private MaterialSkin.Controls.MaterialCheckBox tempUsernameCheckBox;

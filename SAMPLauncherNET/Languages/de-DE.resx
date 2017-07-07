@@ -120,14 +120,51 @@
   <data name="ABOUT" xml:space="preserve">
     <value>Über</value>
   </data>
+  <data name="ABOUT_DESCRIPTION" xml:space="preserve">
+    <value>SAMPLauncher NET ist ein Launcher für San Andreas Multiplayer.
+
+Diese Software bleibt für immer kostenlos und ist mit GPLv3 lizenziert.
+
+Das Projekt befindet sich auf</value>
+  </data>
+  <data name="ADD_NEW_API" xml:space="preserve">
+    <value>Neue API hinzufügen</value>
+  </data>
   <data name="ADD_SERVER_TO_FAVOURITES" xml:space="preserve">
-    <value>Füge Server zu den Favoriten hinzu</value>
+    <value>Favorit hinzufügen</value>
   </data>
   <data name="ALREADY_IN_FAVOURITES" xml:space="preserve">
     <value>Bereits in den Favoriten</value>
   </data>
   <data name="API" xml:space="preserve">
     <value>API</value>
+  </data>
+  <data name="API_ENDPOINT" xml:space="preserve">
+    <value>API Zugriffspunkt</value>
+  </data>
+  <data name="API_ENDPOINT_MISSING" xml:space="preserve">
+    <value>Bitte füge einen validen API Zugriffspunkt hinzu.</value>
+  </data>
+  <data name="API_ENDPOINT_MISSING_TITLE" xml:space="preserve">
+    <value>API Zugriffspunkt fehlt</value>
+  </data>
+  <data name="API_NAME" xml:space="preserve">
+    <value>API Name</value>
+  </data>
+  <data name="API_NAME_MISSING" xml:space="preserve">
+    <value>Bitte füge einen API Namen hinzu</value>
+  </data>
+  <data name="API_NAME_MISSING_TITLE" xml:space="preserve">
+    <value>API Name fehlt</value>
+  </data>
+  <data name="API_TYPE" xml:space="preserve">
+    <value>API Typ</value>
+  </data>
+  <data name="API_TYPE_MISSING" xml:space="preserve">
+    <value>Bitte selektiere einen API Typ</value>
+  </data>
+  <data name="API_TYPE_MISSING_TITLE" xml:space="preserve">
+    <value>API Typ fehlt</value>
   </data>
   <data name="AUDIO_MESSAGE_OFF" xml:space="preserve">
     <value>Audio Benachrichtigungen ausblenden</value>
@@ -168,6 +205,12 @@
   <data name="DISABLE_HEAD_MOVE" xml:space="preserve">
     <value>Kopfbewegungen abschalten</value>
   </data>
+  <data name="EDIT_API_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - API bearbeiten</value>
+  </data>
+  <data name="EDIT_SELECTED_API" xml:space="preserve">
+    <value>Selektierte API bearbeiten</value>
+  </data>
   <data name="ENGLISH" xml:space="preserve">
     <value>Englisch (English)</value>
   </data>
@@ -176,6 +219,12 @@
   </data>
   <data name="EXTENDED_SERVER_INFORMATION_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Erweiterte Server Informationen</value>
+  </data>
+  <data name="FAVOURITE_LIST_NOT_SELECTED" xml:space="preserve">
+    <value>Bitte selektiere eine Favoritenliste</value>
+  </data>
+  <data name="FAVOURITE_LIST_NOT_SELECTED_TITLE" xml:space="preserve">
+    <value>Favoritenliste nicht selektiert</value>
   </data>
   <data name="FILTER_HOSTNAME" xml:space="preserve">
     <value>Filtere Hostname</value>
@@ -255,11 +304,20 @@
   <data name="NEED_HELP_FORUMS" xml:space="preserve">
     <value>Brauchst du Hilfe? Trete in den SA:MP Foren ein...</value>
   </data>
+  <data name="NEW_API_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - API hinzuifügen</value>
+  </data>
   <data name="NOT_IN_FAVOURITES" xml:space="preserve">
     <value>Nicht in den Favoriten</value>
   </data>
   <data name="NO_CHATLOG_FOUND" xml:space="preserve">
     <value>Keinen Chatprotokoll gefunden...</value>
+  </data>
+  <data name="NO_FAVOURITES" xml:space="preserve">
+    <value>Es existieren keine Favoritenlisten. Um eine neue Favoritenliste zu erstellen, gehe zum "API" Tab, und erstelle eine neue Favoritenliste, oder stelle die Standarteintrage wieder her.</value>
+  </data>
+  <data name="NO_FAVOURITES_TITLE" xml:space="preserve">
+    <value>Keine Favoritenlisten</value>
   </data>
   <data name="NO_NAMETAG_STATUS" xml:space="preserve">
     <value>Kein Namensschildstatus</value>
@@ -291,8 +349,26 @@
   <data name="RCON_PASSWORD_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - RCON Passwort</value>
   </data>
+  <data name="REMOVE_API" xml:space="preserve">
+    <value>Möchtest du wirklich die selektierte APIs unwideruflich löschen?</value>
+  </data>
+  <data name="REMOVE_API_TITLE" xml:space="preserve">
+    <value>Selektierte API löschen</value>
+  </data>
+  <data name="REMOVE_SELECTED_API" xml:space="preserve">
+    <value>Selektierte API entfernen</value>
+  </data>
   <data name="REMOVE_SERVER_FROM_FAVOURITES" xml:space="preserve">
-    <value>Entferne Server aus den Favoriten</value>
+    <value>Möchtest du wirklich diesen Server von deinen Favoriten löschen?</value>
+  </data>
+  <data name="REMOVE_SERVER_FROM_FAVOURITES_TITLE" xml:space="preserve">
+    <value>Favorit entfernen</value>
+  </data>
+  <data name="REVERT_API_LIST" xml:space="preserve">
+    <value>Möchtest du wirklich die API Liste zu ihrem Ursprungszustand zurücksetzen?</value>
+  </data>
+  <data name="REVERT_API_LIST_TITLE" xml:space="preserve">
+    <value>API Liste zurücksetzen</value>
   </data>
   <data name="REVERT_CONFIG" xml:space="preserve">
     <value>Einstellungen zurückstellen</value>
@@ -302,6 +378,15 @@
   </data>
   <data name="SAVED_POSITIONS" xml:space="preserve">
     <value>Gespeicherte Positionen</value>
+  </data>
+  <data name="SELECT_API" xml:space="preserve">
+    <value>Wähle eine Server Liste aus</value>
+  </data>
+  <data name="SELECT_FAVOURITES_LIST" xml:space="preserve">
+    <value>Selektiere Favoritenliste</value>
+  </data>
+  <data name="SELECT_FAVOURITE_LIST_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Selektiere Favoritenliste</value>
   </data>
   <data name="SELECT_LANGUAGE" xml:space="preserve">
     <value>Sprache auswählen (Select language)</value>
@@ -331,22 +416,25 @@
     <value>Server Passwort Einagefeld ist leer.</value>
   </data>
   <data name="SHOW_EXTENDED_SERVER_INFORMATION" xml:space="preserve">
-    <value>Zeige erweiterte Serverinformationen</value>
+    <value>Erweiterte Serverinformationen</value>
   </data>
   <data name="SHOW_FAVOURITES" xml:space="preserve">
-    <value>Zeige Favoriten</value>
+    <value>Favoriten</value>
   </data>
   <data name="SHOW_GALLERY" xml:space="preserve">
     <value>Zeige Gallery</value>
   </data>
-  <data name="SHOW_HOSTED_LIST" xml:space="preserve">
-    <value>Zeige Hosted Liste</value>
-  </data>
   <data name="SHOW_LAST_CHATLOG" xml:space="preserve">
     <value>Zeige letzten Chatprotokoll...</value>
   </data>
-  <data name="SHOW_MASTER_LIST" xml:space="preserve">
-    <value>Zeige Master Liste</value>
+  <data name="SHOW_LEGACY_FAVOURITES" xml:space="preserve">
+    <value>Abw. kompatible Favoriten</value>
+  </data>
+  <data name="SHOW_LEGACY_HOSTED_LIST" xml:space="preserve">
+    <value>Hosted Liste</value>
+  </data>
+  <data name="SHOW_LEGACY_MASTER_LIST" xml:space="preserve">
+    <value>Master Liste</value>
   </data>
   <data name="TEMPORARY_USERNAME" xml:space="preserve">
     <value>Benutzernamen nicht speichern</value>

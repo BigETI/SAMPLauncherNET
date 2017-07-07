@@ -29,7 +29,7 @@ namespace SAMPLauncherNET
         {
             InitializeComponent();
             Translator.LoadTranslation(this);
-            usernameSingleLineTextField.Text = Utils.Username;
+            usernameSingleLineTextField.Text = SAMP.Username;
             if (noPasswordMode)
             {
                 serverPasswordLabel.Visible = false;
@@ -52,7 +52,7 @@ namespace SAMPLauncherNET
                 if (success)
                 {
                     if (!(tempUsernameCheckBox.Checked))
-                        Utils.Username = Username;
+                        SAMP.Username = Username;
                     DialogResult = DialogResult.OK;
                     Close();
                 }

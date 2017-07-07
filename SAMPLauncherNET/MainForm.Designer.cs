@@ -42,6 +42,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.serversPage = new System.Windows.Forms.TabPage();
             this.serversLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -80,6 +84,11 @@
             this.rulesDataTable = new System.Data.DataTable();
             this.ruleDataColumn = new System.Data.DataColumn();
             this.valueDataColumn = new System.Data.DataColumn();
+            this.apiDataTable = new System.Data.DataTable();
+            this.dataColumn1 = new System.Data.DataColumn();
+            this.dataColumn2 = new System.Data.DataColumn();
+            this.dataColumn3 = new System.Data.DataColumn();
+            this.dataColumn4 = new System.Data.DataColumn();
             this.serverInfoSplitContainer = new System.Windows.Forms.SplitContainer();
             this.playersGridView = new System.Windows.Forms.DataGridView();
             this.playerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,10 +105,8 @@
             this.launchDebugModeButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.launchSingleplayerButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.closeWhenLaunchedCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
-            this.selectFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.showMasterListRadioButton = new MaterialSkin.Controls.MaterialRadioButton();
-            this.showHostedListRadioButton = new MaterialSkin.Controls.MaterialRadioButton();
-            this.showFavouritesRadioButton = new MaterialSkin.Controls.MaterialRadioButton();
+            this.selectAPILabel = new MaterialSkin.Controls.MaterialLabel();
+            this.selectAPIComboBox = new System.Windows.Forms.ComboBox();
             this.filterPanel = new System.Windows.Forms.Panel();
             this.filterSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.serversFilterLabel = new MaterialSkin.Controls.MaterialLabel();
@@ -113,7 +120,7 @@
             this.gitHubProjectPictureBox = new System.Windows.Forms.PictureBox();
             this.languageLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.languagesComboBox = new System.Windows.Forms.ComboBox();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.selectLanguageLabel = new MaterialSkin.Controls.MaterialLabel();
             this.galleryPage = new System.Windows.Forms.TabPage();
             this.galleryTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.galleryMenuLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -147,7 +154,28 @@
             this.pageSizeSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pageSizeLabel = new MaterialSkin.Controls.MaterialLabel();
             this.apiPage = new System.Windows.Forms.TabPage();
+            this.apiLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.apiGridView = new System.Windows.Forms.DataGridView();
+            this.indexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endpointDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apiContextMenuStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.addNewAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editSelectedAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeSelectedAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.revertAPIListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.apiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.apiButtonsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.apiAddPictureBox = new System.Windows.Forms.PictureBox();
+            this.apiEditPictureBox = new System.Windows.Forms.PictureBox();
+            this.apiRemovePictureBox = new System.Windows.Forms.PictureBox();
             this.aboutPage = new System.Windows.Forms.TabPage();
+            this.aboutFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.gitHubProjectLargePictureBox = new System.Windows.Forms.PictureBox();
+            this.aboutLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.gitHubLinkLabel = new System.Windows.Forms.LinkLabel();
             this.mainTabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.serverListTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -167,6 +195,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.serversDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apiDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serverInfoSplitContainer)).BeginInit();
             this.serverInfoSplitContainer.Panel1.SuspendLayout();
             this.serverInfoSplitContainer.Panel2.SuspendLayout();
@@ -177,7 +206,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.rulesBindingSource)).BeginInit();
             this.inputFilterLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.selectFlowLayoutPanel.SuspendLayout();
             this.filterPanel.SuspendLayout();
             this.filterRadioGroupFlowLayoutPanel.SuspendLayout();
             this.footerTableLayoutPanel.SuspendLayout();
@@ -195,6 +223,18 @@
             this.optionsPage.SuspendLayout();
             this.optionsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpsLimitTrackBar)).BeginInit();
+            this.apiPage.SuspendLayout();
+            this.apiLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.apiGridView)).BeginInit();
+            this.apiContextMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.apiBindingSource)).BeginInit();
+            this.apiButtonsFlowLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.apiAddPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apiEditPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apiRemovePictureBox)).BeginInit();
+            this.aboutPage.SuspendLayout();
+            this.aboutFlowLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gitHubProjectLargePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryFileSystemWatcher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textFileSystemWatcher)).BeginInit();
             this.SuspendLayout();
@@ -326,6 +366,8 @@
             this.serversGridView.TabIndex = 0;
             this.serversGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             this.serversGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.serversGridView_RowEnter);
+            this.serversGridView.DoubleClick += new System.EventHandler(this.serversGridView_DoubleClick);
+            this.serversGridView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.serversGridView_KeyUp);
             // 
             // groupIDDataGridViewTextBoxColumn
             // 
@@ -398,51 +440,51 @@
             this.removeServerFromFavouritesToolStripMenuItem});
             this.serversContextMenuStrip.MouseState = MaterialSkin.MouseState.HOVER;
             this.serversContextMenuStrip.Name = "serversContextMenuStrip";
-            this.serversContextMenuStrip.Size = new System.Drawing.Size(321, 126);
+            this.serversContextMenuStrip.Size = new System.Drawing.Size(327, 126);
             // 
             // connectToolStripMenuItem
             // 
             this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-            this.connectToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.connectToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
             this.connectToolStripMenuItem.Text = "{$CONNECT$}";
             this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
             // 
             // connectWithRCONToolStripMenuItem
             // 
             this.connectWithRCONToolStripMenuItem.Name = "connectWithRCONToolStripMenuItem";
-            this.connectWithRCONToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.connectWithRCONToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
             this.connectWithRCONToolStripMenuItem.Text = "{$CONNECT_WITH_RCON$}";
             this.connectWithRCONToolStripMenuItem.Click += new System.EventHandler(this.connectWithRCONToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(317, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(323, 6);
             // 
             // showExtendedServerInformationToolStripMenuItem
             // 
             this.showExtendedServerInformationToolStripMenuItem.Name = "showExtendedServerInformationToolStripMenuItem";
-            this.showExtendedServerInformationToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.showExtendedServerInformationToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
             this.showExtendedServerInformationToolStripMenuItem.Text = "{$SHOW_EXTENDED_SERVER_INFORMATION$}";
             this.showExtendedServerInformationToolStripMenuItem.Click += new System.EventHandler(this.showExtendedServerInformationToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(317, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(323, 6);
             // 
             // addServerToFavouritesToolStripMenuItem
             // 
             this.addServerToFavouritesToolStripMenuItem.Name = "addServerToFavouritesToolStripMenuItem";
-            this.addServerToFavouritesToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.addServerToFavouritesToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
             this.addServerToFavouritesToolStripMenuItem.Text = "{$ADD_SERVER_TO_FAVOURITES$}";
             this.addServerToFavouritesToolStripMenuItem.Click += new System.EventHandler(this.addServerToFavouritesToolStripMenuItem_Click);
             // 
             // removeServerFromFavouritesToolStripMenuItem
             // 
             this.removeServerFromFavouritesToolStripMenuItem.Name = "removeServerFromFavouritesToolStripMenuItem";
-            this.removeServerFromFavouritesToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
-            this.removeServerFromFavouritesToolStripMenuItem.Text = "{$REMOVE_SERVER_FROM_FAVOURITES$}";
+            this.removeServerFromFavouritesToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
+            this.removeServerFromFavouritesToolStripMenuItem.Text = "{$REMOVE_SERVER_FROM_FAVOURITES_TITLE$}";
             this.removeServerFromFavouritesToolStripMenuItem.Click += new System.EventHandler(this.removeServerFromFavouritesToolStripMenuItem_Click);
             // 
             // serversBindingSource
@@ -457,7 +499,8 @@
             this.serversDataSet.Tables.AddRange(new System.Data.DataTable[] {
             this.serversDataTable,
             this.playersDataTable,
-            this.rulesDataTable});
+            this.rulesDataTable,
+            this.apiDataTable});
             // 
             // serversDataTable
             // 
@@ -554,6 +597,36 @@
             // 
             this.valueDataColumn.ColumnName = "Value";
             this.valueDataColumn.DefaultValue = "";
+            // 
+            // apiDataTable
+            // 
+            this.apiDataTable.Columns.AddRange(new System.Data.DataColumn[] {
+            this.dataColumn1,
+            this.dataColumn2,
+            this.dataColumn3,
+            this.dataColumn4});
+            this.apiDataTable.TableName = "API";
+            // 
+            // dataColumn1
+            // 
+            this.dataColumn1.ColumnName = "Index";
+            this.dataColumn1.DataType = typeof(int);
+            this.dataColumn1.DefaultValue = 0;
+            // 
+            // dataColumn2
+            // 
+            this.dataColumn2.ColumnName = "Name";
+            this.dataColumn2.DefaultValue = "";
+            // 
+            // dataColumn3
+            // 
+            this.dataColumn3.ColumnName = "Type";
+            this.dataColumn3.DefaultValue = "";
+            // 
+            // dataColumn4
+            // 
+            this.dataColumn4.ColumnName = "Endpoint";
+            this.dataColumn4.DefaultValue = "";
             // 
             // serverInfoSplitContainer
             // 
@@ -740,7 +813,8 @@
             this.flowLayoutPanel1.Controls.Add(this.launchDebugModeButton);
             this.flowLayoutPanel1.Controls.Add(this.launchSingleplayerButton);
             this.flowLayoutPanel1.Controls.Add(this.closeWhenLaunchedCheckBox);
-            this.flowLayoutPanel1.Controls.Add(this.selectFlowLayoutPanel);
+            this.flowLayoutPanel1.Controls.Add(this.selectAPILabel);
+            this.flowLayoutPanel1.Controls.Add(this.selectAPIComboBox);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -828,69 +902,31 @@
             this.closeWhenLaunchedCheckBox.Text = "{$CLOSE_WHEN_LAUNCHED$}";
             this.closeWhenLaunchedCheckBox.UseVisualStyleBackColor = true;
             // 
-            // selectFlowLayoutPanel
+            // selectAPILabel
             // 
-            this.selectFlowLayoutPanel.Controls.Add(this.showMasterListRadioButton);
-            this.selectFlowLayoutPanel.Controls.Add(this.showHostedListRadioButton);
-            this.selectFlowLayoutPanel.Controls.Add(this.showFavouritesRadioButton);
-            this.selectFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
-            this.selectFlowLayoutPanel.Location = new System.Drawing.Point(222, 3);
-            this.selectFlowLayoutPanel.Name = "selectFlowLayoutPanel";
-            this.selectFlowLayoutPanel.Size = new System.Drawing.Size(200, 172);
-            this.selectFlowLayoutPanel.TabIndex = 11;
+            this.selectAPILabel.AutoSize = true;
+            this.selectAPILabel.Depth = 0;
+            this.selectAPILabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.selectAPILabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.selectAPILabel.Location = new System.Drawing.Point(222, 0);
+            this.selectAPILabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.selectAPILabel.Name = "selectAPILabel";
+            this.selectAPILabel.Size = new System.Drawing.Size(119, 19);
+            this.selectAPILabel.TabIndex = 13;
+            this.selectAPILabel.Text = "{$SELECT_API$}";
             // 
-            // showMasterListRadioButton
+            // selectAPIComboBox
             // 
-            this.showMasterListRadioButton.AutoSize = true;
-            this.showMasterListRadioButton.Depth = 0;
-            this.showMasterListRadioButton.Font = new System.Drawing.Font("Roboto", 10F);
-            this.showMasterListRadioButton.Location = new System.Drawing.Point(0, 142);
-            this.showMasterListRadioButton.Margin = new System.Windows.Forms.Padding(0);
-            this.showMasterListRadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.showMasterListRadioButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.showMasterListRadioButton.Name = "showMasterListRadioButton";
-            this.showMasterListRadioButton.Ripple = true;
-            this.showMasterListRadioButton.Size = new System.Drawing.Size(188, 30);
-            this.showMasterListRadioButton.TabIndex = 2;
-            this.showMasterListRadioButton.Text = "{$SHOW_MASTER_LIST$}";
-            this.showMasterListRadioButton.UseVisualStyleBackColor = true;
-            this.showMasterListRadioButton.CheckedChanged += new System.EventHandler(this.showGenericRadioButton_CheckedChanged);
-            // 
-            // showHostedListRadioButton
-            // 
-            this.showHostedListRadioButton.AutoSize = true;
-            this.showHostedListRadioButton.Depth = 0;
-            this.showHostedListRadioButton.Font = new System.Drawing.Font("Roboto", 10F);
-            this.showHostedListRadioButton.Location = new System.Drawing.Point(0, 112);
-            this.showHostedListRadioButton.Margin = new System.Windows.Forms.Padding(0);
-            this.showHostedListRadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.showHostedListRadioButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.showHostedListRadioButton.Name = "showHostedListRadioButton";
-            this.showHostedListRadioButton.Ripple = true;
-            this.showHostedListRadioButton.Size = new System.Drawing.Size(186, 30);
-            this.showHostedListRadioButton.TabIndex = 1;
-            this.showHostedListRadioButton.Text = "{$SHOW_HOSTED_LIST$}";
-            this.showHostedListRadioButton.UseVisualStyleBackColor = true;
-            this.showHostedListRadioButton.CheckedChanged += new System.EventHandler(this.showGenericRadioButton_CheckedChanged);
-            // 
-            // showFavouritesRadioButton
-            // 
-            this.showFavouritesRadioButton.AutoSize = true;
-            this.showFavouritesRadioButton.Checked = true;
-            this.showFavouritesRadioButton.Depth = 0;
-            this.showFavouritesRadioButton.Font = new System.Drawing.Font("Roboto", 10F);
-            this.showFavouritesRadioButton.Location = new System.Drawing.Point(0, 82);
-            this.showFavouritesRadioButton.Margin = new System.Windows.Forms.Padding(0);
-            this.showFavouritesRadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.showFavouritesRadioButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.showFavouritesRadioButton.Name = "showFavouritesRadioButton";
-            this.showFavouritesRadioButton.Ripple = true;
-            this.showFavouritesRadioButton.Size = new System.Drawing.Size(180, 30);
-            this.showFavouritesRadioButton.TabIndex = 0;
-            this.showFavouritesRadioButton.TabStop = true;
-            this.showFavouritesRadioButton.Text = "{$SHOW_FAVOURITES$}";
-            this.showFavouritesRadioButton.UseVisualStyleBackColor = true;
-            this.showFavouritesRadioButton.CheckedChanged += new System.EventHandler(this.showGenericRadioButton_CheckedChanged);
+            this.selectAPIComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.selectAPIComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.selectAPIComboBox.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectAPIComboBox.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.selectAPIComboBox.FormattingEnabled = true;
+            this.selectAPIComboBox.Location = new System.Drawing.Point(222, 22);
+            this.selectAPIComboBox.Name = "selectAPIComboBox";
+            this.selectAPIComboBox.Size = new System.Drawing.Size(200, 28);
+            this.selectAPIComboBox.TabIndex = 12;
+            this.selectAPIComboBox.SelectedIndexChanged += new System.EventHandler(this.selectAPIComboBox_SelectedIndexChanged);
             // 
             // filterPanel
             // 
@@ -1063,7 +1099,7 @@
             // languageLayoutPanel
             // 
             this.languageLayoutPanel.Controls.Add(this.languagesComboBox);
-            this.languageLayoutPanel.Controls.Add(this.materialLabel1);
+            this.languageLayoutPanel.Controls.Add(this.selectLanguageLabel);
             this.languageLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.languageLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
             this.languageLayoutPanel.Location = new System.Drawing.Point(48, 3);
@@ -1086,19 +1122,19 @@
             this.languagesComboBox.TabIndex = 13;
             this.languagesComboBox.SelectedIndexChanged += new System.EventHandler(this.languagesComboBox_SelectedIndexChanged);
             // 
-            // materialLabel1
+            // selectLanguageLabel
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(546, 19);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.materialLabel1.Size = new System.Drawing.Size(174, 19);
-            this.materialLabel1.TabIndex = 14;
-            this.materialLabel1.Text = "{$SELECT_LANGUAGE$}";
+            this.selectLanguageLabel.AutoSize = true;
+            this.selectLanguageLabel.Depth = 0;
+            this.selectLanguageLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.selectLanguageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.selectLanguageLabel.Location = new System.Drawing.Point(546, 19);
+            this.selectLanguageLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.selectLanguageLabel.Name = "selectLanguageLabel";
+            this.selectLanguageLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.selectLanguageLabel.Size = new System.Drawing.Size(174, 19);
+            this.selectLanguageLabel.TabIndex = 14;
+            this.selectLanguageLabel.Text = "{$SELECT_LANGUAGE$}";
             // 
             // galleryPage
             // 
@@ -1294,6 +1330,7 @@
             this.revertConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.revertConfigButton.Name = "revertConfigButton";
             this.revertConfigButton.Primary = true;
+            this.revertConfigButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.revertConfigButton.Size = new System.Drawing.Size(151, 36);
             this.revertConfigButton.TabIndex = 32;
             this.revertConfigButton.Text = "{$REVERT_CONFIG$}";
@@ -1606,6 +1643,7 @@
             // 
             // apiPage
             // 
+            this.apiPage.Controls.Add(this.apiLayoutPanel);
             this.apiPage.Location = new System.Drawing.Point(4, 22);
             this.apiPage.Name = "apiPage";
             this.apiPage.Size = new System.Drawing.Size(992, 536);
@@ -1613,14 +1651,268 @@
             this.apiPage.Text = "{$API$}";
             this.apiPage.UseVisualStyleBackColor = true;
             // 
+            // apiLayoutPanel
+            // 
+            this.apiLayoutPanel.ColumnCount = 1;
+            this.apiLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.apiLayoutPanel.Controls.Add(this.apiGridView, 0, 1);
+            this.apiLayoutPanel.Controls.Add(this.apiButtonsFlowLayoutPanel, 0, 0);
+            this.apiLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.apiLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.apiLayoutPanel.Name = "apiLayoutPanel";
+            this.apiLayoutPanel.RowCount = 2;
+            this.apiLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.apiLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.apiLayoutPanel.Size = new System.Drawing.Size(992, 536);
+            this.apiLayoutPanel.TabIndex = 3;
+            // 
+            // apiGridView
+            // 
+            this.apiGridView.AllowUserToAddRows = false;
+            this.apiGridView.AllowUserToDeleteRows = false;
+            this.apiGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(155)))), ((int)(((byte)(209)))));
+            this.apiGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.apiGridView.AutoGenerateColumns = false;
+            this.apiGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.apiGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.apiGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.apiGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.apiGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.apiGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.apiGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.apiGridView.ColumnHeadersHeight = 32;
+            this.apiGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.apiGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.indexDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.typeDataGridViewTextBoxColumn,
+            this.endpointDataGridViewTextBoxColumn});
+            this.apiGridView.ContextMenuStrip = this.apiContextMenuStrip;
+            this.apiGridView.DataSource = this.apiBindingSource;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(200)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.apiGridView.DefaultCellStyle = dataGridViewCellStyle15;
+            this.apiGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.apiGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.apiGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.apiGridView.Location = new System.Drawing.Point(3, 47);
+            this.apiGridView.MultiSelect = false;
+            this.apiGridView.Name = "apiGridView";
+            this.apiGridView.ReadOnly = true;
+            this.apiGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.apiGridView.RowHeadersVisible = false;
+            this.apiGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.apiGridView.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.apiGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.apiGridView.Size = new System.Drawing.Size(986, 486);
+            this.apiGridView.TabIndex = 3;
+            this.apiGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
+            this.apiGridView.DoubleClick += new System.EventHandler(this.apiGridView_DoubleClick);
+            // 
+            // indexDataGridViewTextBoxColumn
+            // 
+            this.indexDataGridViewTextBoxColumn.DataPropertyName = "Index";
+            this.indexDataGridViewTextBoxColumn.HeaderText = "Index";
+            this.indexDataGridViewTextBoxColumn.Name = "indexDataGridViewTextBoxColumn";
+            this.indexDataGridViewTextBoxColumn.ReadOnly = true;
+            this.indexDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // endpointDataGridViewTextBoxColumn
+            // 
+            this.endpointDataGridViewTextBoxColumn.DataPropertyName = "Endpoint";
+            this.endpointDataGridViewTextBoxColumn.HeaderText = "Endpoint";
+            this.endpointDataGridViewTextBoxColumn.Name = "endpointDataGridViewTextBoxColumn";
+            this.endpointDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // apiContextMenuStrip
+            // 
+            this.apiContextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.apiContextMenuStrip.Depth = 0;
+            this.apiContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewAPIToolStripMenuItem,
+            this.editSelectedAPIToolStripMenuItem,
+            this.removeSelectedAPIToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.revertAPIListToolStripMenuItem});
+            this.apiContextMenuStrip.MouseState = MaterialSkin.MouseState.HOVER;
+            this.apiContextMenuStrip.Name = "apiContextMenuStrip";
+            this.apiContextMenuStrip.Size = new System.Drawing.Size(222, 98);
+            // 
+            // addNewAPIToolStripMenuItem
+            // 
+            this.addNewAPIToolStripMenuItem.Name = "addNewAPIToolStripMenuItem";
+            this.addNewAPIToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.addNewAPIToolStripMenuItem.Text = "{$ADD_NEW_API$}";
+            this.addNewAPIToolStripMenuItem.Click += new System.EventHandler(this.addNewAPIToolStripMenuItem_Click);
+            // 
+            // editSelectedAPIToolStripMenuItem
+            // 
+            this.editSelectedAPIToolStripMenuItem.Name = "editSelectedAPIToolStripMenuItem";
+            this.editSelectedAPIToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.editSelectedAPIToolStripMenuItem.Text = "{$EDIT_SELECTED_API$}";
+            this.editSelectedAPIToolStripMenuItem.Click += new System.EventHandler(this.editSelectedAPIToolStripMenuItem_Click);
+            // 
+            // removeSelectedAPIToolStripMenuItem
+            // 
+            this.removeSelectedAPIToolStripMenuItem.Name = "removeSelectedAPIToolStripMenuItem";
+            this.removeSelectedAPIToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.removeSelectedAPIToolStripMenuItem.Text = "{$REMOVE_SELECTED_API$}";
+            this.removeSelectedAPIToolStripMenuItem.Click += new System.EventHandler(this.removeSelectedAPIToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(218, 6);
+            // 
+            // revertAPIListToolStripMenuItem
+            // 
+            this.revertAPIListToolStripMenuItem.Name = "revertAPIListToolStripMenuItem";
+            this.revertAPIListToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.revertAPIListToolStripMenuItem.Text = "{$REVERT_API_LIST_TITLE$}";
+            this.revertAPIListToolStripMenuItem.Click += new System.EventHandler(this.revertAPIListToolStripMenuItem_Click);
+            // 
+            // apiBindingSource
+            // 
+            this.apiBindingSource.DataMember = "API";
+            this.apiBindingSource.DataSource = this.serversDataSet;
+            // 
+            // apiButtonsFlowLayoutPanel
+            // 
+            this.apiButtonsFlowLayoutPanel.Controls.Add(this.apiAddPictureBox);
+            this.apiButtonsFlowLayoutPanel.Controls.Add(this.apiEditPictureBox);
+            this.apiButtonsFlowLayoutPanel.Controls.Add(this.apiRemovePictureBox);
+            this.apiButtonsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.apiButtonsFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.apiButtonsFlowLayoutPanel.Name = "apiButtonsFlowLayoutPanel";
+            this.apiButtonsFlowLayoutPanel.Size = new System.Drawing.Size(986, 38);
+            this.apiButtonsFlowLayoutPanel.TabIndex = 2;
+            // 
+            // apiAddPictureBox
+            // 
+            this.apiAddPictureBox.Image = global::SAMPLauncherNET.Properties.Resources.new_icon;
+            this.apiAddPictureBox.Location = new System.Drawing.Point(3, 3);
+            this.apiAddPictureBox.Name = "apiAddPictureBox";
+            this.apiAddPictureBox.Size = new System.Drawing.Size(32, 32);
+            this.apiAddPictureBox.TabIndex = 0;
+            this.apiAddPictureBox.TabStop = false;
+            this.toolTip.SetToolTip(this.apiAddPictureBox, "Add new");
+            this.apiAddPictureBox.Click += new System.EventHandler(this.apiAddPictureBox_Click);
+            // 
+            // apiEditPictureBox
+            // 
+            this.apiEditPictureBox.Image = global::SAMPLauncherNET.Properties.Resources.edit_icon;
+            this.apiEditPictureBox.Location = new System.Drawing.Point(41, 3);
+            this.apiEditPictureBox.Name = "apiEditPictureBox";
+            this.apiEditPictureBox.Size = new System.Drawing.Size(32, 32);
+            this.apiEditPictureBox.TabIndex = 2;
+            this.apiEditPictureBox.TabStop = false;
+            this.toolTip.SetToolTip(this.apiEditPictureBox, "Edit selected");
+            this.apiEditPictureBox.Click += new System.EventHandler(this.apiEditPictureBox_Click);
+            // 
+            // apiRemovePictureBox
+            // 
+            this.apiRemovePictureBox.Image = global::SAMPLauncherNET.Properties.Resources.delete_icon;
+            this.apiRemovePictureBox.Location = new System.Drawing.Point(79, 3);
+            this.apiRemovePictureBox.Name = "apiRemovePictureBox";
+            this.apiRemovePictureBox.Size = new System.Drawing.Size(32, 32);
+            this.apiRemovePictureBox.TabIndex = 1;
+            this.apiRemovePictureBox.TabStop = false;
+            this.toolTip.SetToolTip(this.apiRemovePictureBox, "Delete selected");
+            this.apiRemovePictureBox.Click += new System.EventHandler(this.apiRemovePictureBox_Click);
+            // 
             // aboutPage
             // 
+            this.aboutPage.Controls.Add(this.aboutFlowLayoutPanel);
             this.aboutPage.Location = new System.Drawing.Point(4, 22);
             this.aboutPage.Name = "aboutPage";
             this.aboutPage.Size = new System.Drawing.Size(992, 536);
             this.aboutPage.TabIndex = 4;
             this.aboutPage.Text = "{$ABOUT$}";
             this.aboutPage.UseVisualStyleBackColor = true;
+            // 
+            // aboutFlowLayoutPanel
+            // 
+            this.aboutFlowLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.aboutFlowLayoutPanel.Controls.Add(this.gitHubProjectLargePictureBox);
+            this.aboutFlowLayoutPanel.Controls.Add(this.aboutLabel);
+            this.aboutFlowLayoutPanel.Controls.Add(this.gitHubLinkLabel);
+            this.aboutFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.aboutFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.aboutFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.aboutFlowLayoutPanel.Name = "aboutFlowLayoutPanel";
+            this.aboutFlowLayoutPanel.Size = new System.Drawing.Size(992, 536);
+            this.aboutFlowLayoutPanel.TabIndex = 0;
+            // 
+            // gitHubProjectLargePictureBox
+            // 
+            this.gitHubProjectLargePictureBox.Image = global::SAMPLauncherNET.Properties.Resources.github_large_icon;
+            this.gitHubProjectLargePictureBox.Location = new System.Drawing.Point(3, 3);
+            this.gitHubProjectLargePictureBox.Name = "gitHubProjectLargePictureBox";
+            this.gitHubProjectLargePictureBox.Size = new System.Drawing.Size(128, 128);
+            this.gitHubProjectLargePictureBox.TabIndex = 0;
+            this.gitHubProjectLargePictureBox.TabStop = false;
+            this.toolTip.SetToolTip(this.gitHubProjectLargePictureBox, "SAMPLauncherNET GitHub");
+            this.gitHubProjectLargePictureBox.Click += new System.EventHandler(this.gitHubProjectPictureBox_Click);
+            this.gitHubProjectLargePictureBox.MouseEnter += new System.EventHandler(this.genericPictureBox_MouseEnter);
+            this.gitHubProjectLargePictureBox.MouseLeave += new System.EventHandler(this.genericPictureBox_MouseLeave);
+            // 
+            // aboutLabel
+            // 
+            this.aboutLabel.AutoSize = true;
+            this.aboutLabel.Depth = 0;
+            this.aboutLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.aboutLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.aboutLabel.Location = new System.Drawing.Point(3, 134);
+            this.aboutLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.aboutLabel.Name = "aboutLabel";
+            this.aboutLabel.Size = new System.Drawing.Size(184, 19);
+            this.aboutLabel.TabIndex = 1;
+            this.aboutLabel.Text = "{$ABOUT_DESCRIPTION$}";
+            // 
+            // gitHubLinkLabel
+            // 
+            this.gitHubLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
+            this.gitHubLinkLabel.AutoSize = true;
+            this.gitHubLinkLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gitHubLinkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.gitHubLinkLabel.LinkColor = System.Drawing.SystemColors.HighlightText;
+            this.gitHubLinkLabel.Location = new System.Drawing.Point(3, 153);
+            this.gitHubLinkLabel.Name = "gitHubLinkLabel";
+            this.gitHubLinkLabel.Size = new System.Drawing.Size(342, 20);
+            this.gitHubLinkLabel.TabIndex = 3;
+            this.gitHubLinkLabel.TabStop = true;
+            this.gitHubLinkLabel.Text = "https://github.com/BigETI/SAMPLauncherNET";
+            this.toolTip.SetToolTip(this.gitHubLinkLabel, "SAMPLauncherNET GitHub");
+            this.gitHubLinkLabel.VisitedLinkColor = System.Drawing.SystemColors.HighlightText;
+            this.gitHubLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gitHubLinkLabel_LinkClicked);
             // 
             // mainTabSelector
             // 
@@ -1688,6 +1980,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.serversDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apiDataTable)).EndInit();
             this.serverInfoSplitContainer.Panel1.ResumeLayout(false);
             this.serverInfoSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.serverInfoSplitContainer)).EndInit();
@@ -1699,8 +1992,6 @@
             this.inputFilterLayoutPanel.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.selectFlowLayoutPanel.ResumeLayout(false);
-            this.selectFlowLayoutPanel.PerformLayout();
             this.filterPanel.ResumeLayout(false);
             this.filterPanel.PerformLayout();
             this.filterRadioGroupFlowLayoutPanel.ResumeLayout(false);
@@ -1724,6 +2015,19 @@
             this.optionsPanel.ResumeLayout(false);
             this.optionsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fpsLimitTrackBar)).EndInit();
+            this.apiPage.ResumeLayout(false);
+            this.apiLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.apiGridView)).EndInit();
+            this.apiContextMenuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.apiBindingSource)).EndInit();
+            this.apiButtonsFlowLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.apiAddPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apiEditPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apiRemovePictureBox)).EndInit();
+            this.aboutPage.ResumeLayout(false);
+            this.aboutFlowLayoutPanel.ResumeLayout(false);
+            this.aboutFlowLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gitHubProjectLargePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryFileSystemWatcher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textFileSystemWatcher)).EndInit();
             this.ResumeLayout(false);
@@ -1782,7 +2086,7 @@
         private System.Windows.Forms.FlowLayoutPanel gitHubProjectLayoutPanel;
         private System.Windows.Forms.FlowLayoutPanel languageLayoutPanel;
         private System.Windows.Forms.ComboBox languagesComboBox;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel selectLanguageLabel;
         private System.Windows.Forms.PictureBox gitHubProjectPictureBox;
         private MaterialSkin.Controls.MaterialSingleLineTextField filterSingleLineTextField;
         private MaterialSkin.Controls.MaterialLabel serversFilterLabel;
@@ -1836,12 +2140,36 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem addServerToFavouritesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeServerFromFavouritesToolStripMenuItem;
-        private System.Windows.Forms.FlowLayoutPanel selectFlowLayoutPanel;
-        private MaterialSkin.Controls.MaterialRadioButton showFavouritesRadioButton;
-        private MaterialSkin.Controls.MaterialRadioButton showHostedListRadioButton;
-        private MaterialSkin.Controls.MaterialRadioButton showMasterListRadioButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem connectWithRCONToolStripMenuItem;
+        private System.Windows.Forms.ComboBox selectAPIComboBox;
+        private MaterialSkin.Controls.MaterialLabel selectAPILabel;
+        private System.Windows.Forms.FlowLayoutPanel aboutFlowLayoutPanel;
+        private System.Windows.Forms.PictureBox gitHubProjectLargePictureBox;
+        private MaterialSkin.Controls.MaterialLabel aboutLabel;
+        private System.Windows.Forms.LinkLabel gitHubLinkLabel;
+        private System.Data.DataTable apiDataTable;
+        private System.Data.DataColumn dataColumn1;
+        private System.Data.DataColumn dataColumn2;
+        private System.Data.DataColumn dataColumn3;
+        private System.Windows.Forms.TableLayoutPanel apiLayoutPanel;
+        private System.Windows.Forms.DataGridView apiGridView;
+        private System.Windows.Forms.FlowLayoutPanel apiButtonsFlowLayoutPanel;
+        private System.Windows.Forms.PictureBox apiAddPictureBox;
+        private System.Windows.Forms.PictureBox apiEditPictureBox;
+        private System.Windows.Forms.PictureBox apiRemovePictureBox;
+        private System.Windows.Forms.BindingSource apiBindingSource;
+        private MaterialSkin.Controls.MaterialContextMenuStrip apiContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem addNewAPIToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editSelectedAPIToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeSelectedAPIToolStripMenuItem;
+        private System.Data.DataColumn dataColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn indexDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endpointDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem revertAPIListToolStripMenuItem;
     }
 }

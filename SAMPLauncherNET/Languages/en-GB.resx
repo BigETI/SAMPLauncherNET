@@ -120,6 +120,16 @@
   <data name="ABOUT" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="ABOUT_DESCRIPTION" xml:space="preserve">
+    <value>SAMPLauncher NET is a launcher for San Andreas Multiplayer.
+
+This software is all time free and licenced with GPLv3.
+
+This project is located at</value>
+  </data>
+  <data name="ADD_NEW_API" xml:space="preserve">
+    <value>Add new API</value>
+  </data>
   <data name="ADD_SERVER_TO_FAVOURITES" xml:space="preserve">
     <value>Add server to favourites</value>
   </data>
@@ -128,6 +138,33 @@
   </data>
   <data name="API" xml:space="preserve">
     <value>API</value>
+  </data>
+  <data name="API_ENDPOINT" xml:space="preserve">
+    <value>API endpoint</value>
+  </data>
+  <data name="API_ENDPOINT_MISSING" xml:space="preserve">
+    <value>Please specify a valid API endpoint</value>
+  </data>
+  <data name="API_ENDPOINT_MISSING_TITLE" xml:space="preserve">
+    <value>API endpoint missing</value>
+  </data>
+  <data name="API_NAME" xml:space="preserve">
+    <value>API name</value>
+  </data>
+  <data name="API_NAME_MISSING" xml:space="preserve">
+    <value>Please insert an API name.</value>
+  </data>
+  <data name="API_NAME_MISSING_TITLE" xml:space="preserve">
+    <value>API name missing</value>
+  </data>
+  <data name="API_TYPE" xml:space="preserve">
+    <value>API type</value>
+  </data>
+  <data name="API_TYPE_MISSING" xml:space="preserve">
+    <value>Please select an API type.</value>
+  </data>
+  <data name="API_TYPE_MISSING_TITLE" xml:space="preserve">
+    <value>API type missing</value>
   </data>
   <data name="AUDIO_MESSAGE_OFF" xml:space="preserve">
     <value>Audio message off</value>
@@ -168,6 +205,12 @@
   <data name="DISABLE_HEAD_MOVE" xml:space="preserve">
     <value>Disable head move</value>
   </data>
+  <data name="EDIT_API_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Edit API</value>
+  </data>
+  <data name="EDIT_SELECTED_API" xml:space="preserve">
+    <value>Edit selected API</value>
+  </data>
   <data name="ENGLISH" xml:space="preserve">
     <value>English</value>
   </data>
@@ -176,6 +219,12 @@
   </data>
   <data name="EXTENDED_SERVER_INFORMATION_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Extended server information</value>
+  </data>
+  <data name="FAVOURITE_LIST_NOT_SELECTED" xml:space="preserve">
+    <value>Please select a favourites list.</value>
+  </data>
+  <data name="FAVOURITE_LIST_NOT_SELECTED_TITLE" xml:space="preserve">
+    <value>Favourites list not selected</value>
   </data>
   <data name="FILTER_HOSTNAME" xml:space="preserve">
     <value>Filter hostname</value>
@@ -255,11 +304,20 @@
   <data name="NEED_HELP_FORUMS" xml:space="preserve">
     <value>Do you need help? Join SA:MP forums...</value>
   </data>
+  <data name="NEW_API_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Add new API</value>
+  </data>
   <data name="NOT_IN_FAVOURITES" xml:space="preserve">
     <value>Not in favourites</value>
   </data>
   <data name="NO_CHATLOG_FOUND" xml:space="preserve">
     <value>No chatlog found...</value>
+  </data>
+  <data name="NO_FAVOURITES" xml:space="preserve">
+    <value>There are no favourite lists defined. To define a new favourite list, select the "API" tab and create a new favourite list or restore the default entries.</value>
+  </data>
+  <data name="NO_FAVOURITES_TITLE" xml:space="preserve">
+    <value>No favourite lists</value>
   </data>
   <data name="NO_NAMETAG_STATUS" xml:space="preserve">
     <value>No nametag status</value>
@@ -291,8 +349,26 @@
   <data name="RCON_PASSWORD_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - RCON password</value>
   </data>
+  <data name="REMOVE_API" xml:space="preserve">
+    <value>Do you really want to remove the selected API?</value>
+  </data>
+  <data name="REMOVE_API_TITLE" xml:space="preserve">
+    <value>Remove selected API</value>
+  </data>
+  <data name="REMOVE_SELECTED_API" xml:space="preserve">
+    <value>Remove selected API</value>
+  </data>
   <data name="REMOVE_SERVER_FROM_FAVOURITES" xml:space="preserve">
+    <value>Do you really want to remove this server from your favourites?</value>
+  </data>
+  <data name="REMOVE_SERVER_FROM_FAVOURITES_TITLE" xml:space="preserve">
     <value>Remove server from favourites</value>
+  </data>
+  <data name="REVERT_API_LIST" xml:space="preserve">
+    <value>Do you really want to revert the API list to default?</value>
+  </data>
+  <data name="REVERT_API_LIST_TITLE" xml:space="preserve">
+    <value>Revert API list</value>
   </data>
   <data name="REVERT_CONFIG" xml:space="preserve">
     <value>Revert config</value>
@@ -302,6 +378,15 @@
   </data>
   <data name="SAVED_POSITIONS" xml:space="preserve">
     <value>Saved positions</value>
+  </data>
+  <data name="SELECT_API" xml:space="preserve">
+    <value>Select a server list</value>
+  </data>
+  <data name="SELECT_FAVOURITES_LIST" xml:space="preserve">
+    <value>Select favourites list</value>
+  </data>
+  <data name="SELECT_FAVOURITE_LIST_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Select favourite list</value>
   </data>
   <data name="SELECT_LANGUAGE" xml:space="preserve">
     <value>Select language</value>
@@ -331,22 +416,25 @@
     <value>Server password field is empty</value>
   </data>
   <data name="SHOW_EXTENDED_SERVER_INFORMATION" xml:space="preserve">
-    <value>Show extended server information</value>
+    <value>Extended server information</value>
   </data>
   <data name="SHOW_FAVOURITES" xml:space="preserve">
-    <value>Show favourites</value>
+    <value>Favourites</value>
   </data>
   <data name="SHOW_GALLERY" xml:space="preserve">
     <value>Show gallery...</value>
   </data>
-  <data name="SHOW_HOSTED_LIST" xml:space="preserve">
-    <value>Show hosted list</value>
-  </data>
   <data name="SHOW_LAST_CHATLOG" xml:space="preserve">
     <value>Show last chatlog...</value>
   </data>
-  <data name="SHOW_MASTER_LIST" xml:space="preserve">
-    <value>Show master list</value>
+  <data name="SHOW_LEGACY_FAVOURITES" xml:space="preserve">
+    <value>Legacy favourites</value>
+  </data>
+  <data name="SHOW_LEGACY_HOSTED_LIST" xml:space="preserve">
+    <value>Hosted list</value>
+  </data>
+  <data name="SHOW_LEGACY_MASTER_LIST" xml:space="preserve">
+    <value>Master list</value>
   </data>
   <data name="TEMPORARY_USERNAME" xml:space="preserve">
     <value>Don't save username</value>

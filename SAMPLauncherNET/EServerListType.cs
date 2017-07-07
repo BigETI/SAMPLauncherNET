@@ -2,8 +2,10 @@
 {
     public enum EServerListType
     {
-        ClassicFavourites,
-        ClassicSAMP,
-        BackendRESTful
+        Favourites,
+        BackendRESTful,
+        LegacyFavourites,
+        LegacySAMP,
+        Error
     }
 }
