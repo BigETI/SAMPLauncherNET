@@ -7,7 +7,8 @@ namespace SAMPLauncherNET
 {
     public static class Utils
     {
-        public readonly static System.Drawing.Size galleryImageListSize = new System.Drawing.Size(256, 256);
+
+        public static readonly Size GalleryImageSize = new Size(256, 256);
   
         public static bool AreEqual<T>(T[] a, T[] b)
         {
@@ -42,34 +43,15 @@ namespace SAMPLauncherNET
             }
         }
 
-        public static Bitmap GetThumb(Image image)
+        public static Image GetThumb(Image image)
         {
-            int w = image.Width;
-            int h = image.Height;
-            Size thumbSize = galleryImageListSize;
-            int tw, th, tx, ty;
-            double whRatio = (double)w / (double)h;
-
-            if (image.Width >= image.Height)
-            {
-                tw = thumbSize.Width;
-                th = (int)(tw / whRatio);
-            }
-            else
-            {
-                th = thumbSize.Height;
-                tw = (int)(th * whRatio);
-            }
-            tx = (thumbSize.Width - tw) / 2;
-            ty = (thumbSize.Height - th) / 2;
-            Bitmap thumb = new Bitmap(thumbSize.Width, thumbSize.Height, PixelFormat.Format32bppArgb);
-
-            Graphics g = Graphics.FromImage(thumb);
+            Bitmap ret = new Bitmap(GalleryImageSize.Width, GalleryImageSize.Height, PixelFormat.Format32bppArgb);
+            Size sz = (image.Width >= image.Height) ? new Size(GalleryImageSize.Width, (int)(GalleryImageSize.Width * ((double)(image.Height) / image.Width))) : new Size(GalleryImageSize.Height, (int)(GalleryImageSize.Height * ((double)(image.Width) / image.Height)));
+            Graphics g = Graphics.FromImage(ret);
             g.Clear(Color.Transparent);
-            g.InterpolationMode = InterpolationMode.NearestNeighbor;
-            g.DrawImage(image, new Rectangle(tx, ty, tw, th), new Rectangle(0, 0, w, h), GraphicsUnit.Pixel);
-
-            return thumb;
+            g.InterpolationMode = InterpolationMode.HighQualityBilinear;
+            g.DrawImage(image, new Rectangle(new Point((GalleryImageSize.Width - sz.Width) / 2, (GalleryImageSize.Height - sz.Height) / 2), sz), new Rectangle(0, 0, image.Width, image.Height), GraphicsUnit.Pixel);
+            return ret;
         }
     }
 }
