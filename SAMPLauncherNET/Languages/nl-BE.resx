@@ -205,6 +205,9 @@ Dit project bevind zich op</value>
   <data name="DISABLE_HEAD_MOVE" xml:space="preserve">
     <value>Schakel hoofdbeweging uit</value>
   </data>
+  <data name="DUTCH" xml:space="preserve">
+    <value>Nederlands</value>
+  </data>
   <data name="EDIT_API_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - wijzig API</value>
   </data>
@@ -212,7 +215,7 @@ Dit project bevind zich op</value>
     <value>Wijzig geselecteerde API</value>
   </data>
   <data name="ENGLISH" xml:space="preserve">
-    <value>Engels</value>
+    <value>Engels (English)</value>
   </data>
   <data name="ERROR" xml:space="preserve">
     <value>Error</value>

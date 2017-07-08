@@ -205,6 +205,9 @@ This project is located at</value>
   <data name="DISABLE_HEAD_MOVE" xml:space="preserve">
     <value>Disable head move</value>
   </data>
+  <data name="DUTCH" xml:space="preserve">
+    <value>Dutch (Nederlands)</value>
+  </data>
   <data name="EDIT_API_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Edit API</value>
   </data>

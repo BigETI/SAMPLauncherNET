@@ -317,6 +317,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Holländisch (Nederlands) ähnelt.
+        /// </summary>
+        internal static string DUTCH {
+            get {
+                return ResourceManager.GetString("DUTCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - API bearbeiten ähnelt.
         /// </summary>
         internal static string EDIT_API_TITLE {
