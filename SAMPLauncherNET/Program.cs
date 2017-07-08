@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.IO;
 using System.Windows.Forms;
 using WinFormsTranslator;
 
@@ -8,7 +9,9 @@ namespace SAMPLauncherNET
     static class Program
     {
         // Dirty
-        public static readonly string RegistryKey = "HKEY_CURRENT_USER\\SOFTWARE\\SAMP";
+        private const string RegistryKey = "HKEY_CURRENT_USER\\SOFTWARE\\SAMP";
+
+        private static readonly string ConfigPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\GTA San Andreas User Files\\SAMP";
 
         public static bool IsSAMPInstalled
         {
@@ -17,7 +20,7 @@ namespace SAMPLauncherNET
                 bool ret = false;
                 try
                 {
-                    ret = (Registry.GetValue(RegistryKey, "gta_sa_exe", null) != null) && (Registry.GetValue(RegistryKey, "PlayerName", null) != null);
+                    ret = (Registry.GetValue(RegistryKey, "gta_sa_exe", null) != null) && (Registry.GetValue(RegistryKey, "PlayerName", null) != null) && Directory.Exists(ConfigPath);
                 }
                 catch
                 {
@@ -33,15 +36,24 @@ namespace SAMPLauncherNET
         [STAThread]
         static void Main()
         {
-            Translator.TranslatorInterface = new TranslatorInterface();
-            if (IsSAMPInstalled)
+            try
             {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MainForm());
+                Translator.TranslatorInterface = new TranslatorInterface();
+                if (IsSAMPInstalled)
+                {
+                    if (!Directory.Exists(ConfigPath + "\\screens"))
+                        Directory.CreateDirectory(ConfigPath + "\\screens");
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new MainForm());
+                }
+                else
+                    MessageBox.Show("San Andreas Multiplayer is not installed.\r\nTo use this application, you have to install GTA San Andreas and San Andreas Multiplayer first.", "San Andreas Multiplayer is not installed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-                MessageBox.Show("San Andreas Multiplayer is not installed.\r\nTo use this application, you have to install GTA San Andreas and San Andreas Multiplayer first.", "San Andreas Multiplayer is not installed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception e)
+            {
+                MessageBox.Show("A fatal error has occured:\r\n\r\n" + e.Message, "Fatal error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
