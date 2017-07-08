@@ -221,7 +221,7 @@
     <value>San Andreas Multiplayer - Расширенная информация о сервере</value>
   </data>
   <data name="FAVOURITE_LIST_NOT_SELECTED" xml:space="preserve">
-    <value>Пожалуйста выберите список изрбанных.</value>
+    <value>Пожалуйста выберите список избранных.</value>
   </data>
   <data name="FAVOURITE_LIST_NOT_SELECTED_TITLE" xml:space="preserve">
     <value>Список избранных не выбран</value>
@@ -431,13 +431,13 @@
     <value>Показать последний лог чата...</value>
   </data>
   <data name="SHOW_LEGACY_FAVOURITES" xml:space="preserve">
-    <value>Избранные основного загрузчика</value>
+    <value>Список загрузчика</value>
   </data>
   <data name="SHOW_LEGACY_HOSTED_LIST" xml:space="preserve">
-    <value>Выделенный список (Hosted)</value>
+    <value>Список Hosted</value>
   </data>
   <data name="SHOW_LEGACY_MASTER_LIST" xml:space="preserve">
-    <value>Основной список (Master)</value>
+    <value>Список Master</value>
   </data>
   <data name="TEMPORARY_USERNAME" xml:space="preserve">
     <value>Не сохранять имя пользователя</value>

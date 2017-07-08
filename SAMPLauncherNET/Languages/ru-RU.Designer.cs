@@ -362,7 +362,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Пожалуйста выберите список изрбанных..
+        ///   Ищет локализованную строку, похожую на Пожалуйста выберите список избранных..
         /// </summary>
         internal static string FAVOURITE_LIST_NOT_SELECTED {
             get {
@@ -992,7 +992,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Избранные основного загрузчика.
+        ///   Ищет локализованную строку, похожую на Список загрузчика.
         /// </summary>
         internal static string SHOW_LEGACY_FAVOURITES {
             get {
@@ -1001,7 +1001,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Выделенный список (Hosted).
+        ///   Ищет локализованную строку, похожую на Список Hosted.
         /// </summary>
         internal static string SHOW_LEGACY_HOSTED_LIST {
             get {
@@ -1010,7 +1010,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Основной список (Master).
+        ///   Ищет локализованную строку, похожую на Список Master.
         /// </summary>
         internal static string SHOW_LEGACY_MASTER_LIST {
             get {
