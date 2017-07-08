@@ -992,7 +992,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Abw. kompatible Favoriten ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Abw. komp. Favoriten ähnelt.
         /// </summary>
         internal static string SHOW_LEGACY_FAVOURITES {
             get {

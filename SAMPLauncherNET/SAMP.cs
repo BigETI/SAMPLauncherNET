@@ -187,10 +187,10 @@ namespace SAMPLauncherNET
         public static List<ServerListConnector> RevertAPI()
         {
             List<ServerListConnector> ret = new List<ServerListConnector>();
-            ret.Add(new ServerListConnector(Translator.GetTranslation("SHOW_FAVOURITES"), EServerListType.Favourites, FavouritesPath));
-            ret.Add(new ServerListConnector(Translator.GetTranslation("SHOW_LEGACY_FAVOURITES"), EServerListType.LegacyFavourites, LegacyFavouritesPath));
-            ret.Add(new ServerListConnector(Translator.GetTranslation("SHOW_LEGACY_HOSTED_LIST"), EServerListType.LegacySAMP, APIHTTPURL + "hosted"));
-            ret.Add(new ServerListConnector(Translator.GetTranslation("SHOW_LEGACY_MASTER_LIST"), EServerListType.LegacySAMP, APIHTTPURL + "servers"));
+            ret.Add(new ServerListConnector("{$SHOW_FAVOURITES$}", EServerListType.Favourites, FavouritesPath));
+            ret.Add(new ServerListConnector("{$SHOW_LEGACY_FAVOURITES$}", EServerListType.LegacyFavourites, LegacyFavouritesPath));
+            ret.Add(new ServerListConnector("{$SHOW_LEGACY_HOSTED_LIST$}", EServerListType.LegacySAMP, APIHTTPURL + "hosted"));
+            ret.Add(new ServerListConnector("{$SHOW_LEGACY_MASTER_LIST$}", EServerListType.LegacySAMP, APIHTTPURL + "servers"));
             APIIO = ret;
             return ret;
         }

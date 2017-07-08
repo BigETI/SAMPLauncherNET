@@ -177,7 +177,10 @@ namespace SAMPLauncherNET
                     }
                 }
                 if (api.Count > 0)
+                {
                     selectAPIComboBox.SelectedIndex = 0;
+                    Translator.LoadTranslation(selectAPIComboBox);
+                }
             }
         }
 
@@ -188,6 +191,7 @@ namespace SAMPLauncherNET
             {
                 lock (loadServers)
                 {
+                    queryFirstServer = true;
                     ServerListConnector slc = api[index];
                     if (slc.NotLoaded)
                     {
@@ -199,6 +203,7 @@ namespace SAMPLauncherNET
                 }
                 UpdateServerListFilter();
                 UpdateServerCount();
+                EnterRow();
             }
         }
 
@@ -253,10 +258,9 @@ namespace SAMPLauncherNET
                         if (server.IsDataFetched(ERequestType.Information))
                         {
                             dgvr.Cells[2].Value = server.Hostname;
-                            dgvr.Cells[3].Value = server.PlayerCount;
-                            dgvr.Cells[4].Value = server.MaxPlayers;
-                            dgvr.Cells[5].Value = server.Gamemode;
-                            dgvr.Cells[6].Value = server.Language;
+                            dgvr.Cells[3].Value = server.PlayerCount + "/" + server.MaxPlayers;
+                            dgvr.Cells[4].Value = server.Gamemode;
+                            dgvr.Cells[5].Value = server.Language;
                         }
                         ReloadServerInfo();
                     }
@@ -343,9 +347,32 @@ namespace SAMPLauncherNET
             }
         }
 
+        private string EscapeFilterString(string str)
+        {
+            StringBuilder ret = new StringBuilder();
+            foreach (char c in str.ToCharArray())
+            {
+                switch (c)
+                {
+                    case '\'':
+                        break;
+                    case '\\':
+                        ret.Append("\\\\");
+                        break;
+                    case '%':
+                        ret.Append("\\%");
+                        break;
+                    default:
+                        ret.Append(c, 1);
+                        break;
+                }
+            }
+            return ret.ToString();
+        }
+
         private void UpdateServerListFilter()
         {
-            string ft = filterSingleLineTextField.Text.Trim();
+            string ft = EscapeFilterString(filterSingleLineTextField.Text.Trim());
             StringBuilder filter = new StringBuilder("GroupID=");
             filter.Append(selectedAPIIndex.ToString());
             if (ft.Length > 0)
@@ -567,7 +594,7 @@ namespace SAMPLauncherNET
                 foreach (KeyValuePair<Server, int> kv in loadedServers)
                 {
                     DataRow dr = serversDataTable.NewRow();
-                    object[] row = new object[8];
+                    object[] row = new object[7];
                     row[0] = kv.Value;
                     if (kv.Key.IsDataFetched(ERequestType.Ping))
                         row[1] = kv.Key.Ping;
@@ -576,20 +603,18 @@ namespace SAMPLauncherNET
                     if (kv.Key.IsDataFetched(ERequestType.Information))
                     {
                         row[2] = kv.Key.Hostname;
-                        row[3] = kv.Key.PlayerCount;
-                        row[4] = kv.Key.MaxPlayers;
-                        row[5] = kv.Key.Gamemode;
-                        row[6] = kv.Key.Language;
+                        row[3] = kv.Key.PlayerCount + "/" + kv.Key.MaxPlayers;
+                        row[4] = kv.Key.Gamemode;
+                        row[5] = kv.Key.Language;
                     }
                     else
                     {
                         row[2] = "-";
-                        row[3] = 0;
-                        row[4] = 0;
+                        row[3] = "0/0";
+                        row[4] = "-";
                         row[5] = "-";
-                        row[6] = "-";
                     }
-                    row[7] = kv.Key.IPPortString;
+                    row[6] = kv.Key.IPPortString;
                     dr.ItemArray = row;
                     serversDataTable.Rows.Add(dr);
                     if (!(registeredServers.ContainsKey(kv.Key.IPPortString)))

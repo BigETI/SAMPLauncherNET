@@ -875,7 +875,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Selecteer taal ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Selecteer taal (Select language) ähnelt.
         /// </summary>
         internal static string SELECT_LANGUAGE {
             get {

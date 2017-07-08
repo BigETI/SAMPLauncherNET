@@ -54,6 +54,7 @@ namespace SAMPLauncherNET
             {
                 MessageBox.Show("A fatal error has occured:\r\n\r\n" + e.Message, "Fatal error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Application.Exit();
         }
     }
 }
