@@ -3,6 +3,11 @@
     partial class MainForm
     {
         /// <summary>
+        /// Size of image in gallery.
+        /// </summary>
+        public static System.Drawing.Size galleryImageListSize = new System.Drawing.Size(256, 256);
+    
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
@@ -1230,7 +1235,7 @@
             // galleryImageList
             // 
             this.galleryImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.galleryImageList.ImageSize = new System.Drawing.Size(256, 256);
+            this.galleryImageList.ImageSize = galleryImageListSize;
             this.galleryImageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // lastChatlogPage

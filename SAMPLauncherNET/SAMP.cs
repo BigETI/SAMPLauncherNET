@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using WinFormsTranslator;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 
 namespace SAMPLauncherNET
 {
@@ -280,7 +282,37 @@ namespace SAMPLauncherNET
                 //
             }
         }
+    
+        public static Bitmap getThumb(Image image)
+        {
+            int w = image.Width;
+            int h = image.Height;
+            Size thubSize = MainForm.galleryImageListSize;
+            int tw, th, tx, ty;
+            double whRatio = (double)w / (double)h;
 
+            if (image.Width >= image.Height)
+            {
+                tw = thubSize.Width;
+                th = (int)(tw / whRatio);
+            }
+            else
+            {
+                th = thubSize.Height;
+                tw = (int)(th * whRatio);
+            }
+            tx = (thubSize.Width - tw) / 2;
+            ty = (thubSize.Height - th) / 2;
+            Bitmap thumb = new Bitmap(thubSize.Width, thubSize.Height, PixelFormat.Format32bppArgb);
+
+            Graphics g = Graphics.FromImage(thumb);
+            g.Clear(Color.Transparent);
+            g.InterpolationMode = InterpolationMode.NearestNeighbor;
+            g.DrawImage(image, new Rectangle(tx, ty, tw, th), new Rectangle(0, 0, w, h), GraphicsUnit.Pixel);
+        
+            return thumb;
+        }
+    
         public static Dictionary<string, Image> GalleryImages
         {
             get
@@ -291,7 +323,7 @@ namespace SAMPLauncherNET
                 {
                     try
                     {
-                        ret.Add(file, Image.FromFile(file));
+                        ret.Add(file, getThumb(Image.FromFile(file)));
                     }
                     catch
                     {
