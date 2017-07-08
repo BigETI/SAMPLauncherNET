@@ -6,7 +6,7 @@ namespace SAMPLauncherNET
     public class TranslatorInterface : ITranslatorInterface
     {
 
-        private Language[] languages = new Language[] { new Language("DUTCH", "nl-BE"), new Language("ENGLISH", "en-GB"), new Language("GERMAN", "de-DE") };
+        private Language[] languages = new Language[] { new Language("DUTCH", "nl-BE"), new Language("ENGLISH", "en-GB"), new Language("GERMAN", "de-DE"), new Language("RUSSIAN", "ru-RU") };
 
         public string Language
         {

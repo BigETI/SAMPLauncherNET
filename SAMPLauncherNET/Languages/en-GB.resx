@@ -376,6 +376,9 @@ This project is located at</value>
   <data name="REVERT_CONFIG" xml:space="preserve">
     <value>Revert config</value>
   </data>
+  <data name="RUSSIAN" xml:space="preserve">
+    <value>Russian (Русский)</value>
+  </data>
   <data name="SAVE" xml:space="preserve">
     <value>Save</value>
   </data>
