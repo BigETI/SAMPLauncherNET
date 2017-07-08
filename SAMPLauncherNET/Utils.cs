@@ -7,7 +7,7 @@ namespace SAMPLauncherNET
 {
     public static class Utils
     {
-        public static System.Drawing.Size galleryImageListSize = new System.Drawing.Size(256, 256);
+        public readonly static System.Drawing.Size galleryImageListSize = new System.Drawing.Size(256, 256);
   
         public static bool AreEqual<T>(T[] a, T[] b)
         {
