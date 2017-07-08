@@ -280,7 +280,7 @@ namespace SAMPLauncherNET
                 //
             }
         }
-
+    
         public static Dictionary<string, Image> GalleryImages
         {
             get
@@ -291,7 +291,7 @@ namespace SAMPLauncherNET
                 {
                     try
                     {
-                        ret.Add(file, Image.FromFile(file));
+                        ret.Add(file, Utils.GetThumb(Image.FromFile(file)));
                     }
                     catch
                     {
