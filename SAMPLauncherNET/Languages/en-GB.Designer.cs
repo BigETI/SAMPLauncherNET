@@ -830,6 +830,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Russian (Русский) ähnelt.
+        /// </summary>
+        internal static string RUSSIAN {
+            get {
+                return ResourceManager.GetString("RUSSIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Save ähnelt.
         /// </summary>
         internal static string SAVE {
