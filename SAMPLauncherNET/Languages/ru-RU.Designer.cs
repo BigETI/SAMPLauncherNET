@@ -200,7 +200,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Звуковое сообщение выключено.
+        ///   Ищет локализованную строку, похожую на Выключить сообщения проигрываемого аудио потока.
         /// </summary>
         internal static string AUDIO_MESSAGE_OFF {
             get {
@@ -209,7 +209,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Звуковой прокси выключен.
+        ///   Ищет локализованную строку, похожую на Выключить прокси для аудио потока.
         /// </summary>
         internal static string AUDIO_PROXY_OFF {
             get {
@@ -695,7 +695,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Размер страницы.
+        ///   Ищет локализованную строку, похожую на Количество отображаемых строк в чате.
         /// </summary>
         internal static string PAGE_SIZE {
             get {
@@ -1028,7 +1028,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Метка времени.
+        ///   Ищет локализованную строку, похожую на Отображать время сообщений в чате.
         /// </summary>
         internal static string TIMESTAMP {
             get {
