@@ -46,23 +46,23 @@ namespace SAMPLauncherNET
         {
             int w = image.Width;
             int h = image.Height;
-            Size thubSize = galleryImageListSize;
+            Size thumbSize = galleryImageListSize;
             int tw, th, tx, ty;
             double whRatio = (double)w / (double)h;
 
             if (image.Width >= image.Height)
             {
-                tw = thubSize.Width;
+                tw = thumbSize.Width;
                 th = (int)(tw / whRatio);
             }
             else
             {
-                th = thubSize.Height;
+                th = thumbSize.Height;
                 tw = (int)(th * whRatio);
             }
-            tx = (thubSize.Width - tw) / 2;
-            ty = (thubSize.Height - th) / 2;
-            Bitmap thumb = new Bitmap(thubSize.Width, thubSize.Height, PixelFormat.Format32bppArgb);
+            tx = (thumbSize.Width - tw) / 2;
+            ty = (thumbSize.Height - th) / 2;
+            Bitmap thumb = new Bitmap(thumbSize.Width, thumbSize.Height, PixelFormat.Format32bppArgb);
 
             Graphics g = Graphics.FromImage(thumb);
             g.Clear(Color.Transparent);
