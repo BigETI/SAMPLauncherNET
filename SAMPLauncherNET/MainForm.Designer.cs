@@ -1230,7 +1230,7 @@
             // galleryImageList
             // 
             this.galleryImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.galleryImageList.ImageSize = new System.Drawing.Size(256, 256);
+            this.galleryImageList.ImageSize = Utils.GalleryImageSize;
             this.galleryImageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // lastChatlogPage

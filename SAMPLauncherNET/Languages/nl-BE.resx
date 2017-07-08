@@ -118,23 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ABOUT" xml:space="preserve">
-    <value>About</value>
+    <value>Over</value>
   </data>
   <data name="ABOUT_DESCRIPTION" xml:space="preserve">
-    <value>SAMPLauncher NET is a launcher for San Andreas Multiplayer.
+    <value>SAMPLauncher NET is een client voor San Andreas Multiplayer.
 
-This software is all time free and licenced with GPLv3.
+Deze software is altijd gratis en is erkend met GPLv3.
 
-This project is located at</value>
+Dit project bevind zich op</value>
   </data>
   <data name="ADD_NEW_API" xml:space="preserve">
-    <value>Add new API</value>
+    <value>Voeg nieuwe API toe</value>
   </data>
   <data name="ADD_SERVER_TO_FAVOURITES" xml:space="preserve">
-    <value>Add server to favourites</value>
+    <value>Voeg server toe bij favorieten</value>
   </data>
   <data name="ALREADY_IN_FAVOURITES" xml:space="preserve">
-    <value>Already in favourites</value>
+    <value>Bestaat al in favorieten</value>
   </data>
   <data name="API" xml:space="preserve">
     <value>API</value>
@@ -143,100 +143,100 @@ This project is located at</value>
     <value>API endpoint</value>
   </data>
   <data name="API_ENDPOINT_MISSING" xml:space="preserve">
-    <value>Please specify a valid API endpoint</value>
+    <value>Gelieve een geldig API endpoint te geven</value>
   </data>
   <data name="API_ENDPOINT_MISSING_TITLE" xml:space="preserve">
-    <value>API endpoint missing</value>
+    <value>API endpoint ontbreekt</value>
   </data>
   <data name="API_NAME" xml:space="preserve">
-    <value>API name</value>
+    <value>API naam</value>
   </data>
   <data name="API_NAME_MISSING" xml:space="preserve">
-    <value>Please insert an API name.</value>
+    <value>Gelieve een API naam te geven.</value>
   </data>
   <data name="API_NAME_MISSING_TITLE" xml:space="preserve">
-    <value>API name missing</value>
+    <value>API naam ontbreekt</value>
   </data>
   <data name="API_TYPE" xml:space="preserve">
     <value>API type</value>
   </data>
   <data name="API_TYPE_MISSING" xml:space="preserve">
-    <value>Please select an API type.</value>
+    <value>Gelieve een API type te geven.</value>
   </data>
   <data name="API_TYPE_MISSING_TITLE" xml:space="preserve">
-    <value>API type missing</value>
+    <value>API type ontbreekt</value>
   </data>
   <data name="AUDIO_MESSAGE_OFF" xml:space="preserve">
-    <value>Audio message off</value>
+    <value>Audio bericht uit</value>
   </data>
   <data name="AUDIO_PROXY_OFF" xml:space="preserve">
-    <value>Audio proxy off</value>
+    <value>Audio proxy uit</value>
   </data>
   <data name="CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Annuleer</value>
   </data>
   <data name="CLOSE_WHEN_LAUNCHED" xml:space="preserve">
-    <value>Close when launched</value>
+    <value>Sluit wanneer gestart</value>
   </data>
   <data name="CONNECT" xml:space="preserve">
-    <value>Connect</value>
+    <value>Connecteer</value>
   </data>
   <data name="CONNECT_NOW" xml:space="preserve">
-    <value>Connect now!</value>
+    <value>Connecteer nu!</value>
   </data>
   <data name="CONNECT_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Connect</value>
+    <value>San Andreas Multiplayer - Connecteer</value>
   </data>
   <data name="CONNECT_WITH_RCON" xml:space="preserve">
-    <value>Connect with RCON</value>
+    <value>Connecteer met RCON</value>
   </data>
   <data name="DEBUG_MODE" xml:space="preserve">
     <value>Debug mode</value>
   </data>
   <data name="DELETE_SELECTED_IMAGES" xml:space="preserve">
-    <value>Do you really want to delete the selected images?</value>
+    <value>Ben je zeker dat je de geselecteerde afbeeldingen wilt verwijderen?</value>
   </data>
   <data name="DELETE_SELECTED_IMAGES_TITLE" xml:space="preserve">
-    <value>Delete selected images</value>
+    <value>Verwijder geselecteerd afbeeldingen</value>
   </data>
   <data name="DIRECT_MODE" xml:space="preserve">
-    <value>Direct to screen textdraw render method (slow)</value>
+    <value>Leid naar scherm textdraw render methode (langzaam)</value>
   </data>
   <data name="DISABLE_HEAD_MOVE" xml:space="preserve">
-    <value>Disable head move</value>
+    <value>Schakel hoofdbeweging uit</value>
   </data>
   <data name="DUTCH" xml:space="preserve">
-    <value>Dutch (Nederlands)</value>
+    <value>Nederlands</value>
   </data>
   <data name="EDIT_API_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Edit API</value>
+    <value>San Andreas Multiplayer - wijzig API</value>
   </data>
   <data name="EDIT_SELECTED_API" xml:space="preserve">
-    <value>Edit selected API</value>
+    <value>Wijzig geselecteerde API</value>
   </data>
   <data name="ENGLISH" xml:space="preserve">
-    <value>English</value>
+    <value>Engels (English)</value>
   </data>
   <data name="ERROR" xml:space="preserve">
     <value>Error</value>
   </data>
   <data name="EXTENDED_SERVER_INFORMATION_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Extended server information</value>
+    <value>San Andreas Multiplayer - Uitgebreide server informatie</value>
   </data>
   <data name="FAVOURITE_LIST_NOT_SELECTED" xml:space="preserve">
-    <value>Please select a favourites list.</value>
+    <value>Selecteer alstublieft een favorietenlijst.</value>
   </data>
   <data name="FAVOURITE_LIST_NOT_SELECTED_TITLE" xml:space="preserve">
-    <value>Favourites list not selected</value>
+    <value>Favorietenlijst niet geselecteerd</value>
   </data>
   <data name="FILTER_HOSTNAME" xml:space="preserve">
     <value>Filter hostname</value>
   </data>
   <data name="FILTER_IP_AND_PORT" xml:space="preserve">
-    <value>Filter IP and port</value>
+    <value>Filter IP en poort</value>
   </data>
   <data name="FILTER_LANGUAGE" xml:space="preserve">
-    <value>Filter language</value>
+    <value>Filter taal</value>
   </data>
   <data name="FILTER_MODE" xml:space="preserve">
     <value>Filter mode</value>
@@ -251,13 +251,13 @@ This project is located at</value>
     <value>FPS limit</value>
   </data>
   <data name="GALLERY" xml:space="preserve">
-    <value>Gallery</value>
+    <value>Gallerij</value>
   </data>
   <data name="GAMEMODE" xml:space="preserve">
     <value>Gamemode</value>
   </data>
   <data name="GERMAN" xml:space="preserve">
-    <value>German (Deutsch)</value>
+    <value>Duits (Deutsch)</value>
   </data>
   <data name="GITHUB_PROJECT" xml:space="preserve">
     <value>GitHub project SAMPLauncherNET</value>
@@ -266,139 +266,136 @@ This project is located at</value>
     <value>Hostname</value>
   </data>
   <data name="IME" xml:space="preserve">
-    <value>Enable IME (Input Method Editor)</value>
+    <value>Schakel IME (Input Method Editor) in</value>
   </data>
   <data name="INPUT_ERROR" xml:space="preserve">
     <value>Input error</value>
   </data>
   <data name="INSERT_FILTER_HERE" xml:space="preserve">
-    <value>Insert filter here...</value>
+    <value>Vul hier een filter...</value>
   </data>
   <data name="INSERT_RCON_PASSWORD_HERE" xml:space="preserve">
-    <value>Insert RCON password here...</value>
+    <value>Vul hier een RCON password...</value>
   </data>
   <data name="INSERT_SERVER_PASSWORD_HERE" xml:space="preserve">
-    <value>Insert server password here...</value>
+    <value>Vul hier een server password...</value>
   </data>
   <data name="INSERT_USERNAME_HERE" xml:space="preserve">
-    <value>Insert player name here...</value>
+    <value>Vul hier een spelernaam in...</value>
   </data>
   <data name="IP_AND_PORT" xml:space="preserve">
-    <value>IP and port</value>
+    <value>IP and poort</value>
   </data>
   <data name="LANGUAGE" xml:space="preserve">
-    <value>Language</value>
+    <value>Taal</value>
   </data>
   <data name="LAST_CHATLOG" xml:space="preserve">
-    <value>Last chatlog</value>
+    <value>Laatste chatlog</value>
   </data>
   <data name="LAUNCHER_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Launcher</value>
   </data>
   <data name="LAUNCH_DEBUG_MODE" xml:space="preserve">
-    <value>Launch debug mode</value>
+    <value>Start debug mode</value>
   </data>
   <data name="LAUNCH_SINGLEPLAYER" xml:space="preserve">
-    <value>Launch singleplayer</value>
+    <value>Start singleplayer</value>
   </data>
   <data name="MULTI_CORE" xml:space="preserve">
     <value>Multi core</value>
   </data>
   <data name="NEED_HELP_FORUMS" xml:space="preserve">
-    <value>Do you need help? Join SA:MP forums...</value>
+    <value>Hulp nodig? Ga naar SA:MP forums...</value>
   </data>
   <data name="NEW_API_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Add new API</value>
+    <value>San Andreas Multiplayer - Voeg nieuwe API toe</value>
   </data>
   <data name="NOT_IN_FAVOURITES" xml:space="preserve">
-    <value>Not in favourites</value>
+    <value>Niet in favorieten</value>
   </data>
   <data name="NO_CHATLOG_FOUND" xml:space="preserve">
-    <value>No chatlog found...</value>
+    <value>Geen chatlog gevonden...</value>
   </data>
   <data name="NO_FAVOURITES" xml:space="preserve">
-    <value>There are no favourite lists defined. To define a new favourite list, select the "API" tab and create a new favourite list or restore the default entries.</value>
+    <value>Er zijn geen favoriete lijsten gedefinieerd. Als u een nieuwe favoriete lijst wilt definiëren, selecteert u het tabblad 'API' en maakt u een nieuwe favoriete lijst of herstel de standaardinstellingen.</value>
   </data>
   <data name="NO_FAVOURITES_TITLE" xml:space="preserve">
-    <value>No favourite lists</value>
+    <value>Geen favoriete lijsten</value>
   </data>
   <data name="NO_NAMETAG_STATUS" xml:space="preserve">
-    <value>No nametag status</value>
+    <value>Geen naam tag status</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="OPTIONS" xml:space="preserve">
-    <value>Options</value>
+    <value>Opties</value>
   </data>
   <data name="OPTIONS_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Options</value>
+    <value>San Andreas Multiplayer - Opties</value>
   </data>
   <data name="PAGE_SIZE" xml:space="preserve">
-    <value>Page size</value>
+    <value>Pagina grootte</value>
   </data>
   <data name="PING" xml:space="preserve">
     <value>Ping</value>
   </data>
   <data name="PLAYERS" xml:space="preserve">
-    <value>Players</value>
+    <value>Spelers</value>
   </data>
   <data name="PLEASE_TYPE_IN_USERNAME" xml:space="preserve">
-    <value>Please type in an username.</value>
+    <value>Gelieve een gebruikersnaam in te vullen.</value>
   </data>
   <data name="RCON_PASSWORD" xml:space="preserve">
-    <value>RCON password</value>
+    <value>RCON wachtwoord</value>
   </data>
   <data name="RCON_PASSWORD_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - RCON password</value>
+    <value>San Andreas Multiplayer - RCON wachtwoord</value>
   </data>
   <data name="REMOVE_API" xml:space="preserve">
-    <value>Do you really want to remove the selected API?</value>
+    <value>Wil je de geselecteerde API echt verwijderen?</value>
   </data>
   <data name="REMOVE_API_TITLE" xml:space="preserve">
-    <value>Remove selected API</value>
+    <value>Verwijder geselecteerde API</value>
   </data>
   <data name="REMOVE_SELECTED_API" xml:space="preserve">
-    <value>Remove selected API</value>
+    <value>Verwijder geselecteerde API</value>
   </data>
   <data name="REMOVE_SERVER_FROM_FAVOURITES" xml:space="preserve">
-    <value>Do you really want to remove this server from your favourites?</value>
+    <value>Wil je deze server echt uit je favorieten verwijderen?</value>
   </data>
   <data name="REMOVE_SERVER_FROM_FAVOURITES_TITLE" xml:space="preserve">
-    <value>Remove server from favourites</value>
+    <value>Verwijder server uit favorieten</value>
   </data>
   <data name="REVERT_API_LIST" xml:space="preserve">
-    <value>Do you really want to revert the API list to default?</value>
+    <value>Wil je echt de API-lijst terugkeren naar standaard?</value>
   </data>
   <data name="REVERT_API_LIST_TITLE" xml:space="preserve">
-    <value>Revert API list</value>
+    <value>Stel API lijst terug</value>
   </data>
   <data name="REVERT_CONFIG" xml:space="preserve">
-    <value>Revert config</value>
-  </data>
-  <data name="RUSSIAN" xml:space="preserve">
-    <value>Russian (Русский)</value>
+    <value>Stel de configuratie terug</value>
   </data>
   <data name="SAVE" xml:space="preserve">
-    <value>Save</value>
+    <value>Opslaan</value>
   </data>
   <data name="SAVED_POSITIONS" xml:space="preserve">
-    <value>Saved positions</value>
+    <value>Opgeslagen posities</value>
   </data>
   <data name="SELECT_API" xml:space="preserve">
-    <value>Select a server list</value>
+    <value>Selecteer een server lijst</value>
   </data>
   <data name="SELECT_FAVOURITES_LIST" xml:space="preserve">
-    <value>Select favourites list</value>
+    <value>Selecteer favoriete lijst</value>
   </data>
   <data name="SELECT_FAVOURITE_LIST_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Select favourite list</value>
+    <value>San Andreas Multiplayer - Selecteer favoriete lijst</value>
   </data>
   <data name="SELECT_LANGUAGE" xml:space="preserve">
-    <value>Select language</value>
+    <value>Selecteer taal</value>
   </data>
   <data name="SELECT_SERVER_LIST" xml:space="preserve">
-    <value>Select server list</value>
+    <value>Selecteer server lijst</value>
   </data>
   <data name="SERVERS" xml:space="preserve">
     <value>Servers</value>
@@ -407,48 +404,48 @@ This project is located at</value>
     <value>Server filter</value>
   </data>
   <data name="SERVER_ALREADY_IN_FAVOURITES" xml:space="preserve">
-    <value>This server is already in your favourites.</value>
+    <value>Deze server is al in je favorieten.</value>
   </data>
   <data name="SERVER_NOT_IN_FAVOURITES" xml:space="preserve">
-    <value>This server is not in your favourites.</value>
+    <value>Deze server is niet in je favorieten.</value>
   </data>
   <data name="SERVER_PASSWORD" xml:space="preserve">
-    <value>Server password</value>
+    <value>Server wachtwoord</value>
   </data>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY" xml:space="preserve">
-    <value>Server password field is empty.\r\n\r\nDo you want to continue?</value>
+    <value>Het veld server wachtwoord is leeg.\r\n\r\nDoorgaan?</value>
   </data>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
-    <value>Server password field is empty</value>
+    <value>Veld server password is leeg</value>
   </data>
   <data name="SHOW_EXTENDED_SERVER_INFORMATION" xml:space="preserve">
-    <value>Extended server information</value>
+    <value>Uitgebreide server informatie</value>
   </data>
   <data name="SHOW_FAVOURITES" xml:space="preserve">
-    <value>Favourites</value>
+    <value>Favorieten</value>
   </data>
   <data name="SHOW_GALLERY" xml:space="preserve">
-    <value>Show gallery...</value>
+    <value>Toon gallerij...</value>
   </data>
   <data name="SHOW_LAST_CHATLOG" xml:space="preserve">
-    <value>Show last chatlog...</value>
+    <value>Toon laatste chatlog...</value>
   </data>
   <data name="SHOW_LEGACY_FAVOURITES" xml:space="preserve">
-    <value>Legacy favourites</value>
+    <value>Legacy favorieten</value>
   </data>
   <data name="SHOW_LEGACY_HOSTED_LIST" xml:space="preserve">
-    <value>Hosted list</value>
+    <value>Hosted lijst</value>
   </data>
   <data name="SHOW_LEGACY_MASTER_LIST" xml:space="preserve">
-    <value>Master list</value>
+    <value>Master lijst</value>
   </data>
   <data name="TEMPORARY_USERNAME" xml:space="preserve">
-    <value>Don't save username</value>
+    <value>Sla gebruikersnaam niet op</value>
   </data>
   <data name="TIMESTAMP" xml:space="preserve">
     <value>Timestamp</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
-    <value>Username</value>
+    <value>Gebruikersnaam</value>
   </data>
 </root>

@@ -95,26 +95,19 @@ namespace SAMPLauncherNET
             get
             {
                 Dictionary<string, Server> ret = new Dictionary<string, Server>();
-                switch (serverListType)
+                try
                 {
-                    case EServerListType.Favourites:
-                        try
-                        {
+                    switch (serverListType)
+                    {
+                        case EServerListType.Favourites:
                             using (FileStream stream = File.Open(endpoint, FileMode.Open))
                             {
                                 FavouriteDataContract[] favourites = (FavouriteDataContract[])(favouriteListJSONSerializer.ReadObject(stream));
                                 foreach (FavouriteDataContract fdc in favourites)
                                     ret.Add(fdc.host, new FavouriteServer(fdc));
                             }
-                        }
-                        catch
-                        {
-                            //
-                        }
-                        break;
-                    case EServerListType.BackendRESTful:
-                        try
-                        {
+                            break;
+                        case EServerListType.BackendRESTful:
                             using (WebClientEx wc = new WebClientEx(5000))
                             {
                                 wc.Headers.Set(HttpRequestHeader.ContentType, APIHTTPContentType);
@@ -134,15 +127,8 @@ namespace SAMPLauncherNET
                                     }
                                 }
                             }
-                        }
-                        catch
-                        {
-                            //
-                        }
-                        break;
-                    case EServerListType.LegacyFavourites:
-                        try
-                        {
+                            break;
+                        case EServerListType.LegacyFavourites:
                             using (FileStream stream = File.Open(endpoint, FileMode.Open))
                             {
                                 using (BinaryReader reader = new BinaryReader(stream))
@@ -172,15 +158,8 @@ namespace SAMPLauncherNET
                                     }
                                 }
                             }
-                        }
-                        catch
-                        {
-                            //
-                        }
-                        break;
-                    case EServerListType.LegacySAMP:
-                        try
-                        {
+                            break;
+                        case EServerListType.LegacySAMP:
                             using (WebClientEx wc = new WebClientEx(5000))
                             {
                                 wc.Headers.Set(HttpRequestHeader.ContentType, APIHTTPContentType);
@@ -194,12 +173,12 @@ namespace SAMPLauncherNET
                                         ret.Add(ip.Trim(), server);
                                 }
                             }
-                        }
-                        catch
-                        {
-                            //
-                        }
-                        break;
+                            break;
+                    }
+                }
+                catch
+                {
+                    //
                 }
                 maxServers = (uint)(ret.Count);
                 return ret;

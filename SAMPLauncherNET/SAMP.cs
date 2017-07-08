@@ -19,7 +19,7 @@ namespace SAMPLauncherNET
 
         public const string RegistryKey = "HKEY_CURRENT_USER\\SOFTWARE\\SAMP";
 
-        public static readonly string ConfigPath = Environment.GetEnvironmentVariable("USERPROFILE") + "\\Documents\\GTA San Andreas User Files\\SAMP";
+        public static readonly string ConfigPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\GTA San Andreas User Files\\SAMP";
 
         public static readonly string ExeDir = GTASAExe.Substring(0, GTASAExe.Length - 11);
 
@@ -280,7 +280,7 @@ namespace SAMPLauncherNET
                 //
             }
         }
-
+    
         public static Dictionary<string, Image> GalleryImages
         {
             get
@@ -291,7 +291,7 @@ namespace SAMPLauncherNET
                 {
                     try
                     {
-                        ret.Add(file, Image.FromFile(file));
+                        ret.Add(file, Utils.GetThumb(Image.FromFile(file)));
                     }
                     catch
                     {
