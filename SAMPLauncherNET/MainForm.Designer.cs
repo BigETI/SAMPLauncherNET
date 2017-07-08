@@ -55,7 +55,6 @@
             this.pingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hostnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.playersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxPlayersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.languageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iPAndPortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,7 +76,6 @@
             this.modeDataColumn = new System.Data.DataColumn();
             this.languageDataColumn = new System.Data.DataColumn();
             this.ipAndPortDataColumn = new System.Data.DataColumn();
-            this.groupIDDataColumn = new System.Data.DataColumn();
             this.playersDataTable = new System.Data.DataTable();
             this.playerDataColumn = new System.Data.DataColumn();
             this.scoreDataColumn = new System.Data.DataColumn();
@@ -303,7 +301,7 @@
             // 
             this.serversSplitContainer.Panel2.Controls.Add(this.serverInfoSplitContainer);
             this.serversSplitContainer.Size = new System.Drawing.Size(980, 283);
-            this.serversSplitContainer.SplitterDistance = 632;
+            this.serversSplitContainer.SplitterDistance = 763;
             this.serversSplitContainer.TabIndex = 2;
             // 
             // serversGridView
@@ -335,7 +333,6 @@
             this.pingDataGridViewTextBoxColumn,
             this.hostnameDataGridViewTextBoxColumn,
             this.playersDataGridViewTextBoxColumn,
-            this.maxPlayersDataGridViewTextBoxColumn,
             this.modeDataGridViewTextBoxColumn,
             this.languageDataGridViewTextBoxColumn,
             this.iPAndPortDataGridViewTextBoxColumn});
@@ -362,7 +359,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
             this.serversGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.serversGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.serversGridView.Size = new System.Drawing.Size(630, 281);
+            this.serversGridView.Size = new System.Drawing.Size(761, 281);
             this.serversGridView.TabIndex = 0;
             this.serversGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             this.serversGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.serversGridView_RowEnter);
@@ -372,6 +369,7 @@
             // groupIDDataGridViewTextBoxColumn
             // 
             this.groupIDDataGridViewTextBoxColumn.DataPropertyName = "GroupID";
+            this.groupIDDataGridViewTextBoxColumn.FillWeight = 1F;
             this.groupIDDataGridViewTextBoxColumn.HeaderText = "GroupID";
             this.groupIDDataGridViewTextBoxColumn.Name = "groupIDDataGridViewTextBoxColumn";
             this.groupIDDataGridViewTextBoxColumn.ReadOnly = true;
@@ -380,6 +378,7 @@
             // pingDataGridViewTextBoxColumn
             // 
             this.pingDataGridViewTextBoxColumn.DataPropertyName = "Ping";
+            this.pingDataGridViewTextBoxColumn.FillWeight = 5F;
             this.pingDataGridViewTextBoxColumn.HeaderText = "Ping";
             this.pingDataGridViewTextBoxColumn.Name = "pingDataGridViewTextBoxColumn";
             this.pingDataGridViewTextBoxColumn.ReadOnly = true;
@@ -387,6 +386,7 @@
             // hostnameDataGridViewTextBoxColumn
             // 
             this.hostnameDataGridViewTextBoxColumn.DataPropertyName = "Hostname";
+            this.hostnameDataGridViewTextBoxColumn.FillWeight = 33F;
             this.hostnameDataGridViewTextBoxColumn.HeaderText = "Hostname";
             this.hostnameDataGridViewTextBoxColumn.Name = "hostnameDataGridViewTextBoxColumn";
             this.hostnameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -394,20 +394,15 @@
             // playersDataGridViewTextBoxColumn
             // 
             this.playersDataGridViewTextBoxColumn.DataPropertyName = "Players";
+            this.playersDataGridViewTextBoxColumn.FillWeight = 8F;
             this.playersDataGridViewTextBoxColumn.HeaderText = "Players";
             this.playersDataGridViewTextBoxColumn.Name = "playersDataGridViewTextBoxColumn";
             this.playersDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // maxPlayersDataGridViewTextBoxColumn
-            // 
-            this.maxPlayersDataGridViewTextBoxColumn.DataPropertyName = "Max players";
-            this.maxPlayersDataGridViewTextBoxColumn.HeaderText = "Max players";
-            this.maxPlayersDataGridViewTextBoxColumn.Name = "maxPlayersDataGridViewTextBoxColumn";
-            this.maxPlayersDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // modeDataGridViewTextBoxColumn
             // 
             this.modeDataGridViewTextBoxColumn.DataPropertyName = "Mode";
+            this.modeDataGridViewTextBoxColumn.FillWeight = 22F;
             this.modeDataGridViewTextBoxColumn.HeaderText = "Mode";
             this.modeDataGridViewTextBoxColumn.Name = "modeDataGridViewTextBoxColumn";
             this.modeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -415,6 +410,7 @@
             // languageDataGridViewTextBoxColumn
             // 
             this.languageDataGridViewTextBoxColumn.DataPropertyName = "Language";
+            this.languageDataGridViewTextBoxColumn.FillWeight = 14F;
             this.languageDataGridViewTextBoxColumn.HeaderText = "Language";
             this.languageDataGridViewTextBoxColumn.Name = "languageDataGridViewTextBoxColumn";
             this.languageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -422,6 +418,7 @@
             // iPAndPortDataGridViewTextBoxColumn
             // 
             this.iPAndPortDataGridViewTextBoxColumn.DataPropertyName = "IP and port";
+            this.iPAndPortDataGridViewTextBoxColumn.FillWeight = 17F;
             this.iPAndPortDataGridViewTextBoxColumn.HeaderText = "IP and port";
             this.iPAndPortDataGridViewTextBoxColumn.Name = "iPAndPortDataGridViewTextBoxColumn";
             this.iPAndPortDataGridViewTextBoxColumn.ReadOnly = true;
@@ -492,6 +489,7 @@
             this.serversBindingSource.DataMember = "Servers";
             this.serversBindingSource.DataSource = this.serversDataSet;
             this.serversBindingSource.Filter = "GroupID=0";
+            this.serversBindingSource.Sort = "";
             // 
             // serversDataSet
             // 
@@ -511,12 +509,19 @@
             this.maxPlayersDataColumn,
             this.modeDataColumn,
             this.languageDataColumn,
-            this.ipAndPortDataColumn,
-            this.groupIDDataColumn});
+            this.ipAndPortDataColumn});
+            this.serversDataTable.Constraints.AddRange(new System.Data.Constraint[] {
+            new System.Data.UniqueConstraint("Constraint1", new string[] {
+                        "IP and port",
+                        "GroupID"}, true)});
+            this.serversDataTable.PrimaryKey = new System.Data.DataColumn[] {
+        this.ipAndPortDataColumn,
+        this.pingDataColumn};
             this.serversDataTable.TableName = "Servers";
             // 
             // pingDataColumn
             // 
+            this.pingDataColumn.AllowDBNull = false;
             this.pingDataColumn.ColumnName = "GroupID";
             this.pingDataColumn.DataType = typeof(byte);
             this.pingDataColumn.DefaultValue = ((byte)(0));
@@ -536,32 +541,25 @@
             // 
             this.maxPlayersDataColumn.Caption = "Players";
             this.maxPlayersDataColumn.ColumnName = "Players";
-            this.maxPlayersDataColumn.DataType = typeof(ushort);
-            this.maxPlayersDataColumn.DefaultValue = ((ushort)(0));
+            this.maxPlayersDataColumn.DefaultValue = "0/0";
             // 
             // modeDataColumn
             // 
-            this.modeDataColumn.Caption = "Max players";
-            this.modeDataColumn.ColumnName = "Max players";
-            this.modeDataColumn.DataType = typeof(ushort);
-            this.modeDataColumn.DefaultValue = ((ushort)(0));
+            this.modeDataColumn.Caption = "Mode";
+            this.modeDataColumn.ColumnName = "Mode";
+            this.modeDataColumn.DefaultValue = "";
             // 
             // languageDataColumn
             // 
-            this.languageDataColumn.ColumnName = "Mode";
+            this.languageDataColumn.ColumnName = "Language";
             this.languageDataColumn.DefaultValue = "";
             // 
             // ipAndPortDataColumn
             // 
-            this.ipAndPortDataColumn.Caption = "Language";
-            this.ipAndPortDataColumn.ColumnName = "Language";
+            this.ipAndPortDataColumn.AllowDBNull = false;
+            this.ipAndPortDataColumn.Caption = "IP and port";
+            this.ipAndPortDataColumn.ColumnName = "IP and port";
             this.ipAndPortDataColumn.DefaultValue = "";
-            // 
-            // groupIDDataColumn
-            // 
-            this.groupIDDataColumn.Caption = "IP and port";
-            this.groupIDDataColumn.ColumnName = "IP and port";
-            this.groupIDDataColumn.DefaultValue = "";
             // 
             // playersDataTable
             // 
@@ -643,7 +641,7 @@
             // serverInfoSplitContainer.Panel2
             // 
             this.serverInfoSplitContainer.Panel2.Controls.Add(this.rulesGridView);
-            this.serverInfoSplitContainer.Size = new System.Drawing.Size(344, 283);
+            this.serverInfoSplitContainer.Size = new System.Drawing.Size(213, 283);
             this.serverInfoSplitContainer.SplitterDistance = 188;
             this.serverInfoSplitContainer.TabIndex = 0;
             // 
@@ -696,7 +694,7 @@
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
             this.playersGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.playersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.playersGridView.Size = new System.Drawing.Size(342, 186);
+            this.playersGridView.Size = new System.Drawing.Size(211, 186);
             this.playersGridView.TabIndex = 1;
             this.playersGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             // 
@@ -768,7 +766,7 @@
             dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
             this.rulesGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.rulesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.rulesGridView.Size = new System.Drawing.Size(342, 89);
+            this.rulesGridView.Size = new System.Drawing.Size(211, 89);
             this.rulesGridView.TabIndex = 1;
             this.rulesGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             // 
@@ -1230,7 +1228,7 @@
             // galleryImageList
             // 
             this.galleryImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.galleryImageList.ImageSize = Utils.GalleryImageSize;
+            this.galleryImageList.ImageSize = new System.Drawing.Size(256, 256);
             this.galleryImageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // lastChatlogPage
@@ -2057,7 +2055,6 @@
         private System.Data.DataColumn modeDataColumn;
         private System.Data.DataColumn languageDataColumn;
         private System.Data.DataColumn ipAndPortDataColumn;
-        private System.Data.DataColumn groupIDDataColumn;
         private System.Data.DataTable playersDataTable;
         private System.Data.DataColumn playerDataColumn;
         private System.Data.DataColumn scoreDataColumn;
@@ -2069,14 +2066,6 @@
         private System.Windows.Forms.BindingSource rulesBindingSource;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.TableLayoutPanel inputFilterLayoutPanel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn groupIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pingDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hostnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn playersDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxPlayersDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn languageDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iPAndPortDataGridViewTextBoxColumn;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private MaterialSkin.Controls.MaterialLabel serverCountLabel;
         private MaterialSkin.Controls.MaterialRaisedButton connectButton;
@@ -2171,5 +2160,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn endpointDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem revertAPIListToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hostnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn playersDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn languageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iPAndPortDataGridViewTextBoxColumn;
     }
 }

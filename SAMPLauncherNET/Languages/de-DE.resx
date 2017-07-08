@@ -431,7 +431,7 @@ Das Projekt befindet sich auf</value>
     <value>Zeige letzten Chatprotokoll...</value>
   </data>
   <data name="SHOW_LEGACY_FAVOURITES" xml:space="preserve">
-    <value>Abw. kompatible Favoriten</value>
+    <value>Abw. komp. Favoriten</value>
   </data>
   <data name="SHOW_LEGACY_HOSTED_LIST" xml:space="preserve">
     <value>Hosted Liste</value>

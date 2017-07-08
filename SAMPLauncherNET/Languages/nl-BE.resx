@@ -392,7 +392,7 @@ Dit project bevind zich op</value>
     <value>San Andreas Multiplayer - Selecteer favoriete lijst</value>
   </data>
   <data name="SELECT_LANGUAGE" xml:space="preserve">
-    <value>Selecteer taal</value>
+    <value>Selecteer taal (Select language)</value>
   </data>
   <data name="SELECT_SERVER_LIST" xml:space="preserve">
     <value>Selecteer server lijst</value>

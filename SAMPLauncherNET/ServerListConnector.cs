@@ -4,10 +4,11 @@ using System.IO;
 using System.Net;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using WinFormsTranslator;
 
 namespace SAMPLauncherNET
 {
-    public class ServerListConnector
+    public class ServerListConnector : ITranslatable
     {
 
         private static DataContractJsonSerializer serverListJSONSerializer = new DataContractJsonSerializer(typeof(ServerDataContract[]));
@@ -262,6 +263,18 @@ namespace SAMPLauncherNET
                 ret.type = serverListType.ToString();
                 ret.endpoint = endpoint;
                 return ret;
+            }
+        }
+
+        public string TranslatableText
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
             }
         }
 
