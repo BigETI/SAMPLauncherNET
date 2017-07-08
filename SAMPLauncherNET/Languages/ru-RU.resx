@@ -256,6 +256,9 @@
   <data name="GAMEMODE" xml:space="preserve">
     <value>Игровой режим</value>
   </data>
+  <data name="GEORGIAN" xml:space="preserve">
+    <value>грузинский (ქართული)</value>
+  </data>
   <data name="GERMAN" xml:space="preserve">
     <value>Немецкий (Deutsch)</value>
   </data>

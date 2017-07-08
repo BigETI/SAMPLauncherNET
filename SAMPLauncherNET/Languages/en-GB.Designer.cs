@@ -470,6 +470,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Georgian (ქართული) ähnelt.
+        /// </summary>
+        internal static string GEORGIAN {
+            get {
+                return ResourceManager.GetString("GEORGIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die German (Deutsch) ähnelt.
         /// </summary>
         internal static string GERMAN {

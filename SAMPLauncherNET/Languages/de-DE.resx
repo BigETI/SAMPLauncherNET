@@ -256,6 +256,9 @@ Das Projekt befindet sich auf</value>
   <data name="GAMEMODE" xml:space="preserve">
     <value>Spielmodus</value>
   </data>
+  <data name="GEORGIAN" xml:space="preserve">
+    <value>Georgisch (ქართული)</value>
+  </data>
   <data name="GERMAN" xml:space="preserve">
     <value>Deutsch</value>
   </data>

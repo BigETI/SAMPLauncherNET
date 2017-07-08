@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ABOUT" xml:space="preserve">
-    <value>About</value>
+    <value>ჩვენს შესახებ</value>
   </data>
   <data name="ABOUT_DESCRIPTION" xml:space="preserve">
     <value>SAMPLauncher NET არის SA-MP-ის ახალი სტილის ლაუნჩერი.
@@ -139,13 +139,13 @@
     <value>API</value>
   </data>
   <data name="API_ENDPOINT" xml:space="preserve">
-    <value>API endpoint</value>
+    <value>API-ს დასასრული</value>
   </data>
   <data name="API_ENDPOINT_MISSING" xml:space="preserve">
-    <value>Please specify a valid API endpoint</value>
+    <value>თუ შეიძლება გამოიყენეთ API-ს სწორი დასასრული</value>
   </data>
   <data name="API_ENDPOINT_MISSING_TITLE" xml:space="preserve">
-    <value>API endpoint missing</value>
+    <value>API-ს დასასრული არ მოიძებნება</value>
   </data>
   <data name="API_NAME" xml:space="preserve">
     <value>API სახელი</value>
@@ -201,6 +201,9 @@
   <data name="DISABLE_HEAD_MOVE" xml:space="preserve">
     <value>თავის მოძრაობის გათიშვა</value>
   </data>
+  <data name="DUTCH" xml:space="preserve">
+    <value>ჰოლანდიური (Nederlands)</value>
+  </data>
   <data name="EDIT_API_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - API-ს დარედაქტირება</value>
   </data>
@@ -208,7 +211,7 @@
     <value>მონიშნული API-ს დარედაქტირება</value>
   </data>
   <data name="ENGLISH" xml:space="preserve">
-    <value>English</value>
+    <value>ინგლისური (English)</value>
   </data>
   <data name="ERROR" xml:space="preserve">
     <value>შეცდომა</value>
@@ -249,8 +252,11 @@
   <data name="GAMEMODE" xml:space="preserve">
     <value>გეიმმოდი</value>
   </data>
+  <data name="GEORGIAN" xml:space="preserve">
+    <value>ქართული</value>
+  </data>
   <data name="GERMAN" xml:space="preserve">
-    <value>German (Deutsch)</value>
+    <value>გერმანული (Deutsch)</value>
   </data>
   <data name="GITHUB_PROJECT" xml:space="preserve">
     <value>პროექტი GitHub-ზე SAMPLauncherNET</value>
@@ -304,13 +310,13 @@
     <value>San Andreas Multiplayer - ახალი API-ს დამატება</value>
   </data>
   <data name="NOT_IN_FAVOURITES" xml:space="preserve">
-    <value>Not in favourites</value>
+    <value>არ არის რჩეულებში</value>
   </data>
   <data name="NO_CHATLOG_FOUND" xml:space="preserve">
     <value>ჩატ ლოგები არ მოიძებნება...</value>
   </data>
   <data name="NO_FAVOURITES" xml:space="preserve">
-    <value>There are no favourite lists defined. To define a new favourite list, select the "API" tab and create a new favourite list or restore the default entries.</value>
+    <value>არ მოგინიშნიათ არცერთი რჩეულების სია. ახლის გასაკეთებლად დააჭირეთ "API" -ს და გააკეთეთ ახალი რჩეულების სიაю</value>
   </data>
   <data name="NO_FAVOURITES_TITLE" xml:space="preserve">
     <value>არ გაქვთ რჩეულების სია</value>
@@ -369,6 +375,9 @@
   <data name="REVERT_CONFIG" xml:space="preserve">
     <value>შეცვლის პარამეტრები</value>
   </data>
+  <data name="RUSSIAN" xml:space="preserve">
+    <value>რუსული (Русский)</value>
+  </data>
   <data name="SAVE" xml:space="preserve">
     <value>შენახვა</value>
   </data>
@@ -385,7 +394,7 @@
     <value>San Andreas Multiplayer - რჩეული სერვერის სია</value>
   </data>
   <data name="SELECT_LANGUAGE" xml:space="preserve">
-    <value>აირჩიეთ ენა</value>
+    <value>აირჩიეთ ენა (Select language)</value>
   </data>
   <data name="SELECT_SERVER_LIST" xml:space="preserve">
     <value>აირჩიეთ სერვერის სია</value>

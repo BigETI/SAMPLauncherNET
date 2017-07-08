@@ -256,6 +256,9 @@ This project is located at</value>
   <data name="GAMEMODE" xml:space="preserve">
     <value>Gamemode</value>
   </data>
+  <data name="GEORGIAN" xml:space="preserve">
+    <value>Georgian (ქართული)</value>
+  </data>
   <data name="GERMAN" xml:space="preserve">
     <value>German (Deutsch)</value>
   </data>

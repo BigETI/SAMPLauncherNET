@@ -114,6 +114,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Languages\ge-GE.Designer.cs">
+      <DependentUpon>ge-GE.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Languages\ru-RU.Designer.cs">
       <DependentUpon>ru-RU.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -175,6 +180,10 @@
     <EmbeddedResource Include="Languages\de-DE.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>de-DE.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\ge-GE.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ge-GE.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Languages\nl-BE.resx">
       <Generator>ResXFileCodeGenerator</Generator>
