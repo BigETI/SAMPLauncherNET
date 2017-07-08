@@ -122,12 +122,15 @@ namespace SAMPLauncherNET
                                 wc.Headers.Set(HttpRequestHeader.UserAgent, APIHTTPUserAgent);
                                 using (MemoryStream stream = new MemoryStream(wc.DownloadData(endpoint)))
                                 {
-                                    ServerDataContract data = serverListJSONSerializer.ReadObject(stream) as ServerDataContract;
-                                    if (data != null)
+                                    ServerDataContract[] servers = (ServerDataContract[])(serverListJSONSerializer.ReadObject(stream));
+                                    if (servers != null)
                                     {
-                                        BackendRESTfulServer server = new BackendRESTfulServer(data);
-                                        if (server.IsValid)
-                                            ret.Add(server.IPPortString, server);
+                                        foreach (ServerDataContract sdc in servers)
+                                        {
+                                            BackendRESTfulServer server = new BackendRESTfulServer(sdc);
+                                            if (server.IsValid)
+                                                ret.Add(server.IPPortString, server);
+                                        }
                                     }
                                 }
                             }

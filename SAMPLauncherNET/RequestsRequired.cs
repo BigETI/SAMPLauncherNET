@@ -6,6 +6,8 @@ namespace SAMPLauncherNET
     {
         bool[] values;
 
+        bool[] locked;
+
         DateTime[] lastRequestTime;
 
         static readonly char[] opCodes = new char[(int)(ERequestType.NumOfItems)] { 'p', 'i', 'r', 'c', 'd' };
@@ -18,7 +20,8 @@ namespace SAMPLauncherNET
             }
             set
             {
-                values[(int)requestType] = value;
+                if (!(locked[(int)requestType]))
+                    values[(int)requestType] = value;
             }
         }
 
@@ -33,10 +36,12 @@ namespace SAMPLauncherNET
             DateTime now = DateTime.Now;
             values = new bool[(int)(ERequestType.NumOfItems)];
             lastRequestTime = new DateTime[values.Length];
+            locked = new bool[values.Length];
             for (i = 0; i < values.Length; i++)
             {
                 values[i] = initialValue;
                 lastRequestTime[i] = now;
+                locked[i] = false;
             }
         }
 
@@ -48,6 +53,11 @@ namespace SAMPLauncherNET
         public void SetLastRequestTime(ERequestType requestType)
         {
             lastRequestTime[(int)requestType] = DateTime.Now;
+        }
+
+        public void Lock(ERequestType requestType)
+        {
+            locked[(int)requestType] = true;
         }
     }
 }

@@ -26,17 +26,17 @@ namespace SAMPLauncherNET
 
         protected RequestsRequired requestsRequired = new RequestsRequired();
 
-        private bool hasPassword = false;
+        protected bool hasPassword = false;
 
-        private ushort playerCount = 0;
+        protected ushort playerCount = 0;
 
-        private ushort maxPlayers = 0;
+        protected ushort maxPlayers = 0;
 
         protected string hostname = "";
 
         protected string gamemode = "";
 
-        private string language = "";
+        protected string language = "";
 
         private Dictionary<string, string> rules = new Dictionary<string, string>();
 
@@ -315,42 +315,64 @@ namespace SAMPLauncherNET
             }
         }
 
-        public Server(string ipAddressAndPortString, bool fetchData = true)
+        public Server(string hostAndPort, bool fetchData = true)
         {
-            string[] parts = ipAddressAndPortString.Trim().Split(new char[] { '.', ':' });
-            uint n;
-            if (parts.Length == 5)
+            try
             {
-                isValid = true;
-                for (int i = 0; i < 4; i++)
+                string[] hp = hostAndPort.Trim().Split(new char[] { ':' });
+                IPAddress[] ips = null;
+                if ((hp.Length == 1) || (hp.Length == 2))
+                    ips = Dns.GetHostAddresses(hp[0]);
+                if (ips != null)
                 {
-                    if (uint.TryParse(parts[i], out n))
-                        ipv4AddressUInt |= n << (i * 8);
-                    else
+                    if (ips.Length > 0)
                     {
-                        isValid = false;
-                        break;
-                    }
-                }
-                if (isValid)
-                {
-                    if (ushort.TryParse(parts[4], out port))
-                    {
-                        socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-                        socket.SendTimeout = 1000;
-                        socket.ReceiveTimeout = 1000;
-                        if (fetchData)
+                        string[] parts = ips[0].MapToIPv4().ToString().Trim().Split(new char[] { '.' });
+                        uint n;
+                        if (parts.Length == 4)
                         {
-                            FetchDataAsync(ERequestType.Ping);
-                            FetchDataAsync(ERequestType.Information);
+                            isValid = true;
+                            for (int i = 0; i < 4; i++)
+                            {
+                                if (uint.TryParse(parts[i], out n))
+                                    ipv4AddressUInt |= n << (i * 8);
+                                else
+                                {
+                                    isValid = false;
+                                    break;
+                                }
+                            }
+                            if (isValid)
+                            {
+                                bool success = true;
+                                if (hp.Length == 1)
+                                    port = 7777;
+                                else
+                                    success = ushort.TryParse(hp[1], out port);
+                                if (success)
+                                {
+                                    socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                                    socket.SendTimeout = 1000;
+                                    socket.ReceiveTimeout = 1000;
+                                    if (fetchData)
+                                    {
+                                        FetchDataAsync(ERequestType.Ping);
+                                        FetchDataAsync(ERequestType.Information);
+                                    }
+                                }
+                                else
+                                {
+                                    ipv4AddressUInt = 0U;
+                                    isValid = false;
+                                }
+                            }
                         }
                     }
-                    else
-                    {
-                        ipv4AddressUInt = 0U;
-                        isValid = false;
-                    }
                 }
+            }
+            catch
+            {
+                //
             }
         }
 
