@@ -4,15 +4,29 @@ using System.IO;
 using System.Windows.Forms;
 using WinFormsTranslator;
 
+/// <summary>
+/// SA:MP launcher .NET namespace
+/// </summary>
 namespace SAMPLauncherNET
 {
+    /// <summary>
+    /// Programm class
+    /// </summary>
     static class Program
     {
-        // Dirty
+        /// <summary>
+        /// Registry key (dirty approach, can't access SAMP.RegistryKey)
+        /// </summary>
         private const string RegistryKey = "HKEY_CURRENT_USER\\SOFTWARE\\SAMP";
 
+        /// <summary>
+        /// Configuration path (dirty approach, can't access SAMP.ConfigPath)
+        /// </summary>
         private static readonly string ConfigPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\GTA San Andreas User Files\\SAMP";
 
+        /// <summary>
+        /// Is SA:MP installed
+        /// </summary>
         public static bool IsSAMPInstalled
         {
             get
@@ -31,7 +45,7 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Der Haupteinstiegspunkt für die Anwendung.
+        /// Main entry point
         /// </summary>
         [STAThread]
         static void Main()

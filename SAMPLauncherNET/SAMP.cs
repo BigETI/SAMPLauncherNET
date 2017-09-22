@@ -10,43 +10,99 @@ using System.Threading;
 using System.Windows.Forms;
 using WinFormsTranslator;
 
+/// <summary>
+/// SA:MP launcher .NET namespace
+/// </summary>
 namespace SAMPLauncherNET
 {
+    /// <summary>
+    /// SA:MP class
+    /// </summary>
     public static class SAMP
     {
-
+        /// <summary>
+        /// API HTTP URL
+        /// </summary>
         public const string APIHTTPURL = "http://lists.sa-mp.com/0.3.7/";
 
+        /// <summary>
+        /// Registry key
+        /// </summary>
         public const string RegistryKey = "HKEY_CURRENT_USER\\SOFTWARE\\SAMP";
 
+        /// <summary>
+        /// Configuration path
+        /// </summary>
         public static readonly string ConfigPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\GTA San Andreas User Files\\SAMP";
 
+        /// <summary>
+        /// Executable directory
+        /// </summary>
         public static readonly string ExeDir = GTASAExe.Substring(0, GTASAExe.Length - 11);
 
+        /// <summary>
+        /// SA:MP DLL path
+        /// </summary>
         public static readonly string SAMPDLLPath = ExeDir + "\\samp.dll";
 
+        /// <summary>
+        /// SA:MP debug path
+        /// </summary>
         public static readonly string SAMPDebugPath = ExeDir + "\\samp_debug.exe";
 
+        /// <summary>
+        /// Server list API
+        /// </summary>
         public const string ServerListAPI = "./api.json";
 
+        /// <summary>
+        /// Gallery path
+        /// </summary>
         public static readonly string GalleryPath = ConfigPath + "\\screens";
 
+        /// <summary>
+        /// Chatlog path
+        /// </summary>
         public static readonly string ChatlogPath = ConfigPath + "\\chatlog.txt";
 
+        /// <summary>
+        /// Saved positions path
+        /// </summary>
         public static readonly string SavedPositionsPath = ConfigPath + "\\savedpositions.txt";
 
+        /// <summary>
+        /// SA:MP configuration path
+        /// </summary>
         public static readonly string SAMPConfigPath = ConfigPath + "\\sa-mp.cfg";
 
+        /// <summary>
+        /// Favourites path
+        /// </summary>
         public const string FavouritesPath = ".\\favourites.json";
 
+        /// <summary>
+        /// Legacy favourites path
+        /// </summary>
         public static readonly string LegacyFavouritesPath = ConfigPath + "\\USERDATA.DAT";
 
+        /// <summary>
+        /// Forums URL
+        /// </summary>
         public const string ForumsURL = "http://forum.sa-mp.com/index.php";
 
+        /// <summary>
+        /// GitHub project URL
+        /// </summary>
         public const string GitHubProjectURL = "https://github.com/BigETI/SAMPLauncherNET";
 
+        /// <summary>
+        /// API JSON serializer
+        /// </summary>
         public static DataContractJsonSerializer apiJSONSerializer = new DataContractJsonSerializer(typeof(APIDataContract[]));
 
+        /// <summary>
+        /// Username
+        /// </summary>
         public static string Username
         {
             get
@@ -68,6 +124,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// GTA San Andreas executable
+        /// </summary>
         public static string GTASAExe
         {
             get
@@ -85,6 +144,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// API I/O
+        /// </summary>
         public static List<ServerListConnector> APIIO
         {
             get
@@ -101,7 +163,7 @@ namespace SAMPLauncherNET
                 }
                 catch
                 {
-                    ret = RevertAPI();
+                    ret = RevertAPIs();
                 }
                 return ret;
             }
@@ -130,6 +192,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Chatlog
+        /// </summary>
         public static string Chatlog
         {
             get
@@ -153,6 +218,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Saved positions
+        /// </summary>
         public static string SavedPositions
         {
             get
@@ -176,6 +244,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// SA:MP configuration
+        /// </summary>
         public static SAMPConfig SAMPConfig
         {
             get
@@ -184,7 +255,11 @@ namespace SAMPLauncherNET
             }
         }
 
-        public static List<ServerListConnector> RevertAPI()
+        /// <summary>
+        /// Revert APIs
+        /// </summary>
+        /// <returns></returns>
+        public static List<ServerListConnector> RevertAPIs()
         {
             List<ServerListConnector> ret = new List<ServerListConnector>();
             ret.Add(new ServerListConnector("{$SHOW_FAVOURITES$}", EServerListType.Favourites, FavouritesPath));
@@ -195,6 +270,16 @@ namespace SAMPLauncherNET
             return ret;
         }
 
+        /// <summary>
+        /// Launch SA:MP
+        /// </summary>
+        /// <param name="server">Server</param>
+        /// <param name="username">Username</param>
+        /// <param name="serverPassword">Server password</param>
+        /// <param name="rconPassword">RCON password</param>
+        /// <param name="debug">Debug mode</param>
+        /// <param name="quitWhenDone">Quit when done</param>
+        /// <param name="f">Form to close</param>
         public static void LaunchSAMP(Server server, string username, string serverPassword, string rconPassword, bool debug, bool quitWhenDone, Form f)
         {
             if ((server != null) || debug)
@@ -243,6 +328,11 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Launch SA:MP debug mode
+        /// </summary>
+        /// <param name="quitWhenDone">Quit when done</param>
+        /// <param name="f">Form to close</param>
         public static void LaunchSAMPDebugMode(bool quitWhenDone, Form f)
         {
             try
@@ -255,6 +345,11 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Launch singleplayer mode
+        /// </summary>
+        /// <param name="quitWhenDone">Quit when done</param>
+        /// <param name="f">Form tom close</param>
         public static void LaunchSingleplayerMode(bool quitWhenDone, Form f)
         {
             try
@@ -269,6 +364,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Show gallery
+        /// </summary>
         public static void ShowGallery()
         {
             try
@@ -281,6 +379,9 @@ namespace SAMPLauncherNET
             }
         }
     
+        /// <summary>
+        /// Gallery images
+        /// </summary>
         public static Dictionary<string, Image> GalleryImages
         {
             get
@@ -291,7 +392,7 @@ namespace SAMPLauncherNET
                 {
                     try
                     {
-                        ret.Add(file, Utils.GetThumb(Image.FromFile(file)));
+                        ret.Add(file, Utils.GetThumbnail(Image.FromFile(file)));
                     }
                     catch
                     {
@@ -302,6 +403,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Open forums
+        /// </summary>
         public static void OpenForums()
         {
             try
@@ -314,6 +418,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Open GitHub project
+        /// </summary>
         public static void OpenGitHubProject()
         {
             try

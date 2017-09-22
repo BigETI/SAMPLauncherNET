@@ -127,6 +127,9 @@ Diese Software bleibt für immer kostenlos und ist mit GPLv3 lizenziert.
 
 Das Projekt befindet sich auf</value>
   </data>
+  <data name="ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Adresse zu den Favoriten hinzufügen</value>
+  </data>
   <data name="ADD_NEW_API" xml:space="preserve">
     <value>Neue API hinzufügen</value>
   </data>
@@ -186,6 +189,12 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="CONNECT_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Verbinden</value>
+  </data>
+  <data name="CONNECT_TO_ADDRESS" xml:space="preserve">
+    <value>Verbinde zu Adresse</value>
+  </data>
+  <data name="CONNECT_TO_ADDRESS_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Verbinde zu Adresse</value>
   </data>
   <data name="CONNECT_WITH_RCON" xml:space="preserve">
     <value>Verbinde mit RCON</value>
@@ -267,6 +276,9 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="HOSTNAME" xml:space="preserve">
     <value>Hostname</value>
+  </data>
+  <data name="HOST_AND_PORT" xml:space="preserve">
+    <value>Host und Port</value>
   </data>
   <data name="IME" xml:space="preserve">
     <value>IME (Input Method Editor) freischalten</value>
@@ -388,6 +400,27 @@ Das Projekt befindet sich auf</value>
   <data name="SAVED_POSITIONS" xml:space="preserve">
     <value>Gespeicherte Positionen</value>
   </data>
+  <data name="SEARCH_ON" xml:space="preserve">
+    <value>Suche auf...</value>
+  </data>
+  <data name="SEARCH_ON_BING" xml:space="preserve">
+    <value>Bing</value>
+  </data>
+  <data name="SEARCH_ON_DUCK_DUCK_GO" xml:space="preserve">
+    <value>DuckDuckGo</value>
+  </data>
+  <data name="SEARCH_ON_GOOGLE" xml:space="preserve">
+    <value>Google</value>
+  </data>
+  <data name="SEARCH_ON_YAHOO" xml:space="preserve">
+    <value>Yahoo</value>
+  </data>
+  <data name="SEARCH_ON_YANDEX" xml:space="preserve">
+    <value>Yandex</value>
+  </data>
+  <data name="SEARCH_ON_YOU_TUBE" xml:space="preserve">
+    <value>YouTube</value>
+  </data>
   <data name="SELECT_API" xml:space="preserve">
     <value>Wähle eine Server Liste aus</value>
   </data>
@@ -453,5 +486,14 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Benutzername</value>
+  </data>
+  <data name="VISIT_WEBSITE" xml:space="preserve">
+    <value>Besuche Webseite</value>
+  </data>
+  <data name="VISIT_WEBSITE_MESSAGE" xml:space="preserve">
+    <value>Möchtest du wirklich diese Seite besuchen?</value>
+  </data>
+  <data name="VISIT_WEBSITE_TITLE" xml:space="preserve">
+    <value>Besuche</value>
   </data>
 </root>

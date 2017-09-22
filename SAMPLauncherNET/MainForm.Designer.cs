@@ -63,6 +63,14 @@
             this.connectWithRCONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.showExtendedServerInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visitWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchOnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchOnBingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchOnDuckDuckGOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchOnGoogleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchOnYahooToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchOnYandexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchOnYouTubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.addServerToFavouritesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeServerFromFavouritesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,11 +108,12 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.serverCountLabel = new MaterialSkin.Controls.MaterialLabel();
             this.connectButton = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.launchDebugModeButton = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.launchSingleplayerButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.connectToHostButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.closeWhenLaunchedCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.selectAPILabel = new MaterialSkin.Controls.MaterialLabel();
             this.selectAPIComboBox = new System.Windows.Forms.ComboBox();
+            this.launchDebugModeButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.launchSingleplayerButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.filterPanel = new System.Windows.Forms.Panel();
             this.filterSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.serversFilterLabel = new MaterialSkin.Controls.MaterialLabel();
@@ -281,7 +290,7 @@
             this.serversLayoutPanel.Name = "serversLayoutPanel";
             this.serversLayoutPanel.RowCount = 3;
             this.serversLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.serversLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 191F));
+            this.serversLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 151F));
             this.serversLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.serversLayoutPanel.Size = new System.Drawing.Size(986, 530);
             this.serversLayoutPanel.TabIndex = 0;
@@ -300,7 +309,7 @@
             // serversSplitContainer.Panel2
             // 
             this.serversSplitContainer.Panel2.Controls.Add(this.serverInfoSplitContainer);
-            this.serversSplitContainer.Size = new System.Drawing.Size(980, 283);
+            this.serversSplitContainer.Size = new System.Drawing.Size(980, 323);
             this.serversSplitContainer.SplitterDistance = 763;
             this.serversSplitContainer.TabIndex = 2;
             // 
@@ -309,7 +318,7 @@
             this.serversGridView.AllowUserToAddRows = false;
             this.serversGridView.AllowUserToDeleteRows = false;
             this.serversGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(155)))), ((int)(((byte)(209)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.serversGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.serversGridView.AutoGenerateColumns = false;
             this.serversGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -319,7 +328,7 @@
             this.serversGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.serversGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(118)))), ((int)(((byte)(118)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -339,7 +348,7 @@
             this.serversGridView.ContextMenuStrip = this.serversContextMenuStrip;
             this.serversGridView.DataSource = this.serversBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(200)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
@@ -348,7 +357,7 @@
             this.serversGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.serversGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.serversGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.serversGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.serversGridView.GridColor = System.Drawing.Color.Silver;
             this.serversGridView.Location = new System.Drawing.Point(0, 0);
             this.serversGridView.MultiSelect = false;
             this.serversGridView.Name = "serversGridView";
@@ -356,14 +365,14 @@
             this.serversGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.serversGridView.RowHeadersVisible = false;
             this.serversGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.serversGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.serversGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.serversGridView.Size = new System.Drawing.Size(761, 281);
+            this.serversGridView.Size = new System.Drawing.Size(761, 321);
             this.serversGridView.TabIndex = 0;
+            this.serversGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.serversGridView_CellDoubleClick);
             this.serversGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             this.serversGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.serversGridView_RowEnter);
-            this.serversGridView.DoubleClick += new System.EventHandler(this.serversGridView_DoubleClick);
             this.serversGridView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.serversGridView_KeyUp);
             // 
             // groupIDDataGridViewTextBoxColumn
@@ -432,12 +441,14 @@
             this.connectWithRCONToolStripMenuItem,
             this.toolStripSeparator3,
             this.showExtendedServerInformationToolStripMenuItem,
+            this.visitWebsiteToolStripMenuItem,
+            this.searchOnToolStripMenuItem,
             this.toolStripSeparator2,
             this.addServerToFavouritesToolStripMenuItem,
             this.removeServerFromFavouritesToolStripMenuItem});
             this.serversContextMenuStrip.MouseState = MaterialSkin.MouseState.HOVER;
             this.serversContextMenuStrip.Name = "serversContextMenuStrip";
-            this.serversContextMenuStrip.Size = new System.Drawing.Size(327, 126);
+            this.serversContextMenuStrip.Size = new System.Drawing.Size(327, 170);
             // 
             // connectToolStripMenuItem
             // 
@@ -464,6 +475,68 @@
             this.showExtendedServerInformationToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
             this.showExtendedServerInformationToolStripMenuItem.Text = "{$SHOW_EXTENDED_SERVER_INFORMATION$}";
             this.showExtendedServerInformationToolStripMenuItem.Click += new System.EventHandler(this.showExtendedServerInformationToolStripMenuItem_Click);
+            // 
+            // visitWebsiteToolStripMenuItem
+            // 
+            this.visitWebsiteToolStripMenuItem.Name = "visitWebsiteToolStripMenuItem";
+            this.visitWebsiteToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
+            this.visitWebsiteToolStripMenuItem.Text = "{$VISIT_WEBSITE$}";
+            this.visitWebsiteToolStripMenuItem.Click += new System.EventHandler(this.visitWebsiteToolStripMenuItem_Click);
+            // 
+            // searchOnToolStripMenuItem
+            // 
+            this.searchOnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.searchOnBingToolStripMenuItem,
+            this.searchOnDuckDuckGOToolStripMenuItem,
+            this.searchOnGoogleToolStripMenuItem,
+            this.searchOnYahooToolStripMenuItem,
+            this.searchOnYandexToolStripMenuItem,
+            this.searchOnYouTubeToolStripMenuItem});
+            this.searchOnToolStripMenuItem.Name = "searchOnToolStripMenuItem";
+            this.searchOnToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
+            this.searchOnToolStripMenuItem.Text = "{$SEARCH_ON$}";
+            // 
+            // searchOnBingToolStripMenuItem
+            // 
+            this.searchOnBingToolStripMenuItem.Name = "searchOnBingToolStripMenuItem";
+            this.searchOnBingToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
+            this.searchOnBingToolStripMenuItem.Text = "{$SEARCH_ON_BING$}";
+            this.searchOnBingToolStripMenuItem.Click += new System.EventHandler(this.searchOnBingToolStripMenuItem_Click);
+            // 
+            // searchOnDuckDuckGOToolStripMenuItem
+            // 
+            this.searchOnDuckDuckGOToolStripMenuItem.Name = "searchOnDuckDuckGOToolStripMenuItem";
+            this.searchOnDuckDuckGOToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
+            this.searchOnDuckDuckGOToolStripMenuItem.Text = "{$SEARCH_ON_DUCK_DUCK_GO$}";
+            this.searchOnDuckDuckGOToolStripMenuItem.Click += new System.EventHandler(this.searchOnDuckDuckGoToolStripMenuItem_Click);
+            // 
+            // searchOnGoogleToolStripMenuItem
+            // 
+            this.searchOnGoogleToolStripMenuItem.Name = "searchOnGoogleToolStripMenuItem";
+            this.searchOnGoogleToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
+            this.searchOnGoogleToolStripMenuItem.Text = "{$SEARCH_ON_GOOGLE$}";
+            this.searchOnGoogleToolStripMenuItem.Click += new System.EventHandler(this.searchOnGoogleToolStripMenuItem_Click);
+            // 
+            // searchOnYahooToolStripMenuItem
+            // 
+            this.searchOnYahooToolStripMenuItem.Name = "searchOnYahooToolStripMenuItem";
+            this.searchOnYahooToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
+            this.searchOnYahooToolStripMenuItem.Text = "{$SEARCH_ON_YAHOO$}";
+            this.searchOnYahooToolStripMenuItem.Click += new System.EventHandler(this.searchOnYahooToolStripMenuItem_Click);
+            // 
+            // searchOnYandexToolStripMenuItem
+            // 
+            this.searchOnYandexToolStripMenuItem.Name = "searchOnYandexToolStripMenuItem";
+            this.searchOnYandexToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
+            this.searchOnYandexToolStripMenuItem.Text = "{$SEARCH_ON_YANDEX$}";
+            this.searchOnYandexToolStripMenuItem.Click += new System.EventHandler(this.searchOnYandexToolStripMenuItem_Click);
+            // 
+            // searchOnYouTubeToolStripMenuItem
+            // 
+            this.searchOnYouTubeToolStripMenuItem.Name = "searchOnYouTubeToolStripMenuItem";
+            this.searchOnYouTubeToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
+            this.searchOnYouTubeToolStripMenuItem.Text = "{$SEARCH_ON_YOU_TUBE$}";
+            this.searchOnYouTubeToolStripMenuItem.Click += new System.EventHandler(this.searchOnYouTubeToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -641,8 +714,8 @@
             // serverInfoSplitContainer.Panel2
             // 
             this.serverInfoSplitContainer.Panel2.Controls.Add(this.rulesGridView);
-            this.serverInfoSplitContainer.Size = new System.Drawing.Size(213, 283);
-            this.serverInfoSplitContainer.SplitterDistance = 188;
+            this.serverInfoSplitContainer.Size = new System.Drawing.Size(213, 323);
+            this.serverInfoSplitContainer.SplitterDistance = 213;
             this.serverInfoSplitContainer.TabIndex = 0;
             // 
             // playersGridView
@@ -694,7 +767,7 @@
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
             this.playersGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.playersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.playersGridView.Size = new System.Drawing.Size(211, 186);
+            this.playersGridView.Size = new System.Drawing.Size(211, 211);
             this.playersGridView.TabIndex = 1;
             this.playersGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             // 
@@ -766,8 +839,9 @@
             dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
             this.rulesGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.rulesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.rulesGridView.Size = new System.Drawing.Size(211, 89);
+            this.rulesGridView.Size = new System.Drawing.Size(211, 104);
             this.rulesGridView.TabIndex = 1;
+            this.rulesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rulesGridView_CellDoubleClick);
             this.rulesGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             // 
             // ruleDataGridViewTextBoxColumn
@@ -797,28 +871,29 @@
             this.inputFilterLayoutPanel.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.inputFilterLayoutPanel.Controls.Add(this.filterPanel, 1, 0);
             this.inputFilterLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inputFilterLayoutPanel.Location = new System.Drawing.Point(3, 292);
+            this.inputFilterLayoutPanel.Location = new System.Drawing.Point(3, 332);
             this.inputFilterLayoutPanel.Name = "inputFilterLayoutPanel";
             this.inputFilterLayoutPanel.RowCount = 1;
             this.inputFilterLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.inputFilterLayoutPanel.Size = new System.Drawing.Size(980, 185);
+            this.inputFilterLayoutPanel.Size = new System.Drawing.Size(980, 145);
             this.inputFilterLayoutPanel.TabIndex = 3;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.serverCountLabel);
             this.flowLayoutPanel1.Controls.Add(this.connectButton);
-            this.flowLayoutPanel1.Controls.Add(this.launchDebugModeButton);
-            this.flowLayoutPanel1.Controls.Add(this.launchSingleplayerButton);
+            this.flowLayoutPanel1.Controls.Add(this.connectToHostButton);
             this.flowLayoutPanel1.Controls.Add(this.closeWhenLaunchedCheckBox);
             this.flowLayoutPanel1.Controls.Add(this.selectAPILabel);
             this.flowLayoutPanel1.Controls.Add(this.selectAPIComboBox);
+            this.flowLayoutPanel1.Controls.Add(this.launchDebugModeButton);
+            this.flowLayoutPanel1.Controls.Add(this.launchSingleplayerButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(425, 179);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(425, 139);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // serverCountLabel
@@ -850,37 +925,21 @@
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
-            // launchDebugModeButton
+            // connectToHostButton
             // 
-            this.launchDebugModeButton.AutoSize = true;
-            this.launchDebugModeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.launchDebugModeButton.Depth = 0;
-            this.launchDebugModeButton.Icon = null;
-            this.launchDebugModeButton.Location = new System.Drawing.Point(3, 64);
-            this.launchDebugModeButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.launchDebugModeButton.Name = "launchDebugModeButton";
-            this.launchDebugModeButton.Primary = true;
-            this.launchDebugModeButton.Size = new System.Drawing.Size(194, 36);
-            this.launchDebugModeButton.TabIndex = 8;
-            this.launchDebugModeButton.Text = "{$LAUNCH_DEBUG_MODE$}";
-            this.launchDebugModeButton.UseVisualStyleBackColor = true;
-            this.launchDebugModeButton.Click += new System.EventHandler(this.launchDebugModeButton_Click);
-            // 
-            // launchSingleplayerButton
-            // 
-            this.launchSingleplayerButton.AutoSize = true;
-            this.launchSingleplayerButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.launchSingleplayerButton.Depth = 0;
-            this.launchSingleplayerButton.Icon = null;
-            this.launchSingleplayerButton.Location = new System.Drawing.Point(3, 106);
-            this.launchSingleplayerButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.launchSingleplayerButton.Name = "launchSingleplayerButton";
-            this.launchSingleplayerButton.Primary = true;
-            this.launchSingleplayerButton.Size = new System.Drawing.Size(202, 36);
-            this.launchSingleplayerButton.TabIndex = 7;
-            this.launchSingleplayerButton.Text = "{$LAUNCH_SINGLEPLAYER$}";
-            this.launchSingleplayerButton.UseVisualStyleBackColor = true;
-            this.launchSingleplayerButton.Click += new System.EventHandler(this.launchSingleplayerButton_Click);
+            this.connectToHostButton.AutoSize = true;
+            this.connectToHostButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.connectToHostButton.Depth = 0;
+            this.connectToHostButton.Icon = null;
+            this.connectToHostButton.Location = new System.Drawing.Point(3, 64);
+            this.connectToHostButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.connectToHostButton.Name = "connectToHostButton";
+            this.connectToHostButton.Primary = true;
+            this.connectToHostButton.Size = new System.Drawing.Size(199, 36);
+            this.connectToHostButton.TabIndex = 14;
+            this.connectToHostButton.Text = "{$CONNECT_TO_ADDRESS$}";
+            this.connectToHostButton.UseVisualStyleBackColor = true;
+            this.connectToHostButton.Click += new System.EventHandler(this.connectToHostButton_Click);
             // 
             // closeWhenLaunchedCheckBox
             // 
@@ -889,7 +948,7 @@
             this.closeWhenLaunchedCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.closeWhenLaunchedCheckBox.Depth = 0;
             this.closeWhenLaunchedCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
-            this.closeWhenLaunchedCheckBox.Location = new System.Drawing.Point(0, 145);
+            this.closeWhenLaunchedCheckBox.Location = new System.Drawing.Point(0, 103);
             this.closeWhenLaunchedCheckBox.Margin = new System.Windows.Forms.Padding(0);
             this.closeWhenLaunchedCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
             this.closeWhenLaunchedCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
@@ -926,6 +985,38 @@
             this.selectAPIComboBox.TabIndex = 12;
             this.selectAPIComboBox.SelectedIndexChanged += new System.EventHandler(this.selectAPIComboBox_SelectedIndexChanged);
             // 
+            // launchDebugModeButton
+            // 
+            this.launchDebugModeButton.AutoSize = true;
+            this.launchDebugModeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.launchDebugModeButton.Depth = 0;
+            this.launchDebugModeButton.Icon = null;
+            this.launchDebugModeButton.Location = new System.Drawing.Point(222, 56);
+            this.launchDebugModeButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.launchDebugModeButton.Name = "launchDebugModeButton";
+            this.launchDebugModeButton.Primary = true;
+            this.launchDebugModeButton.Size = new System.Drawing.Size(194, 36);
+            this.launchDebugModeButton.TabIndex = 8;
+            this.launchDebugModeButton.Text = "{$LAUNCH_DEBUG_MODE$}";
+            this.launchDebugModeButton.UseVisualStyleBackColor = true;
+            this.launchDebugModeButton.Click += new System.EventHandler(this.launchDebugModeButton_Click);
+            // 
+            // launchSingleplayerButton
+            // 
+            this.launchSingleplayerButton.AutoSize = true;
+            this.launchSingleplayerButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.launchSingleplayerButton.Depth = 0;
+            this.launchSingleplayerButton.Icon = null;
+            this.launchSingleplayerButton.Location = new System.Drawing.Point(222, 98);
+            this.launchSingleplayerButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.launchSingleplayerButton.Name = "launchSingleplayerButton";
+            this.launchSingleplayerButton.Primary = true;
+            this.launchSingleplayerButton.Size = new System.Drawing.Size(202, 36);
+            this.launchSingleplayerButton.TabIndex = 7;
+            this.launchSingleplayerButton.Text = "{$LAUNCH_SINGLEPLAYER$}";
+            this.launchSingleplayerButton.UseVisualStyleBackColor = true;
+            this.launchSingleplayerButton.Click += new System.EventHandler(this.launchSingleplayerButton_Click);
+            // 
             // filterPanel
             // 
             this.filterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -935,7 +1026,7 @@
             this.filterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filterPanel.Location = new System.Drawing.Point(434, 3);
             this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(543, 179);
+            this.filterPanel.Size = new System.Drawing.Size(543, 139);
             this.filterPanel.TabIndex = 7;
             // 
             // filterSingleLineTextField
@@ -982,7 +1073,7 @@
             this.filterRadioGroupFlowLayoutPanel.Controls.Add(this.filterIPAndPortRadioButton);
             this.filterRadioGroupFlowLayoutPanel.Location = new System.Drawing.Point(7, 51);
             this.filterRadioGroupFlowLayoutPanel.Name = "filterRadioGroupFlowLayoutPanel";
-            this.filterRadioGroupFlowLayoutPanel.Size = new System.Drawing.Size(533, 124);
+            this.filterRadioGroupFlowLayoutPanel.Size = new System.Drawing.Size(533, 55);
             this.filterRadioGroupFlowLayoutPanel.TabIndex = 6;
             // 
             // filterHostnameRadioButton
@@ -2167,5 +2258,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn modeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn languageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iPAndPortDataGridViewTextBoxColumn;
+        private MaterialSkin.Controls.MaterialRaisedButton connectToHostButton;
+        private System.Windows.Forms.ToolStripMenuItem visitWebsiteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchOnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchOnDuckDuckGOToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchOnGoogleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchOnYahooToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchOnBingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchOnYouTubeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchOnYandexToolStripMenuItem;
     }
 }

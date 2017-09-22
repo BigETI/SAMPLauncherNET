@@ -1,15 +1,29 @@
 ﻿using INIEngine;
 using System.IO;
 
+/// <summary>
+/// SA:MP launcher .NET namespace
+/// </summary>
 namespace SAMPLauncherNET
 {
+    /// <summary>
+    /// SA:MP configuration class
+    /// </summary>
     public class SAMPConfig
     {
-
+        /// <summary>
+        /// Path
+        /// </summary>
         private string path;
 
+        /// <summary>
+        /// INI
+        /// </summary>
         private INI ini;
 
+        /// <summary>
+        /// Page size
+        /// </summary>
         public int PageSize
         {
             get
@@ -22,6 +36,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// FPS limit
+        /// </summary>
         public int FPSLimit
         {
             get
@@ -43,6 +60,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Disable head movement
+        /// </summary>
         public bool DisableHeadMovement
         {
             get
@@ -55,6 +75,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Time stamp
+        /// </summary>
         public bool Timestamp
         {
             get
@@ -67,6 +90,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// IME
+        /// </summary>
         public bool IME
         {
             get
@@ -79,6 +105,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Multi core
+        /// </summary>
         public bool MultiCore
         {
             get
@@ -91,6 +120,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Direct mode
+        /// </summary>
         public bool DirectMode
         {
             get
@@ -103,6 +135,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Audio message off
+        /// </summary>
         public bool AudioMessageOff
         {
             get
@@ -115,6 +150,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Audio proxy off
+        /// </summary>
         public bool AudioProxyOff
         {
             get
@@ -127,6 +165,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// No nametag status
+        /// </summary>
         public bool NoNametagStatus
         {
             get
@@ -139,6 +180,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Font face
+        /// </summary>
         public string FontFace
         {
             get
@@ -151,6 +195,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Font weight
+        /// </summary>
         public bool FontWeight
         {
             get
@@ -163,12 +210,19 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="path">Path</param>
         public SAMPConfig(string path)
         {
             this.path = path;
             ini = INIFile.Open(path);
         }
 
+        /// <summary>
+        /// Save
+        /// </summary>
         public void Save()
         {
             try

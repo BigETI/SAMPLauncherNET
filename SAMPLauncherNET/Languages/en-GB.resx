@@ -187,6 +187,12 @@ This project is located at</value>
   <data name="CONNECT_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Connect</value>
   </data>
+  <data name="CONNECT_TO_ADDRESS" xml:space="preserve">
+    <value>Connect to address</value>
+  </data>
+  <data name="CONNECT_TO_ADDRESS_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Connect to address</value>
+  </data>
   <data name="CONNECT_WITH_RCON" xml:space="preserve">
     <value>Connect with RCON</value>
   </data>
@@ -267,6 +273,9 @@ This project is located at</value>
   </data>
   <data name="HOSTNAME" xml:space="preserve">
     <value>Hostname</value>
+  </data>
+  <data name="HOST_AND_PORT" xml:space="preserve">
+    <value>Host and port</value>
   </data>
   <data name="IME" xml:space="preserve">
     <value>Enable IME (Input Method Editor)</value>
@@ -388,6 +397,27 @@ This project is located at</value>
   <data name="SAVED_POSITIONS" xml:space="preserve">
     <value>Saved positions</value>
   </data>
+  <data name="SEARCH_ON" xml:space="preserve">
+    <value>Search on...</value>
+  </data>
+  <data name="SEARCH_ON_BING" xml:space="preserve">
+    <value>Bing</value>
+  </data>
+  <data name="SEARCH_ON_DUCK_DUCK_GO" xml:space="preserve">
+    <value>DuckDuckGo</value>
+  </data>
+  <data name="SEARCH_ON_GOOGLE" xml:space="preserve">
+    <value>Google</value>
+  </data>
+  <data name="SEARCH_ON_YAHOO" xml:space="preserve">
+    <value>Yahoo</value>
+  </data>
+  <data name="SEARCH_ON_YANDEX" xml:space="preserve">
+    <value>Yandex</value>
+  </data>
+  <data name="SEARCH_ON_YOU_TUBE" xml:space="preserve">
+    <value>YouTube</value>
+  </data>
   <data name="SELECT_API" xml:space="preserve">
     <value>Select a server list</value>
   </data>
@@ -453,5 +483,14 @@ This project is located at</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="VISIT_WEBSITE" xml:space="preserve">
+    <value>Visit website</value>
+  </data>
+  <data name="VISIT_WEBSITE_MESSAGE" xml:space="preserve">
+    <value>Do you really want to visit this website?</value>
+  </data>
+  <data name="VISIT_WEBSITE_TITLE" xml:space="preserve">
+    <value>Visit</value>
   </data>
 </root>

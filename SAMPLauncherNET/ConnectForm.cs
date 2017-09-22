@@ -4,11 +4,19 @@ using System.Drawing;
 using System.Windows.Forms;
 using WinFormsTranslator;
 
+/// <summary>
+/// SA:MP launcher .NET namespace
+/// </summary>
 namespace SAMPLauncherNET
 {
+    /// <summary>
+    /// Connect form class
+    /// </summary>
     public partial class ConnectForm : MaterialForm
     {
-
+        /// <summary>
+        /// Username
+        /// </summary>
         public string Username
         {
             get
@@ -17,6 +25,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Server password
+        /// </summary>
         public string ServerPassword
         {
             get
@@ -25,6 +36,10 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="noPasswordMode">No password mode</param>
         public ConnectForm(bool noPasswordMode)
         {
             InitializeComponent();
@@ -40,6 +55,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Accept input
+        /// </summary>
         private void AcceptInput()
         {
             if (Username.Length <= 0)
@@ -59,16 +77,31 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Connect button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void connectButton_Click(object sender, EventArgs e)
         {
             AcceptInput();
         }
 
+        /// <summary>
+        /// Cancel button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Generic single line text field key up event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Key event arguments</param>
         private void genericSingleLineTextField_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)

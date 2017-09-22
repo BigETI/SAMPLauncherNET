@@ -3,13 +3,28 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 
+/// <summary>
+/// SA:MP launcher .NET namespace
+/// </summary>
 namespace SAMPLauncherNET
 {
+    /// <summary>
+    /// Utility class
+    /// </summary>
     public static class Utils
     {
-
+        /// <summary>
+        /// Gallery image size
+        /// </summary>
         public static readonly Size GalleryImageSize = new Size(256, 256);
   
+        /// <summary>
+        /// Are arrays equal
+        /// </summary>
+        /// <typeparam name="T">Array type</typeparam>
+        /// <param name="a">Left hand array</param>
+        /// <param name="b">Right hand array</param>
+        /// <returns></returns>
         public static bool AreEqual<T>(T[] a, T[] b)
         {
             bool ret = false;
@@ -31,6 +46,10 @@ namespace SAMPLauncherNET
             return ret;
         }
 
+        /// <summary>
+        /// Dispose all
+        /// </summary>
+        /// <param name="list">List</param>
         public static void DisposeAll(IDisposable[] list)
         {
             if (list != null)
@@ -43,7 +62,12 @@ namespace SAMPLauncherNET
             }
         }
 
-        public static Image GetThumb(Image image)
+        /// <summary>
+        /// Get thumbnail
+        /// </summary>
+        /// <param name="image">Image</param>
+        /// <returns>Thumbnail</returns>
+        public static Image GetThumbnail(Image image)
         {
             Bitmap ret = new Bitmap(GalleryImageSize.Width, GalleryImageSize.Height, PixelFormat.Format32bppArgb);
             Size sz = (image.Width >= image.Height) ? new Size(GalleryImageSize.Width, (int)(GalleryImageSize.Width * ((double)(image.Height) / image.Width))) : new Size(GalleryImageSize.Height, (int)(GalleryImageSize.Height * ((double)(image.Width) / image.Height)));

@@ -1,6 +1,12 @@
 ﻿using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsTranslator;
 
@@ -10,9 +16,9 @@ using WinFormsTranslator;
 namespace SAMPLauncherNET
 {
     /// <summary>
-    /// Favourites list form class
+    /// Add address to favourites form class
     /// </summary>
-    public partial class FavouriteListsForm : MaterialForm
+    public partial class AddAddressToFavouriteListForm : MaterialForm
     {
         /// <summary>
         /// Selected server list connector
@@ -28,11 +34,12 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="favouriteLists">Favourite lists</param>
-        public FavouriteListsForm(List<IndexedServerListConnector> favouriteLists)
+        /// <param name="favouriteLists">Favourites list</param>
+        public AddAddressToFavouriteListForm(List<IndexedServerListConnector> favouriteLists)
         {
             InitializeComponent();
             Translator.LoadTranslation(this);
+            favouritesListComboBox.Items.AddRange(favouriteLists.ToArray());
         }
 
         /// <summary>

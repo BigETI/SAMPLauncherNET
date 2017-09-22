@@ -126,6 +126,9 @@
 ეს პროგრამა არის უფასო და ლიცენზირებულია GPLv3-ით.
 </value>
   </data>
+  <data name="ADDRESS" xml:space="preserve">
+    <value>Address</value>
+  </data>
   <data name="ADD_NEW_API" xml:space="preserve">
     <value>ახალი API-ს დამატება</value>
   </data>

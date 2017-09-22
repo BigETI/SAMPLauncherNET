@@ -91,6 +91,12 @@
     <Compile Include="ConnectForm.Designer.cs">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConnectHostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectHostForm.Designer.cs">
+      <DependentUpon>ConnectHostForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EServerListType.cs" />
     <Compile Include="ERequestType.cs" />
     <Compile Include="ExtendedServerInformationForm.cs">
@@ -100,6 +106,12 @@
       <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FavouriteDataContract.cs" />
+    <Compile Include="AddAddressToFavouriteListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAddressToFavouriteListForm.Designer.cs">
+      <DependentUpon>AddAddressToFavouriteListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FavouriteServer.cs" />
     <Compile Include="FavouriteListsForm.cs">
       <SubType>Form</SubType>
@@ -171,8 +183,14 @@
     <EmbeddedResource Include="ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConnectHostForm.resx">
+      <DependentUpon>ConnectHostForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ExtendedServerInformationForm.resx">
       <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAddressToFavouriteListForm.resx">
+      <DependentUpon>AddAddressToFavouriteListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FavouriteListsForm.resx">
       <DependentUpon>FavouriteListsForm.cs</DependentUpon>
@@ -217,7 +235,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TODO.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

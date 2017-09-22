@@ -19,7 +19,7 @@ namespace SAMPLauncherNET.Languages {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class de_DE {
@@ -79,6 +79,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string ABOUT_DESCRIPTION {
             get {
                 return ResourceManager.GetString("ABOUT_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Adresse zu den Favoriten hinzufügen ähnelt.
+        /// </summary>
+        internal static string ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE {
+            get {
+                return ResourceManager.GetString("ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE", resourceCulture);
             }
         }
         
@@ -259,6 +268,24 @@ namespace SAMPLauncherNET.Languages {
         internal static string CONNECT_TITLE {
             get {
                 return ResourceManager.GetString("CONNECT_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Verbinde zu Adresse ähnelt.
+        /// </summary>
+        internal static string CONNECT_TO_ADDRESS {
+            get {
+                return ResourceManager.GetString("CONNECT_TO_ADDRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Verbinde zu Adresse ähnelt.
+        /// </summary>
+        internal static string CONNECT_TO_ADDRESS_TITLE {
+            get {
+                return ResourceManager.GetString("CONNECT_TO_ADDRESS_TITLE", resourceCulture);
             }
         }
         
@@ -493,6 +520,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string GITHUB_PROJECT {
             get {
                 return ResourceManager.GetString("GITHUB_PROJECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Host und Port ähnelt.
+        /// </summary>
+        internal static string HOST_AND_PORT {
+            get {
+                return ResourceManager.GetString("HOST_AND_PORT", resourceCulture);
             }
         }
         
@@ -866,6 +902,69 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Suche auf... ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON {
+            get {
+                return ResourceManager.GetString("SEARCH_ON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bing ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_BING {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_BING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die DuckDuckGo ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_DUCK_DUCK_GO {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_DUCK_DUCK_GO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Google ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_GOOGLE {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_GOOGLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Yahoo ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_YAHOO {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_YAHOO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Yandex ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_YANDEX {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_YANDEX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die YouTube ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_YOU_TUBE {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_YOU_TUBE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Wähle eine Server Liste aus ähnelt.
         /// </summary>
         internal static string SELECT_API {
@@ -1060,6 +1159,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string USERNAME {
             get {
                 return ResourceManager.GetString("USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Besuche Webseite ähnelt.
+        /// </summary>
+        internal static string VISIT_WEBSITE {
+            get {
+                return ResourceManager.GetString("VISIT_WEBSITE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Möchtest du wirklich diese Seite besuchen? ähnelt.
+        /// </summary>
+        internal static string VISIT_WEBSITE_MESSAGE {
+            get {
+                return ResourceManager.GetString("VISIT_WEBSITE_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Besuche ähnelt.
+        /// </summary>
+        internal static string VISIT_WEBSITE_TITLE {
+            get {
+                return ResourceManager.GetString("VISIT_WEBSITE_TITLE", resourceCulture);
             }
         }
     }

@@ -6,33 +6,74 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using WinFormsTranslator;
 
+/// <summary>
+/// SA:MP launcher .NET namespace
+/// </summary>
 namespace SAMPLauncherNET
 {
+    /// <summary>
+    /// Server list connector
+    /// </summary>
     public class ServerListConnector : ITranslatable
     {
-
+        /// <summary>
+        /// Server list JSON serializer
+        /// </summary>
         private static DataContractJsonSerializer serverListJSONSerializer = new DataContractJsonSerializer(typeof(ServerDataContract[]));
 
+        /// <summary>
+        /// Favourites list JSON serializer
+        /// </summary>
         private static DataContractJsonSerializer favouriteListJSONSerializer = new DataContractJsonSerializer(typeof(FavouriteDataContract[]));
 
+        /// <summary>
+        /// API HTTP content type
+        /// </summary>
         public const string APIHTTPContentType = "text/html";
 
+        /// <summary>
+        /// API HTTP accept
+        /// </summary>
         public const string APIHTTPAccept = "text/html, */*";
 
+        /// <summary>
+        /// API HTTP user agent
+        /// </summary>
         public const string APIHTTPUserAgent = "Mozilla/3.0 (compatible; SA:MP v0.3.7)";
 
+        /// <summary>
+        /// Name
+        /// </summary>
         private string name = "";
 
+        /// <summary>
+        /// Server list type
+        /// </summary>
         private EServerListType serverListType;
 
+        /// <summary>
+        /// Endpoint
+        /// </summary>
         private string endpoint;
 
+        /// <summary>
+        /// Max servers
+        /// </summary>
         private uint maxServers = 0U;
 
+        /// <summary>
+        /// Server count
+        /// </summary>
         private uint serverCount = 0U;
 
+        /// <summary>
+        /// Not loaded
+        /// </summary>
         private bool notLoaded = true;
 
+        /// <summary>
+        /// Name
+        /// </summary>
         public string Name
         {
             get
@@ -41,6 +82,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Server list type
+        /// </summary>
         public EServerListType ServerListType
         {
             get
@@ -49,6 +93,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Endpoint
+        /// </summary>
         public string Endpoint
         {
             get
@@ -57,6 +104,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Maximal servers
+        /// </summary>
         public uint MaxServers
         {
             get
@@ -65,6 +115,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Server count
+        /// </summary>
         public uint ServerCount
         {
             get
@@ -77,6 +130,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Not loaded
+        /// </summary>
         public bool NotLoaded
         {
             get
@@ -91,6 +147,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Server list I/O
+        /// </summary>
         public Dictionary<string, Server> ServerListIO
         {
             get
@@ -254,6 +313,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// API data contract
+        /// </summary>
         public APIDataContract APIDataContract
         {
             get
@@ -266,6 +328,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Translatable text
+        /// </summary>
         public string TranslatableText
         {
             get
@@ -278,6 +343,10 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="apidc">API data contract</param>
         public ServerListConnector(APIDataContract apidc)
         {
             name = apidc.name;
@@ -286,6 +355,12 @@ namespace SAMPLauncherNET
             endpoint = apidc.endpoint;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="serverListType">Server list type</param>
+        /// <param name="endpoint">Endpoint</param>
         public ServerListConnector(string name, EServerListType serverListType, string endpoint)
         {
             this.name = name;
@@ -293,6 +368,10 @@ namespace SAMPLauncherNET
             this.endpoint = endpoint;
         }
 
+        /// <summary>
+        /// To string
+        /// </summary>
+        /// <returns>String representation</returns>
         public override string ToString()
         {
             return name;
