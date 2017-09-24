@@ -217,23 +217,26 @@ namespace SAMPLauncherNET
             ClearAPIs();
             lock (apis)
             {
-                apis.AddRange(SAMP.APIIO);
-                selectAPIComboBox.Items.AddRange(apis.ToArray());
+                apis = SAMP.APIIO;
                 lock (apiDataTable)
                 {
                     for (int i = 0; i < apis.Count; i++)
                     {
                         DataRow dr = apiDataTable.NewRow();
                         ServerListConnector slc = apis[i];
+                        string trimmed_name = slc.Name.Trim();
+                        if (trimmed_name.Length > 4)
+                        {
+                            if (trimmed_name.StartsWith("{$") && trimmed_name.EndsWith("$}"))
+                                slc.TranslatableText = Translator.GetTranslation(trimmed_name.Substring(2, trimmed_name.Length - 4));
+                        }
                         dr.ItemArray = new object[] { i, slc.Name, slc.ServerListType.ToString(), slc.Endpoint };
                         apiDataTable.Rows.Add(dr);
                     }
                 }
+                selectAPIComboBox.Items.AddRange(apis.ToArray());
                 if (apis.Count > 0)
-                {
                     selectAPIComboBox.SelectedIndex = 0;
-                    Translator.LoadTranslation(selectAPIComboBox);
-                }
             }
         }
 
@@ -677,7 +680,7 @@ namespace SAMPLauncherNET
         {
             if (MessageBox.Show(Translator.GetTranslation("REMOVE_API"), Translator.GetTranslation("REMOVE_API_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                foreach (DataGridViewRow dgvr in apiGridView.SelectedRows)
+                /*foreach (DataGridViewRow dgvr in apiGridView.SelectedRows)
                 {
                     int index = (int)(dgvr.Cells[0].Value);
                     if ((index >= 0) && (index < apis.Count))
@@ -687,7 +690,19 @@ namespace SAMPLauncherNET
                         ReloadAPIs();
                     }
                     break;
+                }*/
+                List<ServerListConnector> rl = new List<ServerListConnector>();
+                List<ServerListConnector> apis = SAMP.APIIO;
+                foreach (DataGridViewRow dgvr in apiGridView.SelectedRows)
+                {
+                    int index = (int)(dgvr.Cells[0].Value);
+                    if (apis.Count > index)
+                        rl.Add(apis[index]);
                 }
+                foreach (ServerListConnector item in rl)
+                    apis.Remove(item);
+                SAMP.APIIO = apis;
+                ReloadAPIs();
             }
         }
 
