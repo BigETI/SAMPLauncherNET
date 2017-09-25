@@ -16,7 +16,7 @@ Fork this project, commit your changes and create a pull request.
 
 ## Translations
 Translation files are located at https://github.com/BigETI/SAMPLauncherNET/tree/master/SAMPLauncherNET/Languages ,
-pick up `en-GB.resx` and `en-GB.Designer.cs`,
+pick up `ge-GE.resx` and `ge-GE.Designer.cs`,
 create a copy in Visual Studio and rename it to the language's `language tag` you want to translate.
 https://msdn.microsoft.com/en-us/library/cc233982.aspx
 For example the `language tag` of spanish in Spain is `es-ES`.
