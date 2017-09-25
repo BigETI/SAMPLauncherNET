@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
+using System.IO;
 
 /// <summary>
 /// SA:MP launcher .NET namespace
@@ -17,7 +18,7 @@ namespace SAMPLauncherNET
         /// Gallery image size
         /// </summary>
         public static readonly Size GalleryImageSize = new Size(256, 256);
-  
+
         /// <summary>
         /// Are arrays equal
         /// </summary>
@@ -60,6 +61,73 @@ namespace SAMPLauncherNET
                         i.Dispose();
                 }
             }
+        }
+
+        /// <summary>
+        /// Append character to string
+        /// </summary>
+        /// <param name="str">String</param>
+        /// <param name="character">Character</param>
+        /// <returns>String with character</returns>
+        public static string AppendCharacterToString(string str, char character)
+        {
+            string ret = (str == null) ? "" : str;
+            if (ret.Length > 0)
+            {
+                if (ret[ret.Length - 1] != character)
+                    ret += character;
+            }
+            else
+                ret += character;
+            return ret;
+        }
+
+        /// <summary>
+        /// Get file resources from directory
+        /// </summary>
+        /// <param name="directory">Directory</param>
+        /// <param name="searchPattern">Search pattern</param>
+        /// <param name="searchOption">Search option</param>
+        /// <returns>File resources</returns>
+        public static FileResource[] GetFilesFromDirectory(string directory, string searchPattern, SearchOption searchOption)
+        {
+            FileResource[] ret = null;
+            if (Directory.Exists(directory))
+            {
+                string[] files = Directory.GetFiles(directory, searchPattern, searchOption);
+                ret = new FileResource[files.Length];
+                for (int i = 0; i < ret.Length; i++)
+                    ret[i] = new FileResource(files[i]);
+            }
+            if (ret == null)
+                ret = new FileResource[0];
+            return ret;
+        }
+
+        /// <summary>
+        /// Get integer from text field
+        /// </summary>
+        /// <param name="textField">Text field</param>
+        /// <returns>Integer</returns>
+        public static int GetInt(string text, int defaultValue =0)
+        {
+            int ret = 0;
+            if (!(int.TryParse(text, out ret)))
+                ret = 0;
+            return ret;
+        }
+
+        /// <summary>
+        /// Get floating point number from text field
+        /// </summary>
+        /// <param name="textField">Text field</param>
+        /// <returns>FLoating point number</returns>
+        public static float GetFloat(string text, float defaultValue = 0.0f)
+        {
+            float ret = 0.0f;
+            if (!(float.TryParse(text, out ret)))
+                ret = 0.0f;
+            return ret;
         }
 
         /// <summary>

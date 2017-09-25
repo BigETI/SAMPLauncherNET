@@ -174,6 +174,30 @@
             this.apiAddPictureBox = new System.Windows.Forms.PictureBox();
             this.apiEditPictureBox = new System.Windows.Forms.PictureBox();
             this.apiRemovePictureBox = new System.Windows.Forms.PictureBox();
+            this.developerToolsPage = new System.Windows.Forms.TabPage();
+            this.developerToolsMainLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.developerToolsFilesLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.developerToolsFilterscriptPanel = new System.Windows.Forms.Panel();
+            this.developerToolsFilterscriptsCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.developerToolsFilterscriptsLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.developerToolsGamemodesPanel = new System.Windows.Forms.Panel();
+            this.developerToolsGamemodesCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.developerToolsGamemodesLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.developerToolsPluginsPanel = new System.Windows.Forms.Panel();
+            this.developerToolsPluginsCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.developerToolsPluginsLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.developerToolsConfigFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.developmentDirectoryLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.developmentDirectorySingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.developerToolsHostnameLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.developerToolsHostnameSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.developerToolsPortLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.developerToolsPortSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.developerToolsServerPasswordLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.developerToolsServerPasswordSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.developerToolsRCONPasswordLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.developerToolsRCONPasswordSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.developerToolsShowAdditionalConfigurationsButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.aboutPage = new System.Windows.Forms.TabPage();
             this.aboutFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.gitHubProjectLargePictureBox = new System.Windows.Forms.PictureBox();
@@ -235,6 +259,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.apiAddPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.apiEditPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.apiRemovePictureBox)).BeginInit();
+            this.developerToolsPage.SuspendLayout();
+            this.developerToolsMainLayoutPanel.SuspendLayout();
+            this.developerToolsFilesLayoutPanel.SuspendLayout();
+            this.developerToolsFilterscriptPanel.SuspendLayout();
+            this.developerToolsGamemodesPanel.SuspendLayout();
+            this.developerToolsPluginsPanel.SuspendLayout();
+            this.developerToolsConfigFlowLayoutPanel.SuspendLayout();
             this.aboutPage.SuspendLayout();
             this.aboutFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gitHubProjectLargePictureBox)).BeginInit();
@@ -253,6 +284,7 @@
             this.mainTabControl.Controls.Add(this.savedPositionsPage);
             this.mainTabControl.Controls.Add(this.optionsPage);
             this.mainTabControl.Controls.Add(this.apiPage);
+            this.mainTabControl.Controls.Add(this.developerToolsPage);
             this.mainTabControl.Controls.Add(this.aboutPage);
             this.mainTabControl.Depth = 0;
             this.mainTabControl.Location = new System.Drawing.Point(5, 117);
@@ -1929,6 +1961,352 @@
             this.toolTip.SetToolTip(this.apiRemovePictureBox, "Delete selected");
             this.apiRemovePictureBox.Click += new System.EventHandler(this.apiRemovePictureBox_Click);
             // 
+            // developerToolsPage
+            // 
+            this.developerToolsPage.Controls.Add(this.developerToolsMainLayoutPanel);
+            this.developerToolsPage.Location = new System.Drawing.Point(4, 22);
+            this.developerToolsPage.Name = "developerToolsPage";
+            this.developerToolsPage.Padding = new System.Windows.Forms.Padding(3);
+            this.developerToolsPage.Size = new System.Drawing.Size(992, 536);
+            this.developerToolsPage.TabIndex = 7;
+            this.developerToolsPage.Text = "{$DEVELOPER_TOOLS$}";
+            this.developerToolsPage.UseVisualStyleBackColor = true;
+            // 
+            // developerToolsMainLayoutPanel
+            // 
+            this.developerToolsMainLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.developerToolsMainLayoutPanel.ColumnCount = 1;
+            this.developerToolsMainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.developerToolsMainLayoutPanel.Controls.Add(this.developerToolsFilesLayoutPanel, 0, 0);
+            this.developerToolsMainLayoutPanel.Controls.Add(this.developerToolsConfigFlowLayoutPanel, 0, 1);
+            this.developerToolsMainLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsMainLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.developerToolsMainLayoutPanel.Name = "developerToolsMainLayoutPanel";
+            this.developerToolsMainLayoutPanel.RowCount = 2;
+            this.developerToolsMainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.09434F));
+            this.developerToolsMainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.90566F));
+            this.developerToolsMainLayoutPanel.Size = new System.Drawing.Size(986, 530);
+            this.developerToolsMainLayoutPanel.TabIndex = 0;
+            // 
+            // developerToolsFilesLayoutPanel
+            // 
+            this.developerToolsFilesLayoutPanel.ColumnCount = 3;
+            this.developerToolsFilesLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.developerToolsFilesLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.developerToolsFilesLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.developerToolsFilesLayoutPanel.Controls.Add(this.developerToolsFilterscriptPanel, 0, 0);
+            this.developerToolsFilesLayoutPanel.Controls.Add(this.developerToolsGamemodesPanel, 0, 0);
+            this.developerToolsFilesLayoutPanel.Controls.Add(this.developerToolsPluginsPanel, 1, 0);
+            this.developerToolsFilesLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsFilesLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.developerToolsFilesLayoutPanel.Name = "developerToolsFilesLayoutPanel";
+            this.developerToolsFilesLayoutPanel.RowCount = 1;
+            this.developerToolsFilesLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.developerToolsFilesLayoutPanel.Size = new System.Drawing.Size(980, 233);
+            this.developerToolsFilesLayoutPanel.TabIndex = 0;
+            // 
+            // developerToolsFilterscriptPanel
+            // 
+            this.developerToolsFilterscriptPanel.Controls.Add(this.developerToolsFilterscriptsCheckedListBox);
+            this.developerToolsFilterscriptPanel.Controls.Add(this.developerToolsFilterscriptsLabel);
+            this.developerToolsFilterscriptPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsFilterscriptPanel.Location = new System.Drawing.Point(329, 3);
+            this.developerToolsFilterscriptPanel.Name = "developerToolsFilterscriptPanel";
+            this.developerToolsFilterscriptPanel.Size = new System.Drawing.Size(320, 227);
+            this.developerToolsFilterscriptPanel.TabIndex = 2;
+            // 
+            // developerToolsFilterscriptsCheckedListBox
+            // 
+            this.developerToolsFilterscriptsCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.developerToolsFilterscriptsCheckedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsFilterscriptsCheckedListBox.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.developerToolsFilterscriptsCheckedListBox.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.developerToolsFilterscriptsCheckedListBox.FormattingEnabled = true;
+            this.developerToolsFilterscriptsCheckedListBox.Location = new System.Drawing.Point(0, 19);
+            this.developerToolsFilterscriptsCheckedListBox.Name = "developerToolsFilterscriptsCheckedListBox";
+            this.developerToolsFilterscriptsCheckedListBox.Size = new System.Drawing.Size(320, 208);
+            this.developerToolsFilterscriptsCheckedListBox.TabIndex = 4;
+            // 
+            // developerToolsFilterscriptsLabel
+            // 
+            this.developerToolsFilterscriptsLabel.Depth = 0;
+            this.developerToolsFilterscriptsLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.developerToolsFilterscriptsLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsFilterscriptsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsFilterscriptsLabel.Location = new System.Drawing.Point(0, 0);
+            this.developerToolsFilterscriptsLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsFilterscriptsLabel.Name = "developerToolsFilterscriptsLabel";
+            this.developerToolsFilterscriptsLabel.Size = new System.Drawing.Size(320, 19);
+            this.developerToolsFilterscriptsLabel.TabIndex = 3;
+            this.developerToolsFilterscriptsLabel.Text = "{$FILTERSCRIPTS$}";
+            this.developerToolsFilterscriptsLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // developerToolsGamemodesPanel
+            // 
+            this.developerToolsGamemodesPanel.Controls.Add(this.developerToolsGamemodesCheckedListBox);
+            this.developerToolsGamemodesPanel.Controls.Add(this.developerToolsGamemodesLabel);
+            this.developerToolsGamemodesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsGamemodesPanel.Location = new System.Drawing.Point(3, 3);
+            this.developerToolsGamemodesPanel.Name = "developerToolsGamemodesPanel";
+            this.developerToolsGamemodesPanel.Size = new System.Drawing.Size(320, 227);
+            this.developerToolsGamemodesPanel.TabIndex = 0;
+            // 
+            // developerToolsGamemodesCheckedListBox
+            // 
+            this.developerToolsGamemodesCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.developerToolsGamemodesCheckedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsGamemodesCheckedListBox.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.developerToolsGamemodesCheckedListBox.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.developerToolsGamemodesCheckedListBox.FormattingEnabled = true;
+            this.developerToolsGamemodesCheckedListBox.Location = new System.Drawing.Point(0, 19);
+            this.developerToolsGamemodesCheckedListBox.Name = "developerToolsGamemodesCheckedListBox";
+            this.developerToolsGamemodesCheckedListBox.Size = new System.Drawing.Size(320, 208);
+            this.developerToolsGamemodesCheckedListBox.TabIndex = 3;
+            // 
+            // developerToolsGamemodesLabel
+            // 
+            this.developerToolsGamemodesLabel.Depth = 0;
+            this.developerToolsGamemodesLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.developerToolsGamemodesLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsGamemodesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsGamemodesLabel.Location = new System.Drawing.Point(0, 0);
+            this.developerToolsGamemodesLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsGamemodesLabel.Name = "developerToolsGamemodesLabel";
+            this.developerToolsGamemodesLabel.Size = new System.Drawing.Size(320, 19);
+            this.developerToolsGamemodesLabel.TabIndex = 2;
+            this.developerToolsGamemodesLabel.Text = "{$GAMEMODES$}";
+            this.developerToolsGamemodesLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // developerToolsPluginsPanel
+            // 
+            this.developerToolsPluginsPanel.Controls.Add(this.developerToolsPluginsCheckedListBox);
+            this.developerToolsPluginsPanel.Controls.Add(this.developerToolsPluginsLabel);
+            this.developerToolsPluginsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsPluginsPanel.Location = new System.Drawing.Point(655, 3);
+            this.developerToolsPluginsPanel.Name = "developerToolsPluginsPanel";
+            this.developerToolsPluginsPanel.Size = new System.Drawing.Size(322, 227);
+            this.developerToolsPluginsPanel.TabIndex = 1;
+            // 
+            // developerToolsPluginsCheckedListBox
+            // 
+            this.developerToolsPluginsCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.developerToolsPluginsCheckedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsPluginsCheckedListBox.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.developerToolsPluginsCheckedListBox.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.developerToolsPluginsCheckedListBox.FormattingEnabled = true;
+            this.developerToolsPluginsCheckedListBox.Location = new System.Drawing.Point(0, 19);
+            this.developerToolsPluginsCheckedListBox.Name = "developerToolsPluginsCheckedListBox";
+            this.developerToolsPluginsCheckedListBox.Size = new System.Drawing.Size(322, 208);
+            this.developerToolsPluginsCheckedListBox.TabIndex = 4;
+            // 
+            // developerToolsPluginsLabel
+            // 
+            this.developerToolsPluginsLabel.Depth = 0;
+            this.developerToolsPluginsLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.developerToolsPluginsLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsPluginsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsPluginsLabel.Location = new System.Drawing.Point(0, 0);
+            this.developerToolsPluginsLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsPluginsLabel.Name = "developerToolsPluginsLabel";
+            this.developerToolsPluginsLabel.Size = new System.Drawing.Size(322, 19);
+            this.developerToolsPluginsLabel.TabIndex = 3;
+            this.developerToolsPluginsLabel.Text = "{$PLUGINS$}";
+            this.developerToolsPluginsLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // developerToolsConfigFlowLayoutPanel
+            // 
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developmentDirectoryLabel);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developmentDirectorySingleLineTextField);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsHostnameLabel);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsHostnameSingleLineTextField);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsPortLabel);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsPortSingleLineTextField);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsServerPasswordLabel);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsServerPasswordSingleLineTextField);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsRCONPasswordLabel);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsRCONPasswordSingleLineTextField);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsShowAdditionalConfigurationsButton);
+            this.developerToolsConfigFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsConfigFlowLayoutPanel.Location = new System.Drawing.Point(3, 242);
+            this.developerToolsConfigFlowLayoutPanel.Name = "developerToolsConfigFlowLayoutPanel";
+            this.developerToolsConfigFlowLayoutPanel.Size = new System.Drawing.Size(980, 285);
+            this.developerToolsConfigFlowLayoutPanel.TabIndex = 1;
+            // 
+            // developmentDirectoryLabel
+            // 
+            this.developmentDirectoryLabel.AutoSize = true;
+            this.developmentDirectoryLabel.Depth = 0;
+            this.developmentDirectoryLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developmentDirectoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developmentDirectoryLabel.Location = new System.Drawing.Point(3, 0);
+            this.developmentDirectoryLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developmentDirectoryLabel.Name = "developmentDirectoryLabel";
+            this.developmentDirectoryLabel.Size = new System.Drawing.Size(228, 19);
+            this.developmentDirectoryLabel.TabIndex = 9;
+            this.developmentDirectoryLabel.Text = "{$DEVELOPMENT_DIRECTORY$}";
+            // 
+            // developmentDirectorySingleLineTextField
+            // 
+            this.developmentDirectorySingleLineTextField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.developmentDirectorySingleLineTextField.Depth = 0;
+            this.developmentDirectorySingleLineTextField.Hint = "...";
+            this.developmentDirectorySingleLineTextField.Location = new System.Drawing.Point(3, 22);
+            this.developmentDirectorySingleLineTextField.MaxLength = 32767;
+            this.developmentDirectorySingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developmentDirectorySingleLineTextField.Name = "developmentDirectorySingleLineTextField";
+            this.developmentDirectorySingleLineTextField.PasswordChar = '\0';
+            this.developmentDirectorySingleLineTextField.SelectedText = "";
+            this.developmentDirectorySingleLineTextField.SelectionLength = 0;
+            this.developmentDirectorySingleLineTextField.SelectionStart = 0;
+            this.developmentDirectorySingleLineTextField.Size = new System.Drawing.Size(10000, 23);
+            this.developmentDirectorySingleLineTextField.TabIndex = 10;
+            this.developmentDirectorySingleLineTextField.TabStop = false;
+            this.developmentDirectorySingleLineTextField.UseSystemPasswordChar = false;
+            this.developmentDirectorySingleLineTextField.TextChanged += new System.EventHandler(this.developmentDirectorySingleLineTextField_TextChanged);
+            // 
+            // developerToolsHostnameLabel
+            // 
+            this.developerToolsHostnameLabel.AutoSize = true;
+            this.developerToolsHostnameLabel.Depth = 0;
+            this.developerToolsHostnameLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsHostnameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsHostnameLabel.Location = new System.Drawing.Point(3, 48);
+            this.developerToolsHostnameLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsHostnameLabel.Name = "developerToolsHostnameLabel";
+            this.developerToolsHostnameLabel.Size = new System.Drawing.Size(117, 19);
+            this.developerToolsHostnameLabel.TabIndex = 0;
+            this.developerToolsHostnameLabel.Text = "{$HOSTNAME$}";
+            // 
+            // developerToolsHostnameSingleLineTextField
+            // 
+            this.developerToolsHostnameSingleLineTextField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.developerToolsHostnameSingleLineTextField.Depth = 0;
+            this.developerToolsHostnameSingleLineTextField.Hint = "...";
+            this.developerToolsHostnameSingleLineTextField.Location = new System.Drawing.Point(3, 70);
+            this.developerToolsHostnameSingleLineTextField.MaxLength = 32767;
+            this.developerToolsHostnameSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsHostnameSingleLineTextField.Name = "developerToolsHostnameSingleLineTextField";
+            this.developerToolsHostnameSingleLineTextField.PasswordChar = '\0';
+            this.developerToolsHostnameSingleLineTextField.SelectedText = "";
+            this.developerToolsHostnameSingleLineTextField.SelectionLength = 0;
+            this.developerToolsHostnameSingleLineTextField.SelectionStart = 0;
+            this.developerToolsHostnameSingleLineTextField.Size = new System.Drawing.Size(10000, 23);
+            this.developerToolsHostnameSingleLineTextField.TabIndex = 1;
+            this.developerToolsHostnameSingleLineTextField.TabStop = false;
+            this.developerToolsHostnameSingleLineTextField.Text = "SA-MP Server";
+            this.developerToolsHostnameSingleLineTextField.UseSystemPasswordChar = false;
+            // 
+            // developerToolsPortLabel
+            // 
+            this.developerToolsPortLabel.AutoSize = true;
+            this.developerToolsPortLabel.Depth = 0;
+            this.developerToolsPortLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsPortLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsPortLabel.Location = new System.Drawing.Point(3, 96);
+            this.developerToolsPortLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsPortLabel.Name = "developerToolsPortLabel";
+            this.developerToolsPortLabel.Size = new System.Drawing.Size(72, 19);
+            this.developerToolsPortLabel.TabIndex = 6;
+            this.developerToolsPortLabel.Text = "{$PORT$}";
+            // 
+            // developerToolsPortSingleLineTextField
+            // 
+            this.developerToolsPortSingleLineTextField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.developerToolsPortSingleLineTextField.Depth = 0;
+            this.developerToolsPortSingleLineTextField.Hint = "...";
+            this.developerToolsPortSingleLineTextField.Location = new System.Drawing.Point(3, 118);
+            this.developerToolsPortSingleLineTextField.MaxLength = 32767;
+            this.developerToolsPortSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsPortSingleLineTextField.Name = "developerToolsPortSingleLineTextField";
+            this.developerToolsPortSingleLineTextField.PasswordChar = '\0';
+            this.developerToolsPortSingleLineTextField.SelectedText = "";
+            this.developerToolsPortSingleLineTextField.SelectionLength = 0;
+            this.developerToolsPortSingleLineTextField.SelectionStart = 0;
+            this.developerToolsPortSingleLineTextField.Size = new System.Drawing.Size(10000, 23);
+            this.developerToolsPortSingleLineTextField.TabIndex = 7;
+            this.developerToolsPortSingleLineTextField.TabStop = false;
+            this.developerToolsPortSingleLineTextField.Text = "8192";
+            this.developerToolsPortSingleLineTextField.UseSystemPasswordChar = false;
+            // 
+            // developerToolsServerPasswordLabel
+            // 
+            this.developerToolsServerPasswordLabel.AutoSize = true;
+            this.developerToolsServerPasswordLabel.Depth = 0;
+            this.developerToolsServerPasswordLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsServerPasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsServerPasswordLabel.Location = new System.Drawing.Point(3, 144);
+            this.developerToolsServerPasswordLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsServerPasswordLabel.Name = "developerToolsServerPasswordLabel";
+            this.developerToolsServerPasswordLabel.Size = new System.Drawing.Size(176, 19);
+            this.developerToolsServerPasswordLabel.TabIndex = 2;
+            this.developerToolsServerPasswordLabel.Text = "{$SERVER_PASSWORD$}";
+            // 
+            // developerToolsServerPasswordSingleLineTextField
+            // 
+            this.developerToolsServerPasswordSingleLineTextField.Depth = 0;
+            this.developerToolsServerPasswordSingleLineTextField.Hint = "...";
+            this.developerToolsServerPasswordSingleLineTextField.Location = new System.Drawing.Point(3, 166);
+            this.developerToolsServerPasswordSingleLineTextField.MaxLength = 32767;
+            this.developerToolsServerPasswordSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsServerPasswordSingleLineTextField.Name = "developerToolsServerPasswordSingleLineTextField";
+            this.developerToolsServerPasswordSingleLineTextField.PasswordChar = '*';
+            this.developerToolsServerPasswordSingleLineTextField.SelectedText = "";
+            this.developerToolsServerPasswordSingleLineTextField.SelectionLength = 0;
+            this.developerToolsServerPasswordSingleLineTextField.SelectionStart = 0;
+            this.developerToolsServerPasswordSingleLineTextField.Size = new System.Drawing.Size(10000, 23);
+            this.developerToolsServerPasswordSingleLineTextField.TabIndex = 3;
+            this.developerToolsServerPasswordSingleLineTextField.TabStop = false;
+            this.developerToolsServerPasswordSingleLineTextField.UseSystemPasswordChar = false;
+            // 
+            // developerToolsRCONPasswordLabel
+            // 
+            this.developerToolsRCONPasswordLabel.AutoSize = true;
+            this.developerToolsRCONPasswordLabel.Depth = 0;
+            this.developerToolsRCONPasswordLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsRCONPasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsRCONPasswordLabel.Location = new System.Drawing.Point(3, 192);
+            this.developerToolsRCONPasswordLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsRCONPasswordLabel.Name = "developerToolsRCONPasswordLabel";
+            this.developerToolsRCONPasswordLabel.Size = new System.Drawing.Size(161, 19);
+            this.developerToolsRCONPasswordLabel.TabIndex = 4;
+            this.developerToolsRCONPasswordLabel.Text = "{$RCON_PASSWORD$}";
+            // 
+            // developerToolsRCONPasswordSingleLineTextField
+            // 
+            this.developerToolsRCONPasswordSingleLineTextField.Depth = 0;
+            this.developerToolsRCONPasswordSingleLineTextField.Hint = "...";
+            this.developerToolsRCONPasswordSingleLineTextField.Location = new System.Drawing.Point(3, 214);
+            this.developerToolsRCONPasswordSingleLineTextField.MaxLength = 32767;
+            this.developerToolsRCONPasswordSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsRCONPasswordSingleLineTextField.Name = "developerToolsRCONPasswordSingleLineTextField";
+            this.developerToolsRCONPasswordSingleLineTextField.PasswordChar = '*';
+            this.developerToolsRCONPasswordSingleLineTextField.SelectedText = "";
+            this.developerToolsRCONPasswordSingleLineTextField.SelectionLength = 0;
+            this.developerToolsRCONPasswordSingleLineTextField.SelectionStart = 0;
+            this.developerToolsRCONPasswordSingleLineTextField.Size = new System.Drawing.Size(10000, 23);
+            this.developerToolsRCONPasswordSingleLineTextField.TabIndex = 5;
+            this.developerToolsRCONPasswordSingleLineTextField.TabStop = false;
+            this.developerToolsRCONPasswordSingleLineTextField.UseSystemPasswordChar = false;
+            // 
+            // developerToolsShowAdditionalConfigurationsButton
+            // 
+            this.developerToolsShowAdditionalConfigurationsButton.AutoSize = true;
+            this.developerToolsShowAdditionalConfigurationsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.developerToolsShowAdditionalConfigurationsButton.Depth = 0;
+            this.developerToolsShowAdditionalConfigurationsButton.Icon = null;
+            this.developerToolsShowAdditionalConfigurationsButton.Location = new System.Drawing.Point(3, 243);
+            this.developerToolsShowAdditionalConfigurationsButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsShowAdditionalConfigurationsButton.Name = "developerToolsShowAdditionalConfigurationsButton";
+            this.developerToolsShowAdditionalConfigurationsButton.Primary = true;
+            this.developerToolsShowAdditionalConfigurationsButton.Size = new System.Drawing.Size(292, 36);
+            this.developerToolsShowAdditionalConfigurationsButton.TabIndex = 8;
+            this.developerToolsShowAdditionalConfigurationsButton.Text = "{$SHOW_ADDITIONAL_CONFIGURATIONS$}";
+            this.developerToolsShowAdditionalConfigurationsButton.UseVisualStyleBackColor = true;
+            this.developerToolsShowAdditionalConfigurationsButton.Click += new System.EventHandler(this.developerToolsShowAdditionalConfigurationsButton_Click);
+            // 
             // aboutPage
             // 
             this.aboutPage.Controls.Add(this.aboutFlowLayoutPanel);
@@ -2105,6 +2483,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.apiAddPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.apiEditPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.apiRemovePictureBox)).EndInit();
+            this.developerToolsPage.ResumeLayout(false);
+            this.developerToolsMainLayoutPanel.ResumeLayout(false);
+            this.developerToolsFilesLayoutPanel.ResumeLayout(false);
+            this.developerToolsFilterscriptPanel.ResumeLayout(false);
+            this.developerToolsGamemodesPanel.ResumeLayout(false);
+            this.developerToolsPluginsPanel.ResumeLayout(false);
+            this.developerToolsConfigFlowLayoutPanel.ResumeLayout(false);
+            this.developerToolsConfigFlowLayoutPanel.PerformLayout();
             this.aboutPage.ResumeLayout(false);
             this.aboutFlowLayoutPanel.ResumeLayout(false);
             this.aboutFlowLayoutPanel.PerformLayout();
@@ -2259,5 +2645,29 @@
         private System.Windows.Forms.ToolStripMenuItem searchOnYouTubeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchOnYandexToolStripMenuItem;
         private System.Windows.Forms.DataGridView rulesGridView;
+        private System.Windows.Forms.TabPage developerToolsPage;
+        private System.Windows.Forms.TableLayoutPanel developerToolsMainLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel developerToolsFilesLayoutPanel;
+        private System.Windows.Forms.Panel developerToolsGamemodesPanel;
+        private MaterialSkin.Controls.MaterialLabel developerToolsGamemodesLabel;
+        private System.Windows.Forms.CheckedListBox developerToolsGamemodesCheckedListBox;
+        private System.Windows.Forms.Panel developerToolsPluginsPanel;
+        private System.Windows.Forms.Panel developerToolsFilterscriptPanel;
+        private System.Windows.Forms.CheckedListBox developerToolsFilterscriptsCheckedListBox;
+        private MaterialSkin.Controls.MaterialLabel developerToolsFilterscriptsLabel;
+        private System.Windows.Forms.CheckedListBox developerToolsPluginsCheckedListBox;
+        private MaterialSkin.Controls.MaterialLabel developerToolsPluginsLabel;
+        private System.Windows.Forms.FlowLayoutPanel developerToolsConfigFlowLayoutPanel;
+        private MaterialSkin.Controls.MaterialLabel developerToolsHostnameLabel;
+        private MaterialSkin.Controls.MaterialSingleLineTextField developerToolsHostnameSingleLineTextField;
+        private MaterialSkin.Controls.MaterialLabel developerToolsServerPasswordLabel;
+        private MaterialSkin.Controls.MaterialSingleLineTextField developerToolsServerPasswordSingleLineTextField;
+        private MaterialSkin.Controls.MaterialLabel developerToolsRCONPasswordLabel;
+        private MaterialSkin.Controls.MaterialSingleLineTextField developerToolsRCONPasswordSingleLineTextField;
+        private MaterialSkin.Controls.MaterialLabel developerToolsPortLabel;
+        private MaterialSkin.Controls.MaterialSingleLineTextField developerToolsPortSingleLineTextField;
+        private MaterialSkin.Controls.MaterialRaisedButton developerToolsShowAdditionalConfigurationsButton;
+        private MaterialSkin.Controls.MaterialLabel developmentDirectoryLabel;
+        private MaterialSkin.Controls.MaterialSingleLineTextField developmentDirectorySingleLineTextField;
     }
 }

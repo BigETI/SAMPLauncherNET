@@ -8,7 +8,6 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using WinFormsTranslator;
 
 /// <summary>
 /// SA:MP launcher .NET namespace
@@ -50,10 +49,17 @@ namespace SAMPLauncherNET
         /// </summary>
         public static readonly string SAMPDebugPath = ExeDir + "\\samp_debug.exe";
 
+        public const string LauncherConfigPath = "./config.json";
+
         /// <summary>
-        /// Server list API
+        /// Server list API path
         /// </summary>
-        public const string ServerListAPI = "./api.json";
+        public const string ServerListAPIPath = "./api.json";
+
+        /// <summary>
+        /// Developer tools config file name
+        /// </summary>
+        public const string DeveloperToolsConfigFileName = "samp.json";
 
         /// <summary>
         /// Gallery path
@@ -96,9 +102,19 @@ namespace SAMPLauncherNET
         public const string GitHubProjectURL = "https://github.com/BigETI/SAMPLauncherNET";
 
         /// <summary>
+        /// Launcher configuration serializer
+        /// </summary>
+        public static DataContractJsonSerializer launcherConfigSerializer = new DataContractJsonSerializer(typeof(LauncherConfigDataContract));
+
+        /// <summary>
         /// API JSON serializer
         /// </summary>
         public static DataContractJsonSerializer apiJSONSerializer = new DataContractJsonSerializer(typeof(APIDataContract[]));
+
+        /// <summary>
+        /// Developer tools serializer
+        /// </summary>
+        public static DataContractJsonSerializer developerToolsConfigSerializer = new DataContractJsonSerializer(typeof(DeveloperToolsConfigDataContract));
 
         /// <summary>
         /// Username
@@ -154,7 +170,7 @@ namespace SAMPLauncherNET
                 List<ServerListConnector> ret = new List<ServerListConnector>();
                 try
                 {
-                    using (FileStream stream = File.Open(ServerListAPI, FileMode.Open))
+                    using (FileStream stream = File.Open(ServerListAPIPath, FileMode.Open))
                     {
                         APIDataContract[] api = (APIDataContract[])(apiJSONSerializer.ReadObject(stream));
                         foreach (APIDataContract apidc in api)
@@ -178,7 +194,7 @@ namespace SAMPLauncherNET
                     {
                         foreach (ServerListConnector connector in value)
                         {
-                            using (FileStream stream = File.Open(ServerListAPI, FileMode.Create))
+                            using (FileStream stream = File.Open(ServerListAPIPath, FileMode.Create))
                             {
                                 apiJSONSerializer.WriteObject(stream, api);
                             }
@@ -245,6 +261,51 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Launcher configuration I/O
+        /// </summary>
+        public static LauncherConfigDataContract LauncherConfigIO
+        {
+            get
+            {
+                LauncherConfigDataContract ret = null;
+                if (File.Exists(LauncherConfigPath))
+                {
+                    try
+                    {
+                        using (StreamReader reader = new StreamReader(LauncherConfigPath))
+                        {
+                            ret = launcherConfigSerializer.ReadObject(reader.BaseStream) as LauncherConfigDataContract;
+                        }
+                    }
+                    catch
+                    {
+                        //
+                    }
+                }
+                if (ret == null)
+                    ret = new LauncherConfigDataContract();
+                return ret;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    try
+                    {
+                        using (StreamWriter writer = new StreamWriter(LauncherConfigPath))
+                        {
+                            launcherConfigSerializer.WriteObject(writer.BaseStream, value);
+                        }
+                    }
+                    catch
+                    {
+                        //
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// SA:MP configuration
         /// </summary>
         public static SAMPConfig SAMPConfig
@@ -252,6 +313,55 @@ namespace SAMPLauncherNET
             get
             {
                 return new SAMPConfig(SAMPConfigPath);
+            }
+        }
+
+        /// <summary>
+        /// Developer tools config I/O
+        /// </summary>
+        public static DeveloperToolsConfigDataContract DeveloperToolsConfigIO
+        {
+            get
+            {
+                DeveloperToolsConfigDataContract ret = null;
+                string path = Utils.AppendCharacterToString(LauncherConfigIO.developmentDirectory, '\\') + DeveloperToolsConfigFileName;
+                if (File.Exists(path))
+                {
+                    try
+                    {
+                        using (StreamReader reader = new StreamReader(path))
+                        {
+                            ret = developerToolsConfigSerializer.ReadObject(reader.BaseStream) as DeveloperToolsConfigDataContract;
+                        }
+                    }
+                    catch
+                    {
+                        //
+                    }
+                }
+                if (ret == null)
+                    ret = new DeveloperToolsConfigDataContract();
+                return ret;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    string directory = Utils.AppendCharacterToString(LauncherConfigIO.developmentDirectory, '\\');
+                    if (!(Directory.Exists(directory)))
+                        Directory.CreateDirectory(directory);
+                    try
+                    {
+                        using (StreamWriter writer = new StreamWriter(directory + DeveloperToolsConfigFileName))
+                        {
+                            developerToolsConfigSerializer.WriteObject(writer.BaseStream, value);
+                        }
+                    }
+                    catch
+                    {
+                        //
+                    }
+                }
             }
         }
 
@@ -328,6 +438,17 @@ namespace SAMPLauncherNET
             }
         }
 
+        public static void LaunchSAMPServer(string hostname, ushort port = 7777, string rconPassword = null, string[] gamemodes = null, string[] filterscripts = null, string[] plugins = null)
+        {
+            if ((hostname != null) && (gamemodes != null))
+            {
+                if (gamemodes.Length > 0)
+                {
+
+                }
+            }
+        }
+
         /// <summary>
         /// Launch SA:MP debug mode
         /// </summary>
@@ -378,7 +499,7 @@ namespace SAMPLauncherNET
                 //
             }
         }
-    
+
         /// <summary>
         /// Gallery images
         /// </summary>

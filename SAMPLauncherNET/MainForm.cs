@@ -150,8 +150,10 @@ namespace SAMPLauncherNET
             lastChatlogTextBox.Text = SAMP.Chatlog;
             savedPositionsTextBox.Text = SAMP.SavedPositions;
 
-            ReloadConfig();
+            ReloadSAMPConfig();
             ReloadAPIs();
+            ReloadLauncherConfig();
+            ReloadDeveloperToolsConfig();
             thread = new Thread(() =>
             {
                 while (true)
@@ -524,6 +526,17 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Reload launcher configuration
+        /// </summary>
+        private void ReloadLauncherConfig()
+        {
+            LauncherConfigDataContract lcdc = SAMP.LauncherConfigIO;
+            developmentDirectorySingleLineTextField.Text = lcdc.developmentDirectory;
+            selectedAPIIndex = lcdc.lastSelectedServerListAPI;
+            selectAPIComboBox.SelectedIndex = selectedAPIIndex;
+        }
+
+        /// <summary>
         /// Reload gallery
         /// </summary>
         private void ReloadGallery()
@@ -612,9 +625,9 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Reload cconfiguration
+        /// Reload SA:MP configuration
         /// </summary>
-        private void ReloadConfig()
+        private void ReloadSAMPConfig()
         {
             pageSizeSingleLineTextField.Text = config.PageSize.ToString();
             fpsLimitTrackBar.Value = config.FPSLimit;
@@ -629,6 +642,47 @@ namespace SAMPLauncherNET
             noNametagStatusCheckBox.Checked = config.NoNametagStatus;
             fontFaceSingleLineTextField.Text = config.FontFace;
             fontWeightCheckBox.Checked = config.FontWeight;
+        }
+
+        /// <summary>
+        /// Fill items in checked list box
+        /// </summary>
+        /// <param name="checkedListBox">Checked list box</param>
+        /// <param name="files">Files</param>
+        /// <param name="checkedFiles">Checked files</param>
+        private static void FillItemsInCheckedListBox(CheckedListBox checkedListBox, FileResource[] files, string[] checkedFiles)
+        {
+            checkedListBox.Items.AddRange(files);
+            for (int i = 0; i < files.Length; i++)
+            {
+                FileResource file = files[i];
+                foreach (string checked_file in checkedFiles)
+                {
+                    if (file.FileNameWithoutExtension == checked_file)
+                    {
+                        checkedListBox.SetItemChecked(i, true);
+                        break;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reload developer tools configuration
+        /// </summary>
+        private void ReloadDeveloperToolsConfig()
+        {
+            DeveloperToolsConfigDataContract dtcdc = SAMP.DeveloperToolsConfigIO;
+            developerToolsGamemodesCheckedListBox.Items.Clear();
+            developerToolsFilterscriptsCheckedListBox.Items.Clear();
+            developerToolsPluginsCheckedListBox.Items.Clear();
+            string directory = Utils.AppendCharacterToString(developmentDirectorySingleLineTextField.Text, '\\');
+            if (Directory.Exists(directory))
+            {
+                FillItemsInCheckedListBox(developerToolsGamemodesCheckedListBox, Utils.GetFilesFromDirectory(directory + "gamemodes", "*.amx", SearchOption.AllDirectories), dtcdc.gamemodes);
+                FillItemsInCheckedListBox(developerToolsFilterscriptsCheckedListBox, Utils.GetFilesFromDirectory(directory + "filterscripts", "*.amx", SearchOption.AllDirectories), dtcdc.filterscripts);
+                FillItemsInCheckedListBox(developerToolsPluginsCheckedListBox, Utils.GetFilesFromDirectory(directory + "plugins", "*.amx", SearchOption.AllDirectories), dtcdc.plugins);
+            }
         }
 
         /// <summary>
@@ -805,6 +859,16 @@ namespace SAMPLauncherNET
         /// <param name="e">Form closed event args</param>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            LauncherConfigDataContract lcdc = new LauncherConfigDataContract();
+            lcdc.lastSelectedServerListAPI = selectedAPIIndex;
+            lcdc.developmentDirectory = developmentDirectorySingleLineTextField.Text;
+            SAMP.LauncherConfigIO = lcdc;
+            DeveloperToolsConfigDataContract dtcdc = SAMP.DeveloperToolsConfigIO;
+            dtcdc.hostname = developerToolsHostnameSingleLineTextField.Text;
+            dtcdc.port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
+            dtcdc.password = developerToolsServerPasswordSingleLineTextField.Text;
+            dtcdc.rconPassword = developerToolsRCONPasswordSingleLineTextField.Text;
+            SAMP.DeveloperToolsConfigIO = dtcdc;
             lock (loadServers)
             {
                 foreach (KeyValuePair<Server, int> kv in loadServers)
@@ -1111,7 +1175,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void revertConfigButton_Click(object sender, EventArgs e)
         {
-            ReloadConfig();
+            ReloadSAMPConfig();
         }
 
         /// <summary>
@@ -1457,6 +1521,66 @@ namespace SAMPLauncherNET
         {
             if (SelectedServer != null)
                 Process.Start("https://youtube.com/results?search_query=" + Uri.EscapeUriString(SelectedServer.IPPortString + " " + SelectedServer.Hostname));
+        }
+
+        /// <summary>
+        /// Developer tools show additional configurations button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void developerToolsShowAdditionalConfigurationsButton_Click(object sender, EventArgs e)
+        {
+            LauncherConfigDataContract lcdc = SAMP.LauncherConfigIO;
+            lcdc.developmentDirectory = developmentDirectorySingleLineTextField.Text;
+            SAMP.LauncherConfigIO = lcdc;
+            DeveloperToolsConfigDataContract dtcdc = SAMP.DeveloperToolsConfigIO;
+            dtcdc.hostname = developerToolsHostnameSingleLineTextField.Text;
+            dtcdc.port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
+            dtcdc.password = developerToolsServerPasswordSingleLineTextField.Text;
+            dtcdc.rconPassword = developerToolsRCONPasswordSingleLineTextField.Text;
+            DeveloperToolsConfigForm dtcf = new DeveloperToolsConfigForm(dtcdc);
+            DialogResult result = dtcf.ShowDialog();
+            DialogResult = DialogResult.None;
+            if (result == DialogResult.OK)
+            {
+                dtcdc = dtcf.DeveloperToolsConfigDataContract;
+                developerToolsHostnameSingleLineTextField.Text = dtcdc.hostname;
+                developerToolsPortSingleLineTextField.Text = dtcdc.port.ToString();
+                developerToolsServerPasswordSingleLineTextField.Text = dtcdc.password;
+                developerToolsRCONPasswordSingleLineTextField.Text = dtcdc.rconPassword;
+                List<string> entries = new List<string>();
+                foreach (var item in developerToolsGamemodesCheckedListBox.CheckedItems)
+                    entries.Add(item.ToString());
+                dtcdc.gamemodes = entries.ToArray();
+                entries.Clear();
+                foreach (var item in developerToolsFilterscriptsCheckedListBox.CheckedItems)
+                    entries.Add(item.ToString());
+                dtcdc.filterscripts = entries.ToArray();
+                entries.Clear();
+                foreach (var item in developerToolsPluginsCheckedListBox.CheckedItems)
+                    entries.Add(item.ToString());
+                dtcdc.plugins = entries.ToArray();
+                entries.Clear();
+
+                SAMP.DeveloperToolsConfigIO = dtcdc;
+                ReloadDeveloperToolsConfig();
+            }
+        }
+
+        /// <summary>
+        /// Development directory single line text field text changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void developmentDirectorySingleLineTextField_TextChanged(object sender, EventArgs e)
+        {
+            if (Directory.Exists(developmentDirectorySingleLineTextField.Text))
+            {
+                LauncherConfigDataContract lcdc = SAMP.LauncherConfigIO;
+                lcdc.developmentDirectory = developmentDirectorySingleLineTextField.Text;
+                SAMP.LauncherConfigIO = lcdc;
+                ReloadDeveloperToolsConfig();
+            }
         }
     }
 }
