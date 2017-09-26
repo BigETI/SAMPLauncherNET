@@ -83,6 +83,16 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Not available string
+        /// </summary>
+        /// <param name="str">String</param>
+        /// <returns>String representation</returns>
+        public static string NAString(string str)
+        {
+            return ((str == null) ? "N/A" : ((str.Length > 0) ? str : "N/A"));
+        }
+
+        /// <summary>
         /// Get file resources from directory
         /// </summary>
         /// <param name="directory">Directory</param>

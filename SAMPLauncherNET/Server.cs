@@ -313,6 +313,17 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Geo location
+        /// </summary>
+        public GeoLocationData GeoLocation
+        {
+            get
+            {
+                return GeoLocator.Locate(IPv4AddressString);
+            }
+        }
+
+        /// <summary>
         /// Language asynchronous
         /// </summary>
         public Task<string> LanguageAsync
@@ -412,6 +423,17 @@ namespace SAMPLauncherNET
             get
             {
                 return Task.Factory.StartNew(() => PlayerValues);
+            }
+        }
+
+        /// <summary>
+        /// Geo location asynchronous
+        /// </summary>
+        public Task<GeoLocationData> GeoLocationAsync
+        {
+            get
+            {
+                return GeoLocator.LocateAsync(IPv4AddressString);
             }
         }
 

@@ -187,6 +187,9 @@ This project is located at</value>
   <data name="CHAT_LOGGING" xml:space="preserve">
     <value>Enable chat logging</value>
   </data>
+  <data name="CITY" xml:space="preserve">
+    <value>City</value>
+  </data>
   <data name="CLOSE_WHEN_LAUNCHED" xml:space="preserve">
     <value>Close when launched</value>
   </data>
@@ -211,11 +214,17 @@ This project is located at</value>
   <data name="CONNECT_TO_ADDRESS_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Connect to address</value>
   </data>
+  <data name="CONNECT_TO_TEST_SERVER" xml:space="preserve">
+    <value>Connect to test server</value>
+  </data>
   <data name="CONNECT_WITH_RCON" xml:space="preserve">
     <value>Connect with RCON</value>
   </data>
   <data name="COOKIE_LOGGING" xml:space="preserve">
     <value>Enable cookie logging</value>
+  </data>
+  <data name="COUNTRY" xml:space="preserve">
+    <value>Country</value>
   </data>
   <data name="DATABASE_LOGGING" xml:space="preserve">
     <value>Enable database logging</value>
@@ -358,6 +367,9 @@ This project is located at</value>
   <data name="LAST_CHATLOG" xml:space="preserve">
     <value>Last chatlog</value>
   </data>
+  <data name="LATITUDE_LONGITUDE" xml:space="preserve">
+    <value>Latitude and longitude</value>
+  </data>
   <data name="LAUNCHER_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Launcher</value>
   </data>
@@ -387,6 +399,9 @@ This project is located at</value>
   </data>
   <data name="MESSAGE_HOLE_LIMIT" xml:space="preserve">
     <value>Message hole limit</value>
+  </data>
+  <data name="METRO_CODE" xml:space="preserve">
+    <value>Metro code</value>
   </data>
   <data name="MINIMUM_CONNECTION_TIME" xml:space="preserve">
     <value>Minimum connection time</value>
@@ -423,6 +438,9 @@ This project is located at</value>
   </data>
   <data name="ON_FOOT_RATE" xml:space="preserve">
     <value>On foot tick rate</value>
+  </data>
+  <data name="OPEN_DIRECTORY" xml:space="preserve">
+    <value>Open directory</value>
   </data>
   <data name="OPEN_IN_EXPLORER" xml:space="preserve">
     <value>Open in explorer</value>
@@ -468,6 +486,9 @@ This project is located at</value>
   </data>
   <data name="RCON_PASSWORD_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - RCON password</value>
+  </data>
+  <data name="REGION" xml:space="preserve">
+    <value>Region</value>
   </data>
   <data name="REMOVE_API" xml:space="preserve">
     <value>Do you really want to remove the selected API?</value>
@@ -571,6 +592,12 @@ This project is located at</value>
   <data name="SHOW_GALLERY" xml:space="preserve">
     <value>Show gallery...</value>
   </data>
+  <data name="SHOW_IN_GOOGLE_MAPS" xml:space="preserve">
+    <value>Show in Google Maps</value>
+  </data>
+  <data name="SHOW_IN_OPEN_STREET_MAP" xml:space="preserve">
+    <value>Show in OpenStreetMap</value>
+  </data>
   <data name="SHOW_LAST_CHATLOG" xml:space="preserve">
     <value>Show last chatlog...</value>
   </data>
@@ -586,6 +613,9 @@ This project is located at</value>
   <data name="SLEEP" xml:space="preserve">
     <value>Sleep time</value>
   </data>
+  <data name="START_SERVER" xml:space="preserve">
+    <value>Start server</value>
+  </data>
   <data name="STREAM_DISTANCE" xml:space="preserve">
     <value>Stream distance</value>
   </data>
@@ -597,6 +627,9 @@ This project is located at</value>
   </data>
   <data name="TIMESTAMP" xml:space="preserve">
     <value>Timestamp</value>
+  </data>
+  <data name="TIME_ZONE" xml:space="preserve">
+    <value>Time zone</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Username</value>

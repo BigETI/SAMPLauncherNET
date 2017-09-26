@@ -127,6 +127,8 @@
       <DependentUpon>FavouriteListsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FileResource.cs" />
+    <Compile Include="GeoLocationProvider.cs" />
+    <Compile Include="GeoLocator.cs" />
     <Compile Include="IndexedServerListConnector.cs" />
     <Compile Include="Kernel32.cs" />
     <Compile Include="Languages\de-DE.Designer.cs">
@@ -155,6 +157,8 @@
       <DependentUpon>en-GB.resx</DependentUpon>
     </Compile>
     <Compile Include="LauncherConfigDataContract.cs" />
+    <Compile Include="FreeGeoIPDataContract.cs" />
+    <Compile Include="GeoLocationData.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

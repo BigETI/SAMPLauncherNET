@@ -190,6 +190,9 @@ Das Projekt befindet sich auf</value>
   <data name="CHAT_LOGGING" xml:space="preserve">
     <value>Chat protokollieren</value>
   </data>
+  <data name="CITY" xml:space="preserve">
+    <value>Stadt</value>
+  </data>
   <data name="CLOSE_WHEN_LAUNCHED" xml:space="preserve">
     <value>Schließen, wenn ausgeführt</value>
   </data>
@@ -214,11 +217,17 @@ Das Projekt befindet sich auf</value>
   <data name="CONNECT_TO_ADDRESS_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Verbinde zu Adresse</value>
   </data>
+  <data name="CONNECT_TO_TEST_SERVER" xml:space="preserve">
+    <value>Zum Testserver verbinden</value>
+  </data>
   <data name="CONNECT_WITH_RCON" xml:space="preserve">
     <value>Verbinde mit RCON</value>
   </data>
   <data name="COOKIE_LOGGING" xml:space="preserve">
     <value>Erlaube Cookies protokollieren</value>
+  </data>
+  <data name="COUNTRY" xml:space="preserve">
+    <value>Land</value>
   </data>
   <data name="DATABASE_LOGGING" xml:space="preserve">
     <value>In datenbank protokollieren</value>
@@ -361,6 +370,9 @@ Das Projekt befindet sich auf</value>
   <data name="LAST_CHATLOG" xml:space="preserve">
     <value>Letzter Chatprotokoll</value>
   </data>
+  <data name="LATITUDE_LONGITUDE" xml:space="preserve">
+    <value>Breitengrad und Längengrad</value>
+  </data>
   <data name="LAUNCHER_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Launcher</value>
   </data>
@@ -390,6 +402,9 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="MESSAGE_HOLE_LIMIT" xml:space="preserve">
     <value>Nachrichtenloch Limit</value>
+  </data>
+  <data name="METRO_CODE" xml:space="preserve">
+    <value>Metro Code</value>
   </data>
   <data name="MINIMUM_CONNECTION_TIME" xml:space="preserve">
     <value>Minimale Verbindungszeit</value>
@@ -426,6 +441,9 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="ON_FOOT_RATE" xml:space="preserve">
     <value>Zu Fuss Tickrate</value>
+  </data>
+  <data name="OPEN_DIRECTORY" xml:space="preserve">
+    <value>Öffne Verzeichnis</value>
   </data>
   <data name="OPEN_IN_EXPLORER" xml:space="preserve">
     <value>Öffne im Explorer</value>
@@ -471,6 +489,9 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="RCON_PASSWORD_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - RCON Passwort</value>
+  </data>
+  <data name="REGION" xml:space="preserve">
+    <value>Bezirk</value>
   </data>
   <data name="REMOVE_API" xml:space="preserve">
     <value>Möchtest du wirklich die selektierte APIs unwideruflich löschen?</value>
@@ -574,6 +595,12 @@ Das Projekt befindet sich auf</value>
   <data name="SHOW_GALLERY" xml:space="preserve">
     <value>Zeige Gallery</value>
   </data>
+  <data name="SHOW_IN_GOOGLE_MAPS" xml:space="preserve">
+    <value>Zeige in Google Maps</value>
+  </data>
+  <data name="SHOW_IN_OPEN_STREET_MAP" xml:space="preserve">
+    <value>Zeige in OpenStreetMap</value>
+  </data>
   <data name="SHOW_LAST_CHATLOG" xml:space="preserve">
     <value>Zeige letzten Chatprotokoll...</value>
   </data>
@@ -589,6 +616,9 @@ Das Projekt befindet sich auf</value>
   <data name="SLEEP" xml:space="preserve">
     <value>Server Tick Zeit</value>
   </data>
+  <data name="START_SERVER" xml:space="preserve">
+    <value>Server starten</value>
+  </data>
   <data name="STREAM_DISTANCE" xml:space="preserve">
     <value>Streamdistanz</value>
   </data>
@@ -600,6 +630,9 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="TIMESTAMP" xml:space="preserve">
     <value>Zeitstempel</value>
+  </data>
+  <data name="TIME_ZONE" xml:space="preserve">
+    <value>Zeitzone</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Benutzername</value>

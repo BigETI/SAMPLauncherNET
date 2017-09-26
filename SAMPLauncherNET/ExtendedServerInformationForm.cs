@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsTranslator;
 
@@ -60,7 +62,7 @@ namespace SAMPLauncherNET
         /// Player count
         /// </summary>
         private ushort playerCount = 0;
-        
+
         /// <summary>
         /// Maximal players
         /// </summary>
@@ -85,6 +87,16 @@ namespace SAMPLauncherNET
         /// Rules
         /// </summary>
         private Dictionary<string, string> rules = new Dictionary<string, string>();
+
+        /// <summary>
+        /// Geo location async
+        /// </summary>
+        private Task<GeoLocationData> geoLocationAsync = null;
+
+        /// <summary>
+        /// Geo location
+        /// </summary>
+        private GeoLocationData geoLocation = null;
 
         /// <summary>
         /// Constructor
@@ -175,6 +187,7 @@ namespace SAMPLauncherNET
                 }
             });
             serverRulesThread.Start();
+            geoLocationAsync = GeoLocator.LocateAsync(server.IPv4AddressString);
         }
 
         /// <summary>
@@ -286,6 +299,16 @@ namespace SAMPLauncherNET
                 if (cs)
                     rulesGridView.Rows[si].Selected = true;
             }
+            if ((geoLocation == null) && geoLocationAsync.IsCompleted)
+            {
+                geoLocation = geoLocationAsync.Result;
+                countryLabel.Text = Translator.GetTranslation("COUNTRY") + ": " + geoLocation.CountryName + " (" + geoLocation.CountryCode + ")";
+                regionLabel.Text = Translator.GetTranslation("REGION") + ": " + geoLocation.RegionName + " (" + geoLocation.RegionCode + ")";
+                cityLabel.Text = Translator.GetTranslation("CITY") + ": " + geoLocation.ZIPCode + " " + geoLocation.City;
+                timeZoneLabel.Text = Translator.GetTranslation("TIME_ZONE") + ": " + geoLocation.TimeZone;
+                latitudeLongitudeLabel.Text = Translator.GetTranslation("LATITUDE_LONGITUDE") + ": " + geoLocation.Latitude + "; " + geoLocation.Longitude;
+                metroCodeLabel.Text = Translator.GetTranslation("METRO_CODE") + ": " + geoLocation.MetroCode;
+            }
         }
 
         /// <summary>
@@ -297,6 +320,34 @@ namespace SAMPLauncherNET
         {
             // null route
             e.ThrowException = false;
+        }
+
+        /// <summary>
+        /// Show in Google Maps button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void showInGoogleMapsButton_Click(object sender, EventArgs e)
+        {
+            if (geoLocation != null)
+            {
+                if (geoLocation.IsValid)
+                    Process.Start("https://www.google.com/maps/@" + geoLocation.Latitude + "," + geoLocation.Longitude + ",10.0z");
+            }
+        }
+
+        /// <summary>
+        /// Show in OpenStreetMap button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void showInOpenStreetMapButton_Click(object sender, EventArgs e)
+        {
+            if (geoLocationAsync != null)
+            {
+                if (geoLocation.IsValid)
+                    Process.Start("http://www.openstreetmap.org/?mlat=" + geoLocation.Latitude + "&mlon=" + geoLocation.Longitude + "&zoom=10.0");
+            }
         }
     }
 }

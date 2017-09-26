@@ -438,15 +438,29 @@ namespace SAMPLauncherNET
             }
         }
 
-        public static void LaunchSAMPServer(string hostname, ushort port = 7777, string rconPassword = null, string[] gamemodes = null, string[] filterscripts = null, string[] plugins = null)
+        /// <summary>
+        /// Launch SA:MP server
+        /// </summary>
+        /// <param name="dtcdc">Developer tools config data contract</param>
+        public static void LaunchSAMPServer(DeveloperToolsConfigDataContract dtcdc = null)
         {
-            if ((hostname != null) && (gamemodes != null))
+            LauncherConfigDataContract lcdc = LauncherConfigIO;
+            if (dtcdc == null)
+                dtcdc = DeveloperToolsConfigIO;
+            if (File.Exists("sampctl.exe"))
             {
-                if (gamemodes.Length > 0)
+                try
                 {
-
+                    MessageBox.Show("--dir run \"" + lcdc.developmentDirectory + "\"");
+                    Process.Start("sampctl.exe", "--dir run \"" + lcdc.developmentDirectory + "\"");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            else
+                MessageBox.Show("Get \"sampctl.exe\" from https://github.com/Southclaws/sampctl/releases to run a server.", "\"sampctl\" missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         /// <summary>

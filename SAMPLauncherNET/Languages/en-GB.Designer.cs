@@ -263,6 +263,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die City ähnelt.
+        /// </summary>
+        internal static string CITY {
+            get {
+                return ResourceManager.GetString("CITY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Close when launched ähnelt.
         /// </summary>
         internal static string CLOSE_WHEN_LAUNCHED {
@@ -317,6 +326,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Connect to test server ähnelt.
+        /// </summary>
+        internal static string CONNECT_TO_TEST_SERVER {
+            get {
+                return ResourceManager.GetString("CONNECT_TO_TEST_SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Connect with RCON ähnelt.
         /// </summary>
         internal static string CONNECT_WITH_RCON {
@@ -349,6 +367,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string COOKIE_LOGGING {
             get {
                 return ResourceManager.GetString("COOKIE_LOGGING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Country ähnelt.
+        /// </summary>
+        internal static string COUNTRY {
+            get {
+                return ResourceManager.GetString("COUNTRY", resourceCulture);
             }
         }
         
@@ -776,6 +803,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Latitude and longitude ähnelt.
+        /// </summary>
+        internal static string LATITUDE_LONGITUDE {
+            get {
+                return ResourceManager.GetString("LATITUDE_LONGITUDE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Launch debug mode ähnelt.
         /// </summary>
         internal static string LAUNCH_DEBUG_MODE {
@@ -862,6 +898,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string MESSAGES_LIMIT {
             get {
                 return ResourceManager.GetString("MESSAGES_LIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Metro code ähnelt.
+        /// </summary>
+        internal static string METRO_CODE {
+            get {
+                return ResourceManager.GetString("METRO_CODE", resourceCulture);
             }
         }
         
@@ -970,6 +1015,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string ON_FOOT_RATE {
             get {
                 return ResourceManager.GetString("ON_FOOT_RATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Open directory ähnelt.
+        /// </summary>
+        internal static string OPEN_DIRECTORY {
+            get {
+                return ResourceManager.GetString("OPEN_DIRECTORY", resourceCulture);
             }
         }
         
@@ -1105,6 +1159,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string RCON_PASSWORD_TITLE {
             get {
                 return ResourceManager.GetString("RCON_PASSWORD_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Region ähnelt.
+        /// </summary>
+        internal static string REGION {
+            get {
+                return ResourceManager.GetString("REGION", resourceCulture);
             }
         }
         
@@ -1415,6 +1478,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Show in Google Maps ähnelt.
+        /// </summary>
+        internal static string SHOW_IN_GOOGLE_MAPS {
+            get {
+                return ResourceManager.GetString("SHOW_IN_GOOGLE_MAPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Show in OpenStreetMap ähnelt.
+        /// </summary>
+        internal static string SHOW_IN_OPEN_STREET_MAP {
+            get {
+                return ResourceManager.GetString("SHOW_IN_OPEN_STREET_MAP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Show last chatlog... ähnelt.
         /// </summary>
         internal static string SHOW_LAST_CHATLOG {
@@ -1460,6 +1541,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Start server ähnelt.
+        /// </summary>
+        internal static string START_SERVER {
+            get {
+                return ResourceManager.GetString("START_SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Stream distance ähnelt.
         /// </summary>
         internal static string STREAM_DISTANCE {
@@ -1483,6 +1573,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string TEMPORARY_USERNAME {
             get {
                 return ResourceManager.GetString("TEMPORARY_USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Time zone ähnelt.
+        /// </summary>
+        internal static string TIME_ZONE {
+            get {
+                return ResourceManager.GetString("TIME_ZONE", resourceCulture);
             }
         }
         

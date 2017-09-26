@@ -1582,5 +1582,64 @@ namespace SAMPLauncherNET
                 ReloadDeveloperToolsConfig();
             }
         }
+
+        /// <summary>
+        /// Save developer tools configuration
+        /// </summary>
+        private DeveloperToolsConfigDataContract SaveDeveloperToolsConfig()
+        {
+            DeveloperToolsConfigDataContract ret = SAMP.DeveloperToolsConfigIO;
+            List<string> entries = new List<string>();
+            foreach (var item in developerToolsGamemodesCheckedListBox.CheckedItems)
+                entries.Add(item.ToString());
+            ret.gamemodes = entries.ToArray();
+            entries.Clear();
+            foreach (var item in developerToolsFilterscriptsCheckedListBox.CheckedItems)
+                entries.Add(item.ToString());
+            ret.filterscripts = entries.ToArray();
+            entries.Clear();
+            foreach (var item in developerToolsPluginsCheckedListBox.CheckedItems)
+                entries.Add(item.ToString());
+            ret.plugins = entries.ToArray();
+            entries.Clear();
+            ret.hostname = developerToolsHostnameSingleLineTextField.Text;
+            ret.port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
+            ret.password = developerToolsServerPasswordSingleLineTextField.Text;
+            ret.rconPassword = developerToolsRCONPasswordSingleLineTextField.Text;
+            SAMP.DeveloperToolsConfigIO = ret;
+            return ret;
+        }
+
+        /// <summary>
+        /// Developer tools open directory button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void developerToolsOpenDirectoryButton_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(developmentDirectorySingleLineTextField.Text))
+                Process.Start("explorer.exe", developmentDirectorySingleLineTextField.Text);
+        }
+
+        /// <summary>
+        /// Developer tools start server button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void developerToolsStartServerButton_Click(object sender, EventArgs e)
+        {
+            SAMP.LaunchSAMPServer(SaveDeveloperToolsConfig());
+        }
+
+        /// <summary>
+        /// Developer tools connect to test server button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void developerToolsConnectToTestServerButton_Click(object sender, EventArgs e)
+        {
+            DeveloperToolsConfigDataContract dtcdc = SAMP.DeveloperToolsConfigIO;
+            Connect(new Server("127.0.0.1:" + dtcdc.port, false), dtcdc.rconPassword);
+        }
     }
 }
