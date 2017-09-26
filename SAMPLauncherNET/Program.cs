@@ -1,7 +1,9 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using UpdaterNET;
 using WinFormsTranslator;
 
 /// <summary>
@@ -50,23 +52,41 @@ namespace SAMPLauncherNET
         [STAThread]
         static void Main()
         {
-            try
+            Update update = new Update("https://raw.githubusercontent.com/BigETI/SAMPLauncherNET/master/update.json", Application.ExecutablePath);
+            bool start_update = false;
+            if (update.IsUpdateAvailable)
+                start_update = (MessageBox.Show("A new update for SA:MP Launcher .NET is available.\r\nVersion: " + update.Version + "\r\n\r\nDo you want to install it now?", "Update available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes);
+            if (start_update)
             {
-                Translator.TranslatorInterface = new TranslatorInterface();
-                if (IsSAMPInstalled)
+                try
                 {
-                    if (!Directory.Exists(ConfigPath + "\\screens"))
-                        Directory.CreateDirectory(ConfigPath + "\\screens");
-                    Application.EnableVisualStyles();
-                    Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new MainForm());
+                    Process.Start("SAMPLauncherNETUpdater.exe");
                 }
-                else
-                    MessageBox.Show("San Andreas Multiplayer is not installed.\r\nTo use this application, you have to install GTA San Andreas and San Andreas Multiplayer first.", "San Andreas Multiplayer is not installed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception e)
+            else
             {
-                MessageBox.Show("A fatal error has occured:\r\n\r\n" + e.Message, "Fatal error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    Translator.TranslatorInterface = new TranslatorInterface();
+                    if (IsSAMPInstalled)
+                    {
+                        if (!Directory.Exists(ConfigPath + "\\screens"))
+                            Directory.CreateDirectory(ConfigPath + "\\screens");
+                        Application.EnableVisualStyles();
+                        Application.SetCompatibleTextRenderingDefault(false);
+                        Application.Run(new MainForm());
+                    }
+                    else
+                        MessageBox.Show("San Andreas Multiplayer is not installed.\r\nTo use this application, you have to install GTA San Andreas and San Andreas Multiplayer first.", "San Andreas Multiplayer is not installed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("A fatal error has occured:\r\n\r\n" + e.Message, "Fatal error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             Application.Exit();
         }

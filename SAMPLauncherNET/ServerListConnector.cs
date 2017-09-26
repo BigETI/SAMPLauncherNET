@@ -175,7 +175,7 @@ namespace SAMPLauncherNET
                                 wc.Headers.Set(HttpRequestHeader.UserAgent, APIHTTPUserAgent);
                                 using (MemoryStream stream = new MemoryStream(wc.DownloadData(endpoint)))
                                 {
-                                    ServerDataContract[] servers = (ServerDataContract[])(serverListJSONSerializer.ReadObject(stream));
+                                    ServerDataContract[] servers = serverListJSONSerializer.ReadObject(stream) as ServerDataContract[];
                                     if (servers != null)
                                     {
                                         foreach (ServerDataContract sdc in servers)

@@ -21,10 +21,6 @@ namespace SAMPLauncherNET
     /// </summary>
     public partial class MainForm : MaterialForm
     {
-        /// <summary>
-        /// Material skin manager
-        /// </summary>
-        private MaterialSkinManager materialSkinManager = null;
 
         /// <summary>
         /// Load servers
@@ -138,11 +134,11 @@ namespace SAMPLauncherNET
                 ++i;
             }
 
-            materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue700, Primary.Blue800, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
-            //materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange400, Primary.DeepOrange600, Primary.DeepOrange100, Accent.Orange100, TextShade.WHITE);
+            MaterialSkinManager material_skin_manager = MaterialSkinManager.Instance;
+            material_skin_manager.AddFormToManage(this);
+            material_skin_manager.Theme = MaterialSkinManager.Themes.DARK;
+            material_skin_manager.ColorScheme = new ColorScheme(Primary.Blue700, Primary.Blue800, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
+            //material_skin_manager.ColorScheme = new ColorScheme(Primary.DeepOrange400, Primary.DeepOrange600, Primary.DeepOrange100, Accent.Orange100, TextShade.WHITE);
 
             galleryFileSystemWatcher.Path = SAMP.GalleryPath;
             textFileSystemWatcher.Path = SAMP.ConfigPath;

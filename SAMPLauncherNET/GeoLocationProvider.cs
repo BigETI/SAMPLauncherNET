@@ -49,7 +49,7 @@ namespace SAMPLauncherNET
             {
                 WebClientEx wc = new WebClientEx(1000);
                 wc.Headers.Set(HttpRequestHeader.Accept, "application/json");
-                wc.Headers.Set(HttpRequestHeader.Accept, ServerListConnector.APIHTTPUserAgent);
+                wc.Headers.Set(HttpRequestHeader.UserAgent, ServerListConnector.APIHTTPUserAgent);
                 using (MemoryStream stream = new MemoryStream(wc.DownloadData(endpoint + host)))
                 {
                     object result = serializer.ReadObject(stream);
@@ -57,9 +57,9 @@ namespace SAMPLauncherNET
                         ret = new GeoLocationData(result);
                 }
             }
-            catch (Exception e)
+            catch
             {
-                System.Windows.Forms.MessageBox.Show(e.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                //
             }
             return ret;
         }

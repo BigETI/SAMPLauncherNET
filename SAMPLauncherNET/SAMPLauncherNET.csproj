@@ -56,8 +56,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>libs\INIEngine.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialSkin">
-      <HintPath>libs\MaterialSkin.dll</HintPath>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -72,6 +73,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UpdaterNET">
+      <HintPath>..\libs\UpdaterNET.dll</HintPath>
+    </Reference>
     <Reference Include="WinFormsTranslator">
       <HintPath>libs\WinFormsTranslator.dll</HintPath>
     </Reference>
