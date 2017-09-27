@@ -121,8 +121,7 @@
     <value>О программе</value>
   </data>
   <data name="ABOUT_DESCRIPTION" xml:space="preserve">
-    <value>
-SAMPLauncher NET - это загрузчик для San Andreas Multiplayer.
+    <value>SAMPLauncher NET - это загрузчик для San Andreas Multiplayer.
 
 Это программное обеспечение бесплатно и лицензировано по лицензии GPLv3.
 
@@ -188,6 +187,12 @@ SAMPLauncher NET - это загрузчик для San Andreas Multiplayer.
   <data name="CONNECT_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Подключиться</value>
   </data>
+  <data name="CONNECT_TO_ADDRESS" xml:space="preserve">
+    <value>Подключиться к адресу</value>
+  </data>
+  <data name="CONNECT_TO_ADDRESS_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Подключиться к адресу</value>
+  </data>
   <data name="CONNECT_WITH_RCON" xml:space="preserve">
     <value>Подключиться с RCON</value>
   </data>
@@ -216,7 +221,7 @@ SAMPLauncher NET - это загрузчик для San Andreas Multiplayer.
     <value>Редактировать выбранный API</value>
   </data>
   <data name="ENGLISH" xml:space="preserve">
-    <value>английский (English)</value>
+    <value>Английский (English)</value>
   </data>
   <data name="ERROR" xml:space="preserve">
     <value>Ошибка</value>
@@ -258,7 +263,7 @@ SAMPLauncher NET - это загрузчик для San Andreas Multiplayer.
     <value>Игровой режим</value>
   </data>
   <data name="GEORGIAN" xml:space="preserve">
-    <value>грузинский (ქართული)</value>
+    <value>Грузинский (ქართული)</value>
   </data>
   <data name="GERMAN" xml:space="preserve">
     <value>Немецкий (Deutsch)</value>
@@ -297,7 +302,7 @@ SAMPLauncher NET - это загрузчик для San Andreas Multiplayer.
     <value>Язык</value>
   </data>
   <data name="LAST_CHATLOG" xml:space="preserve">
-    <value>Последний лог чата</value>
+    <value>Лог чата</value>
   </data>
   <data name="LAUNCHER_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Загрузчик</value>
@@ -441,7 +446,7 @@ SAMPLauncher NET - это загрузчик для San Andreas Multiplayer.
     <value>Показать последний лог чата...</value>
   </data>
   <data name="SHOW_LEGACY_FAVOURITES" xml:space="preserve">
-    <value>Список загрузчика</value>
+    <value>Оригинальный список</value>
   </data>
   <data name="SHOW_LEGACY_HOSTED_LIST" xml:space="preserve">
     <value>Список Hosted</value>
@@ -457,5 +462,203 @@ SAMPLauncher NET - это загрузчик для San Andreas Multiplayer.
   </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Имя пользователя</value>
+  </data>
+  <data name="SEARCH_ON" xml:space="preserve">
+    <value>Искать в...</value>
+  </data>
+  <data name="SEARCH_ON_BING" xml:space="preserve">
+    <value>Bing</value>
+  </data>
+  <data name="SEARCH_ON_DUCK_DUCK_GO" xml:space="preserve">
+    <value>DuckDuckGo</value>
+  </data>
+  <data name="SEARCH_ON_GOOGLE" xml:space="preserve">
+    <value>Google</value>
+  </data>
+  <data name="SEARCH_ON_YAHOO" xml:space="preserve">
+    <value>Yahoo</value>
+  </data>
+  <data name="SEARCH_ON_YANDEX" xml:space="preserve">
+    <value>Yandex</value>
+  </data>
+  <data name="SEARCH_ON_YOU_TUBE" xml:space="preserve">
+    <value>YouTube</value>
+  </data>
+  <data name="VISIT_WEBSITE" xml:space="preserve">
+    <value>Посетить сайт</value>
+  </data>
+  <data name="VISIT_WEBSITE_MESSAGE" xml:space="preserve">
+    <value>Вы действительно хотите посетить этот сайт?</value>
+  </data>
+  <data name="VISIT_WEBSITE_TITLE" xml:space="preserve">
+    <value>Посетить</value>
+  </data>
+  <data name="ACKNOWLEDGES_LIMIT" xml:space="preserve">
+    <value>Ограничения доступа</value>
+  </data>
+  <data name="ANNOUNCE" xml:space="preserve">
+    <value>Видимость сервера</value>
+  </data>
+  <data name="BIND" xml:space="preserve">
+    <value>Прикрепить IP адрес</value>
+  </data>
+  <data name="CHAT_LOGGING" xml:space="preserve">
+    <value>Включить логирование чата</value>
+  </data>
+  <data name="CONNECTION_COOKIES" xml:space="preserve">
+    <value>Разрешить файлы cookie при подключении</value>
+  </data>
+  <data name="CONNECTION_SEED_TIME" xml:space="preserve">
+    <value>Время установления соединения</value>
+  </data>
+  <data name="COOKIE_LOGGING" xml:space="preserve">
+    <value>Включить логирование файлов cookie</value>
+  </data>
+  <data name="DATABASE_LOGGING" xml:space="preserve">
+    <value>Включить логирование базы данных</value>
+  </data>
+  <data name="DATABASE_LOG_QUERIES" xml:space="preserve">
+    <value>Логирование запросов к базе данных</value>
+  </data>
+  <data name="DEVELOPER_TOOLS" xml:space="preserve">
+    <value>Инструменты разработчика</value>
+  </data>
+  <data name="DEVELOPER_TOOLS_CONFIGURATION_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Настройка инструментов разработчика</value>
+  </data>
+  <data name="DEVELOPMENT_DIRECTORY" xml:space="preserve">
+    <value>Директория разработки</value>
+  </data>
+  <data name="FILTERSCRIPTS" xml:space="preserve">
+    <value>Filterscripts</value>
+  </data>
+  <data name="GAMEMODES" xml:space="preserve">
+    <value>Игровые режимы</value>
+  </data>
+  <data name="GAMEMODE_TEXT" xml:space="preserve">
+    <value>Текст игрового режима</value>
+  </data>
+  <data name="IN_CAR_RATE" xml:space="preserve">
+    <value>Скорость обновления данных транспорта</value>
+  </data>
+  <data name="LAG_COMPENSATION_MODE" xml:space="preserve">
+    <value>Lag compensation mode</value>
+  </data>
+  <data name="LAN_MODE" xml:space="preserve">
+    <value>LAN mode</value>
+  </data>
+  <data name="LOG_QUERIES" xml:space="preserve">
+    <value>Лог запроов</value>
+  </data>
+  <data name="LOG_TIME_FORMAT" xml:space="preserve">
+    <value>Логируемый формат времени</value>
+  </data>
+  <data name="MAP_NAME" xml:space="preserve">
+    <value>Название карты</value>
+  </data>
+  <data name="MAXIMAL_NPCS" xml:space="preserve">
+    <value>Максимальное число NPC</value>
+  </data>
+  <data name="MAXIMAL_PLAYERS" xml:space="preserve">
+    <value>Максимальное число игроков</value>
+  </data>
+  <data name="MESSAGES_LIMIT" xml:space="preserve">
+    <value>Лимит сообщений</value>
+  </data>
+  <data name="MESSAGE_HOLE_LIMIT" xml:space="preserve">
+    <value>Message hole limit</value>
+  </data>
+  <data name="MINIMUM_CONNECTION_TIME" xml:space="preserve">
+    <value>Минимальное время подключения</value>
+  </data>
+  <data name="NO_SIGN" xml:space="preserve">
+    <value>Нет подписи</value>
+  </data>
+  <data name="ON_FOOT_RATE" xml:space="preserve">
+    <value>Скорость обновления данных пешеходов</value>
+  </data>
+  <data name="OPEN_IN_EXPLORER" xml:space="preserve">
+    <value>Открыть в проводнике</value>
+  </data>
+  <data name="PASSWORD" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="PLAYER_TIME_OUT" xml:space="preserve">
+    <value>Тайм-аут игрока</value>
+  </data>
+  <data name="PLUGINS" xml:space="preserve">
+    <value>Плагины</value>
+  </data>
+  <data name="PORT" xml:space="preserve">
+    <value>Порт</value>
+  </data>
+  <data name="QUERY" xml:space="preserve">
+    <value>Включить запросы</value>
+  </data>
+  <data name="RCON" xml:space="preserve">
+    <value>Включить RCON</value>
+  </data>
+  <data name="SHOW_ADDITIONAL_CONFIGURATIONS" xml:space="preserve">
+    <value>Показать дополнительные настройки</value>
+  </data>
+  <data name="SLEEP" xml:space="preserve">
+    <value>Время сна</value>
+  </data>
+  <data name="STREAM_DISTANCE" xml:space="preserve">
+    <value>Дистанция области видимости</value>
+  </data>
+  <data name="STREAM_RATE" xml:space="preserve">
+    <value>Скорость обновления области видимости</value>
+  </data>
+  <data name="WEAPON_RATE" xml:space="preserve">
+    <value>Скорость обновления данных об оружии</value>
+  </data>
+  <data name="WEBSITE_URL" xml:space="preserve">
+    <value>Адрес сайта</value>
+  </data>
+  <data name="CITY" xml:space="preserve">
+    <value>Город</value>
+  </data>
+  <data name="CONNECT_TO_TEST_SERVER" xml:space="preserve">
+    <value>Подключиться к тестовому серверу</value>
+  </data>
+  <data name="COUNTRY" xml:space="preserve">
+    <value>Страна</value>
+  </data>
+  <data name="LATITUDE_LONGITUDE" xml:space="preserve">
+    <value>Широта и долгота</value>
+  </data>
+  <data name="METRO_CODE" xml:space="preserve">
+    <value>Код Metro</value>
+  </data>
+  <data name="OPEN_DIRECTORY" xml:space="preserve">
+    <value>Открыть директорию</value>
+  </data>
+  <data name="REGION" xml:space="preserve">
+    <value>Регион</value>
+  </data>
+  <data name="SHOW_IN_GOOGLE_MAPS" xml:space="preserve">
+    <value>Показать в Google Maps</value>
+  </data>
+  <data name="SHOW_IN_OPEN_STREET_MAP" xml:space="preserve">
+    <value>Показать в OpenStreetMap</value>
+  </data>
+  <data name="START_SERVER" xml:space="preserve">
+    <value>Запустить сервер</value>
+  </data>
+  <data name="TIME_ZONE" xml:space="preserve">
+    <value>Временная зона</value>
+  </data>
+  <data name="ASSEMBLY_VERSION" xml:space="preserve">
+    <value>Версия сборки</value>
+  </data>
+  <data name="FILE_VERSION" xml:space="preserve">
+    <value>Версия файла</value>
+  </data>
+  <data name="PRODUCT_VERSION" xml:space="preserve">
+    <value>Версия продукта</value>
+  </data>
+  <data name="STOP_SERVER" xml:space="preserve">
+    <value>Остановить сервер</value>
   </data>
 </root>
