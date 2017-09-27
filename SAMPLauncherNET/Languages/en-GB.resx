@@ -121,7 +121,8 @@
     <value>About</value>
   </data>
   <data name="ABOUT_DESCRIPTION" xml:space="preserve">
-    <value>SAMPLauncher NET is a launcher for San Andreas Multiplayer.
+    <value>
+SAMPLauncher NET is a launcher for San Andreas Multiplayer.
 
 This software is all time free and licenced with GPLv3.
 
@@ -171,6 +172,9 @@ This project is located at</value>
   </data>
   <data name="API_TYPE_MISSING_TITLE" xml:space="preserve">
     <value>API type missing</value>
+  </data>
+  <data name="ASSEMBLY_VERSION" xml:space="preserve">
+    <value>Assembly version</value>
   </data>
   <data name="AUDIO_MESSAGE_OFF" xml:space="preserve">
     <value>Audio message off</value>
@@ -279,6 +283,9 @@ This project is located at</value>
   </data>
   <data name="FAVOURITE_LIST_NOT_SELECTED_TITLE" xml:space="preserve">
     <value>Favourites list not selected</value>
+  </data>
+  <data name="FILE_VERSION" xml:space="preserve">
+    <value>File version</value>
   </data>
   <data name="FILTERSCRIPTS" xml:space="preserve">
     <value>Filterscripts</value>
@@ -475,6 +482,9 @@ This project is located at</value>
   <data name="PORT" xml:space="preserve">
     <value>Port</value>
   </data>
+  <data name="PRODUCT_VERSION" xml:space="preserve">
+    <value>Product version</value>
+  </data>
   <data name="QUERY" xml:space="preserve">
     <value>Enable query</value>
   </data>
@@ -615,6 +625,9 @@ This project is located at</value>
   </data>
   <data name="START_SERVER" xml:space="preserve">
     <value>Start server</value>
+  </data>
+  <data name="STOP_SERVER" xml:space="preserve">
+    <value>Stop server</value>
   </data>
   <data name="STREAM_DISTANCE" xml:space="preserve">
     <value>Stream distance</value>

@@ -70,7 +70,8 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SAMPLauncher NET არის SA-MP-ის ახალი სტილის ლაუნჩერი.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///SAMPLauncher NET არის SA-MP-ის ახალი სტილის ლაუნჩერი.
         ///
         ///ეს პროგრამა არის უფასო და ლიცენზირებულია GPLv3-ით.
         /// ähnelt.

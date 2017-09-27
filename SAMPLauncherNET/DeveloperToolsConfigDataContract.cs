@@ -21,7 +21,7 @@ namespace SAMPLauncherNET
         /// RCON password
         /// </summary>
         [DataMember(Name = "rcon_password")]
-        public string rconPassword = "";
+        public string rconPassword = Utils.GetRandomString(16);
 
         /// <summary>
         /// Announce server

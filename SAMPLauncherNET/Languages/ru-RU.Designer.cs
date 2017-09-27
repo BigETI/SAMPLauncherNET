@@ -70,7 +70,8 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SAMPLauncher NET - это загрузчик для San Andreas Multiplayer.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///SAMPLauncher NET - это загрузчик для San Andreas Multiplayer.
         ///
         ///Это программное обеспечение бесплатно и лицензировано по лицензии GPLv3.
         ///

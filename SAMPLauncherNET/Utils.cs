@@ -141,6 +141,24 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Get random string
+        /// </summary>
+        /// <param name="length">Length</param>
+        /// <param name="characters">Characters</param>
+        /// <returns>Randomized string</returns>
+        public static string GetRandomString(uint length, string characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+        {
+            char[] ret = new char[length];
+            if (characters.Length > 0)
+            {
+                Random rand = new Random();
+                for (uint i = 0U; i != length; i++)
+                    ret[i] = characters[rand.Next(characters.Length)];
+            }
+            return new string(ret);
+        }
+
+        /// <summary>
         /// Get thumbnail
         /// </summary>
         /// <param name="image">Image</param>

@@ -4,6 +4,8 @@ using System;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
+using UpdaterNET;
+using System.Diagnostics;
 
 /// <summary>
 /// SA:MP launcher .NET updater namespace
@@ -34,15 +36,28 @@ namespace SAMPLauncherNETUpdater
         }
 
         /// <summary>
+        /// Close application
+        /// </summary>
+        private void CloseApp()
+        {
+            Process.Start("SAMPLauncherNET.exe");
+            Application.Exit();
+        }
+
+        /// <summary>
         /// Main form load event
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">Event arguments</param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            UpdaterNET.Update update = new UpdaterNET.Update("https://raw.githubusercontent.com/BigETI/SAMPLauncherNET/master/update.json", Directory.GetCurrentDirectory() + "\\SAMPLauncherNET.exe");
+            UpdateTask update = new UpdateTask("https://raw.githubusercontent.com/BigETI/SAMPLauncherNET/master/update.json", Directory.GetCurrentDirectory() + "\\SAMPLauncherNET.exe");
+            update.DownloadProgressChanged += OnDownloadProgressChanged;
+            update.UpdateTaskFinished += OnUpdateTaskFinished;
             if (update.IsUpdateAvailable)
-                update.InstallUpdates(OnDownloadProgressChanged, OnUpdatesInstalled);
+                update.InstallUpdates();
+            else
+                CloseApp();
         }
 
         /// <summary>
@@ -61,10 +76,12 @@ namespace SAMPLauncherNETUpdater
         /// On updates installed
         /// </summary>
         /// <param name="sender">Sender</param>
-        /// <param name="e">Event arguments</param>
-        private void OnUpdatesInstalled(object sender, EventArgs e)
+        /// <param name="e">Update task finished event arguments</param>
+        private void OnUpdateTaskFinished(object sender, UpdateTaskFinishedEventArgs e)
         {
-            Application.Exit();
+            if (e.IsError)
+                MessageBox.Show(e.Error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            CloseApp();
         }
 
         /// <summary>

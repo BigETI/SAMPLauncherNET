@@ -49,6 +49,9 @@ namespace SAMPLauncherNET
         /// </summary>
         public static readonly string SAMPDebugPath = ExeDir + "\\samp_debug.exe";
 
+        /// <summary>
+        /// Launcher config path
+        /// </summary>
         public const string LauncherConfigPath = "./config.json";
 
         /// <summary>
@@ -115,6 +118,11 @@ namespace SAMPLauncherNET
         /// Developer tools serializer
         /// </summary>
         public static DataContractJsonSerializer developerToolsConfigSerializer = new DataContractJsonSerializer(typeof(DeveloperToolsConfigDataContract));
+
+        /// <summary>
+        /// Last server process
+        /// </summary>
+        public static Process lastServerProcess = null;
 
         /// <summary>
         /// Username
@@ -439,6 +447,25 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Close last server
+        /// </summary>
+        public static void CloseLastServer()
+        {
+            if (lastServerProcess != null)
+            {
+                try
+                {
+                    lastServerProcess.CloseMainWindow();
+                    lastServerProcess = null;
+                }
+                catch
+                {
+                    //
+                }
+            }
+        }
+
+        /// <summary>
         /// Launch SA:MP server
         /// </summary>
         /// <param name="dtcdc">Developer tools config data contract</param>
@@ -451,8 +478,8 @@ namespace SAMPLauncherNET
             {
                 try
                 {
-                    MessageBox.Show("--dir run \"" + lcdc.developmentDirectory + "\"");
-                    Process.Start("sampctl.exe", "--dir run \"" + lcdc.developmentDirectory + "\"");
+                    CloseLastServer();
+                    lastServerProcess = Process.Start("sampctl.exe", "run --dir " + lcdc.developmentDirectory);
                 }
                 catch (Exception e)
                 {

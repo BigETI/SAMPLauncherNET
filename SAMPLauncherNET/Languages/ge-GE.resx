@@ -121,7 +121,8 @@
     <value>ჩვენს შესახებ</value>
   </data>
   <data name="ABOUT_DESCRIPTION" xml:space="preserve">
-    <value>SAMPLauncher NET არის SA-MP-ის ახალი სტილის ლაუნჩერი.
+    <value>
+SAMPLauncher NET არის SA-MP-ის ახალი სტილის ლაუნჩერი.
 
 ეს პროგრამა არის უფასო და ლიცენზირებულია GPLv3-ით.
 </value>

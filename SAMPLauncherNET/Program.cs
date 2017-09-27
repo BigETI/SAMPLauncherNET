@@ -52,7 +52,7 @@ namespace SAMPLauncherNET
         [STAThread]
         static void Main()
         {
-            Update update = new Update("https://raw.githubusercontent.com/BigETI/SAMPLauncherNET/master/update.json", Application.ExecutablePath);
+            UpdateTask update = new UpdateTask("https://raw.githubusercontent.com/BigETI/SAMPLauncherNET/master/update.json", Application.ExecutablePath);
             bool start_update = false;
             if (update.IsUpdateAvailable)
                 start_update = (MessageBox.Show("A new update for SA:MP Launcher .NET is available.\r\nVersion: " + update.Version + "\r\n\r\nDo you want to install it now?", "Update available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes);

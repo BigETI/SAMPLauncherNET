@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -133,6 +134,9 @@ namespace SAMPLauncherNET
                 }
                 ++i;
             }
+            assemblyVersionLabel.Text += ": " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            fileVersionLabel.Text += ": " + FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
+            productVersionLabel.Text += ": " + FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
 
             MaterialSkinManager material_skin_manager = MaterialSkinManager.Instance;
             material_skin_manager.AddFormToManage(this);
@@ -495,7 +499,7 @@ namespace SAMPLauncherNET
         /// Connect
         /// </summary>
         /// <param name="rconPassword">RCON password</param>
-        private void Connect(Server server = null, string rconPassword = null)
+        private void Connect(Server server = null, string rconPassword = null, bool quitWhenDone = false)
         {
             if (server == null)
                 server = SelectedServer;
@@ -505,7 +509,7 @@ namespace SAMPLauncherNET
                 DialogResult result = cf.ShowDialog();
                 DialogResult = DialogResult.None;
                 if (result == DialogResult.OK)
-                    SAMP.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, false, closeWhenLaunchedCheckBox.Checked, this);
+                    SAMP.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, false, quitWhenDone, this);
             }
         }
 
@@ -679,6 +683,38 @@ namespace SAMPLauncherNET
                 FillItemsInCheckedListBox(developerToolsFilterscriptsCheckedListBox, Utils.GetFilesFromDirectory(directory + "filterscripts", "*.amx", SearchOption.AllDirectories), dtcdc.filterscripts);
                 FillItemsInCheckedListBox(developerToolsPluginsCheckedListBox, Utils.GetFilesFromDirectory(directory + "plugins", "*.amx", SearchOption.AllDirectories), dtcdc.plugins);
             }
+        }
+
+        /// <summary>
+        /// Save developer tools configuration
+        /// </summary>
+        private DeveloperToolsConfigDataContract SaveDeveloperToolsConfig()
+        {
+            DeveloperToolsConfigDataContract ret = SAMP.DeveloperToolsConfigIO;
+            List<string> entries = new List<string>();
+            foreach (var item in developerToolsGamemodesCheckedListBox.CheckedItems)
+                entries.Add(item.ToString());
+            ret.gamemodes = entries.ToArray();
+            entries.Clear();
+            foreach (var item in developerToolsFilterscriptsCheckedListBox.CheckedItems)
+                entries.Add(item.ToString());
+            ret.filterscripts = entries.ToArray();
+            entries.Clear();
+            foreach (var item in developerToolsPluginsCheckedListBox.CheckedItems)
+                entries.Add(item.ToString());
+            ret.plugins = entries.ToArray();
+            entries.Clear();
+            ret.hostname = developerToolsHostnameSingleLineTextField.Text;
+            ret.port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
+            ret.password = developerToolsServerPasswordSingleLineTextField.Text;
+            ret.rconPassword = developerToolsRCONPasswordSingleLineTextField.Text;
+            if (ret.rconPassword.Trim().Length <= 0)
+            {
+                ret.rconPassword = Utils.GetRandomString(16);
+                developerToolsRCONPasswordSingleLineTextField.Text = ret.rconPassword;
+            }
+            SAMP.DeveloperToolsConfigIO = ret;
+            return ret;
         }
 
         /// <summary>
@@ -859,12 +895,7 @@ namespace SAMPLauncherNET
             lcdc.lastSelectedServerListAPI = selectedAPIIndex;
             lcdc.developmentDirectory = developmentDirectorySingleLineTextField.Text;
             SAMP.LauncherConfigIO = lcdc;
-            DeveloperToolsConfigDataContract dtcdc = SAMP.DeveloperToolsConfigIO;
-            dtcdc.hostname = developerToolsHostnameSingleLineTextField.Text;
-            dtcdc.port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
-            dtcdc.password = developerToolsServerPasswordSingleLineTextField.Text;
-            dtcdc.rconPassword = developerToolsRCONPasswordSingleLineTextField.Text;
-            SAMP.DeveloperToolsConfigIO = dtcdc;
+            SaveDeveloperToolsConfig();
             lock (loadServers)
             {
                 foreach (KeyValuePair<Server, int> kv in loadServers)
@@ -891,6 +922,7 @@ namespace SAMPLauncherNET
                 rowThread.Abort();
                 rowThread = null;
             }
+            SAMP.CloseLastServer();
         }
 
         /// <summary>
@@ -1065,7 +1097,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void connectButton_Click(object sender, EventArgs e)
         {
-            Connect();
+            Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked);
         }
 
         /// <summary>
@@ -1258,7 +1290,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void connectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Connect();
+            Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked);
         }
 
         /// <summary>
@@ -1272,7 +1304,7 @@ namespace SAMPLauncherNET
             DialogResult result = rconf.ShowDialog();
             DialogResult = DialogResult.None;
             if (result == DialogResult.OK)
-                Connect(null, rconf.RCONPassword);
+                Connect(null, rconf.RCONPassword, closeWhenLaunchedCheckBox.Checked);
         }
 
         /// <summary>
@@ -1283,7 +1315,7 @@ namespace SAMPLauncherNET
         private void serversGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
-                Connect();
+                Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked);
         }
 
         /// <summary>
@@ -1417,7 +1449,7 @@ namespace SAMPLauncherNET
             if (result == DialogResult.OK)
             {
                 Server server = new Server(chf.HostAndPort, false);
-                Connect(server);
+                Connect(server, quitWhenDone: closeWhenLaunchedCheckBox.Checked);
                 server.Dispose();
             }
         }
@@ -1580,33 +1612,6 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Save developer tools configuration
-        /// </summary>
-        private DeveloperToolsConfigDataContract SaveDeveloperToolsConfig()
-        {
-            DeveloperToolsConfigDataContract ret = SAMP.DeveloperToolsConfigIO;
-            List<string> entries = new List<string>();
-            foreach (var item in developerToolsGamemodesCheckedListBox.CheckedItems)
-                entries.Add(item.ToString());
-            ret.gamemodes = entries.ToArray();
-            entries.Clear();
-            foreach (var item in developerToolsFilterscriptsCheckedListBox.CheckedItems)
-                entries.Add(item.ToString());
-            ret.filterscripts = entries.ToArray();
-            entries.Clear();
-            foreach (var item in developerToolsPluginsCheckedListBox.CheckedItems)
-                entries.Add(item.ToString());
-            ret.plugins = entries.ToArray();
-            entries.Clear();
-            ret.hostname = developerToolsHostnameSingleLineTextField.Text;
-            ret.port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
-            ret.password = developerToolsServerPasswordSingleLineTextField.Text;
-            ret.rconPassword = developerToolsRCONPasswordSingleLineTextField.Text;
-            SAMP.DeveloperToolsConfigIO = ret;
-            return ret;
-        }
-
-        /// <summary>
         /// Developer tools open directory button click event
         /// </summary>
         /// <param name="sender">Sender</param>
@@ -1614,7 +1619,7 @@ namespace SAMPLauncherNET
         private void developerToolsOpenDirectoryButton_Click(object sender, EventArgs e)
         {
             if (Directory.Exists(developmentDirectorySingleLineTextField.Text))
-                Process.Start("explorer.exe", developmentDirectorySingleLineTextField.Text);
+                Process.Start("explorer.exe", Path.GetFullPath(developmentDirectorySingleLineTextField.Text));
         }
 
         /// <summary>
@@ -1624,7 +1629,18 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void developerToolsStartServerButton_Click(object sender, EventArgs e)
         {
+            SaveDeveloperToolsConfig();
             SAMP.LaunchSAMPServer(SaveDeveloperToolsConfig());
+        }
+
+        /// <summary>
+        /// Stop server button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void stopServerButton_Click(object sender, EventArgs e)
+        {
+            SAMP.CloseLastServer();
         }
 
         /// <summary>

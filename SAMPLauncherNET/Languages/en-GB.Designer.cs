@@ -70,7 +70,8 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SAMPLauncher NET is a launcher for San Andreas Multiplayer.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///SAMPLauncher NET is a launcher for San Andreas Multiplayer.
         ///
         ///This software is all time free and licenced with GPLv3.
         ///
@@ -214,6 +215,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string API_TYPE_MISSING_TITLE {
             get {
                 return ResourceManager.GetString("API_TYPE_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Assembly version ähnelt.
+        /// </summary>
+        internal static string ASSEMBLY_VERSION {
+            get {
+                return ResourceManager.GetString("ASSEMBLY_VERSION", resourceCulture);
             }
         }
         
@@ -538,6 +548,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string FAVOURITE_LIST_NOT_SELECTED_TITLE {
             get {
                 return ResourceManager.GetString("FAVOURITE_LIST_NOT_SELECTED_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die File version ähnelt.
+        /// </summary>
+        internal static string FILE_VERSION {
+            get {
+                return ResourceManager.GetString("FILE_VERSION", resourceCulture);
             }
         }
         
@@ -1127,6 +1146,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Product version ähnelt.
+        /// </summary>
+        internal static string PRODUCT_VERSION {
+            get {
+                return ResourceManager.GetString("PRODUCT_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Enable query ähnelt.
         /// </summary>
         internal static string QUERY {
@@ -1546,6 +1574,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string START_SERVER {
             get {
                 return ResourceManager.GetString("START_SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Stop server ähnelt.
+        /// </summary>
+        internal static string STOP_SERVER {
+            get {
+                return ResourceManager.GetString("STOP_SERVER", resourceCulture);
             }
         }
         

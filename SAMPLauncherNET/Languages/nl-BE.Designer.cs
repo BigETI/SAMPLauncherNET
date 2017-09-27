@@ -70,7 +70,8 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SAMPLauncher NET is een client voor San Andreas Multiplayer.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///SAMPLauncher NET is een client voor San Andreas Multiplayer.
         ///
         ///Deze software is altijd gratis en is erkend met GPLv3.
         ///

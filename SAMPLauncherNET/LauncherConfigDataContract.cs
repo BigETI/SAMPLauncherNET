@@ -22,6 +22,6 @@ namespace SAMPLauncherNET
         /// Development directory
         /// </summary>
         [DataMember]
-        public string developmentDirectory = Directory.GetCurrentDirectory() + "\\development";
+        public string developmentDirectory = "./development";
     }
 }
