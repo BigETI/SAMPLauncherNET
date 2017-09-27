@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ABOUT" xml:space="preserve">
+    <value>ჩვენს შესახებ</value>
+  </data>
+  <data name="ABOUT_DESCRIPTION" xml:space="preserve">
+    <value>
+SAMPLauncher NET არის SA-MP-ის ახალი სტილის ლაუნჩერი.
+
+ეს პროგრამა არის უფასო და ლიცენზირებულია GPLv3-ით.
+</value>
+  </data>
+  <data name="ADDRESS" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="ADD_NEW_API" xml:space="preserve">
+    <value>ახალი API-ს დამატება</value>
+  </data>
+  <data name="ADD_SERVER_TO_FAVOURITES" xml:space="preserve">
+    <value>სერვერის რჩეულებში დამატება</value>
+  </data>
+  <data name="ALREADY_IN_FAVOURITES" xml:space="preserve">
+    <value>სერვერი უკვე არის რჩეულებში</value>
+  </data>
+  <data name="API" xml:space="preserve">
+    <value>API</value>
+  </data>
+  <data name="API_ENDPOINT" xml:space="preserve">
+    <value>API-ს დასასრული</value>
+  </data>
+  <data name="API_ENDPOINT_MISSING" xml:space="preserve">
+    <value>თუ შეიძლება გამოიყენეთ API-ს სწორი დასასრული</value>
+  </data>
+  <data name="API_ENDPOINT_MISSING_TITLE" xml:space="preserve">
+    <value>API-ს დასასრული არ მოიძებნება</value>
+  </data>
+  <data name="API_NAME" xml:space="preserve">
+    <value>API სახელი</value>
+  </data>
+  <data name="API_NAME_MISSING" xml:space="preserve">
+    <value>ჩაწერეთ API-ს დასახელება.</value>
+  </data>
+  <data name="API_NAME_MISSING_TITLE" xml:space="preserve">
+    <value>API სახელი გამოგრჩათ!</value>
+  </data>
+  <data name="API_TYPE" xml:space="preserve">
+    <value>API ტიპი</value>
+  </data>
+  <data name="API_TYPE_MISSING" xml:space="preserve">
+    <value>თუ შეიძლება აირჩიეთ API-ს ტიპი.</value>
+  </data>
+  <data name="AUDIO_MESSAGE_OFF" xml:space="preserve">
+    <value>აუდიო მესიჯების გათიშვა</value>
+  </data>
+  <data name="AUDIO_PROXY_OFF" xml:space="preserve">
+    <value>აუდიო პროქსიების გათიშვა</value>
+  </data>
+  <data name="CANCEL" xml:space="preserve">
+    <value>შეჩერება</value>
+  </data>
+  <data name="CLOSE_WHEN_LAUNCHED" xml:space="preserve">
+    <value>დახურვა როცა ჩაირთვება</value>
+  </data>
+  <data name="CONNECT" xml:space="preserve">
+    <value>დაკავშირება</value>
+  </data>
+  <data name="CONNECT_NOW" xml:space="preserve">
+    <value>ახლა დაკავშირება</value>
+  </data>
+  <data name="CONNECT_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - დაკავშირება</value>
+  </data>
+  <data name="CONNECT_WITH_RCON" xml:space="preserve">
+    <value>RCON-ით დაკავშირება</value>
+  </data>
+  <data name="DEBUG_MODE" xml:space="preserve">
+    <value>დებაგ მოდი</value>
+  </data>
+  <data name="DELETE_SELECTED_IMAGES" xml:space="preserve">
+    <value>დარწმუნებული ხართ რომ გსურთ მონიშნული სურათების წაშლა?</value>
+  </data>
+  <data name="DELETE_SELECTED_IMAGES_TITLE" xml:space="preserve">
+    <value>მონიშნული სურათების წაშლა</value>
+  </data>
+  <data name="DIRECT_MODE" xml:space="preserve">
+    <value>ეკრან-ზე Textdraw-ების რენდერირების სტილი (ნელი)</value>
+  </data>
+  <data name="DISABLE_HEAD_MOVE" xml:space="preserve">
+    <value>თავის მოძრაობის გათიშვა</value>
+  </data>
+  <data name="DUTCH" xml:space="preserve">
+    <value>ჰოლანდიური (Nederlands)</value>
+  </data>
+  <data name="EDIT_API_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - API-ს დარედაქტირება</value>
+  </data>
+  <data name="EDIT_SELECTED_API" xml:space="preserve">
+    <value>მონიშნული API-ს დარედაქტირება</value>
+  </data>
+  <data name="ENGLISH" xml:space="preserve">
+    <value>ინგლისური (English)</value>
+  </data>
+  <data name="ERROR" xml:space="preserve">
+    <value>შეცდომა</value>
+  </data>
+  <data name="EXTENDED_SERVER_INFORMATION_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - სერვერის დამატებითი ინფორმაცია</value>
+  </data>
+  <data name="FAVOURITE_LIST_NOT_SELECTED" xml:space="preserve">
+    <value>გთხოვთ აირჩიოთ რჩეული სერვერების სია</value>
+  </data>
+  <data name="FAVOURITE_LIST_NOT_SELECTED_TITLE" xml:space="preserve">
+    <value>რჩეული სერვერების სია არ არის მონიშნული</value>
+  </data>
+  <data name="FILTER_HOSTNAME" xml:space="preserve">
+    <value>Filter hostname</value>
+  </data>
+  <data name="FILTER_IP_AND_PORT" xml:space="preserve">
+    <value>Filter IP და port</value>
+  </data>
+  <data name="FILTER_LANGUAGE" xml:space="preserve">
+    <value>Filter ენა</value>
+  </data>
+  <data name="FILTER_MODE" xml:space="preserve">
+    <value>Filter მოდი</value>
+  </data>
+  <data name="FONT_FACE" xml:space="preserve">
+    <value>ფონტი</value>
+  </data>
+  <data name="FONT_WEIGHT" xml:space="preserve">
+    <value>ფონტის ზომა</value>
+  </data>
+  <data name="FPS_LIMIT" xml:space="preserve">
+    <value>FPS-ის ლიმიტი</value>
+  </data>
+  <data name="GALLERY" xml:space="preserve">
+    <value>გალერეა</value>
+  </data>
+  <data name="GAMEMODE" xml:space="preserve">
+    <value>გეიმმოდი</value>
+  </data>
+  <data name="GEORGIAN" xml:space="preserve">
+    <value>ქართული</value>
+  </data>
+  <data name="GERMAN" xml:space="preserve">
+    <value>გერმანული (Deutsch)</value>
+  </data>
+  <data name="GITHUB_PROJECT" xml:space="preserve">
+    <value>პროექტი GitHub-ზე SAMPLauncherNET</value>
+  </data>
+  <data name="HOSTNAME" xml:space="preserve">
+    <value>სერვერის სახელი</value>
+  </data>
+  <data name="IME" xml:space="preserve">
+    <value>ჩაწერის მეთოდის აქტივაცია</value>
+  </data>
+  <data name="INPUT_ERROR" xml:space="preserve">
+    <value>შეცდომა ჩაწერის დროს</value>
+  </data>
+  <data name="INSERT_FILTER_HERE" xml:space="preserve">
+    <value>ჩაწერეთ ფილტრი...</value>
+  </data>
+  <data name="INSERT_RCON_PASSWORD_HERE" xml:space="preserve">
+    <value>ჩაწერეთ RCON-ის პაროლი...</value>
+  </data>
+  <data name="INSERT_SERVER_PASSWORD_HERE" xml:space="preserve">
+    <value>ჩაწერეთ სერვერის პაროლი...</value>
+  </data>
+  <data name="INSERT_USERNAME_HERE" xml:space="preserve">
+    <value>ჩაწერეთ მოთამაშის სახელი...</value>
+  </data>
+  <data name="IP_AND_PORT" xml:space="preserve">
+    <value>IP და პორტი</value>
+  </data>
+  <data name="LANGUAGE" xml:space="preserve">
+    <value>ენა</value>
+  </data>
+  <data name="LAST_CHATLOG" xml:space="preserve">
+    <value>ბოლო ჩატ-ლოგი</value>
+  </data>
+  <data name="LAUNCHER_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - ლაუნჩერი</value>
+  </data>
+  <data name="LAUNCH_DEBUG_MODE" xml:space="preserve">
+    <value>ჩართეთ დებაგ მოდი.</value>
+  </data>
+  <data name="LAUNCH_SINGLEPLAYER" xml:space="preserve">
+    <value>ჩართეთ singleplayer</value>
+  </data>
+  <data name="MULTI_CORE" xml:space="preserve">
+    <value>მულტი კორი</value>
+  </data>
+  <data name="NEED_HELP_FORUMS" xml:space="preserve">
+    <value>გჭირდებათ დახმარება? შემოუერთდით SA-MP-ის ფორუმს...</value>
+  </data>
+  <data name="NEW_API_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - ახალი API-ს დამატება</value>
+  </data>
+  <data name="NOT_IN_FAVOURITES" xml:space="preserve">
+    <value>არ არის რჩეულებში</value>
+  </data>
+  <data name="NO_CHATLOG_FOUND" xml:space="preserve">
+    <value>ჩატ ლოგები არ მოიძებნება...</value>
+  </data>
+  <data name="NO_FAVOURITES" xml:space="preserve">
+    <value>არ მოგინიშნიათ არცერთი რჩეულების სია. ახლის გასაკეთებლად დააჭირეთ "API" -ს და გააკეთეთ ახალი რჩეულების სიაю</value>
+  </data>
+  <data name="NO_FAVOURITES_TITLE" xml:space="preserve">
+    <value>არ გაქვთ რჩეულების სია</value>
+  </data>
+  <data name="NO_NAMETAG_STATUS" xml:space="preserve">
+    <value>ნეიმთაგის სტატუსის გათიშვა</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>ოკ</value>
+  </data>
+  <data name="OPTIONS" xml:space="preserve">
+    <value>პარამეტრები</value>
+  </data>
+  <data name="OPTIONS_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - პარამეტრები</value>
+  </data>
+  <data name="PAGE_SIZE" xml:space="preserve">
+    <value>გვერდის ზომა</value>
+  </data>
+  <data name="PING" xml:space="preserve">
+    <value>პინგი</value>
+  </data>
+  <data name="PLAYERS" xml:space="preserve">
+    <value>მოთამაშეები</value>
+  </data>
+  <data name="PLEASE_TYPE_IN_USERNAME" xml:space="preserve">
+    <value>ჩაწრეთ თქვენი ნიკნეიმი.</value>
+  </data>
+  <data name="RCON_PASSWORD" xml:space="preserve">
+    <value>RCON-ის პაროლი</value>
+  </data>
+  <data name="RCON_PASSWORD_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - RCON-ის პაროლი</value>
+  </data>
+  <data name="REMOVE_API" xml:space="preserve">
+    <value>დარწმუნებული ხართ რომ გსურთ მიმდინარე API-ს წაშლა?</value>
+  </data>
+  <data name="REMOVE_API_TITLE" xml:space="preserve">
+    <value>მონიშნული API-ს წაშლა</value>
+  </data>
+  <data name="REMOVE_SELECTED_API" xml:space="preserve">
+    <value>მონიშნული API-ს წაშლა</value>
+  </data>
+  <data name="REMOVE_SERVER_FROM_FAVOURITES" xml:space="preserve">
+    <value>დარწმუნებული ხართ რომ გსურთ ამ სერვერის რჩეულებიდან წაშლა?</value>
+  </data>
+  <data name="REMOVE_SERVER_FROM_FAVOURITES_TITLE" xml:space="preserve">
+    <value>სერვერის რჩეულებიდან წაშლა</value>
+  </data>
+  <data name="REVERT_API_LIST" xml:space="preserve">
+    <value>ნამდვილად გსურთ რომ შეცვალოთ API-ს სია?</value>
+  </data>
+  <data name="REVERT_API_LIST_TITLE" xml:space="preserve">
+    <value>API-ს სიის შეცვლა</value>
+  </data>
+  <data name="REVERT_CONFIG" xml:space="preserve">
+    <value>შეცვლის პარამეტრები</value>
+  </data>
+  <data name="RUSSIAN" xml:space="preserve">
+    <value>რუსული (Русский)</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>შენახვა</value>
+  </data>
+  <data name="SAVED_POSITIONS" xml:space="preserve">
+    <value>შენახული პოზიციები</value>
+  </data>
+  <data name="SELECT_API" xml:space="preserve">
+    <value>სერვერების სიის არჩევა</value>
+  </data>
+  <data name="SELECT_FAVOURITES_LIST" xml:space="preserve">
+    <value>რჩეული სერვერების სიის არჩევა</value>
+  </data>
+  <data name="SELECT_FAVOURITE_LIST_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - რჩეული სერვერის სია</value>
+  </data>
+  <data name="SELECT_LANGUAGE" xml:space="preserve">
+    <value>აირჩიეთ ენა (Select language)</value>
+  </data>
+  <data name="SELECT_SERVER_LIST" xml:space="preserve">
+    <value>აირჩიეთ სერვერის სია</value>
+  </data>
+  <data name="SERVERS" xml:space="preserve">
+    <value>სერვერები</value>
+  </data>
+  <data name="SERVERS_FILTER" xml:space="preserve">
+    <value>სერვერების გაფილტრვა</value>
+  </data>
+  <data name="SERVER_ALREADY_IN_FAVOURITES" xml:space="preserve">
+    <value>ეს სერვერი უკვე არის თქვენი რჩეული სერვერების სიაში.</value>
+  </data>
+  <data name="SERVER_NOT_IN_FAVOURITES" xml:space="preserve">
+    <value>ეს სერვერი არ არის თქვენი რჩეული სერვერების სიაში.</value>
+  </data>
+  <data name="SERVER_PASSWORD" xml:space="preserve">
+    <value>სერვერის პაროლი</value>
+  </data>
+  <data name="SERVER_PASSWORD_FIELD_IS_EMPTY" xml:space="preserve">
+    <value>თქვენ არ ჩაგიწერიათ სერვერის პაროლი.\r\n\r\nდარწმუნებული ხართ რომ გსურთ გააგრძელოთ?</value>
+  </data>
+  <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
+    <value>სერვერის პაროლი ცარიელია</value>
+  </data>
+  <data name="SHOW_EXTENDED_SERVER_INFORMATION" xml:space="preserve">
+    <value>სერვერის დამატებითი ინფორმაცია</value>
+  </data>
+  <data name="SHOW_FAVOURITES" xml:space="preserve">
+    <value>რჩეულები</value>
+  </data>
+  <data name="SHOW_GALLERY" xml:space="preserve">
+    <value>გალერიის ნახვა...</value>
+  </data>
+  <data name="SHOW_LAST_CHATLOG" xml:space="preserve">
+    <value>ბოლო ჩატლოგის ნახვა...</value>
+  </data>
+  <data name="SHOW_LEGACY_FAVOURITES" xml:space="preserve">
+    <value>ყველა რჩეული სიის ნახვა</value>
+  </data>
+  <data name="SHOW_LEGACY_HOSTED_LIST" xml:space="preserve">
+    <value>დაჰოსტილი სერვერების სია</value>
+  </data>
+  <data name="SHOW_LEGACY_MASTER_LIST" xml:space="preserve">
+    <value>მასტერ სია</value>
+  </data>
+  <data name="TEMPORARY_USERNAME" xml:space="preserve">
+    <value>არ შეინახო ნიკნეიმი</value>
+  </data>
+  <data name="TIMESTAMP" xml:space="preserve">
+    <value>დრო</value>
+  </data>
+  <data name="USERNAME" xml:space="preserve">
+    <value>ნიკნეიმი</value>
+  </data>
+</root>

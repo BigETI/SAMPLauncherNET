@@ -2,42 +2,106 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsTranslator;
 
+/// <summary>
+/// SA:MP launcher .NET namespace
+/// </summary>
 namespace SAMPLauncherNET
 {
+    /// <summary>
+    /// Extended server information form class
+    /// </summary>
     public partial class ExtendedServerInformationForm : MaterialForm
     {
+        /// <summary>
+        /// Ping count limit
+        /// </summary>
         private const uint PingCountLimit = 50U;
 
-        Server server = null;
+        /// <summary>
+        /// Server
+        /// </summary>
+        private Server server = null;
 
+        /// <summary>
+        /// Ping list
+        /// </summary>
         private List<uint> pingList = new List<uint>();
 
+        /// <summary>
+        /// Server ping thread
+        /// </summary>
         private Thread serverPingThread = null;
 
+        /// <summary>
+        /// Server information thread
+        /// </summary>
         private Thread serverInformationThread = null;
 
+        /// <summary>
+        /// Servewr detailed clients thread
+        /// </summary>
         private Thread serverDetailedClientsThread = null;
 
+        /// <summary>
+        /// Server rules thread
+        /// </summary>
         private Thread serverRulesThread = null;
 
+        /// <summary>
+        /// Hostname
+        /// </summary>
         private string hostname = "";
 
+        /// <summary>
+        /// Player count
+        /// </summary>
         private ushort playerCount = 0;
 
+        /// <summary>
+        /// Maximal players
+        /// </summary>
         private ushort maxPlayers = 0;
 
+        /// <summary>
+        /// Gamemode
+        /// </summary>
         private string gamemode = "";
 
+        /// <summary>
+        /// Language
+        /// </summary>
         private string language = "";
 
+        /// <summary>
+        /// Players
+        /// </summary>
         private List<Player> players = new List<Player>();
 
+        /// <summary>
+        /// Rules
+        /// </summary>
         private Dictionary<string, string> rules = new Dictionary<string, string>();
 
+        /// <summary>
+        /// Geo location async
+        /// </summary>
+        private Task<GeoLocationData> geoLocationAsync = null;
+
+        /// <summary>
+        /// Geo location
+        /// </summary>
+        private GeoLocationData geoLocation = null;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="server"></param>
         public ExtendedServerInformationForm(Server server)
         {
             this.server = server;
@@ -123,8 +187,14 @@ namespace SAMPLauncherNET
                 }
             });
             serverRulesThread.Start();
+            geoLocationAsync = GeoLocator.LocateAsync(server.IPv4AddressString);
         }
 
+        /// <summary>
+        /// Form closed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Form closed event arguments</param>
         private void ExtendedServerInformationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (serverPingThread != null)
@@ -149,6 +219,11 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Update timer tick event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void updateTimer_Tick(object sender, EventArgs e)
         {
             lock (pingList)
@@ -224,12 +299,55 @@ namespace SAMPLauncherNET
                 if (cs)
                     rulesGridView.Rows[si].Selected = true;
             }
+            if ((geoLocation == null) && geoLocationAsync.IsCompleted)
+            {
+                geoLocation = geoLocationAsync.Result;
+                countryLabel.Text = Translator.GetTranslation("COUNTRY") + ": " + geoLocation.CountryName + " (" + geoLocation.CountryCode + ")";
+                regionLabel.Text = Translator.GetTranslation("REGION") + ": " + geoLocation.RegionName + " (" + geoLocation.RegionCode + ")";
+                cityLabel.Text = Translator.GetTranslation("CITY") + ": " + geoLocation.ZIPCode + " " + geoLocation.City;
+                timeZoneLabel.Text = Translator.GetTranslation("TIME_ZONE") + ": " + geoLocation.TimeZone;
+                latitudeLongitudeLabel.Text = Translator.GetTranslation("LATITUDE_LONGITUDE") + ": " + geoLocation.Latitude + "; " + geoLocation.Longitude;
+                metroCodeLabel.Text = Translator.GetTranslation("METRO_CODE") + ": " + geoLocation.MetroCode;
+            }
         }
 
+        /// <summary>
+        /// Generic grid view data error event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Data grid view data error event arguments</param>
         private void genericGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             // null route
             e.ThrowException = false;
+        }
+
+        /// <summary>
+        /// Show in Google Maps button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void showInGoogleMapsButton_Click(object sender, EventArgs e)
+        {
+            if (geoLocation != null)
+            {
+                if (geoLocation.IsValid)
+                    Process.Start("https://www.google.com/maps/@" + geoLocation.Latitude + "," + geoLocation.Longitude + ",10.0z");
+            }
+        }
+
+        /// <summary>
+        /// Show in OpenStreetMap button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void showInOpenStreetMapButton_Click(object sender, EventArgs e)
+        {
+            if (geoLocationAsync != null)
+            {
+                if (geoLocation.IsValid)
+                    Process.Start("http://www.openstreetmap.org/?mlat=" + geoLocation.Latitude + "&mlon=" + geoLocation.Longitude + "&zoom=10.0");
+            }
         }
     }
 }

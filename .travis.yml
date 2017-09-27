@@ -1,0 +1,9 @@
+language: csharp
+solution: ./SAMPLauncherNET.sln
+
+install:
+  - sudo apt-get install nunit-console
+  - nuget restore ./SAMPLauncherNET.sln
+
+script:
+  - xbuild ./SAMPLauncherNET.sln

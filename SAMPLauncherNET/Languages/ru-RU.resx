@@ -121,7 +121,8 @@
     <value>О программе</value>
   </data>
   <data name="ABOUT_DESCRIPTION" xml:space="preserve">
-    <value>SAMPLauncher NET - это загрузчик для San Andreas Multiplayer.
+    <value>
+SAMPLauncher NET - это загрузчик для San Andreas Multiplayer.
 
 Это программное обеспечение бесплатно и лицензировано по лицензии GPLv3.
 
@@ -205,6 +206,9 @@
   <data name="DISABLE_HEAD_MOVE" xml:space="preserve">
     <value>Отключить поворот головы</value>
   </data>
+  <data name="DUTCH" xml:space="preserve">
+    <value>Голландский (Nederlands)</value>
+  </data>
   <data name="EDIT_API_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Редактирование API</value>
   </data>
@@ -212,7 +216,7 @@
     <value>Редактировать выбранный API</value>
   </data>
   <data name="ENGLISH" xml:space="preserve">
-    <value>English</value>
+    <value>английский (English)</value>
   </data>
   <data name="ERROR" xml:space="preserve">
     <value>Ошибка</value>
@@ -253,14 +257,20 @@
   <data name="GAMEMODE" xml:space="preserve">
     <value>Игровой режим</value>
   </data>
+  <data name="GEORGIAN" xml:space="preserve">
+    <value>грузинский (ქართული)</value>
+  </data>
   <data name="GERMAN" xml:space="preserve">
-    <value>German (Deutsch)</value>
+    <value>Немецкий (Deutsch)</value>
   </data>
   <data name="GITHUB_PROJECT" xml:space="preserve">
     <value>GitHub проекта SAMPLauncherNET</value>
   </data>
   <data name="HOSTNAME" xml:space="preserve">
     <value>Название сервера</value>
+  </data>
+  <data name="HOST_AND_PORT" xml:space="preserve">
+    <value>Хост и порт</value>
   </data>
   <data name="IME" xml:space="preserve">
     <value>Включить IME (Input Method Editor - Редактор метода ввода)</value>
@@ -374,7 +384,7 @@
     <value>Сбросить конфигурацию</value>
   </data>
   <data name="RUSSIAN" xml:space="preserve">
-    <value>Russian (Русский)</value>
+    <value>Русский</value>
   </data>
   <data name="SAVE" xml:space="preserve">
     <value>Сохранить</value>
@@ -392,7 +402,7 @@
     <value>San Andreas Multiplayer - Выбор списка избранных</value>
   </data>
   <data name="SELECT_LANGUAGE" xml:space="preserve">
-    <value>Выбор языка</value>
+    <value>Выбор языка (Select language)</value>
   </data>
   <data name="SELECT_SERVER_LIST" xml:space="preserve">
     <value>Выбор списка серверов</value>

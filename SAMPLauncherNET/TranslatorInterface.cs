@@ -1,13 +1,24 @@
 ﻿using System.Collections.Generic;
 using WinFormsTranslator;
 
+/// <summary>
+/// SA:MP launcher .NET namespace
+/// </summary>
 namespace SAMPLauncherNET
 {
+    /// <summary>
+    /// Translator interface class
+    /// </summary>
     public class TranslatorInterface : ITranslatorInterface
     {
+        /// <summary>
+        /// Languages
+        /// </summary>
+        private Language[] languages = new Language[] { new Language("DUTCH", "nl-BE"), new Language("ENGLISH", "en-GB"), new Language("GEORGIAN", "ge-GE"), new Language("GERMAN", "de-DE"), new Language("RUSSIAN", "ru-RU") };
 
-        private Language[] languages = new Language[] { new Language("DUTCH", "nl-BE"), new Language("ENGLISH", "en-GB"), new Language("GERMAN", "de-DE"), new Language("RUSSIAN", "ru-RU") };
-
+        /// <summary>
+        /// Language
+        /// </summary>
         public string Language
         {
             get
@@ -20,6 +31,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Assembly name
+        /// </summary>
         public string AssemblyName
         {
             get
@@ -28,6 +42,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Languages
+        /// </summary>
         public IEnumerable<Language> Languages
         {
             get
@@ -36,6 +53,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Save settings
+        /// </summary>
         public void SaveSettings()
         {
             Properties.Settings.Default.Save();

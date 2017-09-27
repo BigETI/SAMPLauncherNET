@@ -121,11 +121,15 @@
     <value>About</value>
   </data>
   <data name="ABOUT_DESCRIPTION" xml:space="preserve">
-    <value>SAMPLauncher NET is a launcher for San Andreas Multiplayer.
+    <value>
+SAMPLauncher NET is a launcher for San Andreas Multiplayer.
 
 This software is all time free and licenced with GPLv3.
 
 This project is located at</value>
+  </data>
+  <data name="ACKNOWLEDGES_LIMIT" xml:space="preserve">
+    <value>Acknowledges limit</value>
   </data>
   <data name="ADD_NEW_API" xml:space="preserve">
     <value>Add new API</value>
@@ -135,6 +139,9 @@ This project is located at</value>
   </data>
   <data name="ALREADY_IN_FAVOURITES" xml:space="preserve">
     <value>Already in favourites</value>
+  </data>
+  <data name="ANNOUNCE" xml:space="preserve">
+    <value>Announce server</value>
   </data>
   <data name="API" xml:space="preserve">
     <value>API</value>
@@ -166,14 +173,26 @@ This project is located at</value>
   <data name="API_TYPE_MISSING_TITLE" xml:space="preserve">
     <value>API type missing</value>
   </data>
+  <data name="ASSEMBLY_VERSION" xml:space="preserve">
+    <value>Assembly version</value>
+  </data>
   <data name="AUDIO_MESSAGE_OFF" xml:space="preserve">
     <value>Audio message off</value>
   </data>
   <data name="AUDIO_PROXY_OFF" xml:space="preserve">
     <value>Audio proxy off</value>
   </data>
+  <data name="BIND" xml:space="preserve">
+    <value>Bind IP address</value>
+  </data>
   <data name="CANCEL" xml:space="preserve">
     <value>Cancel</value>
+  </data>
+  <data name="CHAT_LOGGING" xml:space="preserve">
+    <value>Enable chat logging</value>
+  </data>
+  <data name="CITY" xml:space="preserve">
+    <value>City</value>
   </data>
   <data name="CLOSE_WHEN_LAUNCHED" xml:space="preserve">
     <value>Close when launched</value>
@@ -181,14 +200,41 @@ This project is located at</value>
   <data name="CONNECT" xml:space="preserve">
     <value>Connect</value>
   </data>
+  <data name="CONNECTION_COOKIES" xml:space="preserve">
+    <value>Allow connection cookies</value>
+  </data>
+  <data name="CONNECTION_SEED_TIME" xml:space="preserve">
+    <value>Connection seed time</value>
+  </data>
   <data name="CONNECT_NOW" xml:space="preserve">
     <value>Connect now!</value>
   </data>
   <data name="CONNECT_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Connect</value>
   </data>
+  <data name="CONNECT_TO_ADDRESS" xml:space="preserve">
+    <value>Connect to address</value>
+  </data>
+  <data name="CONNECT_TO_ADDRESS_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Connect to address</value>
+  </data>
+  <data name="CONNECT_TO_TEST_SERVER" xml:space="preserve">
+    <value>Connect to test server</value>
+  </data>
   <data name="CONNECT_WITH_RCON" xml:space="preserve">
     <value>Connect with RCON</value>
+  </data>
+  <data name="COOKIE_LOGGING" xml:space="preserve">
+    <value>Enable cookie logging</value>
+  </data>
+  <data name="COUNTRY" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="DATABASE_LOGGING" xml:space="preserve">
+    <value>Enable database logging</value>
+  </data>
+  <data name="DATABASE_LOG_QUERIES" xml:space="preserve">
+    <value>Database log queries</value>
   </data>
   <data name="DEBUG_MODE" xml:space="preserve">
     <value>Debug mode</value>
@@ -198,6 +244,15 @@ This project is located at</value>
   </data>
   <data name="DELETE_SELECTED_IMAGES_TITLE" xml:space="preserve">
     <value>Delete selected images</value>
+  </data>
+  <data name="DEVELOPER_TOOLS" xml:space="preserve">
+    <value>Developer tools</value>
+  </data>
+  <data name="DEVELOPER_TOOLS_CONFIGURATION_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Developer tools configuration</value>
+  </data>
+  <data name="DEVELOPMENT_DIRECTORY" xml:space="preserve">
+    <value>Development directory</value>
   </data>
   <data name="DIRECT_MODE" xml:space="preserve">
     <value>Direct to screen textdraw render method (slow)</value>
@@ -229,6 +284,12 @@ This project is located at</value>
   <data name="FAVOURITE_LIST_NOT_SELECTED_TITLE" xml:space="preserve">
     <value>Favourites list not selected</value>
   </data>
+  <data name="FILE_VERSION" xml:space="preserve">
+    <value>File version</value>
+  </data>
+  <data name="FILTERSCRIPTS" xml:space="preserve">
+    <value>Filterscripts</value>
+  </data>
   <data name="FILTER_HOSTNAME" xml:space="preserve">
     <value>Filter hostname</value>
   </data>
@@ -256,6 +317,15 @@ This project is located at</value>
   <data name="GAMEMODE" xml:space="preserve">
     <value>Gamemode</value>
   </data>
+  <data name="GAMEMODES" xml:space="preserve">
+    <value>Gamemodes</value>
+  </data>
+  <data name="GAMEMODE_TEXT" xml:space="preserve">
+    <value>Gamemode text</value>
+  </data>
+  <data name="GEORGIAN" xml:space="preserve">
+    <value>Georgian (ქართული)</value>
+  </data>
   <data name="GERMAN" xml:space="preserve">
     <value>German (Deutsch)</value>
   </data>
@@ -264,6 +334,9 @@ This project is located at</value>
   </data>
   <data name="HOSTNAME" xml:space="preserve">
     <value>Hostname</value>
+  </data>
+  <data name="HOST_AND_PORT" xml:space="preserve">
+    <value>Host and port</value>
   </data>
   <data name="IME" xml:space="preserve">
     <value>Enable IME (Input Method Editor)</value>
@@ -283,14 +356,26 @@ This project is located at</value>
   <data name="INSERT_USERNAME_HERE" xml:space="preserve">
     <value>Insert player name here...</value>
   </data>
+  <data name="IN_CAR_RATE" xml:space="preserve">
+    <value>In car tick rate</value>
+  </data>
   <data name="IP_AND_PORT" xml:space="preserve">
     <value>IP and port</value>
+  </data>
+  <data name="LAG_COMPENSATION_MODE" xml:space="preserve">
+    <value>Lag compensation mode</value>
   </data>
   <data name="LANGUAGE" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="LAN_MODE" xml:space="preserve">
+    <value>LAN mode</value>
+  </data>
   <data name="LAST_CHATLOG" xml:space="preserve">
     <value>Last chatlog</value>
+  </data>
+  <data name="LATITUDE_LONGITUDE" xml:space="preserve">
+    <value>Latitude and longitude</value>
   </data>
   <data name="LAUNCHER_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Launcher</value>
@@ -300,6 +385,33 @@ This project is located at</value>
   </data>
   <data name="LAUNCH_SINGLEPLAYER" xml:space="preserve">
     <value>Launch singleplayer</value>
+  </data>
+  <data name="LOG_QUERIES" xml:space="preserve">
+    <value>Log queries</value>
+  </data>
+  <data name="LOG_TIME_FORMAT" xml:space="preserve">
+    <value>Log time format</value>
+  </data>
+  <data name="MAP_NAME" xml:space="preserve">
+    <value>Map name</value>
+  </data>
+  <data name="MAXIMAL_NPCS" xml:space="preserve">
+    <value>Maximal NPCs</value>
+  </data>
+  <data name="MAXIMAL_PLAYERS" xml:space="preserve">
+    <value>Maximal players</value>
+  </data>
+  <data name="MESSAGES_LIMIT" xml:space="preserve">
+    <value>Messages limit</value>
+  </data>
+  <data name="MESSAGE_HOLE_LIMIT" xml:space="preserve">
+    <value>Message hole limit</value>
+  </data>
+  <data name="METRO_CODE" xml:space="preserve">
+    <value>Metro code</value>
+  </data>
+  <data name="MINIMUM_CONNECTION_TIME" xml:space="preserve">
+    <value>Minimum connection time</value>
   </data>
   <data name="MULTI_CORE" xml:space="preserve">
     <value>Multi core</value>
@@ -325,8 +437,20 @@ This project is located at</value>
   <data name="NO_NAMETAG_STATUS" xml:space="preserve">
     <value>No nametag status</value>
   </data>
+  <data name="NO_SIGN" xml:space="preserve">
+    <value>No sign</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
+  </data>
+  <data name="ON_FOOT_RATE" xml:space="preserve">
+    <value>On foot tick rate</value>
+  </data>
+  <data name="OPEN_DIRECTORY" xml:space="preserve">
+    <value>Open directory</value>
+  </data>
+  <data name="OPEN_IN_EXPLORER" xml:space="preserve">
+    <value>Open in explorer</value>
   </data>
   <data name="OPTIONS" xml:space="preserve">
     <value>Options</value>
@@ -337,20 +461,44 @@ This project is located at</value>
   <data name="PAGE_SIZE" xml:space="preserve">
     <value>Page size</value>
   </data>
+  <data name="PASSWORD" xml:space="preserve">
+    <value>Password</value>
+  </data>
   <data name="PING" xml:space="preserve">
     <value>Ping</value>
   </data>
   <data name="PLAYERS" xml:space="preserve">
     <value>Players</value>
   </data>
+  <data name="PLAYER_TIME_OUT" xml:space="preserve">
+    <value>Player time out</value>
+  </data>
   <data name="PLEASE_TYPE_IN_USERNAME" xml:space="preserve">
     <value>Please type in an username.</value>
+  </data>
+  <data name="PLUGINS" xml:space="preserve">
+    <value>Plugins</value>
+  </data>
+  <data name="PORT" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="PRODUCT_VERSION" xml:space="preserve">
+    <value>Product version</value>
+  </data>
+  <data name="QUERY" xml:space="preserve">
+    <value>Enable query</value>
+  </data>
+  <data name="RCON" xml:space="preserve">
+    <value>Enable RCON</value>
   </data>
   <data name="RCON_PASSWORD" xml:space="preserve">
     <value>RCON password</value>
   </data>
   <data name="RCON_PASSWORD_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - RCON password</value>
+  </data>
+  <data name="REGION" xml:space="preserve">
+    <value>Region</value>
   </data>
   <data name="REMOVE_API" xml:space="preserve">
     <value>Do you really want to remove the selected API?</value>
@@ -384,6 +532,27 @@ This project is located at</value>
   </data>
   <data name="SAVED_POSITIONS" xml:space="preserve">
     <value>Saved positions</value>
+  </data>
+  <data name="SEARCH_ON" xml:space="preserve">
+    <value>Search on...</value>
+  </data>
+  <data name="SEARCH_ON_BING" xml:space="preserve">
+    <value>Bing</value>
+  </data>
+  <data name="SEARCH_ON_DUCK_DUCK_GO" xml:space="preserve">
+    <value>DuckDuckGo</value>
+  </data>
+  <data name="SEARCH_ON_GOOGLE" xml:space="preserve">
+    <value>Google</value>
+  </data>
+  <data name="SEARCH_ON_YAHOO" xml:space="preserve">
+    <value>Yahoo</value>
+  </data>
+  <data name="SEARCH_ON_YANDEX" xml:space="preserve">
+    <value>Yandex</value>
+  </data>
+  <data name="SEARCH_ON_YOU_TUBE" xml:space="preserve">
+    <value>YouTube</value>
   </data>
   <data name="SELECT_API" xml:space="preserve">
     <value>Select a server list</value>
@@ -421,6 +590,9 @@ This project is located at</value>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
     <value>Server password field is empty</value>
   </data>
+  <data name="SHOW_ADDITIONAL_CONFIGURATIONS" xml:space="preserve">
+    <value>Show additional configurations</value>
+  </data>
   <data name="SHOW_EXTENDED_SERVER_INFORMATION" xml:space="preserve">
     <value>Extended server information</value>
   </data>
@@ -429,6 +601,12 @@ This project is located at</value>
   </data>
   <data name="SHOW_GALLERY" xml:space="preserve">
     <value>Show gallery...</value>
+  </data>
+  <data name="SHOW_IN_GOOGLE_MAPS" xml:space="preserve">
+    <value>Show in Google Maps</value>
+  </data>
+  <data name="SHOW_IN_OPEN_STREET_MAP" xml:space="preserve">
+    <value>Show in OpenStreetMap</value>
   </data>
   <data name="SHOW_LAST_CHATLOG" xml:space="preserve">
     <value>Show last chatlog...</value>
@@ -442,13 +620,46 @@ This project is located at</value>
   <data name="SHOW_LEGACY_MASTER_LIST" xml:space="preserve">
     <value>Master list</value>
   </data>
+  <data name="SLEEP" xml:space="preserve">
+    <value>Sleep time</value>
+  </data>
+  <data name="START_SERVER" xml:space="preserve">
+    <value>Start server</value>
+  </data>
+  <data name="STOP_SERVER" xml:space="preserve">
+    <value>Stop server</value>
+  </data>
+  <data name="STREAM_DISTANCE" xml:space="preserve">
+    <value>Stream distance</value>
+  </data>
+  <data name="STREAM_RATE" xml:space="preserve">
+    <value>Stream rate</value>
+  </data>
   <data name="TEMPORARY_USERNAME" xml:space="preserve">
     <value>Don't save username</value>
   </data>
   <data name="TIMESTAMP" xml:space="preserve">
     <value>Timestamp</value>
   </data>
+  <data name="TIME_ZONE" xml:space="preserve">
+    <value>Time zone</value>
+  </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="VISIT_WEBSITE" xml:space="preserve">
+    <value>Visit website</value>
+  </data>
+  <data name="VISIT_WEBSITE_MESSAGE" xml:space="preserve">
+    <value>Do you really want to visit this website?</value>
+  </data>
+  <data name="VISIT_WEBSITE_TITLE" xml:space="preserve">
+    <value>Visit</value>
+  </data>
+  <data name="WEAPON_RATE" xml:space="preserve">
+    <value>Weapon rate</value>
+  </data>
+  <data name="WEBSITE_URL" xml:space="preserve">
+    <value>Website URL</value>
   </data>
 </root>

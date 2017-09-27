@@ -19,7 +19,7 @@ namespace SAMPLauncherNET.Languages {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class nl_BE {
@@ -70,7 +70,8 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SAMPLauncher NET is een client voor San Andreas Multiplayer.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///SAMPLauncher NET is een client voor San Andreas Multiplayer.
         ///
         ///Deze software is altijd gratis en is erkend met GPLv3.
         ///
@@ -470,6 +471,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Georgisch (ქართული) ähnelt.
+        /// </summary>
+        internal static string GEORGIAN {
+            get {
+                return ResourceManager.GetString("GEORGIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Duits (Deutsch) ähnelt.
         /// </summary>
         internal static string GERMAN {
@@ -488,7 +498,16 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Hostname ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Host en haven ähnelt.
+        /// </summary>
+        internal static string HOST_AND_PORT {
+            get {
+                return ResourceManager.GetString("HOST_AND_PORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Host naam ähnelt.
         /// </summary>
         internal static string HOSTNAME {
             get {
@@ -524,7 +543,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Vul hier een RCON password... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Vul hier een RCON password in... ähnelt.
         /// </summary>
         internal static string INSERT_RCON_PASSWORD_HERE {
             get {
@@ -533,7 +552,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Vul hier een server password... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Vul hier een server password in... ähnelt.
         /// </summary>
         internal static string INSERT_SERVER_PASSWORD_HERE {
             get {
@@ -641,7 +660,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Er zijn geen favoriete lijsten gedefinieerd. Als u een nieuwe favoriete lijst wilt definiëren, selecteert u het tabblad &apos;API&apos; en maakt u een nieuwe favoriete lijst of herstel de standaardinstellingen. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Er zijn geen favorietenlijsten gedefinieerd. Als u een nieuwe lijst wilt definiëren, selecteert u het tabblad &apos;API&apos; en maakt u een nieuwe favorietenlijst of herstel naar de standaardinstellingen. ähnelt.
         /// </summary>
         internal static string NO_FAVOURITES {
             get {
@@ -803,7 +822,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Wil je echt de API-lijst terugkeren naar standaard? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ben je zeker dat je de standaardwaarden terug wilt zetten in de API lijst? ähnelt.
         /// </summary>
         internal static string REVERT_API_LIST {
             get {
@@ -812,7 +831,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Stel API lijst terug ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Herstel API lijst ähnelt.
         /// </summary>
         internal static string REVERT_API_LIST_TITLE {
             get {
@@ -821,11 +840,20 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Stel de configuratie terug ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Herstel de configuratie naar standaardwaarden ähnelt.
         /// </summary>
         internal static string REVERT_CONFIG {
             get {
                 return ResourceManager.GetString("REVERT_CONFIG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Russisch (Русский) ähnelt.
+        /// </summary>
+        internal static string RUSSIAN {
+            get {
+                return ResourceManager.GetString("RUSSIAN", resourceCulture);
             }
         }
         
@@ -866,7 +894,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Selecteer favoriete lijst ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Selecteer favorietenlijst ähnelt.
         /// </summary>
         internal static string SELECT_FAVOURITES_LIST {
             get {
@@ -875,7 +903,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Selecteer taal ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Selecteer taal (Select language) ähnelt.
         /// </summary>
         internal static string SELECT_LANGUAGE {
             get {

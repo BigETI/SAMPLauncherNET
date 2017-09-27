@@ -29,17 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.pingChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.informationSplitContainer = new System.Windows.Forms.SplitContainer();
@@ -50,6 +48,12 @@
             this.languageLabel = new MaterialSkin.Controls.MaterialLabel();
             this.ipAndPortLabel = new MaterialSkin.Controls.MaterialLabel();
             this.pingLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.countryLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.regionLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.cityLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.timeZoneLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.latitudeLongitudeLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.metroCodeLabel = new MaterialSkin.Controls.MaterialLabel();
             this.serverSplitContainer = new System.Windows.Forms.SplitContainer();
             this.playersGridView = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +75,8 @@
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
+            this.showInGoogleMapsButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.showInOpenStreetMapButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mainTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pingChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.informationSplitContainer)).BeginInit();
@@ -105,37 +111,37 @@
             this.mainTableLayoutPanel.RowCount = 2;
             this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.mainTableLayoutPanel.Size = new System.Drawing.Size(753, 444);
+            this.mainTableLayoutPanel.Size = new System.Drawing.Size(753, 472);
             this.mainTableLayoutPanel.TabIndex = 0;
             // 
             // pingChart
             // 
             this.pingChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.pingChart.BorderlineColor = System.Drawing.SystemColors.ActiveBorder;
-            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea1.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea1.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea1.BackColor = System.Drawing.Color.DimGray;
-            chartArea1.Name = "ChartArea1";
-            this.pingChart.ChartAreas.Add(chartArea1);
+            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea3.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea3.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea3.BackColor = System.Drawing.Color.DimGray;
+            chartArea3.Name = "ChartArea1";
+            this.pingChart.ChartAreas.Add(chartArea3);
             this.pingChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            legend1.ForeColor = System.Drawing.Color.White;
-            legend1.Name = "Legend1";
-            this.pingChart.Legends.Add(legend1);
-            this.pingChart.Location = new System.Drawing.Point(3, 297);
+            legend3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            legend3.ForeColor = System.Drawing.Color.White;
+            legend3.Name = "Legend1";
+            this.pingChart.Legends.Add(legend3);
+            this.pingChart.Location = new System.Drawing.Point(3, 325);
             this.pingChart.Name = "pingChart";
             this.pingChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.pingChart.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.MediumTurquoise};
-            series1.BorderWidth = 5;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series1.Legend = "Legend1";
-            series1.Name = "Ping";
-            series1.YValuesPerPoint = 6;
-            this.pingChart.Series.Add(series1);
+            series3.BorderWidth = 5;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series3.Legend = "Legend1";
+            series3.Name = "Ping";
+            series3.YValuesPerPoint = 6;
+            this.pingChart.Series.Add(series3);
             this.pingChart.Size = new System.Drawing.Size(747, 144);
             this.pingChart.TabIndex = 8;
             // 
@@ -154,7 +160,7 @@
             // informationSplitContainer.Panel2
             // 
             this.informationSplitContainer.Panel2.Controls.Add(this.serverSplitContainer);
-            this.informationSplitContainer.Size = new System.Drawing.Size(747, 288);
+            this.informationSplitContainer.Size = new System.Drawing.Size(747, 316);
             this.informationSplitContainer.SplitterDistance = 424;
             this.informationSplitContainer.TabIndex = 9;
             // 
@@ -166,11 +172,19 @@
             this.flowLayoutPanel1.Controls.Add(this.languageLabel);
             this.flowLayoutPanel1.Controls.Add(this.ipAndPortLabel);
             this.flowLayoutPanel1.Controls.Add(this.pingLabel);
+            this.flowLayoutPanel1.Controls.Add(this.countryLabel);
+            this.flowLayoutPanel1.Controls.Add(this.regionLabel);
+            this.flowLayoutPanel1.Controls.Add(this.cityLabel);
+            this.flowLayoutPanel1.Controls.Add(this.timeZoneLabel);
+            this.flowLayoutPanel1.Controls.Add(this.latitudeLongitudeLabel);
+            this.flowLayoutPanel1.Controls.Add(this.metroCodeLabel);
+            this.flowLayoutPanel1.Controls.Add(this.showInGoogleMapsButton);
+            this.flowLayoutPanel1.Controls.Add(this.showInOpenStreetMapButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(422, 286);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(422, 314);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // hostnameLabel
@@ -251,6 +265,84 @@
             this.pingLabel.TabIndex = 5;
             this.pingLabel.Text = "{$PING$}";
             // 
+            // countryLabel
+            // 
+            this.countryLabel.AutoSize = true;
+            this.countryLabel.Depth = 0;
+            this.countryLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.countryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.countryLabel.Location = new System.Drawing.Point(3, 114);
+            this.countryLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.countryLabel.Name = "countryLabel";
+            this.countryLabel.Size = new System.Drawing.Size(103, 19);
+            this.countryLabel.TabIndex = 6;
+            this.countryLabel.Text = "{$COUNTRY$}";
+            // 
+            // regionLabel
+            // 
+            this.regionLabel.AutoSize = true;
+            this.regionLabel.Depth = 0;
+            this.regionLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.regionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.regionLabel.Location = new System.Drawing.Point(3, 133);
+            this.regionLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.regionLabel.Name = "regionLabel";
+            this.regionLabel.Size = new System.Drawing.Size(88, 19);
+            this.regionLabel.TabIndex = 9;
+            this.regionLabel.Text = "{$REGION$}";
+            // 
+            // cityLabel
+            // 
+            this.cityLabel.AutoSize = true;
+            this.cityLabel.Depth = 0;
+            this.cityLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.cityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cityLabel.Location = new System.Drawing.Point(3, 152);
+            this.cityLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cityLabel.Name = "cityLabel";
+            this.cityLabel.Size = new System.Drawing.Size(67, 19);
+            this.cityLabel.TabIndex = 7;
+            this.cityLabel.Text = "{$CITY$}";
+            // 
+            // timeZoneLabel
+            // 
+            this.timeZoneLabel.AutoSize = true;
+            this.timeZoneLabel.Depth = 0;
+            this.timeZoneLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.timeZoneLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.timeZoneLabel.Location = new System.Drawing.Point(3, 171);
+            this.timeZoneLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.timeZoneLabel.Name = "timeZoneLabel";
+            this.timeZoneLabel.Size = new System.Drawing.Size(116, 19);
+            this.timeZoneLabel.TabIndex = 10;
+            this.timeZoneLabel.Text = "{$TIME_ZONE$}";
+            // 
+            // latitudeLongitudeLabel
+            // 
+            this.latitudeLongitudeLabel.AutoSize = true;
+            this.latitudeLongitudeLabel.Depth = 0;
+            this.latitudeLongitudeLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.latitudeLongitudeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.latitudeLongitudeLabel.Location = new System.Drawing.Point(3, 190);
+            this.latitudeLongitudeLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.latitudeLongitudeLabel.Name = "latitudeLongitudeLabel";
+            this.latitudeLongitudeLabel.Size = new System.Drawing.Size(192, 19);
+            this.latitudeLongitudeLabel.TabIndex = 11;
+            this.latitudeLongitudeLabel.Text = "{$LATITUDE_LONGITUDE$}";
+            // 
+            // metroCodeLabel
+            // 
+            this.metroCodeLabel.AutoSize = true;
+            this.metroCodeLabel.Depth = 0;
+            this.metroCodeLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.metroCodeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.metroCodeLabel.Location = new System.Drawing.Point(3, 209);
+            this.metroCodeLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.metroCodeLabel.Name = "metroCodeLabel";
+            this.metroCodeLabel.Size = new System.Drawing.Size(131, 19);
+            this.metroCodeLabel.TabIndex = 13;
+            this.metroCodeLabel.Text = "{$METRO_CODE$}";
+            // 
             // serverSplitContainer
             // 
             this.serverSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -265,8 +357,8 @@
             // serverSplitContainer.Panel2
             // 
             this.serverSplitContainer.Panel2.Controls.Add(this.rulesGridView);
-            this.serverSplitContainer.Size = new System.Drawing.Size(317, 286);
-            this.serverSplitContainer.SplitterDistance = 173;
+            this.serverSplitContainer.Size = new System.Drawing.Size(317, 314);
+            this.serverSplitContainer.SplitterDistance = 189;
             this.serverSplitContainer.TabIndex = 0;
             // 
             // playersGridView
@@ -274,8 +366,8 @@
             this.playersGridView.AllowUserToAddRows = false;
             this.playersGridView.AllowUserToDeleteRows = false;
             this.playersGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(155)))), ((int)(((byte)(209)))));
-            this.playersGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.playersGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.playersGridView.AutoGenerateColumns = false;
             this.playersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.playersGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -283,14 +375,14 @@
             this.playersGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.playersGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.playersGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.playersGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.playersGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.playersGridView.ColumnHeadersHeight = 32;
             this.playersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.playersGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -299,17 +391,18 @@
             this.scoreDataGridViewTextBoxColumn,
             this.pingDataGridViewTextBoxColumn});
             this.playersGridView.DataSource = this.playersBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(200)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.playersGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.playersGridView.DefaultCellStyle = dataGridViewCellStyle15;
             this.playersGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.playersGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.playersGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.playersGridView.EnableHeadersVisualStyles = false;
+            this.playersGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
             this.playersGridView.Location = new System.Drawing.Point(0, 0);
             this.playersGridView.MultiSelect = false;
             this.playersGridView.Name = "playersGridView";
@@ -317,10 +410,8 @@
             this.playersGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.playersGridView.RowHeadersVisible = false;
             this.playersGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.playersGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.playersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.playersGridView.Size = new System.Drawing.Size(317, 173);
+            this.playersGridView.Size = new System.Drawing.Size(317, 189);
             this.playersGridView.TabIndex = 2;
             this.playersGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             // 
@@ -418,8 +509,8 @@
             this.rulesGridView.AllowUserToAddRows = false;
             this.rulesGridView.AllowUserToDeleteRows = false;
             this.rulesGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(155)))), ((int)(((byte)(209)))));
-            this.rulesGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.rulesGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.rulesGridView.AutoGenerateColumns = false;
             this.rulesGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.rulesGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -427,31 +518,32 @@
             this.rulesGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.rulesGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.rulesGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.rulesGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rulesGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.rulesGridView.ColumnHeadersHeight = 32;
             this.rulesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.rulesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ruleDataGridViewTextBoxColumn,
             this.valueDataGridViewTextBoxColumn});
             this.rulesGridView.DataSource = this.rulesBindingSource;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(200)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.rulesGridView.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.rulesGridView.DefaultCellStyle = dataGridViewCellStyle18;
             this.rulesGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rulesGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.rulesGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.rulesGridView.EnableHeadersVisualStyles = false;
+            this.rulesGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
             this.rulesGridView.Location = new System.Drawing.Point(0, 0);
             this.rulesGridView.MultiSelect = false;
             this.rulesGridView.Name = "rulesGridView";
@@ -459,10 +551,8 @@
             this.rulesGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.rulesGridView.RowHeadersVisible = false;
             this.rulesGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.rulesGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.rulesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.rulesGridView.Size = new System.Drawing.Size(317, 109);
+            this.rulesGridView.Size = new System.Drawing.Size(317, 121);
             this.rulesGridView.TabIndex = 2;
             this.rulesGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             // 
@@ -491,12 +581,44 @@
             this.updateTimer.Interval = 500;
             this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
             // 
+            // showInGoogleMapsButton
+            // 
+            this.showInGoogleMapsButton.AutoSize = true;
+            this.showInGoogleMapsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.showInGoogleMapsButton.Depth = 0;
+            this.showInGoogleMapsButton.Icon = null;
+            this.showInGoogleMapsButton.Location = new System.Drawing.Point(3, 231);
+            this.showInGoogleMapsButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.showInGoogleMapsButton.Name = "showInGoogleMapsButton";
+            this.showInGoogleMapsButton.Primary = true;
+            this.showInGoogleMapsButton.Size = new System.Drawing.Size(209, 36);
+            this.showInGoogleMapsButton.TabIndex = 16;
+            this.showInGoogleMapsButton.Text = "{$SHOW_IN_GOOGLE_MAPS$}";
+            this.showInGoogleMapsButton.UseVisualStyleBackColor = true;
+            this.showInGoogleMapsButton.Click += new System.EventHandler(this.showInGoogleMapsButton_Click);
+            // 
+            // showInOpenStreetMapButton
+            // 
+            this.showInOpenStreetMapButton.AutoSize = true;
+            this.showInOpenStreetMapButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.showInOpenStreetMapButton.Depth = 0;
+            this.showInOpenStreetMapButton.Icon = null;
+            this.showInOpenStreetMapButton.Location = new System.Drawing.Point(3, 273);
+            this.showInOpenStreetMapButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.showInOpenStreetMapButton.Name = "showInOpenStreetMapButton";
+            this.showInOpenStreetMapButton.Primary = true;
+            this.showInOpenStreetMapButton.Size = new System.Drawing.Size(239, 36);
+            this.showInOpenStreetMapButton.TabIndex = 17;
+            this.showInOpenStreetMapButton.Text = "{$SHOW_IN_OPEN_STREET_MAP$}";
+            this.showInOpenStreetMapButton.UseVisualStyleBackColor = true;
+            this.showInOpenStreetMapButton.Click += new System.EventHandler(this.showInOpenStreetMapButton_Click);
+            // 
             // ExtendedServerInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(777, 525);
+            this.ClientSize = new System.Drawing.Size(777, 553);
             this.Controls.Add(this.mainTableLayoutPanel);
             this.Name = "ExtendedServerInformationForm";
             this.Text = "{$EXTENDED_SERVER_INFORMATION_TITLE$}";
@@ -557,5 +679,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ruleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
         private System.Windows.Forms.Timer updateTimer;
+        private MaterialSkin.Controls.MaterialLabel countryLabel;
+        private MaterialSkin.Controls.MaterialLabel cityLabel;
+        private MaterialSkin.Controls.MaterialLabel regionLabel;
+        private MaterialSkin.Controls.MaterialLabel timeZoneLabel;
+        private MaterialSkin.Controls.MaterialLabel latitudeLongitudeLabel;
+        private MaterialSkin.Controls.MaterialLabel metroCodeLabel;
+        private MaterialSkin.Controls.MaterialRaisedButton showInGoogleMapsButton;
+        private MaterialSkin.Controls.MaterialRaisedButton showInOpenStreetMapButton;
     }
 }

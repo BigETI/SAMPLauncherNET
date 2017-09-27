@@ -53,9 +53,9 @@
             this.mainFlowLayoutPanel.Controls.Add(this.serverPasswordSingleLineTextField);
             this.mainFlowLayoutPanel.Controls.Add(this.connectButton);
             this.mainFlowLayoutPanel.Controls.Add(this.cancelButton);
-            this.mainFlowLayoutPanel.Location = new System.Drawing.Point(5, 64);
+            this.mainFlowLayoutPanel.Location = new System.Drawing.Point(12, 64);
             this.mainFlowLayoutPanel.Name = "mainFlowLayoutPanel";
-            this.mainFlowLayoutPanel.Size = new System.Drawing.Size(462, 172);
+            this.mainFlowLayoutPanel.Size = new System.Drawing.Size(448, 172);
             this.mainFlowLayoutPanel.TabIndex = 0;
             // 
             // usernameLabel
@@ -66,7 +66,7 @@
             this.usernameLabel.Location = new System.Drawing.Point(3, 0);
             this.usernameLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(452, 23);
+            this.usernameLabel.Size = new System.Drawing.Size(445, 23);
             this.usernameLabel.TabIndex = 0;
             this.usernameLabel.Text = "{$USERNAME$}";
             // 
@@ -82,7 +82,7 @@
             this.usernameSingleLineTextField.SelectedText = "";
             this.usernameSingleLineTextField.SelectionLength = 0;
             this.usernameSingleLineTextField.SelectionStart = 0;
-            this.usernameSingleLineTextField.Size = new System.Drawing.Size(452, 23);
+            this.usernameSingleLineTextField.Size = new System.Drawing.Size(445, 23);
             this.usernameSingleLineTextField.TabIndex = 1;
             this.usernameSingleLineTextField.TabStop = false;
             this.usernameSingleLineTextField.UseSystemPasswordChar = false;
@@ -98,7 +98,7 @@
             this.tempUsernameCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.tempUsernameCheckBox.Name = "tempUsernameCheckBox";
             this.tempUsernameCheckBox.Ripple = true;
-            this.tempUsernameCheckBox.Size = new System.Drawing.Size(455, 23);
+            this.tempUsernameCheckBox.Size = new System.Drawing.Size(448, 23);
             this.tempUsernameCheckBox.TabIndex = 2;
             this.tempUsernameCheckBox.Text = "{$TEMPORARY_USERNAME$}";
             this.tempUsernameCheckBox.UseVisualStyleBackColor = true;
@@ -111,7 +111,7 @@
             this.serverPasswordLabel.Location = new System.Drawing.Point(3, 75);
             this.serverPasswordLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.serverPasswordLabel.Name = "serverPasswordLabel";
-            this.serverPasswordLabel.Size = new System.Drawing.Size(452, 23);
+            this.serverPasswordLabel.Size = new System.Drawing.Size(445, 23);
             this.serverPasswordLabel.TabIndex = 3;
             this.serverPasswordLabel.Text = "{$SERVER_PASSWORD$}";
             // 
@@ -127,7 +127,7 @@
             this.serverPasswordSingleLineTextField.SelectedText = "";
             this.serverPasswordSingleLineTextField.SelectionLength = 0;
             this.serverPasswordSingleLineTextField.SelectionStart = 0;
-            this.serverPasswordSingleLineTextField.Size = new System.Drawing.Size(452, 23);
+            this.serverPasswordSingleLineTextField.Size = new System.Drawing.Size(445, 23);
             this.serverPasswordSingleLineTextField.TabIndex = 4;
             this.serverPasswordSingleLineTextField.TabStop = false;
             this.serverPasswordSingleLineTextField.UseSystemPasswordChar = false;

@@ -1,4 +1,4 @@
-# SAMPLauncherNET
+# SAMPLauncherNET [![Build Status](https://travis-ci.org/BigETI/SAMPLauncherNET.svg?branch=master)](https://travis-ci.org/BigETI/SAMPLauncherNET)
 SAMPLauncherNET is a launcher for SA:MP
 
 # Why not the native San Andreas Multiplayer launcher?
@@ -9,7 +9,7 @@ It is capable to do more things than the native San Andreas Multiplayer launcher
 Download and move the binaries into any directory you prefer, which should have read and write permissions.
 
 # Where can I get a current build of SAMPLauncherNET
-There are no builds available right now, because it is still in development.
+You can check the releases out in https://github.com/BigETI/SAMPLauncherNET/releases
 
 # How to contribute
 Fork this project, commit your changes and create a pull request.

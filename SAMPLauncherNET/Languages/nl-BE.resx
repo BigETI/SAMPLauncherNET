@@ -121,7 +121,8 @@
     <value>Over</value>
   </data>
   <data name="ABOUT_DESCRIPTION" xml:space="preserve">
-    <value>SAMPLauncher NET is een client voor San Andreas Multiplayer.
+    <value>
+SAMPLauncher NET is een client voor San Andreas Multiplayer.
 
 Deze software is altijd gratis en is erkend met GPLv3.
 
@@ -256,6 +257,9 @@ Dit project bevind zich op</value>
   <data name="GAMEMODE" xml:space="preserve">
     <value>Gamemode</value>
   </data>
+  <data name="GEORGIAN" xml:space="preserve">
+    <value>Georgisch (ქართული)</value>
+  </data>
   <data name="GERMAN" xml:space="preserve">
     <value>Duits (Deutsch)</value>
   </data>
@@ -263,7 +267,10 @@ Dit project bevind zich op</value>
     <value>GitHub project SAMPLauncherNET</value>
   </data>
   <data name="HOSTNAME" xml:space="preserve">
-    <value>Hostname</value>
+    <value>Host naam</value>
+  </data>
+  <data name="HOST_AND_PORT" xml:space="preserve">
+    <value>Host en haven</value>
   </data>
   <data name="IME" xml:space="preserve">
     <value>Schakel IME (Input Method Editor) in</value>
@@ -275,10 +282,10 @@ Dit project bevind zich op</value>
     <value>Vul hier een filter...</value>
   </data>
   <data name="INSERT_RCON_PASSWORD_HERE" xml:space="preserve">
-    <value>Vul hier een RCON password...</value>
+    <value>Vul hier een RCON password in...</value>
   </data>
   <data name="INSERT_SERVER_PASSWORD_HERE" xml:space="preserve">
-    <value>Vul hier een server password...</value>
+    <value>Vul hier een server password in...</value>
   </data>
   <data name="INSERT_USERNAME_HERE" xml:space="preserve">
     <value>Vul hier een spelernaam in...</value>
@@ -317,7 +324,7 @@ Dit project bevind zich op</value>
     <value>Geen chatlog gevonden...</value>
   </data>
   <data name="NO_FAVOURITES" xml:space="preserve">
-    <value>Er zijn geen favoriete lijsten gedefinieerd. Als u een nieuwe favoriete lijst wilt definiëren, selecteert u het tabblad 'API' en maakt u een nieuwe favoriete lijst of herstel de standaardinstellingen.</value>
+    <value>Er zijn geen favorietenlijsten gedefinieerd. Als u een nieuwe lijst wilt definiëren, selecteert u het tabblad 'API' en maakt u een nieuwe favorietenlijst of herstel naar de standaardinstellingen.</value>
   </data>
   <data name="NO_FAVOURITES_TITLE" xml:space="preserve">
     <value>Geen favoriete lijsten</value>
@@ -368,13 +375,16 @@ Dit project bevind zich op</value>
     <value>Verwijder server uit favorieten</value>
   </data>
   <data name="REVERT_API_LIST" xml:space="preserve">
-    <value>Wil je echt de API-lijst terugkeren naar standaard?</value>
+    <value>Ben je zeker dat je de standaardwaarden terug wilt zetten in de API lijst?</value>
   </data>
   <data name="REVERT_API_LIST_TITLE" xml:space="preserve">
-    <value>Stel API lijst terug</value>
+    <value>Herstel API lijst</value>
   </data>
   <data name="REVERT_CONFIG" xml:space="preserve">
-    <value>Stel de configuratie terug</value>
+    <value>Herstel de configuratie naar standaardwaarden</value>
+  </data>
+  <data name="RUSSIAN" xml:space="preserve">
+    <value>Russisch (Русский)</value>
   </data>
   <data name="SAVE" xml:space="preserve">
     <value>Opslaan</value>
@@ -386,13 +396,13 @@ Dit project bevind zich op</value>
     <value>Selecteer een server lijst</value>
   </data>
   <data name="SELECT_FAVOURITES_LIST" xml:space="preserve">
-    <value>Selecteer favoriete lijst</value>
+    <value>Selecteer favorietenlijst</value>
   </data>
   <data name="SELECT_FAVOURITE_LIST_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Selecteer favoriete lijst</value>
   </data>
   <data name="SELECT_LANGUAGE" xml:space="preserve">
-    <value>Selecteer taal</value>
+    <value>Selecteer taal (Select language)</value>
   </data>
   <data name="SELECT_SERVER_LIST" xml:space="preserve">
     <value>Selecteer server lijst</value>

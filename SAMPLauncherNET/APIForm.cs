@@ -3,11 +3,19 @@ using System;
 using System.Windows.Forms;
 using WinFormsTranslator;
 
+/// <summary>
+/// SA:MP launcher .NET namespace
+/// </summary>
 namespace SAMPLauncherNET
 {
+    /// <summary>
+    /// API form class
+    /// </summary>
     public partial class APIForm : MaterialForm
     {
-
+        /// <summary>
+        /// API
+        /// </summary>
         public APIDataContract API
         {
             get
@@ -20,6 +28,10 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="api"></param>
         public APIForm(APIDataContract api = null)
         {
             InitializeComponent();
@@ -37,6 +49,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Accept input
+        /// </summary>
         private void AcceptInput()
         {
             if (apiNameSingleLineTextField.Text.Trim().Length <= 0)
@@ -58,6 +73,11 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// API name single line text field key up event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Key event arguments</param>
         private void apiNameSingleLineTextField_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -71,11 +91,21 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// OK button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void okButton_Click(object sender, EventArgs e)
         {
             AcceptInput();
         }
 
+        /// <summary>
+        /// Cancel button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Close();

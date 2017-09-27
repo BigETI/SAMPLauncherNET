@@ -7,49 +7,114 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+/// <summary>
+/// SA:MP launcher .NET namespace
+/// </summary>
 namespace SAMPLauncherNET
 {
+    /// <summary>
+    /// Server class
+    /// </summary>
     public class Server : IDisposable
     {
-
+        /// <summary>
+        /// Socket
+        /// </summary>
         private Socket socket = null;
 
+        /// <summary>
+        /// IPv4 address
+        /// </summary>
         private uint ipv4AddressUInt = 0U;
 
+        /// <summary>
+        /// Port
+        /// </summary>
         private ushort port = 0;
 
+        /// <summary>
+        /// Is server valid
+        /// </summary>
         private bool isValid = false;
 
+        /// <summary>
+        /// IP address
+        /// </summary>
         private IPAddress ipAddress = null;
 
+        /// <summary>
+        /// Timestamp
+        /// </summary>
         private DateTime[] timestamp = new DateTime[2];
 
+        /// <summary>
+        /// Request required
+        /// </summary>
         protected RequestsRequired requestsRequired = new RequestsRequired();
 
+        /// <summary>
+        /// Has password
+        /// </summary>
         protected bool hasPassword = false;
 
+        /// <summary>
+        /// Player count
+        /// </summary>
         protected ushort playerCount = 0;
 
+        /// <summary>
+        /// Maximal players
+        /// </summary>
         protected ushort maxPlayers = 0;
 
+        /// <summary>
+        /// Hostname
+        /// </summary>
         protected string hostname = "";
 
+        /// <summary>
+        /// Gamemode
+        /// </summary>
         protected string gamemode = "";
 
+        /// <summary>
+        /// Language
+        /// </summary>
         protected string language = "";
 
+        /// <summary>
+        /// Rules
+        /// </summary>
         private Dictionary<string, string> rules = new Dictionary<string, string>();
 
+        /// <summary>
+        /// Clients
+        /// </summary>
         private Dictionary<string, int> clients = new Dictionary<string, int>();
 
+        /// <summary>
+        /// Players
+        /// </summary>
         private Dictionary<byte, Player> players = new Dictionary<byte, Player>();
 
+        /// <summary>
+        /// Random numbers
+        /// </summary>
         private byte[] randomNumbers = new byte[4];
 
+        /// <summary>
+        /// Ping
+        /// </summary>
         private uint ping = 0U;
 
+        /// <summary>
+        /// Threads
+        /// </summary>
         private Thread[] threads = new Thread[5];
 
+        /// <summary>
+        /// IPv4 address
+        /// </summary>
         public uint IPv4AddressInt
         {
             get
@@ -58,6 +123,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Port
+        /// </summary>
         public ushort Port
         {
             get
@@ -66,6 +134,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Is valid
+        /// </summary>
         public bool IsValid
         {
             get
@@ -74,6 +145,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// IPv4 address string
+        /// </summary>
         public string IPv4AddressString
         {
             get
@@ -89,6 +163,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// IP address
+        /// </summary>
         public IPAddress IPAddress
         {
             get
@@ -108,6 +185,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Has password
+        /// </summary>
         public bool HasPassword
         {
             get
@@ -117,6 +197,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Has password asynchronous
+        /// </summary>
         public Task<bool> HasPasswordAsync
         {
             get
@@ -125,6 +208,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Player count
+        /// </summary>
         public ushort PlayerCount
         {
             get
@@ -134,6 +220,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Player count asynchronous
+        /// </summary>
         public Task<ushort> PlayerCountAsync
         {
             get
@@ -142,6 +231,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Maximal players
+        /// </summary>
         public ushort MaxPlayers
         {
             get
@@ -151,6 +243,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Maximal players asynchronous
+        /// </summary>
         public Task<ushort> MaxPlayersAsync
         {
             get
@@ -159,6 +254,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Hostname
+        /// </summary>
         public string Hostname
         {
             get
@@ -168,6 +266,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Hostname asynchronous
+        /// </summary>
         public Task<string> HostnameAsync
         {
             get
@@ -176,6 +277,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Gamemode
+        /// </summary>
         public string Gamemode
         {
             get
@@ -185,6 +289,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Gamemode asynchronous
+        /// </summary>
         public Task<string> GamemodeAsync
         {
             get
@@ -193,6 +300,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Language
+        /// </summary>
         public string Language
         {
             get
@@ -202,6 +312,20 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Geo location
+        /// </summary>
+        public GeoLocationData GeoLocation
+        {
+            get
+            {
+                return GeoLocator.Locate(IPv4AddressString);
+            }
+        }
+
+        /// <summary>
+        /// Language asynchronous
+        /// </summary>
         public Task<string> LanguageAsync
         {
             get
@@ -210,6 +334,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Rule keys
+        /// </summary>
         public Dictionary<string, string>.KeyCollection RuleKeys
         {
             get
@@ -219,6 +346,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Rule keys asynchronous
+        /// </summary>
         public Task<Dictionary<string, string>.KeyCollection> RuleKeysAsync
         {
             get
@@ -227,6 +357,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Client keys
+        /// </summary>
         public Dictionary<string, int>.KeyCollection ClientKeys
         {
             get
@@ -236,6 +369,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Client keys asynchronous
+        /// </summary>
         public Task<Dictionary<string, int>.KeyCollection> ClientKeysAsync
         {
             get
@@ -244,6 +380,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Player keys
+        /// </summary>
         public Dictionary<byte, Player>.KeyCollection PlayerKeys
         {
             get
@@ -253,6 +392,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Player keys asynchronous
+        /// </summary>
         public Task<Dictionary<byte, Player>.KeyCollection> PlayerKeysAsync
         {
             get
@@ -261,6 +403,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Player values
+        /// </summary>
         public Dictionary<byte, Player>.ValueCollection PlayerValues
         {
             get
@@ -270,6 +415,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Player values asynchronous
+        /// </summary>
         public Task<Dictionary<byte, Player>.ValueCollection> PlayerValuesAsync
         {
             get
@@ -278,6 +426,20 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Geo location asynchronous
+        /// </summary>
+        public Task<GeoLocationData> GeoLocationAsync
+        {
+            get
+            {
+                return GeoLocator.LocateAsync(IPv4AddressString);
+            }
+        }
+
+        /// <summary>
+        /// Ping
+        /// </summary>
         public uint Ping
         {
             get
@@ -287,6 +449,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Ping asynchronous
+        /// </summary>
         public Task<uint> PingAsync
         {
             get
@@ -295,6 +460,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// IP and port string
+        /// </summary>
         public string IPPortString
         {
             get
@@ -303,6 +471,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Favourite data contract
+        /// </summary>
         public FavouriteDataContract FavouriteDataContract
         {
             get
@@ -315,6 +486,11 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="hostAndPort">Host and port</param>
+        /// <param name="fetchData">Fetch data</param>
         public Server(string hostAndPort, bool fetchData = true)
         {
             try
@@ -376,17 +552,28 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Is data fetched
+        /// </summary>
+        /// <param name="requestType">Request type</param>
+        /// <returns>Data fetched</returns>
         public bool IsDataFetched(ERequestType requestType)
         {
             return !(requestsRequired[requestType]);
         }
 
+        /// <summary>
+        /// Fetch any data
+        /// </summary>
         public void FetchAnyData()
         {
             FetchAnyDataAsync();
             JoinAllThreads();
         }
 
+        /// <summary>
+        /// Fetch any data asynchronous
+        /// </summary>
         public void FetchAnyDataAsync()
         {
             AbortAllThreads();
@@ -403,6 +590,10 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Fetch multiple data
+        /// </summary>
+        /// <param name="requestTypes">Request types</param>
         public void FetchMultiData(ERequestType[] requestTypes)
         {
             Dictionary<ERequestType, Thread> ts = new Dictionary<ERequestType, Thread>();
@@ -431,6 +622,10 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Fetch data
+        /// </summary>
+        /// <param name="requestType">Request type</param>
         public void FetchData(ERequestType requestType)
         {
             AbortThread(requestType);
@@ -438,6 +633,10 @@ namespace SAMPLauncherNET
             SendQuery(requestType);
         }
 
+        /// <summary>
+        /// Fetch data asynchronous
+        /// </summary>
+        /// <param name="requestType">Request type</param>
         public void FetchDataAsync(ERequestType requestType)
         {
             AbortThread(requestType);
@@ -445,6 +644,10 @@ namespace SAMPLauncherNET
             SendQueryAsync(requestType);
         }
 
+        /// <summary>
+        /// Abort thread
+        /// </summary>
+        /// <param name="requestType"></param>
         private void AbortThread(ERequestType requestType)
         {
             lock (threads)
@@ -458,6 +661,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Abort all threads
+        /// </summary>
         private void AbortAllThreads()
         {
             if (threads != null)
@@ -476,6 +682,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Start all threads
+        /// </summary>
         private void StartAllThreads()
         {
             foreach (Thread t in threads)
@@ -494,6 +703,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Join all threads
+        /// </summary>
         private void JoinAllThreads()
         {
             foreach (Thread t in threads)
@@ -512,6 +724,10 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Send query asynchronous
+        /// </summary>
+        /// <param name="requestType">Request type</param>
         private void SendQueryAsync(ERequestType requestType)
         {
             int index = (int)requestType;
@@ -520,6 +736,11 @@ namespace SAMPLauncherNET
             threads[index].Start();
         }
 
+        /// <summary>
+        /// Send query when required
+        /// </summary>
+        /// <param name="requestType">Request type</param>
+        /// <returns>Success</returns>
         private bool SendQueryWhenRequired(ERequestType requestType)
         {
             bool ret = true;
@@ -528,14 +749,23 @@ namespace SAMPLauncherNET
             return ret;
         }
 
+        /// <summary>
+        /// Send query when expired
+        /// </summary>
+        /// <param name="requestType">Request type</param>
+        /// <param name="milliseconds">Milliseconds</param>
         public void SendQueryWhenExpired(ERequestType requestType, uint milliseconds)
         {
             uint t = (uint)(DateTime.Now.Subtract(requestsRequired.GetLastRequestTime(requestType)).TotalMilliseconds);
             if (t >= milliseconds)
                 SendQueryAsync(requestType);
-                
         }
 
+        /// <summary>
+        /// Send query
+        /// </summary>
+        /// <param name="requestType">Request type</param>
+        /// <returns>Success</returns>
         private bool SendQuery(ERequestType requestType)
         {
             bool ret = false;
@@ -574,6 +804,9 @@ namespace SAMPLauncherNET
             return ret;
         }
 
+        /// <summary>
+        /// Recieve
+        /// </summary>
         private void Receive()
         {
             try
@@ -703,6 +936,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Force request
+        /// </summary>
         public void ForceRequest()
         {
             requestsRequired[ERequestType.Ping] = true;
@@ -712,6 +948,11 @@ namespace SAMPLauncherNET
             requestsRequired[ERequestType.DetailedClients] = true;
         }
 
+        /// <summary>
+        /// Get rule value
+        /// </summary>
+        /// <param name="ruleName">Rule name</param>
+        /// <returns>Rule value</returns>
         public string GetRuleValue(string ruleName)
         {
             string ret = "";
@@ -721,6 +962,11 @@ namespace SAMPLauncherNET
             return ret;
         }
 
+        /// <summary>
+        /// Get score from client
+        /// </summary>
+        /// <param name="clientName">Client name</param>
+        /// <returns></returns>
         public int GetScoreFromClient(string clientName)
         {
             int ret = 0;
@@ -730,6 +976,11 @@ namespace SAMPLauncherNET
             return ret;
         }
 
+        /// <summary>
+        /// Get player
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <returns>Player</returns>
         public Player GetPlayer(byte id)
         {
             Player ret = null;
@@ -739,11 +990,22 @@ namespace SAMPLauncherNET
             return ret;
         }
 
+        /// <summary>
+        /// To favourites server
+        /// </summary>
+        /// <param name="cachedName">Cached name</param>
+        /// <param name="cachedGamemode">Cahced gamemode</param>
+        /// <param name="serverPassword">Server password</param>
+        /// <param name="rconPassword">RCON password</param>
+        /// <returns></returns>
         public FavouriteServer ToFavouriteServer(string cachedName = "", string cachedGamemode = "", string serverPassword = "", string rconPassword = "")
         {
             return new FavouriteServer(IPPortString, cachedName, cachedGamemode, serverPassword, rconPassword);
         }
 
+        /// <summary>
+        /// Dispose
+        /// </summary>
         public void Dispose()
         {
             AbortAllThreads();

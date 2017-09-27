@@ -19,7 +19,7 @@ namespace SAMPLauncherNET.Languages {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class en_GB {
@@ -70,7 +70,8 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SAMPLauncher NET is a launcher for San Andreas Multiplayer.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 
+        ///SAMPLauncher NET is a launcher for San Andreas Multiplayer.
         ///
         ///This software is all time free and licenced with GPLv3.
         ///
@@ -79,6 +80,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string ABOUT_DESCRIPTION {
             get {
                 return ResourceManager.GetString("ABOUT_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Acknowledges limit ähnelt.
+        /// </summary>
+        internal static string ACKNOWLEDGES_LIMIT {
+            get {
+                return ResourceManager.GetString("ACKNOWLEDGES_LIMIT", resourceCulture);
             }
         }
         
@@ -106,6 +116,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string ALREADY_IN_FAVOURITES {
             get {
                 return ResourceManager.GetString("ALREADY_IN_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Announce server ähnelt.
+        /// </summary>
+        internal static string ANNOUNCE {
+            get {
+                return ResourceManager.GetString("ANNOUNCE", resourceCulture);
             }
         }
         
@@ -200,6 +219,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Assembly version ähnelt.
+        /// </summary>
+        internal static string ASSEMBLY_VERSION {
+            get {
+                return ResourceManager.GetString("ASSEMBLY_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Audio message off ähnelt.
         /// </summary>
         internal static string AUDIO_MESSAGE_OFF {
@@ -218,11 +246,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bind IP address ähnelt.
+        /// </summary>
+        internal static string BIND {
+            get {
+                return ResourceManager.GetString("BIND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
         /// </summary>
         internal static string CANCEL {
             get {
                 return ResourceManager.GetString("CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enable chat logging ähnelt.
+        /// </summary>
+        internal static string CHAT_LOGGING {
+            get {
+                return ResourceManager.GetString("CHAT_LOGGING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die City ähnelt.
+        /// </summary>
+        internal static string CITY {
+            get {
+                return ResourceManager.GetString("CITY", resourceCulture);
             }
         }
         
@@ -263,11 +318,92 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Connect to address ähnelt.
+        /// </summary>
+        internal static string CONNECT_TO_ADDRESS {
+            get {
+                return ResourceManager.GetString("CONNECT_TO_ADDRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Connect to address ähnelt.
+        /// </summary>
+        internal static string CONNECT_TO_ADDRESS_TITLE {
+            get {
+                return ResourceManager.GetString("CONNECT_TO_ADDRESS_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Connect to test server ähnelt.
+        /// </summary>
+        internal static string CONNECT_TO_TEST_SERVER {
+            get {
+                return ResourceManager.GetString("CONNECT_TO_TEST_SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Connect with RCON ähnelt.
         /// </summary>
         internal static string CONNECT_WITH_RCON {
             get {
                 return ResourceManager.GetString("CONNECT_WITH_RCON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Allow connection cookies ähnelt.
+        /// </summary>
+        internal static string CONNECTION_COOKIES {
+            get {
+                return ResourceManager.GetString("CONNECTION_COOKIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Connection seed time ähnelt.
+        /// </summary>
+        internal static string CONNECTION_SEED_TIME {
+            get {
+                return ResourceManager.GetString("CONNECTION_SEED_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enable cookie logging ähnelt.
+        /// </summary>
+        internal static string COOKIE_LOGGING {
+            get {
+                return ResourceManager.GetString("COOKIE_LOGGING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Country ähnelt.
+        /// </summary>
+        internal static string COUNTRY {
+            get {
+                return ResourceManager.GetString("COUNTRY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Database log queries ähnelt.
+        /// </summary>
+        internal static string DATABASE_LOG_QUERIES {
+            get {
+                return ResourceManager.GetString("DATABASE_LOG_QUERIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enable database logging ähnelt.
+        /// </summary>
+        internal static string DATABASE_LOGGING {
+            get {
+                return ResourceManager.GetString("DATABASE_LOGGING", resourceCulture);
             }
         }
         
@@ -295,6 +431,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string DELETE_SELECTED_IMAGES_TITLE {
             get {
                 return ResourceManager.GetString("DELETE_SELECTED_IMAGES_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Developer tools ähnelt.
+        /// </summary>
+        internal static string DEVELOPER_TOOLS {
+            get {
+                return ResourceManager.GetString("DEVELOPER_TOOLS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Developer tools configuration ähnelt.
+        /// </summary>
+        internal static string DEVELOPER_TOOLS_CONFIGURATION_TITLE {
+            get {
+                return ResourceManager.GetString("DEVELOPER_TOOLS_CONFIGURATION_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Development directory ähnelt.
+        /// </summary>
+        internal static string DEVELOPMENT_DIRECTORY {
+            get {
+                return ResourceManager.GetString("DEVELOPMENT_DIRECTORY", resourceCulture);
             }
         }
         
@@ -389,6 +552,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die File version ähnelt.
+        /// </summary>
+        internal static string FILE_VERSION {
+            get {
+                return ResourceManager.GetString("FILE_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Filter hostname ähnelt.
         /// </summary>
         internal static string FILTER_HOSTNAME {
@@ -421,6 +593,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string FILTER_MODE {
             get {
                 return ResourceManager.GetString("FILTER_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Filterscripts ähnelt.
+        /// </summary>
+        internal static string FILTERSCRIPTS {
+            get {
+                return ResourceManager.GetString("FILTERSCRIPTS", resourceCulture);
             }
         }
         
@@ -470,6 +651,33 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Gamemode text ähnelt.
+        /// </summary>
+        internal static string GAMEMODE_TEXT {
+            get {
+                return ResourceManager.GetString("GAMEMODE_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Gamemodes ähnelt.
+        /// </summary>
+        internal static string GAMEMODES {
+            get {
+                return ResourceManager.GetString("GAMEMODES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Georgian (ქართული) ähnelt.
+        /// </summary>
+        internal static string GEORGIAN {
+            get {
+                return ResourceManager.GetString("GEORGIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die German (Deutsch) ähnelt.
         /// </summary>
         internal static string GERMAN {
@@ -488,6 +696,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Host and port ähnelt.
+        /// </summary>
+        internal static string HOST_AND_PORT {
+            get {
+                return ResourceManager.GetString("HOST_AND_PORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Hostname ähnelt.
         /// </summary>
         internal static string HOSTNAME {
@@ -502,6 +719,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string IME {
             get {
                 return ResourceManager.GetString("IME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die In car tick rate ähnelt.
+        /// </summary>
+        internal static string IN_CAR_RATE {
+            get {
+                return ResourceManager.GetString("IN_CAR_RATE", resourceCulture);
             }
         }
         
@@ -560,6 +786,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lag compensation mode ähnelt.
+        /// </summary>
+        internal static string LAG_COMPENSATION_MODE {
+            get {
+                return ResourceManager.GetString("LAG_COMPENSATION_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die LAN mode ähnelt.
+        /// </summary>
+        internal static string LAN_MODE {
+            get {
+                return ResourceManager.GetString("LAN_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Language ähnelt.
         /// </summary>
         internal static string LANGUAGE {
@@ -574,6 +818,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string LAST_CHATLOG {
             get {
                 return ResourceManager.GetString("LAST_CHATLOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Latitude and longitude ähnelt.
+        /// </summary>
+        internal static string LATITUDE_LONGITUDE {
+            get {
+                return ResourceManager.GetString("LATITUDE_LONGITUDE", resourceCulture);
             }
         }
         
@@ -601,6 +854,87 @@ namespace SAMPLauncherNET.Languages {
         internal static string LAUNCHER_TITLE {
             get {
                 return ResourceManager.GetString("LAUNCHER_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Log queries ähnelt.
+        /// </summary>
+        internal static string LOG_QUERIES {
+            get {
+                return ResourceManager.GetString("LOG_QUERIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Log time format ähnelt.
+        /// </summary>
+        internal static string LOG_TIME_FORMAT {
+            get {
+                return ResourceManager.GetString("LOG_TIME_FORMAT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Map name ähnelt.
+        /// </summary>
+        internal static string MAP_NAME {
+            get {
+                return ResourceManager.GetString("MAP_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Maximal NPCs ähnelt.
+        /// </summary>
+        internal static string MAXIMAL_NPCS {
+            get {
+                return ResourceManager.GetString("MAXIMAL_NPCS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Maximal players ähnelt.
+        /// </summary>
+        internal static string MAXIMAL_PLAYERS {
+            get {
+                return ResourceManager.GetString("MAXIMAL_PLAYERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Message hole limit ähnelt.
+        /// </summary>
+        internal static string MESSAGE_HOLE_LIMIT {
+            get {
+                return ResourceManager.GetString("MESSAGE_HOLE_LIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Messages limit ähnelt.
+        /// </summary>
+        internal static string MESSAGES_LIMIT {
+            get {
+                return ResourceManager.GetString("MESSAGES_LIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Metro code ähnelt.
+        /// </summary>
+        internal static string METRO_CODE {
+            get {
+                return ResourceManager.GetString("METRO_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Minimum connection time ähnelt.
+        /// </summary>
+        internal static string MINIMUM_CONNECTION_TIME {
+            get {
+                return ResourceManager.GetString("MINIMUM_CONNECTION_TIME", resourceCulture);
             }
         }
         
@@ -668,6 +1002,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No sign ähnelt.
+        /// </summary>
+        internal static string NO_SIGN {
+            get {
+                return ResourceManager.GetString("NO_SIGN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Not in favourites ähnelt.
         /// </summary>
         internal static string NOT_IN_FAVOURITES {
@@ -682,6 +1025,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string OK {
             get {
                 return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die On foot tick rate ähnelt.
+        /// </summary>
+        internal static string ON_FOOT_RATE {
+            get {
+                return ResourceManager.GetString("ON_FOOT_RATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Open directory ähnelt.
+        /// </summary>
+        internal static string OPEN_DIRECTORY {
+            get {
+                return ResourceManager.GetString("OPEN_DIRECTORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Open in explorer ähnelt.
+        /// </summary>
+        internal static string OPEN_IN_EXPLORER {
+            get {
+                return ResourceManager.GetString("OPEN_IN_EXPLORER", resourceCulture);
             }
         }
         
@@ -713,11 +1083,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Password ähnelt.
+        /// </summary>
+        internal static string PASSWORD {
+            get {
+                return ResourceManager.GetString("PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ping ähnelt.
         /// </summary>
         internal static string PING {
             get {
                 return ResourceManager.GetString("PING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Player time out ähnelt.
+        /// </summary>
+        internal static string PLAYER_TIME_OUT {
+            get {
+                return ResourceManager.GetString("PLAYER_TIME_OUT", resourceCulture);
             }
         }
         
@@ -740,6 +1128,51 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Plugins ähnelt.
+        /// </summary>
+        internal static string PLUGINS {
+            get {
+                return ResourceManager.GetString("PLUGINS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Port ähnelt.
+        /// </summary>
+        internal static string PORT {
+            get {
+                return ResourceManager.GetString("PORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Product version ähnelt.
+        /// </summary>
+        internal static string PRODUCT_VERSION {
+            get {
+                return ResourceManager.GetString("PRODUCT_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enable query ähnelt.
+        /// </summary>
+        internal static string QUERY {
+            get {
+                return ResourceManager.GetString("QUERY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enable RCON ähnelt.
+        /// </summary>
+        internal static string RCON {
+            get {
+                return ResourceManager.GetString("RCON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die RCON password ähnelt.
         /// </summary>
         internal static string RCON_PASSWORD {
@@ -754,6 +1187,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string RCON_PASSWORD_TITLE {
             get {
                 return ResourceManager.GetString("RCON_PASSWORD_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Region ähnelt.
+        /// </summary>
+        internal static string REGION {
+            get {
+                return ResourceManager.GetString("REGION", resourceCulture);
             }
         }
         
@@ -830,6 +1272,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Russian (Русский) ähnelt.
+        /// </summary>
+        internal static string RUSSIAN {
+            get {
+                return ResourceManager.GetString("RUSSIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Save ähnelt.
         /// </summary>
         internal static string SAVE {
@@ -844,6 +1295,69 @@ namespace SAMPLauncherNET.Languages {
         internal static string SAVED_POSITIONS {
             get {
                 return ResourceManager.GetString("SAVED_POSITIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Search on... ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON {
+            get {
+                return ResourceManager.GetString("SEARCH_ON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bing ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_BING {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_BING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die DuckDuckGo ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_DUCK_DUCK_GO {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_DUCK_DUCK_GO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Google ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_GOOGLE {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_GOOGLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Yahoo ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_YAHOO {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_YAHOO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Yandex ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_YANDEX {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_YANDEX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die YouTube ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_YOU_TUBE {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_YOU_TUBE", resourceCulture);
             }
         }
         
@@ -956,6 +1470,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Show additional configurations ähnelt.
+        /// </summary>
+        internal static string SHOW_ADDITIONAL_CONFIGURATIONS {
+            get {
+                return ResourceManager.GetString("SHOW_ADDITIONAL_CONFIGURATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Extended server information ähnelt.
         /// </summary>
         internal static string SHOW_EXTENDED_SERVER_INFORMATION {
@@ -979,6 +1502,24 @@ namespace SAMPLauncherNET.Languages {
         internal static string SHOW_GALLERY {
             get {
                 return ResourceManager.GetString("SHOW_GALLERY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Show in Google Maps ähnelt.
+        /// </summary>
+        internal static string SHOW_IN_GOOGLE_MAPS {
+            get {
+                return ResourceManager.GetString("SHOW_IN_GOOGLE_MAPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Show in OpenStreetMap ähnelt.
+        /// </summary>
+        internal static string SHOW_IN_OPEN_STREET_MAP {
+            get {
+                return ResourceManager.GetString("SHOW_IN_OPEN_STREET_MAP", resourceCulture);
             }
         }
         
@@ -1019,11 +1560,65 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sleep time ähnelt.
+        /// </summary>
+        internal static string SLEEP {
+            get {
+                return ResourceManager.GetString("SLEEP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Start server ähnelt.
+        /// </summary>
+        internal static string START_SERVER {
+            get {
+                return ResourceManager.GetString("START_SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Stop server ähnelt.
+        /// </summary>
+        internal static string STOP_SERVER {
+            get {
+                return ResourceManager.GetString("STOP_SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Stream distance ähnelt.
+        /// </summary>
+        internal static string STREAM_DISTANCE {
+            get {
+                return ResourceManager.GetString("STREAM_DISTANCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Stream rate ähnelt.
+        /// </summary>
+        internal static string STREAM_RATE {
+            get {
+                return ResourceManager.GetString("STREAM_RATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Don&apos;t save username ähnelt.
         /// </summary>
         internal static string TEMPORARY_USERNAME {
             get {
                 return ResourceManager.GetString("TEMPORARY_USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Time zone ähnelt.
+        /// </summary>
+        internal static string TIME_ZONE {
+            get {
+                return ResourceManager.GetString("TIME_ZONE", resourceCulture);
             }
         }
         
@@ -1042,6 +1637,51 @@ namespace SAMPLauncherNET.Languages {
         internal static string USERNAME {
             get {
                 return ResourceManager.GetString("USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Visit website ähnelt.
+        /// </summary>
+        internal static string VISIT_WEBSITE {
+            get {
+                return ResourceManager.GetString("VISIT_WEBSITE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you really want to visit this website? ähnelt.
+        /// </summary>
+        internal static string VISIT_WEBSITE_MESSAGE {
+            get {
+                return ResourceManager.GetString("VISIT_WEBSITE_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Visit ähnelt.
+        /// </summary>
+        internal static string VISIT_WEBSITE_TITLE {
+            get {
+                return ResourceManager.GetString("VISIT_WEBSITE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Weapon rate ähnelt.
+        /// </summary>
+        internal static string WEAPON_RATE {
+            get {
+                return ResourceManager.GetString("WEAPON_RATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Website URL ähnelt.
+        /// </summary>
+        internal static string WEBSITE_URL {
+            get {
+                return ResourceManager.GetString("WEBSITE_URL", resourceCulture);
             }
         }
     }

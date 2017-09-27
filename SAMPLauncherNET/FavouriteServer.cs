@@ -1,12 +1,26 @@
-﻿namespace SAMPLauncherNET
+﻿/// <summary>
+/// SA:MP launcher .NET namespace
+/// </summary>
+namespace SAMPLauncherNET
 {
+    /// <summary>
+    /// Favourite server
+    /// </summary>
     public class FavouriteServer : Server
     {
-
+        /// <summary>
+        /// Server password
+        /// </summary>
         private string serverPassword;
 
+        /// <summary>
+        /// RCON password
+        /// </summary>
         private string rconPassword;
 
+        /// <summary>
+        /// Server password
+        /// </summary>
         public string ServerPassword
         {
             get
@@ -15,6 +29,9 @@
             }
         }
 
+        /// <summary>
+        /// RCON password
+        /// </summary>
         public string RCONPassword
         {
             get
@@ -23,6 +40,14 @@
             }
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="ipAddressAndPortString">IP address and port string</param>
+        /// <param name="cachedHostname">Cached hostname</param>
+        /// <param name="cachedGamemode">Cached gamemode</param>
+        /// <param name="serverPassword">Server password</param>
+        /// <param name="rconPassword">RCON password</param>
         public FavouriteServer(string ipAddressAndPortString, string cachedHostname = "", string cachedGamemode = "", string serverPassword = "", string rconPassword = "") : base(ipAddressAndPortString, false)
         {
             requestsRequired[ERequestType.Information] = false;
@@ -30,14 +55,22 @@
             gamemode = cachedGamemode;
             this.serverPassword = serverPassword;
             this.rconPassword = rconPassword;
+            FetchDataAsync(ERequestType.Ping);
+            FetchDataAsync(ERequestType.Information);
         }
         
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="fdc">Favorite data contract</param>
         public FavouriteServer(FavouriteDataContract fdc) : base(fdc.host, false)
         {
             requestsRequired[ERequestType.Information] = false;
             hostname = fdc.hostname;
             serverPassword = "";
             rconPassword = "";
+            FetchDataAsync(ERequestType.Ping);
+            FetchDataAsync(ERequestType.Information);
         }
     }
 }

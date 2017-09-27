@@ -1,17 +1,40 @@
 ﻿using System;
 
+/// <summary>
+/// SA:MP launcher .NET namespace
+/// </summary>
 namespace SAMPLauncherNET
 {
+    /// <summary>
+    /// Requests required class
+    /// </summary>
     public class RequestsRequired
     {
-        bool[] values;
+        /// <summary>
+        /// Values
+        /// </summary>
+        private bool[] values;
 
-        bool[] locked;
+        /// <summary>
+        /// Available
+        /// </summary>
+        private bool[] available;
 
-        DateTime[] lastRequestTime;
+        /// <summary>
+        /// Last request time
+        /// </summary>
+        private DateTime[] lastRequestTime;
 
-        static readonly char[] opCodes = new char[(int)(ERequestType.NumOfItems)] { 'p', 'i', 'r', 'c', 'd' };
+        /// <summary>
+        /// Operation codes
+        /// </summary>
+        private static readonly char[] opCodes = new char[(int)(ERequestType.NumOfItems)] { 'p', 'i', 'r', 'c', 'd' };
 
+        /// <summary>
+        /// Array element access operator
+        /// </summary>
+        /// <param name="requestType">Request type</param>
+        /// <returns>Request required</returns>
         public bool this[ERequestType requestType]
         {
             get
@@ -20,44 +43,67 @@ namespace SAMPLauncherNET
             }
             set
             {
-                if (!(locked[(int)requestType]))
+                if (available[(int)requestType])
                     values[(int)requestType] = value;
             }
         }
 
+        /// <summary>
+        /// Get operation code
+        /// </summary>
+        /// <param name="requestType">Request type</param>
+        /// <returns>Operation code</returns>
         public static char GetOpCode(ERequestType requestType)
         {
             return opCodes[(int)requestType];
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="initialValue">Initial value</param>
         public RequestsRequired(bool initialValue = true)
         {
             int i;
             DateTime now = DateTime.Now;
             values = new bool[(int)(ERequestType.NumOfItems)];
             lastRequestTime = new DateTime[values.Length];
-            locked = new bool[values.Length];
+            available = new bool[values.Length];
             for (i = 0; i < values.Length; i++)
             {
                 values[i] = initialValue;
                 lastRequestTime[i] = now;
-                locked[i] = false;
+                available[i] = true;
             }
         }
 
+        /// <summary>
+        /// Get last request time
+        /// </summary>
+        /// <param name="requestType">Request type</param>
+        /// <returns>Last request time</returns>
         public DateTime GetLastRequestTime(ERequestType requestType)
         {
             return lastRequestTime[(int)requestType];
         }
 
+        /// <summary>
+        /// Set last request time
+        /// </summary>
+        /// <param name="requestType">Request type</param>
         public void SetLastRequestTime(ERequestType requestType)
         {
             lastRequestTime[(int)requestType] = DateTime.Now;
         }
 
+        /// <summary>
+        /// Lock
+        /// </summary>
+        /// <param name="requestType">Request type</param>
         public void Lock(ERequestType requestType)
         {
-            locked[(int)requestType] = true;
+            available[(int)requestType] = false;
+            values[(int)requestType] = false;
         }
     }
 }

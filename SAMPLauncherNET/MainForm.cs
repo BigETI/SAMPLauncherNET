@@ -6,38 +6,76 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using WinFormsTranslator;
 
+/// <summary>
+/// SA:MP launcher .NET namespace
+/// </summary>
 namespace SAMPLauncherNET
 {
+    /// <summary>
+    /// Main form class
+    /// </summary>
     public partial class MainForm : MaterialForm
     {
 
-        private MaterialSkinManager materialSkinManager = null;
-
+        /// <summary>
+        /// Load servers
+        /// </summary>
         private List<KeyValuePair<Server, int>> loadServers = new List<KeyValuePair<Server, int>>();
 
+        /// <summary>
+        /// Loaded servers
+        /// </summary>
         private List<KeyValuePair<Server, int>> loadedServers = new List<KeyValuePair<Server, int>>();
 
+        /// <summary>
+        /// Registered servers
+        /// </summary>
         private Dictionary<string, Server> registeredServers = new Dictionary<string, Server>();
 
+        /// <summary>
+        /// Thread
+        /// </summary>
         private Thread thread = null;
 
+        /// <summary>
+        /// Row thread
+        /// </summary>
         private Thread rowThread = null;
 
+        /// <summary>
+        /// Row thread success
+        /// </summary>
         private bool rowThreadSuccess = false;
 
-        private List<ServerListConnector> api = new List<ServerListConnector>();
+        /// <summary>
+        /// APIs
+        /// </summary>
+        private List<ServerListConnector> apis = new List<ServerListConnector>();
 
+        /// <summary>
+        /// Configuration
+        /// </summary>
         private SAMPConfig config = SAMP.SAMPConfig;
 
+        /// <summary>
+        /// Query first server
+        /// </summary>
         private bool queryFirstServer = true;
 
+        /// <summary>
+        /// Selected API index
+        /// </summary>
         private int selectedAPIIndex = -1;
 
+        /// <summary>
+        /// Selected browser
+        /// </summary>
         public Server SelectedServer
         {
             get
@@ -59,20 +97,26 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Is in favourites list
+        /// </summary>
         private bool IsInFavouriteList
         {
             get
             {
                 bool ret = false;
-                if ((selectedAPIIndex >= 0) && (selectedAPIIndex < api.Count))
+                if ((selectedAPIIndex >= 0) && (selectedAPIIndex < apis.Count))
                 {
-                    ServerListConnector slc = api[selectedAPIIndex];
+                    ServerListConnector slc = apis[selectedAPIIndex];
                     ret = ((slc.ServerListType == EServerListType.Favourites) || (slc.ServerListType == EServerListType.LegacyFavourites));
                 }
                 return ret;
             }
         }
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -90,12 +134,15 @@ namespace SAMPLauncherNET
                 }
                 ++i;
             }
+            assemblyVersionLabel.Text += ": " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            fileVersionLabel.Text += ": " + FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
+            productVersionLabel.Text += ": " + FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
 
-            materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue700, Primary.Blue800, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
-            //materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange400, Primary.DeepOrange600, Primary.DeepOrange100, Accent.Orange100, TextShade.WHITE);
+            MaterialSkinManager material_skin_manager = MaterialSkinManager.Instance;
+            material_skin_manager.AddFormToManage(this);
+            material_skin_manager.Theme = MaterialSkinManager.Themes.DARK;
+            material_skin_manager.ColorScheme = new ColorScheme(Primary.Blue700, Primary.Blue800, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
+            //material_skin_manager.ColorScheme = new ColorScheme(Primary.DeepOrange400, Primary.DeepOrange600, Primary.DeepOrange100, Accent.Orange100, TextShade.WHITE);
 
             galleryFileSystemWatcher.Path = SAMP.GalleryPath;
             textFileSystemWatcher.Path = SAMP.ConfigPath;
@@ -103,8 +150,10 @@ namespace SAMPLauncherNET
             lastChatlogTextBox.Text = SAMP.Chatlog;
             savedPositionsTextBox.Text = SAMP.SavedPositions;
 
-            ReloadConfig();
-            ReloadAPI();
+            ReloadSAMPConfig();
+            ReloadAPIs();
+            ReloadLauncherConfig();
+            ReloadDeveloperToolsConfig();
             thread = new Thread(() =>
             {
                 while (true)
@@ -135,13 +184,16 @@ namespace SAMPLauncherNET
             thread.Start();
         }
 
-        private void ClearAPI()
+        /// <summary>
+        /// Clear APIs
+        /// </summary>
+        private void ClearAPIs()
         {
             selectAPIComboBox.Items.Clear();
             selectedAPIIndex = -1;
-            lock (api)
+            lock (apis)
             {
-                api.Clear();
+                apis.Clear();
             }
             apiDataTable.Clear();
             lock (loadServers)
@@ -159,36 +211,49 @@ namespace SAMPLauncherNET
             serversDataTable.Clear();
         }
 
-        private void ReloadAPI()
+        /// <summary>
+        /// Reload APIs
+        /// </summary>
+        private void ReloadAPIs()
         {
-            ClearAPI();
-            lock (api)
+            ClearAPIs();
+            lock (apis)
             {
-                api.AddRange(SAMP.APIIO);
-                selectAPIComboBox.Items.AddRange(api.ToArray());
+                apis = SAMP.APIIO;
                 lock (apiDataTable)
                 {
-                    for (int i = 0; i < api.Count; i++)
+                    for (int i = 0; i < apis.Count; i++)
                     {
                         DataRow dr = apiDataTable.NewRow();
-                        ServerListConnector slc = api[i];
+                        ServerListConnector slc = apis[i];
+                        string trimmed_name = slc.Name.Trim();
+                        if (trimmed_name.Length > 4)
+                        {
+                            if (trimmed_name.StartsWith("{$") && trimmed_name.EndsWith("$}"))
+                                slc.TranslatableText = Translator.GetTranslation(trimmed_name.Substring(2, trimmed_name.Length - 4));
+                        }
                         dr.ItemArray = new object[] { i, slc.Name, slc.ServerListType.ToString(), slc.Endpoint };
                         apiDataTable.Rows.Add(dr);
                     }
                 }
-                if (api.Count > 0)
+                selectAPIComboBox.Items.AddRange(apis.ToArray());
+                if (apis.Count > 0)
                     selectAPIComboBox.SelectedIndex = 0;
             }
         }
 
+        /// <summary>
+        /// Select API
+        /// </summary>
         private void SelectAPI()
         {
             int index = selectAPIComboBox.SelectedIndex;
-            if ((index >= 0) && (index < api.Count))
+            if ((index >= 0) && (index < apis.Count))
             {
                 lock (loadServers)
                 {
-                    ServerListConnector slc = api[index];
+                    queryFirstServer = true;
+                    ServerListConnector slc = apis[index];
                     if (slc.NotLoaded)
                     {
                         slc.NotLoaded = false;
@@ -199,18 +264,26 @@ namespace SAMPLauncherNET
                 }
                 UpdateServerListFilter();
                 UpdateServerCount();
+                EnterRow();
             }
         }
 
+        /// <summary>
+        /// Update server count
+        /// </summary>
         private void UpdateServerCount()
         {
             uint c = 0U;
             int index = selectedAPIIndex;
-            if ((index >= 0) && (index < api.Count))
-                c = api[index].ServerCount;
+            if ((index >= 0) && (index < apis.Count))
+                c = apis[index].ServerCount;
             serverCountLabel.Text = Translator.GetTranslation("SERVERS") + ": " + c;
         }
 
+        /// <summary>
+        /// Enter row
+        /// </summary>
+        /// <returns>Success</returns>
         private bool EnterRow()
         {
             bool ret = false;
@@ -232,6 +305,9 @@ namespace SAMPLauncherNET
             return ret;
         }
 
+        /// <summary>
+        /// Reload selected server row
+        /// </summary>
         private void ReloadSelectedServerRow()
         {
             foreach (DataGridViewRow dgvr in serversGridView.SelectedRows)
@@ -253,10 +329,9 @@ namespace SAMPLauncherNET
                         if (server.IsDataFetched(ERequestType.Information))
                         {
                             dgvr.Cells[2].Value = server.Hostname;
-                            dgvr.Cells[3].Value = server.PlayerCount;
-                            dgvr.Cells[4].Value = server.MaxPlayers;
-                            dgvr.Cells[5].Value = server.Gamemode;
-                            dgvr.Cells[6].Value = server.Language;
+                            dgvr.Cells[3].Value = server.PlayerCount + "/" + server.MaxPlayers;
+                            dgvr.Cells[4].Value = server.Gamemode;
+                            dgvr.Cells[5].Value = server.Language;
                         }
                         ReloadServerInfo();
                     }
@@ -265,6 +340,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Reload server information
+        /// </summary>
         private void ReloadServerInfo()
         {
             int si = 0;
@@ -333,6 +411,10 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Request server information
+        /// </summary>
+        /// <param name="server">Server</param>
         private void RequestServerInfo(Server server)
         {
             while (true)
@@ -343,9 +425,40 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Escape filter string
+        /// </summary>
+        /// <param name="str">String</param>
+        /// <returns>Escaped filer string</returns>
+        private string EscapeFilterString(string str)
+        {
+            StringBuilder ret = new StringBuilder();
+            foreach (char c in str.ToCharArray())
+            {
+                switch (c)
+                {
+                    case '\'':
+                        break;
+                    case '\\':
+                        ret.Append("\\\\");
+                        break;
+                    case '%':
+                        ret.Append("\\%");
+                        break;
+                    default:
+                        ret.Append(c, 1);
+                        break;
+                }
+            }
+            return ret.ToString();
+        }
+
+        /// <summary>
+        /// Update server list filter
+        /// </summary>
         private void UpdateServerListFilter()
         {
-            string ft = filterSingleLineTextField.Text.Trim();
+            string ft = EscapeFilterString(filterSingleLineTextField.Text.Trim());
             StringBuilder filter = new StringBuilder("GroupID=");
             filter.Append(selectedAPIIndex.ToString());
             if (ft.Length > 0)
@@ -365,6 +478,11 @@ namespace SAMPLauncherNET
             EnterRow();
         }
 
+        /// <summary>
+        /// Reload favourites
+        /// </summary>
+        /// <param name="servers">Servers</param>
+        /// <param name="index">Index</param>
         private void ReloadFavourites(Dictionary<string, Server> servers, int index)
         {
             DataRow[] rows = serversDataTable.Select("GroupID=" + index);
@@ -377,19 +495,50 @@ namespace SAMPLauncherNET
             }
         }
 
-        private void Connect(string rconPassword = null)
+        /// <summary>
+        /// Connect
+        /// </summary>
+        /// <param name="rconPassword">RCON password</param>
+        private void Connect(Server server = null, string rconPassword = null, bool quitWhenDone = false)
         {
-            Server server = SelectedServer;
+            if (server == null)
+                server = SelectedServer;
             if (server != null)
             {
                 ConnectForm cf = new ConnectForm(!(server.HasPassword));
                 DialogResult result = cf.ShowDialog();
                 DialogResult = DialogResult.None;
                 if (result == DialogResult.OK)
-                    SAMP.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, false, closeWhenLaunchedCheckBox.Checked, this);
+                    SAMP.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, false, quitWhenDone, this);
             }
         }
 
+        /// <summary>
+        /// Visit website
+        /// </summary>
+        /// <param name="url">URL</param>
+        private static void VisitWebsite(string url)
+        {
+            if (!(url.Contains("://")))
+                url = "http://" + url;
+            if (MessageBox.Show(url + "\r\n\r\n" + Translator.GetTranslation("VISIT_WEBSITE_MESSAGE"), Translator.GetTranslation("VISIT_WEBSITE_TITLE") + " " + url, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                Process.Start(url);
+        }
+
+        /// <summary>
+        /// Reload launcher configuration
+        /// </summary>
+        private void ReloadLauncherConfig()
+        {
+            LauncherConfigDataContract lcdc = SAMP.LauncherConfigIO;
+            developmentDirectorySingleLineTextField.Text = lcdc.developmentDirectory;
+            selectedAPIIndex = lcdc.lastSelectedServerListAPI;
+            selectAPIComboBox.SelectedIndex = selectedAPIIndex;
+        }
+
+        /// <summary>
+        /// Reload gallery
+        /// </summary>
         private void ReloadGallery()
         {
             if (mainTabControl.SelectedTab == galleryPage)
@@ -408,6 +557,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// View selected image
+        /// </summary>
         private void ViewSelectedImage()
         {
             foreach (ListViewItem item in galleryListView.SelectedItems)
@@ -418,6 +570,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Delete selected image
+        /// </summary>
         private void DeleteSelectedImage()
         {
             List<string> files = new List<string>();
@@ -449,6 +604,9 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Save configuration
+        /// </summary>
         public void SaveConfig()
         {
             config.PageSize = int.Parse(pageSizeSingleLineTextField.Text);
@@ -466,7 +624,10 @@ namespace SAMPLauncherNET
             config.Save();
         }
 
-        private void ReloadConfig()
+        /// <summary>
+        /// Reload SA:MP configuration
+        /// </summary>
+        private void ReloadSAMPConfig()
         {
             pageSizeSingleLineTextField.Text = config.PageSize.ToString();
             fpsLimitTrackBar.Value = config.FPSLimit;
@@ -483,6 +644,82 @@ namespace SAMPLauncherNET
             fontWeightCheckBox.Checked = config.FontWeight;
         }
 
+        /// <summary>
+        /// Fill items in checked list box
+        /// </summary>
+        /// <param name="checkedListBox">Checked list box</param>
+        /// <param name="files">Files</param>
+        /// <param name="checkedFiles">Checked files</param>
+        private static void FillItemsInCheckedListBox(CheckedListBox checkedListBox, FileResource[] files, string[] checkedFiles)
+        {
+            checkedListBox.Items.AddRange(files);
+            for (int i = 0; i < files.Length; i++)
+            {
+                FileResource file = files[i];
+                foreach (string checked_file in checkedFiles)
+                {
+                    if (file.FileNameWithoutExtension == checked_file)
+                    {
+                        checkedListBox.SetItemChecked(i, true);
+                        break;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reload developer tools configuration
+        /// </summary>
+        private void ReloadDeveloperToolsConfig()
+        {
+            DeveloperToolsConfigDataContract dtcdc = SAMP.DeveloperToolsConfigIO;
+            developerToolsGamemodesCheckedListBox.Items.Clear();
+            developerToolsFilterscriptsCheckedListBox.Items.Clear();
+            developerToolsPluginsCheckedListBox.Items.Clear();
+            string directory = Utils.AppendCharacterToString(developmentDirectorySingleLineTextField.Text, '\\');
+            if (Directory.Exists(directory))
+            {
+                FillItemsInCheckedListBox(developerToolsGamemodesCheckedListBox, Utils.GetFilesFromDirectory(directory + "gamemodes", "*.amx", SearchOption.AllDirectories), dtcdc.gamemodes);
+                FillItemsInCheckedListBox(developerToolsFilterscriptsCheckedListBox, Utils.GetFilesFromDirectory(directory + "filterscripts", "*.amx", SearchOption.AllDirectories), dtcdc.filterscripts);
+                FillItemsInCheckedListBox(developerToolsPluginsCheckedListBox, Utils.GetFilesFromDirectory(directory + "plugins", "*.amx", SearchOption.AllDirectories), dtcdc.plugins);
+            }
+        }
+
+        /// <summary>
+        /// Save developer tools configuration
+        /// </summary>
+        private DeveloperToolsConfigDataContract SaveDeveloperToolsConfig()
+        {
+            DeveloperToolsConfigDataContract ret = SAMP.DeveloperToolsConfigIO;
+            List<string> entries = new List<string>();
+            foreach (var item in developerToolsGamemodesCheckedListBox.CheckedItems)
+                entries.Add(item.ToString());
+            ret.gamemodes = entries.ToArray();
+            entries.Clear();
+            foreach (var item in developerToolsFilterscriptsCheckedListBox.CheckedItems)
+                entries.Add(item.ToString());
+            ret.filterscripts = entries.ToArray();
+            entries.Clear();
+            foreach (var item in developerToolsPluginsCheckedListBox.CheckedItems)
+                entries.Add(item.ToString());
+            ret.plugins = entries.ToArray();
+            entries.Clear();
+            ret.hostname = developerToolsHostnameSingleLineTextField.Text;
+            ret.port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
+            ret.password = developerToolsServerPasswordSingleLineTextField.Text;
+            ret.rconPassword = developerToolsRCONPasswordSingleLineTextField.Text;
+            if (ret.rconPassword.Trim().Length <= 0)
+            {
+                ret.rconPassword = Utils.GetRandomString(16);
+                developerToolsRCONPasswordSingleLineTextField.Text = ret.rconPassword;
+            }
+            SAMP.DeveloperToolsConfigIO = ret;
+            return ret;
+        }
+
+        /// <summary>
+        /// Add selcted API
+        /// </summary>
         private void AddSelectedAPI()
         {
             APIForm apif = new APIForm();
@@ -493,50 +730,72 @@ namespace SAMPLauncherNET
                 List<ServerListConnector> api = SAMP.APIIO;
                 api.Add(new ServerListConnector(apif.API));
                 SAMP.APIIO = api;
-                ReloadAPI();
+                ReloadAPIs();
             }
         }
 
+        /// <summary>
+        /// Edit selected API
+        /// </summary>
         private void EditSelectedAPI()
         {
             foreach (DataGridViewRow dgvr in apiGridView.SelectedRows)
             {
                 int index = (int)(dgvr.Cells[0].Value);
-                if ((index >= 0) && (index < api.Count))
+                if ((index >= 0) && (index < apis.Count))
                 {
-                    ServerListConnector slc = api[index];
+                    ServerListConnector slc = apis[index];
                     APIForm apif = new APIForm(slc.APIDataContract);
                     DialogResult result = apif.ShowDialog();
                     DialogResult = DialogResult.None;
                     if (result == DialogResult.OK)
                     {
-                        api[index] = new ServerListConnector(apif.API);
-                        SAMP.APIIO = api;
-                        ReloadAPI();
+                        apis[index] = new ServerListConnector(apif.API);
+                        SAMP.APIIO = apis;
+                        ReloadAPIs();
                     }
                 }
                 break;
             }
         }
 
+        /// <summary>
+        /// Remove selected API
+        /// </summary>
         private void RemoveSelectedAPI()
         {
             if (MessageBox.Show(Translator.GetTranslation("REMOVE_API"), Translator.GetTranslation("REMOVE_API_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+                /*foreach (DataGridViewRow dgvr in apiGridView.SelectedRows)
+                {
+                    int index = (int)(dgvr.Cells[0].Value);
+                    if ((index >= 0) && (index < apis.Count))
+                    {
+                        apis.RemoveAt(index);
+                        SAMP.APIIO = apis;
+                        ReloadAPIs();
+                    }
+                    break;
+                }*/
+                List<ServerListConnector> rl = new List<ServerListConnector>();
+                List<ServerListConnector> apis = SAMP.APIIO;
                 foreach (DataGridViewRow dgvr in apiGridView.SelectedRows)
                 {
                     int index = (int)(dgvr.Cells[0].Value);
-                    if ((index >= 0) && (index < api.Count))
-                    {
-                        api.RemoveAt(index);
-                        SAMP.APIIO = api;
-                        ReloadAPI();
-                    }
-                    break;
+                    if (apis.Count > index)
+                        rl.Add(apis[index]);
                 }
+                foreach (ServerListConnector item in rl)
+                    apis.Remove(item);
+                SAMP.APIIO = apis;
+                ReloadAPIs();
             }
         }
 
+        /// <summary>
+        /// Removeselection from favourites
+        /// </summary>
+        /// <param name="promptWhenError">Prompt when error</param>
         private void RemoveSelectionFromFavourites(bool promptWhenError = true)
         {
             if (IsInFavouriteList)
@@ -546,11 +805,11 @@ namespace SAMPLauncherNET
                 {
                     if (MessageBox.Show(Translator.GetTranslation("REMOVE_SERVER_FROM_FAVOURITES"), Translator.GetTranslation("REMOVE_SERVER_FROM_FAVOURITES_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
-                        Dictionary<string, Server> servers = api[selectedAPIIndex].ServerListIO;
+                        Dictionary<string, Server> servers = apis[selectedAPIIndex].ServerListIO;
                         if (servers.ContainsKey(server.IPPortString))
                         {
                             servers.Remove(server.IPPortString);
-                            api[selectedAPIIndex].ServerListIO = servers;
+                            apis[selectedAPIIndex].ServerListIO = servers;
                             ReloadFavourites(servers, selectedAPIIndex);
                         }
                     }
@@ -560,6 +819,11 @@ namespace SAMPLauncherNET
                 MessageBox.Show(Translator.GetTranslation("SERVER_NOT_IN_FAVOURITES"), Translator.GetTranslation("NOT_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        /// <summary>
+        /// Server list timer tick event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void serverListTimer_Tick(object sender, EventArgs e)
         {
             lock (loadedServers)
@@ -567,7 +831,7 @@ namespace SAMPLauncherNET
                 foreach (KeyValuePair<Server, int> kv in loadedServers)
                 {
                     DataRow dr = serversDataTable.NewRow();
-                    object[] row = new object[8];
+                    object[] row = new object[7];
                     row[0] = kv.Value;
                     if (kv.Key.IsDataFetched(ERequestType.Ping))
                         row[1] = kv.Key.Ping;
@@ -576,30 +840,28 @@ namespace SAMPLauncherNET
                     if (kv.Key.IsDataFetched(ERequestType.Information))
                     {
                         row[2] = kv.Key.Hostname;
-                        row[3] = kv.Key.PlayerCount;
-                        row[4] = kv.Key.MaxPlayers;
-                        row[5] = kv.Key.Gamemode;
-                        row[6] = kv.Key.Language;
+                        row[3] = kv.Key.PlayerCount + "/" + kv.Key.MaxPlayers;
+                        row[4] = kv.Key.Gamemode;
+                        row[5] = kv.Key.Language;
                     }
                     else
                     {
                         row[2] = "-";
-                        row[3] = 0;
-                        row[4] = 0;
+                        row[3] = "0/0";
+                        row[4] = "-";
                         row[5] = "-";
-                        row[6] = "-";
                     }
-                    row[7] = kv.Key.IPPortString;
+                    row[6] = kv.Key.IPPortString;
                     dr.ItemArray = row;
                     serversDataTable.Rows.Add(dr);
                     if (!(registeredServers.ContainsKey(kv.Key.IPPortString)))
                         registeredServers.Add(kv.Key.IPPortString, kv.Key);
                     if (queryFirstServer)
                         queryFirstServer = !(EnterRow());
-                    lock (api)
+                    lock (apis)
                     {
-                        if ((kv.Value >= 0) && (kv.Value < api.Count))
-                            ++api[kv.Value].ServerCount;
+                        if ((kv.Value >= 0) && (kv.Value < apis.Count))
+                            ++apis[kv.Value].ServerCount;
                     }
                 }
                 loadedServers.Clear();
@@ -612,13 +874,28 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Servers grid view row enter event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Data grid view cell event arguments</param>
         private void serversGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             EnterRow();
         }
 
+        /// <summary>
+        /// Form closed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Form closed event args</param>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            LauncherConfigDataContract lcdc = new LauncherConfigDataContract();
+            lcdc.lastSelectedServerListAPI = selectedAPIIndex;
+            lcdc.developmentDirectory = developmentDirectorySingleLineTextField.Text;
+            SAMP.LauncherConfigIO = lcdc;
+            SaveDeveloperToolsConfig();
             lock (loadServers)
             {
                 foreach (KeyValuePair<Server, int> kv in loadServers)
@@ -645,8 +922,14 @@ namespace SAMPLauncherNET
                 rowThread.Abort();
                 rowThread = null;
             }
+            SAMP.CloseLastServer();
         }
 
+        /// <summary>
+        /// Languages combo box selected index changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void languagesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int i = languagesComboBox.SelectedIndex;
@@ -658,72 +941,142 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// GitHub project picture box click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void gitHubProjectPictureBox_Click(object sender, EventArgs e)
         {
             SAMP.OpenGitHubProject();
         }
 
+        /// <summary>
+        /// Generic grid view data error event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Data grid view data error event arguments</param>
         private void genericGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             // null route
             e.ThrowException = false;
         }
 
+        /// <summary>
+        /// Filter single line text field text changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void filterSingleLineTextField_TextChanged(object sender, EventArgs e)
         {
             UpdateServerListFilter();
         }
 
+        /// <summary>
+        /// Filter generic radio button checked changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void filterGenericRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             UpdateServerListFilter();
         }
 
+        /// <summary>
+        /// Generic picture box mouse enter event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void genericPictureBox_MouseEnter(object sender, EventArgs e)
         {
             Cursor = Cursors.Hand;
         }
 
+        /// <summary>
+        /// Generic picture box mouse leave event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void genericPictureBox_MouseLeave(object sender, EventArgs e)
         {
             Cursor = Cursors.Default;
         }
 
+        /// <summary>
+        /// Main tab control selected index changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void mainTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             ReloadGallery();
         }
 
+        /// <summary>
+        /// Gallery file system watcher generic changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">File system event arguments</param>
         private void galleryFileSystemWatcher_GenericChanged(object sender, System.IO.FileSystemEventArgs e)
         {
             ReloadGallery();
         }
 
+        /// <summary>
+        /// Gallery file system watcher renamed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Renamed event arguments</param>
         private void galleryFileSystemWatcher_Renamed(object sender, System.IO.RenamedEventArgs e)
         {
             ReloadGallery();
         }
 
+        /// <summary>
+        /// Gallery view picture box click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void galleryViewPictureBox_Click(object sender, EventArgs e)
         {
             ViewSelectedImage();
         }
 
+        /// <summary>
+        /// Gallery ddelete picture box click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void galleryDeletePictureBox_Click(object sender, EventArgs e)
         {
             DeleteSelectedImage();
         }
 
+        /// <summary>
+        /// Gallery list view double click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void galleryListView_DoubleClick(object sender, EventArgs e)
         {
             ViewSelectedImage();
         }
 
+        /// <summary>
+        /// Show gallery picture box click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void showGalleryPictureBox_Click(object sender, EventArgs e)
         {
             SAMP.ShowGallery();
         }
 
+        /// <summary>
+        /// Gallery list view key up event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Key event arguments</param>
         private void galleryListView_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -737,21 +1090,41 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Connect button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void connectButton_Click(object sender, EventArgs e)
         {
-            Connect();
+            Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked);
         }
 
+        /// <summary>
+        /// Launch debug mode button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void launchDebugModeButton_Click(object sender, EventArgs e)
         {
             SAMP.LaunchSAMPDebugMode(closeWhenLaunchedCheckBox.Checked, this);
         }
 
+        /// <summary>
+        /// Launch singleplayer button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void launchSingleplayerButton_Click(object sender, EventArgs e)
         {
             SAMP.LaunchSingleplayerMode(closeWhenLaunchedCheckBox.Checked, this);
         }
 
+        /// <summary>
+        /// Text file system watcher changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">File system event arguments</param>
         private void textFileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
             switch (e.Name)
@@ -765,11 +1138,21 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Save configuration button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void saveConfigButton_Click(object sender, EventArgs e)
         {
             SaveConfig();
         }
 
+        /// <summary>
+        /// Page size single line text field text changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void pageSizeSingleLineTextField_TextChanged(object sender, EventArgs e)
         {
             int v = 0;
@@ -777,11 +1160,21 @@ namespace SAMPLauncherNET
                 pageSizeSingleLineTextField.Text = "0";
         }
 
+        /// <summary>
+        /// FPS limit track bar value changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void fpsLimitTrackBar_ValueChanged(object sender, EventArgs e)
         {
             fpsLimitSingleLineTextField.Text = fpsLimitTrackBar.Value.ToString();
         }
 
+        /// <summary>
+        /// FPS limit single line text field text changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void fpsLimitSingleLineTextField_TextChanged(object sender, EventArgs e)
         {
             int v = 0;
@@ -803,11 +1196,21 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Revert configuration button event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void revertConfigButton_Click(object sender, EventArgs e)
         {
-            ReloadConfig();
+            ReloadSAMPConfig();
         }
 
+        /// <summary>
+        /// Show extended server information tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void showExtendedServerInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Server server = SelectedServer;
@@ -821,15 +1224,20 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Add server to favourites tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void addServerToFavouritesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Server server = SelectedServer;
             if (server != null)
             {
                 List<IndexedServerListConnector> connectors = new List<IndexedServerListConnector>();
-                for (int i = 0; i < api.Count; i++)
+                for (int i = 0; i < apis.Count; i++)
                 {
-                    ServerListConnector slc = api[i];
+                    ServerListConnector slc = apis[i];
                     if ((slc.ServerListType == EServerListType.Favourites) || (slc.ServerListType == EServerListType.LegacyFavourites))
                         connectors.Add(new IndexedServerListConnector(slc, i));
                 }
@@ -865,76 +1273,147 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Remove server from favourites tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void removeServerFromFavouritesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RemoveSelectionFromFavourites();
         }
 
+        /// <summary>
+        /// Connect tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void connectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Connect();
+            Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked);
         }
 
+        /// <summary>
+        /// Connect with RCON tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void connectWithRCONToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RCONPasswordForm rconf = new RCONPasswordForm();
             DialogResult result = rconf.ShowDialog();
             DialogResult = DialogResult.None;
             if (result == DialogResult.OK)
-                Connect(rconf.RCONPassword);
+                Connect(null, rconf.RCONPassword, closeWhenLaunchedCheckBox.Checked);
         }
 
-        private void serversGridView_DoubleClick(object sender, EventArgs e)
+        /// <summary>
+        /// Servers grid view cell double click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Data grid view cell event arguments</param>
+        private void serversGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Connect();
+            if (e.RowIndex >= 0)
+                Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked);
         }
 
+        /// <summary>
+        /// Select API combo box selected index changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void selectAPIComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedAPIIndex = selectAPIComboBox.SelectedIndex;
             SelectAPI();
         }
 
+        /// <summary>
+        /// GitHub link label link clicked event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Link label link clicked event arguments</param>
         private void gitHubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             SAMP.OpenGitHubProject();
         }
 
+        /// <summary>
+        /// API add picture box click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void apiAddPictureBox_Click(object sender, EventArgs e)
         {
             AddSelectedAPI();
         }
 
+        /// <summary>
+        /// API remove picture box click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void apiRemovePictureBox_Click(object sender, EventArgs e)
         {
             RemoveSelectedAPI();
         }
 
+        /// <summary>
+        /// API edit picture box click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void apiEditPictureBox_Click(object sender, EventArgs e)
         {
             EditSelectedAPI();
         }
 
+        /// <summary>
+        /// Add new API tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void addNewAPIToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddSelectedAPI();
         }
 
+        /// <summary>
+        /// Edit selected API too strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void editSelectedAPIToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditSelectedAPI();
         }
 
+        /// <summary>
+        /// Remove selected API tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void removeSelectedAPIToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RemoveSelectedAPI();
         }
 
+        /// <summary>
+        /// API grid view double click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void apiGridView_DoubleClick(object sender, EventArgs e)
         {
             EditSelectedAPI();
         }
 
+        /// <summary>
+        /// Servers grid view key up event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Key event arguments</param>
         private void serversGridView_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
@@ -943,13 +1422,236 @@ namespace SAMPLauncherNET
             }
         }
 
+        /// <summary>
+        /// Revert API list tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void revertAPIListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Translator.GetTranslation("REVERT_API_LIST"), Translator.GetTranslation("REVERT_API_LIST_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                SAMP.RevertAPI();
-                ReloadAPI();
+                SAMP.RevertAPIs();
+                ReloadAPIs();
             }
+        }
+
+        /// <summary>
+        /// Connect to host click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void connectToHostButton_Click(object sender, EventArgs e)
+        {
+            ConnectHostForm chf = new ConnectHostForm(SelectedServer);
+            DialogResult result = chf.ShowDialog();
+            DialogResult = DialogResult.None;
+            if (result == DialogResult.OK)
+            {
+                Server server = new Server(chf.HostAndPort, false);
+                Connect(server, quitWhenDone: closeWhenLaunchedCheckBox.Checked);
+                server.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Rules grid view cell double click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Data grid view cell event arguments</param>
+        private void rulesGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                foreach (DataGridViewRow row in rulesGridView.SelectedRows)
+                {
+                    if (row.Cells[0].Value.ToString() == "weburl")
+                    {
+                        VisitWebsite(row.Cells[1].Value.ToString());
+                        break;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Visit website tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void visitWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SelectedServer != null)
+                VisitWebsite(SelectedServer.GetRuleValue("weburl"));
+        }
+
+        /// <summary>
+        /// Search on Bing tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void searchOnBingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SelectedServer != null)
+                Process.Start("https://bing.com/search?q=" + Uri.EscapeUriString(SelectedServer.IPPortString + " " + SelectedServer.Hostname));
+        }
+
+        /// <summary>
+        /// Search on DuckDuckGo tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void searchOnDuckDuckGoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SelectedServer != null)
+                Process.Start("https://duckduckgo.com/?q=" + Uri.EscapeUriString(SelectedServer.IPPortString + " " + SelectedServer.Hostname));
+        }
+
+        /// <summary>
+        /// Search on Google tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void searchOnGoogleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SelectedServer != null)
+                Process.Start("https://google.com/search?q=" + Uri.EscapeUriString(SelectedServer.IPPortString + " " + SelectedServer.Hostname));
+        }
+
+        /// <summary>
+        /// Search on Yahoo tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void searchOnYahooToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SelectedServer != null)
+                Process.Start("https://search.yahoo.com/search?p=" + Uri.EscapeUriString(SelectedServer.IPPortString + " " + SelectedServer.Hostname));
+        }
+
+        /// <summary>
+        /// Search on Yandex tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void searchOnYandexToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SelectedServer != null)
+                Process.Start("https://yandex.ru/search/?text=" + Uri.EscapeUriString(SelectedServer.IPPortString + " " + SelectedServer.Hostname));
+        }
+
+        /// <summary>
+        /// Search on YouTube tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void searchOnYouTubeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SelectedServer != null)
+                Process.Start("https://youtube.com/results?search_query=" + Uri.EscapeUriString(SelectedServer.IPPortString + " " + SelectedServer.Hostname));
+        }
+
+        /// <summary>
+        /// Developer tools show additional configurations button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void developerToolsShowAdditionalConfigurationsButton_Click(object sender, EventArgs e)
+        {
+            LauncherConfigDataContract lcdc = SAMP.LauncherConfigIO;
+            lcdc.developmentDirectory = developmentDirectorySingleLineTextField.Text;
+            SAMP.LauncherConfigIO = lcdc;
+            DeveloperToolsConfigDataContract dtcdc = SAMP.DeveloperToolsConfigIO;
+            dtcdc.hostname = developerToolsHostnameSingleLineTextField.Text;
+            dtcdc.port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
+            dtcdc.password = developerToolsServerPasswordSingleLineTextField.Text;
+            dtcdc.rconPassword = developerToolsRCONPasswordSingleLineTextField.Text;
+            DeveloperToolsConfigForm dtcf = new DeveloperToolsConfigForm(dtcdc);
+            DialogResult result = dtcf.ShowDialog();
+            DialogResult = DialogResult.None;
+            if (result == DialogResult.OK)
+            {
+                dtcdc = dtcf.DeveloperToolsConfigDataContract;
+                developerToolsHostnameSingleLineTextField.Text = dtcdc.hostname;
+                developerToolsPortSingleLineTextField.Text = dtcdc.port.ToString();
+                developerToolsServerPasswordSingleLineTextField.Text = dtcdc.password;
+                developerToolsRCONPasswordSingleLineTextField.Text = dtcdc.rconPassword;
+                List<string> entries = new List<string>();
+                foreach (var item in developerToolsGamemodesCheckedListBox.CheckedItems)
+                    entries.Add(item.ToString());
+                dtcdc.gamemodes = entries.ToArray();
+                entries.Clear();
+                foreach (var item in developerToolsFilterscriptsCheckedListBox.CheckedItems)
+                    entries.Add(item.ToString());
+                dtcdc.filterscripts = entries.ToArray();
+                entries.Clear();
+                foreach (var item in developerToolsPluginsCheckedListBox.CheckedItems)
+                    entries.Add(item.ToString());
+                dtcdc.plugins = entries.ToArray();
+                entries.Clear();
+
+                SAMP.DeveloperToolsConfigIO = dtcdc;
+                ReloadDeveloperToolsConfig();
+            }
+        }
+
+        /// <summary>
+        /// Development directory single line text field text changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void developmentDirectorySingleLineTextField_TextChanged(object sender, EventArgs e)
+        {
+            if (Directory.Exists(developmentDirectorySingleLineTextField.Text))
+            {
+                LauncherConfigDataContract lcdc = SAMP.LauncherConfigIO;
+                lcdc.developmentDirectory = developmentDirectorySingleLineTextField.Text;
+                SAMP.LauncherConfigIO = lcdc;
+                ReloadDeveloperToolsConfig();
+            }
+        }
+
+        /// <summary>
+        /// Developer tools open directory button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void developerToolsOpenDirectoryButton_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(developmentDirectorySingleLineTextField.Text))
+                Process.Start("explorer.exe", Path.GetFullPath(developmentDirectorySingleLineTextField.Text));
+        }
+
+        /// <summary>
+        /// Developer tools start server button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void developerToolsStartServerButton_Click(object sender, EventArgs e)
+        {
+            SaveDeveloperToolsConfig();
+            SAMP.LaunchSAMPServer(SaveDeveloperToolsConfig());
+        }
+
+        /// <summary>
+        /// Stop server button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void stopServerButton_Click(object sender, EventArgs e)
+        {
+            SAMP.CloseLastServer();
+        }
+
+        /// <summary>
+        /// Developer tools connect to test server button click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void developerToolsConnectToTestServerButton_Click(object sender, EventArgs e)
+        {
+            DeveloperToolsConfigDataContract dtcdc = SAMP.DeveloperToolsConfigIO;
+            Connect(new Server("127.0.0.1:" + dtcdc.port, false), dtcdc.rconPassword);
         }
     }
 }

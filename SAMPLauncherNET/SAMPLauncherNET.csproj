@@ -56,8 +56,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>libs\INIEngine.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialSkin">
-      <HintPath>libs\MaterialSkin.dll</HintPath>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -72,6 +73,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UpdaterNET">
+      <HintPath>..\libs\UpdaterNET.dll</HintPath>
+    </Reference>
     <Reference Include="WinFormsTranslator">
       <HintPath>libs\WinFormsTranslator.dll</HintPath>
     </Reference>
@@ -91,6 +95,19 @@
     <Compile Include="ConnectForm.Designer.cs">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConnectHostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectHostForm.Designer.cs">
+      <DependentUpon>ConnectHostForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeveloperToolsConfigDataContract.cs" />
+    <Compile Include="DeveloperToolsConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeveloperToolsConfigForm.Designer.cs">
+      <DependentUpon>DeveloperToolsConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EServerListType.cs" />
     <Compile Include="ERequestType.cs" />
     <Compile Include="ExtendedServerInformationForm.cs">
@@ -100,6 +117,12 @@
       <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FavouriteDataContract.cs" />
+    <Compile Include="AddAddressToFavouriteListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAddressToFavouriteListForm.Designer.cs">
+      <DependentUpon>AddAddressToFavouriteListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FavouriteServer.cs" />
     <Compile Include="FavouriteListsForm.cs">
       <SubType>Form</SubType>
@@ -107,10 +130,18 @@
     <Compile Include="FavouriteListsForm.Designer.cs">
       <DependentUpon>FavouriteListsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FileResource.cs" />
+    <Compile Include="GeoLocationProvider.cs" />
+    <Compile Include="GeoLocator.cs" />
     <Compile Include="IndexedServerListConnector.cs" />
     <Compile Include="Kernel32.cs" />
     <Compile Include="Languages\de-DE.Designer.cs">
       <DependentUpon>de-DE.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Languages\ge-GE.Designer.cs">
+      <DependentUpon>ge-GE.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -129,6 +160,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>en-GB.resx</DependentUpon>
     </Compile>
+    <Compile Include="LauncherConfigDataContract.cs" />
+    <Compile Include="FreeGeoIPDataContract.cs" />
+    <Compile Include="GeoLocationData.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,8 +200,17 @@
     <EmbeddedResource Include="ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConnectHostForm.resx">
+      <DependentUpon>ConnectHostForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeveloperToolsConfigForm.resx">
+      <DependentUpon>DeveloperToolsConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ExtendedServerInformationForm.resx">
       <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAddressToFavouriteListForm.resx">
+      <DependentUpon>AddAddressToFavouriteListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FavouriteListsForm.resx">
       <DependentUpon>FavouriteListsForm.cs</DependentUpon>
@@ -175,6 +218,10 @@
     <EmbeddedResource Include="Languages\de-DE.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>de-DE.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\ge-GE.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ge-GE.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Languages\nl-BE.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -208,7 +255,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TODO.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
