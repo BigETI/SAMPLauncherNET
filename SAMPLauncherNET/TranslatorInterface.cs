@@ -14,7 +14,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Languages
         /// </summary>
-        private Language[] languages = new Language[] { new Language("DUTCH", "nl-BE"), new Language("ENGLISH", "en-GB"), new Language("GEORGIAN", "ge-GE"), new Language("GERMAN", "de-DE"), new Language("RUSSIAN", "ru-RU") };
+        private Language[] languages = new Language[] { new Language("DUTCH", "nl-BE"), new Language("ENGLISH", "en-GB"), new Language("GEORGIAN", "ge-GE"), new Language("GERMAN", "de-DE"), new Language("RUSSIAN", "ru-RU") , new Language("PORTUGUESE", "pt-BR") };
 
         /// <summary>
         /// Language
