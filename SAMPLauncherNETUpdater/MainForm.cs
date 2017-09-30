@@ -21,7 +21,7 @@ namespace SAMPLauncherNETUpdater
         /// Animation state
         /// </summary>
         private uint animationState = 0U;
-        
+
         /// <summary>
         /// Default constructor
         /// </summary>
@@ -95,6 +95,19 @@ namespace SAMPLauncherNETUpdater
             if (animationState > 3U)
                 animationState = 0U;
             progressLabel.Text = "Updating" + new string('.', (int)animationState);
+        }
+
+        /// <summary>
+        /// Main form form closing event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Form closing event arguments</param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bool cancel = false;
+            if (e.CloseReason == CloseReason.UserClosing)
+                cancel = (MessageBox.Show("Do you really want to cancel the update?", "Cancel update", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
+            e.Cancel = cancel;
         }
     }
 }

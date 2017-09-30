@@ -93,6 +93,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Address to favourites ähnelt.
+        /// </summary>
+        internal static string ADD_ADDRESS_TO_FAVOURITE_LIST {
+            get {
+                return ResourceManager.GetString("ADD_ADDRESS_TO_FAVOURITE_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Address to favourites ähnelt.
+        /// </summary>
+        internal static string ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE {
+            get {
+                return ResourceManager.GetString("ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Add new API ähnelt.
         /// </summary>
         internal static string ADD_NEW_API {
@@ -260,6 +278,24 @@ namespace SAMPLauncherNET.Languages {
         internal static string CANCEL {
             get {
                 return ResourceManager.GetString("CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you really want to cancel the download? ähnelt.
+        /// </summary>
+        internal static string CANCEL_DOWNLOAD {
+            get {
+                return ResourceManager.GetString("CANCEL_DOWNLOAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel download ähnelt.
+        /// </summary>
+        internal static string CANCEL_DOWNLOAD_TITLE {
+            get {
+                return ResourceManager.GetString("CANCEL_DOWNLOAD_TITLE", resourceCulture);
             }
         }
         
@@ -476,6 +512,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string DISABLE_HEAD_MOVE {
             get {
                 return ResourceManager.GetString("DISABLE_HEAD_MOVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Download failed ähnelt.
+        /// </summary>
+        internal static string DOWNLOAD_FAILED_TITLE {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_FAILED_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Downloading ähnelt.
+        /// </summary>
+        internal static string DOWNLOAD_PROGRESS {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_PROGRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Download progress ähnelt.
+        /// </summary>
+        internal static string DOWNLOAD_PROGRESS_TITLE {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_PROGRESS_TITLE", resourceCulture);
             }
         }
         
@@ -777,6 +840,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you really want to install {0}? ähnelt.
+        /// </summary>
+        internal static string INSTALL_VERSION {
+            get {
+                return ResourceManager.GetString("INSTALL_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Install version ähnelt.
+        /// </summary>
+        internal static string INSTALL_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("INSTALL_VERSION_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die IP and port ähnelt.
         /// </summary>
         internal static string IP_AND_PORT {
@@ -966,6 +1047,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Please specify an address to add to your favourites list. ähnelt.
+        /// </summary>
+        internal static string NO_ADDRESS_SPECIFIED {
+            get {
+                return ResourceManager.GetString("NO_ADDRESS_SPECIFIED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No address specified ähnelt.
+        /// </summary>
+        internal static string NO_ADDRESS_SPECIFIED_TITLE {
+            get {
+                return ResourceManager.GetString("NO_ADDRESS_SPECIFIED_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die No chatlog found... ähnelt.
         /// </summary>
         internal static string NO_CHATLOG_FOUND {
@@ -1088,6 +1187,24 @@ namespace SAMPLauncherNET.Languages {
         internal static string PASSWORD {
             get {
                 return ResourceManager.GetString("PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you really want to patch your version to {0}? ähnelt.
+        /// </summary>
+        internal static string PATCH_VERSION {
+            get {
+                return ResourceManager.GetString("PATCH_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Patch version ähnelt.
+        /// </summary>
+        internal static string PATCH_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("PATCH_VERSION_TITLE", resourceCulture);
             }
         }
         
@@ -1407,6 +1524,30 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die You have selected {0} to be patched or manually installed.
+        ///
+        ///Do you really want to patch or manually install {0}?
+        ///
+        ///Press &quot;Yes&quot; to patch.
+        ///Press &quot;No&quot; to install.
+        ///Press &quot;Cancel&quot; to cancel this action. ähnelt.
+        /// </summary>
+        internal static string SELECT_VERSION {
+            get {
+                return ResourceManager.GetString("SELECT_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Patch or manually install version ähnelt.
+        /// </summary>
+        internal static string SELECT_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("SELECT_VERSION_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die This server is already in your favourites. ähnelt.
         /// </summary>
         internal static string SERVER_ALREADY_IN_FAVOURITES {
@@ -1637,6 +1778,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string USERNAME {
             get {
                 return ResourceManager.GetString("USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Versions ähnelt.
+        /// </summary>
+        internal static string VERSIONS {
+            get {
+                return ResourceManager.GetString("VERSIONS", resourceCulture);
             }
         }
         

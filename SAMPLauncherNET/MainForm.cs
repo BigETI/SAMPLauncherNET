@@ -115,6 +115,24 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Favourite lists
+        /// </summary>
+        public IEnumerable<IndexedServerListConnector> FavouriteLists
+        {
+            get
+            {
+                List<IndexedServerListConnector> ret = new List<IndexedServerListConnector>();
+                for (int i = 0; i < apis.Count; i++)
+                {
+                    ServerListConnector slc = apis[i];
+                    if ((slc.ServerListType == EServerListType.Favourites) || (slc.ServerListType == EServerListType.LegacyFavourites))
+                        ret.Add(new IndexedServerListConnector(slc, i));
+                }
+                return ret;
+            }
+        }
+
+        /// <summary>
         /// Default constructor
         /// </summary>
         public MainForm()
@@ -150,6 +168,7 @@ namespace SAMPLauncherNET
             lastChatlogTextBox.Text = SAMP.Chatlog;
             savedPositionsTextBox.Text = SAMP.SavedPositions;
 
+            ReloadVersions();
             ReloadSAMPConfig();
             ReloadAPIs();
             ReloadLauncherConfig();
@@ -163,12 +182,17 @@ namespace SAMPLauncherNET
                     {
                         foreach (KeyValuePair<Server, int> kv in loadServers)
                         {
-                            if (kv.Key.IsDataFetched(ERequestType.Ping) || kv.Key.IsDataFetched(ERequestType.Information))
+                            if (kv.Key is FavouriteServer)
                                 rlist.Add(kv);
                             else
                             {
-                                kv.Key.SendQueryWhenExpired(ERequestType.Ping, 5000U);
-                                kv.Key.SendQueryWhenExpired(ERequestType.Information, 5000U);
+                                if (kv.Key.IsDataFetched(ERequestType.Ping) || kv.Key.IsDataFetched(ERequestType.Information))
+                                    rlist.Add(kv);
+                                else
+                                {
+                                    kv.Key.SendQueryWhenExpired(ERequestType.Ping, 5000U);
+                                    kv.Key.SendQueryWhenExpired(ERequestType.Information, 5000U);
+                                }
                             }
                         }
                         foreach (KeyValuePair<Server, int> kv in rlist)
@@ -329,7 +353,7 @@ namespace SAMPLauncherNET
                         if (server.IsDataFetched(ERequestType.Information))
                         {
                             dgvr.Cells[2].Value = server.Hostname;
-                            dgvr.Cells[3].Value = server.PlayerCount + "/" + server.MaxPlayers;
+                            dgvr.Cells[3].Value = new PlayerCountString(server.PlayerCount, server.MaxPlayers);
                             dgvr.Cells[4].Value = server.Gamemode;
                             dgvr.Cells[5].Value = server.Language;
                         }
@@ -625,6 +649,21 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Reload versions
+        /// </summary>
+        private void ReloadVersions()
+        {
+            SAMPVersion current_version = SAMPProvider.CurrentVersion;
+            versionsListView.Clear();
+            foreach (SAMPVersion version in SAMPProvider.Versions)
+            {
+                ListViewItem lvi = versionsListView.Items.Add(version.ToString());
+                lvi.Tag = version;
+                lvi.ImageIndex = ((current_version == version) ? 0 : 1);
+            }
+        }
+
+        /// <summary>
         /// Reload SA:MP configuration
         /// </summary>
         private void ReloadSAMPConfig()
@@ -840,7 +879,7 @@ namespace SAMPLauncherNET
                     if (kv.Key.IsDataFetched(ERequestType.Information))
                     {
                         row[2] = kv.Key.Hostname;
-                        row[3] = kv.Key.PlayerCount + "/" + kv.Key.MaxPlayers;
+                        row[3] = new PlayerCountString(kv.Key.PlayerCount, kv.Key.MaxPlayers);
                         row[4] = kv.Key.Gamemode;
                         row[5] = kv.Key.Language;
                     }
@@ -1652,6 +1691,115 @@ namespace SAMPLauncherNET
         {
             DeveloperToolsConfigDataContract dtcdc = SAMP.DeveloperToolsConfigIO;
             Connect(new Server("127.0.0.1:" + dtcdc.port, false), dtcdc.rconPassword);
+        }
+
+        /// <summary>
+        /// Patch version picture box click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void patchVersionPictureBox_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in versionsListView.SelectedItems)
+            {
+                if (item.Tag is SAMPVersion)
+                {
+                    SAMPVersion version = (SAMPVersion)(item.Tag);
+                    if (SAMPProvider.CurrentVersion != version)
+                    {
+                        if (MessageBox.Show(string.Format(Translator.GetTranslation("PATCH_VERSION"), version.Name), Translator.GetTranslation("PATCH_VERSION_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            SAMP.ChangeSAMPVersion(version, false);
+                            ReloadVersions();
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Install version picture box click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void installVersionPictureBox_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in versionsListView.SelectedItems)
+            {
+                if (item.Tag is SAMPVersion)
+                {
+                    SAMPVersion version = (SAMPVersion)(item.Tag);
+                    if (SAMPProvider.CurrentVersion != version)
+                    {
+                        if (MessageBox.Show(string.Format(Translator.GetTranslation("INSTALL_VERSION"), version.Name), Translator.GetTranslation("INSTALL_VERSION_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            SAMP.ChangeSAMPVersion(version, true);
+                            ReloadVersions();
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Versions list view mouse double click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Mouse event arguments</param>
+        private void versionsListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            foreach (ListViewItem item in versionsListView.SelectedItems)
+            {
+                if (item.Tag is SAMPVersion)
+                {
+                    SAMPVersion version = (SAMPVersion)(item.Tag);
+                    if (SAMPProvider.CurrentVersion != version)
+                    {
+                        switch (MessageBox.Show(string.Format(Translator.GetTranslation("SELECT_VERSION"), version.Name), Translator.GetTranslation("SELECT_VERSION_TITLE"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning))
+                        {
+                            case DialogResult.Yes:
+                                SAMP.ChangeSAMPVersion(version, false);
+                                ReloadVersions();
+                                break;
+                            case DialogResult.No:
+                                SAMP.ChangeSAMPVersion(version, true);
+                                ReloadVersions();
+                                break;
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Add address to favourites list tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void addAddressToFavouriteListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddAddressToFavouriteListForm aatflf = new AddAddressToFavouriteListForm(FavouriteLists);
+            DialogResult result = aatflf.ShowDialog();
+            DialogResult = DialogResult.None;
+            if (result == DialogResult.OK)
+            {
+                IndexedServerListConnector islc = aatflf.SelectedServerListConnector;
+                ServerListConnector slc = islc.ServerListConnector;
+                Dictionary<string, Server> servers = slc.ServerListIO;
+                FavouriteServer server = new FavouriteServer(aatflf.Address);
+                if (servers.ContainsKey(server.IPPortString))
+                    MessageBox.Show(Translator.GetTranslation("SERVER_ALREADY_IN_FAVOURITES"), Translator.GetTranslation("ALREADY_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    servers.Add(server.IPPortString, server);
+                    slc.ServerListIO = servers;
+                    ReloadFavourites(servers, islc.Index);
+                }
+                server.Dispose();
+            }
         }
     }
 }

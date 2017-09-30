@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading;
@@ -504,6 +505,64 @@ namespace SAMPLauncherNET
             catch
             {
                 //
+            }
+        }
+
+        /// <summary>
+        /// Change SA:MP version
+        /// </summary>
+        /// <param name="version">Version</param>
+        /// <param name="useInstaller">Use installer</param>
+        public static void ChangeSAMPVersion(SAMPVersion version, bool useInstaller)
+        {
+            if (version != null)
+            {
+                DownloadProgressForm dpf = new DownloadProgressForm(useInstaller ? version.InstallationURI : version.ZipURI, useInstaller ? "install.exe" : "client.zip");
+                if (dpf.ShowDialog() == DialogResult.OK)
+                {
+                    SAMPProvider.ResetVersionCache();
+                    try
+                    {
+                        if (File.Exists(dpf.Path))
+                        {
+                            if (useInstaller)
+                            {
+                                Process.Start(dpf.Path);
+                                Application.Exit();
+                            }
+                            else
+                            {
+                                using (ZipArchive archive = ZipFile.Open(dpf.Path, ZipArchiveMode.Read))
+                                {
+                                    foreach (ZipArchiveEntry entry in archive.Entries)
+                                    {
+                                        string path = ExeDir + "\\" + entry.FullName.Replace('/', '\\');
+                                        try
+                                        {
+                                            using (Stream stream = entry.Open())
+                                            {
+                                                using (FileStream file_stream = new FileStream(path, FileMode.Create))
+                                                {
+                                                    int b = -1;
+                                                    while ((b = stream.ReadByte()) != -1)
+                                                        file_stream.WriteByte((byte)b);
+                                                }
+                                            }
+                                        }
+                                        catch
+                                        {
+                                            //
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 

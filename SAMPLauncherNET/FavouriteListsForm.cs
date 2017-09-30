@@ -33,6 +33,7 @@ namespace SAMPLauncherNET
         {
             InitializeComponent();
             Translator.LoadTranslation(this);
+            favouritesListComboBox.Items.AddRange(favouriteLists.ToArray());
         }
 
         /// <summary>

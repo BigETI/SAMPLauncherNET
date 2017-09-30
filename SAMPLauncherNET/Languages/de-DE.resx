@@ -131,6 +131,9 @@ Das Projekt befindet sich auf</value>
   <data name="ACKNOWLEDGES_LIMIT" xml:space="preserve">
     <value>Bestätigungsnachrichten Limit</value>
   </data>
+  <data name="ADD_ADDRESS_TO_FAVOURITE_LIST" xml:space="preserve">
+    <value>Adresse zu den Favoriten</value>
+  </data>
   <data name="ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Adresse zu den Favoriten hinzufügen</value>
   </data>
@@ -190,6 +193,12 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="CANCEL" xml:space="preserve">
     <value>Abbrechen</value>
+  </data>
+  <data name="CANCEL_DOWNLOAD" xml:space="preserve">
+    <value>Möchtest du wirklich diesen Download abbrechen?</value>
+  </data>
+  <data name="CANCEL_DOWNLOAD_TITLE" xml:space="preserve">
+    <value>Download abbrechen</value>
   </data>
   <data name="CHAT_LOGGING" xml:space="preserve">
     <value>Chat protokollieren</value>
@@ -262,6 +271,15 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="DISABLE_HEAD_MOVE" xml:space="preserve">
     <value>Kopfbewegungen abschalten</value>
+  </data>
+  <data name="DOWNLOAD_FAILED_TITLE" xml:space="preserve">
+    <value>Download fehlgeschlagen</value>
+  </data>
+  <data name="DOWNLOAD_PROGRESS" xml:space="preserve">
+    <value>Lädt runter</value>
+  </data>
+  <data name="DOWNLOAD_PROGRESS_TITLE" xml:space="preserve">
+    <value>Download Fortschritt</value>
   </data>
   <data name="DUTCH" xml:space="preserve">
     <value>Holländisch (Nederlands)</value>
@@ -359,6 +377,12 @@ Das Projekt befindet sich auf</value>
   <data name="INSERT_USERNAME_HERE" xml:space="preserve">
     <value>Füge einen Benutzernamen hier ein...</value>
   </data>
+  <data name="INSTALL_VERSION" xml:space="preserve">
+    <value>Möchtest du wirklich {0} installieren?</value>
+  </data>
+  <data name="INSTALL_VERSION_TITLE" xml:space="preserve">
+    <value>Version installieren</value>
+  </data>
   <data name="IN_CAR_RATE" xml:space="preserve">
     <value>Im Auto Tickrate</value>
   </data>
@@ -428,6 +452,12 @@ Das Projekt befindet sich auf</value>
   <data name="NOT_IN_FAVOURITES" xml:space="preserve">
     <value>Nicht in den Favoriten</value>
   </data>
+  <data name="NO_ADDRESS_SPECIFIED" xml:space="preserve">
+    <value>Bitte gebe eine Adresse an, um es in die Favoriten hinzuzufügen</value>
+  </data>
+  <data name="NO_ADDRESS_SPECIFIED_TITLE" xml:space="preserve">
+    <value>Keine Adresse angegeben</value>
+  </data>
   <data name="NO_CHATLOG_FOUND" xml:space="preserve">
     <value>Keinen Chatprotokoll gefunden...</value>
   </data>
@@ -466,6 +496,12 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="PASSWORD" xml:space="preserve">
     <value>Server Passwort</value>
+  </data>
+  <data name="PATCH_VERSION" xml:space="preserve">
+    <value>Möchtest du wirklich deine Version nach {0} patchen?</value>
+  </data>
+  <data name="PATCH_VERSION_TITLE" xml:space="preserve">
+    <value>Version patchen</value>
   </data>
   <data name="PING" xml:space="preserve">
     <value>Verzögerung</value>
@@ -572,6 +608,18 @@ Das Projekt befindet sich auf</value>
   <data name="SELECT_SERVER_LIST" xml:space="preserve">
     <value>Wähle eine Serverliste aus</value>
   </data>
+  <data name="SELECT_VERSION" xml:space="preserve">
+    <value>Du hast {0} ausgewählt um es zu patchen oder manuell zu installieren.
+
+Möchtest du wirklich {0} patchen oder manuell installieren {0}?
+
+Drücke "Ja" um es zu patchen.
+Drücke "Nein" um es manuell zu installieren.
+Drücke "Abbrechen" um diese Aktion abzubrechen.</value>
+  </data>
+  <data name="SELECT_VERSION_TITLE" xml:space="preserve">
+    <value>Patchen oder manuell installieren</value>
+  </data>
   <data name="SERVERS" xml:space="preserve">
     <value>Server</value>
   </data>
@@ -649,6 +697,9 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Benutzername</value>
+  </data>
+  <data name="VERSIONS" xml:space="preserve">
+    <value>Versionen</value>
   </data>
   <data name="VISIT_WEBSITE" xml:space="preserve">
     <value>Besuche Webseite</value>

@@ -32,6 +32,17 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Fallback language
+        /// </summary>
+        public string FallbackLanguage
+        {
+            get
+            {
+                return "en-GB";
+            }
+        }
+
+        /// <summary>
         /// Assembly name
         /// </summary>
         public string AssemblyName

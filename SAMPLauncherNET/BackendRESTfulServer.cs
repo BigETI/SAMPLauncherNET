@@ -12,7 +12,7 @@ namespace SAMPLauncherNET
         /// Constructor
         /// </summary>
         /// <param name="serverData">Server data</param>
-        public BackendRESTfulServer(ServerDataContract serverData) : base(serverData.host, false)
+        public BackendRESTfulServer(BackendRESTfulServerDataContract serverData) : base(serverData.host, false)
         {
             requestsRequired.Lock(ERequestType.Information);
             hostname = serverData.hostname;

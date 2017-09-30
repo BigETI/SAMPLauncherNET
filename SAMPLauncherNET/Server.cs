@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,6 +18,11 @@ namespace SAMPLauncherNET
     /// </summary>
     public class Server : IDisposable
     {
+        /// <summary>
+        /// IPv4 regular expression
+        /// </summary>
+        private static Regex ipv4regex = new Regex(@"\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b");
+
         /// <summary>
         /// Socket
         /// </summary>
@@ -503,44 +509,51 @@ namespace SAMPLauncherNET
                 {
                     if (ips.Length > 0)
                     {
-                        string[] parts = ips[0].MapToIPv4().ToString().Trim().Split(new char[] { '.' });
-                        uint n;
-                        if (parts.Length == 4)
+                        foreach (IPAddress ip in ips)
                         {
-                            isValid = true;
-                            for (int i = 0; i < 4; i++)
+                            if (ipv4regex.IsMatch(ip.ToString()))
                             {
-                                if (uint.TryParse(parts[i], out n))
-                                    ipv4AddressUInt |= n << (i * 8);
-                                else
+                                string[] parts = ip.MapToIPv4().ToString().Trim().Split(new char[] { '.' });
+                                uint n;
+                                if (parts.Length == 4)
                                 {
-                                    isValid = false;
-                                    break;
-                                }
-                            }
-                            if (isValid)
-                            {
-                                bool success = true;
-                                if (hp.Length == 1)
-                                    port = 7777;
-                                else
-                                    success = ushort.TryParse(hp[1], out port);
-                                if (success)
-                                {
-                                    socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-                                    socket.SendTimeout = 1000;
-                                    socket.ReceiveTimeout = 1000;
-                                    if (fetchData)
+                                    isValid = true;
+                                    for (int i = 0; i < 4; i++)
                                     {
-                                        FetchDataAsync(ERequestType.Ping);
-                                        FetchDataAsync(ERequestType.Information);
+                                        if (uint.TryParse(parts[i], out n))
+                                            ipv4AddressUInt |= n << (i * 8);
+                                        else
+                                        {
+                                            isValid = false;
+                                            break;
+                                        }
+                                    }
+                                    if (isValid)
+                                    {
+                                        bool success = true;
+                                        if (hp.Length == 1)
+                                            port = 7777;
+                                        else
+                                            success = ushort.TryParse(hp[1], out port);
+                                        if (success)
+                                        {
+                                            socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                                            socket.SendTimeout = 1000;
+                                            socket.ReceiveTimeout = 1000;
+                                            if (fetchData)
+                                            {
+                                                FetchDataAsync(ERequestType.Ping);
+                                                FetchDataAsync(ERequestType.Information);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            ipv4AddressUInt = 0U;
+                                            isValid = false;
+                                        }
                                     }
                                 }
-                                else
-                                {
-                                    ipv4AddressUInt = 0U;
-                                    isValid = false;
-                                }
+                                break;
                             }
                         }
                     }

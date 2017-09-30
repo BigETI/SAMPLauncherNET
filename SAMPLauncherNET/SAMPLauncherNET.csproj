@@ -62,6 +62,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -107,6 +109,12 @@
     </Compile>
     <Compile Include="DeveloperToolsConfigForm.Designer.cs">
       <DependentUpon>DeveloperToolsConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DownloadProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DownloadProgressForm.Designer.cs">
+      <DependentUpon>DownloadProgressForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EServerListType.cs" />
     <Compile Include="ERequestType.cs" />
@@ -170,6 +178,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerCountString.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -185,9 +194,12 @@
     </Compile>
     <Compile Include="RequestsRequired.cs" />
     <Compile Include="SAMPConfig.cs" />
+    <Compile Include="SAMPProvider.cs" />
+    <Compile Include="SAMPVersion.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="ServerListConnector.cs" />
-    <Compile Include="ServerDataContract.cs" />
+    <Compile Include="BackendRESTfulServerDataContract.cs" />
+    <Compile Include="TaskbarProgress.cs" />
     <Compile Include="TranslatorInterface.cs" />
     <Compile Include="SAMP.cs" />
     <Compile Include="Utils.cs" />
@@ -205,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeveloperToolsConfigForm.resx">
       <DependentUpon>DeveloperToolsConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DownloadProgressForm.resx">
+      <DependentUpon>DownloadProgressForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExtendedServerInformationForm.resx">
       <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
@@ -280,6 +295,8 @@
     <None Include="github_large_icon.png" />
     <None Include="new_icon.png" />
     <None Include="edit_icon.png" />
+    <None Include="patch-icon.png" />
+    <None Include="install-icon.png" />
     <Content Include="samp.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,12 +1,7 @@
 ﻿using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsTranslator;
 
@@ -20,6 +15,17 @@ namespace SAMPLauncherNET
     /// </summary>
     public partial class AddAddressToFavouriteListForm : MaterialForm
     {
+        /// <summary>
+        /// Address
+        /// </summary>
+        public string Address
+        {
+            get
+            {
+                return addressSingleLineTextField.Text;
+            }
+        }
+
         /// <summary>
         /// Selected server list connector
         /// </summary>
@@ -35,7 +41,7 @@ namespace SAMPLauncherNET
         /// Constructor
         /// </summary>
         /// <param name="favouriteLists">Favourites list</param>
-        public AddAddressToFavouriteListForm(List<IndexedServerListConnector> favouriteLists)
+        public AddAddressToFavouriteListForm(IEnumerable<IndexedServerListConnector> favouriteLists)
         {
             InitializeComponent();
             Translator.LoadTranslation(this);
@@ -51,6 +57,8 @@ namespace SAMPLauncherNET
         {
             if (SelectedServerListConnector == null)
                 MessageBox.Show(Translator.GetTranslation("FAVOURITE_LIST_NOT_SELECTED"), Translator.GetTranslation("FAVOURITE_LIST_NOT_SELECTED_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (Address.Trim().Length <= 0)
+                MessageBox.Show(Translator.GetTranslation("NO_ADDRESS_SPECIFIED"), Translator.GetTranslation("NO_ADDRESS_SPECIFIED_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 DialogResult = DialogResult.OK;

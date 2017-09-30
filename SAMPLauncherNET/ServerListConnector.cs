@@ -19,7 +19,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Server list JSON serializer
         /// </summary>
-        private static DataContractJsonSerializer serverListJSONSerializer = new DataContractJsonSerializer(typeof(ServerDataContract[]));
+        private static DataContractJsonSerializer serverListJSONSerializer = new DataContractJsonSerializer(typeof(BackendRESTfulServerDataContract[]));
 
         /// <summary>
         /// Favourites list JSON serializer
@@ -175,10 +175,10 @@ namespace SAMPLauncherNET
                                 wc.Headers.Set(HttpRequestHeader.UserAgent, APIHTTPUserAgent);
                                 using (MemoryStream stream = new MemoryStream(wc.DownloadData(endpoint)))
                                 {
-                                    ServerDataContract[] servers = serverListJSONSerializer.ReadObject(stream) as ServerDataContract[];
+                                    BackendRESTfulServerDataContract[] servers = serverListJSONSerializer.ReadObject(stream) as BackendRESTfulServerDataContract[];
                                     if (servers != null)
                                     {
-                                        foreach (ServerDataContract sdc in servers)
+                                        foreach (BackendRESTfulServerDataContract sdc in servers)
                                         {
                                             BackendRESTfulServer server = new BackendRESTfulServer(sdc);
                                             if (server.IsValid)

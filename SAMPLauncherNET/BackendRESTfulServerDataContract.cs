@@ -9,7 +9,7 @@ namespace SAMPLauncherNET
     /// Server data contract class
     /// </summary>
     [DataContract]
-    public class ServerDataContract
+    public class BackendRESTfulServerDataContract
     {
         /// <summary>
         /// IP

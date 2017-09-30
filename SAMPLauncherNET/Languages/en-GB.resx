@@ -131,6 +131,12 @@ This project is located at</value>
   <data name="ACKNOWLEDGES_LIMIT" xml:space="preserve">
     <value>Acknowledges limit</value>
   </data>
+  <data name="ADD_ADDRESS_TO_FAVOURITE_LIST" xml:space="preserve">
+    <value>Address to favourites</value>
+  </data>
+  <data name="ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Address to favourites</value>
+  </data>
   <data name="ADD_NEW_API" xml:space="preserve">
     <value>Add new API</value>
   </data>
@@ -187,6 +193,12 @@ This project is located at</value>
   </data>
   <data name="CANCEL" xml:space="preserve">
     <value>Cancel</value>
+  </data>
+  <data name="CANCEL_DOWNLOAD" xml:space="preserve">
+    <value>Do you really want to cancel the download?</value>
+  </data>
+  <data name="CANCEL_DOWNLOAD_TITLE" xml:space="preserve">
+    <value>Cancel download</value>
   </data>
   <data name="CHAT_LOGGING" xml:space="preserve">
     <value>Enable chat logging</value>
@@ -259,6 +271,15 @@ This project is located at</value>
   </data>
   <data name="DISABLE_HEAD_MOVE" xml:space="preserve">
     <value>Disable head move</value>
+  </data>
+  <data name="DOWNLOAD_FAILED_TITLE" xml:space="preserve">
+    <value>Download failed</value>
+  </data>
+  <data name="DOWNLOAD_PROGRESS" xml:space="preserve">
+    <value>Downloading</value>
+  </data>
+  <data name="DOWNLOAD_PROGRESS_TITLE" xml:space="preserve">
+    <value>Download progress</value>
   </data>
   <data name="DUTCH" xml:space="preserve">
     <value>Dutch (Nederlands)</value>
@@ -356,6 +377,12 @@ This project is located at</value>
   <data name="INSERT_USERNAME_HERE" xml:space="preserve">
     <value>Insert player name here...</value>
   </data>
+  <data name="INSTALL_VERSION" xml:space="preserve">
+    <value>Do you really want to install {0}?</value>
+  </data>
+  <data name="INSTALL_VERSION_TITLE" xml:space="preserve">
+    <value>Install version</value>
+  </data>
   <data name="IN_CAR_RATE" xml:space="preserve">
     <value>In car tick rate</value>
   </data>
@@ -425,6 +452,12 @@ This project is located at</value>
   <data name="NOT_IN_FAVOURITES" xml:space="preserve">
     <value>Not in favourites</value>
   </data>
+  <data name="NO_ADDRESS_SPECIFIED" xml:space="preserve">
+    <value>Please specify an address to add to your favourites list.</value>
+  </data>
+  <data name="NO_ADDRESS_SPECIFIED_TITLE" xml:space="preserve">
+    <value>No address specified</value>
+  </data>
   <data name="NO_CHATLOG_FOUND" xml:space="preserve">
     <value>No chatlog found...</value>
   </data>
@@ -463,6 +496,12 @@ This project is located at</value>
   </data>
   <data name="PASSWORD" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="PATCH_VERSION" xml:space="preserve">
+    <value>Do you really want to patch your version to {0}?</value>
+  </data>
+  <data name="PATCH_VERSION_TITLE" xml:space="preserve">
+    <value>Patch version</value>
   </data>
   <data name="PING" xml:space="preserve">
     <value>Ping</value>
@@ -569,6 +608,18 @@ This project is located at</value>
   <data name="SELECT_SERVER_LIST" xml:space="preserve">
     <value>Select server list</value>
   </data>
+  <data name="SELECT_VERSION" xml:space="preserve">
+    <value>You have selected {0} to be patched or manually installed.
+
+Do you really want to patch or manually install {0}?
+
+Press "Yes" to patch.
+Press "No" to install.
+Press "Cancel" to cancel this action.</value>
+  </data>
+  <data name="SELECT_VERSION_TITLE" xml:space="preserve">
+    <value>Patch or manually install version</value>
+  </data>
   <data name="SERVERS" xml:space="preserve">
     <value>Servers</value>
   </data>
@@ -646,6 +697,9 @@ This project is located at</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="VERSIONS" xml:space="preserve">
+    <value>Versions</value>
   </data>
   <data name="VISIT_WEBSITE" xml:space="preserve">
     <value>Visit website</value>
