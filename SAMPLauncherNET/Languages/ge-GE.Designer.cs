@@ -749,6 +749,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die პორტუგალიური (Português) ähnelt.
+        /// </summary>
+        internal static string PORTUGUESE {
+            get {
+                return ResourceManager.GetString("PORTUGUESE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die RCON-ის პაროლი ähnelt.
         /// </summary>
         internal static string RCON_PASSWORD {

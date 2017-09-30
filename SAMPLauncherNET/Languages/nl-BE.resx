@@ -353,6 +353,9 @@ Dit project bevind zich op</value>
   <data name="PLEASE_TYPE_IN_USERNAME" xml:space="preserve">
     <value>Gelieve een gebruikersnaam in te vullen.</value>
   </data>
+  <data name="PORTUGUESE" xml:space="preserve">
+    <value>Portugees (Português)</value>
+  </data>
   <data name="RCON_PASSWORD" xml:space="preserve">
     <value>RCON wachtwoord</value>
   </data>

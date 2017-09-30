@@ -521,6 +521,9 @@ Das Projekt befindet sich auf</value>
   <data name="PORT" xml:space="preserve">
     <value>Port</value>
   </data>
+  <data name="PORTUGUESE" xml:space="preserve">
+    <value>Portugiesisch (Português)</value>
+  </data>
   <data name="PRODUCT_VERSION" xml:space="preserve">
     <value>Produkt version</value>
   </data>

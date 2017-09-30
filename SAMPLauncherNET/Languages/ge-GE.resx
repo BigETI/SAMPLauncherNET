@@ -349,6 +349,9 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="PLEASE_TYPE_IN_USERNAME" xml:space="preserve">
     <value>ჩაწრეთ თქვენი ნიკნეიმი.</value>
   </data>
+  <data name="PORTUGUESE" xml:space="preserve">
+    <value>პორტუგალიური (Português)</value>
+  </data>
   <data name="RCON_PASSWORD" xml:space="preserve">
     <value>RCON-ის პაროლი</value>
   </data>

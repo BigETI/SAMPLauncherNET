@@ -73,7 +73,7 @@ namespace SAMPLauncherNET.Languages {
         ///   Sucht eine lokalisierte Zeichenfolge, die 
         ///SAMPLauncher NET is a launcher for San Andreas Multiplayer.
         ///
-        ///This software is all time free and licenced with GPLv3.
+        ///This software is all time free and licensed with GPLv3.
         ///
         ///This project is located at ähnelt.
         /// </summary>
@@ -1259,6 +1259,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string PORT {
             get {
                 return ResourceManager.GetString("PORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Portuguese (Português) ähnelt.
+        /// </summary>
+        internal static string PORTUGUESE {
+            get {
+                return ResourceManager.GetString("PORTUGUESE", resourceCulture);
             }
         }
         

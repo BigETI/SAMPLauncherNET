@@ -270,7 +270,7 @@ Este projeto é localizado em</value>
     <value>Editar API selecionada</value>
   </data>
   <data name="ENGLISH" xml:space="preserve">
-    <value>Inglês</value>
+    <value>Inglês (English)</value>
   </data>
   <data name="ERROR" xml:space="preserve">
     <value>Errr</value>
@@ -481,6 +481,9 @@ Este projeto é localizado em</value>
   </data>
   <data name="PORT" xml:space="preserve">
     <value>Port</value>
+  </data>
+  <data name="PORTUGUESE" xml:space="preserve">
+    <value>Português</value>
   </data>
   <data name="PRODUCT_VERSION" xml:space="preserve">
     <value>Product version</value>

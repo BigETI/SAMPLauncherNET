@@ -661,4 +661,7 @@
   <data name="STOP_SERVER" xml:space="preserve">
     <value>Остановить сервер</value>
   </data>
+  <data name="PORTUGUESE" xml:space="preserve">
+    <value>португальский (Português)</value>
+  </data>
 </root>

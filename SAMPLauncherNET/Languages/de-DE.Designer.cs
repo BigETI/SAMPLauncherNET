@@ -1263,6 +1263,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Portugiesisch (Português) ähnelt.
+        /// </summary>
+        internal static string PORTUGUESE {
+            get {
+                return ResourceManager.GetString("PORTUGUESE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Produkt version ähnelt.
         /// </summary>
         internal static string PRODUCT_VERSION {

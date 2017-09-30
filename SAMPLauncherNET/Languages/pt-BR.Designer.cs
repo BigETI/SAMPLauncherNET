@@ -71,11 +71,11 @@ namespace SAMPLauncherNET.Languages {
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die 
-        ///SAMPLauncher NET is a launcher for San Andreas Multiplayer.
+        ///SAMPLauncher NET é um launcher para San Andreas Multiplayer.
         ///
-        ///This software is all time free and licenced with GPLv3.
+        ///Este software é gratuito e licenciado com GPLv3.
         ///
-        ///This project is located at ähnelt.
+        ///Este projeto é localizado em ähnelt.
         /// </summary>
         internal static string ABOUT_DESCRIPTION {
             get {
@@ -93,7 +93,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Add new API ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Adicionar nova API ähnelt.
         /// </summary>
         internal static string ADD_NEW_API {
             get {
@@ -102,7 +102,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Add server to favourites ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Adicionar servidor aos favoritos ähnelt.
         /// </summary>
         internal static string ADD_SERVER_TO_FAVOURITES {
             get {
@@ -111,7 +111,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Already in favourites ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Já está em favoritos ähnelt.
         /// </summary>
         internal static string ALREADY_IN_FAVOURITES {
             get {
@@ -120,7 +120,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Announce server ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Anuncie o servidor ähnelt.
         /// </summary>
         internal static string ANNOUNCE {
             get {
@@ -147,7 +147,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Please specify a valid API endpoint ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Por favor especifique um endpoint válido para a API ähnelt.
         /// </summary>
         internal static string API_ENDPOINT_MISSING {
             get {
@@ -156,7 +156,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die API endpoint missing ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Faltando API endpoint ähnelt.
         /// </summary>
         internal static string API_ENDPOINT_MISSING_TITLE {
             get {
@@ -165,7 +165,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die API name ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die API nome ähnelt.
         /// </summary>
         internal static string API_NAME {
             get {
@@ -174,7 +174,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Please insert an API name. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Por favor insira o nome da API. ähnelt.
         /// </summary>
         internal static string API_NAME_MISSING {
             get {
@@ -183,7 +183,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die API name missing ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Faltando o nome da API ähnelt.
         /// </summary>
         internal static string API_NAME_MISSING_TITLE {
             get {
@@ -192,7 +192,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die API type ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die API tipo ähnelt.
         /// </summary>
         internal static string API_TYPE {
             get {
@@ -201,7 +201,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Please select an API type. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Por favor selecione o tipo da API. ähnelt.
         /// </summary>
         internal static string API_TYPE_MISSING {
             get {
@@ -210,7 +210,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die API type missing ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Faltando o tipo da API ähnelt.
         /// </summary>
         internal static string API_TYPE_MISSING_TITLE {
             get {
@@ -219,7 +219,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Assembly version ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Versão do assembly ähnelt.
         /// </summary>
         internal static string ASSEMBLY_VERSION {
             get {
@@ -255,7 +255,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancelar ähnelt.
         /// </summary>
         internal static string CANCEL {
             get {
@@ -264,7 +264,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Enable chat logging ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Habilitar chat logging ähnelt.
         /// </summary>
         internal static string CHAT_LOGGING {
             get {
@@ -273,7 +273,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die City ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cidade ähnelt.
         /// </summary>
         internal static string CITY {
             get {
@@ -282,7 +282,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Close when launched ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fechar quando abrir ähnelt.
         /// </summary>
         internal static string CLOSE_WHEN_LAUNCHED {
             get {
@@ -291,7 +291,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Connect ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Conectar ähnelt.
         /// </summary>
         internal static string CONNECT {
             get {
@@ -300,7 +300,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Connect now! ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Conectar agora! ähnelt.
         /// </summary>
         internal static string CONNECT_NOW {
             get {
@@ -309,7 +309,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Connect ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Conectar ähnelt.
         /// </summary>
         internal static string CONNECT_TITLE {
             get {
@@ -318,7 +318,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Connect to address ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Conectar no endereço ähnelt.
         /// </summary>
         internal static string CONNECT_TO_ADDRESS {
             get {
@@ -327,7 +327,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Connect to address ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Conectar no endereço ähnelt.
         /// </summary>
         internal static string CONNECT_TO_ADDRESS_TITLE {
             get {
@@ -336,7 +336,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Connect to test server ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Conectar no servidor de testes ähnelt.
         /// </summary>
         internal static string CONNECT_TO_TEST_SERVER {
             get {
@@ -345,7 +345,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Connect with RCON ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Conectar com a RCON ähnelt.
         /// </summary>
         internal static string CONNECT_WITH_RCON {
             get {
@@ -354,7 +354,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Allow connection cookies ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Permitir cookies de conexão ähnelt.
         /// </summary>
         internal static string CONNECTION_COOKIES {
             get {
@@ -372,7 +372,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Enable cookie logging ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Habilitar cookie logging ähnelt.
         /// </summary>
         internal static string COOKIE_LOGGING {
             get {
@@ -381,7 +381,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Country ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Pais ähnelt.
         /// </summary>
         internal static string COUNTRY {
             get {
@@ -390,7 +390,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Database log queries ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Log de consultas do banco de dados ähnelt.
         /// </summary>
         internal static string DATABASE_LOG_QUERIES {
             get {
@@ -399,7 +399,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Enable database logging ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Habilitar logging do banco de dados ähnelt.
         /// </summary>
         internal static string DATABASE_LOGGING {
             get {
@@ -408,7 +408,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Debug mode ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Modo de depuração ähnelt.
         /// </summary>
         internal static string DEBUG_MODE {
             get {
@@ -417,7 +417,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Do you really want to delete the selected images? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Você realmente deseja deletar as imagens selecionadas? ähnelt.
         /// </summary>
         internal static string DELETE_SELECTED_IMAGES {
             get {
@@ -426,7 +426,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Delete selected images ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Deletar imagens selecionadas ähnelt.
         /// </summary>
         internal static string DELETE_SELECTED_IMAGES_TITLE {
             get {
@@ -435,7 +435,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Developer tools ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ferramentas do desenvolvedor ähnelt.
         /// </summary>
         internal static string DEVELOPER_TOOLS {
             get {
@@ -444,7 +444,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Developer tools configuration ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Configuração das ferramentas do desenvolvedor ähnelt.
         /// </summary>
         internal static string DEVELOPER_TOOLS_CONFIGURATION_TITLE {
             get {
@@ -453,7 +453,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Development directory ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Diretório de desenvolvimento ähnelt.
         /// </summary>
         internal static string DEVELOPMENT_DIRECTORY {
             get {
@@ -471,7 +471,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Disable head move ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Desabilitar movimento da cabeça ähnelt.
         /// </summary>
         internal static string DISABLE_HEAD_MOVE {
             get {
@@ -480,7 +480,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Dutch (Nederlands) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Holandês (Nederlands) ähnelt.
         /// </summary>
         internal static string DUTCH {
             get {
@@ -489,7 +489,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Edit API ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Editar API ähnelt.
         /// </summary>
         internal static string EDIT_API_TITLE {
             get {
@@ -498,7 +498,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Edit selected API ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Editar API selecionada ähnelt.
         /// </summary>
         internal static string EDIT_SELECTED_API {
             get {
@@ -507,7 +507,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die English ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Inglês (English) ähnelt.
         /// </summary>
         internal static string ENGLISH {
             get {
@@ -516,7 +516,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Error ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Errr ähnelt.
         /// </summary>
         internal static string ERROR {
             get {
@@ -525,7 +525,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Extended server information ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Informações extendidas do servidor ähnelt.
         /// </summary>
         internal static string EXTENDED_SERVER_INFORMATION_TITLE {
             get {
@@ -534,7 +534,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Please select a favourites list. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Por favor selecione uma lista de favoritos ähnelt.
         /// </summary>
         internal static string FAVOURITE_LIST_NOT_SELECTED {
             get {
@@ -543,7 +543,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Favourites list not selected ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lista de favoritos não selecionada ähnelt.
         /// </summary>
         internal static string FAVOURITE_LIST_NOT_SELECTED_TITLE {
             get {
@@ -552,7 +552,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die File version ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Versão do arquivo ähnelt.
         /// </summary>
         internal static string FILE_VERSION {
             get {
@@ -561,7 +561,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Filter hostname ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Filtrar hostname ähnelt.
         /// </summary>
         internal static string FILTER_HOSTNAME {
             get {
@@ -570,7 +570,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Filter IP and port ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Filtrar IP e porta ähnelt.
         /// </summary>
         internal static string FILTER_IP_AND_PORT {
             get {
@@ -579,7 +579,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Filter language ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Filtrar lingua ähnelt.
         /// </summary>
         internal static string FILTER_LANGUAGE {
             get {
@@ -588,7 +588,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Filter mode ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Filtrar modo ähnelt.
         /// </summary>
         internal static string FILTER_MODE {
             get {
@@ -615,7 +615,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Font-weight ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Espessura da fonte ähnelt.
         /// </summary>
         internal static string FONT_WEIGHT {
             get {
@@ -624,7 +624,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die FPS limit ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Limite de FPS ähnelt.
         /// </summary>
         internal static string FPS_LIMIT {
             get {
@@ -633,7 +633,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Gallery ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Galeria ähnelt.
         /// </summary>
         internal static string GALLERY {
             get {
@@ -669,7 +669,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Georgian (ქართული) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Georgiano (ქართული) ähnelt.
         /// </summary>
         internal static string GEORGIAN {
             get {
@@ -678,7 +678,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die German (Deutsch) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Alemão (Deutsch) ähnelt.
         /// </summary>
         internal static string GERMAN {
             get {
@@ -687,7 +687,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die GitHub project SAMPLauncherNET ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Projeto github SAMPLauncherNET ähnelt.
         /// </summary>
         internal static string GITHUB_PROJECT {
             get {
@@ -696,7 +696,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Host and port ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Host e porta ähnelt.
         /// </summary>
         internal static string HOST_AND_PORT {
             get {
@@ -741,7 +741,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Insert filter here... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Insira o filtro aqui... ähnelt.
         /// </summary>
         internal static string INSERT_FILTER_HERE {
             get {
@@ -750,7 +750,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Insert RCON password here... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Insira a senha RCON aqui... ähnelt.
         /// </summary>
         internal static string INSERT_RCON_PASSWORD_HERE {
             get {
@@ -759,7 +759,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Insert server password here... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Insira a senha do servidor aqui... ähnelt.
         /// </summary>
         internal static string INSERT_SERVER_PASSWORD_HERE {
             get {
@@ -768,7 +768,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Insert player name here... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Insira o nome do jogador aqui... ähnelt.
         /// </summary>
         internal static string INSERT_USERNAME_HERE {
             get {
@@ -777,7 +777,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die IP and port ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die IP e port ähnelt.
         /// </summary>
         internal static string IP_AND_PORT {
             get {
@@ -822,7 +822,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Latitude and longitude ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Latitude e longitude ähnelt.
         /// </summary>
         internal static string LATITUDE_LONGITUDE {
             get {
@@ -831,7 +831,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Launch debug mode ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Iniciar modo de depuração ähnelt.
         /// </summary>
         internal static string LAUNCH_DEBUG_MODE {
             get {
@@ -840,7 +840,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Launch singleplayer ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Iniciar singleplayer ähnelt.
         /// </summary>
         internal static string LAUNCH_SINGLEPLAYER {
             get {
@@ -948,7 +948,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Do you need help? Join SA:MP forums... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Precisa de ajuda? Visite o fórum SA:MP... ähnelt.
         /// </summary>
         internal static string NEED_HELP_FORUMS {
             get {
@@ -957,7 +957,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Add new API ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Adiconar nova API ähnelt.
         /// </summary>
         internal static string NEW_API_TITLE {
             get {
@@ -1038,7 +1038,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Open directory ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Abrir diretório ähnelt.
         /// </summary>
         internal static string OPEN_DIRECTORY {
             get {
@@ -1047,7 +1047,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Open in explorer ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Abrir no navegador ähnelt.
         /// </summary>
         internal static string OPEN_IN_EXPLORER {
             get {
@@ -1056,7 +1056,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Options ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Opções ähnelt.
         /// </summary>
         internal static string OPTIONS {
             get {
@@ -1083,7 +1083,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Password ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Senha ähnelt.
         /// </summary>
         internal static string PASSWORD {
             get {
@@ -1142,6 +1142,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string PORT {
             get {
                 return ResourceManager.GetString("PORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Português ähnelt.
+        /// </summary>
+        internal static string PORTUGUESE {
+            get {
+                return ResourceManager.GetString("PORTUGUESE", resourceCulture);
             }
         }
         
