@@ -962,6 +962,7 @@ namespace SAMPLauncherNET
                 rowThread = null;
             }
             SAMP.CloseLastServer();
+            ThumbnailsCache.Clear();
         }
 
         /// <summary>
@@ -1052,12 +1053,34 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Gallery file system watcher generic changed event
+        /// Gallery file system watcher changed event
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">File system event arguments</param>
-        private void galleryFileSystemWatcher_GenericChanged(object sender, System.IO.FileSystemEventArgs e)
+        private void galleryFileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
+            ThumbnailsCache.RemoveFromCache(e.FullPath);
+            ReloadGallery();
+        }
+
+        /// <summary>
+        /// Gallery file system watcher created event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">File system event arguments</param>
+        private void galleryFileSystemWatcher_Created(object sender, FileSystemEventArgs e)
+        {
+            ReloadGallery();
+        }
+
+        /// <summary>
+        /// Gallery file system watcher Deleted event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">File system event arguments</param>
+        private void galleryFileSystemWatcher_Deleted(object sender, System.IO.FileSystemEventArgs e)
+        {
+            ThumbnailsCache.RemoveFromCache(e.FullPath);
             ReloadGallery();
         }
 
@@ -1068,6 +1091,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Renamed event arguments</param>
         private void galleryFileSystemWatcher_Renamed(object sender, System.IO.RenamedEventArgs e)
         {
+            ThumbnailsCache.RemoveFromCache(e.OldFullPath);
             ReloadGallery();
         }
 

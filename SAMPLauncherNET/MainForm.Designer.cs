@@ -47,6 +47,13 @@
             this.serversLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.serversSplitContainer = new System.Windows.Forms.SplitContainer();
             this.serversGridView = new System.Windows.Forms.DataGridView();
+            this.groupIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hostnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.playersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.languageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iPAndPortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serversContextMenuStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectWithRCONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -217,13 +224,6 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.galleryFileSystemWatcher = new System.IO.FileSystemWatcher();
             this.textFileSystemWatcher = new System.IO.FileSystemWatcher();
-            this.groupIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hostnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.playersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.languageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iPAndPortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainTabControl.SuspendLayout();
             this.serversPage.SuspendLayout();
             this.serversLayoutPanel.SuspendLayout();
@@ -424,6 +424,63 @@
             this.serversGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             this.serversGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.serversGridView_RowEnter);
             this.serversGridView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.serversGridView_KeyUp);
+            // 
+            // groupIDDataGridViewTextBoxColumn
+            // 
+            this.groupIDDataGridViewTextBoxColumn.DataPropertyName = "GroupID";
+            this.groupIDDataGridViewTextBoxColumn.FillWeight = 1F;
+            this.groupIDDataGridViewTextBoxColumn.HeaderText = "GroupID";
+            this.groupIDDataGridViewTextBoxColumn.Name = "groupIDDataGridViewTextBoxColumn";
+            this.groupIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.groupIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pingDataGridViewTextBoxColumn
+            // 
+            this.pingDataGridViewTextBoxColumn.DataPropertyName = "Ping";
+            this.pingDataGridViewTextBoxColumn.FillWeight = 5F;
+            this.pingDataGridViewTextBoxColumn.HeaderText = "Ping";
+            this.pingDataGridViewTextBoxColumn.Name = "pingDataGridViewTextBoxColumn";
+            this.pingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // hostnameDataGridViewTextBoxColumn
+            // 
+            this.hostnameDataGridViewTextBoxColumn.DataPropertyName = "Hostname";
+            this.hostnameDataGridViewTextBoxColumn.FillWeight = 33F;
+            this.hostnameDataGridViewTextBoxColumn.HeaderText = "Hostname";
+            this.hostnameDataGridViewTextBoxColumn.Name = "hostnameDataGridViewTextBoxColumn";
+            this.hostnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // playersDataGridViewTextBoxColumn
+            // 
+            this.playersDataGridViewTextBoxColumn.DataPropertyName = "Players";
+            this.playersDataGridViewTextBoxColumn.FillWeight = 8F;
+            this.playersDataGridViewTextBoxColumn.HeaderText = "Players";
+            this.playersDataGridViewTextBoxColumn.Name = "playersDataGridViewTextBoxColumn";
+            this.playersDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // modeDataGridViewTextBoxColumn
+            // 
+            this.modeDataGridViewTextBoxColumn.DataPropertyName = "Mode";
+            this.modeDataGridViewTextBoxColumn.FillWeight = 22F;
+            this.modeDataGridViewTextBoxColumn.HeaderText = "Mode";
+            this.modeDataGridViewTextBoxColumn.Name = "modeDataGridViewTextBoxColumn";
+            this.modeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // languageDataGridViewTextBoxColumn
+            // 
+            this.languageDataGridViewTextBoxColumn.DataPropertyName = "Language";
+            this.languageDataGridViewTextBoxColumn.FillWeight = 14F;
+            this.languageDataGridViewTextBoxColumn.HeaderText = "Language";
+            this.languageDataGridViewTextBoxColumn.Name = "languageDataGridViewTextBoxColumn";
+            this.languageDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iPAndPortDataGridViewTextBoxColumn
+            // 
+            this.iPAndPortDataGridViewTextBoxColumn.DataPropertyName = "IP and port";
+            this.iPAndPortDataGridViewTextBoxColumn.FillWeight = 17F;
+            this.iPAndPortDataGridViewTextBoxColumn.HeaderText = "IP and port";
+            this.iPAndPortDataGridViewTextBoxColumn.Name = "iPAndPortDataGridViewTextBoxColumn";
+            this.iPAndPortDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // serversContextMenuStrip
             // 
@@ -982,7 +1039,7 @@
             // 
             this.selectAPIComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.selectAPIComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.selectAPIComboBox.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectAPIComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectAPIComboBox.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.selectAPIComboBox.FormattingEnabled = true;
             this.selectAPIComboBox.Location = new System.Drawing.Point(222, 22);
@@ -1206,7 +1263,7 @@
             // 
             this.languagesComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.languagesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.languagesComboBox.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.languagesComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.languagesComboBox.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.languagesComboBox.FormattingEnabled = true;
             this.languagesComboBox.Location = new System.Drawing.Point(916, 7);
@@ -1311,7 +1368,7 @@
             // 
             this.galleryListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.galleryListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.galleryListView.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.galleryListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.galleryListView.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.galleryListView.LargeImageList = this.galleryImageList;
             this.galleryListView.Location = new System.Drawing.Point(3, 47);
@@ -1343,7 +1400,7 @@
             // 
             this.lastChatlogTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.lastChatlogTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lastChatlogTextBox.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastChatlogTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastChatlogTextBox.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.lastChatlogTextBox.Location = new System.Drawing.Point(0, 0);
             this.lastChatlogTextBox.Multiline = true;
@@ -1367,7 +1424,7 @@
             // 
             this.savedPositionsTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.savedPositionsTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.savedPositionsTextBox.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.savedPositionsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.savedPositionsTextBox.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.savedPositionsTextBox.Location = new System.Drawing.Point(0, 0);
             this.savedPositionsTextBox.Multiline = true;
@@ -1444,7 +1501,7 @@
             this.versionsListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.versionsListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.versionsListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.versionsListView.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.versionsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.versionsListView.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.versionsListView.LargeImageList = this.versionsImageList;
             this.versionsListView.Location = new System.Drawing.Point(3, 47);
@@ -2087,7 +2144,7 @@
             // 
             this.developerToolsFilterscriptsCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.developerToolsFilterscriptsCheckedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.developerToolsFilterscriptsCheckedListBox.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.developerToolsFilterscriptsCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.developerToolsFilterscriptsCheckedListBox.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.developerToolsFilterscriptsCheckedListBox.FormattingEnabled = true;
             this.developerToolsFilterscriptsCheckedListBox.Location = new System.Drawing.Point(0, 19);
@@ -2124,7 +2181,7 @@
             // 
             this.developerToolsGamemodesCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.developerToolsGamemodesCheckedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.developerToolsGamemodesCheckedListBox.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.developerToolsGamemodesCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.developerToolsGamemodesCheckedListBox.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.developerToolsGamemodesCheckedListBox.FormattingEnabled = true;
             this.developerToolsGamemodesCheckedListBox.Location = new System.Drawing.Point(0, 19);
@@ -2161,7 +2218,7 @@
             // 
             this.developerToolsPluginsCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.developerToolsPluginsCheckedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.developerToolsPluginsCheckedListBox.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.developerToolsPluginsCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.developerToolsPluginsCheckedListBox.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.developerToolsPluginsCheckedListBox.FormattingEnabled = true;
             this.developerToolsPluginsCheckedListBox.Location = new System.Drawing.Point(0, 19);
@@ -2546,12 +2603,12 @@
             // 
             this.gitHubLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
             this.gitHubLinkLabel.AutoSize = true;
-            this.gitHubLinkLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gitHubLinkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gitHubLinkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.gitHubLinkLabel.LinkColor = System.Drawing.SystemColors.HighlightText;
             this.gitHubLinkLabel.Location = new System.Drawing.Point(3, 210);
             this.gitHubLinkLabel.Name = "gitHubLinkLabel";
-            this.gitHubLinkLabel.Size = new System.Drawing.Size(342, 20);
+            this.gitHubLinkLabel.Size = new System.Drawing.Size(334, 20);
             this.gitHubLinkLabel.TabIndex = 3;
             this.gitHubLinkLabel.TabStop = true;
             this.gitHubLinkLabel.Text = "https://github.com/BigETI/SAMPLauncherNET";
@@ -2587,9 +2644,9 @@
             this.galleryFileSystemWatcher.EnableRaisingEvents = true;
             this.galleryFileSystemWatcher.Filter = "*.png";
             this.galleryFileSystemWatcher.SynchronizingObject = this;
-            this.galleryFileSystemWatcher.Changed += new System.IO.FileSystemEventHandler(this.galleryFileSystemWatcher_GenericChanged);
-            this.galleryFileSystemWatcher.Created += new System.IO.FileSystemEventHandler(this.galleryFileSystemWatcher_GenericChanged);
-            this.galleryFileSystemWatcher.Deleted += new System.IO.FileSystemEventHandler(this.galleryFileSystemWatcher_GenericChanged);
+            this.galleryFileSystemWatcher.Changed += new System.IO.FileSystemEventHandler(this.galleryFileSystemWatcher_Changed);
+            this.galleryFileSystemWatcher.Created += new System.IO.FileSystemEventHandler(this.galleryFileSystemWatcher_Created);
+            this.galleryFileSystemWatcher.Deleted += new System.IO.FileSystemEventHandler(this.galleryFileSystemWatcher_Deleted);
             this.galleryFileSystemWatcher.Renamed += new System.IO.RenamedEventHandler(this.galleryFileSystemWatcher_Renamed);
             // 
             // textFileSystemWatcher
@@ -2598,63 +2655,6 @@
             this.textFileSystemWatcher.Filter = "*.txt";
             this.textFileSystemWatcher.SynchronizingObject = this;
             this.textFileSystemWatcher.Changed += new System.IO.FileSystemEventHandler(this.textFileSystemWatcher_Changed);
-            // 
-            // groupIDDataGridViewTextBoxColumn
-            // 
-            this.groupIDDataGridViewTextBoxColumn.DataPropertyName = "GroupID";
-            this.groupIDDataGridViewTextBoxColumn.FillWeight = 1F;
-            this.groupIDDataGridViewTextBoxColumn.HeaderText = "GroupID";
-            this.groupIDDataGridViewTextBoxColumn.Name = "groupIDDataGridViewTextBoxColumn";
-            this.groupIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.groupIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pingDataGridViewTextBoxColumn
-            // 
-            this.pingDataGridViewTextBoxColumn.DataPropertyName = "Ping";
-            this.pingDataGridViewTextBoxColumn.FillWeight = 5F;
-            this.pingDataGridViewTextBoxColumn.HeaderText = "Ping";
-            this.pingDataGridViewTextBoxColumn.Name = "pingDataGridViewTextBoxColumn";
-            this.pingDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // hostnameDataGridViewTextBoxColumn
-            // 
-            this.hostnameDataGridViewTextBoxColumn.DataPropertyName = "Hostname";
-            this.hostnameDataGridViewTextBoxColumn.FillWeight = 33F;
-            this.hostnameDataGridViewTextBoxColumn.HeaderText = "Hostname";
-            this.hostnameDataGridViewTextBoxColumn.Name = "hostnameDataGridViewTextBoxColumn";
-            this.hostnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // playersDataGridViewTextBoxColumn
-            // 
-            this.playersDataGridViewTextBoxColumn.DataPropertyName = "Players";
-            this.playersDataGridViewTextBoxColumn.FillWeight = 8F;
-            this.playersDataGridViewTextBoxColumn.HeaderText = "Players";
-            this.playersDataGridViewTextBoxColumn.Name = "playersDataGridViewTextBoxColumn";
-            this.playersDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // modeDataGridViewTextBoxColumn
-            // 
-            this.modeDataGridViewTextBoxColumn.DataPropertyName = "Mode";
-            this.modeDataGridViewTextBoxColumn.FillWeight = 22F;
-            this.modeDataGridViewTextBoxColumn.HeaderText = "Mode";
-            this.modeDataGridViewTextBoxColumn.Name = "modeDataGridViewTextBoxColumn";
-            this.modeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // languageDataGridViewTextBoxColumn
-            // 
-            this.languageDataGridViewTextBoxColumn.DataPropertyName = "Language";
-            this.languageDataGridViewTextBoxColumn.FillWeight = 14F;
-            this.languageDataGridViewTextBoxColumn.HeaderText = "Language";
-            this.languageDataGridViewTextBoxColumn.Name = "languageDataGridViewTextBoxColumn";
-            this.languageDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // iPAndPortDataGridViewTextBoxColumn
-            // 
-            this.iPAndPortDataGridViewTextBoxColumn.DataPropertyName = "IP and port";
-            this.iPAndPortDataGridViewTextBoxColumn.FillWeight = 17F;
-            this.iPAndPortDataGridViewTextBoxColumn.HeaderText = "IP and port";
-            this.iPAndPortDataGridViewTextBoxColumn.Name = "iPAndPortDataGridViewTextBoxColumn";
-            this.iPAndPortDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // MainForm
             // 

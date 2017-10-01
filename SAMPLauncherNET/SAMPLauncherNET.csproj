@@ -141,6 +141,7 @@
     <Compile Include="FileResource.cs" />
     <Compile Include="GeoLocationProvider.cs" />
     <Compile Include="GeoLocator.cs" />
+    <Compile Include="ThumbnailsCache.cs" />
     <Compile Include="IndexedServerListConnector.cs" />
     <Compile Include="Kernel32.cs" />
     <Compile Include="Languages\de-DE.Designer.cs">

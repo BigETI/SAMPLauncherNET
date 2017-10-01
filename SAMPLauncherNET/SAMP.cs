@@ -613,7 +613,7 @@ namespace SAMPLauncherNET
                 {
                     try
                     {
-                        ret.Add(file, Utils.GetThumbnail(Image.FromFile(file)));
+                        ret.Add(file, ThumbnailsCache.GetThumbnail(file));
                     }
                     catch
                     {
