@@ -601,26 +601,13 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Gallery images
+        /// Gallery image paths
         /// </summary>
-        public static Dictionary<string, Image> GalleryImages
+        public static string[] GalleryImagePaths
         {
             get
             {
-                Dictionary<string, Image> ret = new Dictionary<string, Image>();
-                string[] files = Directory.GetFiles(GalleryPath, "*.png");
-                foreach (string file in files)
-                {
-                    try
-                    {
-                        ret.Add(file, ThumbnailsCache.GetThumbnail(file));
-                    }
-                    catch
-                    {
-                        //
-                    }
-                }
-                return ret;
+                return Directory.GetFiles(GalleryPath, "*.png");
             }
         }
 

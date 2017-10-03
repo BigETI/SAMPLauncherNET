@@ -39,9 +39,9 @@ namespace SAMPLauncherNET
         private Dictionary<string, Server> registeredServers = new Dictionary<string, Server>();
 
         /// <summary>
-        /// Thread
+        /// Servers thread
         /// </summary>
-        private Thread thread = null;
+        private Thread serversThread = null;
 
         /// <summary>
         /// Row thread
@@ -72,6 +72,21 @@ namespace SAMPLauncherNET
         /// Selected API index
         /// </summary>
         private int selectedAPIIndex = -1;
+
+        /// <summary>
+        /// Loaded gallery
+        /// </summary>
+        private Dictionary<string, Image> loadedGallery = new Dictionary<string, Image>();
+
+        /// <summary>
+        /// Gallery thread
+        /// </summary>
+        private Thread galleryThread = null;
+
+        /// <summary>
+        /// Last gallery image index
+        /// </summary>
+        private uint lastGalleryImageIndex = 0U;
 
         /// <summary>
         /// Selected browser
@@ -173,7 +188,7 @@ namespace SAMPLauncherNET
             ReloadAPIs();
             ReloadLauncherConfig();
             ReloadDeveloperToolsConfig();
-            thread = new Thread(() =>
+            serversThread = new Thread(() =>
             {
                 while (true)
                 {
@@ -205,7 +220,7 @@ namespace SAMPLauncherNET
                     rlist.Clear();
                 }
             });
-            thread.Start();
+            serversThread.Start();
         }
 
         /// <summary>
@@ -565,7 +580,25 @@ namespace SAMPLauncherNET
         /// </summary>
         private void ReloadGallery()
         {
-            if (mainTabControl.SelectedTab == galleryPage)
+            if (galleryThread != null)
+                galleryThread.Abort();
+            galleryListView.Clear();
+            galleryImageList.Images.Clear();
+            loadedGallery.Clear();
+            galleryThread = new Thread(() =>
+            {
+                foreach (string path in SAMP.GalleryImagePaths)
+                {
+                    Image image = ThumbnailsCache.GetThumbnail(path);
+                    lock (loadedGallery)
+                    {
+                        loadedGallery.Add(path, image);
+                    }
+                }
+            });
+            galleryThread.Start();
+
+            /*if (mainTabControl.SelectedTab == galleryPage)
             {
                 galleryListView.Clear();
                 galleryImageList.Images.Clear();
@@ -578,7 +611,7 @@ namespace SAMPLauncherNET
                     lvi.Tag = kv.Key;
                     ++i;
                 }
-            }
+            }*/
         }
 
         /// <summary>
@@ -859,11 +892,11 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Server list timer tick event
+        /// Multi-threaded lists timer tick event
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">Event arguments</param>
-        private void serverListTimer_Tick(object sender, EventArgs e)
+        private void multithreadedListsTimer_Tick(object sender, EventArgs e)
         {
             lock (loadedServers)
             {
@@ -911,6 +944,18 @@ namespace SAMPLauncherNET
                 rowThreadSuccess = false;
                 ReloadSelectedServerRow();
             }
+
+            lock (loadedGallery)
+            {
+                foreach (KeyValuePair<string, Image> kv in loadedGallery)
+                {
+                    galleryImageList.Images.Add(kv.Value);
+                    ListViewItem lvi = galleryListView.Items.Add(kv.Key.Substring(SAMP.GalleryPath.Length + 1), (int)lastGalleryImageIndex);
+                    lvi.Tag = kv.Key;
+                    ++lastGalleryImageIndex;
+                }
+                loadedGallery.Clear();
+            }
         }
 
         /// <summary>
@@ -951,15 +996,24 @@ namespace SAMPLauncherNET
                 }
                 loadedServers.Clear();
             }
-            if (thread != null)
+            lock (loadedGallery)
             {
-                thread.Abort();
-                thread = null;
+                loadedGallery.Clear();
+            }
+            if (serversThread != null)
+            {
+                serversThread.Abort();
+                serversThread = null;
             }
             if (rowThread != null)
             {
                 rowThread.Abort();
                 rowThread = null;
+            }
+            if (galleryThread != null)
+            {
+                galleryThread.Abort();
+                galleryThread = null;
             }
             SAMP.CloseLastServer();
             ThumbnailsCache.Clear();
@@ -1049,7 +1103,11 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void mainTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ReloadGallery();
+            if (mainTabControl.SelectedTab == galleryPage)
+            {
+                if (galleryThread == null)
+                    ReloadGallery();
+            }
         }
 
         /// <summary>
@@ -1279,11 +1337,11 @@ namespace SAMPLauncherNET
             Server server = SelectedServer;
             if (server != null)
             {
-                serverListTimer.Stop();
+                multithreadedListsTimer.Stop();
                 ExtendedServerInformationForm esif = new ExtendedServerInformationForm(server);
                 esif.ShowDialog();
                 DialogResult = DialogResult.None;
-                serverListTimer.Start();
+                multithreadedListsTimer.Start();
             }
         }
 
