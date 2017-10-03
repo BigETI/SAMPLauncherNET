@@ -29,18 +29,18 @@ Note: You don't need to commit `TranslatorInterface.cs`.
 ## Code
 You can change anything within the source code to contribute.
 
-## Projects associated with this project
+# Projects associated with this project
 - https://github.com/BigETI/WinFormsTranslator
 - https://github.com/BigETI/UpdaterNET
 - https://github.com/Southclaws/sampctl
 - https://github.com/Southclaws/announce-backend
 
-## Similar projects
+# Similar projects
 - https://github.com/Bios-Marcel/ServerBrowser
 - https://github.com/Whitetigerswt/samp_launcher
 - https://github.com/Papawy/SAMP_Ex
 
-## Projects you want to check out
+# Projects you want to check out
 - https://github.com/Southclaws/announce-frontend
 - https://github.com/BigETI/sampcmd
 - https://github.com/BigETI/SAMPcmdNET
