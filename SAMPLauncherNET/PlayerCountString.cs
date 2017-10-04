@@ -41,10 +41,7 @@ namespace SAMPLauncherNET
             int ret = 1;
             if (obj != null)
             {
-                if (obj is PlayerCountString)
-                {
-                    ret = CompareTo((PlayerCountString)obj);
-                }
+                ret = CompareTo(obj as PlayerCountString);
             }
             return ret;
         }

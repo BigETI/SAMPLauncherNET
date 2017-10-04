@@ -303,11 +303,15 @@ namespace SAMPLauncherNET
                     dr.ItemArray = data;
                     rulesDataTable.Rows.Add(dr);
                     if (i == si)
+                    {
                         cs = true;
+                    }
                     ++i;
                 }
                 if (cs)
+                {
                     rulesGridView.Rows[si].Selected = true;
+                }
             }
             if ((geoLocation == null) && geoLocationAsync.IsCompleted)
             {

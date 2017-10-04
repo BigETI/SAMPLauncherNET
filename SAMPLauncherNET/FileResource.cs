@@ -11,7 +11,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Path
         /// </summary>
-        private string path;
+        private readonly string path;
 
         /// <summary>
         /// Path

@@ -15,7 +15,7 @@ namespace SAMPLauncherNET
         /// Host
         /// </summary>
         [DataMember(Name = "ip")]
-        private string host = "0.0.0.0";
+        private string host = "";
 
         /// <summary>
         /// Hostname

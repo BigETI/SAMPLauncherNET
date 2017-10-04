@@ -30,7 +30,7 @@ namespace SAMPLauncherNET
         /// Path
         /// </summary>
         private readonly string path = "";
-        
+
         /// <summary>
         /// Not finished
         /// </summary>
@@ -124,11 +124,10 @@ namespace SAMPLauncherNET
         {
             if (notFinished)
             {
-                bool cancel = false;
                 if (e.CloseReason == CloseReason.UserClosing)
-                    cancel = (MessageBox.Show(Translator.GetTranslation("CANCEL_DOWNLOAD"), Translator.GetTranslation("CANCEL_DOWNLOAD_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No);
-                if (cancel)
-                    e.Cancel = true;
+                {
+                    e.Cancel = (MessageBox.Show(Translator.GetTranslation("CANCEL_DOWNLOAD"), Translator.GetTranslation("CANCEL_DOWNLOAD_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No);
+                }
             }
         }
     }

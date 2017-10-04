@@ -1710,7 +1710,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige SACNR Liste ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die SACNR ähnelt.
         /// </summary>
         internal static string SHOW_SACNR_LIST {
             get {
@@ -1719,7 +1719,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige Southclaw&apos;s Liste ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Southclaw&apos;s Liste ähnelt.
         /// </summary>
         internal static string SHOW_SOUTHCLAWS_LIST {
             get {

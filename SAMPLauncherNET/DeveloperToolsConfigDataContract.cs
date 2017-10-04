@@ -213,7 +213,7 @@ namespace SAMPLauncherNET
         /// Minimum connection time in milliseconds
         /// </summary>
         [DataMember(Name = "minconnectiontime", IsRequired = false)]
-        private int minimumConnectionTime = 0;
+        private int minimumConnectionTime;
 
         /// <summary>
         /// Lag compensation mode
@@ -263,8 +263,9 @@ namespace SAMPLauncherNET
             set
             {
                 if (value != null)
+                {
                     gamemodes = value;
-            }
+                }            }
         }
 
         /// <summary>
@@ -279,7 +280,9 @@ namespace SAMPLauncherNET
             set
             {
                 if (value != null)
+                {
                     rconPassword = value;
+                }
             }
         }
 
@@ -316,11 +319,15 @@ namespace SAMPLauncherNET
             }
             set
             {
-                if (value > 65535)
-                    value = 65535;
-                else if (value < 0)
-                    value = 0;
                 port = value;
+                if (port > 65535)
+                {
+                    port = 65535;
+                }
+                else if (port < 0)
+                {
+                    port = 0;
+                }
             }
         }
 
@@ -490,7 +497,9 @@ namespace SAMPLauncherNET
             set
             {
                 if (value != null)
+                {
                     password = value;
+                }
             }
         }
 
@@ -506,7 +515,9 @@ namespace SAMPLauncherNET
             set
             {
                 if (value != null)
+                {
                     hostname = value;
+                }
             }
         }
 
@@ -566,7 +577,9 @@ namespace SAMPLauncherNET
             set
             {
                 if (value != null)
+                {
                     filterscripts = value;
+                }
             }
         }
 
@@ -582,7 +595,9 @@ namespace SAMPLauncherNET
             set
             {
                 if (value != null)
+                {
                     plugins = value;
+                }
             }
         }
 

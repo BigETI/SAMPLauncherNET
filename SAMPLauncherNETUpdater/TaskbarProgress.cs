@@ -145,7 +145,10 @@ namespace SAMPLauncherNETUpdater
         /// <param name="taskbarState">Taskbar state</param>
         public static void SetState(Form form, TaskbarStates taskbarState)
         {
-            if (taskbarSupported) taskbarInstance.SetProgressState(form.Handle, taskbarState);
+            if (taskbarSupported)
+            {
+                taskbarInstance.SetProgressState(form.Handle, taskbarState);
+            }
         }
 
         /// <summary>
@@ -156,7 +159,10 @@ namespace SAMPLauncherNETUpdater
         /// <param name="progressMax">Progress maximal</param>
         public static void SetValue(Form form, double progressValue, double progressMax)
         {
-            if (taskbarSupported) taskbarInstance.SetProgressValue(form.Handle, (ulong)progressValue, (ulong)progressMax);
+            if (taskbarSupported)
+            {
+                taskbarInstance.SetProgressValue(form.Handle, (ulong)progressValue, (ulong)progressMax);
+            }
         }
     }
 }

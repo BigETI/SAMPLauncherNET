@@ -11,12 +11,12 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Server list connector
         /// </summary>
-        private ServerListConnector serverListConnector;
+        private readonly ServerListConnector serverListConnector;
 
         /// <summary>
         /// Index
         /// </summary>
-        private int index;
+        private readonly int index;
 
         /// <summary>
         /// Server list connector

@@ -19,7 +19,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Providers
         /// </summary>
-        private static readonly GeoLocationProvider[] providers = new GeoLocationProvider[] { new GeoLocationProvider("http://freegeoip.net/json/", typeof(FreeGeoIPDataContract)) };
+        private static readonly GeoLocationProvider[] providers = new [] { new GeoLocationProvider("http://freegeoip.net/json/", typeof(FreeGeoIPDataContract)) };
 
         /// <summary>
         /// Locate
@@ -29,20 +29,26 @@ namespace SAMPLauncherNET
         public static GeoLocationData Locate(string host)
         {
             GeoLocationData ret = null;
-            host = host.Trim();
-            if (cache.ContainsKey(host))
-                ret = cache[host];
+            string h = host.Trim();
+            if (cache.ContainsKey(h))
+            {
+                ret = cache[h];
+            }
             else
             {
                 foreach (GeoLocationProvider provider in providers)
                 {
-                    ret = provider.RequestData(host);
+                    ret = provider.RequestData(h);
                     if (ret != null)
+                    {
                         break;
+                    }
                 }
             }
             if (ret == null)
+            {
                 ret = new GeoLocationData(null);
+            }
             return ret;
         }
 

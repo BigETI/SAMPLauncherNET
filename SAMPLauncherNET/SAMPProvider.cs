@@ -16,7 +16,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Current version
         /// </summary>
-        private static SAMPVersion currentVersion = null;
+        private static SAMPVersion currentVersion;
 
         /// <summary>
         /// Version required
@@ -26,7 +26,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Versions
         /// </summary>
-        private static Dictionary<string, SAMPVersion> versions = new Dictionary<string, SAMPVersion>()
+        private static Dictionary<string, SAMPVersion> versions = new Dictionary<string, SAMPVersion>
         {
             { "SxplMI/xGDXr5ZcXtB9l8pzEY1FIbSf9dIvpdkUGoB221m6TeFYV/tKX3WPrR2bxo4Xgk2gqdu+yI4bjIhwWMA==", new SAMPVersion("SA:MP 0.1b", "http://bigeti.de/mods/SAMP/Installations/samp01b-installer.zip", "http://files.sa-mp.com/samp01b-installer.exe", 0U) },
             { "2mLrwksSCFDpSQPB39vqv200vb3OMCk3eAlnjq75f9jVojcgOXjo6ruqftRVl1O1kgMFHVPfO1GcxCNT67RVrA==", new SAMPVersion("SA:MP 0.2.2-R3_a", "http://bigeti.de/mods/SAMP/Installations/sa-mp-0.2.2-R3_a.zip", "http://files.sa-mp.com/sa-mp-0.2.2-R3_a.exe", 1U) },
@@ -77,7 +77,9 @@ namespace SAMPLauncherNET
                                 {
                                     string key = Convert.ToBase64String(sha512.ComputeHash(stream));
                                     if (versions.ContainsKey(key))
+                                    {
                                         currentVersion = versions[key];
+                                    }
                                 }
                             }
                         }

@@ -675,10 +675,10 @@ Drücke "Abbrechen" um diese Aktion abzubrechen.</value>
     <value>Master Liste</value>
   </data>
   <data name="SHOW_SACNR_LIST" xml:space="preserve">
-    <value>Zeige SACNR Liste</value>
+    <value>SACNR</value>
   </data>
   <data name="SHOW_SOUTHCLAWS_LIST" xml:space="preserve">
-    <value>Zeige Southclaw's Liste</value>
+    <value>Southclaw's Liste</value>
   </data>
   <data name="SLEEP" xml:space="preserve">
     <value>Server Tick Zeit</value>

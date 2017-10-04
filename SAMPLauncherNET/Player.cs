@@ -11,22 +11,22 @@ namespace SAMPLauncherNET
         /// <summary>
         /// ID
         /// </summary>
-        private byte id;
+        private readonly byte id;
 
         /// <summary>
         /// Name
         /// </summary>
-        private string name;
+        private readonly string name;
 
         /// <summary>
         /// Score
         /// </summary>
-        private int score;
+        private readonly int score;
 
         /// <summary>
         /// Ping
         /// </summary>
-        private uint ping;
+        private readonly uint ping;
 
         /// <summary>
         /// ID

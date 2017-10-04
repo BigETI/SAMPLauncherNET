@@ -32,7 +32,9 @@ namespace SAMPLauncherNET
             InitializeComponent();
             Translator.LoadTranslation(this);
             if (server != null)
+            {
                 hostAndPortSingleLineTextField.Text = server.IPPortString;
+            }
         }
 
         /// <summary>

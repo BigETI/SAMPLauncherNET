@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using System.Runtime.Serialization.Json;
@@ -483,14 +482,9 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Launch SA:MP server
         /// </summary>
-        /// <param name="dtcdc">Developer tools config data contract</param>
-        public static void LaunchSAMPServer(DeveloperToolsConfigDataContract dtcdc)
+        public static void LaunchSAMPServer()
         {
             LauncherConfigDataContract lcdc = LauncherConfigIO;
-            if (dtcdc == null)
-            {
-                dtcdc = DeveloperToolsConfigIO;
-            }
             if (File.Exists("sampctl.exe"))
             {
                 try
@@ -597,7 +591,9 @@ namespace SAMPLauncherNET
             {
                 Process.Start(GTASAExe);
                 if (quitWhenDone)
+                {
                     f.Close();
+                }
             }
             catch
             {

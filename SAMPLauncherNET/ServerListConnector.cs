@@ -244,6 +244,8 @@ namespace SAMPLauncherNET
                                 }
                             }
                             break;
+                        default:
+                            break;
                     }
                 }
                 catch

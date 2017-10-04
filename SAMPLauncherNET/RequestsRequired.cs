@@ -13,22 +13,22 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Values
         /// </summary>
-        private bool[] values;
+        private readonly bool[] values;
 
         /// <summary>
         /// Available
         /// </summary>
-        private bool[] available;
+        private readonly bool[] available;
 
         /// <summary>
         /// Last request time
         /// </summary>
-        private DateTime[] lastRequestTime;
+        private readonly DateTime[] lastRequestTime;
 
         /// <summary>
         /// Operation codes
         /// </summary>
-        private static readonly char[] opCodes = new char[(int)(ERequestType.NumOfItems)] { 'p', 'i', 'r', 'c', 'd' };
+        private static readonly char[] opCodes = new [] { 'p', 'i', 'r', 'c', 'd' };
 
         /// <summary>
         /// Array element access operator
@@ -44,7 +44,9 @@ namespace SAMPLauncherNET
             set
             {
                 if (available[(int)requestType])
+                {
                     values[(int)requestType] = value;
+                }
             }
         }
 
@@ -62,7 +64,7 @@ namespace SAMPLauncherNET
         /// Constructor
         /// </summary>
         /// <param name="initialValue">Initial value</param>
-        public RequestsRequired(bool initialValue = true)
+        public RequestsRequired(bool initialValue)
         {
             int i;
             DateTime now = DateTime.Now;

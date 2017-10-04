@@ -65,7 +65,7 @@ namespace SAMPLauncherNET
                 {
                     v = 90;
                 }
-                ini.SetValue("fpslimit", value);
+                ini.SetValue("fpslimit", v);
             }
         }
 

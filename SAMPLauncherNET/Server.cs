@@ -56,7 +56,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Request required
         /// </summary>
-        protected RequestsRequired requestsRequired = new RequestsRequired();
+        protected RequestsRequired requestsRequired = new RequestsRequired(true);
 
         /// <summary>
         /// Has password

@@ -462,7 +462,9 @@ namespace SAMPLauncherNET
                         dr.ItemArray = row;
                         rulesDataTable.Rows.Add(dr);
                         if (i == si)
+                        {
                             cs = true;
+                        }
                         ++i;
                     }
                 }
@@ -471,7 +473,9 @@ namespace SAMPLauncherNET
                     //
                 }
                 if (cs)
+                {
                     rulesGridView.Rows[si].Selected = true;
+                }
             }
         }
 
@@ -577,9 +581,12 @@ namespace SAMPLauncherNET
         /// <param name="rconPassword">RCON password</param>
         private void Connect(Server server = null, string rconPassword = null, bool quitWhenDone = false)
         {
-            if (server == null)
-                server = SelectedServer;
-            if (server != null)
+            Server s = server;
+            if (s == null)
+            {
+                s = SelectedServer;
+            }
+            if (s != null)
             {
                 ConnectForm cf = new ConnectForm(!(server.HasPassword));
                 DialogResult result = cf.ShowDialog();
@@ -669,7 +676,9 @@ namespace SAMPLauncherNET
             {
                 string file_name = (string)(item.Tag);
                 if (File.Exists(file_name))
+                {
                     files.Add(file_name);
+                }
             }
             if (files.Count > 0)
             {
@@ -876,28 +885,21 @@ namespace SAMPLauncherNET
         {
             if (MessageBox.Show(Translator.GetTranslation("REMOVE_API"), Translator.GetTranslation("REMOVE_API_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                /*foreach (DataGridViewRow dgvr in apiGridView.SelectedRows)
-                {
-                    int index = (int)(dgvr.Cells[0].Value);
-                    if ((index >= 0) && (index < apis.Count))
-                    {
-                        apis.RemoveAt(index);
-                        SAMP.APIIO = apis;
-                        ReloadAPIs();
-                    }
-                    break;
-                }*/
                 List<ServerListConnector> rl = new List<ServerListConnector>();
-                List<ServerListConnector> apis = SAMP.APIIO;
+                List<ServerListConnector> apis_result = SAMP.APIIO;
                 foreach (DataGridViewRow dgvr in apiGridView.SelectedRows)
                 {
                     int index = (int)(dgvr.Cells[0].Value);
-                    if (apis.Count > index)
-                        rl.Add(apis[index]);
+                    if (apis_result.Count > index)
+                    {
+                        rl.Add(apis_result[index]);
+                    }
                 }
                 foreach (ServerListConnector item in rl)
-                    apis.Remove(item);
-                SAMP.APIIO = apis;
+                {
+                    apis_result.Remove(item);
+                }
+                SAMP.APIIO = apis_result;
                 ReloadAPIs();
             }
         }
@@ -926,7 +928,9 @@ namespace SAMPLauncherNET
                 }
             }
             else if (promptWhenError)
+            {
                 MessageBox.Show(Translator.GetTranslation("SERVER_NOT_IN_FAVOURITES"), Translator.GetTranslation("NOT_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -944,9 +948,13 @@ namespace SAMPLauncherNET
                     object[] row = new object[7];
                     row[0] = kv.Value;
                     if (kv.Key.IsDataFetched(ERequestType.Ping))
+                    {
                         row[1] = kv.Key.Ping;
+                    }
                     else
+                    {
                         row[1] = 1000U;
+                    }
                     if (kv.Key.IsDataFetched(ERequestType.Information))
                     {
                         row[2] = kv.Key.Hostname;
@@ -965,13 +973,19 @@ namespace SAMPLauncherNET
                     dr.ItemArray = row;
                     serversDataTable.Rows.Add(dr);
                     if (!(registeredServers.ContainsKey(kv.Key.IPPortString)))
+                    {
                         registeredServers.Add(kv.Key.IPPortString, kv.Key);
+                    }
                     if (queryFirstServer)
+                    {
                         queryFirstServer = !(EnterRow());
+                    }
                     lock (apis)
                     {
                         if ((kv.Value >= 0) && (kv.Value < apis.Count))
+                        {
                             ++apis[kv.Value].ServerCount;
+                        }
                     }
                 }
                 loadedServers.Clear();
@@ -1067,7 +1081,9 @@ namespace SAMPLauncherNET
             {
                 List<Language> langs = new List<Language>(Translator.TranslatorInterface.Languages);
                 if (Translator.ChangeLanguage(langs[i]))
+                {
                     Application.Restart();
+                }
             }
         }
 
@@ -1142,7 +1158,9 @@ namespace SAMPLauncherNET
             if (mainTabControl.SelectedTab == galleryPage)
             {
                 if (galleryThread == null)
+                {
                     ReloadGallery();
+                }
             }
         }
 
@@ -1236,14 +1254,13 @@ namespace SAMPLauncherNET
         /// <param name="e">Key event arguments</param>
         private void galleryListView_KeyUp(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
+            if (e.KeyCode == Keys.Return)
             {
-                case Keys.Return:
-                    ViewSelectedImage();
-                    break;
-                case Keys.Delete:
-                    DeleteSelectedImage();
-                    break;
+                ViewSelectedImage();
+            }
+            else if (e.KeyCode == Keys.Delete)
+            {
+                DeleteSelectedImage();
             }
         }
 
@@ -1314,7 +1331,9 @@ namespace SAMPLauncherNET
         {
             int v = 0;
             if (!(int.TryParse(pageSizeSingleLineTextField.Text, out v)))
+            {
                 pageSizeSingleLineTextField.Text = "0";
+            }
         }
 
         /// <summary>
@@ -1338,13 +1357,21 @@ namespace SAMPLauncherNET
             if (int.TryParse(fpsLimitSingleLineTextField.Text, out v))
             {
                 if (v < fpsLimitTrackBar.Minimum)
+                {
                     v = fpsLimitTrackBar.Minimum;
+                }
                 else if (v > fpsLimitTrackBar.Maximum)
+                {
                     v = fpsLimitTrackBar.Maximum;
+                }
                 if (fpsLimitSingleLineTextField.Text != v.ToString())
+                {
                     fpsLimitSingleLineTextField.Text = v.ToString();
+                }
                 if (fpsLimitTrackBar.Value != v)
+                {
                     fpsLimitTrackBar.Value = v;
+                }
             }
             else
             {
@@ -1396,10 +1423,14 @@ namespace SAMPLauncherNET
                 {
                     ServerListConnector slc = apis[i];
                     if ((slc.ServerListType == EServerListType.Favourites) || (slc.ServerListType == EServerListType.LegacyFavourites))
+                    {
                         connectors.Add(new IndexedServerListConnector(slc, i));
+                    }
                 }
                 if (connectors.Count <= 0)
+                {
                     MessageBox.Show(Translator.GetTranslation("NO_FAVOURITES"), Translator.GetTranslation("NO_FAVOURITES_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 else
                 {
                     IndexedServerListConnector islc = null;
@@ -1409,16 +1440,22 @@ namespace SAMPLauncherNET
                         DialogResult result = flf.ShowDialog();
                         DialogResult = DialogResult.None;
                         if (result == DialogResult.OK)
+                        {
                             islc = flf.SelectedServerListConnector;
+                        }
                     }
                     else
+                    {
                         islc = connectors[0];
+                    }
                     if (islc != null)
                     {
                         ServerListConnector slc = islc.ServerListConnector;
                         Dictionary<string, Server> servers = slc.ServerListIO;
                         if (servers.ContainsKey(server.IPPortString))
+                        {
                             MessageBox.Show(Translator.GetTranslation("SERVER_ALREADY_IN_FAVOURITES"), Translator.GetTranslation("ALREADY_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                         else
                         {
                             servers.Add(server.IPPortString, server.ToFavouriteServer(server.Hostname, server.Gamemode, "", ""));
@@ -1461,7 +1498,9 @@ namespace SAMPLauncherNET
             DialogResult result = rconf.ShowDialog();
             DialogResult = DialogResult.None;
             if (result == DialogResult.OK)
+            {
                 Connect(null, rconf.RCONPassword, closeWhenLaunchedCheckBox.Checked);
+            }
         }
 
         /// <summary>
@@ -1472,7 +1511,9 @@ namespace SAMPLauncherNET
         private void serversGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
+            {
                 Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked);
+            }
         }
 
         /// <summary>
@@ -1639,7 +1680,9 @@ namespace SAMPLauncherNET
         private void visitWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (SelectedServer != null)
+            {
                 VisitWebsite(SelectedServer.GetRuleValue("weburl"));
+            }
         }
 
         /// <summary>
@@ -1650,7 +1693,9 @@ namespace SAMPLauncherNET
         private void searchOnBingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (SelectedServer != null)
+            {
                 Process.Start("https://bing.com/search?q=" + Uri.EscapeUriString(SelectedServer.IPPortString + " " + SelectedServer.Hostname));
+            }
         }
 
         /// <summary>
@@ -1661,7 +1706,9 @@ namespace SAMPLauncherNET
         private void searchOnDuckDuckGoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (SelectedServer != null)
+            {
                 Process.Start("https://duckduckgo.com/?q=" + Uri.EscapeUriString(SelectedServer.IPPortString + " " + SelectedServer.Hostname));
+            }
         }
 
         /// <summary>
@@ -1672,7 +1719,9 @@ namespace SAMPLauncherNET
         private void searchOnGoogleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (SelectedServer != null)
+            {
                 Process.Start("https://google.com/search?q=" + Uri.EscapeUriString(SelectedServer.IPPortString + " " + SelectedServer.Hostname));
+            }
         }
 
         /// <summary>
@@ -1683,7 +1732,9 @@ namespace SAMPLauncherNET
         private void searchOnYahooToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (SelectedServer != null)
+            {
                 Process.Start("https://search.yahoo.com/search?p=" + Uri.EscapeUriString(SelectedServer.IPPortString + " " + SelectedServer.Hostname));
+            }
         }
 
         /// <summary>
@@ -1694,7 +1745,9 @@ namespace SAMPLauncherNET
         private void searchOnYandexToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (SelectedServer != null)
+            {
                 Process.Start("https://yandex.ru/search/?text=" + Uri.EscapeUriString(SelectedServer.IPPortString + " " + SelectedServer.Hostname));
+            }
         }
 
         /// <summary>
@@ -1705,7 +1758,9 @@ namespace SAMPLauncherNET
         private void searchOnYouTubeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (SelectedServer != null)
+            {
                 Process.Start("https://youtube.com/results?search_query=" + Uri.EscapeUriString(SelectedServer.IPPortString + " " + SelectedServer.Hostname));
+            }
         }
 
         /// <summary>
@@ -1735,15 +1790,21 @@ namespace SAMPLauncherNET
                 developerToolsRCONPasswordSingleLineTextField.Text = dtcdc.RCONPassword;
                 List<string> entries = new List<string>();
                 foreach (var item in developerToolsGamemodesCheckedListBox.CheckedItems)
+                {
                     entries.Add(item.ToString());
+                }
                 dtcdc.Gamemodes = entries.ToArray();
                 entries.Clear();
                 foreach (var item in developerToolsFilterscriptsCheckedListBox.CheckedItems)
+                {
                     entries.Add(item.ToString());
+                }
                 dtcdc.Filterscripts = entries.ToArray();
                 entries.Clear();
                 foreach (var item in developerToolsPluginsCheckedListBox.CheckedItems)
+                {
                     entries.Add(item.ToString());
+                }
                 dtcdc.Plugins = entries.ToArray();
                 entries.Clear();
                 SAMP.DeveloperToolsConfigIO = dtcdc;
@@ -1775,7 +1836,9 @@ namespace SAMPLauncherNET
         private void developerToolsOpenDirectoryButton_Click(object sender, EventArgs e)
         {
             if (Directory.Exists(developmentDirectorySingleLineTextField.Text))
+            {
                 Process.Start("explorer.exe", Path.GetFullPath(developmentDirectorySingleLineTextField.Text));
+            }
         }
 
         /// <summary>
@@ -1786,7 +1849,7 @@ namespace SAMPLauncherNET
         private void developerToolsStartServerButton_Click(object sender, EventArgs e)
         {
             SaveDeveloperToolsConfig();
-            SAMP.LaunchSAMPServer(SaveDeveloperToolsConfig());
+            SAMP.LaunchSAMPServer();
         }
 
         /// <summary>
@@ -1906,9 +1969,11 @@ namespace SAMPLauncherNET
                 IndexedServerListConnector islc = aatflf.SelectedServerListConnector;
                 ServerListConnector slc = islc.ServerListConnector;
                 Dictionary<string, Server> servers = slc.ServerListIO;
-                FavouriteServer server = new FavouriteServer(aatflf.Address);
+                FavouriteServer server = new FavouriteServer(aatflf.Address, "", "", "", "");
                 if (servers.ContainsKey(server.IPPortString))
+                {
                     MessageBox.Show(Translator.GetTranslation("SERVER_ALREADY_IN_FAVOURITES"), Translator.GetTranslation("ALREADY_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 else
                 {
                     servers.Add(server.IPPortString, server);

@@ -23,7 +23,9 @@ namespace SAMPLauncherNET
         public static void Clear()
         {
             foreach (Image image in cache.Values)
+            {
                 image.Dispose();
+            }
             cache.Clear();
         }
 
@@ -37,7 +39,9 @@ namespace SAMPLauncherNET
             Image ret = null;
             path = path.ToLower();
             if (cache.ContainsKey(path))
+            {
                 ret = cache[path];
+            }
             else
             {
                 if (File.Exists(path))
@@ -60,11 +64,11 @@ namespace SAMPLauncherNET
         /// <param name="path">Path</param>
         public static void RemoveFromCache(string path)
         {
-            path = path.ToLower();
-            if (cache.ContainsKey(path))
+            string p = path.ToLowerInvariant();
+            if (cache.ContainsKey(p))
             {
-                cache[path].Dispose();
-                cache.Remove(path);
+                cache[p].Dispose();
+                cache.Remove(p);
             }
         }
     }

@@ -20,7 +20,7 @@ namespace SAMPLauncherNETUpdater
         /// <summary>
         /// Animation state
         /// </summary>
-        private uint animationState = 0U;
+        private uint animationState;
 
         /// <summary>
         /// Default constructor
@@ -38,7 +38,7 @@ namespace SAMPLauncherNETUpdater
         /// <summary>
         /// Close application
         /// </summary>
-        private void CloseApp()
+        private static void CloseApp()
         {
             Process.Start("SAMPLauncherNET.exe");
             Application.Exit();
@@ -55,9 +55,13 @@ namespace SAMPLauncherNETUpdater
             update.DownloadProgressChanged += OnDownloadProgressChanged;
             update.UpdateTaskFinished += OnUpdateTaskFinished;
             if (update.IsUpdateAvailable)
+            {
                 update.InstallUpdates();
+            }
             else
+            {
                 CloseApp();
+            }
         }
 
         /// <summary>
@@ -80,7 +84,9 @@ namespace SAMPLauncherNETUpdater
         private void OnUpdateTaskFinished(object sender, UpdateTaskFinishedEventArgs e)
         {
             if (e.IsError)
+            {
                 MessageBox.Show(e.Error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             CloseApp();
         }
 
@@ -93,7 +99,9 @@ namespace SAMPLauncherNETUpdater
         {
             animationState++;
             if (animationState > 3U)
+            {
                 animationState = 0U;
+            }
             progressLabel.Text = "Updating" + new string('.', (int)animationState);
         }
 
@@ -106,7 +114,9 @@ namespace SAMPLauncherNETUpdater
         {
             bool cancel = false;
             if (e.CloseReason == CloseReason.UserClosing)
+            {
                 cancel = (MessageBox.Show("Do you really want to cancel the update?", "Cancel update", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
+            }
             e.Cancel = cancel;
         }
     }

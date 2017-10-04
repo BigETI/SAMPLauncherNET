@@ -11,12 +11,12 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Server password
         /// </summary>
-        private string serverPassword;
+        private readonly string serverPassword;
 
         /// <summary>
         /// RCON password
         /// </summary>
-        private string rconPassword;
+        private readonly string rconPassword;
 
         /// <summary>
         /// Server password
@@ -48,7 +48,7 @@ namespace SAMPLauncherNET
         /// <param name="cachedGamemode">Cached gamemode</param>
         /// <param name="serverPassword">Server password</param>
         /// <param name="rconPassword">RCON password</param>
-        public FavouriteServer(string ipAddressAndPortString, string cachedHostname = "", string cachedGamemode = "", string serverPassword = "", string rconPassword = "") : base(ipAddressAndPortString, false)
+        public FavouriteServer(string ipAddressAndPortString, string cachedHostname, string cachedGamemode, string serverPassword, string rconPassword) : base(ipAddressAndPortString, false)
         {
             requestsRequired[ERequestType.Information] = false;
             hostname = cachedHostname;

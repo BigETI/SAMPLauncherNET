@@ -56,9 +56,13 @@ namespace SAMPLauncherNET
         private void okButton_Click(object sender, EventArgs e)
         {
             if (SelectedServerListConnector == null)
+            {
                 MessageBox.Show(Translator.GetTranslation("FAVOURITE_LIST_NOT_SELECTED"), Translator.GetTranslation("FAVOURITE_LIST_NOT_SELECTED_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else if (Address.Trim().Length <= 0)
+            {
                 MessageBox.Show(Translator.GetTranslation("NO_ADDRESS_SPECIFIED"), Translator.GetTranslation("NO_ADDRESS_SPECIFIED_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 DialogResult = DialogResult.OK;

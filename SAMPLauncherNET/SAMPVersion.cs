@@ -99,13 +99,13 @@ namespace SAMPLauncherNET
                 ret = (int)(other.orderNumber - orderNumber);
                 if (ret == 0)
                 {
-                    ret = string.Compare(other.name, name);
+                    ret = string.Compare(other.name, name, StringComparison.InvariantCulture);
                     if (ret == 0)
                     {
-                        ret = string.Compare(other.zipURI, zipURI);
+                        ret = string.Compare(other.zipURI, zipURI, StringComparison.InvariantCulture);
                         if (ret == 0)
                         {
-                            ret = other.installationURI.CompareTo(installationURI);
+                            ret = string.Compare(other.installationURI, installationURI, StringComparison.InvariantCulture);
                         }
                     }
                 }

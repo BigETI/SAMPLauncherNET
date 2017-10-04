@@ -16,7 +16,7 @@ namespace SAMPLauncherNET
         /// Last selected server list API
         /// </summary>
         [DataMember]
-        private int lastSelectedServerListAPI = 0;
+        private int lastSelectedServerListAPI;
 
         /// <summary>
         /// Development directory
@@ -47,7 +47,9 @@ namespace SAMPLauncherNET
             set
             {
                 if (value != null)
+                {
                     developmentDirectory = value;
+                }
             }
         }
 
