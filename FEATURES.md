@@ -1,5 +1,7 @@
 # SAMPLauncherNET
 
+![Screenshot](screenshots/screenshot001.png)
+
 ## Features
 
 ### Backwards compatibility
@@ -46,3 +48,39 @@ Manage your server list endpoints, and access lists that were inaccessible throu
 
 ### Developer tools
 Make your server development workflow easier by configuring, starting and joining your test server using this launcher. 
+
+### Screenshots
+
+![Screenshot](screenshots/screenshot001.png)
+
+![Screenshot](screenshots/screenshot002.png)
+
+![Screenshot](screenshots/screenshot003.png)
+
+![Screenshot](screenshots/screenshot004.png)
+
+![Screenshot](screenshots/screenshot005.png)
+
+![Screenshot](screenshots/screenshot006.png)
+
+![Screenshot](screenshots/screenshot007.png)
+
+![Screenshot](screenshots/screenshot008.png)
+
+![Screenshot](screenshots/screenshot009.png)
+
+![Screenshot](screenshots/screenshot010.png)
+
+![Screenshot](screenshots/screenshot011.png)
+
+![Screenshot](screenshots/screenshot012.png)
+
+![Screenshot](screenshots/screenshot013.png)
+
+![Screenshot](screenshots/screenshot014.png)
+
+![Screenshot](screenshots/screenshot015.png)
+
+![Screenshot](screenshots/screenshot016.png)
+
+![Screenshot](screenshots/screenshot017.png)
