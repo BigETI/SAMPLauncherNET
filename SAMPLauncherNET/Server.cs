@@ -26,32 +26,32 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Socket
         /// </summary>
-        private Socket socket = null;
+        private Socket socket;
 
         /// <summary>
         /// IPv4 address
         /// </summary>
-        private uint ipv4AddressUInt = 0U;
+        private readonly uint ipv4AddressUInt = 0U;
 
         /// <summary>
         /// Port
         /// </summary>
-        private ushort port = 0;
+        private readonly ushort port;
 
         /// <summary>
         /// Is server valid
         /// </summary>
-        private bool isValid = false;
+        private readonly bool isValid;
 
         /// <summary>
         /// IP address
         /// </summary>
-        private IPAddress ipAddress = null;
+        private IPAddress ipAddress;
 
         /// <summary>
         /// Timestamp
         /// </summary>
-        private DateTime[] timestamp = new DateTime[2];
+        private readonly DateTime[] timestamp = new DateTime[2];
 
         /// <summary>
         /// Request required
@@ -61,17 +61,17 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Has password
         /// </summary>
-        protected bool hasPassword = false;
+        protected bool hasPassword;
 
         /// <summary>
         /// Player count
         /// </summary>
-        protected ushort playerCount = 0;
+        protected ushort playerCount;
 
         /// <summary>
         /// Maximal players
         /// </summary>
-        protected ushort maxPlayers = 0;
+        protected ushort maxPlayers;
 
         /// <summary>
         /// Hostname
@@ -91,27 +91,27 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Rules
         /// </summary>
-        private Dictionary<string, string> rules = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> rules = new Dictionary<string, string>();
 
         /// <summary>
         /// Clients
         /// </summary>
-        private Dictionary<string, int> clients = new Dictionary<string, int>();
+        private readonly Dictionary<string, int> clients = new Dictionary<string, int>();
 
         /// <summary>
         /// Players
         /// </summary>
-        private Dictionary<byte, Player> players = new Dictionary<byte, Player>();
+        private readonly Dictionary<byte, Player> players = new Dictionary<byte, Player>();
 
         /// <summary>
         /// Random numbers
         /// </summary>
-        private byte[] randomNumbers = new byte[4];
+        private readonly byte[] randomNumbers = new byte[4];
 
         /// <summary>
         /// Ping
         /// </summary>
-        private uint ping = 0U;
+        private uint ping;
 
         /// <summary>
         /// Threads
@@ -162,7 +162,9 @@ namespace SAMPLauncherNET
                 for (int i = 0; i < 4; i++)
                 {
                     if (i > 0)
+                    {
                         sb.Append(".");
+                    }
                     sb.Append(((ipv4AddressUInt >> (i * 8)) & 0xFF).ToString());
                 }
                 return sb.ToString();
@@ -484,11 +486,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                FavouriteDataContract ret = new FavouriteDataContract();
-                ret.host = IPPortString;
-                ret.hostname = Hostname;
-                ret.mode = Gamemode;
-                return ret;
+                return new FavouriteDataContract(IPPortString, Hostname, Gamemode);
             }
         }
 
@@ -497,14 +495,16 @@ namespace SAMPLauncherNET
         /// </summary>
         /// <param name="hostAndPort">Host and port</param>
         /// <param name="fetchData">Fetch data</param>
-        public Server(string hostAndPort, bool fetchData = true)
+        public Server(string hostAndPort, bool fetchData)
         {
             try
             {
-                string[] hp = hostAndPort.Trim().Split(new char[] { ':' });
+                string[] hp = hostAndPort.Trim().Split(new [] { ':' });
                 IPAddress[] ips = null;
                 if ((hp.Length == 1) || (hp.Length == 2))
+                {
                     ips = Dns.GetHostAddresses(hp[0]);
+                }
                 if (ips != null)
                 {
                     if (ips.Length > 0)
@@ -513,7 +513,7 @@ namespace SAMPLauncherNET
                         {
                             if (ipv4regex.IsMatch(ip.ToString()))
                             {
-                                string[] parts = ip.MapToIPv4().ToString().Trim().Split(new char[] { '.' });
+                                string[] parts = ip.MapToIPv4().ToString().Trim().Split(new [] { '.' });
                                 uint n;
                                 if (parts.Length == 4)
                                 {
@@ -521,7 +521,9 @@ namespace SAMPLauncherNET
                                     for (int i = 0; i < 4; i++)
                                     {
                                         if (uint.TryParse(parts[i], out n))
+                                        {
                                             ipv4AddressUInt |= n << (i * 8);
+                                        }
                                         else
                                         {
                                             isValid = false;
@@ -532,9 +534,13 @@ namespace SAMPLauncherNET
                                     {
                                         bool success = true;
                                         if (hp.Length == 1)
+                                        {
                                             port = 7777;
+                                        }
                                         else
+                                        {
                                             success = ushort.TryParse(hp[1], out port);
+                                        }
                                         if (success)
                                         {
                                             socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
@@ -758,7 +764,9 @@ namespace SAMPLauncherNET
         {
             bool ret = true;
             if (requestsRequired[requestType])
+            {
                 ret = SendQuery(requestType);
+            }
             return ret;
         }
 
@@ -771,7 +779,9 @@ namespace SAMPLauncherNET
         {
             uint t = (uint)(DateTime.Now.Subtract(requestsRequired.GetLastRequestTime(requestType)).TotalMilliseconds);
             if (t >= milliseconds)
+            {
                 SendQueryAsync(requestType);
+            }
         }
 
         /// <summary>
@@ -935,6 +945,8 @@ namespace SAMPLauncherNET
                                                     requestsRequired[ERequestType.DetailedClients] = false;
                                                 }
                                                 break;
+                                            default:
+                                                break;
                                         }
                                     }
                                 }
@@ -971,7 +983,9 @@ namespace SAMPLauncherNET
             string ret = "";
             SendQueryWhenRequired(ERequestType.Rules);
             if (rules.ContainsKey(ruleName))
+            {
                 ret = rules[ruleName];
+            }
             return ret;
         }
 
@@ -985,7 +999,9 @@ namespace SAMPLauncherNET
             int ret = 0;
             SendQueryWhenRequired(ERequestType.Clients);
             if (clients.ContainsKey(clientName))
+            {
                 ret = clients[clientName];
+            }
             return ret;
         }
 
@@ -999,7 +1015,9 @@ namespace SAMPLauncherNET
             Player ret = null;
             SendQueryWhenRequired(ERequestType.DetailedClients);
             if (players.ContainsKey(id))
+            {
                 ret = players[id];
+            }
             return ret;
         }
 
@@ -1011,7 +1029,7 @@ namespace SAMPLauncherNET
         /// <param name="serverPassword">Server password</param>
         /// <param name="rconPassword">RCON password</param>
         /// <returns></returns>
-        public FavouriteServer ToFavouriteServer(string cachedName = "", string cachedGamemode = "", string serverPassword = "", string rconPassword = "")
+        public FavouriteServer ToFavouriteServer(string cachedName, string cachedGamemode, string serverPassword, string rconPassword)
         {
             return new FavouriteServer(IPPortString, cachedName, cachedGamemode, serverPassword, rconPassword);
         }

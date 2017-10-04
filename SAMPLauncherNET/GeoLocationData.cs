@@ -11,62 +11,62 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Is valid
         /// </summary>
-        private bool isValid = false;
+        private readonly bool isValid;
 
         /// <summary>
         /// IP
         /// </summary>
-        private string ip = "";
+        private readonly string ip = "";
 
         /// <summary>
         /// Country code
         /// </summary>
-        private string countryCode = "";
+        private readonly string countryCode = "";
 
         /// <summary>
         /// Country name
         /// </summary>
-        private string countryName = "";
+        private readonly string countryName = "";
 
         /// <summary>
         /// Region name
         /// </summary>
-        private string regionName = "";
+        private readonly string regionName = "";
 
         /// <summary>
         /// Region code
         /// </summary>
-        private string regionCode = "";
+        private readonly string regionCode = "";
 
         /// <summary>
         /// City
         /// </summary>
-        private string city = "";
+        private readonly string city = "";
 
         /// <summary>
         /// ZIP code
         /// </summary>
-        private string zipCode = "";
+        private readonly string zipCode = "";
 
         /// <summary>
         /// Time zone
         /// </summary>
-        private string timeZone = "";
+        private readonly string timeZone = "";
 
         /// <summary>
         /// Latitude
         /// </summary>
-        private float latitude = 0.0f;
+        private readonly float latitude;
 
         /// <summary>
         /// Longitude
         /// </summary>
-        private float longitude = 0.0f;
+        private readonly float longitude;
 
         /// <summary>
         /// Metro code
         /// </summary>
-        private int metroCode = 0;
+        private readonly int metroCode;
 
         /// <summary>
         /// Is valid
@@ -204,7 +204,7 @@ namespace SAMPLauncherNET
         /// Constructor
         /// </summary>
         /// <param name="result">Result</param>
-        public GeoLocationData(object result = null)
+        public GeoLocationData(object result)
         {
             if (result != null)
             {
@@ -212,17 +212,17 @@ namespace SAMPLauncherNET
                 {
                     FreeGeoIPDataContract freeGeoIPData = (FreeGeoIPDataContract)result;
                     isValid = true;
-                    ip = Utils.NAString(freeGeoIPData.ip);
-                    countryCode = Utils.NAString(freeGeoIPData.countryCode);
-                    countryName = Utils.NAString(freeGeoIPData.countryName);
-                    regionName = Utils.NAString(freeGeoIPData.regionName);
-                    regionCode = Utils.NAString(freeGeoIPData.regionCode);
-                    city = Utils.NAString(freeGeoIPData.city);
-                    zipCode = Utils.NAString(freeGeoIPData.zipCode);
-                    timeZone = Utils.NAString(freeGeoIPData.timeZone);
-                    latitude = freeGeoIPData.latitude;
-                    longitude = freeGeoIPData.longitude;
-                    metroCode = freeGeoIPData.metroCode;
+                    ip = Utils.NAString(freeGeoIPData.IP);
+                    countryCode = Utils.NAString(freeGeoIPData.CountryCode);
+                    countryName = Utils.NAString(freeGeoIPData.CountryName);
+                    regionName = Utils.NAString(freeGeoIPData.RegionName);
+                    regionCode = Utils.NAString(freeGeoIPData.RegionCode);
+                    city = Utils.NAString(freeGeoIPData.City);
+                    zipCode = Utils.NAString(freeGeoIPData.ZIPCode);
+                    timeZone = Utils.NAString(freeGeoIPData.TimeZone);
+                    latitude = freeGeoIPData.Latitude;
+                    longitude = freeGeoIPData.Longitude;
+                    metroCode = freeGeoIPData.MetroCode;
                 }
             }
         }

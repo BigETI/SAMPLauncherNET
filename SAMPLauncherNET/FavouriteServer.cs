@@ -63,10 +63,10 @@ namespace SAMPLauncherNET
         /// Constructor
         /// </summary>
         /// <param name="fdc">Favorite data contract</param>
-        public FavouriteServer(FavouriteDataContract fdc) : base(fdc.host, false)
+        public FavouriteServer(FavouriteDataContract fdc) : base(fdc.Host, false)
         {
             requestsRequired[ERequestType.Information] = false;
-            hostname = fdc.hostname;
+            hostname = fdc.Hostname;
             serverPassword = "";
             rconPassword = "";
             FetchDataAsync(ERequestType.Ping);

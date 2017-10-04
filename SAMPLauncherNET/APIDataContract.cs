@@ -15,18 +15,72 @@ namespace SAMPLauncherNET
         /// API name
         /// </summary>
         [DataMember]
-        public string name;
+        private string name;
 
         /// <summary>
         /// API type
         /// </summary>
         [DataMember]
-        public string type;
+        private string type;
 
         /// <summary>
         /// API endpoint
         /// </summary>
         [DataMember]
-        public string endpoint;
+        private string endpoint;
+
+        /// <summary>
+        /// API name
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+        }
+
+        /// <summary>
+        /// API type
+        /// </summary>
+        public string Type
+        {
+            get
+            {
+                return type;
+            }
+        }
+
+        /// <summary>
+        /// API endpoint
+        /// </summary>
+        public string Endpoint
+        {
+            get
+            {
+                return endpoint;
+            }
+        }
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public APIDataContract()
+        {
+            //
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="type">Type</param>
+        /// <param name="endpoint">Endpoint</param>
+        public APIDataContract(string name, string type, string endpoint)
+        {
+            this.name = name;
+            this.type = type;
+            this.endpoint = endpoint;
+        }
     }
 }

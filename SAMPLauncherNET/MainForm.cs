@@ -26,32 +26,32 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Load servers
         /// </summary>
-        private List<KeyValuePair<Server, int>> loadServers = new List<KeyValuePair<Server, int>>();
+        private readonly List<KeyValuePair<Server, int>> loadServers = new List<KeyValuePair<Server, int>>();
 
         /// <summary>
         /// Loaded servers
         /// </summary>
-        private List<KeyValuePair<Server, int>> loadedServers = new List<KeyValuePair<Server, int>>();
+        private readonly List<KeyValuePair<Server, int>> loadedServers = new List<KeyValuePair<Server, int>>();
 
         /// <summary>
         /// Registered servers
         /// </summary>
-        private Dictionary<string, Server> registeredServers = new Dictionary<string, Server>();
+        private readonly Dictionary<string, Server> registeredServers = new Dictionary<string, Server>();
 
         /// <summary>
         /// Servers thread
         /// </summary>
-        private Thread serversThread = null;
+        private Thread serversThread;
 
         /// <summary>
         /// Row thread
         /// </summary>
-        private Thread rowThread = null;
+        private Thread rowThread;
 
         /// <summary>
         /// Row thread success
         /// </summary>
-        private bool rowThreadSuccess = false;
+        private bool rowThreadSuccess;
 
         /// <summary>
         /// APIs
@@ -61,7 +61,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Configuration
         /// </summary>
-        private SAMPConfig config = SAMP.SAMPConfig;
+        private readonly SAMPConfig config = SAMP.SAMPConfig;
 
         /// <summary>
         /// Query first server
@@ -76,17 +76,17 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Loaded gallery
         /// </summary>
-        private Dictionary<string, Image> loadedGallery = new Dictionary<string, Image>();
+        private readonly Dictionary<string, Image> loadedGallery = new Dictionary<string, Image>();
 
         /// <summary>
         /// Gallery thread
         /// </summary>
-        private Thread galleryThread = null;
+        private Thread galleryThread;
 
         /// <summary>
         /// Last gallery image index
         /// </summary>
-        private uint lastGalleryImageIndex = 0U;
+        private uint lastGalleryImageIndex;
 
         /// <summary>
         /// Selected browser
@@ -141,7 +141,9 @@ namespace SAMPLauncherNET
                 {
                     ServerListConnector slc = apis[i];
                     if ((slc.ServerListType == EServerListType.Favourites) || (slc.ServerListType == EServerListType.LegacyFavourites))
+                    {
                         ret.Add(new IndexedServerListConnector(slc, i));
+                    }
                 }
                 return ret;
             }
@@ -167,7 +169,7 @@ namespace SAMPLauncherNET
                 }
                 ++i;
             }
-            assemblyVersionLabel.Text += ": " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            assemblyVersionLabel.Text += ": " + Assembly.GetExecutingAssembly().GetName().Version;
             fileVersionLabel.Text += ": " + FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
             productVersionLabel.Text += ": " + FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
 
@@ -175,7 +177,6 @@ namespace SAMPLauncherNET
             material_skin_manager.AddFormToManage(this);
             material_skin_manager.Theme = MaterialSkinManager.Themes.DARK;
             material_skin_manager.ColorScheme = new ColorScheme(Primary.Blue700, Primary.Blue800, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
-            //material_skin_manager.ColorScheme = new ColorScheme(Primary.DeepOrange400, Primary.DeepOrange600, Primary.DeepOrange100, Accent.Orange100, TextShade.WHITE);
 
             galleryFileSystemWatcher.Path = SAMP.GalleryPath;
             textFileSystemWatcher.Path = SAMP.ConfigPath;
@@ -198,11 +199,15 @@ namespace SAMPLauncherNET
                         foreach (KeyValuePair<Server, int> kv in loadServers)
                         {
                             if (kv.Key is FavouriteServer)
+                            {
                                 rlist.Add(kv);
+                            }
                             else
                             {
                                 if (kv.Key.IsDataFetched(ERequestType.Ping) || kv.Key.IsDataFetched(ERequestType.Information))
+                                {
                                     rlist.Add(kv);
+                                }
                                 else
                                 {
                                     kv.Key.SendQueryWhenExpired(ERequestType.Ping, 5000U);
@@ -211,7 +216,9 @@ namespace SAMPLauncherNET
                             }
                         }
                         foreach (KeyValuePair<Server, int> kv in rlist)
+                        {
                             loadServers.Remove(kv);
+                        }
                     }
                     lock (loadedServers)
                     {
@@ -269,7 +276,9 @@ namespace SAMPLauncherNET
                         if (trimmed_name.Length > 4)
                         {
                             if (trimmed_name.StartsWith("{$") && trimmed_name.EndsWith("$}"))
+                            {
                                 slc.TranslatableText = Translator.GetTranslation(trimmed_name.Substring(2, trimmed_name.Length - 4));
+                            }
                         }
                         dr.ItemArray = new object[] { i, slc.Name, slc.ServerListType.ToString(), slc.Endpoint };
                         apiDataTable.Rows.Add(dr);
@@ -277,7 +286,9 @@ namespace SAMPLauncherNET
                 }
                 selectAPIComboBox.Items.AddRange(apis.ToArray());
                 if (apis.Count > 0)
+                {
                     selectAPIComboBox.SelectedIndex = 0;
+                }
             }
         }
 
@@ -298,7 +309,9 @@ namespace SAMPLauncherNET
                         slc.NotLoaded = false;
                         Dictionary<string, Server> l = slc.ServerListIO;
                         foreach (Server server in l.Values)
+                        {
                             loadServers.Add(new KeyValuePair<Server, int>(server, index));
+                        }
                     }
                 }
                 UpdateServerListFilter();
@@ -315,7 +328,9 @@ namespace SAMPLauncherNET
             uint c = 0U;
             int index = selectedAPIIndex;
             if ((index >= 0) && (index < apis.Count))
+            {
                 c = apis[index].ServerCount;
+            }
             serverCountLabel.Text = Translator.GetTranslation("SERVERS") + ": " + c;
         }
 
@@ -336,7 +351,9 @@ namespace SAMPLauncherNET
             if (server != null)
             {
                 if (server.IsDataFetched(ERequestType.Ping) && server.IsDataFetched(ERequestType.Information) && server.IsDataFetched(ERequestType.Rules) && server.IsDataFetched(ERequestType.Clients))
+                {
                     ReloadSelectedServerRow();
+                }
                 rowThread = new Thread(() => RequestServerInfo(server));
                 rowThread.Start();
                 ret = true;
@@ -361,10 +378,14 @@ namespace SAMPLauncherNET
                         while ((!server.IsDataFetched(ERequestType.Ping)) && (!server.IsDataFetched(ERequestType.Information)))
                         {
                             if (DateTime.Now.Subtract(timestamp).TotalMilliseconds >= 1000)
+                            {
                                 break;
+                            }
                         }
                         if (server.IsDataFetched(ERequestType.Ping))
+                        {
                             dgvr.Cells[1].Value = server.Ping;
+                        }
                         if (server.IsDataFetched(ERequestType.Information))
                         {
                             dgvr.Cells[2].Value = server.Hostname;
@@ -407,7 +428,9 @@ namespace SAMPLauncherNET
                         dr.ItemArray = row;
                         playersDataTable.Rows.Add(dr);
                         if (i == si)
+                        {
                             cs = true;
+                        }
                         ++i;
                     }
                 }
@@ -416,7 +439,9 @@ namespace SAMPLauncherNET
                     //
                 }
                 if (cs)
+                {
                     playersGridView.Rows[si].Selected = true;
+                }
                 si = 0;
                 cs = false;
                 foreach (DataGridViewRow dgvr in rulesGridView.SelectedRows)
@@ -469,10 +494,10 @@ namespace SAMPLauncherNET
         /// </summary>
         /// <param name="str">String</param>
         /// <returns>Escaped filer string</returns>
-        private string EscapeFilterString(string str)
+        private static string EscapeFilterString(string str)
         {
             StringBuilder ret = new StringBuilder();
-            foreach (char c in str.ToCharArray())
+            foreach (char c in str)
             {
                 switch (c)
                 {
@@ -503,13 +528,21 @@ namespace SAMPLauncherNET
             if (ft.Length > 0)
             {
                 if (filterHostnameRadioButton.Checked)
+                {
                     filter.Append(" AND `Hostname` LIKE '%");
+                }
                 else if (filterModeRadioButton.Checked)
+                {
                     filter.Append(" AND `Mode` LIKE '%");
+                }
                 else if (filterLanguageRadioButton.Checked)
+                {
                     filter.Append(" AND `Language` LIKE '%");
+                }
                 else
+                {
                     filter.Append(" AND `IP and port` LIKE '%");
+                }
                 filter.Append(ft);
                 filter.Append("%'");
             }
@@ -526,11 +559,15 @@ namespace SAMPLauncherNET
         {
             DataRow[] rows = serversDataTable.Select("GroupID=" + index);
             foreach (DataRow row in rows)
+            {
                 row.Delete();
+            }
             lock (loadServers)
             {
                 foreach (Server server in servers.Values)
+                {
                     loadServers.Add(new KeyValuePair<Server, int>(server, index));
+                }
             }
         }
 
@@ -548,7 +585,9 @@ namespace SAMPLauncherNET
                 DialogResult result = cf.ShowDialog();
                 DialogResult = DialogResult.None;
                 if (result == DialogResult.OK)
+                {
                     SAMP.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, false, quitWhenDone, this);
+                }
             }
         }
 
@@ -559,9 +598,13 @@ namespace SAMPLauncherNET
         private static void VisitWebsite(string url)
         {
             if (!(url.Contains("://")))
+            {
                 url = "http://" + url;
+            }
             if (MessageBox.Show(url + "\r\n\r\n" + Translator.GetTranslation("VISIT_WEBSITE_MESSAGE"), Translator.GetTranslation("VISIT_WEBSITE_TITLE") + " " + url, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
                 Process.Start(url);
+            }
         }
 
         /// <summary>
@@ -570,8 +613,8 @@ namespace SAMPLauncherNET
         private void ReloadLauncherConfig()
         {
             LauncherConfigDataContract lcdc = SAMP.LauncherConfigIO;
-            developmentDirectorySingleLineTextField.Text = lcdc.developmentDirectory;
-            selectedAPIIndex = lcdc.lastSelectedServerListAPI;
+            developmentDirectorySingleLineTextField.Text = lcdc.DevelopmentDirectory;
+            selectedAPIIndex = lcdc.LastSelectedServerListAPI;
             selectAPIComboBox.SelectedIndex = selectedAPIIndex;
         }
 
@@ -581,7 +624,9 @@ namespace SAMPLauncherNET
         private void ReloadGallery()
         {
             if (galleryThread != null)
+            {
                 galleryThread.Abort();
+            }
             galleryListView.Clear();
             galleryImageList.Images.Clear();
             loadedGallery.Clear();
@@ -597,21 +642,6 @@ namespace SAMPLauncherNET
                 }
             });
             galleryThread.Start();
-
-            /*if (mainTabControl.SelectedTab == galleryPage)
-            {
-                galleryListView.Clear();
-                galleryImageList.Images.Clear();
-                Dictionary<string, Image> images = SAMP.GalleryImages;
-                int i = 0;
-                foreach (KeyValuePair<string, Image> kv in images)
-                {
-                    galleryImageList.Images.Add(kv.Value);
-                    ListViewItem lvi = galleryListView.Items.Add(kv.Key.Substring(SAMP.GalleryPath.Length + 1), i);
-                    lvi.Tag = kv.Key;
-                    ++i;
-                }
-            }*/
         }
 
         /// <summary>
@@ -623,7 +653,9 @@ namespace SAMPLauncherNET
             {
                 string file_name = (string)(item.Tag);
                 if (File.Exists(file_name))
+                {
                     Process.Start(file_name);
+                }
             }
         }
 
@@ -751,9 +783,9 @@ namespace SAMPLauncherNET
             string directory = Utils.AppendCharacterToString(developmentDirectorySingleLineTextField.Text, '\\');
             if (Directory.Exists(directory))
             {
-                FillItemsInCheckedListBox(developerToolsGamemodesCheckedListBox, Utils.GetFilesFromDirectory(directory + "gamemodes", "*.amx", SearchOption.AllDirectories), dtcdc.gamemodes);
-                FillItemsInCheckedListBox(developerToolsFilterscriptsCheckedListBox, Utils.GetFilesFromDirectory(directory + "filterscripts", "*.amx", SearchOption.AllDirectories), dtcdc.filterscripts);
-                FillItemsInCheckedListBox(developerToolsPluginsCheckedListBox, Utils.GetFilesFromDirectory(directory + "plugins", "*.amx", SearchOption.AllDirectories), dtcdc.plugins);
+                FillItemsInCheckedListBox(developerToolsGamemodesCheckedListBox, Utils.GetFilesFromDirectory(directory + "gamemodes", "*.amx", SearchOption.AllDirectories), dtcdc.Gamemodes);
+                FillItemsInCheckedListBox(developerToolsFilterscriptsCheckedListBox, Utils.GetFilesFromDirectory(directory + "filterscripts", "*.amx", SearchOption.AllDirectories), dtcdc.Filterscripts);
+                FillItemsInCheckedListBox(developerToolsPluginsCheckedListBox, Utils.GetFilesFromDirectory(directory + "plugins", "*.amx", SearchOption.AllDirectories), dtcdc.Plugins);
             }
         }
 
@@ -765,25 +797,31 @@ namespace SAMPLauncherNET
             DeveloperToolsConfigDataContract ret = SAMP.DeveloperToolsConfigIO;
             List<string> entries = new List<string>();
             foreach (var item in developerToolsGamemodesCheckedListBox.CheckedItems)
+            {
                 entries.Add(item.ToString());
-            ret.gamemodes = entries.ToArray();
+            }
+            ret.Gamemodes = entries.ToArray();
             entries.Clear();
             foreach (var item in developerToolsFilterscriptsCheckedListBox.CheckedItems)
+            {
                 entries.Add(item.ToString());
-            ret.filterscripts = entries.ToArray();
+            }
+            ret.Filterscripts = entries.ToArray();
             entries.Clear();
             foreach (var item in developerToolsPluginsCheckedListBox.CheckedItems)
-                entries.Add(item.ToString());
-            ret.plugins = entries.ToArray();
-            entries.Clear();
-            ret.hostname = developerToolsHostnameSingleLineTextField.Text;
-            ret.port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
-            ret.password = developerToolsServerPasswordSingleLineTextField.Text;
-            ret.rconPassword = developerToolsRCONPasswordSingleLineTextField.Text;
-            if (ret.rconPassword.Trim().Length <= 0)
             {
-                ret.rconPassword = Utils.GetRandomString(16);
-                developerToolsRCONPasswordSingleLineTextField.Text = ret.rconPassword;
+                entries.Add(item.ToString());
+            }
+            ret.Plugins = entries.ToArray();
+            entries.Clear();
+            ret.Hostname = developerToolsHostnameSingleLineTextField.Text;
+            ret.Port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
+            ret.Password = developerToolsServerPasswordSingleLineTextField.Text;
+            ret.RCONPassword = developerToolsRCONPasswordSingleLineTextField.Text;
+            if (ret.RCONPassword.Trim().Length <= 0)
+            {
+                ret.RCONPassword = Utils.GetRandomString(16);
+                developerToolsRCONPasswordSingleLineTextField.Text = ret.RCONPassword;
             }
             SAMP.DeveloperToolsConfigIO = ret;
             return ret;
@@ -794,7 +832,7 @@ namespace SAMPLauncherNET
         /// </summary>
         private void AddSelectedAPI()
         {
-            APIForm apif = new APIForm();
+            APIForm apif = new APIForm(null);
             DialogResult result = apif.ShowDialog();
             DialogResult = DialogResult.None;
             if (result == DialogResult.OK)
@@ -975,9 +1013,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Form closed event args</param>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            LauncherConfigDataContract lcdc = new LauncherConfigDataContract();
-            lcdc.lastSelectedServerListAPI = selectedAPIIndex;
-            lcdc.developmentDirectory = developmentDirectorySingleLineTextField.Text;
+            LauncherConfigDataContract lcdc = new LauncherConfigDataContract(selectedAPIIndex, developmentDirectorySingleLineTextField.Text);
             SAMP.LauncherConfigIO = lcdc;
             SaveDeveloperToolsConfig();
             lock (loadServers)
@@ -1385,7 +1421,7 @@ namespace SAMPLauncherNET
                             MessageBox.Show(Translator.GetTranslation("SERVER_ALREADY_IN_FAVOURITES"), Translator.GetTranslation("ALREADY_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         else
                         {
-                            servers.Add(server.IPPortString, server.ToFavouriteServer(server.Hostname, server.Gamemode));
+                            servers.Add(server.IPPortString, server.ToFavouriteServer(server.Hostname, server.Gamemode, "", ""));
                             slc.ServerListIO = servers;
                             ReloadFavourites(servers, islc.Index);
                         }
@@ -1680,37 +1716,36 @@ namespace SAMPLauncherNET
         private void developerToolsShowAdditionalConfigurationsButton_Click(object sender, EventArgs e)
         {
             LauncherConfigDataContract lcdc = SAMP.LauncherConfigIO;
-            lcdc.developmentDirectory = developmentDirectorySingleLineTextField.Text;
+            lcdc.DevelopmentDirectory = developmentDirectorySingleLineTextField.Text;
             SAMP.LauncherConfigIO = lcdc;
             DeveloperToolsConfigDataContract dtcdc = SAMP.DeveloperToolsConfigIO;
-            dtcdc.hostname = developerToolsHostnameSingleLineTextField.Text;
-            dtcdc.port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
-            dtcdc.password = developerToolsServerPasswordSingleLineTextField.Text;
-            dtcdc.rconPassword = developerToolsRCONPasswordSingleLineTextField.Text;
+            dtcdc.Hostname = developerToolsHostnameSingleLineTextField.Text;
+            dtcdc.Port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
+            dtcdc.Password = developerToolsServerPasswordSingleLineTextField.Text;
+            dtcdc.RCONPassword = developerToolsRCONPasswordSingleLineTextField.Text;
             DeveloperToolsConfigForm dtcf = new DeveloperToolsConfigForm(dtcdc);
             DialogResult result = dtcf.ShowDialog();
             DialogResult = DialogResult.None;
             if (result == DialogResult.OK)
             {
                 dtcdc = dtcf.DeveloperToolsConfigDataContract;
-                developerToolsHostnameSingleLineTextField.Text = dtcdc.hostname;
-                developerToolsPortSingleLineTextField.Text = dtcdc.port.ToString();
-                developerToolsServerPasswordSingleLineTextField.Text = dtcdc.password;
-                developerToolsRCONPasswordSingleLineTextField.Text = dtcdc.rconPassword;
+                developerToolsHostnameSingleLineTextField.Text = dtcdc.Hostname;
+                developerToolsPortSingleLineTextField.Text = dtcdc.Port.ToString();
+                developerToolsServerPasswordSingleLineTextField.Text = dtcdc.Password;
+                developerToolsRCONPasswordSingleLineTextField.Text = dtcdc.RCONPassword;
                 List<string> entries = new List<string>();
                 foreach (var item in developerToolsGamemodesCheckedListBox.CheckedItems)
                     entries.Add(item.ToString());
-                dtcdc.gamemodes = entries.ToArray();
+                dtcdc.Gamemodes = entries.ToArray();
                 entries.Clear();
                 foreach (var item in developerToolsFilterscriptsCheckedListBox.CheckedItems)
                     entries.Add(item.ToString());
-                dtcdc.filterscripts = entries.ToArray();
+                dtcdc.Filterscripts = entries.ToArray();
                 entries.Clear();
                 foreach (var item in developerToolsPluginsCheckedListBox.CheckedItems)
                     entries.Add(item.ToString());
-                dtcdc.plugins = entries.ToArray();
+                dtcdc.Plugins = entries.ToArray();
                 entries.Clear();
-
                 SAMP.DeveloperToolsConfigIO = dtcdc;
                 ReloadDeveloperToolsConfig();
             }
@@ -1726,7 +1761,7 @@ namespace SAMPLauncherNET
             if (Directory.Exists(developmentDirectorySingleLineTextField.Text))
             {
                 LauncherConfigDataContract lcdc = SAMP.LauncherConfigIO;
-                lcdc.developmentDirectory = developmentDirectorySingleLineTextField.Text;
+                lcdc.DevelopmentDirectory = developmentDirectorySingleLineTextField.Text;
                 SAMP.LauncherConfigIO = lcdc;
                 ReloadDeveloperToolsConfig();
             }
@@ -1772,7 +1807,7 @@ namespace SAMPLauncherNET
         private void developerToolsConnectToTestServerButton_Click(object sender, EventArgs e)
         {
             DeveloperToolsConfigDataContract dtcdc = SAMP.DeveloperToolsConfigIO;
-            Connect(new Server("127.0.0.1:" + dtcdc.port, false), dtcdc.rconPassword);
+            Connect(new Server("127.0.0.1:" + dtcdc.Port, false), dtcdc.RCONPassword);
         }
 
         /// <summary>

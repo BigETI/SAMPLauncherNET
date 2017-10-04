@@ -674,6 +674,12 @@ Press "Cancel" to cancel this action.</value>
   <data name="SHOW_LEGACY_MASTER_LIST" xml:space="preserve">
     <value>Master list</value>
   </data>
+  <data name="SHOW_SACNR_LIST" xml:space="preserve">
+    <value>Show SACNR list</value>
+  </data>
+  <data name="SHOW_SOUTHCLAWS_LIST" xml:space="preserve">
+    <value>Show Southclaw's list</value>
+  </data>
   <data name="SLEEP" xml:space="preserve">
     <value>Sleep time</value>
   </data>

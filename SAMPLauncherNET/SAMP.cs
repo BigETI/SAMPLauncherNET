@@ -23,12 +23,12 @@ namespace SAMPLauncherNET
         /// <summary>
         /// API HTTP URL
         /// </summary>
-        public const string APIHTTPURL = "http://lists.sa-mp.com/0.3.7/";
+        public static readonly string APIHTTPURL = "http://lists.sa-mp.com/0.3.7/";
 
         /// <summary>
         /// Registry key
         /// </summary>
-        public const string RegistryKey = "HKEY_CURRENT_USER\\SOFTWARE\\SAMP";
+        public static readonly string RegistryKey = "HKEY_CURRENT_USER\\SOFTWARE\\SAMP";
 
         /// <summary>
         /// Configuration path
@@ -53,17 +53,17 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Launcher config path
         /// </summary>
-        public const string LauncherConfigPath = "./config.json";
+        public static readonly string LauncherConfigPath = "./config.json";
 
         /// <summary>
         /// Server list API path
         /// </summary>
-        public const string ServerListAPIPath = "./api.json";
+        public static readonly string ServerListAPIPath = "./api.json";
 
         /// <summary>
         /// Developer tools config file name
         /// </summary>
-        public const string DeveloperToolsConfigFileName = "samp.json";
+        public static readonly string DeveloperToolsConfigFileName = "samp.json";
 
         /// <summary>
         /// Gallery path
@@ -88,7 +88,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Favourites path
         /// </summary>
-        public const string FavouritesPath = ".\\favourites.json";
+        public static readonly string FavouritesPath = ".\\favourites.json";
 
         /// <summary>
         /// Legacy favourites path
@@ -98,32 +98,32 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Forums URL
         /// </summary>
-        public const string ForumsURL = "http://forum.sa-mp.com/index.php";
+        public static readonly string ForumsURL = "http://forum.sa-mp.com/index.php";
 
         /// <summary>
         /// GitHub project URL
         /// </summary>
-        public const string GitHubProjectURL = "https://github.com/BigETI/SAMPLauncherNET";
+        public static readonly string GitHubProjectURL = "https://github.com/BigETI/SAMPLauncherNET";
 
         /// <summary>
         /// Launcher configuration serializer
         /// </summary>
-        public static DataContractJsonSerializer launcherConfigSerializer = new DataContractJsonSerializer(typeof(LauncherConfigDataContract));
+        public static readonly DataContractJsonSerializer launcherConfigSerializer = new DataContractJsonSerializer(typeof(LauncherConfigDataContract));
 
         /// <summary>
         /// API JSON serializer
         /// </summary>
-        public static DataContractJsonSerializer apiJSONSerializer = new DataContractJsonSerializer(typeof(APIDataContract[]));
+        public static readonly DataContractJsonSerializer apiJSONSerializer = new DataContractJsonSerializer(typeof(APIDataContract[]));
 
         /// <summary>
         /// Developer tools serializer
         /// </summary>
-        public static DataContractJsonSerializer developerToolsConfigSerializer = new DataContractJsonSerializer(typeof(DeveloperToolsConfigDataContract));
+        public static readonly DataContractJsonSerializer developerToolsConfigSerializer = new DataContractJsonSerializer(typeof(DeveloperToolsConfigDataContract));
 
         /// <summary>
         /// Last server process
         /// </summary>
-        public static Process lastServerProcess = null;
+        private static Process lastServerProcess;
 
         /// <summary>
         /// Username
@@ -183,7 +183,9 @@ namespace SAMPLauncherNET
                     {
                         APIDataContract[] api = (APIDataContract[])(apiJSONSerializer.ReadObject(stream));
                         foreach (APIDataContract apidc in api)
+                        {
                             ret.Add(new ServerListConnector(apidc));
+                        }
                     }
                 }
                 catch
@@ -198,7 +200,9 @@ namespace SAMPLauncherNET
                 {
                     APIDataContract[] api = new APIDataContract[value.Count];
                     for (int i = 0; i < api.Length; i++)
+                    {
                         api[i] = value[i].APIDataContract;
+                    }
                     try
                     {
                         foreach (ServerListConnector connector in value)
@@ -292,7 +296,9 @@ namespace SAMPLauncherNET
                     }
                 }
                 if (ret == null)
+                {
                     ret = new LauncherConfigDataContract();
+                }
                 return ret;
             }
             set
@@ -333,7 +339,7 @@ namespace SAMPLauncherNET
             get
             {
                 DeveloperToolsConfigDataContract ret = null;
-                string path = Utils.AppendCharacterToString(LauncherConfigIO.developmentDirectory, '\\') + DeveloperToolsConfigFileName;
+                string path = Utils.AppendCharacterToString(LauncherConfigIO.DevelopmentDirectory, '\\') + DeveloperToolsConfigFileName;
                 if (File.Exists(path))
                 {
                     try
@@ -349,16 +355,20 @@ namespace SAMPLauncherNET
                     }
                 }
                 if (ret == null)
+                {
                     ret = new DeveloperToolsConfigDataContract();
+                }
                 return ret;
             }
             set
             {
                 if (value != null)
                 {
-                    string directory = Utils.AppendCharacterToString(LauncherConfigIO.developmentDirectory, '\\');
+                    string directory = Utils.AppendCharacterToString(LauncherConfigIO.DevelopmentDirectory, '\\');
                     if (!(Directory.Exists(directory)))
+                    {
                         Directory.CreateDirectory(directory);
+                    }
                     try
                     {
                         using (StreamWriter writer = new StreamWriter(directory + DeveloperToolsConfigFileName))
@@ -385,6 +395,8 @@ namespace SAMPLauncherNET
             ret.Add(new ServerListConnector("{$SHOW_LEGACY_FAVOURITES$}", EServerListType.LegacyFavourites, LegacyFavouritesPath));
             ret.Add(new ServerListConnector("{$SHOW_LEGACY_HOSTED_LIST$}", EServerListType.LegacySAMP, APIHTTPURL + "hosted"));
             ret.Add(new ServerListConnector("{$SHOW_LEGACY_MASTER_LIST$}", EServerListType.LegacySAMP, APIHTTPURL + "servers"));
+            ret.Add(new ServerListConnector("{$SHOW_SOUTHCLAWS_LIST$}", EServerListType.BackendRESTful, "http://api.samp.southcla.ws/v2/servers"));
+            ret.Add(new ServerListConnector("{$SHOW_SACNR_LIST$}", EServerListType.LegacySAMP, "http://monitor.sacnr.com/list/masterlist.txt"));
             APIIO = ret;
             return ret;
         }
@@ -439,7 +451,9 @@ namespace SAMPLauncherNET
                                 Kernel32.ResumeThread(process_info.hThread);
                                 Kernel32.CloseHandle(process_info.hProcess);
                                 if (quitWhenDone)
+                                {
                                     f.Close();
+                                }
                             }
                         }
                     }
@@ -470,17 +484,19 @@ namespace SAMPLauncherNET
         /// Launch SA:MP server
         /// </summary>
         /// <param name="dtcdc">Developer tools config data contract</param>
-        public static void LaunchSAMPServer(DeveloperToolsConfigDataContract dtcdc = null)
+        public static void LaunchSAMPServer(DeveloperToolsConfigDataContract dtcdc)
         {
             LauncherConfigDataContract lcdc = LauncherConfigIO;
             if (dtcdc == null)
+            {
                 dtcdc = DeveloperToolsConfigIO;
+            }
             if (File.Exists("sampctl.exe"))
             {
                 try
                 {
                     CloseLastServer();
-                    lastServerProcess = Process.Start("sampctl.exe", "run --dir " + lcdc.developmentDirectory);
+                    lastServerProcess = Process.Start("sampctl.exe", "run --dir " + lcdc.DevelopmentDirectory);
                 }
                 catch (Exception e)
                 {
@@ -488,7 +504,9 @@ namespace SAMPLauncherNET
                 }
             }
             else
+            {
                 MessageBox.Show("Get \"sampctl.exe\" from https://github.com/Southclaws/sampctl/releases to run a server.", "\"sampctl\" missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -545,7 +563,9 @@ namespace SAMPLauncherNET
                                                 {
                                                     int b = -1;
                                                     while ((b = stream.ReadByte()) != -1)
+                                                    {
                                                         file_stream.WriteByte((byte)b);
+                                                    }
                                                 }
                                             }
                                         }

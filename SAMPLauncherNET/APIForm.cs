@@ -20,11 +20,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                APIDataContract ret = new APIDataContract();
-                ret.name = apiNameSingleLineTextField.Text;
-                ret.type = ((EServerListType)(apiTypeComboBox.SelectedIndex)).ToString();
-                ret.endpoint = apiEndpointSingleLineTextField.Text;
-                return ret;
+                return new APIDataContract(apiNameSingleLineTextField.Text, ((EServerListType)(apiTypeComboBox.SelectedIndex)).ToString(), apiEndpointSingleLineTextField.Text);
             }
         }
 
@@ -32,7 +28,7 @@ namespace SAMPLauncherNET
         /// Default constructor
         /// </summary>
         /// <param name="api"></param>
-        public APIForm(APIDataContract api = null)
+        public APIForm(APIDataContract api)
         {
             InitializeComponent();
             Translator.LoadTranslation(this);
@@ -40,12 +36,14 @@ namespace SAMPLauncherNET
             if (api != null)
             {
                 Text = Translator.GetTranslation("EDIT_API_TITLE");
-                apiNameSingleLineTextField.Text = api.name;
+                apiNameSingleLineTextField.Text = api.Name;
                 EServerListType type;
-                if (!Enum.TryParse(api.type, out type))
+                if (!Enum.TryParse(api.Type, out type))
+                {
                     type = EServerListType.Favourites;
+                }
                 apiTypeComboBox.SelectedIndex = (int)type;
-                apiEndpointSingleLineTextField.Text = api.endpoint;
+                apiEndpointSingleLineTextField.Text = api.Endpoint;
             }
         }
 
@@ -55,15 +53,21 @@ namespace SAMPLauncherNET
         private void AcceptInput()
         {
             if (apiNameSingleLineTextField.Text.Trim().Length <= 0)
+            {
                 MessageBox.Show(Translator.GetTranslation("API_NAME_MISSING"), Translator.GetTranslation("API_NAME_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 if (apiTypeComboBox.SelectedIndex < 0)
+                {
                     MessageBox.Show(Translator.GetTranslation("API_TYPE_MISSING"), Translator.GetTranslation("API_TYPE_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 else
                 {
                     if (apiEndpointSingleLineTextField.Text.Trim().Length <= 0)
+                    {
                         MessageBox.Show(Translator.GetTranslation("API_ENDPOINT_MISSING"), Translator.GetTranslation("API_ENDPOINT_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     else
                     {
                         DialogResult = DialogResult.OK;
@@ -80,14 +84,13 @@ namespace SAMPLauncherNET
         /// <param name="e">Key event arguments</param>
         private void apiNameSingleLineTextField_KeyUp(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
+            if (e.KeyCode == Keys.Return)
             {
-                case Keys.Escape:
-                    Close();
-                    break;
-                case Keys.Return:
-                    AcceptInput();
-                    break;
+                AcceptInput();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                Close();
             }
         }
 

@@ -42,7 +42,7 @@ namespace SAMPLauncherNET
                 }
             }
             if (ret == null)
-                ret = new GeoLocationData();
+                ret = new GeoLocationData(null);
             return ret;
         }
 

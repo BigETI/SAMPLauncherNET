@@ -12,45 +12,122 @@ namespace SAMPLauncherNET
     public class BackendRESTfulServerDataContract
     {
         /// <summary>
-        /// IP
+        /// Host
         /// </summary>
         [DataMember(Name = "ip")]
-        public string host;
+        private string host = "0.0.0.0";
 
         /// <summary>
         /// Hostname
         /// </summary>
         [DataMember(Name = "hn")]
-        public string hostname;
+        private string hostname = "";
 
         /// <summary>
         /// Player count
         /// </summary>
         [DataMember(Name = "pc")]
-        public ushort playerCount;
+        private ushort playerCount = 0;
 
         /// <summary>
         /// Maximal players
         /// </summary>
         [DataMember(Name = "pm")]
-        public ushort maxPlayers;
+        private ushort maxPlayers = 0;
 
         /// <summary>
         /// Gamemode
         /// </summary>
         [DataMember(Name = "gm")]
-        public string gamemode;
+        private string gamemode = "";
 
         /// <summary>
         /// Language
         /// </summary>
         [DataMember(Name = "la")]
-        public string language;
+        private string language = "";
 
         /// <summary>
         /// Has password
         /// </summary>
         [DataMember(Name = "pa")]
-        public bool hasPassword;
+        private bool hasPassword = false;
+
+        /// <summary>
+        /// Host
+        /// </summary>
+        public string Host
+        {
+            get
+            {
+                return host;
+            }
+        }
+
+        /// <summary>
+        /// Hostname
+        /// </summary>
+        public string Hostname
+        {
+            get
+            {
+                return hostname;
+            }
+        }
+
+        /// <summary>
+        /// Player count
+        /// </summary>
+        public ushort PlayerCount
+        {
+            get
+            {
+                return playerCount;
+            }
+        }
+
+        /// <summary>
+        /// Maximal players
+        /// </summary>
+        public ushort MaxPlayers
+        {
+            get
+            {
+                return maxPlayers;
+            }
+        }
+
+        /// <summary>
+        /// Gamemode
+        /// </summary>
+        public string Gamemode
+        {
+            get
+            {
+                return gamemode;
+            }
+        }
+
+        /// <summary>
+        /// Language
+        /// </summary>
+        public string Language
+        {
+            get
+            {
+                return language;
+            }
+        }
+
+        /// <summary>
+        /// Has password
+        /// </summary>
+        public bool HasPassword
+        {
+            get
+            {
+                return hasPassword;
+            }
+        }
     }
 }

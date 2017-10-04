@@ -18,9 +18,24 @@ namespace SAMPLauncherNET
         /// </summary>
         public struct PROCESS_INFORMATION
         {
+            /// <summary>
+            /// Process handle
+            /// </summary>
             public IntPtr hProcess;
+
+            /// <summary>
+            /// Thread handle
+            /// </summary>
             public IntPtr hThread;
+
+            /// <summary>
+            /// Process ID
+            /// </summary>
             public uint dwProcessId;
+
+            /// <summary>
+            /// Thread ID
+            /// </summary>
             public uint dwThreadId;
         }
 

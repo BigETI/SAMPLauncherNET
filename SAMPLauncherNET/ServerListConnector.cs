@@ -29,17 +29,17 @@ namespace SAMPLauncherNET
         /// <summary>
         /// API HTTP content type
         /// </summary>
-        public const string APIHTTPContentType = "text/html";
+        public static readonly string APIHTTPContentType = "text/html";
 
         /// <summary>
         /// API HTTP accept
         /// </summary>
-        public const string APIHTTPAccept = "text/html, */*";
+        public static readonly string APIHTTPAccept = "text/html, */*";
 
         /// <summary>
         /// API HTTP user agent
         /// </summary>
-        public const string APIHTTPUserAgent = "Mozilla/3.0 (compatible; SA:MP v0.3.7)";
+        public static readonly string APIHTTPUserAgent = "Mozilla/3.0 (compatible; SA:MP v0.3.7)";
 
         /// <summary>
         /// Name
@@ -49,22 +49,22 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Server list type
         /// </summary>
-        private EServerListType serverListType;
+        private readonly EServerListType serverListType;
 
         /// <summary>
         /// Endpoint
         /// </summary>
-        private string endpoint;
+        private readonly string endpoint;
 
         /// <summary>
         /// Max servers
         /// </summary>
-        private uint maxServers = 0U;
+        private uint maxServers;
 
         /// <summary>
         /// Server count
         /// </summary>
-        private uint serverCount = 0U;
+        private uint serverCount;
 
         /// <summary>
         /// Not loaded
@@ -142,7 +142,9 @@ namespace SAMPLauncherNET
             set
             {
                 if (notLoaded)
+                {
                     serverCount = 0;
+                }
                 notLoaded = value;
             }
         }
@@ -164,7 +166,9 @@ namespace SAMPLauncherNET
                             {
                                 FavouriteDataContract[] favourites = (FavouriteDataContract[])(favouriteListJSONSerializer.ReadObject(stream));
                                 foreach (FavouriteDataContract fdc in favourites)
-                                    ret.Add(fdc.host, new FavouriteServer(fdc));
+                                {
+                                    ret.Add(fdc.Host, new FavouriteServer(fdc));
+                                }
                             }
                             break;
                         case EServerListType.BackendRESTful:
@@ -182,7 +186,9 @@ namespace SAMPLauncherNET
                                         {
                                             BackendRESTfulServer server = new BackendRESTfulServer(sdc);
                                             if (server.IsValid)
+                                            {
                                                 ret.Add(server.IPPortString, server);
+                                            }
                                         }
                                     }
                                 }
@@ -211,7 +217,9 @@ namespace SAMPLauncherNET
                                                     ip = ip + ":" + port;
                                                     FavouriteServer s = new FavouriteServer(ip, cn, "", sp, rp);
                                                     if (s.IsValid)
+                                                    {
                                                         ret.Add(s.IPPortString, s);
+                                                    }
                                                 }
                                             }
                                         }
@@ -225,12 +233,14 @@ namespace SAMPLauncherNET
                                 wc.Headers.Set(HttpRequestHeader.ContentType, APIHTTPContentType);
                                 wc.Headers.Set(HttpRequestHeader.Accept, APIHTTPAccept);
                                 wc.Headers.Set(HttpRequestHeader.UserAgent, APIHTTPUserAgent);
-                                string[] ips = wc.DownloadString(endpoint).Split(new char[] { '\n' });
+                                string[] ips = wc.DownloadString(endpoint).Split(new[] { '\n' });
                                 foreach (string ip in ips)
                                 {
-                                    Server server = new Server(ip);
+                                    Server server = new Server(ip, true);
                                     if (server.IsValid)
+                                    {
                                         ret.Add(ip.Trim(), server);
+                                    }
                                 }
                             }
                             break;
@@ -247,67 +257,75 @@ namespace SAMPLauncherNET
             {
                 if (value != null)
                 {
-                    switch (serverListType)
+                    if (serverListType == EServerListType.Favourites)
                     {
-                        case EServerListType.Favourites:
-                            try
+                        try
+                        {
+                            using (FileStream stream = File.Open(endpoint, FileMode.Create))
                             {
-                                using (FileStream stream = File.Open(endpoint, FileMode.Create))
+                                List<FavouriteDataContract> api = new List<FavouriteDataContract>();
+                                foreach (Server server in value.Values)
                                 {
-                                    List<FavouriteDataContract> api = new List<FavouriteDataContract>();
-                                    foreach (Server server in value.Values)
-                                        api.Add(server.FavouriteDataContract);
-                                    favouriteListJSONSerializer.WriteObject(stream, api.ToArray());
+                                    api.Add(server.FavouriteDataContract);
                                 }
+                                favouriteListJSONSerializer.WriteObject(stream, api.ToArray());
                             }
-                            catch
+                        }
+                        catch
+                        {
+                            //
+                        }
+                        maxServers = (uint)(value.Count);
+                    }
+                    else if (serverListType == EServerListType.LegacyFavourites)
+                    {
+                        try
+                        {
+                            using (FileStream fs = File.Open(endpoint, FileMode.Create))
                             {
-                                //
-                            }
-                            maxServers = (uint)(value.Count);
-                            break;
-
-                        case EServerListType.LegacyFavourites:
-                            try
-                            {
-                                using (FileStream fs = File.Open(endpoint, FileMode.Create))
+                                using (BinaryWriter writer = new BinaryWriter(fs))
                                 {
-                                    using (BinaryWriter writer = new BinaryWriter(fs))
+                                    writer.Write("SAMP".ToCharArray());
+                                    writer.Write(1);
+                                    writer.Write(value.Count);
+                                    foreach (KeyValuePair<string, Server> kv in value)
                                     {
-                                        writer.Write("SAMP".ToCharArray());
-                                        writer.Write(1);
-                                        writer.Write(value.Count);
-                                        foreach (KeyValuePair<string, Server> kv in value)
+                                        byte[] data = Encoding.Default.GetBytes(kv.Value.IPv4AddressString);
+                                        writer.Write(data.Length);
+                                        writer.Write(data);
+                                        writer.Write((uint)(kv.Value.Port));
+                                        data = Encoding.Default.GetBytes(kv.Value.Hostname);
+                                        writer.Write(data.Length);
+                                        writer.Write(data);
+                                        if (kv.Value is FavouriteServer)
                                         {
-                                            byte[] data = Encoding.Default.GetBytes(kv.Value.IPv4AddressString);
-                                            writer.Write(data.Length);
-                                            writer.Write(data);
-                                            writer.Write((uint)(kv.Value.Port));
-                                            data = Encoding.Default.GetBytes(kv.Value.Hostname);
-                                            writer.Write(data.Length);
-                                            writer.Write(data);
-                                            if (kv.Value is FavouriteServer)
-                                                data = Encoding.Default.GetBytes(((FavouriteServer)(kv.Value)).ServerPassword);
-                                            else
-                                                data = new byte[0];
-                                            writer.Write(data.Length);
-                                            writer.Write(data);
-                                            if (kv.Value is FavouriteServer)
-                                                data = Encoding.Default.GetBytes(((FavouriteServer)(kv.Value)).RCONPassword);
-                                            else
-                                                data = new byte[0];
-                                            writer.Write(data.Length);
-                                            writer.Write(data);
+                                            data = Encoding.Default.GetBytes(((FavouriteServer)(kv.Value)).ServerPassword);
                                         }
+                                        else
+                                        {
+                                            data = new byte[0];
+                                        }
+                                        writer.Write(data.Length);
+                                        writer.Write(data);
+                                        if (kv.Value is FavouriteServer)
+                                        {
+                                            data = Encoding.Default.GetBytes(((FavouriteServer)(kv.Value)).RCONPassword);
+                                        }
+                                        else
+                                        {
+                                            data = new byte[0];
+                                        }
+                                        writer.Write(data.Length);
+                                        writer.Write(data);
                                     }
                                 }
                             }
-                            catch
-                            {
-                                //
-                            }
-                            maxServers = (uint)(value.Count);
-                            break;
+                        }
+                        catch
+                        {
+                            //
+                        }
+                        maxServers = (uint)(value.Count);
                     }
                 }
             }
@@ -320,11 +338,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                APIDataContract ret = new APIDataContract();
-                ret.name = name;
-                ret.type = serverListType.ToString();
-                ret.endpoint = endpoint;
-                return ret;
+                return new APIDataContract(name, serverListType.ToString(), endpoint);
             }
         }
 
@@ -349,10 +363,12 @@ namespace SAMPLauncherNET
         /// <param name="apidc">API data contract</param>
         public ServerListConnector(APIDataContract apidc)
         {
-            name = apidc.name;
-            if (!(Enum.TryParse(apidc.type, out serverListType)))
+            name = apidc.Name;
+            if (!(Enum.TryParse(apidc.Type, out serverListType)))
+            {
                 serverListType = EServerListType.Error;
-            endpoint = apidc.endpoint;
+            }
+            endpoint = apidc.Endpoint;
         }
 
         /// <summary>

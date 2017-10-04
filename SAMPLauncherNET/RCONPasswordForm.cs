@@ -61,15 +61,14 @@ namespace SAMPLauncherNET
         /// <param name="e">Key event arguments</param>
         private void rconPasswordTextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
+            if (e.KeyCode == Keys.Return)
             {
-                case Keys.Return:
-                    DialogResult = DialogResult.OK;
-                    Close();
-                    break;
-                case Keys.Escape:
-                    Close();
-                    break;
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                Close();
             }
         }
     }

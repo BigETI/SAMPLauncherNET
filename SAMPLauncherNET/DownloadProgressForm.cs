@@ -19,17 +19,17 @@ namespace SAMPLauncherNET
         /// <summary>
         /// URI
         /// </summary>
-        private string uri;
+        private readonly string uri;
 
         /// <summary>
         /// Directory
         /// </summary>
-        private string directory = "";
+        private readonly string directory = "";
 
         /// <summary>
         /// Path
         /// </summary>
-        private string path = "";
+        private readonly string path = "";
         
         /// <summary>
         /// Not finished
@@ -81,9 +81,13 @@ namespace SAMPLauncherNET
         private void OnDownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
             if (e.Error != null)
+            {
                 MessageBox.Show(e.Error.Message, Translator.GetTranslation("DOWNLOAD_FAILED_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else if (!(e.Cancelled))
+            {
                 DialogResult = DialogResult.OK;
+            }
             notFinished = false;
             Close();
         }
@@ -100,9 +104,13 @@ namespace SAMPLauncherNET
             wc.DownloadProgressChanged += OnDownloadProgressChanged;
             wc.DownloadFileCompleted += OnDownloadFileCompleted;
             if (File.Exists(path))
+            {
                 File.Delete(path);
+            }
             else if (!(Directory.Exists(directory)))
+            {
                 Directory.CreateDirectory(directory);
+            }
             wc.DownloadFileAsync(new Uri(uri), path);
             TaskbarProgress.SetState(this, TaskbarProgress.TaskbarStates.Normal);
         }

@@ -1710,6 +1710,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige SACNR Liste ähnelt.
+        /// </summary>
+        internal static string SHOW_SACNR_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_SACNR_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zeige Southclaw&apos;s Liste ähnelt.
+        /// </summary>
+        internal static string SHOW_SOUTHCLAWS_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_SOUTHCLAWS_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Server Tick Zeit ähnelt.
         /// </summary>
         internal static string SLEEP {

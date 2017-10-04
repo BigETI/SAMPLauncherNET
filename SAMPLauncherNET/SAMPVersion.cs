@@ -12,22 +12,22 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Name
         /// </summary>
-        private string name;
+        private readonly string name;
 
         /// <summary>
         /// Zip URI
         /// </summary>
-        private string zipURI;
+        private readonly string zipURI;
 
         /// <summary>
         /// Installation URI
         /// </summary>
-        private string installationURI;
+        private readonly string installationURI;
 
         /// <summary>
         /// Order number
         /// </summary>
-        private uint orderNumber = 0U;
+        private readonly uint orderNumber;
 
         /// <summary>
         /// Name
@@ -69,7 +69,7 @@ namespace SAMPLauncherNET
         /// <param name="zipURI">Zip URI</param>
         /// <param name="installationURI">Installation URI</param>
         /// <param name="dllSHA512">DLL SHA512</param>
-        public SAMPVersion(string name, string zipURI, string installationURI, uint orderNumber = 0U)
+        public SAMPVersion(string name, string zipURI, string installationURI, uint orderNumber)
         {
             this.name = name;
             this.zipURI = zipURI;
@@ -99,45 +99,18 @@ namespace SAMPLauncherNET
                 ret = (int)(other.orderNumber - orderNumber);
                 if (ret == 0)
                 {
-                    ret = other.name.CompareTo(name);
+                    ret = string.Compare(other.name, name);
                     if (ret == 0)
                     {
-                        ret = other.zipURI.CompareTo(zipURI);
+                        ret = string.Compare(other.zipURI, zipURI);
                         if (ret == 0)
+                        {
                             ret = other.installationURI.CompareTo(installationURI);
+                        }
                     }
                 }
             }
             return ret;
         }
-
-        /// <summary>
-        /// Equals operator
-        /// </summary>
-        /// <param name="left">Left</param>
-        /// <param name="right">Right</param>
-        /// <returns>Result</returns>
-        /*public static bool operator ==(SAMPVersion left, SAMPVersion right)
-        {
-            bool ret = false;
-            if ((left == null) && (right == null))
-                ret = true;
-            else if ((left == null) || (right == null))
-                ret = false;
-            else
-                ret = (left.CompareTo(right) == 0);
-            return ret;
-        }*/
-
-        /// <summary>
-        /// Does not equal operator
-        /// </summary>
-        /// <param name="left">Left</param>
-        /// <param name="right">Right</param>
-        /// <returns>Result</returns>
-        /*public static bool operator !=(SAMPVersion left, SAMPVersion right)
-        {
-            return !(left == right);
-        }*/
     }
 }

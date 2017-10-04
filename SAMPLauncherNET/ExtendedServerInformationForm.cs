@@ -26,32 +26,32 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Server
         /// </summary>
-        private Server server = null;
+        private readonly Server server = null;
 
         /// <summary>
         /// Ping list
         /// </summary>
-        private List<uint> pingList = new List<uint>();
+        private readonly List<uint> pingList = new List<uint>();
 
         /// <summary>
         /// Server ping thread
         /// </summary>
-        private Thread serverPingThread = null;
+        private Thread serverPingThread;
 
         /// <summary>
         /// Server information thread
         /// </summary>
-        private Thread serverInformationThread = null;
+        private Thread serverInformationThread;
 
         /// <summary>
-        /// Servewr detailed clients thread
+        /// Server detailed clients thread
         /// </summary>
-        private Thread serverDetailedClientsThread = null;
+        private Thread serverDetailedClientsThread;
 
         /// <summary>
         /// Server rules thread
         /// </summary>
-        private Thread serverRulesThread = null;
+        private Thread serverRulesThread;
 
         /// <summary>
         /// Hostname
@@ -61,12 +61,12 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Player count
         /// </summary>
-        private ushort playerCount = 0;
+        private ushort playerCount;
 
         /// <summary>
         /// Maximal players
         /// </summary>
-        private ushort maxPlayers = 0;
+        private ushort maxPlayers;
 
         /// <summary>
         /// Gamemode
@@ -81,22 +81,22 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Players
         /// </summary>
-        private List<Player> players = new List<Player>();
+        private readonly List<Player> players = new List<Player>();
 
         /// <summary>
         /// Rules
         /// </summary>
-        private Dictionary<string, string> rules = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> rules = new Dictionary<string, string>();
 
         /// <summary>
         /// Geo location async
         /// </summary>
-        private Task<GeoLocationData> geoLocationAsync = null;
+        private readonly Task<GeoLocationData> geoLocationAsync;
 
         /// <summary>
         /// Geo location
         /// </summary>
-        private GeoLocationData geoLocation = null;
+        private GeoLocationData geoLocation;
 
         /// <summary>
         /// Constructor
@@ -119,7 +119,9 @@ namespace SAMPLauncherNET
                         {
                             pingList.Add(server.Ping);
                             while (pingList.Count > PingCountLimit)
+                            {
                                 pingList.RemoveAt(0);
+                            }
                         }
                     }
                     Thread.Sleep(1000);
@@ -180,7 +182,9 @@ namespace SAMPLauncherNET
                         {
                             rules.Clear();
                             foreach (string key in server.RuleKeys)
+                            {
                                 rules.Add(key, server.GetRuleValue(key));
+                            }
                         }
                     }
                     Thread.Sleep(2000);
@@ -230,7 +234,9 @@ namespace SAMPLauncherNET
             {
                 pingChart.Series[0].Points.DataBindY(pingList);
                 if (pingList.Count > 0)
+                {
                     pingLabel.Text = Translator.GetTranslation("PING") + ": " + pingList[pingList.Count - 1] + " ms";
+                }
             }
             lock (hostname)
             {
@@ -267,11 +273,15 @@ namespace SAMPLauncherNET
                     dr.ItemArray = data;
                     playersDataTable.Rows.Add(dr);
                     if (i == si)
+                    {
                         cs = true;
+                    }
                     ++i;
                 }
                 if (cs)
+                {
                     playersGridView.Rows[si].Selected = true;
+                }
             }
             lock (rules)
             {
@@ -332,7 +342,9 @@ namespace SAMPLauncherNET
             if (geoLocation != null)
             {
                 if (geoLocation.IsValid)
+                {
                     Process.Start("https://www.google.com/maps/@" + geoLocation.Latitude + "," + geoLocation.Longitude + ",10.0z");
+                }
             }
         }
 
@@ -346,7 +358,9 @@ namespace SAMPLauncherNET
             if (geoLocationAsync != null)
             {
                 if (geoLocation.IsValid)
+                {
                     Process.Start("http://www.openstreetmap.org/?mlat=" + geoLocation.Latitude + "&mlon=" + geoLocation.Longitude + "&zoom=10.0");
+                }
             }
         }
     }

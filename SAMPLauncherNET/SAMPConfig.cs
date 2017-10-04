@@ -14,12 +14,12 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Path
         /// </summary>
-        private string path;
+        private readonly string path;
 
         /// <summary>
         /// INI
         /// </summary>
-        private INI ini;
+        private readonly INI ini;
 
         /// <summary>
         /// Page size
@@ -45,17 +45,26 @@ namespace SAMPLauncherNET
             {
                 int ret = ini.GetInt32("fpslimit", 50);
                 if (ret < 20)
+                {
                     ret = 20;
+                }
                 else if (ret > 90)
+                {
                     ret = 90;
+                }
                 return ret;
             }
             set
             {
-                if (value < 20)
-                    value = 20;
-                else if (value > 90)
-                    value = 90;
+                int v = value;
+                if (v < 20)
+                {
+                    v = 20;
+                }
+                else if (v > 90)
+                {
+                    v = 90;
+                }
                 ini.SetValue("fpslimit", value);
             }
         }

@@ -61,16 +61,22 @@ namespace SAMPLauncherNET
         private void AcceptInput()
         {
             if (Username.Length <= 0)
+            {
                 MessageBox.Show(Translator.GetTranslation("PLEASE_TYPE_IN_USERNAME"), Translator.GetTranslation("INPUT_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 bool success = true;
                 if (serverPasswordSingleLineTextField.Visible && (ServerPassword.Trim().Length <= 0))
+                {
                     success = (MessageBox.Show(Translator.GetTranslation("SERVER_PASSWORD_FIELD_IS_EMPTY"), Translator.GetTranslation("SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
+                }
                 if (success)
                 {
                     if (!(tempUsernameCheckBox.Checked))
+                    {
                         SAMP.Username = Username;
+                    }
                     DialogResult = DialogResult.OK;
                     Close();
                 }
@@ -104,14 +110,13 @@ namespace SAMPLauncherNET
         /// <param name="e">Key event arguments</param>
         private void genericSingleLineTextField_KeyUp(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
+            if (e.KeyCode == Keys.Return)
             {
-                case Keys.Return:
-                    AcceptInput();
-                    break;
-                case Keys.Escape:
-                    Close();
-                    break;
+                AcceptInput();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                Close();
             }
         }
     }

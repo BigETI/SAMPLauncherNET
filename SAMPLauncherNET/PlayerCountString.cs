@@ -13,12 +13,12 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Player count
         /// </summary>
-        private uint playerCount = 0U;
+        private readonly uint playerCount;
 
         /// <summary>
         /// Max players
         /// </summary>
-        private uint maxPlayers = 0U;
+        private readonly uint maxPlayers;
 
         /// <summary>
         /// Constructor
@@ -39,8 +39,13 @@ namespace SAMPLauncherNET
         public int CompareTo(object obj)
         {
             int ret = 1;
-            if (obj is PlayerCountString)
-                ret = CompareTo((PlayerCountString)obj);
+            if (obj != null)
+            {
+                if (obj is PlayerCountString)
+                {
+                    ret = CompareTo((PlayerCountString)obj);
+                }
+            }
             return ret;
         }
 
@@ -55,9 +60,13 @@ namespace SAMPLauncherNET
             if (other != null)
             {
                 if (playerCount == other.playerCount)
+                {
                     ret = ((maxPlayers == other.maxPlayers) ? 0 : ((maxPlayers > other.maxPlayers) ? 1 : -1));
+                }
                 else
+                {
                     ret = ((playerCount > other.playerCount) ? 1 : -1);
+                }
             }
             return ret;
         }

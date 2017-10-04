@@ -19,43 +19,43 @@ namespace SAMPLauncherNET
         {
             get
             {
-                DeveloperToolsConfigDataContract ret = new DeveloperToolsConfigDataContract();
-                ret.acknowledgesLimit = Utils.GetInt(acknowledgesLimitSingleLineTextField.Text);
-                ret.announce = announceCheckBox.Checked;
-                ret.bind = bindSingleLineTextField.Text;
-                ret.chatLogging = chatLoggingCheckBox.Checked;
-                ret.connectionCookies = connectionCookiesCheckBox.Checked;
-                ret.connectionSeedTime = Utils.GetInt(connectionSeedTimeSingleLineTextField.Text);
-                ret.cookieLogging = cookieLoggingCheckBox.Checked;
-                ret.databaseLogQueries = databaseLoggingCheckBox.Checked;
-                ret.databaseLogging = databaseLoggingCheckBox.Checked;
-                ret.hostname = hostnameSingleLineTextField.Text;
-                ret.inCarRate = Utils.GetInt(inCarRateSingleLineTextField.Text);
-                ret.lagCompensationMode = Utils.GetInt(lagCompensationModeSingleLineTextField.Text);
-                ret.language = languageSingleLineTextField.Text;
-                ret.lanMode = lanModeCheckBox.Checked;
-                ret.logQueries = logQueriesCheckBox.Checked;
-                ret.logTimeFormat = logTimeFormatSingleLineTextField.Text;
-                ret.mapName = mapNameSingleLineTextField.Text;
-                ret.maximumPlayers = Utils.GetInt(maximalPlayersSingleLineTextField.Text);
-                ret.maximumNPCs = Utils.GetInt(maximalNPCsSingleLineTextField.Text);
-                ret.messageHoleLimit = Utils.GetInt(messageHoleLimitSingleLineTextField.Text);
-                ret.messagesLimit = Utils.GetInt(messagesLimitSingleLineTextField.Text);
-                ret.minimumConnectionTime = Utils.GetInt(minimumConnectionTimeSingleLineTextField.Text);
-                ret.noSign = noSignSingleLineTextField.Text;
-                ret.onFootRate = Utils.GetInt(onFootRateSingleLineTextField.Text);
-                ret.password = passwordSingleLineTextField.Text;
-                ret.playerTimeOut = Utils.GetInt(playerTimeOutSingleLineTextField.Text);
-                ret.port = Utils.GetInt(portSingleLineTextField.Text);
-                ret.query = queryCheckBox.Checked;
-                ret.rcon = rconCheckBox.Checked;
-                ret.rconPassword = rconPasswordSingleLineTextField.Text;
-                ret.sleep = Utils.GetInt(sleepSingleLineTextField.Text);
-                ret.streamDistance = Utils.GetFloat(streamDistanceSingleLineTextField.Text);
-                ret.streamRate = Utils.GetInt(streamRateSingleLineTextField.Text);
-                ret.timestamp = timestampCheckBox.Checked;
-                ret.weaponRate = Utils.GetInt(weaponRateSingleLineTextField.Text);
-                ret.websiteURL = websiteURLSingleLineTextField.Text;
+                DeveloperToolsConfigDataContract ret = new DeveloperToolsConfigDataContract(
+                    Utils.GetInt(acknowledgesLimitSingleLineTextField.Text),
+                    announceCheckBox.Checked,
+                    bindSingleLineTextField.Text,
+                    chatLoggingCheckBox.Checked,
+                    connectionCookiesCheckBox.Checked,
+                    Utils.GetInt(connectionSeedTimeSingleLineTextField.Text),
+                    cookieLoggingCheckBox.Checked,
+                    databaseLoggingCheckBox.Checked,
+                    databaseLoggingCheckBox.Checked,
+                    hostnameSingleLineTextField.Text,
+                    Utils.GetInt(inCarRateSingleLineTextField.Text),
+                    Utils.GetInt(lagCompensationModeSingleLineTextField.Text),
+                    languageSingleLineTextField.Text,
+                    lanModeCheckBox.Checked,
+                    logQueriesCheckBox.Checked,
+                    logTimeFormatSingleLineTextField.Text,
+                    mapNameSingleLineTextField.Text,
+                    Utils.GetInt(maximalPlayersSingleLineTextField.Text),
+                    Utils.GetInt(maximalNPCsSingleLineTextField.Text),
+                    Utils.GetInt(messageHoleLimitSingleLineTextField.Text),
+                    Utils.GetInt(messagesLimitSingleLineTextField.Text),
+                    Utils.GetInt(minimumConnectionTimeSingleLineTextField.Text),
+                    noSignSingleLineTextField.Text,
+                    Utils.GetInt(onFootRateSingleLineTextField.Text),
+                    passwordSingleLineTextField.Text,
+                    Utils.GetInt(playerTimeOutSingleLineTextField.Text),
+                    Utils.GetInt(portSingleLineTextField.Text),
+                    queryCheckBox.Checked,
+                    rconCheckBox.Checked,
+                    rconPasswordSingleLineTextField.Text,
+                    Utils.GetInt(sleepSingleLineTextField.Text),
+                    Utils.GetFloat(streamDistanceSingleLineTextField.Text),
+                    Utils.GetInt(streamRateSingleLineTextField.Text),
+                    timestampCheckBox.Checked,
+                    Utils.GetInt(weaponRateSingleLineTextField.Text),
+                    websiteURLSingleLineTextField.Text);
                 return ret;
             }
         }
@@ -67,42 +67,42 @@ namespace SAMPLauncherNET
         {
             InitializeComponent();
             Translator.LoadTranslation(this);
-            acknowledgesLimitSingleLineTextField.Text = developerToolsConfigDataContract.acknowledgesLimit.ToString();
-            announceCheckBox.Checked = developerToolsConfigDataContract.announce;
-            bindSingleLineTextField.Text = developerToolsConfigDataContract.bind;
-            chatLoggingCheckBox.Checked = developerToolsConfigDataContract.chatLogging;
-            connectionCookiesCheckBox.Checked = developerToolsConfigDataContract.connectionCookies;
-            connectionSeedTimeSingleLineTextField.Text = developerToolsConfigDataContract.connectionSeedTime.ToString();
-            cookieLoggingCheckBox.Checked = developerToolsConfigDataContract.cookieLogging;
-            databaseLoggingCheckBox.Checked = developerToolsConfigDataContract.databaseLogQueries;
-            databaseLoggingCheckBox.Checked = developerToolsConfigDataContract.databaseLogging;
-            hostnameSingleLineTextField.Text = developerToolsConfigDataContract.hostname;
-            inCarRateSingleLineTextField.Text = developerToolsConfigDataContract.inCarRate.ToString();
-            lagCompensationModeSingleLineTextField.Text = developerToolsConfigDataContract.lagCompensationMode.ToString();
-            languageSingleLineTextField.Text = developerToolsConfigDataContract.language;
-            lanModeCheckBox.Checked = developerToolsConfigDataContract.lanMode;
-            logQueriesCheckBox.Checked = developerToolsConfigDataContract.logQueries;
-            logTimeFormatSingleLineTextField.Text = developerToolsConfigDataContract.logTimeFormat;
-            mapNameSingleLineTextField.Text = developerToolsConfigDataContract.mapName;
-            maximalPlayersSingleLineTextField.Text = developerToolsConfigDataContract.maximumPlayers.ToString();
-            maximalNPCsSingleLineTextField.Text = developerToolsConfigDataContract.maximumNPCs.ToString();
-            messageHoleLimitSingleLineTextField.Text = developerToolsConfigDataContract.messageHoleLimit.ToString();
-            messagesLimitSingleLineTextField.Text = developerToolsConfigDataContract.messagesLimit.ToString();
-            minimumConnectionTimeSingleLineTextField.Text = developerToolsConfigDataContract.minimumConnectionTime.ToString();
-            noSignSingleLineTextField.Text = developerToolsConfigDataContract.noSign;
-            onFootRateSingleLineTextField.Text = developerToolsConfigDataContract.onFootRate.ToString();
-            passwordSingleLineTextField.Text = developerToolsConfigDataContract.password;
-            playerTimeOutSingleLineTextField.Text = developerToolsConfigDataContract.playerTimeOut.ToString();
-            portSingleLineTextField.Text = developerToolsConfigDataContract.port.ToString();
-            queryCheckBox.Checked = developerToolsConfigDataContract.query;
-            rconCheckBox.Checked = developerToolsConfigDataContract.rcon;
-            rconPasswordSingleLineTextField.Text = developerToolsConfigDataContract.rconPassword;
-            sleepSingleLineTextField.Text = developerToolsConfigDataContract.sleep.ToString();
-            streamDistanceSingleLineTextField.Text = developerToolsConfigDataContract.streamDistance.ToString();
-            streamRateSingleLineTextField.Text = developerToolsConfigDataContract.streamRate.ToString();
-            timestampCheckBox.Checked = developerToolsConfigDataContract.timestamp;
-            weaponRateSingleLineTextField.Text = developerToolsConfigDataContract.weaponRate.ToString();
-            websiteURLSingleLineTextField.Text = developerToolsConfigDataContract.websiteURL;
+            acknowledgesLimitSingleLineTextField.Text = developerToolsConfigDataContract.AcknowledgesLimit.ToString();
+            announceCheckBox.Checked = developerToolsConfigDataContract.Announce;
+            bindSingleLineTextField.Text = developerToolsConfigDataContract.Bind;
+            chatLoggingCheckBox.Checked = developerToolsConfigDataContract.ChatLogging;
+            connectionCookiesCheckBox.Checked = developerToolsConfigDataContract.ConnectionCookies;
+            connectionSeedTimeSingleLineTextField.Text = developerToolsConfigDataContract.ConnectionSeedTime.ToString();
+            cookieLoggingCheckBox.Checked = developerToolsConfigDataContract.CookieLogging;
+            databaseLoggingCheckBox.Checked = developerToolsConfigDataContract.DatabaseLogQueries;
+            databaseLoggingCheckBox.Checked = developerToolsConfigDataContract.DatabaseLogging;
+            hostnameSingleLineTextField.Text = developerToolsConfigDataContract.Hostname;
+            inCarRateSingleLineTextField.Text = developerToolsConfigDataContract.InCarRate.ToString();
+            lagCompensationModeSingleLineTextField.Text = developerToolsConfigDataContract.LagCompensationMode.ToString();
+            languageSingleLineTextField.Text = developerToolsConfigDataContract.Language;
+            lanModeCheckBox.Checked = developerToolsConfigDataContract.LANMode;
+            logQueriesCheckBox.Checked = developerToolsConfigDataContract.LogQueries;
+            logTimeFormatSingleLineTextField.Text = developerToolsConfigDataContract.LogTimeFormat;
+            mapNameSingleLineTextField.Text = developerToolsConfigDataContract.MapName;
+            maximalPlayersSingleLineTextField.Text = developerToolsConfigDataContract.MaximumPlayers.ToString();
+            maximalNPCsSingleLineTextField.Text = developerToolsConfigDataContract.MaximumNPCs.ToString();
+            messageHoleLimitSingleLineTextField.Text = developerToolsConfigDataContract.MessageHoleLimit.ToString();
+            messagesLimitSingleLineTextField.Text = developerToolsConfigDataContract.MessagesLimit.ToString();
+            minimumConnectionTimeSingleLineTextField.Text = developerToolsConfigDataContract.MinimumConnectionTime.ToString();
+            noSignSingleLineTextField.Text = developerToolsConfigDataContract.NoSign;
+            onFootRateSingleLineTextField.Text = developerToolsConfigDataContract.OnFootRate.ToString();
+            passwordSingleLineTextField.Text = developerToolsConfigDataContract.Password;
+            playerTimeOutSingleLineTextField.Text = developerToolsConfigDataContract.PlayerTimeOut.ToString();
+            portSingleLineTextField.Text = developerToolsConfigDataContract.Port.ToString();
+            queryCheckBox.Checked = developerToolsConfigDataContract.Query;
+            rconCheckBox.Checked = developerToolsConfigDataContract.RCON;
+            rconPasswordSingleLineTextField.Text = developerToolsConfigDataContract.RCONPassword;
+            sleepSingleLineTextField.Text = developerToolsConfigDataContract.Sleep.ToString();
+            streamDistanceSingleLineTextField.Text = developerToolsConfigDataContract.StreamDistance.ToString();
+            streamRateSingleLineTextField.Text = developerToolsConfigDataContract.StreamRate.ToString();
+            timestampCheckBox.Checked = developerToolsConfigDataContract.Timestamp;
+            weaponRateSingleLineTextField.Text = developerToolsConfigDataContract.WeaponRate.ToString();
+            websiteURLSingleLineTextField.Text = developerToolsConfigDataContract.WebsiteURL;
         }
 
         /// <summary>
