@@ -49,7 +49,7 @@ Manage your server list endpoints, and access lists that were inaccessible throu
 ### Developer tools
 Make your server development workflow easier by configuring, starting and joining your test server using this launcher. 
 
-### Screenshots
+## Screenshots
 
 ![Screenshot](screenshots/screenshot001.png)
 
