@@ -1,5 +1,5 @@
 # SAMPLauncherNET
-[![Build Status](https://travis-ci.org/BigETI/SAMPLauncherNET.svg?branch=master)](https://travis-ci.org/BigETI/SAMPLauncherNET)[![Codacy Badge] (https://api.codacy.com/project/badge/Grade/dd6f650fe9c141f88ae8d60f64712802)](https://www.codacy.com/app/BigETI/SAMPLauncherNET?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BigETI/SAMPLauncherNET&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/BigETI/SAMPLauncherNET.svg?branch=master)](https://travis-ci.org/BigETI/SAMPLauncherNET) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/dd6f650fe9c141f88ae8d60f64712802)](https://www.codacy.com/app/BigETI/SAMPLauncherNET?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BigETI/SAMPLauncherNET&amp;utm_campaign=Badge_Grade)
 
 ## Description
 SAMPLauncherNET is a launcher for SA:MP
