@@ -21,7 +21,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Serializer
         /// </summary>
-        private DataContractJsonSerializer serializer;
+        private readonly DataContractJsonSerializer serializer;
 
         /// <summary>
         /// Constructor

@@ -801,39 +801,38 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Save developer tools configuration
         /// </summary>
-        private DeveloperToolsConfigDataContract SaveDeveloperToolsConfig()
+        private void SaveDeveloperToolsConfig()
         {
-            DeveloperToolsConfigDataContract ret = SAMP.DeveloperToolsConfigIO;
+            DeveloperToolsConfigDataContract dtcdc = SAMP.DeveloperToolsConfigIO;
             List<string> entries = new List<string>();
             foreach (var item in developerToolsGamemodesCheckedListBox.CheckedItems)
             {
                 entries.Add(item.ToString());
             }
-            ret.Gamemodes = entries.ToArray();
+            dtcdc.Gamemodes = entries.ToArray();
             entries.Clear();
             foreach (var item in developerToolsFilterscriptsCheckedListBox.CheckedItems)
             {
                 entries.Add(item.ToString());
             }
-            ret.Filterscripts = entries.ToArray();
+            dtcdc.Filterscripts = entries.ToArray();
             entries.Clear();
             foreach (var item in developerToolsPluginsCheckedListBox.CheckedItems)
             {
                 entries.Add(item.ToString());
             }
-            ret.Plugins = entries.ToArray();
+            dtcdc.Plugins = entries.ToArray();
             entries.Clear();
-            ret.Hostname = developerToolsHostnameSingleLineTextField.Text;
-            ret.Port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
-            ret.Password = developerToolsServerPasswordSingleLineTextField.Text;
-            ret.RCONPassword = developerToolsRCONPasswordSingleLineTextField.Text;
-            if (ret.RCONPassword.Trim().Length <= 0)
+            dtcdc.Hostname = developerToolsHostnameSingleLineTextField.Text;
+            dtcdc.Port = Utils.GetInt(developerToolsPortSingleLineTextField.Text);
+            dtcdc.Password = developerToolsServerPasswordSingleLineTextField.Text;
+            dtcdc.RCONPassword = developerToolsRCONPasswordSingleLineTextField.Text;
+            if (dtcdc.RCONPassword.Trim().Length <= 0)
             {
-                ret.RCONPassword = Utils.GetRandomString(16);
-                developerToolsRCONPasswordSingleLineTextField.Text = ret.RCONPassword;
+                dtcdc.RCONPassword = Utils.GetRandomString(16);
+                developerToolsRCONPasswordSingleLineTextField.Text = dtcdc.RCONPassword;
             }
-            SAMP.DeveloperToolsConfigIO = ret;
-            return ret;
+            SAMP.DeveloperToolsConfigIO = dtcdc;
         }
 
         /// <summary>
@@ -1368,10 +1367,7 @@ namespace SAMPLauncherNET
                 {
                     fpsLimitSingleLineTextField.Text = v.ToString();
                 }
-                if (fpsLimitTrackBar.Value != v)
-                {
-                    fpsLimitTrackBar.Value = v;
-                }
+                fpsLimitTrackBar.Value = v;
             }
             else
             {

@@ -125,11 +125,22 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Get integer from text field
+        /// Get integer from text
         /// </summary>
-        /// <param name="textField">Text field</param>
+        /// <param name="text">Text</param>
         /// <returns>Integer</returns>
-        public static int GetInt(string text, int defaultValue =0)
+        public static int GetInt(string text)
+        {
+            return GetInt(text, 0);
+        }
+
+        /// <summary>
+        /// Get integer from text
+        /// </summary>
+        /// <param name="text">Text</param>
+        /// <param name="defaultValue">Default value</param>
+        /// <returns>Integer</returns>
+        public static int GetInt(string text, int defaultValue)
         {
             int ret = 0;
             if (!(int.TryParse(text, out ret)))
@@ -140,11 +151,22 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Get floating point number from text field
+        /// Get floating point number from text
         /// </summary>
-        /// <param name="textField">Text field</param>
-        /// <returns>FLoating point number</returns>
-        public static float GetFloat(string text, float defaultValue = 0.0f)
+        /// <param name="text">Text</param>
+        /// <returns>Floating point number</returns>
+        public static float GetFloat(string text)
+        {
+            return GetFloat(text, 0.0f);
+        }
+
+        /// <summary>
+        /// Get floating point number from text
+        /// </summary>
+        /// <param name="text">Text</param>
+        /// <param name="defaultValue">Default value</param>
+        /// <returns>Floating point number</returns>
+        public static float GetFloat(string text, float defaultValue)
         {
             float ret = 0.0f;
             if (!(float.TryParse(text, out ret)))

@@ -37,21 +37,21 @@ namespace SAMPLauncherNET
         public static Image GetThumbnail(string path)
         {
             Image ret = null;
-            path = path.ToLower();
-            if (cache.ContainsKey(path))
+            string p = path.ToLowerInvariant();
+            if (cache.ContainsKey(p))
             {
-                ret = cache[path];
+                ret = cache[p];
             }
             else
             {
-                if (File.Exists(path))
+                if (File.Exists(p))
                 {
-                    Image image = Image.FromFile(path);
+                    Image image = Image.FromFile(p);
                     if (image != null)
                     {
                         ret = Utils.GetThumbnail(image);
                         image.Dispose();
-                        cache.Add(path, ret);
+                        cache.Add(p, ret);
                     }
                 }
             }

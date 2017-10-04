@@ -31,7 +31,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// IPv4 address
         /// </summary>
-        private readonly uint ipv4AddressUInt = 0U;
+        private readonly uint ipv4AddressUInt;
 
         /// <summary>
         /// Port
@@ -944,8 +944,6 @@ namespace SAMPLauncherNET
                                                     }
                                                     requestsRequired[ERequestType.DetailedClients] = false;
                                                 }
-                                                break;
-                                            default:
                                                 break;
                                         }
                                     }
