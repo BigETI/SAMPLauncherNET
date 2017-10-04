@@ -26,7 +26,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Server
         /// </summary>
-        private readonly Server server = null;
+        private readonly Server server;
 
         /// <summary>
         /// Ping list

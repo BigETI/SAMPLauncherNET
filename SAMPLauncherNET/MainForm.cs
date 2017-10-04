@@ -588,12 +588,12 @@ namespace SAMPLauncherNET
             }
             if (s != null)
             {
-                ConnectForm cf = new ConnectForm(!(server.HasPassword));
+                ConnectForm cf = new ConnectForm(!(s.HasPassword));
                 DialogResult result = cf.ShowDialog();
                 DialogResult = DialogResult.None;
                 if (result == DialogResult.OK)
                 {
-                    SAMP.LaunchSAMP(server, cf.Username, server.HasPassword ? cf.ServerPassword : null, rconPassword, false, quitWhenDone, this);
+                    SAMP.LaunchSAMP(s, cf.Username, s.HasPassword ? cf.ServerPassword : null, rconPassword, false, quitWhenDone, this);
                 }
             }
         }
