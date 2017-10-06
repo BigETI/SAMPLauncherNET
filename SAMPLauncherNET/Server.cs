@@ -184,9 +184,9 @@ namespace SAMPLauncherNET
                     {
                         ipAddress = Dns.GetHostAddresses(IPv4AddressString)[0];
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        //
+                        Console.Error.WriteLine(e.Message);
                     }
                 }
                 return ipAddress;
@@ -565,9 +565,9 @@ namespace SAMPLauncherNET
                     }
                 }
             }
-            catch
+            catch (Exception e)
             {
-                //
+                Console.Error.WriteLine(e.Message);
             }
         }
 
@@ -629,9 +629,9 @@ namespace SAMPLauncherNET
                     {
                         t.Start();
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        //
+                        Console.Error.WriteLine(e.Message);
                     }
                 }
             }
@@ -714,9 +714,9 @@ namespace SAMPLauncherNET
                     {
                         t.Start();
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        //
+                        Console.Error.WriteLine(e.Message);
                     }
                 }
             }
@@ -735,9 +735,9 @@ namespace SAMPLauncherNET
                     {
                         t.Join();
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        //
+                        Console.Error.WriteLine(e.Message);
                     }
                 }
             }
@@ -820,9 +820,9 @@ namespace SAMPLauncherNET
                     }
                 }
             }
-            catch
+            catch (Exception e)
             {
-                //
+                Console.Error.WriteLine(e.Message);
             }
             return ret;
         }
@@ -887,9 +887,9 @@ namespace SAMPLauncherNET
                                                             rules.Add(k, Encoding.Default.GetString(reader.ReadBytes(reader.ReadByte())));
                                                         }
                                                     }
-                                                    catch
+                                                    catch (Exception e)
                                                     {
-                                                        //
+                                                        Console.Error.WriteLine(e.Message);
                                                     }
                                                     requestsRequired[ERequestType.Rules] = false;
                                                 }
@@ -910,9 +910,9 @@ namespace SAMPLauncherNET
                                                             clients.Add(k, reader.ReadInt32());
                                                         }
                                                     }
-                                                    catch
+                                                    catch (Exception e)
                                                     {
-                                                        //
+                                                        Console.Error.WriteLine(e.Message);
                                                     }
                                                     requestsRequired[ERequestType.Clients] = false;
                                                 }
@@ -938,9 +938,9 @@ namespace SAMPLauncherNET
                                                             players.Add(id, new Player(id, pn, s, p));
                                                         }
                                                     }
-                                                    catch
+                                                    catch (Exception e)
                                                     {
-                                                        //
+                                                        Console.Error.WriteLine(e.Message);
                                                     }
                                                     requestsRequired[ERequestType.DetailedClients] = false;
                                                 }
@@ -953,9 +953,9 @@ namespace SAMPLauncherNET
                     }
                 }
             }
-            catch
+            catch (Exception e)
             {
-                //
+                Console.Error.WriteLine(e.Message);
             }
         }
 

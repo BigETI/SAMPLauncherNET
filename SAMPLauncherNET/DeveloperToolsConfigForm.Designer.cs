@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeveloperToolsConfigForm));
             this.mainPanel = new System.Windows.Forms.Panel();
             this.cancelButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.okButton = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -1220,6 +1221,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 800);
             this.Controls.Add(this.mainPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DeveloperToolsConfigForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "{$DEVELOPER_TOOLS_CONFIGURATION_TITLE$}";

@@ -198,7 +198,7 @@ namespace SAMPLauncherNET
                     {
                         foreach (KeyValuePair<Server, int> kv in loadServers)
                         {
-                            if (kv.Key is FavouriteServer)
+                            if ((kv.Key is FavouriteServer) || (kv.Key is BackendRESTfulServer))
                             {
                                 rlist.Add(kv);
                             }
@@ -434,9 +434,9 @@ namespace SAMPLauncherNET
                         ++i;
                     }
                 }
-                catch
+                catch (Exception e)
                 {
-                    //
+                    Console.Error.WriteLine(e.Message);
                 }
                 if (cs)
                 {
@@ -468,9 +468,9 @@ namespace SAMPLauncherNET
                         ++i;
                     }
                 }
-                catch
+                catch (Exception e)
                 {
-                    //
+                    Console.Error.WriteLine(e.Message);
                 }
                 if (cs)
                 {
@@ -691,9 +691,9 @@ namespace SAMPLauncherNET
                         {
                             File.Delete(file);
                         }
-                        catch
+                        catch (Exception e)
                         {
-                            //
+                            Console.Error.WriteLine(e.Message);
                         }
                     }
                     galleryFileSystemWatcher.EnableRaisingEvents = true;

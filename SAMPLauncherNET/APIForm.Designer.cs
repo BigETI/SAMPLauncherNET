@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(APIForm));
             this.mainFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.apiNameLabel = new MaterialSkin.Controls.MaterialLabel();
             this.apiNameSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -185,6 +186,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 268);
             this.Controls.Add(this.mainFlowLayoutPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(466, 268);
             this.MinimumSize = new System.Drawing.Size(466, 268);
             this.Name = "APIForm";

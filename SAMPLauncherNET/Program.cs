@@ -38,9 +38,9 @@ namespace SAMPLauncherNET
                 {
                     ret = (Registry.GetValue(RegistryKey, "gta_sa_exe", null) != null) && (Registry.GetValue(RegistryKey, "PlayerName", null) != null) && Directory.Exists(ConfigPath);
                 }
-                catch
+                catch (Exception e)
                 {
-                    //
+                    Console.Error.WriteLine(e.Message);
                 }
                 return ret;
             }

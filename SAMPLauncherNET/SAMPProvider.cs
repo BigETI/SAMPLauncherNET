@@ -84,9 +84,9 @@ namespace SAMPLauncherNET
                             }
                         }
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        //
+                        Console.Error.WriteLine(e.Message);
                     }
                 }
                 return currentVersion;

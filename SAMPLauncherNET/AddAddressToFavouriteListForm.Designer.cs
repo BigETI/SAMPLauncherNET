@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAddressToFavouriteListForm));
             this.mainFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.addressLabel = new MaterialSkin.Controls.MaterialLabel();
             this.addressSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -148,6 +149,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(472, 220);
             this.Controls.Add(this.mainFlowLayoutPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(472, 220);
             this.MinimumSize = new System.Drawing.Size(472, 220);
             this.Name = "AddAddressToFavouriteListForm";

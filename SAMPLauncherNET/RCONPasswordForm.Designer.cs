@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RCONPasswordForm));
             this.rconPasswordLabel = new MaterialSkin.Controls.MaterialLabel();
             this.rconPasswordTextBox = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.connectButton = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -124,6 +125,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 168);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(466, 168);
             this.MinimumSize = new System.Drawing.Size(466, 168);
             this.Name = "RCONPasswordForm";

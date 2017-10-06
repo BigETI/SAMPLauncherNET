@@ -136,9 +136,9 @@ namespace SAMPLauncherNET
                 {
                     ret = Registry.GetValue(RegistryKey, "PlayerName", "").ToString();
                 }
-                catch
+                catch (Exception e)
                 {
-                    //
+                    Console.Error.WriteLine(e.Message);
                 }
                 return ret;
             }
@@ -160,9 +160,9 @@ namespace SAMPLauncherNET
                 {
                     ret = Registry.GetValue(RegistryKey, "gta_sa_exe", "").ToString();
                 }
-                catch
+                catch (Exception e)
                 {
-                    //
+                    Console.Error.WriteLine(e.Message);
                 }
                 return ret;
             }
@@ -212,9 +212,9 @@ namespace SAMPLauncherNET
                             }
                         }
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        //
+                        Console.Error.WriteLine(e.Message);
                     }
                 }
             }
@@ -238,9 +238,9 @@ namespace SAMPLauncherNET
                         }
                     }
                 }
-                catch
+                catch (Exception e)
                 {
-                    //
+                    Console.Error.WriteLine(e.Message);
                 }
                 return ret;
             }
@@ -264,9 +264,9 @@ namespace SAMPLauncherNET
                         }
                     }
                 }
-                catch
+                catch (Exception e)
                 {
-                    //
+                    Console.Error.WriteLine(e.Message);
                 }
                 return ret;
             }
@@ -289,9 +289,9 @@ namespace SAMPLauncherNET
                             ret = launcherConfigSerializer.ReadObject(reader.BaseStream) as LauncherConfigDataContract;
                         }
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        //
+                        Console.Error.WriteLine(e.Message);
                     }
                 }
                 if (ret == null)
@@ -311,9 +311,9 @@ namespace SAMPLauncherNET
                             launcherConfigSerializer.WriteObject(writer.BaseStream, value);
                         }
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        //
+                        Console.Error.WriteLine(e.Message);
                     }
                 }
             }
@@ -348,9 +348,9 @@ namespace SAMPLauncherNET
                             ret = developerToolsConfigSerializer.ReadObject(reader.BaseStream) as DeveloperToolsConfigDataContract;
                         }
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        //
+                        Console.Error.WriteLine(e.Message);
                     }
                 }
                 if (ret == null)
@@ -375,9 +375,9 @@ namespace SAMPLauncherNET
                             developerToolsConfigSerializer.WriteObject(writer.BaseStream, value);
                         }
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        //
+                        Console.Error.WriteLine(e.Message);
                     }
                 }
             }
@@ -472,9 +472,9 @@ namespace SAMPLauncherNET
                     lastServerProcess.CloseMainWindow();
                     lastServerProcess = null;
                 }
-                catch
+                catch (Exception e)
                 {
-                    //
+                    Console.Error.WriteLine(e.Message);
                 }
             }
         }
@@ -514,9 +514,9 @@ namespace SAMPLauncherNET
             {
                 LaunchSAMP(null, "", null, null, true, quitWhenDone, f);
             }
-            catch
+            catch (Exception e)
             {
-                //
+                Console.Error.WriteLine(e.Message);
             }
         }
 
@@ -563,9 +563,9 @@ namespace SAMPLauncherNET
                                                 }
                                             }
                                         }
-                                        catch
+                                        catch (Exception e)
                                         {
-                                            //
+                                            Console.Error.WriteLine(e.Message);
                                         }
                                     }
                                 }
@@ -595,9 +595,9 @@ namespace SAMPLauncherNET
                     f.Close();
                 }
             }
-            catch
+            catch (Exception e)
             {
-                //
+                Console.Error.WriteLine(e.Message);
             }
         }
 
@@ -610,9 +610,9 @@ namespace SAMPLauncherNET
             {
                 Process.Start("explorer.exe", GalleryPath);
             }
-            catch
+            catch (Exception e)
             {
-                //
+                Console.Error.WriteLine(e.Message);
             }
         }
 
@@ -636,9 +636,9 @@ namespace SAMPLauncherNET
             {
                 Process.Start(ForumsURL);
             }
-            catch
+            catch (Exception e)
             {
-                //
+                Console.Error.WriteLine(e.Message);
             }
         }
 
@@ -651,9 +651,9 @@ namespace SAMPLauncherNET
             {
                 Process.Start(GitHubProjectURL);
             }
-            catch
+            catch (Exception e)
             {
-                //
+                Console.Error.WriteLine(e.Message);
             }
         }
     }

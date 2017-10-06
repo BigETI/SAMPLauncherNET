@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DownloadProgressForm));
             this.mainPanel = new System.Windows.Forms.Panel();
             this.downloadProgressLabel = new MaterialSkin.Controls.MaterialLabel();
             this.downloadProgressBar = new MaterialSkin.Controls.MaterialProgressBar();
@@ -80,6 +81,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 120);
             this.Controls.Add(this.mainPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(10000, 120);
             this.MinimumSize = new System.Drawing.Size(300, 120);
             this.Name = "DownloadProgressForm";

@@ -187,7 +187,10 @@ namespace SAMPLauncherNET
                                             BackendRESTfulServer server = new BackendRESTfulServer(sdc);
                                             if (server.IsValid)
                                             {
-                                                ret.Add(server.IPPortString, server);
+                                                if (!(ret.ContainsKey(server.IPPortString)))
+                                                {
+                                                    ret.Add(server.IPPortString, server);
+                                                }
                                             }
                                         }
                                     }
@@ -246,9 +249,9 @@ namespace SAMPLauncherNET
                             break;
                     }
                 }
-                catch
+                catch (Exception e)
                 {
-                    //
+                    Console.Error.WriteLine(e.Message);
                 }
                 maxServers = (uint)(ret.Count);
                 return ret;
@@ -271,9 +274,9 @@ namespace SAMPLauncherNET
                                 favouriteListJSONSerializer.WriteObject(stream, api.ToArray());
                             }
                         }
-                        catch
+                        catch (Exception e)
                         {
-                            //
+                            Console.Error.WriteLine(e.Message);
                         }
                         maxServers = (uint)(value.Count);
                     }
@@ -321,9 +324,9 @@ namespace SAMPLauncherNET
                                 }
                             }
                         }
-                        catch
+                        catch (Exception e)
                         {
-                            //
+                            Console.Error.WriteLine(e.Message);
                         }
                         maxServers = (uint)(value.Count);
                     }
