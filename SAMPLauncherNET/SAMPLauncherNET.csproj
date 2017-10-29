@@ -141,6 +141,11 @@
     <Compile Include="FileResource.cs" />
     <Compile Include="GeoLocationProvider.cs" />
     <Compile Include="GeoLocator.cs" />
+    <Compile Include="Languages\pt-PT.Designer.cs">
+      <DependentUpon>pt-PT.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="ThumbnailsCache.cs" />
     <Compile Include="IndexedServerListConnector.cs" />
     <Compile Include="Kernel32.cs" />
@@ -251,6 +256,10 @@
     <EmbeddedResource Include="Languages\nl-BE.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>nl-BE.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\pt-PT.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>pt-PT.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Languages\ru-RU.resx">
       <Generator>ResXFileCodeGenerator</Generator>
