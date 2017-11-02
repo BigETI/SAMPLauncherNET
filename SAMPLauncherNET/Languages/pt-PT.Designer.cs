@@ -61,7 +61,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About.
+        ///   Looks up a localized string similar to Sobre.
         /// </summary>
         internal static string ABOUT {
             get {
@@ -71,11 +71,11 @@ namespace SAMPLauncherNET.Languages {
         
         /// <summary>
         ///   Looks up a localized string similar to 
-        ///SAMPLauncher NET é um launcher para San Andreas Multiplayer.
+        ///SAMPLauncher NET is a launcher for San Andreas Multiplayer.
         ///
-        ///Este software é gratuito e licenciado com GPLv3.
+        ///This software is all time free and licensed with GPLv3.
         ///
-        ///Este projeto é localizado em.
+        ///This project is located at.
         /// </summary>
         internal static string ABOUT_DESCRIPTION {
             get {
@@ -93,6 +93,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Marcar como Favorito.
+        /// </summary>
+        internal static string ADD_ADDRESS_TO_FAVOURITE_LIST {
+            get {
+                return ResourceManager.GetString("ADD_ADDRESS_TO_FAVOURITE_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to San Andreas Multiplayer - Marcar como Favorito.
+        /// </summary>
+        internal static string ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE {
+            get {
+                return ResourceManager.GetString("ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Adicionar nova API.
         /// </summary>
         internal static string ADD_NEW_API {
@@ -102,7 +120,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Marcar como favorito.
+        ///   Looks up a localized string similar to Marcar como Favotiro.
         /// </summary>
         internal static string ADD_SERVER_TO_FAVOURITES {
             get {
@@ -111,7 +129,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Já está como favorito.
+        ///   Looks up a localized string similar to Já marcado como Favorito.
         /// </summary>
         internal static string ALREADY_IN_FAVOURITES {
             get {
@@ -120,7 +138,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anuncie o servidor.
+        ///   Looks up a localized string similar to Anunciar servidor.
         /// </summary>
         internal static string ANNOUNCE {
             get {
@@ -138,7 +156,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to API endpoint.
+        ///   Looks up a localized string similar to API endpoint:.
         /// </summary>
         internal static string API_ENDPOINT {
             get {
@@ -147,7 +165,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Por favor especifique um endpoint válido para a API.
+        ///   Looks up a localized string similar to Por favor especifica um endpoint válido para a API.
         /// </summary>
         internal static string API_ENDPOINT_MISSING {
             get {
@@ -156,7 +174,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Endpoint de API em falta.
+        ///   Looks up a localized string similar to Endpoint da API em falta.
         /// </summary>
         internal static string API_ENDPOINT_MISSING_TITLE {
             get {
@@ -165,7 +183,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nome da API.
+        ///   Looks up a localized string similar to Nome da API:.
         /// </summary>
         internal static string API_NAME {
             get {
@@ -174,7 +192,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Por favor insira o nome da API..
+        ///   Looks up a localized string similar to Por favor insere um nome para a API.
         /// </summary>
         internal static string API_NAME_MISSING {
             get {
@@ -192,7 +210,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tipo de API.
+        ///   Looks up a localized string similar to Tipo de API:.
         /// </summary>
         internal static string API_TYPE {
             get {
@@ -201,7 +219,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Por favor selecione o tipo da API..
+        ///   Looks up a localized string similar to Escolhe o tipo da API.
         /// </summary>
         internal static string API_TYPE_MISSING {
             get {
@@ -210,7 +228,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tipo de API em falta.
+        ///   Looks up a localized string similar to Tipo da API em falta.
         /// </summary>
         internal static string API_TYPE_MISSING_TITLE {
             get {
@@ -219,7 +237,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Versão da assembly.
+        ///   Looks up a localized string similar to Versão da Assembly.
         /// </summary>
         internal static string ASSEMBLY_VERSION {
             get {
@@ -228,7 +246,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mensagem de Áudio Inactiva.
+        ///   Looks up a localized string similar to Messagem de áudio activa.
         /// </summary>
         internal static string AUDIO_MESSAGE_OFF {
             get {
@@ -237,7 +255,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Proxy de Áudio Inactiva.
+        ///   Looks up a localized string similar to Messagem de áudio desactiva.
         /// </summary>
         internal static string AUDIO_PROXY_OFF {
             get {
@@ -264,6 +282,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Queres mesmo cancelar o download?.
+        /// </summary>
+        internal static string CANCEL_DOWNLOAD {
+            get {
+                return ResourceManager.GetString("CANCEL_DOWNLOAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelar download.
+        /// </summary>
+        internal static string CANCEL_DOWNLOAD_TITLE {
+            get {
+                return ResourceManager.GetString("CANCEL_DOWNLOAD_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Activar gravação do chat.
         /// </summary>
         internal static string CHAT_LOGGING {
@@ -282,7 +318,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fechar quando abrir.
+        ///   Looks up a localized string similar to Fechar depois de ligar....
         /// </summary>
         internal static string CLOSE_WHEN_LAUNCHED {
             get {
@@ -318,7 +354,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ligar a um endereço.
+        ///   Looks up a localized string similar to Ligar Directamente.
         /// </summary>
         internal static string CONNECT_TO_ADDRESS {
             get {
@@ -327,7 +363,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to San Andreas Multiplayer - Ligar a um endereço.
+        ///   Looks up a localized string similar to San Andreas Multiplayer - Ligar diretamente.
         /// </summary>
         internal static string CONNECT_TO_ADDRESS_TITLE {
             get {
@@ -336,7 +372,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ligar ao servidor de testes.
+        ///   Looks up a localized string similar to Ligar ao Servidor.
         /// </summary>
         internal static string CONNECT_TO_TEST_SERVER {
             get {
@@ -345,7 +381,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ligar com RCON.
+        ///   Looks up a localized string similar to Ligar com password RCON.
         /// </summary>
         internal static string CONNECT_WITH_RCON {
             get {
@@ -354,7 +390,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Permitir cookies de ligação.
+        ///   Looks up a localized string similar to Autorizar cookies de ligação.
         /// </summary>
         internal static string CONNECTION_COOKIES {
             get {
@@ -363,7 +399,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Seed time da Ligação.
+        ///   Looks up a localized string similar to Connection seed time.
         /// </summary>
         internal static string CONNECTION_SEED_TIME {
             get {
@@ -390,7 +426,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log de consultas do banco de dados Registo de Consultas da Base de dados.
+        ///   Looks up a localized string similar to Database log queries.
         /// </summary>
         internal static string DATABASE_LOG_QUERIES {
             get {
@@ -399,7 +435,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activar gravação para a Base de dados.
+        ///   Looks up a localized string similar to Activar gravação da base de dados.
         /// </summary>
         internal static string DATABASE_LOGGING {
             get {
@@ -417,7 +453,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Desejas mesmo eliminar as imagens selecionadas?.
+        ///   Looks up a localized string similar to Queres mesmo eliminar as imagens selecionadas?.
         /// </summary>
         internal static string DELETE_SELECTED_IMAGES {
             get {
@@ -435,7 +471,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ferramentas do desenvolvedor.
+        ///   Looks up a localized string similar to Ferramentas de Desenvolvimento.
         /// </summary>
         internal static string DEVELOPER_TOOLS {
             get {
@@ -444,7 +480,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to San Andreas Multiplayer - Configuração das Ferramentas do Desenvolvedor.
+        ///   Looks up a localized string similar to San Andreas Multiplayer - Configuração das Ferramentas de Desenvolvimento.
         /// </summary>
         internal static string DEVELOPER_TOOLS_CONFIGURATION_TITLE {
             get {
@@ -453,7 +489,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Diretório de Desenvolvimento.
+        ///   Looks up a localized string similar to Pasta de Desenvolvimento.
         /// </summary>
         internal static string DEVELOPMENT_DIRECTORY {
             get {
@@ -480,7 +516,34 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Holandês (Nederlands).
+        ///   Looks up a localized string similar to Download falhado.
+        /// </summary>
+        internal static string DOWNLOAD_FAILED_TITLE {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_FAILED_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A efectuar o download.
+        /// </summary>
+        internal static string DOWNLOAD_PROGRESS {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_PROGRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progresso do download.
+        /// </summary>
+        internal static string DOWNLOAD_PROGRESS_TITLE {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_PROGRESS_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dutch (Nederlands).
         /// </summary>
         internal static string DUTCH {
             get {
@@ -498,7 +561,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Editar API seleccionada.
+        ///   Looks up a localized string similar to Editar API selecionada.
         /// </summary>
         internal static string EDIT_SELECTED_API {
             get {
@@ -507,7 +570,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Inglês (English).
+        ///   Looks up a localized string similar to Inglês.
         /// </summary>
         internal static string ENGLISH {
             get {
@@ -525,7 +588,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to San Andreas Multiplayer - Informações adicionais do Servidor.
+        ///   Looks up a localized string similar to San Andreas Multiplayer - Informação adicional do servidor.
         /// </summary>
         internal static string EXTENDED_SERVER_INFORMATION_TITLE {
             get {
@@ -534,7 +597,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Por favor selecione uma lista de favoritos.
+        ///   Looks up a localized string similar to Por favor seleciona uma lista de favoritos.
         /// </summary>
         internal static string FAVOURITE_LIST_NOT_SELECTED {
             get {
@@ -552,7 +615,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Versão do arquivo.
+        ///   Looks up a localized string similar to Versão de ficheiro.
         /// </summary>
         internal static string FILE_VERSION {
             get {
@@ -561,7 +624,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Filtrar por Nome de Anfitrião.
+        ///   Looks up a localized string similar to Nome.
         /// </summary>
         internal static string FILTER_HOSTNAME {
             get {
@@ -570,7 +633,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Filtrar por IP e Porta.
+        ///   Looks up a localized string similar to IP e Porta.
         /// </summary>
         internal static string FILTER_IP_AND_PORT {
             get {
@@ -579,7 +642,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Filtrar por Língua.
+        ///   Looks up a localized string similar to Língua.
         /// </summary>
         internal static string FILTER_LANGUAGE {
             get {
@@ -588,7 +651,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Modo de Filtragem.
+        ///   Looks up a localized string similar to Gamemode.
         /// </summary>
         internal static string FILTER_MODE {
             get {
@@ -606,7 +669,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tipo de Font.
+        ///   Looks up a localized string similar to Font-face.
         /// </summary>
         internal static string FONT_FACE {
             get {
@@ -615,7 +678,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Largura da Font.
+        ///   Looks up a localized string similar to Font-weight.
         /// </summary>
         internal static string FONT_WEIGHT {
             get {
@@ -651,7 +714,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nome do Gamemode.
+        ///   Looks up a localized string similar to Texto do Gamemode.
         /// </summary>
         internal static string GAMEMODE_TEXT {
             get {
@@ -669,7 +732,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Georgiano (ქართული).
+        ///   Looks up a localized string similar to Georgian (ქართული).
         /// </summary>
         internal static string GEORGIAN {
             get {
@@ -687,7 +750,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Projecto GitHub SAMPLauncherNET.
+        ///   Looks up a localized string similar to Projecto do SAMPLauncherNET no Github.
         /// </summary>
         internal static string GITHUB_PROJECT {
             get {
@@ -696,7 +759,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Endereço e Porta.
+        ///   Looks up a localized string similar to IP/Host e Porta:.
         /// </summary>
         internal static string HOST_AND_PORT {
             get {
@@ -705,7 +768,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Endereço.
+        ///   Looks up a localized string similar to Nome do Servidor.
         /// </summary>
         internal static string HOSTNAME {
             get {
@@ -714,7 +777,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activar IME (Input Method Editor).
+        ///   Looks up a localized string similar to Enable IME (Input Method Editor).
         /// </summary>
         internal static string IME {
             get {
@@ -723,7 +786,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TickRate para Veículos.
+        ///   Looks up a localized string similar to In car tick rate.
         /// </summary>
         internal static string IN_CAR_RATE {
             get {
@@ -732,7 +795,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Erro de Input.
+        ///   Looks up a localized string similar to Input error.
         /// </summary>
         internal static string INPUT_ERROR {
             get {
@@ -741,7 +804,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Define o filtro....
+        ///   Looks up a localized string similar to Insert filter here....
         /// </summary>
         internal static string INSERT_FILTER_HERE {
             get {
@@ -750,7 +813,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Define a Password de RCON.
+        ///   Looks up a localized string similar to Insert RCON password here....
         /// </summary>
         internal static string INSERT_RCON_PASSWORD_HERE {
             get {
@@ -759,7 +822,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Define a Password do Servidor.
+        ///   Looks up a localized string similar to Insert server password here....
         /// </summary>
         internal static string INSERT_SERVER_PASSWORD_HERE {
             get {
@@ -768,11 +831,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Define o Nome de Jogador.
+        ///   Looks up a localized string similar to Insert player name here....
         /// </summary>
         internal static string INSERT_USERNAME_HERE {
             get {
                 return ResourceManager.GetString("INSERT_USERNAME_HERE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Queres mesmo instalar {0}?.
+        /// </summary>
+        internal static string INSTALL_VERSION {
+            get {
+                return ResourceManager.GetString("INSTALL_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Versão.
+        /// </summary>
+        internal static string INSTALL_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("INSTALL_VERSION_TITLE", resourceCulture);
             }
         }
         
@@ -786,7 +867,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Modo de Compensação de Latência (Lag).
+        ///   Looks up a localized string similar to Modo de compensação de lag.
         /// </summary>
         internal static string LAG_COMPENSATION_MODE {
             get {
@@ -813,7 +894,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Última Registo de Chat.
+        ///   Looks up a localized string similar to Último registo de chat.
         /// </summary>
         internal static string LAST_CHATLOG {
             get {
@@ -822,7 +903,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Latitude e longitude.
+        ///   Looks up a localized string similar to Latitude and longitude.
         /// </summary>
         internal static string LATITUDE_LONGITUDE {
             get {
@@ -831,7 +912,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iniciar modo de depuração.
+        ///   Looks up a localized string similar to Iniciar Modo de Depuração.
         /// </summary>
         internal static string LAUNCH_DEBUG_MODE {
             get {
@@ -840,7 +921,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iniciar singleplayer.
+        ///   Looks up a localized string similar to Iniciar Singleplayer.
         /// </summary>
         internal static string LAUNCH_SINGLEPLAYER {
             get {
@@ -858,7 +939,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gravar Consultas.
+        ///   Looks up a localized string similar to Log queries.
         /// </summary>
         internal static string LOG_QUERIES {
             get {
@@ -885,7 +966,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Máximo de NPCs.
+        ///   Looks up a localized string similar to Maximal NPCs.
         /// </summary>
         internal static string MAXIMAL_NPCS {
             get {
@@ -894,7 +975,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Máximo de Jogadores.
+        ///   Looks up a localized string similar to Maximal players.
         /// </summary>
         internal static string MAXIMAL_PLAYERS {
             get {
@@ -948,7 +1029,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Precisas de ajuda? Visita o fórum SA:MP....
+        ///   Looks up a localized string similar to Precisas de ajuda? Entra no forum do SA:MP....
         /// </summary>
         internal static string NEED_HELP_FORUMS {
             get {
@@ -957,7 +1038,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to San Andreas Multiplayer - Adiconar nova API.
+        ///   Looks up a localized string similar to San Andreas Multiplayer - Adicionar nova API.
         /// </summary>
         internal static string NEW_API_TITLE {
             get {
@@ -966,7 +1047,25 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nenhum Registo de Chat encontrado.
+        ///   Looks up a localized string similar to Please specify an address to add to your favourites list..
+        /// </summary>
+        internal static string NO_ADDRESS_SPECIFIED {
+            get {
+                return ResourceManager.GetString("NO_ADDRESS_SPECIFIED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nenhum endereço especificado.
+        /// </summary>
+        internal static string NO_ADDRESS_SPECIFIED_TITLE {
+            get {
+                return ResourceManager.GetString("NO_ADDRESS_SPECIFIED_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No chatlog found....
         /// </summary>
         internal static string NO_CHATLOG_FOUND {
             get {
@@ -975,7 +1074,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Não existem listas de favoritos definidas. Para definir uma lista de favoritos nova, seleciona a tab &quot;API&quot; e cria uma lista nova ou restaura as opções iniciais..
+        ///   Looks up a localized string similar to There are no favourite lists defined. To define a new favourite list, select the &quot;API&quot; tab and create a new favourite list or restore the default entries..
         /// </summary>
         internal static string NO_FAVOURITES {
             get {
@@ -984,7 +1083,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Não existem listas de favoritos.
+        ///   Looks up a localized string similar to No favourite lists.
         /// </summary>
         internal static string NO_FAVOURITES_TITLE {
             get {
@@ -1011,7 +1110,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Não é favorito.
+        ///   Looks up a localized string similar to Not in favourites.
         /// </summary>
         internal static string NOT_IN_FAVOURITES {
             get {
@@ -1029,7 +1128,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TickRate a pé.
+        ///   Looks up a localized string similar to On foot tick rate.
         /// </summary>
         internal static string ON_FOOT_RATE {
             get {
@@ -1038,7 +1137,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Abrir pasta.
+        ///   Looks up a localized string similar to Abrir Pasta.
         /// </summary>
         internal static string OPEN_DIRECTORY {
             get {
@@ -1047,7 +1146,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Abrir no navegador.
+        ///   Looks up a localized string similar to Open in explorer.
         /// </summary>
         internal static string OPEN_IN_EXPLORER {
             get {
@@ -1065,7 +1164,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to San Andreas Multiplayer - Opções.
+        ///   Looks up a localized string similar to San Andreas Multiplayer - Options.
         /// </summary>
         internal static string OPTIONS_TITLE {
             get {
@@ -1074,7 +1173,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Linhas do Chat.
+        ///   Looks up a localized string similar to Page size.
         /// </summary>
         internal static string PAGE_SIZE {
             get {
@@ -1088,6 +1187,24 @@ namespace SAMPLauncherNET.Languages {
         internal static string PASSWORD {
             get {
                 return ResourceManager.GetString("PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you really want to patch your version to {0}?.
+        /// </summary>
+        internal static string PATCH_VERSION {
+            get {
+                return ResourceManager.GetString("PATCH_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Patch version.
+        /// </summary>
+        internal static string PATCH_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("PATCH_VERSION_TITLE", resourceCulture);
             }
         }
         
@@ -1110,7 +1227,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Players.
+        ///   Looks up a localized string similar to Jogadores.
         /// </summary>
         internal static string PLAYERS {
             get {
@@ -1119,7 +1236,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Por favor define um nome de utilizador.
+        ///   Looks up a localized string similar to Please type in an username..
         /// </summary>
         internal static string PLEASE_TYPE_IN_USERNAME {
             get {
@@ -1146,7 +1263,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Português.
+        ///   Looks up a localized string similar to European Portuguese (Português de Portugal).
         /// </summary>
         internal static string PORTUGUESE {
             get {
@@ -1155,7 +1272,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Versão de Produto.
+        ///   Looks up a localized string similar to Versão do Produto.
         /// </summary>
         internal static string PRODUCT_VERSION {
             get {
@@ -1164,7 +1281,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activar Consultas.
+        ///   Looks up a localized string similar to Enable query.
         /// </summary>
         internal static string QUERY {
             get {
@@ -1173,7 +1290,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activar RCON.
+        ///   Looks up a localized string similar to Enable RCON.
         /// </summary>
         internal static string RCON {
             get {
@@ -1191,7 +1308,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to San Andreas Multiplayer - Password de Rcon.
+        ///   Looks up a localized string similar to San Andreas Multiplayer - Password RCON.
         /// </summary>
         internal static string RCON_PASSWORD_TITLE {
             get {
@@ -1236,7 +1353,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Desejas mesmo eliminar este servidor dos favoritos?.
+        ///   Looks up a localized string similar to Queres mesmo eliminar este servidor dos teus favoritos?.
         /// </summary>
         internal static string REMOVE_SERVER_FROM_FAVOURITES {
             get {
@@ -1254,7 +1371,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Desejas mesmo reverter a lista de APIs para a lista padrão?.
+        ///   Looks up a localized string similar to Do you really want to revert the API list to default?.
         /// </summary>
         internal static string REVERT_API_LIST {
             get {
@@ -1263,7 +1380,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reverter lista de APIs.
+        ///   Looks up a localized string similar to Revert API list.
         /// </summary>
         internal static string REVERT_API_LIST_TITLE {
             get {
@@ -1272,7 +1389,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reverter configuração.
+        ///   Looks up a localized string similar to Reset.
         /// </summary>
         internal static string REVERT_CONFIG {
             get {
@@ -1299,7 +1416,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Posições guardadas.
+        ///   Looks up a localized string similar to Posições Guardadas.
         /// </summary>
         internal static string SAVED_POSITIONS {
             get {
@@ -1308,7 +1425,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Procurar em....
+        ///   Looks up a localized string similar to Search on....
         /// </summary>
         internal static string SEARCH_ON {
             get {
@@ -1371,7 +1488,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Seleciona uma API.
+        ///   Looks up a localized string similar to Lista de Servidores:.
         /// </summary>
         internal static string SELECT_API {
             get {
@@ -1380,7 +1497,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to San Andreas Multiplayer - Selecionar lista favorita.
+        ///   Looks up a localized string similar to San Andreas Multiplayer - Select favourite list.
         /// </summary>
         internal static string SELECT_FAVOURITE_LIST_TITLE {
             get {
@@ -1389,7 +1506,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selecionar lista favorita.
+        ///   Looks up a localized string similar to Select favourites list.
         /// </summary>
         internal static string SELECT_FAVOURITES_LIST {
             get {
@@ -1398,7 +1515,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selecionar língua.
+        ///   Looks up a localized string similar to Língua:.
         /// </summary>
         internal static string SELECT_LANGUAGE {
             get {
@@ -1407,7 +1524,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Seleciona uma lista de servidores.
+        ///   Looks up a localized string similar to Lista de Servidores:.
         /// </summary>
         internal static string SELECT_SERVER_LIST {
             get {
@@ -1416,7 +1533,31 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Este servidor já está marcado como favorito..
+        ///   Looks up a localized string similar to You have selected {0} to be patched or manually installed.
+        ///
+        ///Do you really want to patch or manually install {0}?
+        ///
+        ///Press &quot;Yes&quot; to patch.
+        ///Press &quot;No&quot; to install.
+        ///Press &quot;Cancel&quot; to cancel this action..
+        /// </summary>
+        internal static string SELECT_VERSION {
+            get {
+                return ResourceManager.GetString("SELECT_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Patch or manually install version.
+        /// </summary>
+        internal static string SELECT_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("SELECT_VERSION_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This server is already in your favourites..
         /// </summary>
         internal static string SERVER_ALREADY_IN_FAVOURITES {
             get {
@@ -1425,7 +1566,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Este servidor ainda não é um favorito.
+        ///   Looks up a localized string similar to This server is not in your favourites..
         /// </summary>
         internal static string SERVER_NOT_IN_FAVOURITES {
             get {
@@ -1434,7 +1575,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password do Servidor.
+        ///   Looks up a localized string similar to Password:.
         /// </summary>
         internal static string SERVER_PASSWORD {
             get {
@@ -1443,7 +1584,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Campo de password está vazio.\r\n\r\nDesejas continuar?.
+        ///   Looks up a localized string similar to Server password field is empty.\r\n\r\nDo you want to continue?.
         /// </summary>
         internal static string SERVER_PASSWORD_FIELD_IS_EMPTY {
             get {
@@ -1452,7 +1593,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Campo de password está vazio.
+        ///   Looks up a localized string similar to Server password field is empty.
         /// </summary>
         internal static string SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE {
             get {
@@ -1470,7 +1611,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Filtro de servidor.
+        ///   Looks up a localized string similar to Filtros:.
         /// </summary>
         internal static string SERVERS_FILTER {
             get {
@@ -1479,7 +1620,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mostrar configurações adicionais.
+        ///   Looks up a localized string similar to Configurações Adicionais.
         /// </summary>
         internal static string SHOW_ADDITIONAL_CONFIGURATIONS {
             get {
@@ -1488,7 +1629,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mostrar informação adicional.
+        ///   Looks up a localized string similar to Extended server information.
         /// </summary>
         internal static string SHOW_EXTENDED_SERVER_INFORMATION {
             get {
@@ -1497,7 +1638,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Favoritos.
+        ///   Looks up a localized string similar to Favourites.
         /// </summary>
         internal static string SHOW_FAVOURITES {
             get {
@@ -1506,7 +1647,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mostrar galeria....
+        ///   Looks up a localized string similar to Show gallery....
         /// </summary>
         internal static string SHOW_GALLERY {
             get {
@@ -1515,7 +1656,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mostrar no Google Maps.
+        ///   Looks up a localized string similar to Show in Google Maps.
         /// </summary>
         internal static string SHOW_IN_GOOGLE_MAPS {
             get {
@@ -1524,7 +1665,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mostrar no OpenStreetMap.
+        ///   Looks up a localized string similar to Show in OpenStreetMap.
         /// </summary>
         internal static string SHOW_IN_OPEN_STREET_MAP {
             get {
@@ -1533,7 +1674,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mostrar último registo do Chat.
+        ///   Looks up a localized string similar to Show last chatlog....
         /// </summary>
         internal static string SHOW_LAST_CHATLOG {
             get {
@@ -1542,7 +1683,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Favoritos padrão.
+        ///   Looks up a localized string similar to Favoritos do SA:MP.
         /// </summary>
         internal static string SHOW_LEGACY_FAVOURITES {
             get {
@@ -1551,7 +1692,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hosted list.
+        ///   Looks up a localized string similar to Hostedlist.
         /// </summary>
         internal static string SHOW_LEGACY_HOSTED_LIST {
             get {
@@ -1560,11 +1701,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Master list.
+        ///   Looks up a localized string similar to Masterlist.
         /// </summary>
         internal static string SHOW_LEGACY_MASTER_LIST {
             get {
                 return ResourceManager.GetString("SHOW_LEGACY_MASTER_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SACNR.
+        /// </summary>
+        internal static string SHOW_SACNR_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_SACNR_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lista do Southclaw.
+        /// </summary>
+        internal static string SHOW_SOUTHCLAWS_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_SOUTHCLAWS_LIST", resourceCulture);
             }
         }
         
@@ -1578,7 +1737,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iniciar servidor.
+        ///   Looks up a localized string similar to Iníciar Servidor.
         /// </summary>
         internal static string START_SERVER {
             get {
@@ -1587,7 +1746,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Desligador servidor.
+        ///   Looks up a localized string similar to Parar Servidor.
         /// </summary>
         internal static string STOP_SERVER {
             get {
@@ -1614,7 +1773,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Não guardar nome de utilizador.
+        ///   Looks up a localized string similar to Não guardar Nickname.
         /// </summary>
         internal static string TEMPORARY_USERNAME {
             get {
@@ -1641,7 +1800,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nome de utilizador.
+        ///   Looks up a localized string similar to Nickname:.
         /// </summary>
         internal static string USERNAME {
             get {
@@ -1650,7 +1809,16 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Visitar website.
+        ///   Looks up a localized string similar to Versões.
+        /// </summary>
+        internal static string VERSIONS {
+            get {
+                return ResourceManager.GetString("VERSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visit website.
         /// </summary>
         internal static string VISIT_WEBSITE {
             get {
@@ -1659,7 +1827,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Desejas mesmo visitar este website?.
+        ///   Looks up a localized string similar to Do you really want to visit this website?.
         /// </summary>
         internal static string VISIT_WEBSITE_MESSAGE {
             get {
@@ -1668,7 +1836,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Visitar.
+        ///   Looks up a localized string similar to Visit.
         /// </summary>
         internal static string VISIT_WEBSITE_TITLE {
             get {
@@ -1686,7 +1854,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to URL do Website.
+        ///   Looks up a localized string similar to Website URL.
         /// </summary>
         internal static string WEBSITE_URL {
             get {

@@ -118,75 +118,87 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ABOUT" xml:space="preserve">
-    <value>About</value>
+    <value>Sobre</value>
   </data>
   <data name="ABOUT_DESCRIPTION" xml:space="preserve">
     <value>
-SAMPLauncher NET é um launcher para San Andreas Multiplayer.
+SAMPLauncher NET is a launcher for San Andreas Multiplayer.
 
-Este software é gratuito e licenciado com GPLv3.
+This software is all time free and licensed with GPLv3.
 
-Este projeto é localizado em</value>
+This project is located at</value>
   </data>
   <data name="ACKNOWLEDGES_LIMIT" xml:space="preserve">
     <value>Limite de ACKS</value>
+  </data>
+  <data name="ADD_ADDRESS_TO_FAVOURITE_LIST" xml:space="preserve">
+    <value>Marcar como Favorito</value>
+  </data>
+  <data name="ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Marcar como Favorito</value>
   </data>
   <data name="ADD_NEW_API" xml:space="preserve">
     <value>Adicionar nova API</value>
   </data>
   <data name="ADD_SERVER_TO_FAVOURITES" xml:space="preserve">
-    <value>Marcar como favorito</value>
+    <value>Marcar como Favotiro</value>
   </data>
   <data name="ALREADY_IN_FAVOURITES" xml:space="preserve">
-    <value>Já está como favorito</value>
+    <value>Já marcado como Favorito</value>
   </data>
   <data name="ANNOUNCE" xml:space="preserve">
-    <value>Anuncie o servidor</value>
+    <value>Anunciar servidor</value>
   </data>
   <data name="API" xml:space="preserve">
     <value>API</value>
   </data>
   <data name="API_ENDPOINT" xml:space="preserve">
-    <value>API endpoint</value>
+    <value>API endpoint:</value>
   </data>
   <data name="API_ENDPOINT_MISSING" xml:space="preserve">
-    <value>Por favor especifique um endpoint válido para a API</value>
+    <value>Por favor especifica um endpoint válido para a API</value>
   </data>
   <data name="API_ENDPOINT_MISSING_TITLE" xml:space="preserve">
-    <value>Endpoint de API em falta</value>
+    <value>Endpoint da API em falta</value>
   </data>
   <data name="API_NAME" xml:space="preserve">
-    <value>Nome da API</value>
+    <value>Nome da API:</value>
   </data>
   <data name="API_NAME_MISSING" xml:space="preserve">
-    <value>Por favor insira o nome da API.</value>
+    <value>Por favor insere um nome para a API</value>
   </data>
   <data name="API_NAME_MISSING_TITLE" xml:space="preserve">
     <value>Nome da API em falta</value>
   </data>
   <data name="API_TYPE" xml:space="preserve">
-    <value>Tipo de API</value>
+    <value>Tipo de API:</value>
   </data>
   <data name="API_TYPE_MISSING" xml:space="preserve">
-    <value>Por favor selecione o tipo da API.</value>
+    <value>Escolhe o tipo da API</value>
   </data>
   <data name="API_TYPE_MISSING_TITLE" xml:space="preserve">
-    <value>Tipo de API em falta</value>
+    <value>Tipo da API em falta</value>
   </data>
   <data name="ASSEMBLY_VERSION" xml:space="preserve">
-    <value>Versão da assembly</value>
+    <value>Versão da Assembly</value>
   </data>
   <data name="AUDIO_MESSAGE_OFF" xml:space="preserve">
-    <value>Mensagem de Áudio Inactiva</value>
+    <value>Messagem de áudio activa</value>
   </data>
   <data name="AUDIO_PROXY_OFF" xml:space="preserve">
-    <value>Proxy de Áudio Inactiva</value>
+    <value>Messagem de áudio desactiva</value>
   </data>
   <data name="BIND" xml:space="preserve">
     <value>Bind IP address</value>
   </data>
   <data name="CANCEL" xml:space="preserve">
     <value>Cancelar</value>
+  </data>
+  <data name="CANCEL_DOWNLOAD" xml:space="preserve">
+    <value>Queres mesmo cancelar o download?</value>
+  </data>
+  <data name="CANCEL_DOWNLOAD_TITLE" xml:space="preserve">
+    <value>Cancelar download</value>
   </data>
   <data name="CHAT_LOGGING" xml:space="preserve">
     <value>Activar gravação do chat</value>
@@ -195,16 +207,16 @@ Este projeto é localizado em</value>
     <value>Cidade</value>
   </data>
   <data name="CLOSE_WHEN_LAUNCHED" xml:space="preserve">
-    <value>Fechar quando abrir</value>
+    <value>Fechar depois de ligar...</value>
   </data>
   <data name="CONNECT" xml:space="preserve">
     <value>Ligar</value>
   </data>
   <data name="CONNECTION_COOKIES" xml:space="preserve">
-    <value>Permitir cookies de ligação</value>
+    <value>Autorizar cookies de ligação</value>
   </data>
   <data name="CONNECTION_SEED_TIME" xml:space="preserve">
-    <value>Seed time da Ligação</value>
+    <value>Connection seed time</value>
   </data>
   <data name="CONNECT_NOW" xml:space="preserve">
     <value>Ligar agora!</value>
@@ -213,16 +225,16 @@ Este projeto é localizado em</value>
     <value>San Andreas Multiplayer - Ligar</value>
   </data>
   <data name="CONNECT_TO_ADDRESS" xml:space="preserve">
-    <value>Ligar a um endereço</value>
+    <value>Ligar Directamente</value>
   </data>
   <data name="CONNECT_TO_ADDRESS_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Ligar a um endereço</value>
+    <value>San Andreas Multiplayer - Ligar diretamente</value>
   </data>
   <data name="CONNECT_TO_TEST_SERVER" xml:space="preserve">
-    <value>Ligar ao servidor de testes</value>
+    <value>Ligar ao Servidor</value>
   </data>
   <data name="CONNECT_WITH_RCON" xml:space="preserve">
-    <value>Ligar com RCON</value>
+    <value>Ligar com password RCON</value>
   </data>
   <data name="COOKIE_LOGGING" xml:space="preserve">
     <value>Activar gravação de cookies</value>
@@ -231,28 +243,28 @@ Este projeto é localizado em</value>
     <value>País</value>
   </data>
   <data name="DATABASE_LOGGING" xml:space="preserve">
-    <value>Activar gravação para a Base de dados</value>
+    <value>Activar gravação da base de dados</value>
   </data>
   <data name="DATABASE_LOG_QUERIES" xml:space="preserve">
-    <value>Log de consultas do banco de dados Registo de Consultas da Base de dados</value>
+    <value>Database log queries</value>
   </data>
   <data name="DEBUG_MODE" xml:space="preserve">
     <value>Modo de depuração</value>
   </data>
   <data name="DELETE_SELECTED_IMAGES" xml:space="preserve">
-    <value>Desejas mesmo eliminar as imagens selecionadas?</value>
+    <value>Queres mesmo eliminar as imagens selecionadas?</value>
   </data>
   <data name="DELETE_SELECTED_IMAGES_TITLE" xml:space="preserve">
     <value>Eliminar imagens selecionadas</value>
   </data>
   <data name="DEVELOPER_TOOLS" xml:space="preserve">
-    <value>Ferramentas do desenvolvedor</value>
+    <value>Ferramentas de Desenvolvimento</value>
   </data>
   <data name="DEVELOPER_TOOLS_CONFIGURATION_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Configuração das Ferramentas do Desenvolvedor</value>
+    <value>San Andreas Multiplayer - Configuração das Ferramentas de Desenvolvimento</value>
   </data>
   <data name="DEVELOPMENT_DIRECTORY" xml:space="preserve">
-    <value>Diretório de Desenvolvimento</value>
+    <value>Pasta de Desenvolvimento</value>
   </data>
   <data name="DIRECT_MODE" xml:space="preserve">
     <value>Direct to screen textdraw render method (slow)</value>
@@ -260,53 +272,62 @@ Este projeto é localizado em</value>
   <data name="DISABLE_HEAD_MOVE" xml:space="preserve">
     <value>Desactivar movimento da cabeça</value>
   </data>
+  <data name="DOWNLOAD_FAILED_TITLE" xml:space="preserve">
+    <value>Download falhado</value>
+  </data>
+  <data name="DOWNLOAD_PROGRESS" xml:space="preserve">
+    <value>A efectuar o download</value>
+  </data>
+  <data name="DOWNLOAD_PROGRESS_TITLE" xml:space="preserve">
+    <value>Progresso do download</value>
+  </data>
   <data name="DUTCH" xml:space="preserve">
-    <value>Holandês (Nederlands)</value>
+    <value>Dutch (Nederlands)</value>
   </data>
   <data name="EDIT_API_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Editar API</value>
   </data>
   <data name="EDIT_SELECTED_API" xml:space="preserve">
-    <value>Editar API seleccionada</value>
+    <value>Editar API selecionada</value>
   </data>
   <data name="ENGLISH" xml:space="preserve">
-    <value>Inglês (English)</value>
+    <value>Inglês</value>
   </data>
   <data name="ERROR" xml:space="preserve">
     <value>Erro</value>
   </data>
   <data name="EXTENDED_SERVER_INFORMATION_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Informações adicionais do Servidor</value>
+    <value>San Andreas Multiplayer - Informação adicional do servidor</value>
   </data>
   <data name="FAVOURITE_LIST_NOT_SELECTED" xml:space="preserve">
-    <value>Por favor selecione uma lista de favoritos</value>
+    <value>Por favor seleciona uma lista de favoritos</value>
   </data>
   <data name="FAVOURITE_LIST_NOT_SELECTED_TITLE" xml:space="preserve">
     <value>Lista de favoritos não selecionada</value>
   </data>
   <data name="FILE_VERSION" xml:space="preserve">
-    <value>Versão do arquivo</value>
+    <value>Versão de ficheiro</value>
   </data>
   <data name="FILTERSCRIPTS" xml:space="preserve">
     <value>Filterscripts</value>
   </data>
   <data name="FILTER_HOSTNAME" xml:space="preserve">
-    <value>Filtrar por Nome de Anfitrião</value>
+    <value>Nome</value>
   </data>
   <data name="FILTER_IP_AND_PORT" xml:space="preserve">
-    <value>Filtrar por IP e Porta</value>
+    <value>IP e Porta</value>
   </data>
   <data name="FILTER_LANGUAGE" xml:space="preserve">
-    <value>Filtrar por Língua</value>
+    <value>Língua</value>
   </data>
   <data name="FILTER_MODE" xml:space="preserve">
-    <value>Modo de Filtragem</value>
+    <value>Gamemode</value>
   </data>
   <data name="FONT_FACE" xml:space="preserve">
-    <value>Tipo de Font</value>
+    <value>Font-face</value>
   </data>
   <data name="FONT_WEIGHT" xml:space="preserve">
-    <value>Largura da Font</value>
+    <value>Font-weight</value>
   </data>
   <data name="FPS_LIMIT" xml:space="preserve">
     <value>Limite de FPS</value>
@@ -321,49 +342,55 @@ Este projeto é localizado em</value>
     <value>Gamemodes</value>
   </data>
   <data name="GAMEMODE_TEXT" xml:space="preserve">
-    <value>Nome do Gamemode</value>
+    <value>Texto do Gamemode</value>
   </data>
   <data name="GEORGIAN" xml:space="preserve">
-    <value>Georgiano (ქართული)</value>
+    <value>Georgian (ქართული)</value>
   </data>
   <data name="GERMAN" xml:space="preserve">
     <value>Alemão (Deutsch)</value>
   </data>
   <data name="GITHUB_PROJECT" xml:space="preserve">
-    <value>Projecto GitHub SAMPLauncherNET</value>
+    <value>Projecto do SAMPLauncherNET no Github</value>
   </data>
   <data name="HOSTNAME" xml:space="preserve">
-    <value>Endereço</value>
+    <value>Nome do Servidor</value>
   </data>
   <data name="HOST_AND_PORT" xml:space="preserve">
-    <value>Endereço e Porta</value>
+    <value>IP/Host e Porta:</value>
   </data>
   <data name="IME" xml:space="preserve">
-    <value>Activar IME (Input Method Editor)</value>
+    <value>Enable IME (Input Method Editor)</value>
   </data>
   <data name="INPUT_ERROR" xml:space="preserve">
-    <value>Erro de Input</value>
+    <value>Input error</value>
   </data>
   <data name="INSERT_FILTER_HERE" xml:space="preserve">
-    <value>Define o filtro...</value>
+    <value>Insert filter here...</value>
   </data>
   <data name="INSERT_RCON_PASSWORD_HERE" xml:space="preserve">
-    <value>Define a Password de RCON</value>
+    <value>Insert RCON password here...</value>
   </data>
   <data name="INSERT_SERVER_PASSWORD_HERE" xml:space="preserve">
-    <value>Define a Password do Servidor</value>
+    <value>Insert server password here...</value>
   </data>
   <data name="INSERT_USERNAME_HERE" xml:space="preserve">
-    <value>Define o Nome de Jogador</value>
+    <value>Insert player name here...</value>
+  </data>
+  <data name="INSTALL_VERSION" xml:space="preserve">
+    <value>Queres mesmo instalar {0}?</value>
+  </data>
+  <data name="INSTALL_VERSION_TITLE" xml:space="preserve">
+    <value>Versão</value>
   </data>
   <data name="IN_CAR_RATE" xml:space="preserve">
-    <value>TickRate para Veículos</value>
+    <value>In car tick rate</value>
   </data>
   <data name="IP_AND_PORT" xml:space="preserve">
     <value>IP e Porta</value>
   </data>
   <data name="LAG_COMPENSATION_MODE" xml:space="preserve">
-    <value>Modo de Compensação de Latência (Lag)</value>
+    <value>Modo de compensação de lag</value>
   </data>
   <data name="LANGUAGE" xml:space="preserve">
     <value>Língua</value>
@@ -372,22 +399,22 @@ Este projeto é localizado em</value>
     <value>Modo de LAN</value>
   </data>
   <data name="LAST_CHATLOG" xml:space="preserve">
-    <value>Última Registo de Chat</value>
+    <value>Último registo de chat</value>
   </data>
   <data name="LATITUDE_LONGITUDE" xml:space="preserve">
-    <value>Latitude e longitude</value>
+    <value>Latitude and longitude</value>
   </data>
   <data name="LAUNCHER_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Launcher</value>
   </data>
   <data name="LAUNCH_DEBUG_MODE" xml:space="preserve">
-    <value>Iniciar modo de depuração</value>
+    <value>Iniciar Modo de Depuração</value>
   </data>
   <data name="LAUNCH_SINGLEPLAYER" xml:space="preserve">
-    <value>Iniciar singleplayer</value>
+    <value>Iniciar Singleplayer</value>
   </data>
   <data name="LOG_QUERIES" xml:space="preserve">
-    <value>Gravar Consultas</value>
+    <value>Log queries</value>
   </data>
   <data name="LOG_TIME_FORMAT" xml:space="preserve">
     <value>Log time format</value>
@@ -396,10 +423,10 @@ Este projeto é localizado em</value>
     <value>Nome do Mapa</value>
   </data>
   <data name="MAXIMAL_NPCS" xml:space="preserve">
-    <value>Máximo de NPCs</value>
+    <value>Maximal NPCs</value>
   </data>
   <data name="MAXIMAL_PLAYERS" xml:space="preserve">
-    <value>Máximo de Jogadores</value>
+    <value>Maximal players</value>
   </data>
   <data name="MESSAGES_LIMIT" xml:space="preserve">
     <value>Messages limit</value>
@@ -417,22 +444,28 @@ Este projeto é localizado em</value>
     <value>Multi core</value>
   </data>
   <data name="NEED_HELP_FORUMS" xml:space="preserve">
-    <value>Precisas de ajuda? Visita o fórum SA:MP...</value>
+    <value>Precisas de ajuda? Entra no forum do SA:MP...</value>
   </data>
   <data name="NEW_API_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Adiconar nova API</value>
+    <value>San Andreas Multiplayer - Adicionar nova API</value>
   </data>
   <data name="NOT_IN_FAVOURITES" xml:space="preserve">
-    <value>Não é favorito</value>
+    <value>Not in favourites</value>
+  </data>
+  <data name="NO_ADDRESS_SPECIFIED" xml:space="preserve">
+    <value>Please specify an address to add to your favourites list.</value>
+  </data>
+  <data name="NO_ADDRESS_SPECIFIED_TITLE" xml:space="preserve">
+    <value>Nenhum endereço especificado</value>
   </data>
   <data name="NO_CHATLOG_FOUND" xml:space="preserve">
-    <value>Nenhum Registo de Chat encontrado</value>
+    <value>No chatlog found...</value>
   </data>
   <data name="NO_FAVOURITES" xml:space="preserve">
-    <value>Não existem listas de favoritos definidas. Para definir uma lista de favoritos nova, seleciona a tab "API" e cria uma lista nova ou restaura as opções iniciais.</value>
+    <value>There are no favourite lists defined. To define a new favourite list, select the "API" tab and create a new favourite list or restore the default entries.</value>
   </data>
   <data name="NO_FAVOURITES_TITLE" xml:space="preserve">
-    <value>Não existem listas de favoritos</value>
+    <value>No favourite lists</value>
   </data>
   <data name="NO_NAMETAG_STATUS" xml:space="preserve">
     <value>No nametag status</value>
@@ -444,37 +477,43 @@ Este projeto é localizado em</value>
     <value>OK</value>
   </data>
   <data name="ON_FOOT_RATE" xml:space="preserve">
-    <value>TickRate a pé</value>
+    <value>On foot tick rate</value>
   </data>
   <data name="OPEN_DIRECTORY" xml:space="preserve">
-    <value>Abrir pasta</value>
+    <value>Abrir Pasta</value>
   </data>
   <data name="OPEN_IN_EXPLORER" xml:space="preserve">
-    <value>Abrir no navegador</value>
+    <value>Open in explorer</value>
   </data>
   <data name="OPTIONS" xml:space="preserve">
     <value>Opções</value>
   </data>
   <data name="OPTIONS_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Opções</value>
+    <value>San Andreas Multiplayer - Options</value>
   </data>
   <data name="PAGE_SIZE" xml:space="preserve">
-    <value>Número de Linhas do Chat</value>
+    <value>Page size</value>
   </data>
   <data name="PASSWORD" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="PATCH_VERSION" xml:space="preserve">
+    <value>Do you really want to patch your version to {0}?</value>
+  </data>
+  <data name="PATCH_VERSION_TITLE" xml:space="preserve">
+    <value>Patch version</value>
   </data>
   <data name="PING" xml:space="preserve">
     <value>Ping</value>
   </data>
   <data name="PLAYERS" xml:space="preserve">
-    <value>Players</value>
+    <value>Jogadores</value>
   </data>
   <data name="PLAYER_TIME_OUT" xml:space="preserve">
     <value>Player time out</value>
   </data>
   <data name="PLEASE_TYPE_IN_USERNAME" xml:space="preserve">
-    <value>Por favor define um nome de utilizador</value>
+    <value>Please type in an username.</value>
   </data>
   <data name="PLUGINS" xml:space="preserve">
     <value>Plugins</value>
@@ -483,22 +522,22 @@ Este projeto é localizado em</value>
     <value>Porta</value>
   </data>
   <data name="PORTUGUESE" xml:space="preserve">
-    <value>Português</value>
+    <value>European Portuguese (Português de Portugal)</value>
   </data>
   <data name="PRODUCT_VERSION" xml:space="preserve">
-    <value>Versão de Produto</value>
+    <value>Versão do Produto</value>
   </data>
   <data name="QUERY" xml:space="preserve">
-    <value>Activar Consultas</value>
+    <value>Enable query</value>
   </data>
   <data name="RCON" xml:space="preserve">
-    <value>Activar RCON</value>
+    <value>Enable RCON</value>
   </data>
   <data name="RCON_PASSWORD" xml:space="preserve">
     <value>Password de RCON</value>
   </data>
   <data name="RCON_PASSWORD_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Password de Rcon</value>
+    <value>San Andreas Multiplayer - Password RCON</value>
   </data>
   <data name="REGION" xml:space="preserve">
     <value>Região</value>
@@ -513,19 +552,19 @@ Este projeto é localizado em</value>
     <value>Eliminar API selecionada</value>
   </data>
   <data name="REMOVE_SERVER_FROM_FAVOURITES" xml:space="preserve">
-    <value>Desejas mesmo eliminar este servidor dos favoritos?</value>
+    <value>Queres mesmo eliminar este servidor dos teus favoritos?</value>
   </data>
   <data name="REMOVE_SERVER_FROM_FAVOURITES_TITLE" xml:space="preserve">
     <value>Eliminar servidor dos favoritos</value>
   </data>
   <data name="REVERT_API_LIST" xml:space="preserve">
-    <value>Desejas mesmo reverter a lista de APIs para a lista padrão?</value>
+    <value>Do you really want to revert the API list to default?</value>
   </data>
   <data name="REVERT_API_LIST_TITLE" xml:space="preserve">
-    <value>Reverter lista de APIs</value>
+    <value>Revert API list</value>
   </data>
   <data name="REVERT_CONFIG" xml:space="preserve">
-    <value>Reverter configuração</value>
+    <value>Reset</value>
   </data>
   <data name="RUSSIAN" xml:space="preserve">
     <value>Russian (Русский)</value>
@@ -534,10 +573,10 @@ Este projeto é localizado em</value>
     <value>Guardar</value>
   </data>
   <data name="SAVED_POSITIONS" xml:space="preserve">
-    <value>Posições guardadas</value>
+    <value>Posições Guardadas</value>
   </data>
   <data name="SEARCH_ON" xml:space="preserve">
-    <value>Procurar em...</value>
+    <value>Search on...</value>
   </data>
   <data name="SEARCH_ON_BING" xml:space="preserve">
     <value>Bing</value>
@@ -558,79 +597,97 @@ Este projeto é localizado em</value>
     <value>YouTube</value>
   </data>
   <data name="SELECT_API" xml:space="preserve">
-    <value>Seleciona uma API</value>
+    <value>Lista de Servidores:</value>
   </data>
   <data name="SELECT_FAVOURITES_LIST" xml:space="preserve">
-    <value>Selecionar lista favorita</value>
+    <value>Select favourites list</value>
   </data>
   <data name="SELECT_FAVOURITE_LIST_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - Selecionar lista favorita</value>
+    <value>San Andreas Multiplayer - Select favourite list</value>
   </data>
   <data name="SELECT_LANGUAGE" xml:space="preserve">
-    <value>Selecionar língua</value>
+    <value>Língua:</value>
   </data>
   <data name="SELECT_SERVER_LIST" xml:space="preserve">
-    <value>Seleciona uma lista de servidores</value>
+    <value>Lista de Servidores:</value>
+  </data>
+  <data name="SELECT_VERSION" xml:space="preserve">
+    <value>You have selected {0} to be patched or manually installed.
+
+Do you really want to patch or manually install {0}?
+
+Press "Yes" to patch.
+Press "No" to install.
+Press "Cancel" to cancel this action.</value>
+  </data>
+  <data name="SELECT_VERSION_TITLE" xml:space="preserve">
+    <value>Patch or manually install version</value>
   </data>
   <data name="SERVERS" xml:space="preserve">
     <value>Servidores</value>
   </data>
   <data name="SERVERS_FILTER" xml:space="preserve">
-    <value>Filtro de servidor</value>
+    <value>Filtros:</value>
   </data>
   <data name="SERVER_ALREADY_IN_FAVOURITES" xml:space="preserve">
-    <value>Este servidor já está marcado como favorito.</value>
+    <value>This server is already in your favourites.</value>
   </data>
   <data name="SERVER_NOT_IN_FAVOURITES" xml:space="preserve">
-    <value>Este servidor ainda não é um favorito</value>
+    <value>This server is not in your favourites.</value>
   </data>
   <data name="SERVER_PASSWORD" xml:space="preserve">
-    <value>Password do Servidor</value>
+    <value>Password:</value>
   </data>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY" xml:space="preserve">
-    <value>Campo de password está vazio.\r\n\r\nDesejas continuar?</value>
+    <value>Server password field is empty.\r\n\r\nDo you want to continue?</value>
   </data>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
-    <value>Campo de password está vazio</value>
+    <value>Server password field is empty</value>
   </data>
   <data name="SHOW_ADDITIONAL_CONFIGURATIONS" xml:space="preserve">
-    <value>Mostrar configurações adicionais</value>
+    <value>Configurações Adicionais</value>
   </data>
   <data name="SHOW_EXTENDED_SERVER_INFORMATION" xml:space="preserve">
-    <value>Mostrar informação adicional</value>
+    <value>Extended server information</value>
   </data>
   <data name="SHOW_FAVOURITES" xml:space="preserve">
-    <value>Favoritos</value>
+    <value>Favourites</value>
   </data>
   <data name="SHOW_GALLERY" xml:space="preserve">
-    <value>Mostrar galeria...</value>
+    <value>Show gallery...</value>
   </data>
   <data name="SHOW_IN_GOOGLE_MAPS" xml:space="preserve">
-    <value>Mostrar no Google Maps</value>
+    <value>Show in Google Maps</value>
   </data>
   <data name="SHOW_IN_OPEN_STREET_MAP" xml:space="preserve">
-    <value>Mostrar no OpenStreetMap</value>
+    <value>Show in OpenStreetMap</value>
   </data>
   <data name="SHOW_LAST_CHATLOG" xml:space="preserve">
-    <value>Mostrar último registo do Chat</value>
+    <value>Show last chatlog...</value>
   </data>
   <data name="SHOW_LEGACY_FAVOURITES" xml:space="preserve">
-    <value>Favoritos padrão</value>
+    <value>Favoritos do SA:MP</value>
   </data>
   <data name="SHOW_LEGACY_HOSTED_LIST" xml:space="preserve">
-    <value>Hosted list</value>
+    <value>Hostedlist</value>
   </data>
   <data name="SHOW_LEGACY_MASTER_LIST" xml:space="preserve">
-    <value>Master list</value>
+    <value>Masterlist</value>
+  </data>
+  <data name="SHOW_SACNR_LIST" xml:space="preserve">
+    <value>SACNR</value>
+  </data>
+  <data name="SHOW_SOUTHCLAWS_LIST" xml:space="preserve">
+    <value>Lista do Southclaw</value>
   </data>
   <data name="SLEEP" xml:space="preserve">
     <value>Sleep time</value>
   </data>
   <data name="START_SERVER" xml:space="preserve">
-    <value>Iniciar servidor</value>
+    <value>Iníciar Servidor</value>
   </data>
   <data name="STOP_SERVER" xml:space="preserve">
-    <value>Desligador servidor</value>
+    <value>Parar Servidor</value>
   </data>
   <data name="STREAM_DISTANCE" xml:space="preserve">
     <value>Stream distance</value>
@@ -639,7 +696,7 @@ Este projeto é localizado em</value>
     <value>Stream rate</value>
   </data>
   <data name="TEMPORARY_USERNAME" xml:space="preserve">
-    <value>Não guardar nome de utilizador</value>
+    <value>Não guardar Nickname</value>
   </data>
   <data name="TIMESTAMP" xml:space="preserve">
     <value>Timestamp</value>
@@ -648,21 +705,24 @@ Este projeto é localizado em</value>
     <value>Time zone</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
-    <value>Nome de utilizador</value>
+    <value>Nickname:</value>
+  </data>
+  <data name="VERSIONS" xml:space="preserve">
+    <value>Versões</value>
   </data>
   <data name="VISIT_WEBSITE" xml:space="preserve">
-    <value>Visitar website</value>
+    <value>Visit website</value>
   </data>
   <data name="VISIT_WEBSITE_MESSAGE" xml:space="preserve">
-    <value>Desejas mesmo visitar este website?</value>
+    <value>Do you really want to visit this website?</value>
   </data>
   <data name="VISIT_WEBSITE_TITLE" xml:space="preserve">
-    <value>Visitar</value>
+    <value>Visit</value>
   </data>
   <data name="WEAPON_RATE" xml:space="preserve">
     <value>Weapon rate</value>
   </data>
   <data name="WEBSITE_URL" xml:space="preserve">
-    <value>URL do Website</value>
+    <value>Website URL</value>
   </data>
 </root>
