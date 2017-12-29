@@ -490,7 +490,9 @@ namespace SAMPLauncherNET
                 try
                 {
                     CloseLastServer();
-                    lastServerProcess = Process.Start("sampctl.exe", "run --dir " + lcdc.DevelopmentDirectory);
+                    ProcessStartInfo process_start_info = new ProcessStartInfo(Path.Combine(Directory.GetCurrentDirectory(), "sampctl.exe"), "server run");
+                    process_start_info.WorkingDirectory = lcdc.DevelopmentDirectory;
+                    lastServerProcess = Process.Start(process_start_info);
                 }
                 catch (Exception e)
                 {
