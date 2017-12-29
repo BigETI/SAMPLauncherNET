@@ -484,6 +484,9 @@
   <data name="SEARCH_ON_YOU_TUBE" xml:space="preserve">
     <value>YouTube</value>
   </data>
+  <data name="VERSIONS" xml:space="preserve">
+    <value>Версии SAMP</value>
+  </data>
   <data name="VISIT_WEBSITE" xml:space="preserve">
     <value>Посетить сайт</value>
   </data>
