@@ -667,4 +667,7 @@
   <data name="PORTUGUESE" xml:space="preserve">
     <value>португальский (Português)</value>
   </data>
+  <data name="PORTUGUESE_BRAZIL" xml:space="preserve">
+    <value>португальский Бразилия (Português de Brasil)</value>
+  </data>
 </root>

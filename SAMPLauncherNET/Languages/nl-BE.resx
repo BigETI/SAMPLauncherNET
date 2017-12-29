@@ -356,6 +356,9 @@ Dit project bevind zich op</value>
   <data name="PORTUGUESE" xml:space="preserve">
     <value>Portugees (Português)</value>
   </data>
+  <data name="PORTUGUESE_BRAZIL" xml:space="preserve">
+    <value>Portugees Brazilië (Português de Brasil)</value>
+  </data>
   <data name="RCON_PASSWORD" xml:space="preserve">
     <value>RCON wachtwoord</value>
   </data>

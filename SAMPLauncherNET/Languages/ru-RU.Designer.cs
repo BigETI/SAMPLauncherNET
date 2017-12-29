@@ -1154,6 +1154,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die португальский Бразилия (Português de Brasil) ähnelt.
+        /// </summary>
+        internal static string PORTUGUESE_BRAZIL {
+            get {
+                return ResourceManager.GetString("PORTUGUESE_BRAZIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Версия продукта ähnelt.
         /// </summary>
         internal static string PRODUCT_VERSION {
@@ -1645,6 +1654,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string USERNAME {
             get {
                 return ResourceManager.GetString("USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Версии SAMP ähnelt.
+        /// </summary>
+        internal static string VERSIONS {
+            get {
+                return ResourceManager.GetString("VERSIONS", resourceCulture);
             }
         }
         

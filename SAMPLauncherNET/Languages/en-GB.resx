@@ -290,6 +290,9 @@ This project is located at</value>
   <data name="EDIT_SELECTED_API" xml:space="preserve">
     <value>Edit selected API</value>
   </data>
+  <data name="ENDPOINT" xml:space="preserve">
+    <value>Endpoint</value>
+  </data>
   <data name="ENGLISH" xml:space="preserve">
     <value>English</value>
   </data>
@@ -358,6 +361,9 @@ This project is located at</value>
   </data>
   <data name="HOST_AND_PORT" xml:space="preserve">
     <value>Host and port</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
   </data>
   <data name="IME" xml:space="preserve">
     <value>Enable IME (Input Method Editor)</value>
@@ -440,8 +446,14 @@ This project is located at</value>
   <data name="MINIMUM_CONNECTION_TIME" xml:space="preserve">
     <value>Minimum connection time</value>
   </data>
+  <data name="MODE" xml:space="preserve">
+    <value>Mode</value>
+  </data>
   <data name="MULTI_CORE" xml:space="preserve">
     <value>Multi core</value>
+  </data>
+  <data name="NAME" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="NEED_HELP_FORUMS" xml:space="preserve">
     <value>Do you need help? Join SA:MP forums...</value>
@@ -506,6 +518,9 @@ This project is located at</value>
   <data name="PING" xml:space="preserve">
     <value>Ping</value>
   </data>
+  <data name="PLAYER" xml:space="preserve">
+    <value>Player</value>
+  </data>
   <data name="PLAYERS" xml:space="preserve">
     <value>Players</value>
   </data>
@@ -523,6 +538,9 @@ This project is located at</value>
   </data>
   <data name="PORTUGUESE" xml:space="preserve">
     <value>Portuguese (Português)</value>
+  </data>
+  <data name="PORTUGUESE_BRAZIL" xml:space="preserve">
+    <value>Portuguese Brazil (Português de Brasil)</value>
   </data>
   <data name="PRODUCT_VERSION" xml:space="preserve">
     <value>Product version</value>
@@ -566,6 +584,9 @@ This project is located at</value>
   <data name="REVERT_CONFIG" xml:space="preserve">
     <value>Revert config</value>
   </data>
+  <data name="RULE" xml:space="preserve">
+    <value>Rule</value>
+  </data>
   <data name="RUSSIAN" xml:space="preserve">
     <value>Russian (Русский)</value>
   </data>
@@ -574,6 +595,9 @@ This project is located at</value>
   </data>
   <data name="SAVED_POSITIONS" xml:space="preserve">
     <value>Saved positions</value>
+  </data>
+  <data name="SCORE" xml:space="preserve">
+    <value>Score</value>
   </data>
   <data name="SEARCH_ON" xml:space="preserve">
     <value>Search on...</value>
@@ -704,8 +728,14 @@ Press "Cancel" to cancel this action.</value>
   <data name="TIME_ZONE" xml:space="preserve">
     <value>Time zone</value>
   </data>
+  <data name="TYPE" xml:space="preserve">
+    <value>Type</value>
+  </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="VALUE" xml:space="preserve">
+    <value>Value</value>
   </data>
   <data name="VERSIONS" xml:space="preserve">
     <value>Versions</value>

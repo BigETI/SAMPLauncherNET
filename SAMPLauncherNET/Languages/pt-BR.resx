@@ -485,6 +485,9 @@ Este projeto é localizado em</value>
   <data name="PORTUGUESE" xml:space="preserve">
     <value>Português</value>
   </data>
+  <data name="PORTUGUESE_BRAZIL" xml:space="preserve">
+    <value>Português de Brasil</value>
+  </data>
   <data name="PRODUCT_VERSION" xml:space="preserve">
     <value>Product version</value>
   </data>

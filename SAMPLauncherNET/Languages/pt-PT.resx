@@ -522,7 +522,10 @@ This project is located at</value>
     <value>Porta</value>
   </data>
   <data name="PORTUGUESE" xml:space="preserve">
-    <value>European Portuguese (Português de Portugal)</value>
+    <value>Português</value>
+  </data>
+  <data name="PORTUGUESE_BRAZIL" xml:space="preserve">
+    <value>Português de Brasil</value>
   </data>
   <data name="PRODUCT_VERSION" xml:space="preserve">
     <value>Versão do Produto</value>

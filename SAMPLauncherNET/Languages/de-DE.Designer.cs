@@ -570,6 +570,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Endpunkt ähnelt.
+        /// </summary>
+        internal static string ENDPOINT {
+            get {
+                return ResourceManager.GetString("ENDPOINT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Englisch (English) ähnelt.
         /// </summary>
         internal static string ENGLISH {
@@ -773,6 +782,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string HOSTNAME {
             get {
                 return ResourceManager.GetString("HOSTNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ID ähnelt.
+        /// </summary>
+        internal static string ID {
+            get {
+                return ResourceManager.GetString("ID", resourceCulture);
             }
         }
         
@@ -1020,11 +1038,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Modus ähnelt.
+        /// </summary>
+        internal static string MODE {
+            get {
+                return ResourceManager.GetString("MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Multi Core ähnelt.
         /// </summary>
         internal static string MULTI_CORE {
             get {
                 return ResourceManager.GetString("MULTI_CORE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Name ähnelt.
+        /// </summary>
+        internal static string NAME {
+            get {
+                return ResourceManager.GetString("NAME", resourceCulture);
             }
         }
         
@@ -1218,6 +1254,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Spieler ähnelt.
+        /// </summary>
+        internal static string PLAYER {
+            get {
+                return ResourceManager.GetString("PLAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Spieler Ausschlusszeit ähnelt.
         /// </summary>
         internal static string PLAYER_TIME_OUT {
@@ -1268,6 +1313,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string PORTUGUESE {
             get {
                 return ResourceManager.GetString("PORTUGUESE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Portugiesisch Brazilien (Português de Brasil) ähnelt.
+        /// </summary>
+        internal static string PORTUGUESE_BRAZIL {
+            get {
+                return ResourceManager.GetString("PORTUGUESE_BRAZIL", resourceCulture);
             }
         }
         
@@ -1398,6 +1452,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Regel ähnelt.
+        /// </summary>
+        internal static string RULE {
+            get {
+                return ResourceManager.GetString("RULE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Russisch (Русский) ähnelt.
         /// </summary>
         internal static string RUSSIAN {
@@ -1421,6 +1484,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string SAVED_POSITIONS {
             get {
                 return ResourceManager.GetString("SAVED_POSITIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Punkte ähnelt.
+        /// </summary>
+        internal static string SCORE {
+            get {
+                return ResourceManager.GetString("SCORE", resourceCulture);
             }
         }
         
@@ -1800,11 +1872,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Typ ähnelt.
+        /// </summary>
+        internal static string TYPE {
+            get {
+                return ResourceManager.GetString("TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Benutzername ähnelt.
         /// </summary>
         internal static string USERNAME {
             get {
                 return ResourceManager.GetString("USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wert ähnelt.
+        /// </summary>
+        internal static string VALUE {
+            get {
+                return ResourceManager.GetString("VALUE", resourceCulture);
             }
         }
         

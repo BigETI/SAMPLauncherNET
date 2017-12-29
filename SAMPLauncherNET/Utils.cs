@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.IO;
+using System.Diagnostics;
 
 /// <summary>
 /// SA:MP launcher .NET namespace
@@ -120,6 +121,29 @@ namespace SAMPLauncherNET
             if (ret == null)
             {
                 ret = new FileResource[0];
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// Is file available
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns>Is available</returns>
+        public static bool IsFileAvailable(string path)
+        {
+            bool ret = true;
+            try
+            {
+                using (File.Open(path, FileMode.Open))
+                {
+                    //
+                }
+            }
+            catch (Exception e)
+            {
+                ret = false;
+                Debug.WriteLine(e.Message);
             }
             return ret;
         }

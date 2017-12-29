@@ -159,6 +159,20 @@ namespace SAMPLauncherNET
             Translator.LoadTranslation(this);
             revertConfigButton.Location = new Point(revertConfigButton.Location.X + (sz.Width - revertConfigButton.Size.Width), revertConfigButton.Location.Y);
             Translator.EnumerableToComboBox(languagesComboBox, Translator.TranslatorInterface.Languages);
+            serversGridView.Columns[1].HeaderText = Translator.GetTranslation("PING");
+            serversGridView.Columns[2].HeaderText = Translator.GetTranslation("PORT");
+            serversGridView.Columns[3].HeaderText = Translator.GetTranslation("PLAYERS");
+            serversGridView.Columns[4].HeaderText = Translator.GetTranslation("MODE");
+            serversGridView.Columns[5].HeaderText = Translator.GetTranslation("LANGUAGE");
+            serversGridView.Columns[6].HeaderText = Translator.GetTranslation("IP_AND_PORT");
+            playersGridView.Columns[0].HeaderText = Translator.GetTranslation("PLAYER");
+            playersGridView.Columns[1].HeaderText = Translator.GetTranslation("SCORE");
+            rulesGridView.Columns[0].HeaderText = Translator.GetTranslation("RULE");
+            rulesGridView.Columns[1].HeaderText = Translator.GetTranslation("VALUE");
+            apiGridView.Columns[1].HeaderText = Translator.GetTranslation("NAME");
+            apiGridView.Columns[2].HeaderText = Translator.GetTranslation("TYPE");
+            apiGridView.Columns[3].HeaderText = Translator.GetTranslation("ENDPOINT");
+
             int i = 0;
             foreach (Language language in Translator.TranslatorInterface.Languages)
             {
@@ -1170,8 +1184,10 @@ namespace SAMPLauncherNET
         /// <param name="e">File system event arguments</param>
         private void galleryFileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
+            Debug.WriteLine("galleryFileSystemWatcher_Changed begin");
             ThumbnailsCache.RemoveFromCache(e.FullPath);
             ReloadGallery();
+            Debug.WriteLine("galleryFileSystemWatcher_Changed end");
         }
 
         /// <summary>
@@ -1181,7 +1197,9 @@ namespace SAMPLauncherNET
         /// <param name="e">File system event arguments</param>
         private void galleryFileSystemWatcher_Created(object sender, FileSystemEventArgs e)
         {
+            Debug.WriteLine("galleryFileSystemWatcher_Created begin");
             ReloadGallery();
+            Debug.WriteLine("galleryFileSystemWatcher_Created end");
         }
 
         /// <summary>
@@ -1189,10 +1207,12 @@ namespace SAMPLauncherNET
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">File system event arguments</param>
-        private void galleryFileSystemWatcher_Deleted(object sender, System.IO.FileSystemEventArgs e)
+        private void galleryFileSystemWatcher_Deleted(object sender, FileSystemEventArgs e)
         {
+            Debug.WriteLine("galleryFileSystemWatcher_Deleted begin");
             ThumbnailsCache.RemoveFromCache(e.FullPath);
             ReloadGallery();
+            Debug.WriteLine("galleryFileSystemWatcher_Deleted end");
         }
 
         /// <summary>
@@ -1200,7 +1220,7 @@ namespace SAMPLauncherNET
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">Renamed event arguments</param>
-        private void galleryFileSystemWatcher_Renamed(object sender, System.IO.RenamedEventArgs e)
+        private void galleryFileSystemWatcher_Renamed(object sender, RenamedEventArgs e)
         {
             ThumbnailsCache.RemoveFromCache(e.OldFullPath);
             ReloadGallery();

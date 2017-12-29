@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 
@@ -46,12 +47,22 @@ namespace SAMPLauncherNET
             {
                 if (File.Exists(p))
                 {
-                    Image image = Image.FromFile(p);
-                    if (image != null)
+                    if (Utils.IsFileAvailable(p))
                     {
-                        ret = Utils.GetThumbnail(image);
-                        image.Dispose();
-                        cache.Add(p, ret);
+                        try
+                        {
+                            Image image = Image.FromFile(p);
+                            if (image != null)
+                            {
+                                ret = Utils.GetThumbnail(image);
+                                image.Dispose();
+                                cache.Add(p, ret);
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Console.Error.WriteLine(e.Message);
+                        }
                     }
                 }
             }

@@ -290,6 +290,9 @@ Das Projekt befindet sich auf</value>
   <data name="EDIT_SELECTED_API" xml:space="preserve">
     <value>Selektierte API bearbeiten</value>
   </data>
+  <data name="ENDPOINT" xml:space="preserve">
+    <value>Endpunkt</value>
+  </data>
   <data name="ENGLISH" xml:space="preserve">
     <value>Englisch (English)</value>
   </data>
@@ -358,6 +361,9 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="HOST_AND_PORT" xml:space="preserve">
     <value>Host und Port</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
   </data>
   <data name="IME" xml:space="preserve">
     <value>IME (Input Method Editor) freischalten</value>
@@ -440,8 +446,14 @@ Das Projekt befindet sich auf</value>
   <data name="MINIMUM_CONNECTION_TIME" xml:space="preserve">
     <value>Minimale Verbindungszeit</value>
   </data>
+  <data name="MODE" xml:space="preserve">
+    <value>Modus</value>
+  </data>
   <data name="MULTI_CORE" xml:space="preserve">
     <value>Multi Core</value>
+  </data>
+  <data name="NAME" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="NEED_HELP_FORUMS" xml:space="preserve">
     <value>Brauchst du Hilfe? Trete in den SA:MP Foren ein...</value>
@@ -506,6 +518,9 @@ Das Projekt befindet sich auf</value>
   <data name="PING" xml:space="preserve">
     <value>Verzögerung</value>
   </data>
+  <data name="PLAYER" xml:space="preserve">
+    <value>Spieler</value>
+  </data>
   <data name="PLAYERS" xml:space="preserve">
     <value>Spieler</value>
   </data>
@@ -523,6 +538,9 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="PORTUGUESE" xml:space="preserve">
     <value>Portugiesisch (Português)</value>
+  </data>
+  <data name="PORTUGUESE_BRAZIL" xml:space="preserve">
+    <value>Portugiesisch Brazilien (Português de Brasil)</value>
   </data>
   <data name="PRODUCT_VERSION" xml:space="preserve">
     <value>Produkt version</value>
@@ -566,6 +584,9 @@ Das Projekt befindet sich auf</value>
   <data name="REVERT_CONFIG" xml:space="preserve">
     <value>Einstellungen zurückstellen</value>
   </data>
+  <data name="RULE" xml:space="preserve">
+    <value>Regel</value>
+  </data>
   <data name="RUSSIAN" xml:space="preserve">
     <value>Russisch (Русский)</value>
   </data>
@@ -574,6 +595,9 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="SAVED_POSITIONS" xml:space="preserve">
     <value>Gespeicherte Positionen</value>
+  </data>
+  <data name="SCORE" xml:space="preserve">
+    <value>Punkte</value>
   </data>
   <data name="SEARCH_ON" xml:space="preserve">
     <value>Suche auf...</value>
@@ -704,8 +728,14 @@ Drücke "Abbrechen" um diese Aktion abzubrechen.</value>
   <data name="TIME_ZONE" xml:space="preserve">
     <value>Zeitzone</value>
   </data>
+  <data name="TYPE" xml:space="preserve">
+    <value>Typ</value>
+  </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Benutzername</value>
+  </data>
+  <data name="VALUE" xml:space="preserve">
+    <value>Wert</value>
   </data>
   <data name="VERSIONS" xml:space="preserve">
     <value>Versionen</value>

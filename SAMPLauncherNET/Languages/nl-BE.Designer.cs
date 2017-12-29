@@ -768,6 +768,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Portugees Brazilië (Português de Brasil) ähnelt.
+        /// </summary>
+        internal static string PORTUGUESE_BRAZIL {
+            get {
+                return ResourceManager.GetString("PORTUGUESE_BRAZIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die RCON wachtwoord ähnelt.
         /// </summary>
         internal static string RCON_PASSWORD {

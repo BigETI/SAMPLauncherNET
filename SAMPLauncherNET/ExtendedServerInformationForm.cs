@@ -107,6 +107,12 @@ namespace SAMPLauncherNET
             this.server = server;
             InitializeComponent();
             Translator.LoadTranslation(this);
+            playersGridView.Columns[0].HeaderText = Translator.GetTranslation("ID");
+            playersGridView.Columns[1].HeaderText = Translator.GetTranslation("PLAYER");
+            playersGridView.Columns[2].HeaderText = Translator.GetTranslation("SCORE");
+            playersGridView.Columns[3].HeaderText = Translator.GetTranslation("PING");
+            rulesGridView.Columns[0].HeaderText = Translator.GetTranslation("RULE");
+            rulesGridView.Columns[1].HeaderText = Translator.GetTranslation("VALUE");
             ipAndPortLabel.Text = Translator.GetTranslation("IP_AND_PORT") + ": " + server.IPPortString;
             serverPingThread = new Thread(() =>
             {
