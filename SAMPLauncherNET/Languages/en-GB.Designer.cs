@@ -1782,6 +1782,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Official list ähnelt.
+        /// </summary>
+        internal static string SHOW_LEGACY_OFFICIAL_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_LEGACY_OFFICIAL_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die SACNR ähnelt.
         /// </summary>
         internal static string SHOW_SACNR_LIST {

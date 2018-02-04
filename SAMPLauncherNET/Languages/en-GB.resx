@@ -698,6 +698,9 @@ Press "Cancel" to cancel this action.</value>
   <data name="SHOW_LEGACY_MASTER_LIST" xml:space="preserve">
     <value>Master list</value>
   </data>
+  <data name="SHOW_LEGACY_OFFICIAL_LIST" xml:space="preserve">
+    <value>Official list</value>
+  </data>
   <data name="SHOW_SACNR_LIST" xml:space="preserve">
     <value>SACNR</value>
   </data>

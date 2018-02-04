@@ -46,7 +46,7 @@ namespace SAMPLauncherNET
             {
                 WebClientEx wc = new WebClientEx(1000);
                 wc.Headers.Set(HttpRequestHeader.Accept, "application/json");
-                wc.Headers.Set(HttpRequestHeader.UserAgent, ServerListConnector.APIHTTPUserAgent);
+                wc.Headers.Set(HttpRequestHeader.UserAgent, SAMPProvider.UserAgent);
                 using (MemoryStream stream = new MemoryStream(wc.DownloadData(endpoint + host)))
                 {
                     object result = serializer.ReadObject(stream);

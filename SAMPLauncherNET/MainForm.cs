@@ -741,9 +741,9 @@ namespace SAMPLauncherNET
         /// </summary>
         private void ReloadVersions()
         {
-            SAMPVersion current_version = SAMPProvider.CurrentVersion;
+            SAMPVersionDataContract current_version = SAMPProvider.CurrentVersion;
             versionsListView.Clear();
-            foreach (SAMPVersion version in SAMPProvider.Versions)
+            foreach (SAMPVersionDataContract version in SAMPProvider.VersionsList)
             {
                 ListViewItem lvi = versionsListView.Items.Add(version.ToString());
                 lvi.Tag = version;
@@ -1898,9 +1898,9 @@ namespace SAMPLauncherNET
         {
             foreach (ListViewItem item in versionsListView.SelectedItems)
             {
-                if (item.Tag is SAMPVersion)
+                if (item.Tag is SAMPVersionDataContract)
                 {
-                    SAMPVersion version = (SAMPVersion)(item.Tag);
+                    SAMPVersionDataContract version = (SAMPVersionDataContract)(item.Tag);
                     if (SAMPProvider.CurrentVersion != version)
                     {
                         if (MessageBox.Show(string.Format(Translator.GetTranslation("PATCH_VERSION"), version.Name), Translator.GetTranslation("PATCH_VERSION_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -1923,9 +1923,9 @@ namespace SAMPLauncherNET
         {
             foreach (ListViewItem item in versionsListView.SelectedItems)
             {
-                if (item.Tag is SAMPVersion)
+                if (item.Tag is SAMPVersionDataContract)
                 {
-                    SAMPVersion version = (SAMPVersion)(item.Tag);
+                    SAMPVersionDataContract version = (SAMPVersionDataContract)(item.Tag);
                     if (SAMPProvider.CurrentVersion != version)
                     {
                         if (MessageBox.Show(string.Format(Translator.GetTranslation("INSTALL_VERSION"), version.Name), Translator.GetTranslation("INSTALL_VERSION_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -1948,9 +1948,9 @@ namespace SAMPLauncherNET
         {
             foreach (ListViewItem item in versionsListView.SelectedItems)
             {
-                if (item.Tag is SAMPVersion)
+                if (item.Tag is SAMPVersionDataContract)
                 {
-                    SAMPVersion version = (SAMPVersion)(item.Tag);
+                    SAMPVersionDataContract version = (SAMPVersionDataContract)(item.Tag);
                     if (SAMPProvider.CurrentVersion != version)
                     {
                         switch (MessageBox.Show(string.Format(Translator.GetTranslation("SELECT_VERSION"), version.Name), Translator.GetTranslation("SELECT_VERSION_TITLE"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning))

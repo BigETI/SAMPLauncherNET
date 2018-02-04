@@ -20,11 +20,6 @@ namespace SAMPLauncherNET
     public static class SAMP
     {
         /// <summary>
-        /// API HTTP URL
-        /// </summary>
-        public static readonly string APIHTTPURL = "http://lists.sa-mp.com/0.3.7/";
-
-        /// <summary>
         /// Registry key
         /// </summary>
         public static readonly string RegistryKey = "HKEY_CURRENT_USER\\SOFTWARE\\SAMP";
@@ -392,8 +387,9 @@ namespace SAMPLauncherNET
             List<ServerListConnector> ret = new List<ServerListConnector>();
             ret.Add(new ServerListConnector("{$SHOW_FAVOURITES$}", EServerListType.Favourites, FavouritesPath));
             ret.Add(new ServerListConnector("{$SHOW_LEGACY_FAVOURITES$}", EServerListType.LegacyFavourites, LegacyFavouritesPath));
-            ret.Add(new ServerListConnector("{$SHOW_LEGACY_HOSTED_LIST$}", EServerListType.LegacySAMP, APIHTTPURL + "hosted"));
-            ret.Add(new ServerListConnector("{$SHOW_LEGACY_MASTER_LIST$}", EServerListType.LegacySAMP, APIHTTPURL + "servers"));
+            ret.Add(new ServerListConnector("{$SHOW_LEGACY_HOSTED_LIST$}", EServerListType.LegacySAMP, "{$HOSTED_LIST_URL$}"));
+            ret.Add(new ServerListConnector("{$SHOW_LEGACY_MASTER_LIST$}", EServerListType.LegacySAMP, "{$MASTER_LIST_URL$}"));
+            ret.Add(new ServerListConnector("{$SHOW_LEGACY_OFFICIAL_LIST$}", EServerListType.LegacySAMP, "{$OFFICIAL_LIST_URL$}"));
             ret.Add(new ServerListConnector("{$SHOW_SOUTHCLAWS_LIST$}", EServerListType.BackendRESTful, "http://api.samp.southcla.ws/v2/servers"));
             ret.Add(new ServerListConnector("{$SHOW_SACNR_LIST$}", EServerListType.LegacySAMP, "http://monitor.sacnr.com/list/masterlist.txt"));
             APIIO = ret;
@@ -527,7 +523,7 @@ namespace SAMPLauncherNET
         /// </summary>
         /// <param name="version">Version</param>
         /// <param name="useInstaller">Use installer</param>
-        public static void ChangeSAMPVersion(SAMPVersion version, bool useInstaller)
+        public static void ChangeSAMPVersion(SAMPVersionDataContract version, bool useInstaller)
         {
             if (version != null)
             {

@@ -206,7 +206,7 @@
     <Compile Include="RequestsRequired.cs" />
     <Compile Include="SAMPConfig.cs" />
     <Compile Include="SAMPProvider.cs" />
-    <Compile Include="SAMPVersion.cs" />
+    <Compile Include="SAMPVersionDataContract.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="ServerListConnector.cs" />
     <Compile Include="BackendRESTfulServerDataContract.cs" />

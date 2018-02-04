@@ -37,11 +37,6 @@ namespace SAMPLauncherNET
         public static readonly string APIHTTPAccept = "text/html, */*";
 
         /// <summary>
-        /// API HTTP user agent
-        /// </summary>
-        public static readonly string APIHTTPUserAgent = "Mozilla/3.0 (compatible; SA:MP v0.3.7)";
-
-        /// <summary>
         /// Name
         /// </summary>
         private string name = "";
@@ -100,7 +95,23 @@ namespace SAMPLauncherNET
         {
             get
             {
-                return endpoint;
+                string ret = null;
+                switch (endpoint)
+                {
+                    case "{$HOSTED_LIST_URL$}":
+                        ret = SAMPProvider.HostedTabURI;
+                        break;
+                    case "{$MASTER_LIST_URL$}":
+                        ret = SAMPProvider.InternetTabURI;
+                        break;
+                    case "{$OFFICIAL_LIST_URL$}":
+                        ret = SAMPProvider.OfficialTabURI;
+                        break;
+                    default:
+                        ret = endpoint;
+                        break;
+                }
+                return ret;
             }
         }
 
@@ -162,7 +173,7 @@ namespace SAMPLauncherNET
                     switch (serverListType)
                     {
                         case EServerListType.Favourites:
-                            using (FileStream stream = File.Open(endpoint, FileMode.Open))
+                            using (FileStream stream = File.Open(Endpoint, FileMode.Open))
                             {
                                 FavouriteDataContract[] favourites = (FavouriteDataContract[])(favouriteListJSONSerializer.ReadObject(stream));
                                 foreach (FavouriteDataContract fdc in favourites)
@@ -176,8 +187,8 @@ namespace SAMPLauncherNET
                             {
                                 wc.Headers.Set(HttpRequestHeader.ContentType, APIHTTPContentType);
                                 wc.Headers.Set(HttpRequestHeader.Accept, APIHTTPAccept);
-                                wc.Headers.Set(HttpRequestHeader.UserAgent, APIHTTPUserAgent);
-                                using (MemoryStream stream = new MemoryStream(wc.DownloadData(endpoint)))
+                                wc.Headers.Set(HttpRequestHeader.UserAgent, SAMPProvider.UserAgent);
+                                using (MemoryStream stream = new MemoryStream(wc.DownloadData(Endpoint)))
                                 {
                                     BackendRESTfulServerDataContract[] servers = serverListJSONSerializer.ReadObject(stream) as BackendRESTfulServerDataContract[];
                                     if (servers != null)
@@ -198,7 +209,7 @@ namespace SAMPLauncherNET
                             }
                             break;
                         case EServerListType.LegacyFavourites:
-                            using (FileStream stream = File.Open(endpoint, FileMode.Open))
+                            using (FileStream stream = File.Open(Endpoint, FileMode.Open))
                             {
                                 using (BinaryReader reader = new BinaryReader(stream))
                                 {
@@ -235,8 +246,8 @@ namespace SAMPLauncherNET
                             {
                                 wc.Headers.Set(HttpRequestHeader.ContentType, APIHTTPContentType);
                                 wc.Headers.Set(HttpRequestHeader.Accept, APIHTTPAccept);
-                                wc.Headers.Set(HttpRequestHeader.UserAgent, APIHTTPUserAgent);
-                                string[] ips = wc.DownloadString(endpoint).Split(new[] { '\n' });
+                                wc.Headers.Set(HttpRequestHeader.UserAgent, SAMPProvider.UserAgent);
+                                string[] ips = wc.DownloadString(Endpoint).Split(new[] { '\n' });
                                 foreach (string ip in ips)
                                 {
                                     Server server = new Server(ip, true);
@@ -264,7 +275,7 @@ namespace SAMPLauncherNET
                     {
                         try
                         {
-                            using (FileStream stream = File.Open(endpoint, FileMode.Create))
+                            using (FileStream stream = File.Open(Endpoint, FileMode.Create))
                             {
                                 List<FavouriteDataContract> api = new List<FavouriteDataContract>();
                                 foreach (Server server in value.Values)
@@ -284,7 +295,7 @@ namespace SAMPLauncherNET
                     {
                         try
                         {
-                            using (FileStream fs = File.Open(endpoint, FileMode.Create))
+                            using (FileStream fs = File.Open(Endpoint, FileMode.Create))
                             {
                                 using (BinaryWriter writer = new BinaryWriter(fs))
                                 {
@@ -341,7 +352,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                return new APIDataContract(name, serverListType.ToString(), endpoint);
+                return new APIDataContract(name, serverListType.ToString(), Endpoint);
             }
         }
 
