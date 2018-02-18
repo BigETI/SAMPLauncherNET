@@ -52,7 +52,7 @@ namespace SAMPLauncherNET
                 try
                 {
                     ret = (Registry.GetValue(RegistryKey, "gta_sa_exe", null) != null) && Directory.Exists(ConfigPath);
-                    if (ret)
+                    if (ret && (Registry.GetValue(RegistryKey, "PlayerName", null) == null))
                     {
                         Registry.SetValue(RegistryKey, "PlayerName", "", RegistryValueKind.String);
                     }
