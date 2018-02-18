@@ -1470,6 +1470,33 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die sampctl Fehler ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_ERROR_TITLE {
+            get {
+                return ResourceManager.GetString("SAMPCTL_ERROR_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die sampctl konnte nicht heruntergeladen werden. ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING_ASSET {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING_ASSET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die sampctl konnte nicht entpackt werden. ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_UNZIP_ERROR {
+            get {
+                return ResourceManager.GetString("SAMPCTL_UNZIP_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Speichern ähnelt.
         /// </summary>
         internal static string SAVE {

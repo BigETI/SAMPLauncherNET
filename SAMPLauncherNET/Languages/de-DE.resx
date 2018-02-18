@@ -590,6 +590,15 @@ Das Projekt befindet sich auf</value>
   <data name="RUSSIAN" xml:space="preserve">
     <value>Russisch (Русский)</value>
   </data>
+  <data name="SAMPCTL_ERROR_TITLE" xml:space="preserve">
+    <value>sampctl Fehler</value>
+  </data>
+  <data name="SAMPCTL_MISSING_ASSET" xml:space="preserve">
+    <value>sampctl konnte nicht heruntergeladen werden.</value>
+  </data>
+  <data name="SAMPCTL_UNZIP_ERROR" xml:space="preserve">
+    <value>sampctl konnte nicht entpackt werden.</value>
+  </data>
   <data name="SAVE" xml:space="preserve">
     <value>Speichern</value>
   </data>

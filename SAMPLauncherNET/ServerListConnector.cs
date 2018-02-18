@@ -116,6 +116,17 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Raw endpoint
+        /// </summary>
+        public string RawEndpoint
+        {
+            get
+            {
+                return endpoint;
+            }
+        }
+
+        /// <summary>
         /// Maximal servers
         /// </summary>
         public uint MaxServers
@@ -352,7 +363,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                return new APIDataContract(name, serverListType.ToString(), Endpoint);
+                return new APIDataContract(name, serverListType.ToString(), RawEndpoint);
             }
         }
 

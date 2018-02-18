@@ -47,22 +47,25 @@ namespace SAMPLauncherNET
             {
                 if (File.Exists(p))
                 {
-                    if (Utils.IsFileAvailable(p))
+                    try
                     {
-                        try
+                        if (Utils.IsFileAvailable(p))
                         {
                             Image image = Image.FromFile(p);
                             if (image != null)
                             {
                                 ret = Utils.GetThumbnail(image);
                                 image.Dispose();
-                                cache.Add(p, ret);
+                                if (ret != null)
+                                {
+                                    cache.Add(p, ret);
+                                }
                             }
                         }
-                        catch (Exception e)
-                        {
-                            Console.Error.WriteLine(e.Message);
-                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Error.WriteLine(e.Message);
                     }
                 }
             }

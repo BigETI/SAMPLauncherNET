@@ -590,6 +590,15 @@ This project is located at</value>
   <data name="RUSSIAN" xml:space="preserve">
     <value>Russian (Русский)</value>
   </data>
+  <data name="SAMPCTL_ERROR_TITLE" xml:space="preserve">
+    <value>sampctl error</value>
+  </data>
+  <data name="SAMPCTL_MISSING_ASSET" xml:space="preserve">
+    <value>sampctl can't be downloaded right now.</value>
+  </data>
+  <data name="SAMPCTL_UNZIP_ERROR" xml:space="preserve">
+    <value>sampctl can't be unzipped.</value>
+  </data>
   <data name="SAVE" xml:space="preserve">
     <value>Save</value>
   </data>

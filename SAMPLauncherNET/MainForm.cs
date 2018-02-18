@@ -651,14 +651,18 @@ namespace SAMPLauncherNET
             galleryListView.Clear();
             galleryImageList.Images.Clear();
             loadedGallery.Clear();
+            lastGalleryImageIndex = 0U;
             galleryThread = new Thread(() =>
             {
                 foreach (string path in SAMP.GalleryImagePaths)
                 {
                     Image image = ThumbnailsCache.GetThumbnail(path);
-                    lock (loadedGallery)
+                    if (image != null)
                     {
-                        loadedGallery.Add(path, image);
+                        lock (loadedGallery)
+                        {
+                            loadedGallery.Add(path, image);
+                        }
                     }
                 }
             });
@@ -749,6 +753,7 @@ namespace SAMPLauncherNET
                 lvi.Tag = version;
                 lvi.ImageIndex = ((current_version == version) ? 0 : 1);
             }
+            ReloadAPIs();
         }
 
         /// <summary>
@@ -806,9 +811,9 @@ namespace SAMPLauncherNET
             string directory = Utils.AppendCharacterToString(developmentDirectorySingleLineTextField.Text, '\\');
             if (Directory.Exists(directory))
             {
-                FillItemsInCheckedListBox(developerToolsGamemodesCheckedListBox, Utils.GetFilesFromDirectory(directory + "gamemodes", "*.amx", SearchOption.AllDirectories), dtcdc.Gamemodes);
-                FillItemsInCheckedListBox(developerToolsFilterscriptsCheckedListBox, Utils.GetFilesFromDirectory(directory + "filterscripts", "*.amx", SearchOption.AllDirectories), dtcdc.Filterscripts);
-                FillItemsInCheckedListBox(developerToolsPluginsCheckedListBox, Utils.GetFilesFromDirectory(directory + "plugins", "*.amx", SearchOption.AllDirectories), dtcdc.Plugins);
+                FillItemsInCheckedListBox(developerToolsGamemodesCheckedListBox, Utils.GetFilesFromDirectory(directory + "gamemodes", "*.amx", SearchOption.TopDirectoryOnly), dtcdc.Gamemodes);
+                FillItemsInCheckedListBox(developerToolsFilterscriptsCheckedListBox, Utils.GetFilesFromDirectory(directory + "filterscripts", "*.amx", SearchOption.TopDirectoryOnly), dtcdc.Filterscripts);
+                FillItemsInCheckedListBox(developerToolsPluginsCheckedListBox, Utils.GetFilesFromDirectory(directory + "plugins", "*.dll", SearchOption.TopDirectoryOnly), dtcdc.Plugins);
             }
         }
 
@@ -1865,7 +1870,10 @@ namespace SAMPLauncherNET
         private void developerToolsStartServerButton_Click(object sender, EventArgs e)
         {
             SaveDeveloperToolsConfig();
-            SAMP.LaunchSAMPServer();
+            if (SAMPCTLProvider.Update())
+            {
+                SAMP.LaunchSAMPServer();
+            }
         }
 
         /// <summary>

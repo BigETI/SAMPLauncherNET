@@ -52,6 +52,9 @@
     <ApplicationIcon>samp.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="INIEngine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>libs\INIEngine.dll</HintPath>
@@ -141,11 +144,15 @@
     <Compile Include="FileResource.cs" />
     <Compile Include="GeoLocationProvider.cs" />
     <Compile Include="GeoLocator.cs" />
+    <Compile Include="GitHubLatestReleaseDataContract.cs" />
+    <Compile Include="GitHubReleaseAssetDataContract.cs" />
+    <Compile Include="GitHubUserDataContract.cs" />
     <Compile Include="Languages\pt-PT.Designer.cs">
       <DependentUpon>pt-PT.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="SAMPCTLProvider.cs" />
     <Compile Include="ThumbnailsCache.cs" />
     <Compile Include="IndexedServerListConnector.cs" />
     <Compile Include="Kernel32.cs" />
@@ -280,6 +287,7 @@
     <EmbeddedResource Include="RCONPasswordForm.resx">
       <DependentUpon>RCONPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -307,9 +315,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SAMPLauncherNETUpdater.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="sampctl.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SAMPLauncherNETUpdater.exe.config">
