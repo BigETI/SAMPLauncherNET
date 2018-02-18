@@ -226,6 +226,23 @@ namespace SAMPLauncherNET
         public SAMPConfig(string path)
         {
             this.path = path;
+            if (!(File.Exists(path)))
+            {
+                using (StreamWriter stream = new StreamWriter(path))
+                {
+                    stream.WriteLine("pagesize=10");
+                    stream.WriteLine("fpslimit=50");
+                    stream.WriteLine("disableheadmove=0");
+                    stream.WriteLine("timestamp=0");
+                    stream.WriteLine("ime=0");
+                    stream.WriteLine("multicore=1");
+                    stream.WriteLine("directmode=0");
+                    stream.WriteLine("audiomsgoff=0");
+                    stream.WriteLine("nonametagstatus=0");
+                    stream.WriteLine("fontweight=0");
+                    stream.WriteLine("audioproxyoff=0");
+                }
+            }
             ini = INIFile.Open(path);
         }
 
