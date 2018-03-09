@@ -428,7 +428,9 @@
     <value>Пароль сервера</value>
   </data>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY" xml:space="preserve">
-    <value>Пустое поле пароля сервера.\r\n\r\nВы хотите продолжить?</value>
+    <value>Пустое поле пароля сервера.
+
+Вы хотите продолжить?</value>
   </data>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
     <value>Пустое поле пароля сервера</value>

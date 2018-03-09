@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using WinFormsTranslator;
 
 /// <summary>
 /// SA:MP launcher .NET namespace
@@ -43,6 +44,11 @@ namespace SAMPLauncherNET
         /// SA:MP debug path
         /// </summary>
         public static readonly string SAMPDebugPath = ExeDir + "\\samp_debug.exe";
+
+        /// <summary>
+        /// SA:MP Social path
+        /// </summary>
+        public static readonly string SAMPSocialPath = ExeDir + "\\SAMPSocial.exe";
 
         /// <summary>
         /// Launcher config path
@@ -139,7 +145,14 @@ namespace SAMPLauncherNET
             }
             set
             {
-                Registry.SetValue(RegistryKey, "PlayerName", value);
+                try
+                {
+                    Registry.SetValue(RegistryKey, "PlayerName", value);
+                }
+                catch (Exception e)
+                {
+                    Console.Error.WriteLine(e.Message);
+                }
             }
         }
 
@@ -412,42 +425,63 @@ namespace SAMPLauncherNET
             {
                 if (debug || server.IsValid)
                 {
-                    IntPtr mh = Kernel32.GetModuleHandle("kernel32.dll");
-                    if (mh != IntPtr.Zero)
+                    if (File.Exists(SAMPSocialPath))
                     {
-                        IntPtr pa = Kernel32.GetProcAddress(mh, "LoadLibraryW");
-                        if (pa != IntPtr.Zero)
+                        try
                         {
-                            Kernel32.PROCESS_INFORMATION process_info;
-                            Kernel32.STARTUPINFO startup_info = new Kernel32.STARTUPINFO();
-                            if (Kernel32.CreateProcess(GTASAExe, debug ? "-d" : "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)), IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
+                            ProcessStartInfo psi = new ProcessStartInfo(SAMPSocialPath, debug ? "-d" : "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)));
+                            psi.WorkingDirectory = ExeDir;
+                            Process process = Process.Start(psi);
+                            process.WaitForExit();
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show(e.Message, "Process error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        if (quitWhenDone)
+                        {
+                            f.Close();
+                        }
+                    }
+                    else
+                    {
+                        IntPtr mh = Kernel32.GetModuleHandle("kernel32.dll");
+                        if (mh != IntPtr.Zero)
+                        {
+                            IntPtr pa = Kernel32.GetProcAddress(mh, "LoadLibraryW");
+                            if (pa != IntPtr.Zero)
                             {
-                                IntPtr ptr = Kernel32.VirtualAllocEx(process_info.hProcess, IntPtr.Zero, (uint)(SAMPDLLPath.Length + 1) * 2U, Kernel32.AllocationType.Reserve | Kernel32.AllocationType.Commit, Kernel32.MemoryProtection.ReadWrite);
-                                if (ptr != IntPtr.Zero)
+                                Kernel32.PROCESS_INFORMATION process_info;
+                                Kernel32.STARTUPINFO startup_info = new Kernel32.STARTUPINFO();
+                                if (Kernel32.CreateProcess(GTASAExe, debug ? "-d" : "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)), IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
                                 {
-                                    int nobw = 0;
-                                    byte[] p = Encoding.Unicode.GetBytes(SAMPDLLPath);
-                                    byte[] nt = Encoding.Unicode.GetBytes("\0");
-                                    if (Kernel32.WriteProcessMemory(process_info.hProcess, ptr, p, (uint)(p.Length), out nobw) && Kernel32.WriteProcessMemory(process_info.hProcess, new IntPtr(ptr.ToInt64() + p.LongLength), nt, (uint)(nt.Length), out nobw))
+                                    IntPtr ptr = Kernel32.VirtualAllocEx(process_info.hProcess, IntPtr.Zero, (uint)(SAMPDLLPath.Length + 1) * 2U, Kernel32.AllocationType.Reserve | Kernel32.AllocationType.Commit, Kernel32.MemoryProtection.ReadWrite);
+                                    if (ptr != IntPtr.Zero)
                                     {
-                                        uint tid = 0U;
-                                        IntPtr rt = Kernel32.CreateRemoteThread(process_info.hProcess, IntPtr.Zero, 0U, pa, ptr, /* CREATE_SUSPENDED */ 0x4, out tid);
-                                        if (rt != IntPtr.Zero)
+                                        int nobw = 0;
+                                        byte[] p = Encoding.Unicode.GetBytes(SAMPDLLPath);
+                                        byte[] nt = Encoding.Unicode.GetBytes("\0");
+                                        if (Kernel32.WriteProcessMemory(process_info.hProcess, ptr, p, (uint)(p.Length), out nobw) && Kernel32.WriteProcessMemory(process_info.hProcess, new IntPtr(ptr.ToInt64() + p.LongLength), nt, (uint)(nt.Length), out nobw))
                                         {
-                                            Kernel32.ResumeThread(rt);
-                                            unchecked
+                                            uint tid = 0U;
+                                            IntPtr rt = Kernel32.CreateRemoteThread(process_info.hProcess, IntPtr.Zero, 0U, pa, ptr, /* CREATE_SUSPENDED */ 0x4, out tid);
+                                            if (rt != IntPtr.Zero)
                                             {
-                                                Kernel32.WaitForSingleObject(rt, (uint)(Timeout.Infinite));
+                                                Kernel32.ResumeThread(rt);
+                                                unchecked
+                                                {
+                                                    Kernel32.WaitForSingleObject(rt, (uint)(Timeout.Infinite));
+                                                }
                                             }
                                         }
+                                        Kernel32.VirtualFreeEx(process_info.hProcess, ptr, 0, Kernel32.AllocationType.Release);
                                     }
-                                    Kernel32.VirtualFreeEx(process_info.hProcess, ptr, 0, Kernel32.AllocationType.Release);
-                                }
-                                Kernel32.ResumeThread(process_info.hThread);
-                                Kernel32.CloseHandle(process_info.hProcess);
-                                if (quitWhenDone)
-                                {
-                                    f.Close();
+                                    Kernel32.ResumeThread(process_info.hThread);
+                                    Kernel32.CloseHandle(process_info.hProcess);
+                                    if (quitWhenDone)
+                                    {
+                                        f.Close();
+                                    }
                                 }
                             }
                         }
@@ -497,7 +531,17 @@ namespace SAMPLauncherNET
             }
             else
             {
-                MessageBox.Show("Get \"sampctl.exe\" from https://github.com/Southclaws/sampctl/releases to run a server.", "\"sampctl\" missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (MessageBox.Show(string.Format(Translator.GetTranslation("SAMPCTL_MISSING"), SAMPCTLProvider.SAMPCTLURI), Translator.GetTranslation("SAMPCTL_MISSING_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        Process.Start(SAMPCTLProvider.SAMPCTLURI);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Error.WriteLine(e.Message);
+                    }
+                }
             }
         }
 

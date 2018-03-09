@@ -1451,7 +1451,9 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Пустое поле пароля сервера.\r\n\r\nВы хотите продолжить? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Пустое поле пароля сервера.
+        ///
+        ///Вы хотите продолжить? ähnelt.
         /// </summary>
         internal static string SERVER_PASSWORD_FIELD_IS_EMPTY {
             get {

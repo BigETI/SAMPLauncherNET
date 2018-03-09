@@ -642,7 +642,9 @@ Press "Cancel" to cancel this action.</value>
     <value>Password:</value>
   </data>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY" xml:space="preserve">
-    <value>Server password field is empty.\r\n\r\nDo you want to continue?</value>
+    <value>Server password field is empty.
+
+Do you want to continue?</value>
   </data>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
     <value>Server password field is empty</value>

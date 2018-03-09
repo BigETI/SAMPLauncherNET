@@ -23,6 +23,11 @@ namespace SAMPLauncherNET
         public static readonly string SAMPCTLPath = "./sampctl.exe";
 
         /// <summary>
+        /// sampctl URI
+        /// </summary>
+        public static readonly string SAMPCTLURI = "http://sampctl.com/";
+
+        /// <summary>
         /// GitHub API URI
         /// </summary>
         private static readonly string SAMPCTLInfoPath = "./sampctl-info.json";

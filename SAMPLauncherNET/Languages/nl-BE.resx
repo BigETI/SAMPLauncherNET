@@ -429,7 +429,9 @@ Dit project bevind zich op</value>
     <value>Server wachtwoord</value>
   </data>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY" xml:space="preserve">
-    <value>Het veld server wachtwoord is leeg.\r\n\r\nDoorgaan?</value>
+    <value>Het veld server wachtwoord is leeg.
+
+Doorgaan?</value>
   </data>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
     <value>Veld server password is leeg</value>

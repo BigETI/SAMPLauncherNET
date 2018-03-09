@@ -593,8 +593,16 @@ Das Projekt befindet sich auf</value>
   <data name="SAMPCTL_ERROR_TITLE" xml:space="preserve">
     <value>sampctl Fehler</value>
   </data>
+  <data name="SAMPCTL_MISSING" xml:space="preserve">
+    <value>Installiere "sampctl" aus {0} um einen Server zu starten.
+
+Möchtest du diese Webseite jetzt besuchen?</value>
+  </data>
   <data name="SAMPCTL_MISSING_ASSET" xml:space="preserve">
     <value>sampctl konnte nicht heruntergeladen werden.</value>
+  </data>
+  <data name="SAMPCTL_MISSING_TITLE" xml:space="preserve">
+    <value>"sampctl" Installation fehlt</value>
   </data>
   <data name="SAMPCTL_UNZIP_ERROR" xml:space="preserve">
     <value>sampctl konnte nicht entpackt werden.</value>
@@ -672,7 +680,9 @@ Drücke "Abbrechen" um diese Aktion abzubrechen.</value>
     <value>Server Passwort</value>
   </data>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY" xml:space="preserve">
-    <value>Server Passwort Eingabefeld ist leer.\r\n\r\nMöchtest du fortfahren?</value>
+    <value>Server Passwort Eingabefeld ist leer.
+
+Möchtest du fortfahren?</value>
   </data>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
     <value>Server Passwort Einagefeld ist leer.</value>

@@ -1479,11 +1479,31 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Install &quot;sampctl&quot; from {0} to run a server.
+        ///
+        ///Do you want to visit this website now? ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die sampctl can&apos;t be downloaded right now. ähnelt.
         /// </summary>
         internal static string SAMPCTL_MISSING_ASSET {
             get {
                 return ResourceManager.GetString("SAMPCTL_MISSING_ASSET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &quot;sampctl&quot; installation is missing ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING_TITLE", resourceCulture);
             }
         }
         
@@ -1683,7 +1703,9 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Server password field is empty.\r\n\r\nDo you want to continue? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Server password field is empty.
+        ///
+        ///Do you want to continue? ähnelt.
         /// </summary>
         internal static string SERVER_PASSWORD_FIELD_IS_EMPTY {
             get {

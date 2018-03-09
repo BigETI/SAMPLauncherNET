@@ -1479,11 +1479,31 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Installiere &quot;sampctl&quot; aus {0} um einen Server zu starten.
+        ///
+        ///Möchtest du diese Webseite jetzt besuchen? ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die sampctl konnte nicht heruntergeladen werden. ähnelt.
         /// </summary>
         internal static string SAMPCTL_MISSING_ASSET {
             get {
                 return ResourceManager.GetString("SAMPCTL_MISSING_ASSET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &quot;sampctl&quot; Installation fehlt ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING_TITLE", resourceCulture);
             }
         }
         
@@ -1683,7 +1703,9 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Server Passwort Eingabefeld ist leer.\r\n\r\nMöchtest du fortfahren? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Server Passwort Eingabefeld ist leer.
+        ///
+        ///Möchtest du fortfahren? ähnelt.
         /// </summary>
         internal static string SERVER_PASSWORD_FIELD_IS_EMPTY {
             get {

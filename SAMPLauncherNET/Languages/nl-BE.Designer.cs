@@ -966,7 +966,9 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Het veld server wachtwoord is leeg.\r\n\r\nDoorgaan? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Het veld server wachtwoord is leeg.
+        ///
+        ///Doorgaan? ähnelt.
         /// </summary>
         internal static string SERVER_PASSWORD_FIELD_IS_EMPTY {
             get {

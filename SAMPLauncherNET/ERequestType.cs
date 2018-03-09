@@ -4,7 +4,7 @@
 namespace SAMPLauncherNET
 {
     /// <summary>
-    /// Request tpype enumerator
+    /// Request type enumerator
     /// </summary>
     public enum ERequestType
     {

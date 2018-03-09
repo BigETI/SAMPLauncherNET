@@ -1593,7 +1593,9 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Server password field is empty.\r\n\r\nDo you want to continue? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Server password field is empty.
+        ///
+        ///Do you want to continue? ähnelt.
         /// </summary>
         internal static string SERVER_PASSWORD_FIELD_IS_EMPTY {
             get {
