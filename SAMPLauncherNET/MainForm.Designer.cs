@@ -147,6 +147,7 @@
             this.versionsImageList = new System.Windows.Forms.ImageList(this.components);
             this.optionsPage = new System.Windows.Forms.TabPage();
             this.optionsPanel = new System.Windows.Forms.Panel();
+            this.useDiscordRichPresenceCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.revertConfigButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.saveConfigButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.fontWeightCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
@@ -1534,6 +1535,7 @@
             // optionsPanel
             // 
             this.optionsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.optionsPanel.Controls.Add(this.useDiscordRichPresenceCheckBox);
             this.optionsPanel.Controls.Add(this.revertConfigButton);
             this.optionsPanel.Controls.Add(this.saveConfigButton);
             this.optionsPanel.Controls.Add(this.fontWeightCheckBox);
@@ -1557,6 +1559,24 @@
             this.optionsPanel.Name = "optionsPanel";
             this.optionsPanel.Size = new System.Drawing.Size(1176, 530);
             this.optionsPanel.TabIndex = 0;
+            // 
+            // useDiscordRichPresenceCheckBox
+            // 
+            this.useDiscordRichPresenceCheckBox.AutoSize = true;
+            this.useDiscordRichPresenceCheckBox.Depth = 0;
+            this.useDiscordRichPresenceCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.useDiscordRichPresenceCheckBox.Location = new System.Drawing.Point(3, 433);
+            this.useDiscordRichPresenceCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.useDiscordRichPresenceCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.useDiscordRichPresenceCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.useDiscordRichPresenceCheckBox.Name = "useDiscordRichPresenceCheckBox";
+            this.useDiscordRichPresenceCheckBox.Ripple = true;
+            this.useDiscordRichPresenceCheckBox.Size = new System.Drawing.Size(254, 30);
+            this.useDiscordRichPresenceCheckBox.TabIndex = 31;
+            this.useDiscordRichPresenceCheckBox.Text = "{$USE_DISCORD_RICH_PRESENCE$}";
+            this.toolTip.SetToolTip(this.useDiscordRichPresenceCheckBox, "This option toggles whether your chat font is bold or not.\r\nOFF = BOLD (default) " +
+        "and ON = NORMAL.");
+            this.useDiscordRichPresenceCheckBox.UseVisualStyleBackColor = true;
             // 
             // revertConfigButton
             // 
@@ -1588,7 +1608,7 @@
             this.saveConfigButton.Name = "saveConfigButton";
             this.saveConfigButton.Primary = true;
             this.saveConfigButton.Size = new System.Drawing.Size(80, 36);
-            this.saveConfigButton.TabIndex = 31;
+            this.saveConfigButton.TabIndex = 32;
             this.saveConfigButton.Text = "{$SAVE$}";
             this.saveConfigButton.UseVisualStyleBackColor = true;
             this.saveConfigButton.Click += new System.EventHandler(this.saveConfigButton_Click);
@@ -2933,5 +2953,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn modeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn languageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iPAndPortDataGridViewTextBoxColumn;
+        private MaterialSkin.Controls.MaterialCheckBox useDiscordRichPresenceCheckBox;
     }
 }

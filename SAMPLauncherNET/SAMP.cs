@@ -46,11 +46,6 @@ namespace SAMPLauncherNET
         public static readonly string SAMPDebugPath = ExeDir + "\\samp_debug.exe";
 
         /// <summary>
-        /// SA:MP Social path
-        /// </summary>
-        public static readonly string SAMPSocialPath = ExeDir + "\\SAMPSocial.exe";
-
-        /// <summary>
         /// Launcher config path
         /// </summary>
         public static readonly string LauncherConfigPath = "./config.json";
@@ -410,6 +405,40 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Inject plugin
+        /// </summary>
+        /// <param name="pluginPath">Plugin path</param>
+        /// <param name="processHandle">Process handle</param>
+        /// <param name="loadLibraryW">LoadLibraryW function pointer</param>
+        private static void InjectPlugin(string pluginPath, IntPtr processHandle, IntPtr loadLibraryW)
+        {
+            if (File.Exists(pluginPath))
+            {
+                IntPtr ptr = Kernel32.VirtualAllocEx(processHandle, IntPtr.Zero, (uint)(pluginPath.Length + 1) * 2U, Kernel32.AllocationType.Reserve | Kernel32.AllocationType.Commit, Kernel32.MemoryProtection.ReadWrite);
+                if (ptr != IntPtr.Zero)
+                {
+                    int nobw = 0;
+                    byte[] p = Encoding.Unicode.GetBytes(pluginPath);
+                    byte[] nt = Encoding.Unicode.GetBytes("\0");
+                    if (Kernel32.WriteProcessMemory(processHandle, ptr, p, (uint)(p.Length), out nobw) && Kernel32.WriteProcessMemory(processHandle, new IntPtr(ptr.ToInt64() + p.LongLength), nt, (uint)(nt.Length), out nobw))
+                    {
+                        uint tid = 0U;
+                        IntPtr rt = Kernel32.CreateRemoteThread(processHandle, IntPtr.Zero, 0U, loadLibraryW, ptr, /* CREATE_SUSPENDED */ 0x4, out tid);
+                        if (rt != IntPtr.Zero)
+                        {
+                            Kernel32.ResumeThread(rt);
+                            unchecked
+                            {
+                                Kernel32.WaitForSingleObject(rt, (uint)(Timeout.Infinite));
+                            }
+                        }
+                    }
+                    Kernel32.VirtualFreeEx(processHandle, ptr, 0, Kernel32.AllocationType.Release);
+                }
+            }
+        }
+
+        /// <summary>
         /// Launch SA:MP
         /// </summary>
         /// <param name="server">Server</param>
@@ -418,70 +447,37 @@ namespace SAMPLauncherNET
         /// <param name="rconPassword">RCON password</param>
         /// <param name="debug">Debug mode</param>
         /// <param name="quitWhenDone">Quit when done</param>
+        /// <param name="useDiscordRichPresence">Use Discord Rich Presence</param>
         /// <param name="f">Form to close</param>
-        public static void LaunchSAMP(Server server, string username, string serverPassword, string rconPassword, bool debug, bool quitWhenDone, Form f)
+        public static void LaunchSAMP(Server server, string username, string serverPassword, string rconPassword, bool debug, bool quitWhenDone, bool useDiscordRichPresence, Form f)
         {
             if ((server != null) || debug)
             {
                 if (debug || server.IsValid)
                 {
-                    if (File.Exists(SAMPSocialPath))
+                    IntPtr mh = Kernel32.GetModuleHandle("kernel32.dll");
+                    if (mh != IntPtr.Zero)
                     {
-                        try
+                        IntPtr load_library_w = Kernel32.GetProcAddress(mh, "LoadLibraryW");
+                        if (load_library_w != IntPtr.Zero)
                         {
-                            ProcessStartInfo psi = new ProcessStartInfo(SAMPSocialPath, debug ? "-d" : "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)));
-                            psi.WorkingDirectory = ExeDir;
-                            Process process = Process.Start(psi);
-                            process.WaitForExit();
-                        }
-                        catch (Exception e)
-                        {
-                            MessageBox.Show(e.Message, "Process error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        if (quitWhenDone)
-                        {
-                            f.Close();
-                        }
-                    }
-                    else
-                    {
-                        IntPtr mh = Kernel32.GetModuleHandle("kernel32.dll");
-                        if (mh != IntPtr.Zero)
-                        {
-                            IntPtr pa = Kernel32.GetProcAddress(mh, "LoadLibraryW");
-                            if (pa != IntPtr.Zero)
+                            Kernel32.PROCESS_INFORMATION process_info;
+                            Kernel32.STARTUPINFO startup_info = new Kernel32.STARTUPINFO();
+                            if (Kernel32.CreateProcess(GTASAExe, debug ? "-d" : "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)), IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
                             {
-                                Kernel32.PROCESS_INFORMATION process_info;
-                                Kernel32.STARTUPINFO startup_info = new Kernel32.STARTUPINFO();
-                                if (Kernel32.CreateProcess(GTASAExe, debug ? "-d" : "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)), IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
+                                InjectPlugin(SAMPDLLPath, process_info.hProcess, load_library_w);
+                                if (useDiscordRichPresence)
                                 {
-                                    IntPtr ptr = Kernel32.VirtualAllocEx(process_info.hProcess, IntPtr.Zero, (uint)(SAMPDLLPath.Length + 1) * 2U, Kernel32.AllocationType.Reserve | Kernel32.AllocationType.Commit, Kernel32.MemoryProtection.ReadWrite);
-                                    if (ptr != IntPtr.Zero)
+                                    if (SAMPDiscordPluginProvider.Update())
                                     {
-                                        int nobw = 0;
-                                        byte[] p = Encoding.Unicode.GetBytes(SAMPDLLPath);
-                                        byte[] nt = Encoding.Unicode.GetBytes("\0");
-                                        if (Kernel32.WriteProcessMemory(process_info.hProcess, ptr, p, (uint)(p.Length), out nobw) && Kernel32.WriteProcessMemory(process_info.hProcess, new IntPtr(ptr.ToInt64() + p.LongLength), nt, (uint)(nt.Length), out nobw))
-                                        {
-                                            uint tid = 0U;
-                                            IntPtr rt = Kernel32.CreateRemoteThread(process_info.hProcess, IntPtr.Zero, 0U, pa, ptr, /* CREATE_SUSPENDED */ 0x4, out tid);
-                                            if (rt != IntPtr.Zero)
-                                            {
-                                                Kernel32.ResumeThread(rt);
-                                                unchecked
-                                                {
-                                                    Kernel32.WaitForSingleObject(rt, (uint)(Timeout.Infinite));
-                                                }
-                                            }
-                                        }
-                                        Kernel32.VirtualFreeEx(process_info.hProcess, ptr, 0, Kernel32.AllocationType.Release);
+                                        InjectPlugin(Path.Combine(Directory.GetCurrentDirectory(), SAMPDiscordPluginProvider.SAMPDiscordPluginPath), process_info.hProcess, load_library_w);
                                     }
-                                    Kernel32.ResumeThread(process_info.hThread);
-                                    Kernel32.CloseHandle(process_info.hProcess);
-                                    if (quitWhenDone)
-                                    {
-                                        f.Close();
-                                    }
+                                }
+                                Kernel32.ResumeThread(process_info.hThread);
+                                Kernel32.CloseHandle(process_info.hProcess);
+                                if (quitWhenDone)
+                                {
+                                    f.Close();
                                 }
                             }
                         }
@@ -554,7 +550,7 @@ namespace SAMPLauncherNET
         {
             try
             {
-                LaunchSAMP(null, "", null, null, true, quitWhenDone, f);
+                LaunchSAMP(null, "", null, null, true, quitWhenDone, false, f);
             }
             catch (Exception e)
             {

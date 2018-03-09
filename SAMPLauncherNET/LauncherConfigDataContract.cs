@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 /// <summary>
 /// SA:MP launcher .NET namespace
@@ -16,13 +15,19 @@ namespace SAMPLauncherNET
         /// Last selected server list API
         /// </summary>
         [DataMember]
-        private int lastSelectedServerListAPI;
+        private int lastSelectedServerListAPI = 0;
 
         /// <summary>
         /// Development directory
         /// </summary>
         [DataMember]
         private string developmentDirectory = "./development";
+
+        /// <summary>
+        /// Use Discord Rich Presence
+        /// </summary>
+        [DataMember]
+        private bool useDiscordRichPresence = true;
 
         /// <summary>
         /// Last selected server list API
@@ -54,6 +59,21 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Use Discord Rich Presence
+        /// </summary>
+        public bool UseDiscordRichPresence
+        {
+            get
+            {
+                return useDiscordRichPresence;
+            }
+            set
+            {
+                useDiscordRichPresence = value;
+            }
+        }
+
+        /// <summary>
         /// Default constructor
         /// </summary>
         public LauncherConfigDataContract()
@@ -66,10 +86,22 @@ namespace SAMPLauncherNET
         /// </summary>
         /// <param name="lastSelectedServerListAPI">Last selected server list API</param>
         /// <param name="developmentDirectory">Development directory</param>
-        public LauncherConfigDataContract(int lastSelectedServerListAPI, string developmentDirectory)
+        /// <param name="useDiscordRichPresence">Use discord rich presence</param>
+        public LauncherConfigDataContract(int lastSelectedServerListAPI, string developmentDirectory, bool useDiscordRichPresence)
         {
             this.lastSelectedServerListAPI = lastSelectedServerListAPI;
             this.developmentDirectory = developmentDirectory;
+            this.useDiscordRichPresence = useDiscordRichPresence;
+        }
+
+        /// <summary>
+        /// On deserialized event
+        /// </summary>
+        /// <param name="context">Context</param>
+        [OnDeserialized]
+        void OnDeserialized(StreamingContext context)
+        {
+            useDiscordRichPresence = true;
         }
     }
 }

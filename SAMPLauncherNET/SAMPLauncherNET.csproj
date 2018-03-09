@@ -153,6 +153,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="SAMPCTLProvider.cs" />
+    <Compile Include="SAMPDiscordPluginProvider.cs" />
     <Compile Include="ThumbnailsCache.cs" />
     <Compile Include="IndexedServerListConnector.cs" />
     <Compile Include="Kernel32.cs" />

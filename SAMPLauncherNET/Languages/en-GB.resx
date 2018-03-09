@@ -607,6 +607,12 @@ Do you want to visit this website now?</value>
   <data name="SAMPCTL_UNZIP_ERROR" xml:space="preserve">
     <value>sampctl can't be unzipped.</value>
   </data>
+  <data name="SAMP_DISCORD_PLUGIN_COPY_ERROR" xml:space="preserve">
+    <value>SA:MP Discord Rich Presence can't be copied.</value>
+  </data>
+  <data name="SAMP_DISCORD_PLUGIN_ERROR_TITLE" xml:space="preserve">
+    <value>SA:MP Discord Rich Presence plugin error</value>
+  </data>
   <data name="SAVE" xml:space="preserve">
     <value>Save</value>
   </data>
@@ -755,6 +761,9 @@ Do you want to continue?</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="USE_DISCORD_RICH_PRESENCE" xml:space="preserve">
+    <value>Use Discord Rich Presence</value>
   </data>
   <data name="VALUE" xml:space="preserve">
     <value>Value</value>

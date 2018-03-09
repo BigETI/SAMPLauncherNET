@@ -1470,6 +1470,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SA:MP Discord Rich Presence can&apos;t be copied. ähnelt.
+        /// </summary>
+        internal static string SAMP_DISCORD_PLUGIN_COPY_ERROR {
+            get {
+                return ResourceManager.GetString("SAMP_DISCORD_PLUGIN_COPY_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SA:MP Discord Rich Presence plugin error ähnelt.
+        /// </summary>
+        internal static string SAMP_DISCORD_PLUGIN_ERROR_TITLE {
+            get {
+                return ResourceManager.GetString("SAMP_DISCORD_PLUGIN_ERROR_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die sampctl error ähnelt.
         /// </summary>
         internal static string SAMPCTL_ERROR_TITLE {
@@ -1935,6 +1953,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string TYPE {
             get {
                 return ResourceManager.GetString("TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Use Discord Rich Presence ähnelt.
+        /// </summary>
+        internal static string USE_DISCORD_RICH_PRESENCE {
+            get {
+                return ResourceManager.GetString("USE_DISCORD_RICH_PRESENCE", resourceCulture);
             }
         }
         

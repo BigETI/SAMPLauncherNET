@@ -607,7 +607,7 @@ namespace SAMPLauncherNET
                 DialogResult = DialogResult.None;
                 if (result == DialogResult.OK)
                 {
-                    SAMP.LaunchSAMP(s, cf.Username, s.HasPassword ? cf.ServerPassword : null, rconPassword, false, quitWhenDone, this);
+                    SAMP.LaunchSAMP(s, cf.Username, s.HasPassword ? cf.ServerPassword : null, rconPassword, false, quitWhenDone, useDiscordRichPresenceCheckBox.Checked, this);
                 }
             }
         }
@@ -738,6 +738,9 @@ namespace SAMPLauncherNET
             config.FontFace = fontFaceSingleLineTextField.Text;
             config.FontWeight = fontWeightCheckBox.Checked;
             config.Save();
+            LauncherConfigDataContract lcdc = SAMP.LauncherConfigIO;
+            lcdc.UseDiscordRichPresence = useDiscordRichPresenceCheckBox.Checked;
+            SAMP.LauncherConfigIO = lcdc;
         }
 
         /// <summary>
@@ -774,6 +777,7 @@ namespace SAMPLauncherNET
             noNametagStatusCheckBox.Checked = config.NoNametagStatus;
             fontFaceSingleLineTextField.Text = config.FontFace;
             fontWeightCheckBox.Checked = config.FontWeight;
+            useDiscordRichPresenceCheckBox.Checked = SAMP.LauncherConfigIO.UseDiscordRichPresence;
         }
 
         /// <summary>
@@ -1045,7 +1049,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Form closed event args</param>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            LauncherConfigDataContract lcdc = new LauncherConfigDataContract(selectedAPIIndex, developmentDirectorySingleLineTextField.Text);
+            LauncherConfigDataContract lcdc = new LauncherConfigDataContract(selectedAPIIndex, developmentDirectorySingleLineTextField.Text, useDiscordRichPresenceCheckBox.Checked);
             SAMP.LauncherConfigIO = lcdc;
             SaveDeveloperToolsConfig();
             lock (loadServers)

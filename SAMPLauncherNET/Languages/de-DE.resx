@@ -607,6 +607,15 @@ Möchtest du diese Webseite jetzt besuchen?</value>
   <data name="SAMPCTL_UNZIP_ERROR" xml:space="preserve">
     <value>sampctl konnte nicht entpackt werden.</value>
   </data>
+  <data name="SAMP_DISCORD_PLUGIN_COPY_ERROR" xml:space="preserve">
+    <value>SA:MP Discord Rich Presence Plugin konnte nicht kopiert werden.</value>
+  </data>
+  <data name="SAMP_DISCORD_PLUGIN_ERROR_TITLE" xml:space="preserve">
+    <value>SA:MP Discord Rich Presence Plugin Fehler</value>
+  </data>
+  <data name="SAMP_DISCORD_PLUGIN_MISSING_ASSET" xml:space="preserve">
+    <value>SA:MP Discord Rich Presence Plugin konnte nicht heruntergeladen werden.</value>
+  </data>
   <data name="SAVE" xml:space="preserve">
     <value>Speichern</value>
   </data>
@@ -755,6 +764,9 @@ Möchtest du fortfahren?</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Benutzername</value>
+  </data>
+  <data name="USE_DISCORD_RICH_PRESENCE" xml:space="preserve">
+    <value>Benutze Discord Rich Presence</value>
   </data>
   <data name="VALUE" xml:space="preserve">
     <value>Wert</value>

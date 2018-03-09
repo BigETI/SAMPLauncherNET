@@ -18,9 +18,24 @@ namespace SAMPLauncherNET
     public static class SAMPCTLProvider
     {
         /// <summary>
+        /// sampctl file name
+        /// </summary>
+        public static readonly string SAMPCTLFileName = "sampctl.exe";
+
+        /// <summary>
         /// sampctl path
         /// </summary>
-        public static readonly string SAMPCTLPath = "./sampctl.exe";
+        public static readonly string SAMPCTLPath = "./" + SAMPCTLFileName;
+
+        /// <summary>
+        /// sampctl archive file name
+        /// </summary>
+        public static readonly string SAMPCTLArchiveFileName = "sampctl.tar.gz";
+
+        /// <summary>
+        /// sampctl download path
+        /// </summary>
+        public static readonly string SAMPCTLDownloadPath = "./downloads/" + SAMPCTLArchiveFileName;
 
         /// <summary>
         /// sampctl URI
@@ -28,7 +43,7 @@ namespace SAMPLauncherNET
         public static readonly string SAMPCTLURI = "http://sampctl.com/";
 
         /// <summary>
-        /// GitHub API URI
+        /// sampctl info path
         /// </summary>
         private static readonly string SAMPCTLInfoPath = "./sampctl-info.json";
 
@@ -97,7 +112,7 @@ namespace SAMPLauncherNET
             }
             if (latestReleaseInfo != null)
             {
-                bool download_file = ((lastReleaseInfo == null) ? true : ((lastReleaseInfo.TagName == latestReleaseInfo.TagName) ? (!(File.Exists("./downloads/sampctl.tar.gz"))) : true));
+                bool download_file = ((lastReleaseInfo == null) ? true : ((lastReleaseInfo.TagName == latestReleaseInfo.TagName) ? (!(File.Exists(SAMPCTLDownloadPath))) : true));
                 if (download_file)
                 {
                     GitHubReleaseAssetDataContract asset = null;
@@ -115,7 +130,7 @@ namespace SAMPLauncherNET
                     }
                     else
                     {
-                        DownloadProgressForm dpf = new DownloadProgressForm(asset.BrowserDownloadURL, "sampctl.tar.gz");
+                        DownloadProgressForm dpf = new DownloadProgressForm(asset.BrowserDownloadURL, SAMPCTLArchiveFileName);
                         ret = (dpf.ShowDialog() == DialogResult.OK);
                     }
                 }
@@ -127,9 +142,9 @@ namespace SAMPLauncherNET
                 {
                     try
                     {
-                        if (File.Exists("./downloads/sampctl.tar.gz"))
+                        if (File.Exists(SAMPCTLDownloadPath))
                         {
-                            using (FileStream archive_file_stream = File.Open("./downloads/sampctl.tar.gz", FileMode.Open))
+                            using (FileStream archive_file_stream = File.Open(SAMPCTLDownloadPath, FileMode.Open))
                             {
                                 using (GZipInputStream gzip_stream = new GZipInputStream(archive_file_stream))
                                 {
@@ -140,7 +155,7 @@ namespace SAMPLauncherNET
                                         {
                                             if (!(tar_entry.IsDirectory))
                                             {
-                                                if (tar_entry.Name == "sampctl.exe")
+                                                if (tar_entry.Name == SAMPCTLFileName)
                                                 {
                                                     if (File.Exists(SAMPCTLPath))
                                                     {
