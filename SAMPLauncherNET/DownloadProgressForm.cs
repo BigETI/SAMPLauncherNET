@@ -65,7 +65,7 @@ namespace SAMPLauncherNET
         /// On download progress changed event
         /// </summary>
         /// <param name="sender">Sender</param>
-        /// <param name="e">Downnload progress changed event arguments</param>
+        /// <param name="e">Download progress changed event arguments</param>
         private void OnDownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             downloadProgressBar.Maximum = (int)(e.TotalBytesToReceive);

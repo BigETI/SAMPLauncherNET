@@ -160,7 +160,7 @@ namespace SAMPLauncherNET
             revertConfigButton.Location = new Point(revertConfigButton.Location.X + (sz.Width - revertConfigButton.Size.Width), revertConfigButton.Location.Y);
             Translator.EnumerableToComboBox(languagesComboBox, Translator.TranslatorInterface.Languages);
             serversGridView.Columns[1].HeaderText = Translator.GetTranslation("PING");
-            serversGridView.Columns[2].HeaderText = Translator.GetTranslation("PORT");
+            serversGridView.Columns[2].HeaderText = Translator.GetTranslation("HOSTNAME");
             serversGridView.Columns[3].HeaderText = Translator.GetTranslation("PLAYERS");
             serversGridView.Columns[4].HeaderText = Translator.GetTranslation("MODE");
             serversGridView.Columns[5].HeaderText = Translator.GetTranslation("LANGUAGE");

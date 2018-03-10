@@ -116,9 +116,10 @@ namespace SAMPLauncherNET
                 if (download_file)
                 {
                     GitHubReleaseAssetDataContract asset = null;
+                    string sub_name = (Environment.Is64BitOperatingSystem ? "windows_amd64" : "windows_386");
                     foreach (GitHubReleaseAssetDataContract a in latestReleaseInfo.Assets)
                     {
-                        if (a.Name.Contains("windows_386"))
+                        if (a.Name.Contains(sub_name))
                         {
                             asset = a;
                             break;

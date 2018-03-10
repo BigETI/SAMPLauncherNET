@@ -366,13 +366,13 @@ namespace SAMPLauncherNET
             {
                 if (value != null)
                 {
-                    string directory = Utils.AppendCharacterToString(LauncherConfigIO.DevelopmentDirectory, '\\');
-                    if (!(Directory.Exists(directory)))
-                    {
-                        Directory.CreateDirectory(directory);
-                    }
                     try
                     {
+                        string directory = Utils.AppendCharacterToString(LauncherConfigIO.DevelopmentDirectory, '\\');
+                        if (!(Directory.Exists(directory)))
+                        {
+                            Directory.CreateDirectory(directory);
+                        }
                         using (StreamWriter writer = new StreamWriter(directory + DeveloperToolsConfigFileName))
                         {
                             developerToolsConfigSerializer.WriteObject(writer.BaseStream, value);

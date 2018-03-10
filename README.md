@@ -34,6 +34,7 @@ You can change anything within the source code to contribute.
 ## Projects associated with this project
 - https://github.com/BigETI/WinFormsTranslator
 - https://github.com/BigETI/UpdaterNET
+- https://github.com/Hual/samp-discord-plugin
 - https://github.com/Southclaws/sampctl
 - https://github.com/Southclaws/samp-servers-api
 
@@ -43,6 +44,6 @@ You can change anything within the source code to contribute.
 - https://github.com/Papawy/SAMP_Ex
 
 ## Projects you want to check out
-- https://github.com/Southclaws/announce-frontend
+- https://github.com/Southclaws/samp-servers-frontend
 - https://github.com/BigETI/sampcmd
 - https://github.com/BigETI/SAMPcmdNET

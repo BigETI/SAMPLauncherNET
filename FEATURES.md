@@ -13,6 +13,9 @@ With the use of the Material Design layout the launcher looks modern.
 ### Multi-language support
 If you prefer a different language than the english language, you can easily change the language of the launcher.
 
+### Discord Rich Presence
+Show at your Discord profile where you are playing using the [SA:MP Discord Rich Presence plugin](https://github.com/Hual/samp-discord-plugin) integration.
+
 ### Multi-threaded query mechanism
 Fast server listing, where hundreds of SA:MP servers can be queried at the same time.
 
@@ -47,7 +50,7 @@ Change your SA:MP settings through an user interface.
 Manage your server list endpoints, and access lists that were inaccessible through a launcher before.
 
 ### Developer tools
-Make your server development workflow easier by configuring, starting and joining your test server using this launcher. 
+Make your server development workflow easier by configuring, starting and joining your test server using the [sampctl](https://sampctl.com/) integration. 
 
 ## Screenshots
 
@@ -84,3 +87,5 @@ Make your server development workflow easier by configuring, starting and joinin
 ![Screenshot](screenshots/screenshot016.png)
 
 ![Screenshot](screenshots/screenshot017.png)
+
+![Screenshot](screenshots/screenshot018.png)
