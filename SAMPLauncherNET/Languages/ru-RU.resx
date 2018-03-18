@@ -672,4 +672,7 @@
   <data name="PORTUGUESE_BRAZIL" xml:space="preserve">
     <value>португальский Бразилия (Português de Brasil)</value>
   </data>
+  <data name="USE_DISCORD_RICH_PRESENCE" xml:space="preserve">
+    <value>Использовать Discord Rich Presence</value>
+</data>
 </root>
