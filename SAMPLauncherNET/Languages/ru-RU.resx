@@ -674,5 +674,20 @@
   </data>
   <data name="USE_DISCORD_RICH_PRESENCE" xml:space="preserve">
     <value>Использовать Discord Rich Presence</value>
-</data>
+  </data>
+  <data name="PLAYER" xml:space="preserve">
+    <value>Ник</value>
+  </data>
+  <data name="SCORE" xml:space="preserve">
+    <value>Счёт</value>
+  </data>
+  <data name="MODE" xml:space="preserve">
+    <value>Игровой мод</value>
+  </data>
+  <data name="VALUE" xml:space="preserve">
+    <value>Значение</value>
+  </data>
+  <data name="RULE" xml:space="preserve">
+    <value>Правило</value>
+  </data>
 </root>
