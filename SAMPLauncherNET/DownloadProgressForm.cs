@@ -99,19 +99,28 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void DownloadProgressForm_Load(object sender, EventArgs e)
         {
-            WebClient wc = new WebClient();
-            wc.Headers.Set(HttpRequestHeader.UserAgent, "Mozilla/3.0 (compatible; SA:MP launcher .NET)");
-            wc.DownloadProgressChanged += OnDownloadProgressChanged;
-            wc.DownloadFileCompleted += OnDownloadFileCompleted;
-            if (File.Exists(path))
+            try
             {
-                File.Delete(path);
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+                else if (!(Directory.Exists(directory)))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+                WebClient wc = new WebClient();
+                wc.Headers.Set(HttpRequestHeader.UserAgent, "Mozilla/3.0 (compatible; SA:MP launcher .NET)");
+                wc.DownloadProgressChanged += OnDownloadProgressChanged;
+                wc.DownloadFileCompleted += OnDownloadFileCompleted;
+                wc.DownloadFileAsync(new Uri(uri), path);
             }
-            else if (!(Directory.Exists(directory)))
+            catch (Exception ex)
             {
-                Directory.CreateDirectory(directory);
+                MessageBox.Show(ex.Message, "Download error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                notFinished = false;
+                Close();
             }
-            wc.DownloadFileAsync(new Uri(uri), path);
             TaskbarProgress.SetState(this, TaskbarProgress.TaskbarStates.Normal);
         }
 
