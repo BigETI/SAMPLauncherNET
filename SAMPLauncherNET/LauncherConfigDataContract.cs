@@ -12,10 +12,16 @@ namespace SAMPLauncherNET
     public class LauncherConfigDataContract
     {
         /// <summary>
+        /// Language
+        /// </summary>
+        [DataMember]
+        private string language = "en-GB";
+
+        /// <summary>
         /// Last selected server list API
         /// </summary>
         [DataMember]
-        private int lastSelectedServerListAPI = 0;
+        private int lastSelectedServerListAPI;
 
         /// <summary>
         /// Development directory
@@ -24,10 +30,58 @@ namespace SAMPLauncherNET
         private string developmentDirectory = "./development";
 
         /// <summary>
-        /// Use Discord Rich Presence
+        /// Show chatlog color codes
         /// </summary>
         [DataMember]
-        private bool useDiscordRichPresence = true;
+        private bool showChatlogColorCodes;
+
+        /// <summary>
+        /// Show chatlog colored
+        /// </summary>
+        [DataMember]
+        private bool showChatlogColored;
+
+        /// <summary>
+        /// Show chatlog timestamp
+        /// </summary>
+        [DataMember]
+        private bool showChatlogTimestamp;
+
+        /// <summary>
+        /// Show username dialog
+        /// </summary>
+        [DataMember]
+        private bool showUsernameDialog;
+
+        /// <summary>
+        /// Don't close when launched
+        /// </summary>
+        [DataMember]
+        private bool dontCloseWhenLaunched;
+
+        /// <summary>
+        /// Don't create session logs
+        /// </summary>
+        [DataMember]
+        private bool dontCreateSessionsLog;
+
+        /// <summary>
+        /// Language
+        /// </summary>
+        public string Language
+        {
+            get
+            {
+                return language;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    language = value;
+                }
+            }
+        }
 
         /// <summary>
         /// Last selected server list API
@@ -59,17 +113,92 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Use Discord Rich Presence
+        /// Show chatlog color codes
         /// </summary>
-        public bool UseDiscordRichPresence
+        public bool ShowChatlogColorCodes
         {
             get
             {
-                return useDiscordRichPresence;
+                return showChatlogColorCodes;
             }
             set
             {
-                useDiscordRichPresence = value;
+                showChatlogColorCodes = value;
+            }
+        }
+
+        /// <summary>
+        /// Show chatlog colored
+        /// </summary>
+        public bool ShowChatlogColored
+        {
+            get
+            {
+                return showChatlogColored;
+            }
+            set
+            {
+                showChatlogColored = value;
+            }
+        }
+
+        /// <summary>
+        /// Show chatlog timestamp
+        /// </summary>
+        public bool ShowChatlogTimestamp
+        {
+            get
+            {
+                return showChatlogTimestamp;
+            }
+            set
+            {
+                showChatlogTimestamp = value;
+            }
+        }
+
+        /// <summary>
+        /// Show username dialog
+        /// </summary>
+        public bool ShowUsernameDialog
+        {
+            get
+            {
+                return showUsernameDialog;
+            }
+            set
+            {
+                showUsernameDialog = value;
+            }
+        }
+
+        /// <summary>
+        /// Don't close when launched
+        /// </summary>
+        public bool DontCloseWhenLaunched
+        {
+            get
+            {
+                return dontCloseWhenLaunched;
+            }
+            set
+            {
+                dontCloseWhenLaunched = value;
+            }
+        }
+
+        /// <summary>
+        /// Don't create session logs
+        /// </summary>
+        public bool DontCreateSessionsLog
+        {
+            get
+            {
+                return dontCreateSessionsLog;
+            }
+            set
+            {
+                dontCreateSessionsLog = value;
             }
         }
 
@@ -84,24 +213,26 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <param name="language">Language</param>
         /// <param name="lastSelectedServerListAPI">Last selected server list API</param>
         /// <param name="developmentDirectory">Development directory</param>
-        /// <param name="useDiscordRichPresence">Use discord rich presence</param>
-        public LauncherConfigDataContract(int lastSelectedServerListAPI, string developmentDirectory, bool useDiscordRichPresence)
+        /// <param name="showChatlogColorCodes">Show chatlog color codes</param>
+        /// <param name="showChatlogColored">Show chatlog colored</param>
+        /// <param name="showChatlogTimestamp">Show chatlog timestamp</param>
+        /// <param name="showUsernameDialog">Show username dialog</param>
+        /// <param name="dontCloseWhenLaunched">Don't close when launched</param>
+        /// <param name="dontCreateSessionsLog">Don't create sessions log</param>
+        public LauncherConfigDataContract(string language, int lastSelectedServerListAPI, string developmentDirectory, bool showChatlogColorCodes, bool showChatlogColored, bool showChatlogTimestamp, bool showUsernameDialog, bool dontCloseWhenLaunched, bool dontCreateSessionsLog)
         {
+            this.language = language;
             this.lastSelectedServerListAPI = lastSelectedServerListAPI;
             this.developmentDirectory = developmentDirectory;
-            this.useDiscordRichPresence = useDiscordRichPresence;
-        }
-
-        /// <summary>
-        /// On deserialized event
-        /// </summary>
-        /// <param name="context">Context</param>
-        [OnDeserialized]
-        void OnDeserialized(StreamingContext context)
-        {
-            useDiscordRichPresence = true;
+            this.showChatlogColorCodes = showChatlogColorCodes;
+            this.showChatlogColored = showChatlogColored;
+            this.showChatlogTimestamp = showChatlogTimestamp;
+            this.showUsernameDialog = showUsernameDialog;
+            this.dontCloseWhenLaunched = dontCloseWhenLaunched;
+            this.dontCreateSessionsLog = dontCreateSessionsLog;
         }
     }
 }

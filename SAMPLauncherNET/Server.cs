@@ -275,6 +275,17 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Hostname cached
+        /// </summary>
+        public string HostnameCached
+        {
+            get
+            {
+                return hostname;
+            }
+        }
+
+        /// <summary>
         /// Hostname asynchronous
         /// </summary>
         public Task<string> HostnameAsync
@@ -298,6 +309,17 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Gamemode cached
+        /// </summary>
+        public string GamemodeCached
+        {
+            get
+            {
+                return gamemode;
+            }
+        }
+
+        /// <summary>
         /// Gamemode asynchronous
         /// </summary>
         public Task<string> GamemodeAsync
@@ -316,6 +338,17 @@ namespace SAMPLauncherNET
             get
             {
                 SendQueryWhenRequired(ERequestType.Information);
+                return language;
+            }
+        }
+
+        /// <summary>
+        /// Language cached
+        /// </summary>
+        public string LanguageCached
+        {
+            get
+            {
                 return language;
             }
         }

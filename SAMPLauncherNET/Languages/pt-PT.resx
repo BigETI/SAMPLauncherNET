@@ -332,9 +332,6 @@ This project is located at</value>
   <data name="FPS_LIMIT" xml:space="preserve">
     <value>Limite de FPS</value>
   </data>
-  <data name="GALLERY" xml:space="preserve">
-    <value>Galeria</value>
-  </data>
   <data name="GAMEMODE" xml:space="preserve">
     <value>Gamemode</value>
   </data>
@@ -398,9 +395,6 @@ This project is located at</value>
   <data name="LAN_MODE" xml:space="preserve">
     <value>Modo de LAN</value>
   </data>
-  <data name="LAST_CHATLOG" xml:space="preserve">
-    <value>Último registo de chat</value>
-  </data>
   <data name="LATITUDE_LONGITUDE" xml:space="preserve">
     <value>Latitude and longitude</value>
   </data>
@@ -427,6 +421,9 @@ This project is located at</value>
   </data>
   <data name="MAXIMAL_PLAYERS" xml:space="preserve">
     <value>Maximal players</value>
+  </data>
+  <data name="MEDIA" xml:space="preserve">
+    <value>Mídia</value>
   </data>
   <data name="MESSAGES_LIMIT" xml:space="preserve">
     <value>Messages limit</value>
@@ -575,9 +572,6 @@ This project is located at</value>
   <data name="SAVE" xml:space="preserve">
     <value>Guardar</value>
   </data>
-  <data name="SAVED_POSITIONS" xml:space="preserve">
-    <value>Posições Guardadas</value>
-  </data>
   <data name="SEARCH_ON" xml:space="preserve">
     <value>Search on...</value>
   </data>
@@ -629,8 +623,8 @@ Press "Cancel" to cancel this action.</value>
   <data name="SERVERS" xml:space="preserve">
     <value>Servidores</value>
   </data>
-  <data name="SERVERS_FILTER" xml:space="preserve">
-    <value>Filtros:</value>
+  <data name="SERVERS_FILTERS" xml:space="preserve">
+    <value>Filtros de servidores:</value>
   </data>
   <data name="SERVER_ALREADY_IN_FAVOURITES" xml:space="preserve">
     <value>This server is already in your favourites.</value>

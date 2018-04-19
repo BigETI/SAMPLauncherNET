@@ -1,0 +1,1 @@
+[{"endpoint":"http:\/\/api.samp.southcla.ws\/v2\/servers","name":"{$SHOW_SOUTHCLAWS_LIST$}","type":"BackendRESTful"},{"endpoint":"http:\/\/monitor.sacnr.com\/list\/masterlist.txt","name":"{$SHOW_SACNR_LIST$}","type":"LegacySAMP"}]

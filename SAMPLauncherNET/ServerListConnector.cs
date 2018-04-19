@@ -378,7 +378,10 @@ namespace SAMPLauncherNET
             }
             set
             {
-                name = value;
+                if (value != null)
+                {
+                    name = value;
+                }
             }
         }
 

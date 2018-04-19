@@ -256,8 +256,8 @@
   <data name="FPS_LIMIT" xml:space="preserve">
     <value>Ограничение FPS</value>
   </data>
-  <data name="GALLERY" xml:space="preserve">
-    <value>Галерея</value>
+  <data name="MEDIA" xml:space="preserve">
+    <value>СМИ</value>
   </data>
   <data name="GAMEMODE" xml:space="preserve">
     <value>Игровой режим</value>
@@ -300,9 +300,6 @@
   </data>
   <data name="LANGUAGE" xml:space="preserve">
     <value>Язык</value>
-  </data>
-  <data name="LAST_CHATLOG" xml:space="preserve">
-    <value>Лог чата</value>
   </data>
   <data name="LAUNCHER_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Загрузчик</value>
@@ -394,9 +391,6 @@
   <data name="SAVE" xml:space="preserve">
     <value>Сохранить</value>
   </data>
-  <data name="SAVED_POSITIONS" xml:space="preserve">
-    <value>Сохраненные позиции</value>
-  </data>
   <data name="SELECT_API" xml:space="preserve">
     <value>Списки серверов</value>
   </data>
@@ -415,8 +409,8 @@
   <data name="SERVERS" xml:space="preserve">
     <value>Сервера</value>
   </data>
-  <data name="SERVERS_FILTER" xml:space="preserve">
-    <value>Фильтр списка серверов</value>
+  <data name="SERVERS_FILTERS" xml:space="preserve">
+    <value>фильтры серверов</value>
   </data>
   <data name="SERVER_ALREADY_IN_FAVOURITES" xml:space="preserve">
     <value>Этот сервер уже находится в избранных.</value>

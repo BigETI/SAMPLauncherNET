@@ -51,12 +51,12 @@ namespace SAMPLauncherNET
         /// Constructor
         /// </summary>
         /// <param name="uri">URI</param>
-        /// <param name="fileName">File name</param>
-        public DownloadProgressForm(string uri, string fileName)
+        /// <param name="path">Path</param>
+        public DownloadProgressForm(string uri, string path)
         {
             this.uri = uri;
-            directory = System.IO.Path.GetFullPath("./downloads/");
-            path = System.IO.Path.GetFullPath("./downloads/" + fileName);
+            this.path = path;
+            directory = System.IO.Path.GetDirectoryName(path);
             InitializeComponent();
             Translator.LoadTranslation(this);
         }

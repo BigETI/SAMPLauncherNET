@@ -250,9 +250,6 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="FPS_LIMIT" xml:space="preserve">
     <value>FPS-ის ლიმიტი</value>
   </data>
-  <data name="GALLERY" xml:space="preserve">
-    <value>გალერეა</value>
-  </data>
   <data name="GAMEMODE" xml:space="preserve">
     <value>გეიმმოდი</value>
   </data>
@@ -292,9 +289,6 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="LANGUAGE" xml:space="preserve">
     <value>ენა</value>
   </data>
-  <data name="LAST_CHATLOG" xml:space="preserve">
-    <value>ბოლო ჩატ-ლოგი</value>
-  </data>
   <data name="LAUNCHER_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - ლაუნჩერი</value>
   </data>
@@ -303,6 +297,9 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   </data>
   <data name="LAUNCH_SINGLEPLAYER" xml:space="preserve">
     <value>ჩართეთ singleplayer</value>
+  </data>
+  <data name="MEDIA" xml:space="preserve">
+    <value>მედია</value>
   </data>
   <data name="MULTI_CORE" xml:space="preserve">
     <value>მულტი კორი</value>
@@ -391,9 +388,6 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="SAVE" xml:space="preserve">
     <value>შენახვა</value>
   </data>
-  <data name="SAVED_POSITIONS" xml:space="preserve">
-    <value>შენახული პოზიციები</value>
-  </data>
   <data name="SELECT_API" xml:space="preserve">
     <value>სერვერების სიის არჩევა</value>
   </data>
@@ -412,8 +406,8 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="SERVERS" xml:space="preserve">
     <value>სერვერები</value>
   </data>
-  <data name="SERVERS_FILTER" xml:space="preserve">
-    <value>სერვერების გაფილტრვა</value>
+  <data name="SERVERS_FILTERS" xml:space="preserve">
+    <value>სერვერების ფილტრები</value>
   </data>
   <data name="SERVER_ALREADY_IN_FAVOURITES" xml:space="preserve">
     <value>ეს სერვერი უკვე არის თქვენი რჩეული სერვერების სიაში.</value>

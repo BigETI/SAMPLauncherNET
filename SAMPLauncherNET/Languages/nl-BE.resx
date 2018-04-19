@@ -251,9 +251,6 @@ Dit project bevind zich op</value>
   <data name="FPS_LIMIT" xml:space="preserve">
     <value>FPS limit</value>
   </data>
-  <data name="GALLERY" xml:space="preserve">
-    <value>Gallerij</value>
-  </data>
   <data name="GAMEMODE" xml:space="preserve">
     <value>Gamemode</value>
   </data>
@@ -296,9 +293,6 @@ Dit project bevind zich op</value>
   <data name="LANGUAGE" xml:space="preserve">
     <value>Taal</value>
   </data>
-  <data name="LAST_CHATLOG" xml:space="preserve">
-    <value>Laatste chatlog</value>
-  </data>
   <data name="LAUNCHER_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Launcher</value>
   </data>
@@ -307,6 +301,9 @@ Dit project bevind zich op</value>
   </data>
   <data name="LAUNCH_SINGLEPLAYER" xml:space="preserve">
     <value>Start singleplayer</value>
+  </data>
+  <data name="MEDIA" xml:space="preserve">
+    <value>Media</value>
   </data>
   <data name="MULTI_CORE" xml:space="preserve">
     <value>Multi core</value>
@@ -395,9 +392,6 @@ Dit project bevind zich op</value>
   <data name="SAVE" xml:space="preserve">
     <value>Opslaan</value>
   </data>
-  <data name="SAVED_POSITIONS" xml:space="preserve">
-    <value>Opgeslagen posities</value>
-  </data>
   <data name="SELECT_API" xml:space="preserve">
     <value>Selecteer een server lijst</value>
   </data>
@@ -417,7 +411,7 @@ Dit project bevind zich op</value>
     <value>Servers</value>
   </data>
   <data name="SERVERS_FILTER" xml:space="preserve">
-    <value>Server filter</value>
+    <value>Servers filters</value>
   </data>
   <data name="SERVER_ALREADY_IN_FAVOURITES" xml:space="preserve">
     <value>Deze server is al in je favorieten.</value>

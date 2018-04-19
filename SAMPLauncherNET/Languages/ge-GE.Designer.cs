@@ -452,15 +452,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die გალერეა ähnelt.
-        /// </summary>
-        internal static string GALLERY {
-            get {
-                return ResourceManager.GetString("GALLERY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die გეიმმოდი ähnelt.
         /// </summary>
         internal static string GAMEMODE {
@@ -578,15 +569,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die ბოლო ჩატ-ლოგი ähnelt.
-        /// </summary>
-        internal static string LAST_CHATLOG {
-            get {
-                return ResourceManager.GetString("LAST_CHATLOG", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ჩართეთ დებაგ მოდი. ähnelt.
         /// </summary>
         internal static string LAUNCH_DEBUG_MODE {
@@ -610,6 +592,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string LAUNCHER_TITLE {
             get {
                 return ResourceManager.GetString("LAUNCHER_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მედია ähnelt.
+        /// </summary>
+        internal static string MEDIA {
+            get {
+                return ResourceManager.GetString("MEDIA", resourceCulture);
             }
         }
         
@@ -875,15 +866,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die შენახული პოზიციები ähnelt.
-        /// </summary>
-        internal static string SAVED_POSITIONS {
-            get {
-                return ResourceManager.GetString("SAVED_POSITIONS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die სერვერების სიის არჩევა ähnelt.
         /// </summary>
         internal static string SELECT_API {
@@ -983,11 +965,11 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die სერვერების გაფილტრვა ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die სერვერების ფილტრები ähnelt.
         /// </summary>
-        internal static string SERVERS_FILTER {
+        internal static string SERVERS_FILTERS {
             get {
-                return ResourceManager.GetString("SERVERS_FILTER", resourceCulture);
+                return ResourceManager.GetString("SERVERS_FILTERS", resourceCulture);
             }
         }
         

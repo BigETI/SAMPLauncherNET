@@ -42,6 +42,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.serversPage = new System.Windows.Forms.TabPage();
             this.serversLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -54,10 +57,12 @@
             this.modeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.languageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iPAndPortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsEmpty = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IsFull = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.serversContextMenuStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectWithRCONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.serversToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.showExtendedServerInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visitWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchOnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,13 +72,18 @@
             this.searchOnYahooToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchOnYandexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchOnYouTubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.serversToolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.addServerToFavouritesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeServerFromFavouritesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.serversToolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.addAddressToFavouriteListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serversToolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.showEmptyServersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showFullServersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serversToolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.reloadServerListsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serversBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.serversDataSet = new System.Data.DataSet();
+            this.mainDataSet = new System.Data.DataSet();
             this.serversDataTable = new System.Data.DataTable();
             this.pingDataColumn = new System.Data.DataColumn();
             this.hostnameDataColumn = new System.Data.DataColumn();
@@ -82,6 +92,8 @@
             this.modeDataColumn = new System.Data.DataColumn();
             this.languageDataColumn = new System.Data.DataColumn();
             this.ipAndPortDataColumn = new System.Data.DataColumn();
+            this.dataColumn17 = new System.Data.DataColumn();
+            this.dataColumn18 = new System.Data.DataColumn();
             this.playersDataTable = new System.Data.DataTable();
             this.playerDataColumn = new System.Data.DataColumn();
             this.scoreDataColumn = new System.Data.DataColumn();
@@ -93,6 +105,20 @@
             this.dataColumn2 = new System.Data.DataColumn();
             this.dataColumn3 = new System.Data.DataColumn();
             this.dataColumn4 = new System.Data.DataColumn();
+            this.sessionsDataTable = new System.Data.DataTable();
+            this.dataColumn5 = new System.Data.DataColumn();
+            this.dataColumn7 = new System.Data.DataColumn();
+            this.dataColumn8 = new System.Data.DataColumn();
+            this.dataColumn9 = new System.Data.DataColumn();
+            this.dataColumn6 = new System.Data.DataColumn();
+            this.dataColumn10 = new System.Data.DataColumn();
+            this.pluginsDataTable = new System.Data.DataTable();
+            this.dataColumn11 = new System.Data.DataColumn();
+            this.dataColumn12 = new System.Data.DataColumn();
+            this.dataColumn13 = new System.Data.DataColumn();
+            this.dataColumn14 = new System.Data.DataColumn();
+            this.dataColumn15 = new System.Data.DataColumn();
+            this.dataColumn16 = new System.Data.DataColumn();
             this.serverInfoSplitContainer = new System.Windows.Forms.SplitContainer();
             this.playersGridView = new System.Windows.Forms.DataGridView();
             this.playerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,21 +138,35 @@
             this.selectAPIComboBox = new System.Windows.Forms.ComboBox();
             this.launchDebugModeButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.launchSingleplayerButton = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.filterPanel = new System.Windows.Forms.Panel();
-            this.filterSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.filtersPanel = new System.Windows.Forms.Panel();
+            this.addServersFilterPictureBox = new System.Windows.Forms.PictureBox();
+            this.filtersInnerPanel = new System.Windows.Forms.Panel();
             this.serversFilterLabel = new MaterialSkin.Controls.MaterialLabel();
-            this.filterRadioGroupFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.filterHostnameRadioButton = new MaterialSkin.Controls.MaterialRadioButton();
-            this.filterModeRadioButton = new MaterialSkin.Controls.MaterialRadioButton();
-            this.filterLanguageRadioButton = new MaterialSkin.Controls.MaterialRadioButton();
-            this.filterIPAndPortRadioButton = new MaterialSkin.Controls.MaterialRadioButton();
             this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.gitHubProjectLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.gitHubProjectPictureBox = new System.Windows.Forms.PictureBox();
             this.languageLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.languagesComboBox = new System.Windows.Forms.ComboBox();
             this.selectLanguageLabel = new MaterialSkin.Controls.MaterialLabel();
-            this.galleryPage = new System.Windows.Forms.TabPage();
+            this.mediaPage = new System.Windows.Forms.TabPage();
+            this.mediaSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.mediaInnerSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.lastChatlogTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.lastChatlogRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.lastChatlogContextMenuStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.lastChatlogCopyTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lastChatlogCopyOriginalTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lastChatlogCopyHTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lastChatlogCopyRTFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lastChatlogToolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.lastChatlogSaveTextAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lastChatlogSaveOriginalTextAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lastChatlogSaveHTMLAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lastChatlogSaveRTFAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lastChatlogMenuLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.chatlogColorCodesCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.chatlogColoredCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.chatlogTimestampCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.galleryTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.galleryMenuLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.galleryViewPictureBox = new System.Windows.Forms.PictureBox();
@@ -134,10 +174,15 @@
             this.galleryDeletePictureBox = new System.Windows.Forms.PictureBox();
             this.galleryListView = new System.Windows.Forms.ListView();
             this.galleryImageList = new System.Windows.Forms.ImageList(this.components);
-            this.lastChatlogPage = new System.Windows.Forms.TabPage();
-            this.lastChatlogTextBox = new System.Windows.Forms.TextBox();
-            this.savedPositionsPage = new System.Windows.Forms.TabPage();
             this.savedPositionsTextBox = new System.Windows.Forms.TextBox();
+            this.sessionsPage = new System.Windows.Forms.TabPage();
+            this.sessionsSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.sessionsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.sessionsInnerSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.chatlogGallerySplitContainer = new System.Windows.Forms.SplitContainer();
+            this.chatlogSessionTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.gallerySessionTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.sessionServerInfoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.versionsPage = new System.Windows.Forms.TabPage();
             this.versionsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.versionButtonsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -145,27 +190,20 @@
             this.installVersionPictureBox = new System.Windows.Forms.PictureBox();
             this.versionsListView = new System.Windows.Forms.ListView();
             this.versionsImageList = new System.Windows.Forms.ImageList(this.components);
-            this.optionsPage = new System.Windows.Forms.TabPage();
-            this.optionsPanel = new System.Windows.Forms.Panel();
-            this.useDiscordRichPresenceCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
-            this.revertConfigButton = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.saveConfigButton = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.fontWeightCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
-            this.fontFaceSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.fontFaceLabel = new MaterialSkin.Controls.MaterialLabel();
-            this.noNametagStatusCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
-            this.audioProxyOffCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
-            this.audioMessageOffCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
-            this.directModeCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
-            this.multiCoreCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
-            this.imeCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
-            this.timestampCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
-            this.disableHeadMoveCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
-            this.fpsLimitTrackBar = new System.Windows.Forms.TrackBar();
-            this.fpsLimitSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.fpsLimitLabel = new MaterialSkin.Controls.MaterialLabel();
-            this.pageSizeSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.pageSizeLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.pluginsPage = new System.Windows.Forms.TabPage();
+            this.pluginsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.pluginsGridView = new System.Windows.Forms.DataGridView();
+            this.indexDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enabledDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.providerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uRIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updateFrequencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pluginsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pluginsMenuLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.pluginsAddPictureBox = new System.Windows.Forms.PictureBox();
+            this.pluginsEditPictureBox = new System.Windows.Forms.PictureBox();
+            this.pluginsRemovePictureBox = new System.Windows.Forms.PictureBox();
             this.apiPage = new System.Windows.Forms.TabPage();
             this.apiLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.apiGridView = new System.Windows.Forms.DataGridView();
@@ -177,7 +215,7 @@
             this.addNewAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editSelectedAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeSelectedAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.apiToolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.revertAPIListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.apiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.apiButtonsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -212,6 +250,28 @@
             this.developerToolsStartServerButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.stopServerButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.developerToolsConnectToTestServerButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.optionsPage = new System.Windows.Forms.TabPage();
+            this.optionsPanel = new System.Windows.Forms.Panel();
+            this.createSessionsLogCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.showUsernameDialogCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.revertConfigButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.saveConfigButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.fontWeightCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.fontFaceSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.fontFaceLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.noNametagStatusCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.audioProxyOffCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.audioMessageOffCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.directModeCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.multiCoreCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.imeCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.timestampCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.disableHeadMoveCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
+            this.fpsLimitTrackBar = new System.Windows.Forms.TrackBar();
+            this.fpsLimitSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.fpsLimitLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.pageSizeSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.pageSizeLabel = new MaterialSkin.Controls.MaterialLabel();
             this.aboutPage = new System.Windows.Forms.TabPage();
             this.aboutFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.gitHubProjectLargePictureBox = new System.Windows.Forms.PictureBox();
@@ -225,6 +285,16 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.galleryFileSystemWatcher = new System.IO.FileSystemWatcher();
             this.textFileSystemWatcher = new System.IO.FileSystemWatcher();
+            this.usernameSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.usernamePanel = new System.Windows.Forms.Panel();
+            this.sessionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lastChatlogSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.pluginsDataContextMenuStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.addNewPluginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editSelectedPluginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeSelectedPluginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.revertPluginListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTabControl.SuspendLayout();
             this.serversPage.SuspendLayout();
             this.serversLayoutPanel.SuspendLayout();
@@ -235,11 +305,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.serversGridView)).BeginInit();
             this.serversContextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.serversBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.serversDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serversDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.apiDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serverInfoSplitContainer)).BeginInit();
             this.serverInfoSplitContainer.Panel1.SuspendLayout();
             this.serverInfoSplitContainer.Panel2.SuspendLayout();
@@ -250,28 +322,55 @@
             ((System.ComponentModel.ISupportInitialize)(this.rulesBindingSource)).BeginInit();
             this.inputFilterLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.filterPanel.SuspendLayout();
-            this.filterRadioGroupFlowLayoutPanel.SuspendLayout();
+            this.filtersPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addServersFilterPictureBox)).BeginInit();
             this.footerTableLayoutPanel.SuspendLayout();
             this.gitHubProjectLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gitHubProjectPictureBox)).BeginInit();
             this.languageLayoutPanel.SuspendLayout();
-            this.galleryPage.SuspendLayout();
+            this.mediaPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mediaSplitContainer)).BeginInit();
+            this.mediaSplitContainer.Panel1.SuspendLayout();
+            this.mediaSplitContainer.Panel2.SuspendLayout();
+            this.mediaSplitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mediaInnerSplitContainer)).BeginInit();
+            this.mediaInnerSplitContainer.Panel1.SuspendLayout();
+            this.mediaInnerSplitContainer.Panel2.SuspendLayout();
+            this.mediaInnerSplitContainer.SuspendLayout();
+            this.lastChatlogTableLayoutPanel.SuspendLayout();
+            this.lastChatlogContextMenuStrip.SuspendLayout();
+            this.lastChatlogMenuLayoutPanel.SuspendLayout();
             this.galleryTableLayoutPanel.SuspendLayout();
             this.galleryMenuLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.galleryViewPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.showGalleryPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDeletePictureBox)).BeginInit();
-            this.lastChatlogPage.SuspendLayout();
-            this.savedPositionsPage.SuspendLayout();
+            this.sessionsPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsSplitContainer)).BeginInit();
+            this.sessionsSplitContainer.Panel1.SuspendLayout();
+            this.sessionsSplitContainer.Panel2.SuspendLayout();
+            this.sessionsSplitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsInnerSplitContainer)).BeginInit();
+            this.sessionsInnerSplitContainer.Panel1.SuspendLayout();
+            this.sessionsInnerSplitContainer.Panel2.SuspendLayout();
+            this.sessionsInnerSplitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chatlogGallerySplitContainer)).BeginInit();
+            this.chatlogGallerySplitContainer.Panel1.SuspendLayout();
+            this.chatlogGallerySplitContainer.Panel2.SuspendLayout();
+            this.chatlogGallerySplitContainer.SuspendLayout();
             this.versionsPage.SuspendLayout();
             this.versionsTableLayoutPanel.SuspendLayout();
             this.versionButtonsFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patchVersionPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.installVersionPictureBox)).BeginInit();
-            this.optionsPage.SuspendLayout();
-            this.optionsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fpsLimitTrackBar)).BeginInit();
+            this.pluginsPage.SuspendLayout();
+            this.pluginsTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsBindingSource)).BeginInit();
+            this.pluginsMenuLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsAddPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsEditPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsRemovePictureBox)).BeginInit();
             this.apiPage.SuspendLayout();
             this.apiLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.apiGridView)).BeginInit();
@@ -288,11 +387,17 @@
             this.developerToolsGamemodesPanel.SuspendLayout();
             this.developerToolsPluginsPanel.SuspendLayout();
             this.developerToolsConfigFlowLayoutPanel.SuspendLayout();
+            this.optionsPage.SuspendLayout();
+            this.optionsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fpsLimitTrackBar)).BeginInit();
             this.aboutPage.SuspendLayout();
             this.aboutFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gitHubProjectLargePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryFileSystemWatcher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textFileSystemWatcher)).BeginInit();
+            this.usernamePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsBindingSource)).BeginInit();
+            this.pluginsDataContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -301,20 +406,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainTabControl.Controls.Add(this.serversPage);
-            this.mainTabControl.Controls.Add(this.galleryPage);
-            this.mainTabControl.Controls.Add(this.lastChatlogPage);
-            this.mainTabControl.Controls.Add(this.savedPositionsPage);
+            this.mainTabControl.Controls.Add(this.mediaPage);
+            this.mainTabControl.Controls.Add(this.sessionsPage);
             this.mainTabControl.Controls.Add(this.versionsPage);
-            this.mainTabControl.Controls.Add(this.optionsPage);
+            this.mainTabControl.Controls.Add(this.pluginsPage);
             this.mainTabControl.Controls.Add(this.apiPage);
             this.mainTabControl.Controls.Add(this.developerToolsPage);
+            this.mainTabControl.Controls.Add(this.optionsPage);
             this.mainTabControl.Controls.Add(this.aboutPage);
             this.mainTabControl.Depth = 0;
             this.mainTabControl.Location = new System.Drawing.Point(5, 117);
             this.mainTabControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(1190, 562);
+            this.mainTabControl.Size = new System.Drawing.Size(1190, 567);
             this.mainTabControl.TabIndex = 2;
             this.mainTabControl.SelectedIndexChanged += new System.EventHandler(this.mainTabControl_SelectedIndexChanged);
             // 
@@ -325,7 +430,7 @@
             this.serversPage.Location = new System.Drawing.Point(4, 22);
             this.serversPage.Name = "serversPage";
             this.serversPage.Padding = new System.Windows.Forms.Padding(3);
-            this.serversPage.Size = new System.Drawing.Size(1182, 536);
+            this.serversPage.Size = new System.Drawing.Size(1182, 541);
             this.serversPage.TabIndex = 0;
             this.serversPage.Text = "{$SERVERS$}";
             // 
@@ -344,7 +449,7 @@
             this.serversLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.serversLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 151F));
             this.serversLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.serversLayoutPanel.Size = new System.Drawing.Size(1176, 530);
+            this.serversLayoutPanel.Size = new System.Drawing.Size(1176, 535);
             this.serversLayoutPanel.TabIndex = 0;
             // 
             // serversSplitContainer
@@ -361,7 +466,7 @@
             // serversSplitContainer.Panel2
             // 
             this.serversSplitContainer.Panel2.Controls.Add(this.serverInfoSplitContainer);
-            this.serversSplitContainer.Size = new System.Drawing.Size(1170, 323);
+            this.serversSplitContainer.Size = new System.Drawing.Size(1170, 328);
             this.serversSplitContainer.SplitterDistance = 909;
             this.serversSplitContainer.TabIndex = 2;
             // 
@@ -396,7 +501,9 @@
             this.playersDataGridViewTextBoxColumn,
             this.modeDataGridViewTextBoxColumn,
             this.languageDataGridViewTextBoxColumn,
-            this.iPAndPortDataGridViewTextBoxColumn});
+            this.iPAndPortDataGridViewTextBoxColumn,
+            this.IsEmpty,
+            this.IsFull});
             this.serversGridView.ContextMenuStrip = this.serversContextMenuStrip;
             this.serversGridView.DataSource = this.serversBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -419,7 +526,7 @@
             this.serversGridView.RowHeadersVisible = false;
             this.serversGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.serversGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.serversGridView.Size = new System.Drawing.Size(907, 321);
+            this.serversGridView.Size = new System.Drawing.Size(907, 326);
             this.serversGridView.TabIndex = 0;
             this.serversGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.serversGridView_CellDoubleClick);
             this.serversGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
@@ -483,6 +590,22 @@
             this.iPAndPortDataGridViewTextBoxColumn.Name = "iPAndPortDataGridViewTextBoxColumn";
             this.iPAndPortDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // IsEmpty
+            // 
+            this.IsEmpty.DataPropertyName = "IsEmpty";
+            this.IsEmpty.HeaderText = "IsEmpty";
+            this.IsEmpty.Name = "IsEmpty";
+            this.IsEmpty.ReadOnly = true;
+            this.IsEmpty.Visible = false;
+            // 
+            // IsFull
+            // 
+            this.IsFull.DataPropertyName = "IsFull";
+            this.IsFull.HeaderText = "IsFull";
+            this.IsFull.Name = "IsFull";
+            this.IsFull.ReadOnly = true;
+            this.IsFull.Visible = false;
+            // 
             // serversContextMenuStrip
             // 
             this.serversContextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -490,18 +613,23 @@
             this.serversContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.connectToolStripMenuItem,
             this.connectWithRCONToolStripMenuItem,
-            this.toolStripSeparator3,
+            this.serversToolStripSeparator1,
             this.showExtendedServerInformationToolStripMenuItem,
             this.visitWebsiteToolStripMenuItem,
             this.searchOnToolStripMenuItem,
-            this.toolStripSeparator2,
+            this.serversToolStripSeparator2,
             this.addServerToFavouritesToolStripMenuItem,
             this.removeServerFromFavouritesToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.addAddressToFavouriteListToolStripMenuItem});
+            this.serversToolStripSeparator3,
+            this.addAddressToFavouriteListToolStripMenuItem,
+            this.serversToolStripSeparator4,
+            this.showEmptyServersToolStripMenuItem,
+            this.showFullServersToolStripMenuItem,
+            this.serversToolStripSeparator5,
+            this.reloadServerListsToolStripMenuItem});
             this.serversContextMenuStrip.MouseState = MaterialSkin.MouseState.HOVER;
             this.serversContextMenuStrip.Name = "serversContextMenuStrip";
-            this.serversContextMenuStrip.Size = new System.Drawing.Size(327, 198);
+            this.serversContextMenuStrip.Size = new System.Drawing.Size(327, 276);
             // 
             // connectToolStripMenuItem
             // 
@@ -517,10 +645,10 @@
             this.connectWithRCONToolStripMenuItem.Text = "{$CONNECT_WITH_RCON$}";
             this.connectWithRCONToolStripMenuItem.Click += new System.EventHandler(this.connectWithRCONToolStripMenuItem_Click);
             // 
-            // toolStripSeparator3
+            // serversToolStripSeparator1
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(323, 6);
+            this.serversToolStripSeparator1.Name = "serversToolStripSeparator1";
+            this.serversToolStripSeparator1.Size = new System.Drawing.Size(323, 6);
             // 
             // showExtendedServerInformationToolStripMenuItem
             // 
@@ -591,10 +719,10 @@
             this.searchOnYouTubeToolStripMenuItem.Text = "{$SEARCH_ON_YOU_TUBE$}";
             this.searchOnYouTubeToolStripMenuItem.Click += new System.EventHandler(this.searchOnYouTubeToolStripMenuItem_Click);
             // 
-            // toolStripSeparator2
+            // serversToolStripSeparator2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(323, 6);
+            this.serversToolStripSeparator2.Name = "serversToolStripSeparator2";
+            this.serversToolStripSeparator2.Size = new System.Drawing.Size(323, 6);
             // 
             // addServerToFavouritesToolStripMenuItem
             // 
@@ -610,10 +738,10 @@
             this.removeServerFromFavouritesToolStripMenuItem.Text = "{$REMOVE_SERVER_FROM_FAVOURITES_TITLE$}";
             this.removeServerFromFavouritesToolStripMenuItem.Click += new System.EventHandler(this.removeServerFromFavouritesToolStripMenuItem_Click);
             // 
-            // toolStripSeparator4
+            // serversToolStripSeparator3
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(323, 6);
+            this.serversToolStripSeparator3.Name = "serversToolStripSeparator3";
+            this.serversToolStripSeparator3.Size = new System.Drawing.Size(323, 6);
             // 
             // addAddressToFavouriteListToolStripMenuItem
             // 
@@ -622,21 +750,58 @@
             this.addAddressToFavouriteListToolStripMenuItem.Text = "{$ADD_ADDRESS_TO_FAVOURITE_LIST$}";
             this.addAddressToFavouriteListToolStripMenuItem.Click += new System.EventHandler(this.addAddressToFavouriteListToolStripMenuItem_Click);
             // 
+            // serversToolStripSeparator4
+            // 
+            this.serversToolStripSeparator4.Name = "serversToolStripSeparator4";
+            this.serversToolStripSeparator4.Size = new System.Drawing.Size(323, 6);
+            // 
+            // showEmptyServersToolStripMenuItem
+            // 
+            this.showEmptyServersToolStripMenuItem.Checked = true;
+            this.showEmptyServersToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.showEmptyServersToolStripMenuItem.Name = "showEmptyServersToolStripMenuItem";
+            this.showEmptyServersToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
+            this.showEmptyServersToolStripMenuItem.Text = "{$SHOW_EMPTY_SERVERS$}";
+            this.showEmptyServersToolStripMenuItem.Click += new System.EventHandler(this.showEmptyServersToolStripMenuItem_Click);
+            // 
+            // showFullServersToolStripMenuItem
+            // 
+            this.showFullServersToolStripMenuItem.Checked = true;
+            this.showFullServersToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.showFullServersToolStripMenuItem.Name = "showFullServersToolStripMenuItem";
+            this.showFullServersToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
+            this.showFullServersToolStripMenuItem.Text = "{$SHOW_FULL_SERVERS$}";
+            this.showFullServersToolStripMenuItem.Click += new System.EventHandler(this.showFullServersToolStripMenuItem_Click);
+            // 
+            // serversToolStripSeparator5
+            // 
+            this.serversToolStripSeparator5.Name = "serversToolStripSeparator5";
+            this.serversToolStripSeparator5.Size = new System.Drawing.Size(323, 6);
+            // 
+            // reloadServerListsToolStripMenuItem
+            // 
+            this.reloadServerListsToolStripMenuItem.Name = "reloadServerListsToolStripMenuItem";
+            this.reloadServerListsToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
+            this.reloadServerListsToolStripMenuItem.Text = "{$RELOAD_SERVER_LISTS$}";
+            this.reloadServerListsToolStripMenuItem.Click += new System.EventHandler(this.reloadServerListsToolStripMenuItem_Click);
+            // 
             // serversBindingSource
             // 
             this.serversBindingSource.DataMember = "Servers";
-            this.serversBindingSource.DataSource = this.serversDataSet;
+            this.serversBindingSource.DataSource = this.mainDataSet;
             this.serversBindingSource.Filter = "GroupID=0";
             this.serversBindingSource.Sort = "";
             // 
-            // serversDataSet
+            // mainDataSet
             // 
-            this.serversDataSet.DataSetName = "serversDataSet";
-            this.serversDataSet.Tables.AddRange(new System.Data.DataTable[] {
+            this.mainDataSet.DataSetName = "mainDataSet";
+            this.mainDataSet.Tables.AddRange(new System.Data.DataTable[] {
             this.serversDataTable,
             this.playersDataTable,
             this.rulesDataTable,
-            this.apiDataTable});
+            this.apiDataTable,
+            this.sessionsDataTable,
+            this.pluginsDataTable});
             // 
             // serversDataTable
             // 
@@ -647,7 +812,9 @@
             this.maxPlayersDataColumn,
             this.modeDataColumn,
             this.languageDataColumn,
-            this.ipAndPortDataColumn});
+            this.ipAndPortDataColumn,
+            this.dataColumn17,
+            this.dataColumn18});
             this.serversDataTable.Constraints.AddRange(new System.Data.Constraint[] {
             new System.Data.UniqueConstraint("Constraint1", new string[] {
                         "IP and port",
@@ -699,6 +866,18 @@
             this.ipAndPortDataColumn.Caption = "IP and port";
             this.ipAndPortDataColumn.ColumnName = "IP and port";
             this.ipAndPortDataColumn.DefaultValue = "";
+            // 
+            // dataColumn17
+            // 
+            this.dataColumn17.ColumnName = "IsEmpty";
+            this.dataColumn17.DataType = typeof(bool);
+            this.dataColumn17.DefaultValue = true;
+            // 
+            // dataColumn18
+            // 
+            this.dataColumn18.ColumnName = "IsFull";
+            this.dataColumn18.DataType = typeof(bool);
+            this.dataColumn18.DefaultValue = true;
             // 
             // playersDataTable
             // 
@@ -765,6 +944,90 @@
             this.dataColumn4.ColumnName = "Endpoint";
             this.dataColumn4.DefaultValue = "";
             // 
+            // sessionsDataTable
+            // 
+            this.sessionsDataTable.Columns.AddRange(new System.Data.DataColumn[] {
+            this.dataColumn5,
+            this.dataColumn7,
+            this.dataColumn8,
+            this.dataColumn9,
+            this.dataColumn6,
+            this.dataColumn10});
+            this.sessionsDataTable.TableName = "Sessions";
+            // 
+            // dataColumn5
+            // 
+            this.dataColumn5.ColumnName = "Username";
+            this.dataColumn5.DefaultValue = "";
+            // 
+            // dataColumn7
+            // 
+            this.dataColumn7.ColumnName = "Hostname";
+            this.dataColumn7.DefaultValue = "";
+            // 
+            // dataColumn8
+            // 
+            this.dataColumn8.ColumnName = "Mode";
+            this.dataColumn8.DefaultValue = "";
+            // 
+            // dataColumn9
+            // 
+            this.dataColumn9.ColumnName = "Language";
+            this.dataColumn9.DefaultValue = "";
+            // 
+            // dataColumn6
+            // 
+            this.dataColumn6.ColumnName = "IP and port";
+            this.dataColumn6.DefaultValue = "";
+            // 
+            // dataColumn10
+            // 
+            this.dataColumn10.ColumnName = "Date and time";
+            this.dataColumn10.DataType = typeof(System.DateTime);
+            // 
+            // pluginsDataTable
+            // 
+            this.pluginsDataTable.Columns.AddRange(new System.Data.DataColumn[] {
+            this.dataColumn11,
+            this.dataColumn12,
+            this.dataColumn13,
+            this.dataColumn14,
+            this.dataColumn15,
+            this.dataColumn16});
+            this.pluginsDataTable.TableName = "Plugins";
+            // 
+            // dataColumn11
+            // 
+            this.dataColumn11.ColumnName = "Index";
+            this.dataColumn11.DataType = typeof(int);
+            this.dataColumn11.DefaultValue = 0;
+            // 
+            // dataColumn12
+            // 
+            this.dataColumn12.ColumnName = "Enabled";
+            this.dataColumn12.DataType = typeof(bool);
+            this.dataColumn12.DefaultValue = true;
+            // 
+            // dataColumn13
+            // 
+            this.dataColumn13.ColumnName = "Name";
+            this.dataColumn13.DefaultValue = "";
+            // 
+            // dataColumn14
+            // 
+            this.dataColumn14.ColumnName = "Provider";
+            this.dataColumn14.DefaultValue = "";
+            // 
+            // dataColumn15
+            // 
+            this.dataColumn15.ColumnName = "URI";
+            this.dataColumn15.DefaultValue = "";
+            // 
+            // dataColumn16
+            // 
+            this.dataColumn16.ColumnName = "Update frequency";
+            this.dataColumn16.DefaultValue = "";
+            // 
             // serverInfoSplitContainer
             // 
             this.serverInfoSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -780,8 +1043,8 @@
             // serverInfoSplitContainer.Panel2
             // 
             this.serverInfoSplitContainer.Panel2.Controls.Add(this.rulesGridView);
-            this.serverInfoSplitContainer.Size = new System.Drawing.Size(257, 323);
-            this.serverInfoSplitContainer.SplitterDistance = 213;
+            this.serverInfoSplitContainer.Size = new System.Drawing.Size(257, 328);
+            this.serverInfoSplitContainer.SplitterDistance = 216;
             this.serverInfoSplitContainer.TabIndex = 0;
             // 
             // playersGridView
@@ -832,7 +1095,7 @@
             this.playersGridView.RowHeadersVisible = false;
             this.playersGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.playersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.playersGridView.Size = new System.Drawing.Size(255, 211);
+            this.playersGridView.Size = new System.Drawing.Size(255, 214);
             this.playersGridView.TabIndex = 1;
             this.playersGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             // 
@@ -853,7 +1116,7 @@
             // playersBindingSource
             // 
             this.playersBindingSource.DataMember = "Players";
-            this.playersBindingSource.DataSource = this.serversDataSet;
+            this.playersBindingSource.DataSource = this.mainDataSet;
             // 
             // rulesGridView
             // 
@@ -903,7 +1166,7 @@
             this.rulesGridView.RowHeadersVisible = false;
             this.rulesGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.rulesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.rulesGridView.Size = new System.Drawing.Size(255, 104);
+            this.rulesGridView.Size = new System.Drawing.Size(255, 106);
             this.rulesGridView.TabIndex = 1;
             this.rulesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rulesGridView_CellDoubleClick);
             this.rulesGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
@@ -925,7 +1188,7 @@
             // rulesBindingSource
             // 
             this.rulesBindingSource.DataMember = "Rules";
-            this.rulesBindingSource.DataSource = this.serversDataSet;
+            this.rulesBindingSource.DataSource = this.mainDataSet;
             // 
             // inputFilterLayoutPanel
             // 
@@ -933,9 +1196,9 @@
             this.inputFilterLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 431F));
             this.inputFilterLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.inputFilterLayoutPanel.Controls.Add(this.flowLayoutPanel1, 0, 0);
-            this.inputFilterLayoutPanel.Controls.Add(this.filterPanel, 1, 0);
+            this.inputFilterLayoutPanel.Controls.Add(this.filtersPanel, 1, 0);
             this.inputFilterLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inputFilterLayoutPanel.Location = new System.Drawing.Point(3, 332);
+            this.inputFilterLayoutPanel.Location = new System.Drawing.Point(3, 337);
             this.inputFilterLayoutPanel.Name = "inputFilterLayoutPanel";
             this.inputFilterLayoutPanel.RowCount = 1;
             this.inputFilterLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1081,36 +1344,40 @@
             this.launchSingleplayerButton.UseVisualStyleBackColor = true;
             this.launchSingleplayerButton.Click += new System.EventHandler(this.launchSingleplayerButton_Click);
             // 
-            // filterPanel
+            // filtersPanel
             // 
-            this.filterPanel.Controls.Add(this.filterSingleLineTextField);
-            this.filterPanel.Controls.Add(this.serversFilterLabel);
-            this.filterPanel.Controls.Add(this.filterRadioGroupFlowLayoutPanel);
-            this.filterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.filterPanel.Location = new System.Drawing.Point(434, 3);
-            this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(733, 139);
-            this.filterPanel.TabIndex = 7;
+            this.filtersPanel.Controls.Add(this.addServersFilterPictureBox);
+            this.filtersPanel.Controls.Add(this.filtersInnerPanel);
+            this.filtersPanel.Controls.Add(this.serversFilterLabel);
+            this.filtersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filtersPanel.Location = new System.Drawing.Point(434, 3);
+            this.filtersPanel.Name = "filtersPanel";
+            this.filtersPanel.Size = new System.Drawing.Size(733, 139);
+            this.filtersPanel.TabIndex = 7;
             // 
-            // filterSingleLineTextField
+            // addServersFilterPictureBox
             // 
-            this.filterSingleLineTextField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.addServersFilterPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addServersFilterPictureBox.Image = global::SAMPLauncherNET.Properties.Resources.new_icon;
+            this.addServersFilterPictureBox.Location = new System.Drawing.Point(698, 3);
+            this.addServersFilterPictureBox.Name = "addServersFilterPictureBox";
+            this.addServersFilterPictureBox.Size = new System.Drawing.Size(32, 32);
+            this.addServersFilterPictureBox.TabIndex = 4;
+            this.addServersFilterPictureBox.TabStop = false;
+            this.addServersFilterPictureBox.Click += new System.EventHandler(this.addServersFilterPictureBox_Click);
+            this.addServersFilterPictureBox.MouseEnter += new System.EventHandler(this.genericPictureBox_MouseEnter);
+            this.addServersFilterPictureBox.MouseLeave += new System.EventHandler(this.genericPictureBox_MouseLeave);
+            // 
+            // filtersInnerPanel
+            // 
+            this.filtersInnerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.filterSingleLineTextField.Depth = 0;
-            this.filterSingleLineTextField.Hint = "...";
-            this.filterSingleLineTextField.Location = new System.Drawing.Point(7, 22);
-            this.filterSingleLineTextField.MaxLength = 32767;
-            this.filterSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
-            this.filterSingleLineTextField.Name = "filterSingleLineTextField";
-            this.filterSingleLineTextField.PasswordChar = '\0';
-            this.filterSingleLineTextField.SelectedText = "";
-            this.filterSingleLineTextField.SelectionLength = 0;
-            this.filterSingleLineTextField.SelectionStart = 0;
-            this.filterSingleLineTextField.Size = new System.Drawing.Size(723, 23);
-            this.filterSingleLineTextField.TabIndex = 0;
-            this.filterSingleLineTextField.TabStop = false;
-            this.filterSingleLineTextField.UseSystemPasswordChar = false;
-            this.filterSingleLineTextField.TextChanged += new System.EventHandler(this.filterSingleLineTextField_TextChanged);
+            this.filtersInnerPanel.AutoScroll = true;
+            this.filtersInnerPanel.Location = new System.Drawing.Point(3, 41);
+            this.filtersInnerPanel.Name = "filtersInnerPanel";
+            this.filtersInnerPanel.Size = new System.Drawing.Size(727, 95);
+            this.filtersInnerPanel.TabIndex = 3;
             // 
             // serversFilterLabel
             // 
@@ -1121,93 +1388,9 @@
             this.serversFilterLabel.Location = new System.Drawing.Point(3, 0);
             this.serversFilterLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.serversFilterLabel.Name = "serversFilterLabel";
-            this.serversFilterLabel.Size = new System.Drawing.Size(153, 19);
+            this.serversFilterLabel.Size = new System.Drawing.Size(162, 19);
             this.serversFilterLabel.TabIndex = 1;
-            this.serversFilterLabel.Text = "{$SERVERS_FILTER$}";
-            // 
-            // filterRadioGroupFlowLayoutPanel
-            // 
-            this.filterRadioGroupFlowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.filterRadioGroupFlowLayoutPanel.Controls.Add(this.filterHostnameRadioButton);
-            this.filterRadioGroupFlowLayoutPanel.Controls.Add(this.filterModeRadioButton);
-            this.filterRadioGroupFlowLayoutPanel.Controls.Add(this.filterLanguageRadioButton);
-            this.filterRadioGroupFlowLayoutPanel.Controls.Add(this.filterIPAndPortRadioButton);
-            this.filterRadioGroupFlowLayoutPanel.Location = new System.Drawing.Point(7, 51);
-            this.filterRadioGroupFlowLayoutPanel.Name = "filterRadioGroupFlowLayoutPanel";
-            this.filterRadioGroupFlowLayoutPanel.Size = new System.Drawing.Size(723, 55);
-            this.filterRadioGroupFlowLayoutPanel.TabIndex = 6;
-            // 
-            // filterHostnameRadioButton
-            // 
-            this.filterHostnameRadioButton.AutoSize = true;
-            this.filterHostnameRadioButton.Checked = true;
-            this.filterHostnameRadioButton.Depth = 0;
-            this.filterHostnameRadioButton.Font = new System.Drawing.Font("Roboto", 10F);
-            this.filterHostnameRadioButton.Location = new System.Drawing.Point(0, 0);
-            this.filterHostnameRadioButton.Margin = new System.Windows.Forms.Padding(0);
-            this.filterHostnameRadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.filterHostnameRadioButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.filterHostnameRadioButton.Name = "filterHostnameRadioButton";
-            this.filterHostnameRadioButton.Ripple = true;
-            this.filterHostnameRadioButton.Size = new System.Drawing.Size(178, 30);
-            this.filterHostnameRadioButton.TabIndex = 2;
-            this.filterHostnameRadioButton.TabStop = true;
-            this.filterHostnameRadioButton.Text = "{$FILTER_HOSTNAME$}";
-            this.filterHostnameRadioButton.UseVisualStyleBackColor = true;
-            this.filterHostnameRadioButton.CheckedChanged += new System.EventHandler(this.filterGenericRadioButton_CheckedChanged);
-            // 
-            // filterModeRadioButton
-            // 
-            this.filterModeRadioButton.AutoSize = true;
-            this.filterModeRadioButton.Depth = 0;
-            this.filterModeRadioButton.Font = new System.Drawing.Font("Roboto", 10F);
-            this.filterModeRadioButton.Location = new System.Drawing.Point(178, 0);
-            this.filterModeRadioButton.Margin = new System.Windows.Forms.Padding(0);
-            this.filterModeRadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.filterModeRadioButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.filterModeRadioButton.Name = "filterModeRadioButton";
-            this.filterModeRadioButton.Ripple = true;
-            this.filterModeRadioButton.Size = new System.Drawing.Size(142, 30);
-            this.filterModeRadioButton.TabIndex = 3;
-            this.filterModeRadioButton.Text = "{$FILTER_MODE$}";
-            this.filterModeRadioButton.UseVisualStyleBackColor = true;
-            this.filterModeRadioButton.CheckedChanged += new System.EventHandler(this.filterGenericRadioButton_CheckedChanged);
-            // 
-            // filterLanguageRadioButton
-            // 
-            this.filterLanguageRadioButton.AutoSize = true;
-            this.filterLanguageRadioButton.Depth = 0;
-            this.filterLanguageRadioButton.Font = new System.Drawing.Font("Roboto", 10F);
-            this.filterLanguageRadioButton.Location = new System.Drawing.Point(320, 0);
-            this.filterLanguageRadioButton.Margin = new System.Windows.Forms.Padding(0);
-            this.filterLanguageRadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.filterLanguageRadioButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.filterLanguageRadioButton.Name = "filterLanguageRadioButton";
-            this.filterLanguageRadioButton.Ripple = true;
-            this.filterLanguageRadioButton.Size = new System.Drawing.Size(174, 30);
-            this.filterLanguageRadioButton.TabIndex = 4;
-            this.filterLanguageRadioButton.Text = "{$FILTER_LANGUAGE$}";
-            this.filterLanguageRadioButton.UseVisualStyleBackColor = true;
-            this.filterLanguageRadioButton.CheckedChanged += new System.EventHandler(this.filterGenericRadioButton_CheckedChanged);
-            // 
-            // filterIPAndPortRadioButton
-            // 
-            this.filterIPAndPortRadioButton.AutoSize = true;
-            this.filterIPAndPortRadioButton.Depth = 0;
-            this.filterIPAndPortRadioButton.Font = new System.Drawing.Font("Roboto", 10F);
-            this.filterIPAndPortRadioButton.Location = new System.Drawing.Point(494, 0);
-            this.filterIPAndPortRadioButton.Margin = new System.Windows.Forms.Padding(0);
-            this.filterIPAndPortRadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.filterIPAndPortRadioButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.filterIPAndPortRadioButton.Name = "filterIPAndPortRadioButton";
-            this.filterIPAndPortRadioButton.Ripple = true;
-            this.filterIPAndPortRadioButton.Size = new System.Drawing.Size(192, 30);
-            this.filterIPAndPortRadioButton.TabIndex = 5;
-            this.filterIPAndPortRadioButton.Text = "{$FILTER_IP_AND_PORT$}";
-            this.filterIPAndPortRadioButton.UseVisualStyleBackColor = true;
-            this.filterIPAndPortRadioButton.CheckedChanged += new System.EventHandler(this.filterGenericRadioButton_CheckedChanged);
+            this.serversFilterLabel.Text = "{$SERVERS_FILTERS$}";
             // 
             // footerTableLayoutPanel
             // 
@@ -1217,7 +1400,7 @@
             this.footerTableLayoutPanel.Controls.Add(this.gitHubProjectLayoutPanel, 0, 0);
             this.footerTableLayoutPanel.Controls.Add(this.languageLayoutPanel, 1, 0);
             this.footerTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.footerTableLayoutPanel.Location = new System.Drawing.Point(3, 483);
+            this.footerTableLayoutPanel.Location = new System.Drawing.Point(3, 488);
             this.footerTableLayoutPanel.Name = "footerTableLayoutPanel";
             this.footerTableLayoutPanel.RowCount = 1;
             this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1288,15 +1471,239 @@
             this.selectLanguageLabel.TabIndex = 14;
             this.selectLanguageLabel.Text = "{$SELECT_LANGUAGE$}";
             // 
-            // galleryPage
+            // mediaPage
             // 
-            this.galleryPage.Controls.Add(this.galleryTableLayoutPanel);
-            this.galleryPage.Location = new System.Drawing.Point(4, 22);
-            this.galleryPage.Name = "galleryPage";
-            this.galleryPage.Size = new System.Drawing.Size(1182, 536);
-            this.galleryPage.TabIndex = 2;
-            this.galleryPage.Text = "{$GALLERY$}";
-            this.galleryPage.UseVisualStyleBackColor = true;
+            this.mediaPage.Controls.Add(this.mediaSplitContainer);
+            this.mediaPage.Location = new System.Drawing.Point(4, 22);
+            this.mediaPage.Name = "mediaPage";
+            this.mediaPage.Size = new System.Drawing.Size(1182, 541);
+            this.mediaPage.TabIndex = 2;
+            this.mediaPage.Text = "{$MEDIA$}";
+            this.mediaPage.UseVisualStyleBackColor = true;
+            // 
+            // mediaSplitContainer
+            // 
+            this.mediaSplitContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.mediaSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mediaSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.mediaSplitContainer.Name = "mediaSplitContainer";
+            this.mediaSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // mediaSplitContainer.Panel1
+            // 
+            this.mediaSplitContainer.Panel1.Controls.Add(this.mediaInnerSplitContainer);
+            // 
+            // mediaSplitContainer.Panel2
+            // 
+            this.mediaSplitContainer.Panel2.Controls.Add(this.savedPositionsTextBox);
+            this.mediaSplitContainer.Size = new System.Drawing.Size(1182, 541);
+            this.mediaSplitContainer.SplitterDistance = 403;
+            this.mediaSplitContainer.TabIndex = 5;
+            // 
+            // mediaInnerSplitContainer
+            // 
+            this.mediaInnerSplitContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.mediaInnerSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mediaInnerSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.mediaInnerSplitContainer.Name = "mediaInnerSplitContainer";
+            // 
+            // mediaInnerSplitContainer.Panel1
+            // 
+            this.mediaInnerSplitContainer.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.mediaInnerSplitContainer.Panel1.Controls.Add(this.lastChatlogTableLayoutPanel);
+            // 
+            // mediaInnerSplitContainer.Panel2
+            // 
+            this.mediaInnerSplitContainer.Panel2.Controls.Add(this.galleryTableLayoutPanel);
+            this.mediaInnerSplitContainer.Size = new System.Drawing.Size(1182, 403);
+            this.mediaInnerSplitContainer.SplitterDistance = 800;
+            this.mediaInnerSplitContainer.TabIndex = 4;
+            // 
+            // lastChatlogTableLayoutPanel
+            // 
+            this.lastChatlogTableLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lastChatlogTableLayoutPanel.ColumnCount = 1;
+            this.lastChatlogTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.lastChatlogTableLayoutPanel.Controls.Add(this.lastChatlogRichTextBox, 0, 1);
+            this.lastChatlogTableLayoutPanel.Controls.Add(this.lastChatlogMenuLayoutPanel, 0, 0);
+            this.lastChatlogTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lastChatlogTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.lastChatlogTableLayoutPanel.Name = "lastChatlogTableLayoutPanel";
+            this.lastChatlogTableLayoutPanel.RowCount = 2;
+            this.lastChatlogTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.lastChatlogTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.lastChatlogTableLayoutPanel.Size = new System.Drawing.Size(800, 403);
+            this.lastChatlogTableLayoutPanel.TabIndex = 1;
+            // 
+            // lastChatlogRichTextBox
+            // 
+            this.lastChatlogRichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lastChatlogRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lastChatlogRichTextBox.ContextMenuStrip = this.lastChatlogContextMenuStrip;
+            this.lastChatlogRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lastChatlogRichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.lastChatlogRichTextBox.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lastChatlogRichTextBox.Location = new System.Drawing.Point(3, 47);
+            this.lastChatlogRichTextBox.Name = "lastChatlogRichTextBox";
+            this.lastChatlogRichTextBox.ReadOnly = true;
+            this.lastChatlogRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.lastChatlogRichTextBox.Size = new System.Drawing.Size(794, 353);
+            this.lastChatlogRichTextBox.TabIndex = 0;
+            this.lastChatlogRichTextBox.Text = "";
+            this.lastChatlogRichTextBox.WordWrap = false;
+            // 
+            // lastChatlogContextMenuStrip
+            // 
+            this.lastChatlogContextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lastChatlogContextMenuStrip.Depth = 0;
+            this.lastChatlogContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lastChatlogCopyTextToolStripMenuItem,
+            this.lastChatlogCopyOriginalTextToolStripMenuItem,
+            this.lastChatlogCopyHTMLToolStripMenuItem,
+            this.lastChatlogCopyRTFToolStripMenuItem,
+            this.lastChatlogToolStripSeparator,
+            this.lastChatlogSaveTextAsToolStripMenuItem,
+            this.lastChatlogSaveOriginalTextAsToolStripMenuItem,
+            this.lastChatlogSaveHTMLAsToolStripMenuItem,
+            this.lastChatlogSaveRTFAsToolStripMenuItem});
+            this.lastChatlogContextMenuStrip.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lastChatlogContextMenuStrip.Name = "lastChatlogContextMenuStrip";
+            this.lastChatlogContextMenuStrip.Size = new System.Drawing.Size(282, 186);
+            // 
+            // lastChatlogCopyTextToolStripMenuItem
+            // 
+            this.lastChatlogCopyTextToolStripMenuItem.Name = "lastChatlogCopyTextToolStripMenuItem";
+            this.lastChatlogCopyTextToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.lastChatlogCopyTextToolStripMenuItem.ShowShortcutKeys = false;
+            this.lastChatlogCopyTextToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.lastChatlogCopyTextToolStripMenuItem.Text = "{$CHATLOG_COPY_TEXT$}";
+            this.lastChatlogCopyTextToolStripMenuItem.Click += new System.EventHandler(this.lastChatlogCopyTextToolStripMenuItem_Click);
+            // 
+            // lastChatlogCopyOriginalTextToolStripMenuItem
+            // 
+            this.lastChatlogCopyOriginalTextToolStripMenuItem.Name = "lastChatlogCopyOriginalTextToolStripMenuItem";
+            this.lastChatlogCopyOriginalTextToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.C)));
+            this.lastChatlogCopyOriginalTextToolStripMenuItem.ShowShortcutKeys = false;
+            this.lastChatlogCopyOriginalTextToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.lastChatlogCopyOriginalTextToolStripMenuItem.Text = "{$CHATLOG_COPY_ORIGINAL_TEXT$}";
+            this.lastChatlogCopyOriginalTextToolStripMenuItem.Click += new System.EventHandler(this.lastChatlogCopyOriginalTextToolStripMenuItem_Click);
+            // 
+            // lastChatlogCopyHTMLToolStripMenuItem
+            // 
+            this.lastChatlogCopyHTMLToolStripMenuItem.Name = "lastChatlogCopyHTMLToolStripMenuItem";
+            this.lastChatlogCopyHTMLToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.lastChatlogCopyHTMLToolStripMenuItem.Text = "{$CHATLOG_COPY_HTML$}";
+            this.lastChatlogCopyHTMLToolStripMenuItem.Click += new System.EventHandler(this.lastChatlogCopyHTMLToolStripMenuItem_Click);
+            // 
+            // lastChatlogCopyRTFToolStripMenuItem
+            // 
+            this.lastChatlogCopyRTFToolStripMenuItem.Name = "lastChatlogCopyRTFToolStripMenuItem";
+            this.lastChatlogCopyRTFToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.lastChatlogCopyRTFToolStripMenuItem.Text = "{$CHATLOG_COPY_RTF$}";
+            this.lastChatlogCopyRTFToolStripMenuItem.Click += new System.EventHandler(this.lastChatlogCopyRTFToolStripMenuItem_Click);
+            // 
+            // lastChatlogToolStripSeparator
+            // 
+            this.lastChatlogToolStripSeparator.Name = "lastChatlogToolStripSeparator";
+            this.lastChatlogToolStripSeparator.Size = new System.Drawing.Size(278, 6);
+            // 
+            // lastChatlogSaveTextAsToolStripMenuItem
+            // 
+            this.lastChatlogSaveTextAsToolStripMenuItem.Name = "lastChatlogSaveTextAsToolStripMenuItem";
+            this.lastChatlogSaveTextAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.lastChatlogSaveTextAsToolStripMenuItem.ShowShortcutKeys = false;
+            this.lastChatlogSaveTextAsToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.lastChatlogSaveTextAsToolStripMenuItem.Text = "{$CHATLOG_SAVE_TEXT_AS$}";
+            this.lastChatlogSaveTextAsToolStripMenuItem.Click += new System.EventHandler(this.lastChatlogSaveTextAsToolStripMenuItem_Click);
+            // 
+            // lastChatlogSaveOriginalTextAsToolStripMenuItem
+            // 
+            this.lastChatlogSaveOriginalTextAsToolStripMenuItem.Name = "lastChatlogSaveOriginalTextAsToolStripMenuItem";
+            this.lastChatlogSaveOriginalTextAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.lastChatlogSaveOriginalTextAsToolStripMenuItem.ShowShortcutKeys = false;
+            this.lastChatlogSaveOriginalTextAsToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.lastChatlogSaveOriginalTextAsToolStripMenuItem.Text = "{$CHATLOG_SAVE_ORIGINAL_TEXT_AS$}";
+            this.lastChatlogSaveOriginalTextAsToolStripMenuItem.Click += new System.EventHandler(this.lastChatlogSaveOriginalTextAsToolStripMenuItem_Click);
+            // 
+            // lastChatlogSaveHTMLAsToolStripMenuItem
+            // 
+            this.lastChatlogSaveHTMLAsToolStripMenuItem.Name = "lastChatlogSaveHTMLAsToolStripMenuItem";
+            this.lastChatlogSaveHTMLAsToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.lastChatlogSaveHTMLAsToolStripMenuItem.Text = "{$CHATLOG_SAVE_HTML_AS$}";
+            this.lastChatlogSaveHTMLAsToolStripMenuItem.Click += new System.EventHandler(this.lastChatlogSaveHTMLAsToolStripMenuItem_Click);
+            // 
+            // lastChatlogSaveRTFAsToolStripMenuItem
+            // 
+            this.lastChatlogSaveRTFAsToolStripMenuItem.Name = "lastChatlogSaveRTFAsToolStripMenuItem";
+            this.lastChatlogSaveRTFAsToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.lastChatlogSaveRTFAsToolStripMenuItem.Text = "{$CHATLOG_SAVE_RTF_AS$}";
+            this.lastChatlogSaveRTFAsToolStripMenuItem.Click += new System.EventHandler(this.lastChatlogSaveRTFAsToolStripMenuItem_Click);
+            // 
+            // lastChatlogMenuLayoutPanel
+            // 
+            this.lastChatlogMenuLayoutPanel.Controls.Add(this.chatlogColorCodesCheckBox);
+            this.lastChatlogMenuLayoutPanel.Controls.Add(this.chatlogColoredCheckBox);
+            this.lastChatlogMenuLayoutPanel.Controls.Add(this.chatlogTimestampCheckBox);
+            this.lastChatlogMenuLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lastChatlogMenuLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.lastChatlogMenuLayoutPanel.Name = "lastChatlogMenuLayoutPanel";
+            this.lastChatlogMenuLayoutPanel.Size = new System.Drawing.Size(794, 38);
+            this.lastChatlogMenuLayoutPanel.TabIndex = 1;
+            // 
+            // chatlogColorCodesCheckBox
+            // 
+            this.chatlogColorCodesCheckBox.AutoSize = true;
+            this.chatlogColorCodesCheckBox.Depth = 0;
+            this.chatlogColorCodesCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.chatlogColorCodesCheckBox.Location = new System.Drawing.Point(0, 0);
+            this.chatlogColorCodesCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.chatlogColorCodesCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chatlogColorCodesCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chatlogColorCodesCheckBox.Name = "chatlogColorCodesCheckBox";
+            this.chatlogColorCodesCheckBox.Ripple = true;
+            this.chatlogColorCodesCheckBox.Size = new System.Drawing.Size(273, 30);
+            this.chatlogColorCodesCheckBox.TabIndex = 0;
+            this.chatlogColorCodesCheckBox.Text = "{$CHATLOG_OPTION_COLOR_CODES$}";
+            this.chatlogColorCodesCheckBox.UseVisualStyleBackColor = true;
+            this.chatlogColorCodesCheckBox.CheckedChanged += new System.EventHandler(this.chatlogGenericCheckBox_CheckedChanged);
+            // 
+            // chatlogColoredCheckBox
+            // 
+            this.chatlogColoredCheckBox.AutoSize = true;
+            this.chatlogColoredCheckBox.Checked = true;
+            this.chatlogColoredCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chatlogColoredCheckBox.Depth = 0;
+            this.chatlogColoredCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.chatlogColoredCheckBox.Location = new System.Drawing.Point(273, 0);
+            this.chatlogColoredCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.chatlogColoredCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chatlogColoredCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chatlogColoredCheckBox.Name = "chatlogColoredCheckBox";
+            this.chatlogColoredCheckBox.Ripple = true;
+            this.chatlogColoredCheckBox.Size = new System.Drawing.Size(240, 30);
+            this.chatlogColoredCheckBox.TabIndex = 1;
+            this.chatlogColoredCheckBox.Text = "{$CHATLOG_OPTION_COLORED$}";
+            this.chatlogColoredCheckBox.UseVisualStyleBackColor = true;
+            this.chatlogColoredCheckBox.CheckedChanged += new System.EventHandler(this.chatlogGenericCheckBox_CheckedChanged);
+            // 
+            // chatlogTimestampCheckBox
+            // 
+            this.chatlogTimestampCheckBox.AutoSize = true;
+            this.chatlogTimestampCheckBox.Depth = 0;
+            this.chatlogTimestampCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.chatlogTimestampCheckBox.Location = new System.Drawing.Point(513, 0);
+            this.chatlogTimestampCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.chatlogTimestampCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chatlogTimestampCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chatlogTimestampCheckBox.Name = "chatlogTimestampCheckBox";
+            this.chatlogTimestampCheckBox.Ripple = true;
+            this.chatlogTimestampCheckBox.Size = new System.Drawing.Size(258, 30);
+            this.chatlogTimestampCheckBox.TabIndex = 2;
+            this.chatlogTimestampCheckBox.Text = "{$CHATLOG_OPTION_TIMESTAMP$}";
+            this.chatlogTimestampCheckBox.UseVisualStyleBackColor = true;
+            this.chatlogTimestampCheckBox.CheckedChanged += new System.EventHandler(this.chatlogGenericCheckBox_CheckedChanged);
             // 
             // galleryTableLayoutPanel
             // 
@@ -1311,7 +1718,7 @@
             this.galleryTableLayoutPanel.RowCount = 2;
             this.galleryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.galleryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.galleryTableLayoutPanel.Size = new System.Drawing.Size(1182, 536);
+            this.galleryTableLayoutPanel.Size = new System.Drawing.Size(378, 403);
             this.galleryTableLayoutPanel.TabIndex = 0;
             // 
             // galleryMenuLayoutPanel
@@ -1323,7 +1730,7 @@
             this.galleryMenuLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.galleryMenuLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.galleryMenuLayoutPanel.Name = "galleryMenuLayoutPanel";
-            this.galleryMenuLayoutPanel.Size = new System.Drawing.Size(1176, 38);
+            this.galleryMenuLayoutPanel.Size = new System.Drawing.Size(372, 38);
             this.galleryMenuLayoutPanel.TabIndex = 0;
             // 
             // galleryViewPictureBox
@@ -1374,7 +1781,7 @@
             this.galleryListView.LargeImageList = this.galleryImageList;
             this.galleryListView.Location = new System.Drawing.Point(3, 47);
             this.galleryListView.Name = "galleryListView";
-            this.galleryListView.Size = new System.Drawing.Size(1176, 486);
+            this.galleryListView.Size = new System.Drawing.Size(372, 353);
             this.galleryListView.SmallImageList = this.galleryImageList;
             this.galleryListView.TabIndex = 1;
             this.galleryListView.UseCompatibleStateImageBehavior = false;
@@ -1387,40 +1794,6 @@
             this.galleryImageList.ImageSize = new System.Drawing.Size(256, 256);
             this.galleryImageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // lastChatlogPage
-            // 
-            this.lastChatlogPage.Controls.Add(this.lastChatlogTextBox);
-            this.lastChatlogPage.Location = new System.Drawing.Point(4, 22);
-            this.lastChatlogPage.Name = "lastChatlogPage";
-            this.lastChatlogPage.Size = new System.Drawing.Size(1182, 536);
-            this.lastChatlogPage.TabIndex = 5;
-            this.lastChatlogPage.Text = "{$LAST_CHATLOG$}";
-            this.lastChatlogPage.UseVisualStyleBackColor = true;
-            // 
-            // lastChatlogTextBox
-            // 
-            this.lastChatlogTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.lastChatlogTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lastChatlogTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastChatlogTextBox.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.lastChatlogTextBox.Location = new System.Drawing.Point(0, 0);
-            this.lastChatlogTextBox.Multiline = true;
-            this.lastChatlogTextBox.Name = "lastChatlogTextBox";
-            this.lastChatlogTextBox.ReadOnly = true;
-            this.lastChatlogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.lastChatlogTextBox.Size = new System.Drawing.Size(1182, 536);
-            this.lastChatlogTextBox.TabIndex = 0;
-            // 
-            // savedPositionsPage
-            // 
-            this.savedPositionsPage.Controls.Add(this.savedPositionsTextBox);
-            this.savedPositionsPage.Location = new System.Drawing.Point(4, 22);
-            this.savedPositionsPage.Name = "savedPositionsPage";
-            this.savedPositionsPage.Size = new System.Drawing.Size(1182, 536);
-            this.savedPositionsPage.TabIndex = 6;
-            this.savedPositionsPage.Text = "{$SAVED_POSITIONS$}";
-            this.savedPositionsPage.UseVisualStyleBackColor = true;
-            // 
             // savedPositionsTextBox
             // 
             this.savedPositionsTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -1432,15 +1805,131 @@
             this.savedPositionsTextBox.Name = "savedPositionsTextBox";
             this.savedPositionsTextBox.ReadOnly = true;
             this.savedPositionsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.savedPositionsTextBox.Size = new System.Drawing.Size(1182, 536);
-            this.savedPositionsTextBox.TabIndex = 1;
+            this.savedPositionsTextBox.Size = new System.Drawing.Size(1182, 134);
+            this.savedPositionsTextBox.TabIndex = 3;
+            // 
+            // sessionsPage
+            // 
+            this.sessionsPage.Controls.Add(this.sessionsSplitContainer);
+            this.sessionsPage.Location = new System.Drawing.Point(4, 22);
+            this.sessionsPage.Name = "sessionsPage";
+            this.sessionsPage.Padding = new System.Windows.Forms.Padding(3);
+            this.sessionsPage.Size = new System.Drawing.Size(1182, 541);
+            this.sessionsPage.TabIndex = 9;
+            this.sessionsPage.Text = "{$SESSIONS$}";
+            this.sessionsPage.UseVisualStyleBackColor = true;
+            // 
+            // sessionsSplitContainer
+            // 
+            this.sessionsSplitContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.sessionsSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sessionsSplitContainer.Location = new System.Drawing.Point(3, 3);
+            this.sessionsSplitContainer.Name = "sessionsSplitContainer";
+            // 
+            // sessionsSplitContainer.Panel1
+            // 
+            this.sessionsSplitContainer.Panel1.Controls.Add(this.sessionsTableLayoutPanel);
+            // 
+            // sessionsSplitContainer.Panel2
+            // 
+            this.sessionsSplitContainer.Panel2.Controls.Add(this.sessionsInnerSplitContainer);
+            this.sessionsSplitContainer.Size = new System.Drawing.Size(1176, 535);
+            this.sessionsSplitContainer.SplitterDistance = 392;
+            this.sessionsSplitContainer.TabIndex = 0;
+            // 
+            // sessionsTableLayoutPanel
+            // 
+            this.sessionsTableLayoutPanel.ColumnCount = 1;
+            this.sessionsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.sessionsTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sessionsTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.sessionsTableLayoutPanel.Name = "sessionsTableLayoutPanel";
+            this.sessionsTableLayoutPanel.RowCount = 2;
+            this.sessionsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.sessionsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.sessionsTableLayoutPanel.Size = new System.Drawing.Size(392, 535);
+            this.sessionsTableLayoutPanel.TabIndex = 0;
+            // 
+            // sessionsInnerSplitContainer
+            // 
+            this.sessionsInnerSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sessionsInnerSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.sessionsInnerSplitContainer.Name = "sessionsInnerSplitContainer";
+            // 
+            // sessionsInnerSplitContainer.Panel1
+            // 
+            this.sessionsInnerSplitContainer.Panel1.Controls.Add(this.chatlogGallerySplitContainer);
+            // 
+            // sessionsInnerSplitContainer.Panel2
+            // 
+            this.sessionsInnerSplitContainer.Panel2.Controls.Add(this.sessionServerInfoTableLayoutPanel);
+            this.sessionsInnerSplitContainer.Size = new System.Drawing.Size(780, 535);
+            this.sessionsInnerSplitContainer.SplitterDistance = 260;
+            this.sessionsInnerSplitContainer.TabIndex = 0;
+            // 
+            // chatlogGallerySplitContainer
+            // 
+            this.chatlogGallerySplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chatlogGallerySplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.chatlogGallerySplitContainer.Name = "chatlogGallerySplitContainer";
+            this.chatlogGallerySplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // chatlogGallerySplitContainer.Panel1
+            // 
+            this.chatlogGallerySplitContainer.Panel1.Controls.Add(this.chatlogSessionTableLayoutPanel);
+            // 
+            // chatlogGallerySplitContainer.Panel2
+            // 
+            this.chatlogGallerySplitContainer.Panel2.Controls.Add(this.gallerySessionTableLayoutPanel);
+            this.chatlogGallerySplitContainer.Size = new System.Drawing.Size(260, 535);
+            this.chatlogGallerySplitContainer.SplitterDistance = 264;
+            this.chatlogGallerySplitContainer.TabIndex = 0;
+            // 
+            // chatlogSessionTableLayoutPanel
+            // 
+            this.chatlogSessionTableLayoutPanel.ColumnCount = 1;
+            this.chatlogSessionTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.chatlogSessionTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chatlogSessionTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.chatlogSessionTableLayoutPanel.Name = "chatlogSessionTableLayoutPanel";
+            this.chatlogSessionTableLayoutPanel.RowCount = 2;
+            this.chatlogSessionTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.chatlogSessionTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.chatlogSessionTableLayoutPanel.Size = new System.Drawing.Size(260, 264);
+            this.chatlogSessionTableLayoutPanel.TabIndex = 0;
+            // 
+            // gallerySessionTableLayoutPanel
+            // 
+            this.gallerySessionTableLayoutPanel.ColumnCount = 1;
+            this.gallerySessionTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.gallerySessionTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gallerySessionTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.gallerySessionTableLayoutPanel.Name = "gallerySessionTableLayoutPanel";
+            this.gallerySessionTableLayoutPanel.RowCount = 2;
+            this.gallerySessionTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.gallerySessionTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.gallerySessionTableLayoutPanel.Size = new System.Drawing.Size(260, 267);
+            this.gallerySessionTableLayoutPanel.TabIndex = 0;
+            // 
+            // sessionServerInfoTableLayoutPanel
+            // 
+            this.sessionServerInfoTableLayoutPanel.ColumnCount = 1;
+            this.sessionServerInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.sessionServerInfoTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sessionServerInfoTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.sessionServerInfoTableLayoutPanel.Name = "sessionServerInfoTableLayoutPanel";
+            this.sessionServerInfoTableLayoutPanel.RowCount = 2;
+            this.sessionServerInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.sessionServerInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.sessionServerInfoTableLayoutPanel.Size = new System.Drawing.Size(516, 535);
+            this.sessionServerInfoTableLayoutPanel.TabIndex = 0;
             // 
             // versionsPage
             // 
             this.versionsPage.Controls.Add(this.versionsTableLayoutPanel);
             this.versionsPage.Location = new System.Drawing.Point(4, 22);
             this.versionsPage.Name = "versionsPage";
-            this.versionsPage.Size = new System.Drawing.Size(1182, 536);
+            this.versionsPage.Size = new System.Drawing.Size(1182, 541);
             this.versionsPage.TabIndex = 8;
             this.versionsPage.Text = "{$VERSIONS$}";
             this.versionsPage.UseVisualStyleBackColor = true;
@@ -1458,7 +1947,7 @@
             this.versionsTableLayoutPanel.RowCount = 2;
             this.versionsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.versionsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.versionsTableLayoutPanel.Size = new System.Drawing.Size(1182, 536);
+            this.versionsTableLayoutPanel.Size = new System.Drawing.Size(1182, 541);
             this.versionsTableLayoutPanel.TabIndex = 0;
             // 
             // versionButtonsFlowLayoutPanel
@@ -1473,7 +1962,7 @@
             // 
             // patchVersionPictureBox
             // 
-            this.patchVersionPictureBox.Image = global::SAMPLauncherNET.Properties.Resources.patch_icon;
+            this.patchVersionPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("patchVersionPictureBox.Image")));
             this.patchVersionPictureBox.Location = new System.Drawing.Point(3, 3);
             this.patchVersionPictureBox.Name = "patchVersionPictureBox";
             this.patchVersionPictureBox.Size = new System.Drawing.Size(32, 32);
@@ -1486,7 +1975,7 @@
             // 
             // installVersionPictureBox
             // 
-            this.installVersionPictureBox.Image = global::SAMPLauncherNET.Properties.Resources.install_icon;
+            this.installVersionPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("installVersionPictureBox.Image")));
             this.installVersionPictureBox.Location = new System.Drawing.Point(41, 3);
             this.installVersionPictureBox.Name = "installVersionPictureBox";
             this.installVersionPictureBox.Size = new System.Drawing.Size(32, 32);
@@ -1508,7 +1997,7 @@
             this.versionsListView.Location = new System.Drawing.Point(3, 47);
             this.versionsListView.MultiSelect = false;
             this.versionsListView.Name = "versionsListView";
-            this.versionsListView.Size = new System.Drawing.Size(1176, 486);
+            this.versionsListView.Size = new System.Drawing.Size(1176, 491);
             this.versionsListView.SmallImageList = this.versionsImageList;
             this.versionsListView.TabIndex = 1;
             this.versionsListView.UseCompatibleStateImageBehavior = false;
@@ -1521,13 +2010,836 @@
             this.versionsImageList.Images.SetKeyName(0, "samp.png");
             this.versionsImageList.Images.SetKeyName(1, "samp-inactive.png");
             // 
+            // pluginsPage
+            // 
+            this.pluginsPage.Controls.Add(this.pluginsTableLayoutPanel);
+            this.pluginsPage.Location = new System.Drawing.Point(4, 22);
+            this.pluginsPage.Name = "pluginsPage";
+            this.pluginsPage.Size = new System.Drawing.Size(1182, 541);
+            this.pluginsPage.TabIndex = 5;
+            this.pluginsPage.Text = "{$PLUGINS$}";
+            this.pluginsPage.UseVisualStyleBackColor = true;
+            // 
+            // pluginsTableLayoutPanel
+            // 
+            this.pluginsTableLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.pluginsTableLayoutPanel.ColumnCount = 1;
+            this.pluginsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pluginsTableLayoutPanel.Controls.Add(this.pluginsGridView, 0, 1);
+            this.pluginsTableLayoutPanel.Controls.Add(this.pluginsMenuLayoutPanel, 0, 0);
+            this.pluginsTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pluginsTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.pluginsTableLayoutPanel.Name = "pluginsTableLayoutPanel";
+            this.pluginsTableLayoutPanel.RowCount = 2;
+            this.pluginsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.pluginsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pluginsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pluginsTableLayoutPanel.Size = new System.Drawing.Size(1182, 541);
+            this.pluginsTableLayoutPanel.TabIndex = 0;
+            // 
+            // pluginsGridView
+            // 
+            this.pluginsGridView.AllowUserToAddRows = false;
+            this.pluginsGridView.AllowUserToDeleteRows = false;
+            this.pluginsGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.pluginsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.pluginsGridView.AutoGenerateColumns = false;
+            this.pluginsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.pluginsGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.pluginsGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pluginsGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.pluginsGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.pluginsGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.pluginsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.pluginsGridView.ColumnHeadersHeight = 32;
+            this.pluginsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.pluginsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.indexDataGridViewTextBoxColumn1,
+            this.enabledDataGridViewCheckBoxColumn,
+            this.nameDataGridViewTextBoxColumn1,
+            this.providerDataGridViewTextBoxColumn,
+            this.uRIDataGridViewTextBoxColumn,
+            this.updateFrequencyDataGridViewTextBoxColumn});
+            this.pluginsGridView.DataSource = this.pluginsBindingSource;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.pluginsGridView.DefaultCellStyle = dataGridViewCellStyle12;
+            this.pluginsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pluginsGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.pluginsGridView.EnableHeadersVisualStyles = false;
+            this.pluginsGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            this.pluginsGridView.Location = new System.Drawing.Point(3, 47);
+            this.pluginsGridView.MultiSelect = false;
+            this.pluginsGridView.Name = "pluginsGridView";
+            this.pluginsGridView.ReadOnly = true;
+            this.pluginsGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.pluginsGridView.RowHeadersVisible = false;
+            this.pluginsGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.pluginsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.pluginsGridView.Size = new System.Drawing.Size(1176, 491);
+            this.pluginsGridView.TabIndex = 4;
+            this.pluginsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pluginsGridView_CellContentClick);
+            this.pluginsGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
+            this.pluginsGridView.DoubleClick += new System.EventHandler(this.pluginsGridView_DoubleClick);
+            // 
+            // indexDataGridViewTextBoxColumn1
+            // 
+            this.indexDataGridViewTextBoxColumn1.DataPropertyName = "Index";
+            this.indexDataGridViewTextBoxColumn1.HeaderText = "Index";
+            this.indexDataGridViewTextBoxColumn1.Name = "indexDataGridViewTextBoxColumn1";
+            this.indexDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.indexDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // enabledDataGridViewCheckBoxColumn
+            // 
+            this.enabledDataGridViewCheckBoxColumn.DataPropertyName = "Enabled";
+            this.enabledDataGridViewCheckBoxColumn.FillWeight = 8F;
+            this.enabledDataGridViewCheckBoxColumn.HeaderText = "Enabled";
+            this.enabledDataGridViewCheckBoxColumn.Name = "enabledDataGridViewCheckBoxColumn";
+            this.enabledDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.FillWeight = 23F;
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // providerDataGridViewTextBoxColumn
+            // 
+            this.providerDataGridViewTextBoxColumn.DataPropertyName = "Provider";
+            this.providerDataGridViewTextBoxColumn.FillWeight = 23F;
+            this.providerDataGridViewTextBoxColumn.HeaderText = "Provider";
+            this.providerDataGridViewTextBoxColumn.Name = "providerDataGridViewTextBoxColumn";
+            this.providerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // uRIDataGridViewTextBoxColumn
+            // 
+            this.uRIDataGridViewTextBoxColumn.DataPropertyName = "URI";
+            this.uRIDataGridViewTextBoxColumn.FillWeight = 23F;
+            this.uRIDataGridViewTextBoxColumn.HeaderText = "URI";
+            this.uRIDataGridViewTextBoxColumn.Name = "uRIDataGridViewTextBoxColumn";
+            this.uRIDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // updateFrequencyDataGridViewTextBoxColumn
+            // 
+            this.updateFrequencyDataGridViewTextBoxColumn.DataPropertyName = "Update frequency";
+            this.updateFrequencyDataGridViewTextBoxColumn.FillWeight = 23F;
+            this.updateFrequencyDataGridViewTextBoxColumn.HeaderText = "Update frequency";
+            this.updateFrequencyDataGridViewTextBoxColumn.Name = "updateFrequencyDataGridViewTextBoxColumn";
+            this.updateFrequencyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pluginsBindingSource
+            // 
+            this.pluginsBindingSource.DataMember = "Plugins";
+            this.pluginsBindingSource.DataSource = this.mainDataSet;
+            // 
+            // pluginsMenuLayoutPanel
+            // 
+            this.pluginsMenuLayoutPanel.Controls.Add(this.pluginsAddPictureBox);
+            this.pluginsMenuLayoutPanel.Controls.Add(this.pluginsEditPictureBox);
+            this.pluginsMenuLayoutPanel.Controls.Add(this.pluginsRemovePictureBox);
+            this.pluginsMenuLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pluginsMenuLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.pluginsMenuLayoutPanel.Name = "pluginsMenuLayoutPanel";
+            this.pluginsMenuLayoutPanel.Size = new System.Drawing.Size(1176, 38);
+            this.pluginsMenuLayoutPanel.TabIndex = 0;
+            // 
+            // pluginsAddPictureBox
+            // 
+            this.pluginsAddPictureBox.Image = global::SAMPLauncherNET.Properties.Resources.new_icon;
+            this.pluginsAddPictureBox.Location = new System.Drawing.Point(3, 3);
+            this.pluginsAddPictureBox.Name = "pluginsAddPictureBox";
+            this.pluginsAddPictureBox.Size = new System.Drawing.Size(32, 32);
+            this.pluginsAddPictureBox.TabIndex = 3;
+            this.pluginsAddPictureBox.TabStop = false;
+            this.toolTip.SetToolTip(this.pluginsAddPictureBox, "Add new");
+            this.pluginsAddPictureBox.Click += new System.EventHandler(this.pluginsAddPictureBox_Click);
+            this.pluginsAddPictureBox.MouseEnter += new System.EventHandler(this.genericPictureBox_MouseEnter);
+            this.pluginsAddPictureBox.MouseLeave += new System.EventHandler(this.genericPictureBox_MouseLeave);
+            // 
+            // pluginsEditPictureBox
+            // 
+            this.pluginsEditPictureBox.Image = global::SAMPLauncherNET.Properties.Resources.edit_icon;
+            this.pluginsEditPictureBox.Location = new System.Drawing.Point(41, 3);
+            this.pluginsEditPictureBox.Name = "pluginsEditPictureBox";
+            this.pluginsEditPictureBox.Size = new System.Drawing.Size(32, 32);
+            this.pluginsEditPictureBox.TabIndex = 5;
+            this.pluginsEditPictureBox.TabStop = false;
+            this.toolTip.SetToolTip(this.pluginsEditPictureBox, "Edit selected");
+            this.pluginsEditPictureBox.Click += new System.EventHandler(this.pluginsEditPictureBox_Click);
+            this.pluginsEditPictureBox.MouseEnter += new System.EventHandler(this.genericPictureBox_MouseEnter);
+            this.pluginsEditPictureBox.MouseLeave += new System.EventHandler(this.genericPictureBox_MouseLeave);
+            // 
+            // pluginsRemovePictureBox
+            // 
+            this.pluginsRemovePictureBox.Image = global::SAMPLauncherNET.Properties.Resources.delete_icon;
+            this.pluginsRemovePictureBox.Location = new System.Drawing.Point(79, 3);
+            this.pluginsRemovePictureBox.Name = "pluginsRemovePictureBox";
+            this.pluginsRemovePictureBox.Size = new System.Drawing.Size(32, 32);
+            this.pluginsRemovePictureBox.TabIndex = 4;
+            this.pluginsRemovePictureBox.TabStop = false;
+            this.toolTip.SetToolTip(this.pluginsRemovePictureBox, "Delete selected");
+            this.pluginsRemovePictureBox.Click += new System.EventHandler(this.pluginsRemovePictureBox_Click);
+            this.pluginsRemovePictureBox.MouseEnter += new System.EventHandler(this.genericPictureBox_MouseEnter);
+            this.pluginsRemovePictureBox.MouseLeave += new System.EventHandler(this.genericPictureBox_MouseLeave);
+            // 
+            // apiPage
+            // 
+            this.apiPage.Controls.Add(this.apiLayoutPanel);
+            this.apiPage.Location = new System.Drawing.Point(4, 22);
+            this.apiPage.Name = "apiPage";
+            this.apiPage.Size = new System.Drawing.Size(1182, 541);
+            this.apiPage.TabIndex = 3;
+            this.apiPage.Text = "{$API$}";
+            this.apiPage.UseVisualStyleBackColor = true;
+            // 
+            // apiLayoutPanel
+            // 
+            this.apiLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.apiLayoutPanel.ColumnCount = 1;
+            this.apiLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.apiLayoutPanel.Controls.Add(this.apiGridView, 0, 1);
+            this.apiLayoutPanel.Controls.Add(this.apiButtonsFlowLayoutPanel, 0, 0);
+            this.apiLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.apiLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.apiLayoutPanel.Name = "apiLayoutPanel";
+            this.apiLayoutPanel.RowCount = 2;
+            this.apiLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.apiLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.apiLayoutPanel.Size = new System.Drawing.Size(1182, 541);
+            this.apiLayoutPanel.TabIndex = 3;
+            // 
+            // apiGridView
+            // 
+            this.apiGridView.AllowUserToAddRows = false;
+            this.apiGridView.AllowUserToDeleteRows = false;
+            this.apiGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.apiGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.apiGridView.AutoGenerateColumns = false;
+            this.apiGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.apiGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.apiGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.apiGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.apiGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.apiGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.apiGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.apiGridView.ColumnHeadersHeight = 32;
+            this.apiGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.apiGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.indexDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.typeDataGridViewTextBoxColumn,
+            this.endpointDataGridViewTextBoxColumn});
+            this.apiGridView.ContextMenuStrip = this.apiContextMenuStrip;
+            this.apiGridView.DataSource = this.apiBindingSource;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.apiGridView.DefaultCellStyle = dataGridViewCellStyle15;
+            this.apiGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.apiGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.apiGridView.EnableHeadersVisualStyles = false;
+            this.apiGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            this.apiGridView.Location = new System.Drawing.Point(3, 47);
+            this.apiGridView.MultiSelect = false;
+            this.apiGridView.Name = "apiGridView";
+            this.apiGridView.ReadOnly = true;
+            this.apiGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.apiGridView.RowHeadersVisible = false;
+            this.apiGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.apiGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.apiGridView.Size = new System.Drawing.Size(1176, 491);
+            this.apiGridView.TabIndex = 3;
+            this.apiGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
+            this.apiGridView.DoubleClick += new System.EventHandler(this.apiGridView_DoubleClick);
+            // 
+            // indexDataGridViewTextBoxColumn
+            // 
+            this.indexDataGridViewTextBoxColumn.DataPropertyName = "Index";
+            this.indexDataGridViewTextBoxColumn.HeaderText = "Index";
+            this.indexDataGridViewTextBoxColumn.Name = "indexDataGridViewTextBoxColumn";
+            this.indexDataGridViewTextBoxColumn.ReadOnly = true;
+            this.indexDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // endpointDataGridViewTextBoxColumn
+            // 
+            this.endpointDataGridViewTextBoxColumn.DataPropertyName = "Endpoint";
+            this.endpointDataGridViewTextBoxColumn.HeaderText = "Endpoint";
+            this.endpointDataGridViewTextBoxColumn.Name = "endpointDataGridViewTextBoxColumn";
+            this.endpointDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // apiContextMenuStrip
+            // 
+            this.apiContextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.apiContextMenuStrip.Depth = 0;
+            this.apiContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewAPIToolStripMenuItem,
+            this.editSelectedAPIToolStripMenuItem,
+            this.removeSelectedAPIToolStripMenuItem,
+            this.apiToolStripSeparator,
+            this.revertAPIListToolStripMenuItem});
+            this.apiContextMenuStrip.MouseState = MaterialSkin.MouseState.HOVER;
+            this.apiContextMenuStrip.Name = "apiContextMenuStrip";
+            this.apiContextMenuStrip.Size = new System.Drawing.Size(222, 98);
+            // 
+            // addNewAPIToolStripMenuItem
+            // 
+            this.addNewAPIToolStripMenuItem.Name = "addNewAPIToolStripMenuItem";
+            this.addNewAPIToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.addNewAPIToolStripMenuItem.Text = "{$ADD_NEW_API$}";
+            this.addNewAPIToolStripMenuItem.Click += new System.EventHandler(this.addNewAPIToolStripMenuItem_Click);
+            // 
+            // editSelectedAPIToolStripMenuItem
+            // 
+            this.editSelectedAPIToolStripMenuItem.Name = "editSelectedAPIToolStripMenuItem";
+            this.editSelectedAPIToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.editSelectedAPIToolStripMenuItem.Text = "{$EDIT_SELECTED_API$}";
+            this.editSelectedAPIToolStripMenuItem.Click += new System.EventHandler(this.editSelectedAPIToolStripMenuItem_Click);
+            // 
+            // removeSelectedAPIToolStripMenuItem
+            // 
+            this.removeSelectedAPIToolStripMenuItem.Name = "removeSelectedAPIToolStripMenuItem";
+            this.removeSelectedAPIToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.removeSelectedAPIToolStripMenuItem.Text = "{$REMOVE_SELECTED_API$}";
+            this.removeSelectedAPIToolStripMenuItem.Click += new System.EventHandler(this.removeSelectedAPIToolStripMenuItem_Click);
+            // 
+            // apiToolStripSeparator
+            // 
+            this.apiToolStripSeparator.Name = "apiToolStripSeparator";
+            this.apiToolStripSeparator.Size = new System.Drawing.Size(218, 6);
+            // 
+            // revertAPIListToolStripMenuItem
+            // 
+            this.revertAPIListToolStripMenuItem.Name = "revertAPIListToolStripMenuItem";
+            this.revertAPIListToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.revertAPIListToolStripMenuItem.Text = "{$REVERT_API_LIST_TITLE$}";
+            this.revertAPIListToolStripMenuItem.Click += new System.EventHandler(this.revertAPIListToolStripMenuItem_Click);
+            // 
+            // apiBindingSource
+            // 
+            this.apiBindingSource.DataMember = "API";
+            this.apiBindingSource.DataSource = this.mainDataSet;
+            // 
+            // apiButtonsFlowLayoutPanel
+            // 
+            this.apiButtonsFlowLayoutPanel.Controls.Add(this.apiAddPictureBox);
+            this.apiButtonsFlowLayoutPanel.Controls.Add(this.apiEditPictureBox);
+            this.apiButtonsFlowLayoutPanel.Controls.Add(this.apiRemovePictureBox);
+            this.apiButtonsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.apiButtonsFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.apiButtonsFlowLayoutPanel.Name = "apiButtonsFlowLayoutPanel";
+            this.apiButtonsFlowLayoutPanel.Size = new System.Drawing.Size(1176, 38);
+            this.apiButtonsFlowLayoutPanel.TabIndex = 2;
+            // 
+            // apiAddPictureBox
+            // 
+            this.apiAddPictureBox.Image = global::SAMPLauncherNET.Properties.Resources.new_icon;
+            this.apiAddPictureBox.Location = new System.Drawing.Point(3, 3);
+            this.apiAddPictureBox.Name = "apiAddPictureBox";
+            this.apiAddPictureBox.Size = new System.Drawing.Size(32, 32);
+            this.apiAddPictureBox.TabIndex = 0;
+            this.apiAddPictureBox.TabStop = false;
+            this.toolTip.SetToolTip(this.apiAddPictureBox, "Add new");
+            this.apiAddPictureBox.Click += new System.EventHandler(this.apiAddPictureBox_Click);
+            this.apiAddPictureBox.MouseEnter += new System.EventHandler(this.genericPictureBox_MouseEnter);
+            this.apiAddPictureBox.MouseLeave += new System.EventHandler(this.genericPictureBox_MouseLeave);
+            // 
+            // apiEditPictureBox
+            // 
+            this.apiEditPictureBox.Image = global::SAMPLauncherNET.Properties.Resources.edit_icon;
+            this.apiEditPictureBox.Location = new System.Drawing.Point(41, 3);
+            this.apiEditPictureBox.Name = "apiEditPictureBox";
+            this.apiEditPictureBox.Size = new System.Drawing.Size(32, 32);
+            this.apiEditPictureBox.TabIndex = 2;
+            this.apiEditPictureBox.TabStop = false;
+            this.toolTip.SetToolTip(this.apiEditPictureBox, "Edit selected");
+            this.apiEditPictureBox.Click += new System.EventHandler(this.apiEditPictureBox_Click);
+            this.apiEditPictureBox.MouseEnter += new System.EventHandler(this.genericPictureBox_MouseEnter);
+            this.apiEditPictureBox.MouseLeave += new System.EventHandler(this.genericPictureBox_MouseLeave);
+            // 
+            // apiRemovePictureBox
+            // 
+            this.apiRemovePictureBox.Image = global::SAMPLauncherNET.Properties.Resources.delete_icon;
+            this.apiRemovePictureBox.Location = new System.Drawing.Point(79, 3);
+            this.apiRemovePictureBox.Name = "apiRemovePictureBox";
+            this.apiRemovePictureBox.Size = new System.Drawing.Size(32, 32);
+            this.apiRemovePictureBox.TabIndex = 1;
+            this.apiRemovePictureBox.TabStop = false;
+            this.toolTip.SetToolTip(this.apiRemovePictureBox, "Delete selected");
+            this.apiRemovePictureBox.Click += new System.EventHandler(this.apiRemovePictureBox_Click);
+            this.apiRemovePictureBox.MouseEnter += new System.EventHandler(this.genericPictureBox_MouseEnter);
+            this.apiRemovePictureBox.MouseLeave += new System.EventHandler(this.genericPictureBox_MouseLeave);
+            // 
+            // developerToolsPage
+            // 
+            this.developerToolsPage.Controls.Add(this.developerToolsMainLayoutPanel);
+            this.developerToolsPage.Location = new System.Drawing.Point(4, 22);
+            this.developerToolsPage.Name = "developerToolsPage";
+            this.developerToolsPage.Padding = new System.Windows.Forms.Padding(3);
+            this.developerToolsPage.Size = new System.Drawing.Size(1182, 541);
+            this.developerToolsPage.TabIndex = 7;
+            this.developerToolsPage.Text = "{$DEVELOPER_TOOLS$}";
+            this.developerToolsPage.UseVisualStyleBackColor = true;
+            // 
+            // developerToolsMainLayoutPanel
+            // 
+            this.developerToolsMainLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.developerToolsMainLayoutPanel.ColumnCount = 1;
+            this.developerToolsMainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.developerToolsMainLayoutPanel.Controls.Add(this.developerToolsFilesLayoutPanel, 0, 0);
+            this.developerToolsMainLayoutPanel.Controls.Add(this.developerToolsConfigFlowLayoutPanel, 0, 1);
+            this.developerToolsMainLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsMainLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.developerToolsMainLayoutPanel.Name = "developerToolsMainLayoutPanel";
+            this.developerToolsMainLayoutPanel.RowCount = 2;
+            this.developerToolsMainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.developerToolsMainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 289F));
+            this.developerToolsMainLayoutPanel.Size = new System.Drawing.Size(1176, 535);
+            this.developerToolsMainLayoutPanel.TabIndex = 0;
+            // 
+            // developerToolsFilesLayoutPanel
+            // 
+            this.developerToolsFilesLayoutPanel.ColumnCount = 3;
+            this.developerToolsFilesLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.developerToolsFilesLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.developerToolsFilesLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.developerToolsFilesLayoutPanel.Controls.Add(this.developerToolsFilterscriptPanel, 0, 0);
+            this.developerToolsFilesLayoutPanel.Controls.Add(this.developerToolsGamemodesPanel, 0, 0);
+            this.developerToolsFilesLayoutPanel.Controls.Add(this.developerToolsPluginsPanel, 1, 0);
+            this.developerToolsFilesLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsFilesLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.developerToolsFilesLayoutPanel.Name = "developerToolsFilesLayoutPanel";
+            this.developerToolsFilesLayoutPanel.RowCount = 1;
+            this.developerToolsFilesLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.developerToolsFilesLayoutPanel.Size = new System.Drawing.Size(1170, 240);
+            this.developerToolsFilesLayoutPanel.TabIndex = 0;
+            // 
+            // developerToolsFilterscriptPanel
+            // 
+            this.developerToolsFilterscriptPanel.Controls.Add(this.developerToolsFilterscriptsCheckedListBox);
+            this.developerToolsFilterscriptPanel.Controls.Add(this.developerToolsFilterscriptsLabel);
+            this.developerToolsFilterscriptPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsFilterscriptPanel.Location = new System.Drawing.Point(393, 3);
+            this.developerToolsFilterscriptPanel.Name = "developerToolsFilterscriptPanel";
+            this.developerToolsFilterscriptPanel.Size = new System.Drawing.Size(384, 234);
+            this.developerToolsFilterscriptPanel.TabIndex = 2;
+            // 
+            // developerToolsFilterscriptsCheckedListBox
+            // 
+            this.developerToolsFilterscriptsCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.developerToolsFilterscriptsCheckedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsFilterscriptsCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.developerToolsFilterscriptsCheckedListBox.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.developerToolsFilterscriptsCheckedListBox.FormattingEnabled = true;
+            this.developerToolsFilterscriptsCheckedListBox.Location = new System.Drawing.Point(0, 19);
+            this.developerToolsFilterscriptsCheckedListBox.Name = "developerToolsFilterscriptsCheckedListBox";
+            this.developerToolsFilterscriptsCheckedListBox.Size = new System.Drawing.Size(384, 215);
+            this.developerToolsFilterscriptsCheckedListBox.TabIndex = 4;
+            this.toolTip.SetToolTip(this.developerToolsFilterscriptsCheckedListBox, "Select filterscripts");
+            // 
+            // developerToolsFilterscriptsLabel
+            // 
+            this.developerToolsFilterscriptsLabel.Depth = 0;
+            this.developerToolsFilterscriptsLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.developerToolsFilterscriptsLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsFilterscriptsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsFilterscriptsLabel.Location = new System.Drawing.Point(0, 0);
+            this.developerToolsFilterscriptsLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsFilterscriptsLabel.Name = "developerToolsFilterscriptsLabel";
+            this.developerToolsFilterscriptsLabel.Size = new System.Drawing.Size(384, 19);
+            this.developerToolsFilterscriptsLabel.TabIndex = 3;
+            this.developerToolsFilterscriptsLabel.Text = "{$FILTERSCRIPTS$}";
+            this.developerToolsFilterscriptsLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // developerToolsGamemodesPanel
+            // 
+            this.developerToolsGamemodesPanel.Controls.Add(this.developerToolsGamemodesCheckedListBox);
+            this.developerToolsGamemodesPanel.Controls.Add(this.developerToolsGamemodesLabel);
+            this.developerToolsGamemodesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsGamemodesPanel.Location = new System.Drawing.Point(3, 3);
+            this.developerToolsGamemodesPanel.Name = "developerToolsGamemodesPanel";
+            this.developerToolsGamemodesPanel.Size = new System.Drawing.Size(384, 234);
+            this.developerToolsGamemodesPanel.TabIndex = 0;
+            // 
+            // developerToolsGamemodesCheckedListBox
+            // 
+            this.developerToolsGamemodesCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.developerToolsGamemodesCheckedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsGamemodesCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.developerToolsGamemodesCheckedListBox.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.developerToolsGamemodesCheckedListBox.FormattingEnabled = true;
+            this.developerToolsGamemodesCheckedListBox.Location = new System.Drawing.Point(0, 19);
+            this.developerToolsGamemodesCheckedListBox.Name = "developerToolsGamemodesCheckedListBox";
+            this.developerToolsGamemodesCheckedListBox.Size = new System.Drawing.Size(384, 215);
+            this.developerToolsGamemodesCheckedListBox.TabIndex = 3;
+            this.toolTip.SetToolTip(this.developerToolsGamemodesCheckedListBox, "Select gamemodes");
+            // 
+            // developerToolsGamemodesLabel
+            // 
+            this.developerToolsGamemodesLabel.Depth = 0;
+            this.developerToolsGamemodesLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.developerToolsGamemodesLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsGamemodesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsGamemodesLabel.Location = new System.Drawing.Point(0, 0);
+            this.developerToolsGamemodesLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsGamemodesLabel.Name = "developerToolsGamemodesLabel";
+            this.developerToolsGamemodesLabel.Size = new System.Drawing.Size(384, 19);
+            this.developerToolsGamemodesLabel.TabIndex = 2;
+            this.developerToolsGamemodesLabel.Text = "{$GAMEMODES$}";
+            this.developerToolsGamemodesLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // developerToolsPluginsPanel
+            // 
+            this.developerToolsPluginsPanel.Controls.Add(this.developerToolsPluginsCheckedListBox);
+            this.developerToolsPluginsPanel.Controls.Add(this.developerToolsPluginsLabel);
+            this.developerToolsPluginsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsPluginsPanel.Location = new System.Drawing.Point(783, 3);
+            this.developerToolsPluginsPanel.Name = "developerToolsPluginsPanel";
+            this.developerToolsPluginsPanel.Size = new System.Drawing.Size(384, 234);
+            this.developerToolsPluginsPanel.TabIndex = 1;
+            // 
+            // developerToolsPluginsCheckedListBox
+            // 
+            this.developerToolsPluginsCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.developerToolsPluginsCheckedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsPluginsCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.developerToolsPluginsCheckedListBox.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.developerToolsPluginsCheckedListBox.FormattingEnabled = true;
+            this.developerToolsPluginsCheckedListBox.Location = new System.Drawing.Point(0, 19);
+            this.developerToolsPluginsCheckedListBox.Name = "developerToolsPluginsCheckedListBox";
+            this.developerToolsPluginsCheckedListBox.Size = new System.Drawing.Size(384, 215);
+            this.developerToolsPluginsCheckedListBox.TabIndex = 4;
+            this.toolTip.SetToolTip(this.developerToolsPluginsCheckedListBox, "Select plugins");
+            // 
+            // developerToolsPluginsLabel
+            // 
+            this.developerToolsPluginsLabel.Depth = 0;
+            this.developerToolsPluginsLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.developerToolsPluginsLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsPluginsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsPluginsLabel.Location = new System.Drawing.Point(0, 0);
+            this.developerToolsPluginsLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsPluginsLabel.Name = "developerToolsPluginsLabel";
+            this.developerToolsPluginsLabel.Size = new System.Drawing.Size(384, 19);
+            this.developerToolsPluginsLabel.TabIndex = 3;
+            this.developerToolsPluginsLabel.Text = "{$PLUGINS$}";
+            this.developerToolsPluginsLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // developerToolsConfigFlowLayoutPanel
+            // 
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developmentDirectoryLabel);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developmentDirectorySingleLineTextField);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsHostnameLabel);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsHostnameSingleLineTextField);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsPortLabel);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsPortSingleLineTextField);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsServerPasswordLabel);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsServerPasswordSingleLineTextField);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsRCONPasswordLabel);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsRCONPasswordSingleLineTextField);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsShowAdditionalConfigurationsButton);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsOpenDirectoryButton);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsStartServerButton);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.stopServerButton);
+            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsConnectToTestServerButton);
+            this.developerToolsConfigFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.developerToolsConfigFlowLayoutPanel.Location = new System.Drawing.Point(3, 249);
+            this.developerToolsConfigFlowLayoutPanel.Name = "developerToolsConfigFlowLayoutPanel";
+            this.developerToolsConfigFlowLayoutPanel.Size = new System.Drawing.Size(1170, 283);
+            this.developerToolsConfigFlowLayoutPanel.TabIndex = 1;
+            // 
+            // developmentDirectoryLabel
+            // 
+            this.developmentDirectoryLabel.AutoSize = true;
+            this.developmentDirectoryLabel.Depth = 0;
+            this.developmentDirectoryLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developmentDirectoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developmentDirectoryLabel.Location = new System.Drawing.Point(3, 0);
+            this.developmentDirectoryLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developmentDirectoryLabel.Name = "developmentDirectoryLabel";
+            this.developmentDirectoryLabel.Size = new System.Drawing.Size(228, 19);
+            this.developmentDirectoryLabel.TabIndex = 9;
+            this.developmentDirectoryLabel.Text = "{$DEVELOPMENT_DIRECTORY$}";
+            // 
+            // developmentDirectorySingleLineTextField
+            // 
+            this.developmentDirectorySingleLineTextField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.developmentDirectorySingleLineTextField.Depth = 0;
+            this.developmentDirectorySingleLineTextField.Hint = "...";
+            this.developmentDirectorySingleLineTextField.Location = new System.Drawing.Point(3, 22);
+            this.developmentDirectorySingleLineTextField.MaxLength = 32767;
+            this.developmentDirectorySingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developmentDirectorySingleLineTextField.Name = "developmentDirectorySingleLineTextField";
+            this.developmentDirectorySingleLineTextField.PasswordChar = '\0';
+            this.developmentDirectorySingleLineTextField.SelectedText = "";
+            this.developmentDirectorySingleLineTextField.SelectionLength = 0;
+            this.developmentDirectorySingleLineTextField.SelectionStart = 0;
+            this.developmentDirectorySingleLineTextField.Size = new System.Drawing.Size(10000, 23);
+            this.developmentDirectorySingleLineTextField.TabIndex = 10;
+            this.developmentDirectorySingleLineTextField.TabStop = false;
+            this.toolTip.SetToolTip(this.developmentDirectorySingleLineTextField, "Development directory");
+            this.developmentDirectorySingleLineTextField.UseSystemPasswordChar = false;
+            this.developmentDirectorySingleLineTextField.TextChanged += new System.EventHandler(this.developmentDirectorySingleLineTextField_TextChanged);
+            // 
+            // developerToolsHostnameLabel
+            // 
+            this.developerToolsHostnameLabel.AutoSize = true;
+            this.developerToolsHostnameLabel.Depth = 0;
+            this.developerToolsHostnameLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsHostnameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsHostnameLabel.Location = new System.Drawing.Point(3, 48);
+            this.developerToolsHostnameLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsHostnameLabel.Name = "developerToolsHostnameLabel";
+            this.developerToolsHostnameLabel.Size = new System.Drawing.Size(117, 19);
+            this.developerToolsHostnameLabel.TabIndex = 0;
+            this.developerToolsHostnameLabel.Text = "{$HOSTNAME$}";
+            // 
+            // developerToolsHostnameSingleLineTextField
+            // 
+            this.developerToolsHostnameSingleLineTextField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.developerToolsHostnameSingleLineTextField.Depth = 0;
+            this.developerToolsHostnameSingleLineTextField.Hint = "...";
+            this.developerToolsHostnameSingleLineTextField.Location = new System.Drawing.Point(3, 70);
+            this.developerToolsHostnameSingleLineTextField.MaxLength = 32767;
+            this.developerToolsHostnameSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsHostnameSingleLineTextField.Name = "developerToolsHostnameSingleLineTextField";
+            this.developerToolsHostnameSingleLineTextField.PasswordChar = '\0';
+            this.developerToolsHostnameSingleLineTextField.SelectedText = "";
+            this.developerToolsHostnameSingleLineTextField.SelectionLength = 0;
+            this.developerToolsHostnameSingleLineTextField.SelectionStart = 0;
+            this.developerToolsHostnameSingleLineTextField.Size = new System.Drawing.Size(10000, 23);
+            this.developerToolsHostnameSingleLineTextField.TabIndex = 1;
+            this.developerToolsHostnameSingleLineTextField.TabStop = false;
+            this.developerToolsHostnameSingleLineTextField.Text = "SA-MP Server";
+            this.toolTip.SetToolTip(this.developerToolsHostnameSingleLineTextField, "Hostname");
+            this.developerToolsHostnameSingleLineTextField.UseSystemPasswordChar = false;
+            // 
+            // developerToolsPortLabel
+            // 
+            this.developerToolsPortLabel.AutoSize = true;
+            this.developerToolsPortLabel.Depth = 0;
+            this.developerToolsPortLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsPortLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsPortLabel.Location = new System.Drawing.Point(3, 96);
+            this.developerToolsPortLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsPortLabel.Name = "developerToolsPortLabel";
+            this.developerToolsPortLabel.Size = new System.Drawing.Size(72, 19);
+            this.developerToolsPortLabel.TabIndex = 6;
+            this.developerToolsPortLabel.Text = "{$PORT$}";
+            // 
+            // developerToolsPortSingleLineTextField
+            // 
+            this.developerToolsPortSingleLineTextField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.developerToolsPortSingleLineTextField.Depth = 0;
+            this.developerToolsPortSingleLineTextField.Hint = "...";
+            this.developerToolsPortSingleLineTextField.Location = new System.Drawing.Point(3, 118);
+            this.developerToolsPortSingleLineTextField.MaxLength = 32767;
+            this.developerToolsPortSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsPortSingleLineTextField.Name = "developerToolsPortSingleLineTextField";
+            this.developerToolsPortSingleLineTextField.PasswordChar = '\0';
+            this.developerToolsPortSingleLineTextField.SelectedText = "";
+            this.developerToolsPortSingleLineTextField.SelectionLength = 0;
+            this.developerToolsPortSingleLineTextField.SelectionStart = 0;
+            this.developerToolsPortSingleLineTextField.Size = new System.Drawing.Size(10000, 23);
+            this.developerToolsPortSingleLineTextField.TabIndex = 7;
+            this.developerToolsPortSingleLineTextField.TabStop = false;
+            this.developerToolsPortSingleLineTextField.Text = "8192";
+            this.toolTip.SetToolTip(this.developerToolsPortSingleLineTextField, "Port");
+            this.developerToolsPortSingleLineTextField.UseSystemPasswordChar = false;
+            // 
+            // developerToolsServerPasswordLabel
+            // 
+            this.developerToolsServerPasswordLabel.AutoSize = true;
+            this.developerToolsServerPasswordLabel.Depth = 0;
+            this.developerToolsServerPasswordLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsServerPasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsServerPasswordLabel.Location = new System.Drawing.Point(3, 144);
+            this.developerToolsServerPasswordLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsServerPasswordLabel.Name = "developerToolsServerPasswordLabel";
+            this.developerToolsServerPasswordLabel.Size = new System.Drawing.Size(176, 19);
+            this.developerToolsServerPasswordLabel.TabIndex = 2;
+            this.developerToolsServerPasswordLabel.Text = "{$SERVER_PASSWORD$}";
+            // 
+            // developerToolsServerPasswordSingleLineTextField
+            // 
+            this.developerToolsServerPasswordSingleLineTextField.Depth = 0;
+            this.developerToolsServerPasswordSingleLineTextField.Hint = "...";
+            this.developerToolsServerPasswordSingleLineTextField.Location = new System.Drawing.Point(3, 166);
+            this.developerToolsServerPasswordSingleLineTextField.MaxLength = 32767;
+            this.developerToolsServerPasswordSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsServerPasswordSingleLineTextField.Name = "developerToolsServerPasswordSingleLineTextField";
+            this.developerToolsServerPasswordSingleLineTextField.PasswordChar = '*';
+            this.developerToolsServerPasswordSingleLineTextField.SelectedText = "";
+            this.developerToolsServerPasswordSingleLineTextField.SelectionLength = 0;
+            this.developerToolsServerPasswordSingleLineTextField.SelectionStart = 0;
+            this.developerToolsServerPasswordSingleLineTextField.Size = new System.Drawing.Size(10000, 23);
+            this.developerToolsServerPasswordSingleLineTextField.TabIndex = 3;
+            this.developerToolsServerPasswordSingleLineTextField.TabStop = false;
+            this.toolTip.SetToolTip(this.developerToolsServerPasswordSingleLineTextField, "Server password");
+            this.developerToolsServerPasswordSingleLineTextField.UseSystemPasswordChar = false;
+            // 
+            // developerToolsRCONPasswordLabel
+            // 
+            this.developerToolsRCONPasswordLabel.AutoSize = true;
+            this.developerToolsRCONPasswordLabel.Depth = 0;
+            this.developerToolsRCONPasswordLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.developerToolsRCONPasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.developerToolsRCONPasswordLabel.Location = new System.Drawing.Point(3, 192);
+            this.developerToolsRCONPasswordLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsRCONPasswordLabel.Name = "developerToolsRCONPasswordLabel";
+            this.developerToolsRCONPasswordLabel.Size = new System.Drawing.Size(161, 19);
+            this.developerToolsRCONPasswordLabel.TabIndex = 4;
+            this.developerToolsRCONPasswordLabel.Text = "{$RCON_PASSWORD$}";
+            // 
+            // developerToolsRCONPasswordSingleLineTextField
+            // 
+            this.developerToolsRCONPasswordSingleLineTextField.Depth = 0;
+            this.developerToolsRCONPasswordSingleLineTextField.Hint = "...";
+            this.developerToolsRCONPasswordSingleLineTextField.Location = new System.Drawing.Point(3, 214);
+            this.developerToolsRCONPasswordSingleLineTextField.MaxLength = 32767;
+            this.developerToolsRCONPasswordSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsRCONPasswordSingleLineTextField.Name = "developerToolsRCONPasswordSingleLineTextField";
+            this.developerToolsRCONPasswordSingleLineTextField.PasswordChar = '*';
+            this.developerToolsRCONPasswordSingleLineTextField.SelectedText = "";
+            this.developerToolsRCONPasswordSingleLineTextField.SelectionLength = 0;
+            this.developerToolsRCONPasswordSingleLineTextField.SelectionStart = 0;
+            this.developerToolsRCONPasswordSingleLineTextField.Size = new System.Drawing.Size(10000, 23);
+            this.developerToolsRCONPasswordSingleLineTextField.TabIndex = 5;
+            this.developerToolsRCONPasswordSingleLineTextField.TabStop = false;
+            this.toolTip.SetToolTip(this.developerToolsRCONPasswordSingleLineTextField, "RCON password");
+            this.developerToolsRCONPasswordSingleLineTextField.UseSystemPasswordChar = false;
+            // 
+            // developerToolsShowAdditionalConfigurationsButton
+            // 
+            this.developerToolsShowAdditionalConfigurationsButton.AutoSize = true;
+            this.developerToolsShowAdditionalConfigurationsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.developerToolsShowAdditionalConfigurationsButton.Depth = 0;
+            this.developerToolsShowAdditionalConfigurationsButton.Icon = null;
+            this.developerToolsShowAdditionalConfigurationsButton.Location = new System.Drawing.Point(3, 243);
+            this.developerToolsShowAdditionalConfigurationsButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsShowAdditionalConfigurationsButton.Name = "developerToolsShowAdditionalConfigurationsButton";
+            this.developerToolsShowAdditionalConfigurationsButton.Primary = true;
+            this.developerToolsShowAdditionalConfigurationsButton.Size = new System.Drawing.Size(292, 36);
+            this.developerToolsShowAdditionalConfigurationsButton.TabIndex = 8;
+            this.developerToolsShowAdditionalConfigurationsButton.Text = "{$SHOW_ADDITIONAL_CONFIGURATIONS$}";
+            this.developerToolsShowAdditionalConfigurationsButton.UseVisualStyleBackColor = true;
+            this.developerToolsShowAdditionalConfigurationsButton.Click += new System.EventHandler(this.developerToolsShowAdditionalConfigurationsButton_Click);
+            // 
+            // developerToolsOpenDirectoryButton
+            // 
+            this.developerToolsOpenDirectoryButton.AutoSize = true;
+            this.developerToolsOpenDirectoryButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.developerToolsOpenDirectoryButton.Depth = 0;
+            this.developerToolsOpenDirectoryButton.Icon = null;
+            this.developerToolsOpenDirectoryButton.Location = new System.Drawing.Point(301, 243);
+            this.developerToolsOpenDirectoryButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsOpenDirectoryButton.Name = "developerToolsOpenDirectoryButton";
+            this.developerToolsOpenDirectoryButton.Primary = true;
+            this.developerToolsOpenDirectoryButton.Size = new System.Drawing.Size(161, 36);
+            this.developerToolsOpenDirectoryButton.TabIndex = 11;
+            this.developerToolsOpenDirectoryButton.Text = "{$OPEN_DIRECTORY$}";
+            this.developerToolsOpenDirectoryButton.UseVisualStyleBackColor = true;
+            this.developerToolsOpenDirectoryButton.Click += new System.EventHandler(this.developerToolsOpenDirectoryButton_Click);
+            // 
+            // developerToolsStartServerButton
+            // 
+            this.developerToolsStartServerButton.AutoSize = true;
+            this.developerToolsStartServerButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.developerToolsStartServerButton.Depth = 0;
+            this.developerToolsStartServerButton.Icon = null;
+            this.developerToolsStartServerButton.Location = new System.Drawing.Point(468, 243);
+            this.developerToolsStartServerButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsStartServerButton.Name = "developerToolsStartServerButton";
+            this.developerToolsStartServerButton.Primary = true;
+            this.developerToolsStartServerButton.Size = new System.Drawing.Size(144, 36);
+            this.developerToolsStartServerButton.TabIndex = 12;
+            this.developerToolsStartServerButton.Text = "{$START_SERVER$}";
+            this.developerToolsStartServerButton.UseVisualStyleBackColor = true;
+            this.developerToolsStartServerButton.Click += new System.EventHandler(this.developerToolsStartServerButton_Click);
+            // 
+            // stopServerButton
+            // 
+            this.stopServerButton.AutoSize = true;
+            this.stopServerButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.stopServerButton.Depth = 0;
+            this.stopServerButton.Icon = null;
+            this.stopServerButton.Location = new System.Drawing.Point(618, 243);
+            this.stopServerButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.stopServerButton.Name = "stopServerButton";
+            this.stopServerButton.Primary = true;
+            this.stopServerButton.Size = new System.Drawing.Size(137, 36);
+            this.stopServerButton.TabIndex = 14;
+            this.stopServerButton.Text = "{$STOP_SERVER$}";
+            this.stopServerButton.UseVisualStyleBackColor = true;
+            this.stopServerButton.Click += new System.EventHandler(this.stopServerButton_Click);
+            // 
+            // developerToolsConnectToTestServerButton
+            // 
+            this.developerToolsConnectToTestServerButton.AutoSize = true;
+            this.developerToolsConnectToTestServerButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.developerToolsConnectToTestServerButton.Depth = 0;
+            this.developerToolsConnectToTestServerButton.Icon = null;
+            this.developerToolsConnectToTestServerButton.Location = new System.Drawing.Point(761, 243);
+            this.developerToolsConnectToTestServerButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.developerToolsConnectToTestServerButton.Name = "developerToolsConnectToTestServerButton";
+            this.developerToolsConnectToTestServerButton.Primary = true;
+            this.developerToolsConnectToTestServerButton.Size = new System.Drawing.Size(228, 36);
+            this.developerToolsConnectToTestServerButton.TabIndex = 13;
+            this.developerToolsConnectToTestServerButton.Text = "{$CONNECT_TO_TEST_SERVER$}";
+            this.developerToolsConnectToTestServerButton.UseVisualStyleBackColor = true;
+            this.developerToolsConnectToTestServerButton.Click += new System.EventHandler(this.developerToolsConnectToTestServerButton_Click);
+            // 
             // optionsPage
             // 
             this.optionsPage.Controls.Add(this.optionsPanel);
             this.optionsPage.Location = new System.Drawing.Point(4, 22);
             this.optionsPage.Name = "optionsPage";
             this.optionsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.optionsPage.Size = new System.Drawing.Size(1182, 536);
+            this.optionsPage.Size = new System.Drawing.Size(1182, 541);
             this.optionsPage.TabIndex = 1;
             this.optionsPage.Text = "{$OPTIONS$}";
             this.optionsPage.UseVisualStyleBackColor = true;
@@ -1535,7 +2847,8 @@
             // optionsPanel
             // 
             this.optionsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.optionsPanel.Controls.Add(this.useDiscordRichPresenceCheckBox);
+            this.optionsPanel.Controls.Add(this.createSessionsLogCheckBox);
+            this.optionsPanel.Controls.Add(this.showUsernameDialogCheckBox);
             this.optionsPanel.Controls.Add(this.revertConfigButton);
             this.optionsPanel.Controls.Add(this.saveConfigButton);
             this.optionsPanel.Controls.Add(this.fontWeightCheckBox);
@@ -1557,26 +2870,43 @@
             this.optionsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.optionsPanel.Location = new System.Drawing.Point(3, 3);
             this.optionsPanel.Name = "optionsPanel";
-            this.optionsPanel.Size = new System.Drawing.Size(1176, 530);
+            this.optionsPanel.Size = new System.Drawing.Size(1176, 535);
             this.optionsPanel.TabIndex = 0;
             // 
-            // useDiscordRichPresenceCheckBox
+            // createSessionsLogCheckBox
             // 
-            this.useDiscordRichPresenceCheckBox.AutoSize = true;
-            this.useDiscordRichPresenceCheckBox.Depth = 0;
-            this.useDiscordRichPresenceCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
-            this.useDiscordRichPresenceCheckBox.Location = new System.Drawing.Point(3, 433);
-            this.useDiscordRichPresenceCheckBox.Margin = new System.Windows.Forms.Padding(0);
-            this.useDiscordRichPresenceCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.useDiscordRichPresenceCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
-            this.useDiscordRichPresenceCheckBox.Name = "useDiscordRichPresenceCheckBox";
-            this.useDiscordRichPresenceCheckBox.Ripple = true;
-            this.useDiscordRichPresenceCheckBox.Size = new System.Drawing.Size(254, 30);
-            this.useDiscordRichPresenceCheckBox.TabIndex = 31;
-            this.useDiscordRichPresenceCheckBox.Text = "{$USE_DISCORD_RICH_PRESENCE$}";
-            this.toolTip.SetToolTip(this.useDiscordRichPresenceCheckBox, "This option toggles whether your chat font is bold or not.\r\nOFF = BOLD (default) " +
-        "and ON = NORMAL.");
-            this.useDiscordRichPresenceCheckBox.UseVisualStyleBackColor = true;
+            this.createSessionsLogCheckBox.AutoSize = true;
+            this.createSessionsLogCheckBox.Depth = 0;
+            this.createSessionsLogCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.createSessionsLogCheckBox.Location = new System.Drawing.Point(3, 463);
+            this.createSessionsLogCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.createSessionsLogCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.createSessionsLogCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.createSessionsLogCheckBox.Name = "createSessionsLogCheckBox";
+            this.createSessionsLogCheckBox.Ripple = true;
+            this.createSessionsLogCheckBox.Size = new System.Drawing.Size(208, 30);
+            this.createSessionsLogCheckBox.TabIndex = 34;
+            this.createSessionsLogCheckBox.Text = "{$CREATE_SESSIONS_LOG$}";
+            this.toolTip.SetToolTip(this.createSessionsLogCheckBox, "Create sessions log after game session");
+            this.createSessionsLogCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // showUsernameDialogCheckBox
+            // 
+            this.showUsernameDialogCheckBox.AutoSize = true;
+            this.showUsernameDialogCheckBox.Depth = 0;
+            this.showUsernameDialogCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.showUsernameDialogCheckBox.Location = new System.Drawing.Point(3, 433);
+            this.showUsernameDialogCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.showUsernameDialogCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.showUsernameDialogCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.showUsernameDialogCheckBox.Name = "showUsernameDialogCheckBox";
+            this.showUsernameDialogCheckBox.Ripple = true;
+            this.showUsernameDialogCheckBox.Size = new System.Drawing.Size(227, 30);
+            this.showUsernameDialogCheckBox.TabIndex = 33;
+            this.showUsernameDialogCheckBox.Text = "{$SHOW_USERNAME_DIALOG$}";
+            this.toolTip.SetToolTip(this.showUsernameDialogCheckBox, "Show username dialog before connecting to a server.");
+            this.showUsernameDialogCheckBox.UseVisualStyleBackColor = true;
+            this.showUsernameDialogCheckBox.CheckedChanged += new System.EventHandler(this.showUsernameDialogCheckBox_CheckedChanged);
             // 
             // revertConfigButton
             // 
@@ -1585,7 +2915,7 @@
             this.revertConfigButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.revertConfigButton.Depth = 0;
             this.revertConfigButton.Icon = null;
-            this.revertConfigButton.Location = new System.Drawing.Point(1022, 491);
+            this.revertConfigButton.Location = new System.Drawing.Point(1022, 496);
             this.revertConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.revertConfigButton.Name = "revertConfigButton";
             this.revertConfigButton.Primary = true;
@@ -1603,7 +2933,7 @@
             this.saveConfigButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.saveConfigButton.Depth = 0;
             this.saveConfigButton.Icon = null;
-            this.saveConfigButton.Location = new System.Drawing.Point(3, 491);
+            this.saveConfigButton.Location = new System.Drawing.Point(3, 496);
             this.saveConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.saveConfigButton.Name = "saveConfigButton";
             this.saveConfigButton.Primary = true;
@@ -1900,640 +3230,12 @@
             this.pageSizeLabel.Text = "{$PAGE_SIZE$}";
             this.toolTip.SetToolTip(this.pageSizeLabel, resources.GetString("pageSizeLabel.ToolTip"));
             // 
-            // apiPage
-            // 
-            this.apiPage.Controls.Add(this.apiLayoutPanel);
-            this.apiPage.Location = new System.Drawing.Point(4, 22);
-            this.apiPage.Name = "apiPage";
-            this.apiPage.Size = new System.Drawing.Size(1182, 536);
-            this.apiPage.TabIndex = 3;
-            this.apiPage.Text = "{$API$}";
-            this.apiPage.UseVisualStyleBackColor = true;
-            // 
-            // apiLayoutPanel
-            // 
-            this.apiLayoutPanel.ColumnCount = 1;
-            this.apiLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.apiLayoutPanel.Controls.Add(this.apiGridView, 0, 1);
-            this.apiLayoutPanel.Controls.Add(this.apiButtonsFlowLayoutPanel, 0, 0);
-            this.apiLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.apiLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.apiLayoutPanel.Name = "apiLayoutPanel";
-            this.apiLayoutPanel.RowCount = 2;
-            this.apiLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.apiLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.apiLayoutPanel.Size = new System.Drawing.Size(1182, 536);
-            this.apiLayoutPanel.TabIndex = 3;
-            // 
-            // apiGridView
-            // 
-            this.apiGridView.AllowUserToAddRows = false;
-            this.apiGridView.AllowUserToDeleteRows = false;
-            this.apiGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.apiGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.apiGridView.AutoGenerateColumns = false;
-            this.apiGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.apiGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.apiGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.apiGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.apiGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.apiGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.apiGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.apiGridView.ColumnHeadersHeight = 32;
-            this.apiGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.apiGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.indexDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.typeDataGridViewTextBoxColumn,
-            this.endpointDataGridViewTextBoxColumn});
-            this.apiGridView.ContextMenuStrip = this.apiContextMenuStrip;
-            this.apiGridView.DataSource = this.apiBindingSource;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.apiGridView.DefaultCellStyle = dataGridViewCellStyle12;
-            this.apiGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.apiGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.apiGridView.EnableHeadersVisualStyles = false;
-            this.apiGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.apiGridView.Location = new System.Drawing.Point(3, 47);
-            this.apiGridView.MultiSelect = false;
-            this.apiGridView.Name = "apiGridView";
-            this.apiGridView.ReadOnly = true;
-            this.apiGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.apiGridView.RowHeadersVisible = false;
-            this.apiGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.apiGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.apiGridView.Size = new System.Drawing.Size(1176, 486);
-            this.apiGridView.TabIndex = 3;
-            this.apiGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
-            this.apiGridView.DoubleClick += new System.EventHandler(this.apiGridView_DoubleClick);
-            // 
-            // indexDataGridViewTextBoxColumn
-            // 
-            this.indexDataGridViewTextBoxColumn.DataPropertyName = "Index";
-            this.indexDataGridViewTextBoxColumn.HeaderText = "Index";
-            this.indexDataGridViewTextBoxColumn.Name = "indexDataGridViewTextBoxColumn";
-            this.indexDataGridViewTextBoxColumn.ReadOnly = true;
-            this.indexDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // endpointDataGridViewTextBoxColumn
-            // 
-            this.endpointDataGridViewTextBoxColumn.DataPropertyName = "Endpoint";
-            this.endpointDataGridViewTextBoxColumn.HeaderText = "Endpoint";
-            this.endpointDataGridViewTextBoxColumn.Name = "endpointDataGridViewTextBoxColumn";
-            this.endpointDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // apiContextMenuStrip
-            // 
-            this.apiContextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.apiContextMenuStrip.Depth = 0;
-            this.apiContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewAPIToolStripMenuItem,
-            this.editSelectedAPIToolStripMenuItem,
-            this.removeSelectedAPIToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.revertAPIListToolStripMenuItem});
-            this.apiContextMenuStrip.MouseState = MaterialSkin.MouseState.HOVER;
-            this.apiContextMenuStrip.Name = "apiContextMenuStrip";
-            this.apiContextMenuStrip.Size = new System.Drawing.Size(222, 98);
-            // 
-            // addNewAPIToolStripMenuItem
-            // 
-            this.addNewAPIToolStripMenuItem.Name = "addNewAPIToolStripMenuItem";
-            this.addNewAPIToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.addNewAPIToolStripMenuItem.Text = "{$ADD_NEW_API$}";
-            this.addNewAPIToolStripMenuItem.Click += new System.EventHandler(this.addNewAPIToolStripMenuItem_Click);
-            // 
-            // editSelectedAPIToolStripMenuItem
-            // 
-            this.editSelectedAPIToolStripMenuItem.Name = "editSelectedAPIToolStripMenuItem";
-            this.editSelectedAPIToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.editSelectedAPIToolStripMenuItem.Text = "{$EDIT_SELECTED_API$}";
-            this.editSelectedAPIToolStripMenuItem.Click += new System.EventHandler(this.editSelectedAPIToolStripMenuItem_Click);
-            // 
-            // removeSelectedAPIToolStripMenuItem
-            // 
-            this.removeSelectedAPIToolStripMenuItem.Name = "removeSelectedAPIToolStripMenuItem";
-            this.removeSelectedAPIToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.removeSelectedAPIToolStripMenuItem.Text = "{$REMOVE_SELECTED_API$}";
-            this.removeSelectedAPIToolStripMenuItem.Click += new System.EventHandler(this.removeSelectedAPIToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(218, 6);
-            // 
-            // revertAPIListToolStripMenuItem
-            // 
-            this.revertAPIListToolStripMenuItem.Name = "revertAPIListToolStripMenuItem";
-            this.revertAPIListToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.revertAPIListToolStripMenuItem.Text = "{$REVERT_API_LIST_TITLE$}";
-            this.revertAPIListToolStripMenuItem.Click += new System.EventHandler(this.revertAPIListToolStripMenuItem_Click);
-            // 
-            // apiBindingSource
-            // 
-            this.apiBindingSource.DataMember = "API";
-            this.apiBindingSource.DataSource = this.serversDataSet;
-            // 
-            // apiButtonsFlowLayoutPanel
-            // 
-            this.apiButtonsFlowLayoutPanel.Controls.Add(this.apiAddPictureBox);
-            this.apiButtonsFlowLayoutPanel.Controls.Add(this.apiEditPictureBox);
-            this.apiButtonsFlowLayoutPanel.Controls.Add(this.apiRemovePictureBox);
-            this.apiButtonsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.apiButtonsFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
-            this.apiButtonsFlowLayoutPanel.Name = "apiButtonsFlowLayoutPanel";
-            this.apiButtonsFlowLayoutPanel.Size = new System.Drawing.Size(1176, 38);
-            this.apiButtonsFlowLayoutPanel.TabIndex = 2;
-            // 
-            // apiAddPictureBox
-            // 
-            this.apiAddPictureBox.Image = global::SAMPLauncherNET.Properties.Resources.new_icon;
-            this.apiAddPictureBox.Location = new System.Drawing.Point(3, 3);
-            this.apiAddPictureBox.Name = "apiAddPictureBox";
-            this.apiAddPictureBox.Size = new System.Drawing.Size(32, 32);
-            this.apiAddPictureBox.TabIndex = 0;
-            this.apiAddPictureBox.TabStop = false;
-            this.toolTip.SetToolTip(this.apiAddPictureBox, "Add new");
-            this.apiAddPictureBox.Click += new System.EventHandler(this.apiAddPictureBox_Click);
-            // 
-            // apiEditPictureBox
-            // 
-            this.apiEditPictureBox.Image = global::SAMPLauncherNET.Properties.Resources.edit_icon;
-            this.apiEditPictureBox.Location = new System.Drawing.Point(41, 3);
-            this.apiEditPictureBox.Name = "apiEditPictureBox";
-            this.apiEditPictureBox.Size = new System.Drawing.Size(32, 32);
-            this.apiEditPictureBox.TabIndex = 2;
-            this.apiEditPictureBox.TabStop = false;
-            this.toolTip.SetToolTip(this.apiEditPictureBox, "Edit selected");
-            this.apiEditPictureBox.Click += new System.EventHandler(this.apiEditPictureBox_Click);
-            // 
-            // apiRemovePictureBox
-            // 
-            this.apiRemovePictureBox.Image = global::SAMPLauncherNET.Properties.Resources.delete_icon;
-            this.apiRemovePictureBox.Location = new System.Drawing.Point(79, 3);
-            this.apiRemovePictureBox.Name = "apiRemovePictureBox";
-            this.apiRemovePictureBox.Size = new System.Drawing.Size(32, 32);
-            this.apiRemovePictureBox.TabIndex = 1;
-            this.apiRemovePictureBox.TabStop = false;
-            this.toolTip.SetToolTip(this.apiRemovePictureBox, "Delete selected");
-            this.apiRemovePictureBox.Click += new System.EventHandler(this.apiRemovePictureBox_Click);
-            // 
-            // developerToolsPage
-            // 
-            this.developerToolsPage.Controls.Add(this.developerToolsMainLayoutPanel);
-            this.developerToolsPage.Location = new System.Drawing.Point(4, 22);
-            this.developerToolsPage.Name = "developerToolsPage";
-            this.developerToolsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.developerToolsPage.Size = new System.Drawing.Size(1182, 536);
-            this.developerToolsPage.TabIndex = 7;
-            this.developerToolsPage.Text = "{$DEVELOPER_TOOLS$}";
-            this.developerToolsPage.UseVisualStyleBackColor = true;
-            // 
-            // developerToolsMainLayoutPanel
-            // 
-            this.developerToolsMainLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.developerToolsMainLayoutPanel.ColumnCount = 1;
-            this.developerToolsMainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.developerToolsMainLayoutPanel.Controls.Add(this.developerToolsFilesLayoutPanel, 0, 0);
-            this.developerToolsMainLayoutPanel.Controls.Add(this.developerToolsConfigFlowLayoutPanel, 0, 1);
-            this.developerToolsMainLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.developerToolsMainLayoutPanel.Location = new System.Drawing.Point(3, 3);
-            this.developerToolsMainLayoutPanel.Name = "developerToolsMainLayoutPanel";
-            this.developerToolsMainLayoutPanel.RowCount = 2;
-            this.developerToolsMainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.developerToolsMainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 289F));
-            this.developerToolsMainLayoutPanel.Size = new System.Drawing.Size(1176, 530);
-            this.developerToolsMainLayoutPanel.TabIndex = 0;
-            // 
-            // developerToolsFilesLayoutPanel
-            // 
-            this.developerToolsFilesLayoutPanel.ColumnCount = 3;
-            this.developerToolsFilesLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.developerToolsFilesLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.developerToolsFilesLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.developerToolsFilesLayoutPanel.Controls.Add(this.developerToolsFilterscriptPanel, 0, 0);
-            this.developerToolsFilesLayoutPanel.Controls.Add(this.developerToolsGamemodesPanel, 0, 0);
-            this.developerToolsFilesLayoutPanel.Controls.Add(this.developerToolsPluginsPanel, 1, 0);
-            this.developerToolsFilesLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.developerToolsFilesLayoutPanel.Location = new System.Drawing.Point(3, 3);
-            this.developerToolsFilesLayoutPanel.Name = "developerToolsFilesLayoutPanel";
-            this.developerToolsFilesLayoutPanel.RowCount = 1;
-            this.developerToolsFilesLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.developerToolsFilesLayoutPanel.Size = new System.Drawing.Size(1170, 235);
-            this.developerToolsFilesLayoutPanel.TabIndex = 0;
-            // 
-            // developerToolsFilterscriptPanel
-            // 
-            this.developerToolsFilterscriptPanel.Controls.Add(this.developerToolsFilterscriptsCheckedListBox);
-            this.developerToolsFilterscriptPanel.Controls.Add(this.developerToolsFilterscriptsLabel);
-            this.developerToolsFilterscriptPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.developerToolsFilterscriptPanel.Location = new System.Drawing.Point(393, 3);
-            this.developerToolsFilterscriptPanel.Name = "developerToolsFilterscriptPanel";
-            this.developerToolsFilterscriptPanel.Size = new System.Drawing.Size(384, 229);
-            this.developerToolsFilterscriptPanel.TabIndex = 2;
-            // 
-            // developerToolsFilterscriptsCheckedListBox
-            // 
-            this.developerToolsFilterscriptsCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.developerToolsFilterscriptsCheckedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.developerToolsFilterscriptsCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.developerToolsFilterscriptsCheckedListBox.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.developerToolsFilterscriptsCheckedListBox.FormattingEnabled = true;
-            this.developerToolsFilterscriptsCheckedListBox.Location = new System.Drawing.Point(0, 19);
-            this.developerToolsFilterscriptsCheckedListBox.Name = "developerToolsFilterscriptsCheckedListBox";
-            this.developerToolsFilterscriptsCheckedListBox.Size = new System.Drawing.Size(384, 210);
-            this.developerToolsFilterscriptsCheckedListBox.TabIndex = 4;
-            this.toolTip.SetToolTip(this.developerToolsFilterscriptsCheckedListBox, "Select filterscripts");
-            // 
-            // developerToolsFilterscriptsLabel
-            // 
-            this.developerToolsFilterscriptsLabel.Depth = 0;
-            this.developerToolsFilterscriptsLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.developerToolsFilterscriptsLabel.Font = new System.Drawing.Font("Roboto", 11F);
-            this.developerToolsFilterscriptsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.developerToolsFilterscriptsLabel.Location = new System.Drawing.Point(0, 0);
-            this.developerToolsFilterscriptsLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsFilterscriptsLabel.Name = "developerToolsFilterscriptsLabel";
-            this.developerToolsFilterscriptsLabel.Size = new System.Drawing.Size(384, 19);
-            this.developerToolsFilterscriptsLabel.TabIndex = 3;
-            this.developerToolsFilterscriptsLabel.Text = "{$FILTERSCRIPTS$}";
-            this.developerToolsFilterscriptsLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // developerToolsGamemodesPanel
-            // 
-            this.developerToolsGamemodesPanel.Controls.Add(this.developerToolsGamemodesCheckedListBox);
-            this.developerToolsGamemodesPanel.Controls.Add(this.developerToolsGamemodesLabel);
-            this.developerToolsGamemodesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.developerToolsGamemodesPanel.Location = new System.Drawing.Point(3, 3);
-            this.developerToolsGamemodesPanel.Name = "developerToolsGamemodesPanel";
-            this.developerToolsGamemodesPanel.Size = new System.Drawing.Size(384, 229);
-            this.developerToolsGamemodesPanel.TabIndex = 0;
-            // 
-            // developerToolsGamemodesCheckedListBox
-            // 
-            this.developerToolsGamemodesCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.developerToolsGamemodesCheckedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.developerToolsGamemodesCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.developerToolsGamemodesCheckedListBox.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.developerToolsGamemodesCheckedListBox.FormattingEnabled = true;
-            this.developerToolsGamemodesCheckedListBox.Location = new System.Drawing.Point(0, 19);
-            this.developerToolsGamemodesCheckedListBox.Name = "developerToolsGamemodesCheckedListBox";
-            this.developerToolsGamemodesCheckedListBox.Size = new System.Drawing.Size(384, 210);
-            this.developerToolsGamemodesCheckedListBox.TabIndex = 3;
-            this.toolTip.SetToolTip(this.developerToolsGamemodesCheckedListBox, "Select gamemodes");
-            // 
-            // developerToolsGamemodesLabel
-            // 
-            this.developerToolsGamemodesLabel.Depth = 0;
-            this.developerToolsGamemodesLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.developerToolsGamemodesLabel.Font = new System.Drawing.Font("Roboto", 11F);
-            this.developerToolsGamemodesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.developerToolsGamemodesLabel.Location = new System.Drawing.Point(0, 0);
-            this.developerToolsGamemodesLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsGamemodesLabel.Name = "developerToolsGamemodesLabel";
-            this.developerToolsGamemodesLabel.Size = new System.Drawing.Size(384, 19);
-            this.developerToolsGamemodesLabel.TabIndex = 2;
-            this.developerToolsGamemodesLabel.Text = "{$GAMEMODES$}";
-            this.developerToolsGamemodesLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // developerToolsPluginsPanel
-            // 
-            this.developerToolsPluginsPanel.Controls.Add(this.developerToolsPluginsCheckedListBox);
-            this.developerToolsPluginsPanel.Controls.Add(this.developerToolsPluginsLabel);
-            this.developerToolsPluginsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.developerToolsPluginsPanel.Location = new System.Drawing.Point(783, 3);
-            this.developerToolsPluginsPanel.Name = "developerToolsPluginsPanel";
-            this.developerToolsPluginsPanel.Size = new System.Drawing.Size(384, 229);
-            this.developerToolsPluginsPanel.TabIndex = 1;
-            // 
-            // developerToolsPluginsCheckedListBox
-            // 
-            this.developerToolsPluginsCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.developerToolsPluginsCheckedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.developerToolsPluginsCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.developerToolsPluginsCheckedListBox.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.developerToolsPluginsCheckedListBox.FormattingEnabled = true;
-            this.developerToolsPluginsCheckedListBox.Location = new System.Drawing.Point(0, 19);
-            this.developerToolsPluginsCheckedListBox.Name = "developerToolsPluginsCheckedListBox";
-            this.developerToolsPluginsCheckedListBox.Size = new System.Drawing.Size(384, 210);
-            this.developerToolsPluginsCheckedListBox.TabIndex = 4;
-            this.toolTip.SetToolTip(this.developerToolsPluginsCheckedListBox, "Select plugins");
-            // 
-            // developerToolsPluginsLabel
-            // 
-            this.developerToolsPluginsLabel.Depth = 0;
-            this.developerToolsPluginsLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.developerToolsPluginsLabel.Font = new System.Drawing.Font("Roboto", 11F);
-            this.developerToolsPluginsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.developerToolsPluginsLabel.Location = new System.Drawing.Point(0, 0);
-            this.developerToolsPluginsLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsPluginsLabel.Name = "developerToolsPluginsLabel";
-            this.developerToolsPluginsLabel.Size = new System.Drawing.Size(384, 19);
-            this.developerToolsPluginsLabel.TabIndex = 3;
-            this.developerToolsPluginsLabel.Text = "{$PLUGINS$}";
-            this.developerToolsPluginsLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // developerToolsConfigFlowLayoutPanel
-            // 
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developmentDirectoryLabel);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developmentDirectorySingleLineTextField);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsHostnameLabel);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsHostnameSingleLineTextField);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsPortLabel);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsPortSingleLineTextField);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsServerPasswordLabel);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsServerPasswordSingleLineTextField);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsRCONPasswordLabel);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsRCONPasswordSingleLineTextField);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsShowAdditionalConfigurationsButton);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsOpenDirectoryButton);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsStartServerButton);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.stopServerButton);
-            this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsConnectToTestServerButton);
-            this.developerToolsConfigFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.developerToolsConfigFlowLayoutPanel.Location = new System.Drawing.Point(3, 244);
-            this.developerToolsConfigFlowLayoutPanel.Name = "developerToolsConfigFlowLayoutPanel";
-            this.developerToolsConfigFlowLayoutPanel.Size = new System.Drawing.Size(1170, 283);
-            this.developerToolsConfigFlowLayoutPanel.TabIndex = 1;
-            // 
-            // developmentDirectoryLabel
-            // 
-            this.developmentDirectoryLabel.AutoSize = true;
-            this.developmentDirectoryLabel.Depth = 0;
-            this.developmentDirectoryLabel.Font = new System.Drawing.Font("Roboto", 11F);
-            this.developmentDirectoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.developmentDirectoryLabel.Location = new System.Drawing.Point(3, 0);
-            this.developmentDirectoryLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developmentDirectoryLabel.Name = "developmentDirectoryLabel";
-            this.developmentDirectoryLabel.Size = new System.Drawing.Size(228, 19);
-            this.developmentDirectoryLabel.TabIndex = 9;
-            this.developmentDirectoryLabel.Text = "{$DEVELOPMENT_DIRECTORY$}";
-            // 
-            // developmentDirectorySingleLineTextField
-            // 
-            this.developmentDirectorySingleLineTextField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.developmentDirectorySingleLineTextField.Depth = 0;
-            this.developmentDirectorySingleLineTextField.Hint = "...";
-            this.developmentDirectorySingleLineTextField.Location = new System.Drawing.Point(3, 22);
-            this.developmentDirectorySingleLineTextField.MaxLength = 32767;
-            this.developmentDirectorySingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developmentDirectorySingleLineTextField.Name = "developmentDirectorySingleLineTextField";
-            this.developmentDirectorySingleLineTextField.PasswordChar = '\0';
-            this.developmentDirectorySingleLineTextField.SelectedText = "";
-            this.developmentDirectorySingleLineTextField.SelectionLength = 0;
-            this.developmentDirectorySingleLineTextField.SelectionStart = 0;
-            this.developmentDirectorySingleLineTextField.Size = new System.Drawing.Size(10000, 23);
-            this.developmentDirectorySingleLineTextField.TabIndex = 10;
-            this.developmentDirectorySingleLineTextField.TabStop = false;
-            this.toolTip.SetToolTip(this.developmentDirectorySingleLineTextField, "Development directory");
-            this.developmentDirectorySingleLineTextField.UseSystemPasswordChar = false;
-            this.developmentDirectorySingleLineTextField.TextChanged += new System.EventHandler(this.developmentDirectorySingleLineTextField_TextChanged);
-            // 
-            // developerToolsHostnameLabel
-            // 
-            this.developerToolsHostnameLabel.AutoSize = true;
-            this.developerToolsHostnameLabel.Depth = 0;
-            this.developerToolsHostnameLabel.Font = new System.Drawing.Font("Roboto", 11F);
-            this.developerToolsHostnameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.developerToolsHostnameLabel.Location = new System.Drawing.Point(3, 48);
-            this.developerToolsHostnameLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsHostnameLabel.Name = "developerToolsHostnameLabel";
-            this.developerToolsHostnameLabel.Size = new System.Drawing.Size(117, 19);
-            this.developerToolsHostnameLabel.TabIndex = 0;
-            this.developerToolsHostnameLabel.Text = "{$HOSTNAME$}";
-            // 
-            // developerToolsHostnameSingleLineTextField
-            // 
-            this.developerToolsHostnameSingleLineTextField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.developerToolsHostnameSingleLineTextField.Depth = 0;
-            this.developerToolsHostnameSingleLineTextField.Hint = "...";
-            this.developerToolsHostnameSingleLineTextField.Location = new System.Drawing.Point(3, 70);
-            this.developerToolsHostnameSingleLineTextField.MaxLength = 32767;
-            this.developerToolsHostnameSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsHostnameSingleLineTextField.Name = "developerToolsHostnameSingleLineTextField";
-            this.developerToolsHostnameSingleLineTextField.PasswordChar = '\0';
-            this.developerToolsHostnameSingleLineTextField.SelectedText = "";
-            this.developerToolsHostnameSingleLineTextField.SelectionLength = 0;
-            this.developerToolsHostnameSingleLineTextField.SelectionStart = 0;
-            this.developerToolsHostnameSingleLineTextField.Size = new System.Drawing.Size(10000, 23);
-            this.developerToolsHostnameSingleLineTextField.TabIndex = 1;
-            this.developerToolsHostnameSingleLineTextField.TabStop = false;
-            this.developerToolsHostnameSingleLineTextField.Text = "SA-MP Server";
-            this.toolTip.SetToolTip(this.developerToolsHostnameSingleLineTextField, "Hostname");
-            this.developerToolsHostnameSingleLineTextField.UseSystemPasswordChar = false;
-            // 
-            // developerToolsPortLabel
-            // 
-            this.developerToolsPortLabel.AutoSize = true;
-            this.developerToolsPortLabel.Depth = 0;
-            this.developerToolsPortLabel.Font = new System.Drawing.Font("Roboto", 11F);
-            this.developerToolsPortLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.developerToolsPortLabel.Location = new System.Drawing.Point(3, 96);
-            this.developerToolsPortLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsPortLabel.Name = "developerToolsPortLabel";
-            this.developerToolsPortLabel.Size = new System.Drawing.Size(72, 19);
-            this.developerToolsPortLabel.TabIndex = 6;
-            this.developerToolsPortLabel.Text = "{$PORT$}";
-            // 
-            // developerToolsPortSingleLineTextField
-            // 
-            this.developerToolsPortSingleLineTextField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.developerToolsPortSingleLineTextField.Depth = 0;
-            this.developerToolsPortSingleLineTextField.Hint = "...";
-            this.developerToolsPortSingleLineTextField.Location = new System.Drawing.Point(3, 118);
-            this.developerToolsPortSingleLineTextField.MaxLength = 32767;
-            this.developerToolsPortSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsPortSingleLineTextField.Name = "developerToolsPortSingleLineTextField";
-            this.developerToolsPortSingleLineTextField.PasswordChar = '\0';
-            this.developerToolsPortSingleLineTextField.SelectedText = "";
-            this.developerToolsPortSingleLineTextField.SelectionLength = 0;
-            this.developerToolsPortSingleLineTextField.SelectionStart = 0;
-            this.developerToolsPortSingleLineTextField.Size = new System.Drawing.Size(10000, 23);
-            this.developerToolsPortSingleLineTextField.TabIndex = 7;
-            this.developerToolsPortSingleLineTextField.TabStop = false;
-            this.developerToolsPortSingleLineTextField.Text = "8192";
-            this.toolTip.SetToolTip(this.developerToolsPortSingleLineTextField, "Port");
-            this.developerToolsPortSingleLineTextField.UseSystemPasswordChar = false;
-            // 
-            // developerToolsServerPasswordLabel
-            // 
-            this.developerToolsServerPasswordLabel.AutoSize = true;
-            this.developerToolsServerPasswordLabel.Depth = 0;
-            this.developerToolsServerPasswordLabel.Font = new System.Drawing.Font("Roboto", 11F);
-            this.developerToolsServerPasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.developerToolsServerPasswordLabel.Location = new System.Drawing.Point(3, 144);
-            this.developerToolsServerPasswordLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsServerPasswordLabel.Name = "developerToolsServerPasswordLabel";
-            this.developerToolsServerPasswordLabel.Size = new System.Drawing.Size(176, 19);
-            this.developerToolsServerPasswordLabel.TabIndex = 2;
-            this.developerToolsServerPasswordLabel.Text = "{$SERVER_PASSWORD$}";
-            // 
-            // developerToolsServerPasswordSingleLineTextField
-            // 
-            this.developerToolsServerPasswordSingleLineTextField.Depth = 0;
-            this.developerToolsServerPasswordSingleLineTextField.Hint = "...";
-            this.developerToolsServerPasswordSingleLineTextField.Location = new System.Drawing.Point(3, 166);
-            this.developerToolsServerPasswordSingleLineTextField.MaxLength = 32767;
-            this.developerToolsServerPasswordSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsServerPasswordSingleLineTextField.Name = "developerToolsServerPasswordSingleLineTextField";
-            this.developerToolsServerPasswordSingleLineTextField.PasswordChar = '*';
-            this.developerToolsServerPasswordSingleLineTextField.SelectedText = "";
-            this.developerToolsServerPasswordSingleLineTextField.SelectionLength = 0;
-            this.developerToolsServerPasswordSingleLineTextField.SelectionStart = 0;
-            this.developerToolsServerPasswordSingleLineTextField.Size = new System.Drawing.Size(10000, 23);
-            this.developerToolsServerPasswordSingleLineTextField.TabIndex = 3;
-            this.developerToolsServerPasswordSingleLineTextField.TabStop = false;
-            this.toolTip.SetToolTip(this.developerToolsServerPasswordSingleLineTextField, "Server password");
-            this.developerToolsServerPasswordSingleLineTextField.UseSystemPasswordChar = false;
-            // 
-            // developerToolsRCONPasswordLabel
-            // 
-            this.developerToolsRCONPasswordLabel.AutoSize = true;
-            this.developerToolsRCONPasswordLabel.Depth = 0;
-            this.developerToolsRCONPasswordLabel.Font = new System.Drawing.Font("Roboto", 11F);
-            this.developerToolsRCONPasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.developerToolsRCONPasswordLabel.Location = new System.Drawing.Point(3, 192);
-            this.developerToolsRCONPasswordLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsRCONPasswordLabel.Name = "developerToolsRCONPasswordLabel";
-            this.developerToolsRCONPasswordLabel.Size = new System.Drawing.Size(161, 19);
-            this.developerToolsRCONPasswordLabel.TabIndex = 4;
-            this.developerToolsRCONPasswordLabel.Text = "{$RCON_PASSWORD$}";
-            // 
-            // developerToolsRCONPasswordSingleLineTextField
-            // 
-            this.developerToolsRCONPasswordSingleLineTextField.Depth = 0;
-            this.developerToolsRCONPasswordSingleLineTextField.Hint = "...";
-            this.developerToolsRCONPasswordSingleLineTextField.Location = new System.Drawing.Point(3, 214);
-            this.developerToolsRCONPasswordSingleLineTextField.MaxLength = 32767;
-            this.developerToolsRCONPasswordSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsRCONPasswordSingleLineTextField.Name = "developerToolsRCONPasswordSingleLineTextField";
-            this.developerToolsRCONPasswordSingleLineTextField.PasswordChar = '*';
-            this.developerToolsRCONPasswordSingleLineTextField.SelectedText = "";
-            this.developerToolsRCONPasswordSingleLineTextField.SelectionLength = 0;
-            this.developerToolsRCONPasswordSingleLineTextField.SelectionStart = 0;
-            this.developerToolsRCONPasswordSingleLineTextField.Size = new System.Drawing.Size(10000, 23);
-            this.developerToolsRCONPasswordSingleLineTextField.TabIndex = 5;
-            this.developerToolsRCONPasswordSingleLineTextField.TabStop = false;
-            this.toolTip.SetToolTip(this.developerToolsRCONPasswordSingleLineTextField, "RCON password");
-            this.developerToolsRCONPasswordSingleLineTextField.UseSystemPasswordChar = false;
-            // 
-            // developerToolsShowAdditionalConfigurationsButton
-            // 
-            this.developerToolsShowAdditionalConfigurationsButton.AutoSize = true;
-            this.developerToolsShowAdditionalConfigurationsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.developerToolsShowAdditionalConfigurationsButton.Depth = 0;
-            this.developerToolsShowAdditionalConfigurationsButton.Icon = null;
-            this.developerToolsShowAdditionalConfigurationsButton.Location = new System.Drawing.Point(3, 243);
-            this.developerToolsShowAdditionalConfigurationsButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsShowAdditionalConfigurationsButton.Name = "developerToolsShowAdditionalConfigurationsButton";
-            this.developerToolsShowAdditionalConfigurationsButton.Primary = true;
-            this.developerToolsShowAdditionalConfigurationsButton.Size = new System.Drawing.Size(292, 36);
-            this.developerToolsShowAdditionalConfigurationsButton.TabIndex = 8;
-            this.developerToolsShowAdditionalConfigurationsButton.Text = "{$SHOW_ADDITIONAL_CONFIGURATIONS$}";
-            this.developerToolsShowAdditionalConfigurationsButton.UseVisualStyleBackColor = true;
-            this.developerToolsShowAdditionalConfigurationsButton.Click += new System.EventHandler(this.developerToolsShowAdditionalConfigurationsButton_Click);
-            // 
-            // developerToolsOpenDirectoryButton
-            // 
-            this.developerToolsOpenDirectoryButton.AutoSize = true;
-            this.developerToolsOpenDirectoryButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.developerToolsOpenDirectoryButton.Depth = 0;
-            this.developerToolsOpenDirectoryButton.Icon = null;
-            this.developerToolsOpenDirectoryButton.Location = new System.Drawing.Point(301, 243);
-            this.developerToolsOpenDirectoryButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsOpenDirectoryButton.Name = "developerToolsOpenDirectoryButton";
-            this.developerToolsOpenDirectoryButton.Primary = true;
-            this.developerToolsOpenDirectoryButton.Size = new System.Drawing.Size(161, 36);
-            this.developerToolsOpenDirectoryButton.TabIndex = 11;
-            this.developerToolsOpenDirectoryButton.Text = "{$OPEN_DIRECTORY$}";
-            this.developerToolsOpenDirectoryButton.UseVisualStyleBackColor = true;
-            this.developerToolsOpenDirectoryButton.Click += new System.EventHandler(this.developerToolsOpenDirectoryButton_Click);
-            // 
-            // developerToolsStartServerButton
-            // 
-            this.developerToolsStartServerButton.AutoSize = true;
-            this.developerToolsStartServerButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.developerToolsStartServerButton.Depth = 0;
-            this.developerToolsStartServerButton.Icon = null;
-            this.developerToolsStartServerButton.Location = new System.Drawing.Point(468, 243);
-            this.developerToolsStartServerButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsStartServerButton.Name = "developerToolsStartServerButton";
-            this.developerToolsStartServerButton.Primary = true;
-            this.developerToolsStartServerButton.Size = new System.Drawing.Size(144, 36);
-            this.developerToolsStartServerButton.TabIndex = 12;
-            this.developerToolsStartServerButton.Text = "{$START_SERVER$}";
-            this.developerToolsStartServerButton.UseVisualStyleBackColor = true;
-            this.developerToolsStartServerButton.Click += new System.EventHandler(this.developerToolsStartServerButton_Click);
-            // 
-            // stopServerButton
-            // 
-            this.stopServerButton.AutoSize = true;
-            this.stopServerButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.stopServerButton.Depth = 0;
-            this.stopServerButton.Icon = null;
-            this.stopServerButton.Location = new System.Drawing.Point(618, 243);
-            this.stopServerButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.stopServerButton.Name = "stopServerButton";
-            this.stopServerButton.Primary = true;
-            this.stopServerButton.Size = new System.Drawing.Size(137, 36);
-            this.stopServerButton.TabIndex = 14;
-            this.stopServerButton.Text = "{$STOP_SERVER$}";
-            this.stopServerButton.UseVisualStyleBackColor = true;
-            this.stopServerButton.Click += new System.EventHandler(this.stopServerButton_Click);
-            // 
-            // developerToolsConnectToTestServerButton
-            // 
-            this.developerToolsConnectToTestServerButton.AutoSize = true;
-            this.developerToolsConnectToTestServerButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.developerToolsConnectToTestServerButton.Depth = 0;
-            this.developerToolsConnectToTestServerButton.Icon = null;
-            this.developerToolsConnectToTestServerButton.Location = new System.Drawing.Point(761, 243);
-            this.developerToolsConnectToTestServerButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.developerToolsConnectToTestServerButton.Name = "developerToolsConnectToTestServerButton";
-            this.developerToolsConnectToTestServerButton.Primary = true;
-            this.developerToolsConnectToTestServerButton.Size = new System.Drawing.Size(228, 36);
-            this.developerToolsConnectToTestServerButton.TabIndex = 13;
-            this.developerToolsConnectToTestServerButton.Text = "{$CONNECT_TO_TEST_SERVER$}";
-            this.developerToolsConnectToTestServerButton.UseVisualStyleBackColor = true;
-            this.developerToolsConnectToTestServerButton.Click += new System.EventHandler(this.developerToolsConnectToTestServerButton_Click);
-            // 
             // aboutPage
             // 
             this.aboutPage.Controls.Add(this.aboutFlowLayoutPanel);
             this.aboutPage.Location = new System.Drawing.Point(4, 22);
             this.aboutPage.Name = "aboutPage";
-            this.aboutPage.Size = new System.Drawing.Size(1182, 536);
+            this.aboutPage.Size = new System.Drawing.Size(1182, 541);
             this.aboutPage.TabIndex = 4;
             this.aboutPage.Text = "{$ABOUT$}";
             this.aboutPage.UseVisualStyleBackColor = true;
@@ -2551,7 +3253,7 @@
             this.aboutFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.aboutFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.aboutFlowLayoutPanel.Name = "aboutFlowLayoutPanel";
-            this.aboutFlowLayoutPanel.Size = new System.Drawing.Size(1182, 536);
+            this.aboutFlowLayoutPanel.Size = new System.Drawing.Size(1182, 541);
             this.aboutFlowLayoutPanel.TabIndex = 0;
             // 
             // gitHubProjectLargePictureBox
@@ -2647,7 +3349,6 @@
             this.mainTabSelector.Name = "mainTabSelector";
             this.mainTabSelector.Size = new System.Drawing.Size(1200, 48);
             this.mainTabSelector.TabIndex = 18;
-            this.mainTabSelector.Text = "materialTabSelector2";
             // 
             // multithreadedListsTimer
             // 
@@ -2676,12 +3377,93 @@
             this.textFileSystemWatcher.SynchronizingObject = this;
             this.textFileSystemWatcher.Changed += new System.IO.FileSystemEventHandler(this.textFileSystemWatcher_Changed);
             // 
+            // usernameSingleLineTextField
+            // 
+            this.usernameSingleLineTextField.BackColor = System.Drawing.SystemColors.Control;
+            this.usernameSingleLineTextField.Depth = 0;
+            this.usernameSingleLineTextField.Hint = "Username...";
+            this.usernameSingleLineTextField.Location = new System.Drawing.Point(8, 4);
+            this.usernameSingleLineTextField.MaxLength = 32767;
+            this.usernameSingleLineTextField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.usernameSingleLineTextField.Name = "usernameSingleLineTextField";
+            this.usernameSingleLineTextField.PasswordChar = '\0';
+            this.usernameSingleLineTextField.SelectedText = "";
+            this.usernameSingleLineTextField.SelectionLength = 0;
+            this.usernameSingleLineTextField.SelectionStart = 0;
+            this.usernameSingleLineTextField.Size = new System.Drawing.Size(160, 23);
+            this.usernameSingleLineTextField.TabIndex = 19;
+            this.usernameSingleLineTextField.TabStop = false;
+            this.usernameSingleLineTextField.UseSystemPasswordChar = false;
+            this.usernameSingleLineTextField.TextChanged += new System.EventHandler(this.usernameSingleLineTextField_TextChanged);
+            // 
+            // usernamePanel
+            // 
+            this.usernamePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.usernamePanel.Controls.Add(this.usernameSingleLineTextField);
+            this.usernamePanel.Location = new System.Drawing.Point(1015, 28);
+            this.usernamePanel.Name = "usernamePanel";
+            this.usernamePanel.Size = new System.Drawing.Size(176, 30);
+            this.usernamePanel.TabIndex = 20;
+            // 
+            // sessionsBindingSource
+            // 
+            this.sessionsBindingSource.DataMember = "Sessions";
+            this.sessionsBindingSource.DataSource = this.mainDataSet;
+            // 
+            // pluginsDataContextMenuStrip
+            // 
+            this.pluginsDataContextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pluginsDataContextMenuStrip.Depth = 0;
+            this.pluginsDataContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewPluginToolStripMenuItem,
+            this.editSelectedPluginToolStripMenuItem,
+            this.removeSelectedPluginToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.revertPluginListToolStripMenuItem});
+            this.pluginsDataContextMenuStrip.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pluginsDataContextMenuStrip.Name = "pluginsDataContextMenuStrip";
+            this.pluginsDataContextMenuStrip.Size = new System.Drawing.Size(245, 98);
+            // 
+            // addNewPluginToolStripMenuItem
+            // 
+            this.addNewPluginToolStripMenuItem.Name = "addNewPluginToolStripMenuItem";
+            this.addNewPluginToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.addNewPluginToolStripMenuItem.Text = "{$ADD_NEW_PLUGIN$}";
+            this.addNewPluginToolStripMenuItem.Click += new System.EventHandler(this.addNewPluginToolStripMenuItem_Click);
+            // 
+            // editSelectedPluginToolStripMenuItem
+            // 
+            this.editSelectedPluginToolStripMenuItem.Name = "editSelectedPluginToolStripMenuItem";
+            this.editSelectedPluginToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.editSelectedPluginToolStripMenuItem.Text = "{$EDIT_SELECTED_PLUGIN$}";
+            this.editSelectedPluginToolStripMenuItem.Click += new System.EventHandler(this.editSelectedPluginToolStripMenuItem_Click);
+            // 
+            // removeSelectedPluginToolStripMenuItem
+            // 
+            this.removeSelectedPluginToolStripMenuItem.Name = "removeSelectedPluginToolStripMenuItem";
+            this.removeSelectedPluginToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.removeSelectedPluginToolStripMenuItem.Text = "{$REMOVE_SELECTED_PLUGIN$}";
+            this.removeSelectedPluginToolStripMenuItem.Click += new System.EventHandler(this.removeSelectedAPIToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(241, 6);
+            // 
+            // revertPluginListToolStripMenuItem
+            // 
+            this.revertPluginListToolStripMenuItem.Name = "revertPluginListToolStripMenuItem";
+            this.revertPluginListToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.revertPluginListToolStripMenuItem.Text = "{$REVERT_PLUGIN_LIST_TITLE$}";
+            this.revertPluginListToolStripMenuItem.Click += new System.EventHandler(this.revertPluginListToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1200, 684);
+            this.ClientSize = new System.Drawing.Size(1200, 689);
+            this.Controls.Add(this.usernamePanel);
             this.Controls.Add(this.mainTabSelector);
             this.Controls.Add(this.mainTabControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2698,11 +3480,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.serversGridView)).EndInit();
             this.serversContextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.serversBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.serversDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serversDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.apiDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsDataTable)).EndInit();
             this.serverInfoSplitContainer.Panel1.ResumeLayout(false);
             this.serverInfoSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.serverInfoSplitContainer)).EndInit();
@@ -2714,34 +3498,59 @@
             this.inputFilterLayoutPanel.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.filterPanel.ResumeLayout(false);
-            this.filterPanel.PerformLayout();
-            this.filterRadioGroupFlowLayoutPanel.ResumeLayout(false);
-            this.filterRadioGroupFlowLayoutPanel.PerformLayout();
+            this.filtersPanel.ResumeLayout(false);
+            this.filtersPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addServersFilterPictureBox)).EndInit();
             this.footerTableLayoutPanel.ResumeLayout(false);
             this.gitHubProjectLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gitHubProjectPictureBox)).EndInit();
             this.languageLayoutPanel.ResumeLayout(false);
             this.languageLayoutPanel.PerformLayout();
-            this.galleryPage.ResumeLayout(false);
+            this.mediaPage.ResumeLayout(false);
+            this.mediaSplitContainer.Panel1.ResumeLayout(false);
+            this.mediaSplitContainer.Panel2.ResumeLayout(false);
+            this.mediaSplitContainer.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mediaSplitContainer)).EndInit();
+            this.mediaSplitContainer.ResumeLayout(false);
+            this.mediaInnerSplitContainer.Panel1.ResumeLayout(false);
+            this.mediaInnerSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mediaInnerSplitContainer)).EndInit();
+            this.mediaInnerSplitContainer.ResumeLayout(false);
+            this.lastChatlogTableLayoutPanel.ResumeLayout(false);
+            this.lastChatlogContextMenuStrip.ResumeLayout(false);
+            this.lastChatlogMenuLayoutPanel.ResumeLayout(false);
+            this.lastChatlogMenuLayoutPanel.PerformLayout();
             this.galleryTableLayoutPanel.ResumeLayout(false);
             this.galleryMenuLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.galleryViewPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.showGalleryPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDeletePictureBox)).EndInit();
-            this.lastChatlogPage.ResumeLayout(false);
-            this.lastChatlogPage.PerformLayout();
-            this.savedPositionsPage.ResumeLayout(false);
-            this.savedPositionsPage.PerformLayout();
+            this.sessionsPage.ResumeLayout(false);
+            this.sessionsSplitContainer.Panel1.ResumeLayout(false);
+            this.sessionsSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsSplitContainer)).EndInit();
+            this.sessionsSplitContainer.ResumeLayout(false);
+            this.sessionsInnerSplitContainer.Panel1.ResumeLayout(false);
+            this.sessionsInnerSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsInnerSplitContainer)).EndInit();
+            this.sessionsInnerSplitContainer.ResumeLayout(false);
+            this.chatlogGallerySplitContainer.Panel1.ResumeLayout(false);
+            this.chatlogGallerySplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chatlogGallerySplitContainer)).EndInit();
+            this.chatlogGallerySplitContainer.ResumeLayout(false);
             this.versionsPage.ResumeLayout(false);
             this.versionsTableLayoutPanel.ResumeLayout(false);
             this.versionButtonsFlowLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.patchVersionPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.installVersionPictureBox)).EndInit();
-            this.optionsPage.ResumeLayout(false);
-            this.optionsPanel.ResumeLayout(false);
-            this.optionsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fpsLimitTrackBar)).EndInit();
+            this.pluginsPage.ResumeLayout(false);
+            this.pluginsTableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsBindingSource)).EndInit();
+            this.pluginsMenuLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsAddPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsEditPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pluginsRemovePictureBox)).EndInit();
             this.apiPage.ResumeLayout(false);
             this.apiLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.apiGridView)).EndInit();
@@ -2759,12 +3568,19 @@
             this.developerToolsPluginsPanel.ResumeLayout(false);
             this.developerToolsConfigFlowLayoutPanel.ResumeLayout(false);
             this.developerToolsConfigFlowLayoutPanel.PerformLayout();
+            this.optionsPage.ResumeLayout(false);
+            this.optionsPanel.ResumeLayout(false);
+            this.optionsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fpsLimitTrackBar)).EndInit();
             this.aboutPage.ResumeLayout(false);
             this.aboutFlowLayoutPanel.ResumeLayout(false);
             this.aboutFlowLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gitHubProjectLargePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryFileSystemWatcher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textFileSystemWatcher)).EndInit();
+            this.usernamePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsBindingSource)).EndInit();
+            this.pluginsDataContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2775,7 +3591,7 @@
         private System.Windows.Forms.TabPage serversPage;
         private System.Windows.Forms.TabPage optionsPage;
         private MaterialSkin.Controls.MaterialTabSelector mainTabSelector;
-        private System.Windows.Forms.TabPage galleryPage;
+        private System.Windows.Forms.TabPage mediaPage;
         private System.Windows.Forms.TabPage apiPage;
         private System.Windows.Forms.TabPage aboutPage;
         private System.Windows.Forms.TableLayoutPanel serversLayoutPanel;
@@ -2783,7 +3599,7 @@
         private System.Windows.Forms.SplitContainer serverInfoSplitContainer;
         private System.Windows.Forms.DataGridView serversGridView;
         private System.Windows.Forms.Timer multithreadedListsTimer;
-        private System.Data.DataSet serversDataSet;
+        private System.Data.DataSet mainDataSet;
         private System.Data.DataTable serversDataTable;
         private System.Data.DataColumn pingDataColumn;
         private System.Data.DataColumn hostnameDataColumn;
@@ -2814,12 +3630,7 @@
         private System.Windows.Forms.ComboBox languagesComboBox;
         private MaterialSkin.Controls.MaterialLabel selectLanguageLabel;
         private System.Windows.Forms.PictureBox gitHubProjectPictureBox;
-        private MaterialSkin.Controls.MaterialSingleLineTextField filterSingleLineTextField;
         private MaterialSkin.Controls.MaterialLabel serversFilterLabel;
-        private MaterialSkin.Controls.MaterialRadioButton filterHostnameRadioButton;
-        private MaterialSkin.Controls.MaterialRadioButton filterModeRadioButton;
-        private MaterialSkin.Controls.MaterialRadioButton filterLanguageRadioButton;
-        private MaterialSkin.Controls.MaterialRadioButton filterIPAndPortRadioButton;
         private System.Windows.Forms.DataGridView playersGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn playerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
@@ -2834,12 +3645,8 @@
         private System.Windows.Forms.ListView galleryListView;
         private System.Windows.Forms.PictureBox showGalleryPictureBox;
         private MaterialSkin.Controls.MaterialCheckBox closeWhenLaunchedCheckBox;
-        private System.Windows.Forms.FlowLayoutPanel filterRadioGroupFlowLayoutPanel;
-        private System.Windows.Forms.Panel filterPanel;
-        private System.Windows.Forms.TabPage lastChatlogPage;
-        private System.Windows.Forms.TextBox lastChatlogTextBox;
-        private System.Windows.Forms.TabPage savedPositionsPage;
-        private System.Windows.Forms.TextBox savedPositionsTextBox;
+        private System.Windows.Forms.Panel filtersPanel;
+        private System.Windows.Forms.TabPage pluginsPage;
         private System.IO.FileSystemWatcher textFileSystemWatcher;
         private System.Windows.Forms.Panel optionsPanel;
         private MaterialSkin.Controls.MaterialCheckBox noNametagStatusCheckBox;
@@ -2862,10 +3669,10 @@
         private MaterialSkin.Controls.MaterialRaisedButton revertConfigButton;
         private MaterialSkin.Controls.MaterialContextMenuStrip serversContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem showExtendedServerInformationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator serversToolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem addServerToFavouritesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeServerFromFavouritesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator serversToolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem connectWithRCONToolStripMenuItem;
         private System.Windows.Forms.ComboBox selectAPIComboBox;
@@ -2894,7 +3701,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn endpointDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator apiToolStripSeparator;
         private System.Windows.Forms.ToolStripMenuItem revertAPIListToolStripMenuItem;
         private MaterialSkin.Controls.MaterialRaisedButton connectToHostButton;
         private System.Windows.Forms.ToolStripMenuItem visitWebsiteToolStripMenuItem;
@@ -2944,8 +3751,79 @@
         private System.Windows.Forms.ListView versionsListView;
         private System.Windows.Forms.PictureBox installVersionPictureBox;
         private System.Windows.Forms.ImageList versionsImageList;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator serversToolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem addAddressToFavouriteListToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialSingleLineTextField usernameSingleLineTextField;
+        private System.Windows.Forms.TableLayoutPanel lastChatlogTableLayoutPanel;
+        private System.Windows.Forms.RichTextBox lastChatlogRichTextBox;
+        private System.Windows.Forms.FlowLayoutPanel lastChatlogMenuLayoutPanel;
+        private System.Windows.Forms.TextBox savedPositionsTextBox;
+        private System.Windows.Forms.SplitContainer mediaSplitContainer;
+        private System.Windows.Forms.SplitContainer mediaInnerSplitContainer;
+        private System.Windows.Forms.TableLayoutPanel pluginsTableLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel pluginsMenuLayoutPanel;
+        private System.Windows.Forms.PictureBox pluginsAddPictureBox;
+        private System.Windows.Forms.PictureBox pluginsEditPictureBox;
+        private System.Windows.Forms.PictureBox pluginsRemovePictureBox;
+        private System.Windows.Forms.Panel usernamePanel;
+        private MaterialSkin.Controls.MaterialCheckBox showUsernameDialogCheckBox;
+        private System.Windows.Forms.TabPage sessionsPage;
+        private System.Windows.Forms.SplitContainer sessionsSplitContainer;
+        private System.Windows.Forms.TableLayoutPanel sessionsTableLayoutPanel;
+        private System.Windows.Forms.SplitContainer sessionsInnerSplitContainer;
+        private System.Windows.Forms.SplitContainer chatlogGallerySplitContainer;
+        private System.Windows.Forms.TableLayoutPanel chatlogSessionTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel gallerySessionTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel sessionServerInfoTableLayoutPanel;
+        private System.Data.DataTable sessionsDataTable;
+        private System.Data.DataColumn dataColumn5;
+        private System.Data.DataColumn dataColumn7;
+        private System.Data.DataColumn dataColumn8;
+        private System.Data.DataColumn dataColumn9;
+        private System.Data.DataColumn dataColumn6;
+        private System.Data.DataColumn dataColumn10;
+        private System.Windows.Forms.BindingSource sessionsBindingSource;
+        private MaterialSkin.Controls.MaterialCheckBox chatlogColorCodesCheckBox;
+        private MaterialSkin.Controls.MaterialCheckBox chatlogColoredCheckBox;
+        private MaterialSkin.Controls.MaterialCheckBox chatlogTimestampCheckBox;
+        private System.Data.DataTable pluginsDataTable;
+        private System.Data.DataColumn dataColumn11;
+        private System.Data.DataColumn dataColumn12;
+        private System.Data.DataColumn dataColumn13;
+        private System.Data.DataColumn dataColumn14;
+        private System.Data.DataColumn dataColumn15;
+        private System.Windows.Forms.DataGridView pluginsGridView;
+        private System.Windows.Forms.BindingSource pluginsBindingSource;
+        private System.Data.DataColumn dataColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn indexDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn enabledDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn providerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uRIDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updateFrequencyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.SaveFileDialog lastChatlogSaveFileDialog;
+        private MaterialSkin.Controls.MaterialContextMenuStrip lastChatlogContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem lastChatlogCopyTextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lastChatlogCopyOriginalTextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lastChatlogCopyHTMLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lastChatlogCopyRTFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator lastChatlogToolStripSeparator;
+        private System.Windows.Forms.ToolStripMenuItem lastChatlogSaveTextAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lastChatlogSaveOriginalTextAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lastChatlogSaveHTMLAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lastChatlogSaveRTFAsToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialContextMenuStrip pluginsDataContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem addNewPluginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editSelectedPluginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeSelectedPluginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem revertPluginListToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialCheckBox createSessionsLogCheckBox;
+        private System.Windows.Forms.Panel filtersInnerPanel;
+        private System.Windows.Forms.PictureBox addServersFilterPictureBox;
+        private System.Windows.Forms.ToolStripSeparator serversToolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem showEmptyServersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showFullServersToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pingDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hostnameDataGridViewTextBoxColumn;
@@ -2953,6 +3831,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn modeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn languageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iPAndPortDataGridViewTextBoxColumn;
-        private MaterialSkin.Controls.MaterialCheckBox useDiscordRichPresenceCheckBox;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsEmpty;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsFull;
+        private System.Data.DataColumn dataColumn17;
+        private System.Data.DataColumn dataColumn18;
+        private System.Windows.Forms.ToolStripSeparator serversToolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem reloadServerListsToolStripMenuItem;
     }
 }

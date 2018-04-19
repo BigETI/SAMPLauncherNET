@@ -140,6 +140,9 @@ Das Projekt befindet sich auf</value>
   <data name="ADD_NEW_API" xml:space="preserve">
     <value>Neue API hinzufügen</value>
   </data>
+  <data name="ADD_NEW_PLUGIN" xml:space="preserve">
+    <value>Neues Plugin hinzufügen</value>
+  </data>
   <data name="ADD_SERVER_TO_FAVOURITES" xml:space="preserve">
     <value>Favorit hinzufügen</value>
   </data>
@@ -199,6 +202,39 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="CANCEL_DOWNLOAD_TITLE" xml:space="preserve">
     <value>Download abbrechen</value>
+  </data>
+  <data name="CHATLOG_COPY_HTML" xml:space="preserve">
+    <value>Kopiere HTML</value>
+  </data>
+  <data name="CHATLOG_COPY_ORIGINAL_TEXT" xml:space="preserve">
+    <value>Kopiere originalen Text</value>
+  </data>
+  <data name="CHATLOG_COPY_RTF" xml:space="preserve">
+    <value>Kopiere RTF</value>
+  </data>
+  <data name="CHATLOG_COPY_TEXT" xml:space="preserve">
+    <value>Kopiere Text</value>
+  </data>
+  <data name="CHATLOG_OPTION_COLORED" xml:space="preserve">
+    <value>Gefärbt</value>
+  </data>
+  <data name="CHATLOG_OPTION_COLOR_CODES" xml:space="preserve">
+    <value>Farbcodes</value>
+  </data>
+  <data name="CHATLOG_OPTION_TIMESTAMP" xml:space="preserve">
+    <value>Zeitstempel</value>
+  </data>
+  <data name="CHATLOG_SAVE_HTML_AS" xml:space="preserve">
+    <value>Speichere HTML als...</value>
+  </data>
+  <data name="CHATLOG_SAVE_ORIGINAL_TEXT_AS" xml:space="preserve">
+    <value>Speichere originalen Text als...</value>
+  </data>
+  <data name="CHATLOG_SAVE_RTF_AS" xml:space="preserve">
+    <value>Speichere RTF als...</value>
+  </data>
+  <data name="CHATLOG_SAVE_TEXT_AS" xml:space="preserve">
+    <value>Speichere Text als...</value>
   </data>
   <data name="CHAT_LOGGING" xml:space="preserve">
     <value>Chat protokollieren</value>
@@ -287,8 +323,14 @@ Das Projekt befindet sich auf</value>
   <data name="EDIT_API_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - API bearbeiten</value>
   </data>
+  <data name="EDIT_PLUGIN_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Plugin bearbeiten</value>
+  </data>
   <data name="EDIT_SELECTED_API" xml:space="preserve">
     <value>Selektierte API bearbeiten</value>
+  </data>
+  <data name="EDIT_SELECTED_PLUGIN" xml:space="preserve">
+    <value>Selektiertes Plugin bearbeiten</value>
   </data>
   <data name="ENDPOINT" xml:space="preserve">
     <value>Endpunkt</value>
@@ -326,6 +368,9 @@ Das Projekt befindet sich auf</value>
   <data name="FILTER_MODE" xml:space="preserve">
     <value>Filtere Modus</value>
   </data>
+  <data name="FILTER_USE_REGEX" xml:space="preserve">
+    <value>Benutze Regex</value>
+  </data>
   <data name="FONT_FACE" xml:space="preserve">
     <value>Schriftart</value>
   </data>
@@ -334,9 +379,6 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="FPS_LIMIT" xml:space="preserve">
     <value>FPS Limit</value>
-  </data>
-  <data name="GALLERY" xml:space="preserve">
-    <value>Gallerie</value>
   </data>
   <data name="GAMEMODE" xml:space="preserve">
     <value>Spielmodus</value>
@@ -355,6 +397,14 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="GITHUB_PROJECT" xml:space="preserve">
     <value>GitHub Projekt SAMPLauncherNET</value>
+  </data>
+  <data name="GTA_SA_IS_RUNNING" xml:space="preserve">
+    <value>Eine Instanz von GTA San Andreas läuft gerade. Es wird terminiert, bevor einen neue Instanz erstellt wird.
+
+Möchtest du fortfahren?</value>
+  </data>
+  <data name="GTA_SA_IS_RUNNING_TITLE" xml:space="preserve">
+    <value>GTA San Andreas läuft</value>
   </data>
   <data name="HOSTNAME" xml:space="preserve">
     <value>Hostname</value>
@@ -404,9 +454,6 @@ Das Projekt befindet sich auf</value>
   <data name="LAN_MODE" xml:space="preserve">
     <value>LAN Modus</value>
   </data>
-  <data name="LAST_CHATLOG" xml:space="preserve">
-    <value>Letzter Chatprotokoll</value>
-  </data>
   <data name="LATITUDE_LONGITUDE" xml:space="preserve">
     <value>Breitengrad und Längengrad</value>
   </data>
@@ -434,6 +481,9 @@ Das Projekt befindet sich auf</value>
   <data name="MAXIMAL_PLAYERS" xml:space="preserve">
     <value>Maximale Spieler</value>
   </data>
+  <data name="MEDIA" xml:space="preserve">
+    <value>Medien</value>
+  </data>
   <data name="MESSAGES_LIMIT" xml:space="preserve">
     <value>Nachrichten Limit</value>
   </data>
@@ -459,7 +509,10 @@ Das Projekt befindet sich auf</value>
     <value>Brauchst du Hilfe? Trete in den SA:MP Foren ein...</value>
   </data>
   <data name="NEW_API_TITLE" xml:space="preserve">
-    <value>San Andreas Multiplayer - API hinzuifügen</value>
+    <value>San Andreas Multiplayer - API hinzufügen</value>
+  </data>
+  <data name="NEW_PLUGIN_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Plugin hinzufügen</value>
   </data>
   <data name="NOT_IN_FAVOURITES" xml:space="preserve">
     <value>Nicht in den Favoriten</value>
@@ -533,6 +586,54 @@ Das Projekt befindet sich auf</value>
   <data name="PLUGINS" xml:space="preserve">
     <value>Plugins</value>
   </data>
+  <data name="PLUGIN_COPY_ERROR" xml:space="preserve">
+    <value>Plugin konnte nicht kopiert werden.</value>
+  </data>
+  <data name="PLUGIN_ENABLED" xml:space="preserve">
+    <value>Plugin aktivieren</value>
+  </data>
+  <data name="PLUGIN_ERROR_TITLE" xml:space="preserve">
+    <value>Plugin Fehler</value>
+  </data>
+  <data name="PLUGIN_MISSING_ASSET" xml:space="preserve">
+    <value>Plugin konnte nicht heruntergeladen werden.</value>
+  </data>
+  <data name="PLUGIN_NAME" xml:space="preserve">
+    <value>Plugin name</value>
+  </data>
+  <data name="PLUGIN_NAME_MISSING" xml:space="preserve">
+    <value>Bitte füge einen Plugin Namen hinzu</value>
+  </data>
+  <data name="PLUGIN_NAME_MISSING_TITLE" xml:space="preserve">
+    <value>Plugin Name fehlt</value>
+  </data>
+  <data name="PLUGIN_PROVIDER" xml:space="preserve">
+    <value>Plugin Anbieter</value>
+  </data>
+  <data name="PLUGIN_PROVIDER_MISSING" xml:space="preserve">
+    <value>Bitte selektiere einen Plugin Anbieter</value>
+  </data>
+  <data name="PLUGIN_PROVIDER_MISSING_TITLE" xml:space="preserve">
+    <value>Plugin Anbieter fehlt</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY" xml:space="preserve">
+    <value>Plugin Aktualisierungsfrequenz</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY_MISSING" xml:space="preserve">
+    <value>Bitte selektiere einen Plugin Aktualisierungsfrequenz</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE" xml:space="preserve">
+    <value>Plugin Aktualisierungsfrequenz fehlt</value>
+  </data>
+  <data name="PLUGIN_URI" xml:space="preserve">
+    <value>Plugin URI</value>
+  </data>
+  <data name="PLUGIN_URI_MISSING" xml:space="preserve">
+    <value>Bitte füge einen Plugin URI hinzu</value>
+  </data>
+  <data name="PLUGIN_URI_MISSING_TITLE" xml:space="preserve">
+    <value>Plugin URI fehlt</value>
+  </data>
   <data name="PORT" xml:space="preserve">
     <value>Port</value>
   </data>
@@ -560,14 +661,26 @@ Das Projekt befindet sich auf</value>
   <data name="REGION" xml:space="preserve">
     <value>Bezirk</value>
   </data>
+  <data name="RELOAD_SERVER_LISTS" xml:space="preserve">
+    <value>Lade Serverlisten neu</value>
+  </data>
   <data name="REMOVE_API" xml:space="preserve">
     <value>Möchtest du wirklich die selektierte APIs unwideruflich löschen?</value>
   </data>
   <data name="REMOVE_API_TITLE" xml:space="preserve">
     <value>Selektierte API löschen</value>
   </data>
+  <data name="REMOVE_PLUGIN" xml:space="preserve">
+    <value>Möchtest du wirklich die selektierten Plugins unwideruflich löschen?</value>
+  </data>
+  <data name="REMOVE_PLUGIN_TITLE" xml:space="preserve">
+    <value>Selektiertes Plugin löschen</value>
+  </data>
   <data name="REMOVE_SELECTED_API" xml:space="preserve">
     <value>Selektierte API entfernen</value>
+  </data>
+  <data name="REMOVE_SELECTED_PLUGIN" xml:space="preserve">
+    <value>Selektiertes Plugin entfernen</value>
   </data>
   <data name="REMOVE_SERVER_FROM_FAVOURITES" xml:space="preserve">
     <value>Möchtest du wirklich diesen Server von deinen Favoriten löschen?</value>
@@ -583,6 +696,12 @@ Das Projekt befindet sich auf</value>
   </data>
   <data name="REVERT_CONFIG" xml:space="preserve">
     <value>Einstellungen zurückstellen</value>
+  </data>
+  <data name="REVERT_PLUGIN_LIST" xml:space="preserve">
+    <value>Möchtest du wirklich die Plugin Liste zu ihrem Ursprungszustand zurücksetzen?</value>
+  </data>
+  <data name="REVERT_PLUGIN_LIST_TITLE" xml:space="preserve">
+    <value>Plugin Liste zurücksetzen</value>
   </data>
   <data name="RULE" xml:space="preserve">
     <value>Regel</value>
@@ -607,20 +726,8 @@ Möchtest du diese Webseite jetzt besuchen?</value>
   <data name="SAMPCTL_UNZIP_ERROR" xml:space="preserve">
     <value>sampctl konnte nicht entpackt werden.</value>
   </data>
-  <data name="SAMP_DISCORD_PLUGIN_COPY_ERROR" xml:space="preserve">
-    <value>SA:MP Discord Rich Presence Plugin konnte nicht kopiert werden.</value>
-  </data>
-  <data name="SAMP_DISCORD_PLUGIN_ERROR_TITLE" xml:space="preserve">
-    <value>SA:MP Discord Rich Presence Plugin Fehler</value>
-  </data>
-  <data name="SAMP_DISCORD_PLUGIN_MISSING_ASSET" xml:space="preserve">
-    <value>SA:MP Discord Rich Presence Plugin konnte nicht heruntergeladen werden.</value>
-  </data>
   <data name="SAVE" xml:space="preserve">
     <value>Speichern</value>
-  </data>
-  <data name="SAVED_POSITIONS" xml:space="preserve">
-    <value>Gespeicherte Positionen</value>
   </data>
   <data name="SCORE" xml:space="preserve">
     <value>Punkte</value>
@@ -676,7 +783,7 @@ Drücke "Abbrechen" um diese Aktion abzubrechen.</value>
   <data name="SERVERS" xml:space="preserve">
     <value>Server</value>
   </data>
-  <data name="SERVERS_FILTER" xml:space="preserve">
+  <data name="SERVERS_FILTERS" xml:space="preserve">
     <value>Server Filter</value>
   </data>
   <data name="SERVER_ALREADY_IN_FAVOURITES" xml:space="preserve">
@@ -696,14 +803,23 @@ Möchtest du fortfahren?</value>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
     <value>Server Passwort Einagefeld ist leer.</value>
   </data>
+  <data name="SESSIONS" xml:space="preserve">
+    <value>Sessions</value>
+  </data>
   <data name="SHOW_ADDITIONAL_CONFIGURATIONS" xml:space="preserve">
     <value>Zeige weitere Konfigurationen</value>
+  </data>
+  <data name="SHOW_EMPTY_SERVERS" xml:space="preserve">
+    <value>Zeige leere Server</value>
   </data>
   <data name="SHOW_EXTENDED_SERVER_INFORMATION" xml:space="preserve">
     <value>Erweiterte Serverinformationen</value>
   </data>
   <data name="SHOW_FAVOURITES" xml:space="preserve">
     <value>Favoriten</value>
+  </data>
+  <data name="SHOW_FULL_SERVERS" xml:space="preserve">
+    <value>Zeige volle server</value>
   </data>
   <data name="SHOW_GALLERY" xml:space="preserve">
     <value>Zeige Gallery</value>
@@ -735,6 +851,9 @@ Möchtest du fortfahren?</value>
   <data name="SHOW_SOUTHCLAWS_LIST" xml:space="preserve">
     <value>Southclaw's Liste</value>
   </data>
+  <data name="SHOW_USERNAME_DIALOG" xml:space="preserve">
+    <value>Zeige Benutzernamen Dialog</value>
+  </data>
   <data name="SLEEP" xml:space="preserve">
     <value>Server Tick Zeit</value>
   </data>
@@ -764,6 +883,14 @@ Möchtest du fortfahren?</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Benutzername</value>
+  </data>
+  <data name="USERNAME_WARNING" xml:space="preserve">
+    <value>Dort ist bereits ein Benutzer mit deinem Benutzernamen aktiv.
+
+Möchtest du wirklich fortfahren?</value>
+  </data>
+  <data name="USERNAME_WARNING_TITLE" xml:space="preserve">
+    <value>Benutzernamen Warnung</value>
   </data>
   <data name="USE_DISCORD_RICH_PRESENCE" xml:space="preserve">
     <value>Benutze Discord Rich Presence</value>

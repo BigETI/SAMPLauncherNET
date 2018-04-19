@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using WinFormsTranslator;
@@ -54,11 +55,6 @@ namespace SAMPLauncherNET
         private bool rowThreadSuccess;
 
         /// <summary>
-        /// APIs
-        /// </summary>
-        private List<ServerListConnector> apis = new List<ServerListConnector>();
-
-        /// <summary>
         /// Configuration
         /// </summary>
         private readonly SAMPConfig config = SAMP.SAMPConfig;
@@ -72,6 +68,11 @@ namespace SAMPLauncherNET
         /// Selected API index
         /// </summary>
         private int selectedAPIIndex = -1;
+
+        /// <summary>
+        /// Filters
+        /// </summary>
+        private List<FilterUserControl> filters = new List<FilterUserControl>();
 
         /// <summary>
         /// Loaded gallery
@@ -100,7 +101,7 @@ namespace SAMPLauncherNET
                 {
                     if (dgvr.Cells[dgvr.Cells.Count - 1].Value != null)
                     {
-                        string ipp = dgvr.Cells[dgvr.Cells.Count - 1].Value.ToString();
+                        string ipp = dgvr.Cells[dgvr.Cells.Count - 3].Value.ToString();
                         if (registeredServers.ContainsKey(ipp))
                         {
                             ret = registeredServers[ipp];
@@ -120,6 +121,7 @@ namespace SAMPLauncherNET
             get
             {
                 bool ret = false;
+                List<ServerListConnector> apis = SAMP.APIIO;
                 if ((selectedAPIIndex >= 0) && (selectedAPIIndex < apis.Count))
                 {
                     ServerListConnector slc = apis[selectedAPIIndex];
@@ -137,6 +139,7 @@ namespace SAMPLauncherNET
             get
             {
                 List<IndexedServerListConnector> ret = new List<IndexedServerListConnector>();
+                List<ServerListConnector> apis = SAMP.APIIO;
                 for (int i = 0; i < apis.Count; i++)
                 {
                     ServerListConnector slc = apis[i];
@@ -172,11 +175,14 @@ namespace SAMPLauncherNET
             apiGridView.Columns[1].HeaderText = Translator.GetTranslation("NAME");
             apiGridView.Columns[2].HeaderText = Translator.GetTranslation("TYPE");
             apiGridView.Columns[3].HeaderText = Translator.GetTranslation("ENDPOINT");
+            usernameSingleLineTextField.Hint = Translator.GetTranslation("USERNAME") + "...";
+            usernameSingleLineTextField.Text = SAMP.Username;
 
             int i = 0;
+            string lang = SAMP.LauncherConfigIO.Language;
             foreach (Language language in Translator.TranslatorInterface.Languages)
             {
-                if (language.Culture == (string)(Properties.Settings.Default["Language"]))
+                if (language.Culture == lang)
                 {
                     languagesComboBox.SelectedIndex = i;
                     break;
@@ -195,14 +201,26 @@ namespace SAMPLauncherNET
             galleryFileSystemWatcher.Path = SAMP.GalleryPath;
             textFileSystemWatcher.Path = SAMP.ConfigPath;
 
-            lastChatlogTextBox.Text = SAMP.Chatlog;
-            savedPositionsTextBox.Text = SAMP.SavedPositions;
+            //lastChatlogRichTextBox.Rtf = @"{\rtf1\ansi\f0\pard" + Environment.NewLine + SAMP.Chatlog + Environment.NewLine + "}";
+            /*string[] last_chatlog = SAMP.Chatlog.Split(Environment.NewLine.ToCharArray());
+            if (last_chatlog != null)
+            {
+                lastChatlogRichTextBox.Lines = last_chatlog;
+            }
+            last_chatlog = lastChatlogRichTextBox.Rtf.Split(new string[] { "\\line" }, StringSplitOptions.None);
+            if (last_chatlog != null)
+            {
+                lastChatlogRichTextBox.Lines = last_chatlog;
+            }*/
 
+            savedPositionsTextBox.Text = SAMP.SavedPositions;
             ReloadVersions();
             ReloadSAMPConfig();
-            ReloadAPIs();
+            ReloadPluginsData();
             ReloadLauncherConfig();
+            UpdateChatlogFormat();
             ReloadDeveloperToolsConfig();
+            FixFilterControls();
             serversThread = new Thread(() =>
             {
                 while (true)
@@ -245,16 +263,49 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Clear plugins data
+        /// </summary>
+        private void ClearPluginsData()
+        {
+            pluginsDataTable.Clear();
+        }
+
+        /// <summary>
+        /// Reload plugins data
+        /// </summary>
+        private void ReloadPluginsData()
+        {
+            PluginDataContract[] plugins = SAMP.PluginsDataIO;
+            ClearPluginsData();
+            for (int i = 0; i < plugins.Length; i++)
+            {
+                DataRow dr = pluginsDataTable.NewRow();
+                PluginDataContract plugin = plugins[i];
+                string trimmed_name = plugin.Name.Trim();
+                if (trimmed_name.Length > 4)
+                {
+                    if (trimmed_name.StartsWith("{$") && trimmed_name.EndsWith("$}"))
+                    {
+                        plugin.TranslatableText = Translator.GetTranslation(trimmed_name.Substring(2, trimmed_name.Length - 4));
+                    }
+                }
+                dr.ItemArray = new object[] { i, plugin.Enabled, plugin.Name, plugin.Provider.ToString(), plugin.URI, plugin.UpdateFrequency.ToString() };
+                pluginsDataTable.Rows.Add(dr);
+            }
+        }
+
+        /// <summary>
         /// Clear APIs
         /// </summary>
         private void ClearAPIs()
         {
+            List<ServerListConnector> apis = SAMP.APIIO;
+            foreach (ServerListConnector api in apis)
+            {
+                api.NotLoaded = true;
+            }
             selectAPIComboBox.Items.Clear();
             selectedAPIIndex = -1;
-            lock (apis)
-            {
-                apis.Clear();
-            }
             apiDataTable.Clear();
             lock (loadServers)
             {
@@ -274,35 +325,33 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Reload APIs
         /// </summary>
-        private void ReloadAPIs()
+        /// <param name="oldIndex">Old index</param>
+        private void ReloadAPIs(int oldIndex = 0)
         {
+            List<ServerListConnector> apis = SAMP.APIIO;
             ClearAPIs();
-            lock (apis)
+            lock (apiDataTable)
             {
-                apis = SAMP.APIIO;
-                lock (apiDataTable)
+                for (int i = 0; i < apis.Count; i++)
                 {
-                    for (int i = 0; i < apis.Count; i++)
+                    DataRow dr = apiDataTable.NewRow();
+                    ServerListConnector slc = apis[i];
+                    string trimmed_name = slc.Name.Trim();
+                    if (trimmed_name.Length > 4)
                     {
-                        DataRow dr = apiDataTable.NewRow();
-                        ServerListConnector slc = apis[i];
-                        string trimmed_name = slc.Name.Trim();
-                        if (trimmed_name.Length > 4)
+                        if (trimmed_name.StartsWith("{$") && trimmed_name.EndsWith("$}"))
                         {
-                            if (trimmed_name.StartsWith("{$") && trimmed_name.EndsWith("$}"))
-                            {
-                                slc.TranslatableText = Translator.GetTranslation(trimmed_name.Substring(2, trimmed_name.Length - 4));
-                            }
+                            slc.TranslatableText = Translator.GetTranslation(trimmed_name.Substring(2, trimmed_name.Length - 4));
                         }
-                        dr.ItemArray = new object[] { i, slc.Name, slc.ServerListType.ToString(), slc.Endpoint };
-                        apiDataTable.Rows.Add(dr);
                     }
+                    dr.ItemArray = new object[] { i, slc.Name, slc.ServerListType.ToString(), slc.Endpoint };
+                    apiDataTable.Rows.Add(dr);
                 }
-                selectAPIComboBox.Items.AddRange(apis.ToArray());
-                if (apis.Count > 0)
-                {
-                    selectAPIComboBox.SelectedIndex = 0;
-                }
+            }
+            selectAPIComboBox.Items.AddRange(apis.ToArray());
+            if (apis.Count > oldIndex)
+            {
+                selectAPIComboBox.SelectedIndex = oldIndex;
             }
         }
 
@@ -312,6 +361,7 @@ namespace SAMPLauncherNET
         private void SelectAPI()
         {
             int index = selectAPIComboBox.SelectedIndex;
+            List<ServerListConnector> apis = SAMP.APIIO;
             if ((index >= 0) && (index < apis.Count))
             {
                 lock (loadServers)
@@ -328,9 +378,60 @@ namespace SAMPLauncherNET
                         }
                     }
                 }
-                UpdateServerListFilter();
+                UpdateServerListFilters();
                 UpdateServerCount();
                 EnterRow();
+            }
+        }
+
+        /// <summary>
+        /// Add filter control
+        /// </summary>
+        private void AddFilterControl()
+        {
+            FilterUserControl filter = new FilterUserControl();
+            filtersInnerPanel.Controls.Add(filter);
+            filters.Add(filter);
+            filter.Dock = DockStyle.Top;
+            filter.OnFilterFilterEvent += (sender, e) =>
+            {
+                UpdateServerListFilters();
+            };
+            filter.OnFilterDeleteEvent += (sender, e) =>
+            {
+                if (sender is FilterUserControl)
+                {
+                    RemoveFilterControl((FilterUserControl)sender);
+                }
+            };
+        }
+
+        /// <summary>
+        /// Remove filter control
+        /// </summary>
+        /// <param name="filterControl">Filter control</param>
+        private void RemoveFilterControl(FilterUserControl filterControl)
+        {
+            if (filterControl != null)
+            {
+                if (filters.Contains(filterControl))
+                {
+                    filters.Remove(filterControl);
+                    filtersInnerPanel.Controls.Remove(filterControl);
+                    FixFilterControls();
+                    UpdateServerListFilters();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Fix filter controls
+        /// </summary>
+        private void FixFilterControls()
+        {
+            if (filters.Count <= 0)
+            {
+                AddFilterControl();
             }
         }
 
@@ -341,6 +442,7 @@ namespace SAMPLauncherNET
         {
             uint c = 0U;
             int index = selectedAPIIndex;
+            List<ServerListConnector> apis = SAMP.APIIO;
             if ((index >= 0) && (index < apis.Count))
             {
                 c = apis[index].ServerCount;
@@ -384,7 +486,7 @@ namespace SAMPLauncherNET
             {
                 if (dgvr.Cells[dgvr.Cells.Count - 1].Value != null)
                 {
-                    string ipp = dgvr.Cells[dgvr.Cells.Count - 1].Value.ToString();
+                    string ipp = dgvr.Cells[dgvr.Cells.Count - 3].Value.ToString();
                     if (registeredServers.ContainsKey(ipp))
                     {
                         Server server = registeredServers[ipp];
@@ -403,9 +505,13 @@ namespace SAMPLauncherNET
                         if (server.IsDataFetched(ERequestType.Information))
                         {
                             dgvr.Cells[2].Value = server.Hostname;
-                            dgvr.Cells[3].Value = new PlayerCountString(server.PlayerCount, server.MaxPlayers);
+                            ushort player_count = server.PlayerCount;
+                            ushort max_players = server.MaxPlayers;
+                            dgvr.Cells[3].Value = new PlayerCountString(player_count, max_players);
                             dgvr.Cells[4].Value = server.Gamemode;
                             dgvr.Cells[5].Value = server.Language;
+                            dgvr.Cells[7].Value = (player_count <= 0);
+                            dgvr.Cells[8].Value = (player_count >= max_players);
                         }
                         ReloadServerInfo();
                     }
@@ -508,63 +614,101 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Escape filter string
-        /// </summary>
-        /// <param name="str">String</param>
-        /// <returns>Escaped filer string</returns>
-        private static string EscapeFilterString(string str)
-        {
-            StringBuilder ret = new StringBuilder();
-            foreach (char c in str)
-            {
-                switch (c)
-                {
-                    case '\'':
-                        break;
-                    case '\\':
-                        ret.Append("\\\\");
-                        break;
-                    case '%':
-                        ret.Append("\\%");
-                        break;
-                    default:
-                        ret.Append(c, 1);
-                        break;
-                }
-            }
-            return ret.ToString();
-        }
-
-        /// <summary>
         /// Update server list filter
         /// </summary>
-        private void UpdateServerListFilter()
+        private void UpdateServerListFilters()
         {
-            string ft = EscapeFilterString(filterSingleLineTextField.Text.Trim());
-            StringBuilder filter = new StringBuilder("GroupID=");
-            filter.Append(selectedAPIIndex.ToString());
-            if (ft.Length > 0)
+            StringBuilder str = new StringBuilder("GroupID=");
+            str.Append(selectedAPIIndex.ToString());
+            if (!(showEmptyServersToolStripMenuItem.Checked))
             {
-                if (filterHostnameRadioButton.Checked)
-                {
-                    filter.Append(" AND `Hostname` LIKE '%");
-                }
-                else if (filterModeRadioButton.Checked)
-                {
-                    filter.Append(" AND `Mode` LIKE '%");
-                }
-                else if (filterLanguageRadioButton.Checked)
-                {
-                    filter.Append(" AND `Language` LIKE '%");
-                }
-                else
-                {
-                    filter.Append(" AND `IP and port` LIKE '%");
-                }
-                filter.Append(ft);
-                filter.Append("%'");
+                str.Append(" AND `IsEmpty`=0");
             }
-            serversBindingSource.Filter = filter.ToString();
+            if (!(showFullServersToolStripMenuItem.Checked))
+            {
+                str.Append(" AND `IsFull`=0");
+            }
+            foreach (FilterUserControl filter in filters)
+            {
+                string ft = filter.FilterText;
+                if (ft.Length > 0)
+                {
+                    if (filter.UseRegex)
+                    {
+                        try
+                        {
+                            Regex regex = new Regex(filter.FilterText);
+                            foreach (Server server in registeredServers.Values)
+                            {
+                                string match_str = null;
+                                switch (filter.FilterType)
+                                {
+                                    case EFilterType.Hostname:
+                                        match_str = server.HostnameCached;
+                                        break;
+                                    case EFilterType.Mode:
+                                        match_str = server.GamemodeCached;
+                                        break;
+                                    case EFilterType.Language:
+                                        match_str = server.LanguageCached;
+                                        break;
+                                    case EFilterType.IPAndPort:
+                                        match_str = server.IPPortString;
+                                        break;
+                                }
+                                if (match_str != null)
+                                {
+                                    if (regex.IsMatch(match_str))
+                                    {
+                                        str.Append(" AND `IP and port` = '");
+                                        str.Append(server.IPPortString);
+                                        str.Append("'");
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Console.Error.WriteLine(e.Message);
+                        }
+                    }
+                    else
+                    {
+                        string type = null;
+                        switch (filter.FilterType)
+                        {
+                            case EFilterType.Hostname:
+                                type = "Hostname";
+                                break;
+                            case EFilterType.Mode:
+                                type = "Mode";
+                                break;
+                            case EFilterType.Language:
+                                type = "Language";
+                                break;
+                            case EFilterType.IPAndPort:
+                                type = "IP and port";
+                                break;
+                        }
+                        if (type != null)
+                        {
+                            str.Append(" AND `");
+                            str.Append(type);
+                            str.Append("` LIKE '%");
+                            str.Append(filter.FilterText);
+                            str.Append("%'");
+                        }
+                    }
+                }
+            }
+            try
+            {
+                serversBindingSource.Filter = str.ToString();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             EnterRow();
         }
 
@@ -602,12 +746,36 @@ namespace SAMPLauncherNET
             }
             if (s != null)
             {
-                ConnectForm cf = new ConnectForm(!(s.HasPassword));
-                DialogResult result = cf.ShowDialog();
-                DialogResult = DialogResult.None;
-                if (result == DialogResult.OK)
+                bool success = true;
+                foreach (Player player in s.PlayerValues)
                 {
-                    SAMP.LaunchSAMP(s, cf.Username, s.HasPassword ? cf.ServerPassword : null, rconPassword, false, quitWhenDone, useDiscordRichPresenceCheckBox.Checked, this);
+                    if (player.Name.ToLower() == SAMP.Username.ToLower())
+                    {
+                        success = (MessageBox.Show(Translator.GetTranslation("USERNAME_WARNING"), Translator.GetTranslation("USERNAME_WARNING_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
+                        break;
+                    }
+                }
+                if (showUsernameDialogCheckBox.Checked || s.HasPassword)
+                {
+                    ConnectForm cf = new ConnectForm(!(s.HasPassword));
+                    DialogResult result = cf.ShowDialog();
+                    DialogResult = DialogResult.None;
+                    if (result == DialogResult.OK)
+                    {
+                        SAMP.LaunchSAMP(s, cf.Username, s.HasPassword ? cf.ServerPassword : null, rconPassword, false, quitWhenDone, SAMP.PluginsDataIO, this);
+                    }
+                }
+                else
+                {
+                    string username = usernameSingleLineTextField.Text.Trim();
+                    if (username.Length > 0)
+                    {
+                        SAMP.LaunchSAMP(s, usernameSingleLineTextField.Text.Trim(), null, rconPassword, false, quitWhenDone, SAMP.PluginsDataIO, this);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Translator.GetTranslation("PLEASE_TYPE_IN_USERNAME"), Translator.GetTranslation("INPUT_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -636,7 +804,23 @@ namespace SAMPLauncherNET
             LauncherConfigDataContract lcdc = SAMP.LauncherConfigIO;
             developmentDirectorySingleLineTextField.Text = lcdc.DevelopmentDirectory;
             selectedAPIIndex = lcdc.LastSelectedServerListAPI;
-            selectAPIComboBox.SelectedIndex = selectedAPIIndex;
+            if (selectAPIComboBox.Items.Count > selectedAPIIndex)
+            {
+                selectAPIComboBox.SelectedIndex = selectedAPIIndex;
+            }
+            chatlogColorCodesCheckBox.Checked = lcdc.ShowChatlogColorCodes;
+            chatlogColoredCheckBox.Checked = lcdc.ShowChatlogColored;
+            chatlogTimestampCheckBox.Checked = lcdc.ShowChatlogTimestamp;
+            showUsernameDialogCheckBox.Checked = lcdc.ShowUsernameDialog;
+            closeWhenLaunchedCheckBox.Checked = !(lcdc.DontCloseWhenLaunched);
+        }
+
+        /// <summary>
+        /// Update chatlog format
+        /// </summary>
+        private void UpdateChatlogFormat()
+        {
+            lastChatlogRichTextBox.Rtf = ChatlogFormatter.Format(SAMP.Chatlog, EChatlogFormatType.RTF, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked);
         }
 
         /// <summary>
@@ -738,9 +922,6 @@ namespace SAMPLauncherNET
             config.FontFace = fontFaceSingleLineTextField.Text;
             config.FontWeight = fontWeightCheckBox.Checked;
             config.Save();
-            LauncherConfigDataContract lcdc = SAMP.LauncherConfigIO;
-            lcdc.UseDiscordRichPresence = useDiscordRichPresenceCheckBox.Checked;
-            SAMP.LauncherConfigIO = lcdc;
         }
 
         /// <summary>
@@ -777,7 +958,6 @@ namespace SAMPLauncherNET
             noNametagStatusCheckBox.Checked = config.NoNametagStatus;
             fontFaceSingleLineTextField.Text = config.FontFace;
             fontWeightCheckBox.Checked = config.FontWeight;
-            useDiscordRichPresenceCheckBox.Checked = SAMP.LauncherConfigIO.UseDiscordRichPresence;
         }
 
         /// <summary>
@@ -859,9 +1039,86 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Add selcted API
+        /// Add new plugin data
         /// </summary>
-        private void AddSelectedAPI()
+        private void AddNewPluginData()
+        {
+            PluginDataForm pdf = new PluginDataForm(null);
+            DialogResult result = pdf.ShowDialog();
+            DialogResult = DialogResult.None;
+            if (result == DialogResult.OK)
+            {
+                List<PluginDataContract> plugins = new List<PluginDataContract>(SAMP.PluginsDataIO);
+                plugins.Add(pdf.PluginData);
+                SAMP.PluginsDataIO = plugins.ToArray();
+                ReloadPluginsData();
+            }
+        }
+
+        /// <summary>
+        /// Edit selected plugin data
+        /// </summary>
+        private void EditSelectedPluginData()
+        {
+            PluginDataContract[] plugins = SAMP.PluginsDataIO;
+            foreach (DataGridViewRow dgvr in pluginsGridView.SelectedRows)
+            {
+                object index = dgvr.Cells[0].Value;
+                if (index is int)
+                {
+                    int i = (int)index;
+                    if ((i >= 0) && (i < plugins.Length))
+                    {
+                        PluginDataContract plugin = plugins[i];
+                        PluginDataForm pdf = new PluginDataForm(plugin);
+                        DialogResult result = pdf.ShowDialog();
+                        DialogResult = DialogResult.None;
+                        if (result == DialogResult.OK)
+                        {
+                            plugins[i] = pdf.PluginData;
+                            SAMP.PluginsDataIO = plugins;
+                            ReloadPluginsData();
+                        }
+                    }
+                }
+                break;
+            }
+        }
+
+        /// <summary>
+        /// Remove selected plugin data
+        /// </summary>
+        private void RemoveSelectedPluginData()
+        {
+            if (MessageBox.Show(Translator.GetTranslation("REMOVE_PLUGIN"), Translator.GetTranslation("REMOVE_PLUGIN_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                List<PluginDataContract> rl = new List<PluginDataContract>();
+                List<PluginDataContract> plugins_result = new List<PluginDataContract>(SAMP.PluginsDataIO);
+                foreach (DataGridViewRow dgvr in pluginsGridView.SelectedRows)
+                {
+                    object index = dgvr.Cells[0].Value;
+                    if (index is int)
+                    {
+                        int i = (int)index;
+                        if ((i >= 0) && (i < plugins_result.Count))
+                        {
+                            rl.Add(plugins_result[i]);
+                        }
+                    }
+                }
+                foreach (PluginDataContract item in rl)
+                {
+                    plugins_result.Remove(item);
+                }
+                SAMP.PluginsDataIO = plugins_result.ToArray();
+                ReloadPluginsData();
+            }
+        }
+
+        /// <summary>
+        /// Add new API
+        /// </summary>
+        private void AddNewAPI()
         {
             APIForm apif = new APIForm(null);
             DialogResult result = apif.ShowDialog();
@@ -880,20 +1137,25 @@ namespace SAMPLauncherNET
         /// </summary>
         private void EditSelectedAPI()
         {
+            List<ServerListConnector> apis = SAMP.APIIO;
             foreach (DataGridViewRow dgvr in apiGridView.SelectedRows)
             {
-                int index = (int)(dgvr.Cells[0].Value);
-                if ((index >= 0) && (index < apis.Count))
+                object index = dgvr.Cells[0].Value;
+                if (index is int)
                 {
-                    ServerListConnector slc = apis[index];
-                    APIForm apif = new APIForm(slc.APIDataContract);
-                    DialogResult result = apif.ShowDialog();
-                    DialogResult = DialogResult.None;
-                    if (result == DialogResult.OK)
+                    int i = (int)index;
+                    if ((i >= 0) && (i < apis.Count))
                     {
-                        apis[index] = new ServerListConnector(apif.API);
-                        SAMP.APIIO = apis;
-                        ReloadAPIs();
+                        ServerListConnector slc = apis[i];
+                        APIForm apif = new APIForm(slc.APIDataContract);
+                        DialogResult result = apif.ShowDialog();
+                        DialogResult = DialogResult.None;
+                        if (result == DialogResult.OK)
+                        {
+                            apis[i] = new ServerListConnector(apif.API);
+                            SAMP.APIIO = apis;
+                            ReloadAPIs();
+                        }
                     }
                 }
                 break;
@@ -911,10 +1173,14 @@ namespace SAMPLauncherNET
                 List<ServerListConnector> apis_result = SAMP.APIIO;
                 foreach (DataGridViewRow dgvr in apiGridView.SelectedRows)
                 {
-                    int index = (int)(dgvr.Cells[0].Value);
-                    if (apis_result.Count > index)
+                    object index = dgvr.Cells[0].Value;
+                    if (index is int)
                     {
-                        rl.Add(apis_result[index]);
+                        int i = (int)index;
+                        if ((i >= 0) && (i < apis_result.Count))
+                        {
+                            rl.Add(apis_result[i]);
+                        }
                     }
                 }
                 foreach (ServerListConnector item in rl)
@@ -927,7 +1193,7 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Removeselection from favourites
+        /// Remove selection from favourites
         /// </summary>
         /// <param name="promptWhenError">Prompt when error</param>
         private void RemoveSelectionFromFavourites(bool promptWhenError = true)
@@ -939,6 +1205,7 @@ namespace SAMPLauncherNET
                 {
                     if (MessageBox.Show(Translator.GetTranslation("REMOVE_SERVER_FROM_FAVOURITES"), Translator.GetTranslation("REMOVE_SERVER_FROM_FAVOURITES_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
+                        List<ServerListConnector> apis = SAMP.APIIO;
                         Dictionary<string, Server> servers = apis[selectedAPIIndex].ServerListIO;
                         if (servers.ContainsKey(server.IPPortString))
                         {
@@ -956,18 +1223,46 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Save text file
+        /// </summary>
+        /// <param name="fileName">File name</param>
+        /// <param name="text">Text</param>
+        private static bool SaveTextFile(string fileName, string text)
+        {
+            bool ret = false;
+            try
+            {
+                if (File.Exists(fileName))
+                {
+                    File.Delete(fileName);
+                }
+                using (StreamWriter writer = new StreamWriter(fileName))
+                {
+                    writer.Write(text);
+                    ret = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return ret;
+        }
+
+        /// <summary>
         /// Multi-threaded lists timer tick event
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">Event arguments</param>
         private void multithreadedListsTimer_Tick(object sender, EventArgs e)
         {
+            List<ServerListConnector> apis = SAMP.APIIO;
             lock (loadedServers)
             {
                 foreach (KeyValuePair<Server, int> kv in loadedServers)
                 {
                     DataRow dr = serversDataTable.NewRow();
-                    object[] row = new object[7];
+                    object[] row = new object[9];
                     row[0] = kv.Value;
                     if (kv.Key.IsDataFetched(ERequestType.Ping))
                     {
@@ -977,10 +1272,14 @@ namespace SAMPLauncherNET
                     {
                         row[1] = 1000U;
                     }
+                    ushort player_count = 0;
+                    ushort max_players = 0;
                     if (kv.Key.IsDataFetched(ERequestType.Information))
                     {
                         row[2] = kv.Key.Hostname;
-                        row[3] = new PlayerCountString(kv.Key.PlayerCount, kv.Key.MaxPlayers);
+                        player_count = kv.Key.PlayerCount;
+                        max_players = kv.Key.MaxPlayers;
+                        row[3] = new PlayerCountString(player_count, max_players);
                         row[4] = kv.Key.Gamemode;
                         row[5] = kv.Key.Language;
                     }
@@ -992,6 +1291,8 @@ namespace SAMPLauncherNET
                         row[5] = "-";
                     }
                     row[6] = kv.Key.IPPortString;
+                    row[7] = (player_count <= 0);
+                    row[8] = (player_count >= max_players);
                     dr.ItemArray = row;
                     serversDataTable.Rows.Add(dr);
                     if (!(registeredServers.ContainsKey(kv.Key.IPPortString)))
@@ -1002,12 +1303,9 @@ namespace SAMPLauncherNET
                     {
                         queryFirstServer = !(EnterRow());
                     }
-                    lock (apis)
+                    if ((kv.Value >= 0) && (kv.Value < apis.Count))
                     {
-                        if ((kv.Value >= 0) && (kv.Value < apis.Count))
-                        {
-                            ++apis[kv.Value].ServerCount;
-                        }
+                        ++apis[kv.Value].ServerCount;
                     }
                 }
                 loadedServers.Clear();
@@ -1049,7 +1347,8 @@ namespace SAMPLauncherNET
         /// <param name="e">Form closed event args</param>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            LauncherConfigDataContract lcdc = new LauncherConfigDataContract(selectedAPIIndex, developmentDirectorySingleLineTextField.Text, useDiscordRichPresenceCheckBox.Checked);
+            int lang_index = languagesComboBox.SelectedIndex;
+            LauncherConfigDataContract lcdc = new LauncherConfigDataContract((lang_index >= 0) ? (new List<Language>(Translator.TranslatorInterface.Languages))[lang_index].Culture : "en-GB", selectedAPIIndex, developmentDirectorySingleLineTextField.Text, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked, showUsernameDialogCheckBox.Checked, !(closeWhenLaunchedCheckBox.Checked), !(createSessionsLogCheckBox.Checked));
             SAMP.LauncherConfigIO = lcdc;
             SaveDeveloperToolsConfig();
             lock (loadServers)
@@ -1131,26 +1430,6 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Filter single line text field text changed event
-        /// </summary>
-        /// <param name="sender">Sender</param>
-        /// <param name="e">Event arguments</param>
-        private void filterSingleLineTextField_TextChanged(object sender, EventArgs e)
-        {
-            UpdateServerListFilter();
-        }
-
-        /// <summary>
-        /// Filter generic radio button checked changed event
-        /// </summary>
-        /// <param name="sender">Sender</param>
-        /// <param name="e">Event arguments</param>
-        private void filterGenericRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateServerListFilter();
-        }
-
-        /// <summary>
         /// Generic picture box mouse enter event
         /// </summary>
         /// <param name="sender">Sender</param>
@@ -1177,7 +1456,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void mainTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (mainTabControl.SelectedTab == galleryPage)
+            if (mainTabControl.SelectedTab == mediaPage)
             {
                 if (galleryThread == null)
                 {
@@ -1332,7 +1611,7 @@ namespace SAMPLauncherNET
             switch (e.Name)
             {
                 case "chatlog.txt":
-                    lastChatlogTextBox.Text = SAMP.Chatlog;
+                    lastChatlogRichTextBox.Text = SAMP.Chatlog;
                     break;
                 case "savedpositions.txt":
                     savedPositionsTextBox.Text = SAMP.SavedPositions;
@@ -1444,6 +1723,7 @@ namespace SAMPLauncherNET
             if (server != null)
             {
                 List<IndexedServerListConnector> connectors = new List<IndexedServerListConnector>();
+                List<ServerListConnector> apis = SAMP.APIIO;
                 for (int i = 0; i < apis.Count; i++)
                 {
                     ServerListConnector slc = apis[i];
@@ -1569,7 +1849,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void apiAddPictureBox_Click(object sender, EventArgs e)
         {
-            AddSelectedAPI();
+            AddNewAPI();
         }
 
         /// <summary>
@@ -1599,7 +1879,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void addNewAPIToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddSelectedAPI();
+            AddNewAPI();
         }
 
         /// <summary>
@@ -2010,6 +2290,297 @@ namespace SAMPLauncherNET
                 }
                 server.Dispose();
             }
+        }
+
+        /// <summary>
+        /// Show username dialog checkbox checked changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void showUsernameDialogCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            usernamePanel.Visible = !(showUsernameDialogCheckBox.Checked);
+        }
+
+        /// <summary>
+        /// Username single line text field text changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void usernameSingleLineTextField_TextChanged(object sender, EventArgs e)
+        {
+            SAMP.Username = usernameSingleLineTextField.Text.Trim();
+        }
+
+        /// <summary>
+        /// CHatlog generic check box checked changed event
+        /// </summary>
+        /// <param name="sender">Sendere</param>
+        /// <param name="e">Event arguments</param>
+        private void chatlogGenericCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateChatlogFormat();
+        }
+
+        /// <summary>
+        /// Plugins add picture box click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void pluginsAddPictureBox_Click(object sender, EventArgs e)
+        {
+            AddNewPluginData();
+        }
+
+        /// <summary>
+        /// Plugins edit picture box click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void pluginsEditPictureBox_Click(object sender, EventArgs e)
+        {
+            EditSelectedPluginData();
+        }
+
+        /// <summary>
+        /// Plugins remove picture box click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void pluginsRemovePictureBox_Click(object sender, EventArgs e)
+        {
+            RemoveSelectedPluginData();
+        }
+
+        /// <summary>
+        /// Plugins grid view sdouble click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void pluginsGridView_DoubleClick(object sender, EventArgs e)
+        {
+            EditSelectedPluginData();
+        }
+
+        /// <summary>
+        /// Plugins grid view cell content click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void pluginsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if ((e.ColumnIndex == 1) && (e.RowIndex >= 0))
+            {
+                if (e.RowIndex < pluginsGridView.Rows.Count)
+                {
+                    object index = pluginsGridView.Rows[e.RowIndex].Cells[0].Value;
+                    if (index is int)
+                    {
+                        int i = (int)index;
+                        if (i >= 0)
+                        {
+                            PluginDataContract[] plugins = SAMP.PluginsDataIO;
+                            if (i < plugins.Length)
+                            {
+                                PluginDataContract plugin = plugins[i];
+                                plugins[i] = new PluginDataContract(plugin.Name, plugin.Provider, plugin.URI, !(plugin.Enabled), plugin.UpdateFrequency);
+                                SAMP.PluginsDataIO = plugins;
+                                ReloadPluginsData();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Add new plugin tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void addNewPluginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewPluginData();
+        }
+
+        /// <summary>
+        /// Edit selected plugin 
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void editSelectedPluginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditSelectedPluginData();
+        }
+
+        /// <summary>
+        /// Remove selected plugin tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void removeSelectedPluginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveSelectedPluginData();
+        }
+
+        /// <summary>
+        /// Revert plugin list tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void revertPluginListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(Translator.GetTranslation("REVERT_PLUGIN_LIST"), Translator.GetTranslation("REVERT_PLUGIN_LIST_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                SAMP.RevertPluginsData();
+                ReloadPluginsData();
+            }
+        }
+
+        /// <summary>
+        /// Last chatlog copy text as tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void lastChatlogCopyTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(ChatlogFormatter.Format(SAMP.Chatlog, EChatlogFormatType.Plain, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked));
+        }
+
+        /// <summary>
+        /// Last chatlog copy original text as tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void lastChatlogCopyOriginalTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(SAMP.Chatlog);
+        }
+
+        /// <summary>
+        /// Last chatlog copy HTML as tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void lastChatlogCopyHTMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(ChatlogFormatter.Format(SAMP.Chatlog, EChatlogFormatType.HTMLSnippet, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked));
+        }
+
+        /// <summary>
+        /// Last chatlog copy RTF as tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void lastChatlogCopyRTFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(ChatlogFormatter.Format(SAMP.Chatlog, EChatlogFormatType.RTF, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked));
+        }
+
+        /// <summary>
+        /// Last chatlog save text as tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void lastChatlogSaveTextAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lastChatlogSaveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            DialogResult result = lastChatlogSaveFileDialog.ShowDialog();
+            DialogResult = DialogResult.None;
+            if (result == DialogResult.OK)
+            {
+                SaveTextFile(lastChatlogSaveFileDialog.FileName, ChatlogFormatter.Format(SAMP.Chatlog, EChatlogFormatType.Plain, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked));
+            }
+        }
+
+        /// <summary>
+        /// Last chatlog save original text as tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void lastChatlogSaveOriginalTextAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lastChatlogSaveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            DialogResult result = lastChatlogSaveFileDialog.ShowDialog();
+            DialogResult = DialogResult.None;
+            if (result == DialogResult.OK)
+            {
+                SaveTextFile(lastChatlogSaveFileDialog.FileName, SAMP.Chatlog);
+            }
+        }
+
+        /// <summary>
+        /// Last chatlog save HTML as tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void lastChatlogSaveHTMLAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lastChatlogSaveFileDialog.Filter = "Hypertext Markup Language files (*.html)|*.html|Hypertext Markup Language files (*.htm)|*.htm|All files (*.*)|*.*";
+            DialogResult result = lastChatlogSaveFileDialog.ShowDialog();
+            DialogResult = DialogResult.None;
+            if (result == DialogResult.OK)
+            {
+                SaveTextFile(lastChatlogSaveFileDialog.FileName, ChatlogFormatter.Format(SAMP.Chatlog, EChatlogFormatType.HTML, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked));
+            }
+        }
+
+        /// <summary>
+        /// Last chatlog save RTF as tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void lastChatlogSaveRTFAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lastChatlogSaveFileDialog.Filter = "Rich Text Format files (*.rtf)|*.rtf|All files (*.*)|*.*";
+            DialogResult result = lastChatlogSaveFileDialog.ShowDialog();
+            DialogResult = DialogResult.None;
+            if (result == DialogResult.OK)
+            {
+                SaveTextFile(lastChatlogSaveFileDialog.FileName, ChatlogFormatter.Format(SAMP.Chatlog, EChatlogFormatType.RTF, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked));
+            }
+        }
+
+        /// <summary>
+        /// Add servers filter picture box click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void addServersFilterPictureBox_Click(object sender, EventArgs e)
+        {
+            AddFilterControl();
+        }
+
+        /// <summary>
+        /// Show empty servers tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void showEmptyServersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showEmptyServersToolStripMenuItem.Checked = !(showEmptyServersToolStripMenuItem.Checked);
+            UpdateServerListFilters();
+        }
+
+        /// <summary>
+        /// Show full servers tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void showFullServersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showFullServersToolStripMenuItem.Checked = !(showFullServersToolStripMenuItem.Checked);
+            UpdateServerListFilters();
+        }
+
+        /// <summary>
+        /// Reload server lists tool strip menu item click event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void reloadServerListsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReloadAPIs(selectAPIComboBox.SelectedIndex);
         }
     }
 }

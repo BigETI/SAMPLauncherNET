@@ -140,6 +140,9 @@ This project is located at</value>
   <data name="ADD_NEW_API" xml:space="preserve">
     <value>Add new API</value>
   </data>
+  <data name="ADD_NEW_PLUGIN" xml:space="preserve">
+    <value>Add new plugin</value>
+  </data>
   <data name="ADD_SERVER_TO_FAVOURITES" xml:space="preserve">
     <value>Add server to favourites</value>
   </data>
@@ -199,6 +202,39 @@ This project is located at</value>
   </data>
   <data name="CANCEL_DOWNLOAD_TITLE" xml:space="preserve">
     <value>Cancel download</value>
+  </data>
+  <data name="CHATLOG_COPY_HTML" xml:space="preserve">
+    <value>Copy HTML</value>
+  </data>
+  <data name="CHATLOG_COPY_ORIGINAL_TEXT" xml:space="preserve">
+    <value>Copy original text</value>
+  </data>
+  <data name="CHATLOG_COPY_RTF" xml:space="preserve">
+    <value>Copy RTF</value>
+  </data>
+  <data name="CHATLOG_COPY_TEXT" xml:space="preserve">
+    <value>Copy text</value>
+  </data>
+  <data name="CHATLOG_OPTION_COLORED" xml:space="preserve">
+    <value>Colored</value>
+  </data>
+  <data name="CHATLOG_OPTION_COLOR_CODES" xml:space="preserve">
+    <value>Color codes</value>
+  </data>
+  <data name="CHATLOG_OPTION_TIMESTAMP" xml:space="preserve">
+    <value>Timestamp</value>
+  </data>
+  <data name="CHATLOG_SAVE_HTML_AS" xml:space="preserve">
+    <value>Save HTML as...</value>
+  </data>
+  <data name="CHATLOG_SAVE_ORIGINAL_TEXT_AS" xml:space="preserve">
+    <value>Save original text as...</value>
+  </data>
+  <data name="CHATLOG_SAVE_RTF_AS" xml:space="preserve">
+    <value>Save RTF as...</value>
+  </data>
+  <data name="CHATLOG_SAVE_TEXT_AS" xml:space="preserve">
+    <value>Save text as...</value>
   </data>
   <data name="CHAT_LOGGING" xml:space="preserve">
     <value>Enable chat logging</value>
@@ -287,8 +323,14 @@ This project is located at</value>
   <data name="EDIT_API_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Edit API</value>
   </data>
+  <data name="EDIT_PLUGIN_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Edit plugin</value>
+  </data>
   <data name="EDIT_SELECTED_API" xml:space="preserve">
     <value>Edit selected API</value>
+  </data>
+  <data name="EDIT_SELECTED_PLUGIN" xml:space="preserve">
+    <value>Edit selected plugin</value>
   </data>
   <data name="ENDPOINT" xml:space="preserve">
     <value>Endpoint</value>
@@ -326,6 +368,9 @@ This project is located at</value>
   <data name="FILTER_MODE" xml:space="preserve">
     <value>Filter mode</value>
   </data>
+  <data name="FILTER_USE_REGEX" xml:space="preserve">
+    <value>Use regex</value>
+  </data>
   <data name="FONT_FACE" xml:space="preserve">
     <value>Font-face</value>
   </data>
@@ -334,9 +379,6 @@ This project is located at</value>
   </data>
   <data name="FPS_LIMIT" xml:space="preserve">
     <value>FPS limit</value>
-  </data>
-  <data name="GALLERY" xml:space="preserve">
-    <value>Gallery</value>
   </data>
   <data name="GAMEMODE" xml:space="preserve">
     <value>Gamemode</value>
@@ -355,6 +397,14 @@ This project is located at</value>
   </data>
   <data name="GITHUB_PROJECT" xml:space="preserve">
     <value>GitHub project SAMPLauncherNET</value>
+  </data>
+  <data name="GTA_SA_IS_RUNNING" xml:space="preserve">
+    <value>An instance of GTA San Andreas is running right now. It will be terminated before a new instance is created.
+
+Do you want to continue?</value>
+  </data>
+  <data name="GTA_SA_IS_RUNNING_TITLE" xml:space="preserve">
+    <value>GTA San Andreas is running</value>
   </data>
   <data name="HOSTNAME" xml:space="preserve">
     <value>Hostname</value>
@@ -404,9 +454,6 @@ This project is located at</value>
   <data name="LAN_MODE" xml:space="preserve">
     <value>LAN mode</value>
   </data>
-  <data name="LAST_CHATLOG" xml:space="preserve">
-    <value>Last chatlog</value>
-  </data>
   <data name="LATITUDE_LONGITUDE" xml:space="preserve">
     <value>Latitude and longitude</value>
   </data>
@@ -434,6 +481,9 @@ This project is located at</value>
   <data name="MAXIMAL_PLAYERS" xml:space="preserve">
     <value>Maximal players</value>
   </data>
+  <data name="MEDIA" xml:space="preserve">
+    <value>Media</value>
+  </data>
   <data name="MESSAGES_LIMIT" xml:space="preserve">
     <value>Messages limit</value>
   </data>
@@ -460,6 +510,9 @@ This project is located at</value>
   </data>
   <data name="NEW_API_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Add new API</value>
+  </data>
+  <data name="NEW_PLUGIN_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Add new plugin</value>
   </data>
   <data name="NOT_IN_FAVOURITES" xml:space="preserve">
     <value>Not in favourites</value>
@@ -533,6 +586,51 @@ This project is located at</value>
   <data name="PLUGINS" xml:space="preserve">
     <value>Plugins</value>
   </data>
+  <data name="PLUGIN_COPY_ERROR" xml:space="preserve">
+    <value>Plugin can't be copied.</value>
+  </data>
+  <data name="PLUGIN_ENABLED" xml:space="preserve">
+    <value>Enable plugin</value>
+  </data>
+  <data name="PLUGIN_ERROR_TITLE" xml:space="preserve">
+    <value>Plugin error</value>
+  </data>
+  <data name="PLUGIN_NAME" xml:space="preserve">
+    <value>Plugin name</value>
+  </data>
+  <data name="PLUGIN_NAME_MISSING" xml:space="preserve">
+    <value>Please insert an API name.</value>
+  </data>
+  <data name="PLUGIN_NAME_MISSING_TITLE" xml:space="preserve">
+    <value>Plugin name missing</value>
+  </data>
+  <data name="PLUGIN_PROVIDER" xml:space="preserve">
+    <value>Plugin provider</value>
+  </data>
+  <data name="PLUGIN_PROVIDER_MISSING" xml:space="preserve">
+    <value>Please specify a plugin provider</value>
+  </data>
+  <data name="PLUGIN_PROVIDER_MISSING_TITLE" xml:space="preserve">
+    <value>Plugin provider missing</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY" xml:space="preserve">
+    <value>Plugin update frequency</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY_MISSING" xml:space="preserve">
+    <value>Please specify a plugin update frequency</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE" xml:space="preserve">
+    <value>Plugin update frequency missing</value>
+  </data>
+  <data name="PLUGIN_URI" xml:space="preserve">
+    <value>Plugin URI</value>
+  </data>
+  <data name="PLUGIN_URI_MISSING" xml:space="preserve">
+    <value>Please specify a plugin URI</value>
+  </data>
+  <data name="PLUGIN_URI_MISSING_TITLE" xml:space="preserve">
+    <value>Plugin URI missing</value>
+  </data>
   <data name="PORT" xml:space="preserve">
     <value>Port</value>
   </data>
@@ -560,14 +658,26 @@ This project is located at</value>
   <data name="REGION" xml:space="preserve">
     <value>Region</value>
   </data>
+  <data name="RELOAD_SERVER_LISTS" xml:space="preserve">
+    <value>Reload server lists</value>
+  </data>
   <data name="REMOVE_API" xml:space="preserve">
     <value>Do you really want to remove the selected API?</value>
   </data>
   <data name="REMOVE_API_TITLE" xml:space="preserve">
     <value>Remove selected API</value>
   </data>
+  <data name="REMOVE_PLUGIN" xml:space="preserve">
+    <value>Do you really want to remove the selected plugin?</value>
+  </data>
+  <data name="REMOVE_PLUGIN_TITLE" xml:space="preserve">
+    <value>Remove selected plugin</value>
+  </data>
   <data name="REMOVE_SELECTED_API" xml:space="preserve">
     <value>Remove selected API</value>
+  </data>
+  <data name="REMOVE_SELECTED_PLUGIN" xml:space="preserve">
+    <value>Remove selected plugin</value>
   </data>
   <data name="REMOVE_SERVER_FROM_FAVOURITES" xml:space="preserve">
     <value>Do you really want to remove this server from your favourites?</value>
@@ -583,6 +693,12 @@ This project is located at</value>
   </data>
   <data name="REVERT_CONFIG" xml:space="preserve">
     <value>Revert config</value>
+  </data>
+  <data name="REVERT_PLUGIN_LIST" xml:space="preserve">
+    <value>Do you really want to revert the plugin list to default?</value>
+  </data>
+  <data name="REVERT_PLUGIN_LIST_TITLE" xml:space="preserve">
+    <value>Revert plugin list</value>
   </data>
   <data name="RULE" xml:space="preserve">
     <value>Rule</value>
@@ -607,17 +723,8 @@ Do you want to visit this website now?</value>
   <data name="SAMPCTL_UNZIP_ERROR" xml:space="preserve">
     <value>sampctl can't be unzipped.</value>
   </data>
-  <data name="SAMP_DISCORD_PLUGIN_COPY_ERROR" xml:space="preserve">
-    <value>SA:MP Discord Rich Presence can't be copied.</value>
-  </data>
-  <data name="SAMP_DISCORD_PLUGIN_ERROR_TITLE" xml:space="preserve">
-    <value>SA:MP Discord Rich Presence plugin error</value>
-  </data>
   <data name="SAVE" xml:space="preserve">
     <value>Save</value>
-  </data>
-  <data name="SAVED_POSITIONS" xml:space="preserve">
-    <value>Saved positions</value>
   </data>
   <data name="SCORE" xml:space="preserve">
     <value>Score</value>
@@ -673,8 +780,8 @@ Press "Cancel" to cancel this action.</value>
   <data name="SERVERS" xml:space="preserve">
     <value>Servers</value>
   </data>
-  <data name="SERVERS_FILTER" xml:space="preserve">
-    <value>Server filter</value>
+  <data name="SERVERS_FILTERS" xml:space="preserve">
+    <value>Servers filters</value>
   </data>
   <data name="SERVER_ALREADY_IN_FAVOURITES" xml:space="preserve">
     <value>This server is already in your favourites.</value>
@@ -693,14 +800,23 @@ Do you want to continue?</value>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
     <value>Server password field is empty</value>
   </data>
+  <data name="SESSIONS" xml:space="preserve">
+    <value>Sessions</value>
+  </data>
   <data name="SHOW_ADDITIONAL_CONFIGURATIONS" xml:space="preserve">
     <value>Show additional configurations</value>
+  </data>
+  <data name="SHOW_EMPTY_SERVERS" xml:space="preserve">
+    <value>Show empty servers</value>
   </data>
   <data name="SHOW_EXTENDED_SERVER_INFORMATION" xml:space="preserve">
     <value>Extended server information</value>
   </data>
   <data name="SHOW_FAVOURITES" xml:space="preserve">
     <value>Favourites</value>
+  </data>
+  <data name="SHOW_FULL_SERVERS" xml:space="preserve">
+    <value>Show full servers</value>
   </data>
   <data name="SHOW_GALLERY" xml:space="preserve">
     <value>Show gallery...</value>
@@ -732,6 +848,9 @@ Do you want to continue?</value>
   <data name="SHOW_SOUTHCLAWS_LIST" xml:space="preserve">
     <value>Southclaw's list</value>
   </data>
+  <data name="SHOW_USERNAME_DIALOG" xml:space="preserve">
+    <value>Show username dialog</value>
+  </data>
   <data name="SLEEP" xml:space="preserve">
     <value>Sleep time</value>
   </data>
@@ -761,6 +880,14 @@ Do you want to continue?</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="USERNAME_WARNING" xml:space="preserve">
+    <value>There is already a player with your username.
+
+Do you really want to continue?</value>
+  </data>
+  <data name="USERNAME_WARNING_TITLE" xml:space="preserve">
+    <value>Username warning</value>
   </data>
   <data name="USE_DISCORD_RICH_PRESENCE" xml:space="preserve">
     <value>Use Discord Rich Presence</value>

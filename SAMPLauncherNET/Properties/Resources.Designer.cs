@@ -105,7 +105,7 @@ namespace SAMPLauncherNET.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap install_icon {
             get {
-                object obj = ResourceManager.GetObject("install-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("install_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -135,7 +135,7 @@ namespace SAMPLauncherNET.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap patch_icon {
             get {
-                object obj = ResourceManager.GetObject("patch-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("patch_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

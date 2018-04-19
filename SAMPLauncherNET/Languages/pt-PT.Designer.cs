@@ -696,15 +696,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Galeria ähnelt.
-        /// </summary>
-        internal static string GALLERY {
-            get {
-                return ResourceManager.GetString("GALLERY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Gamemode ähnelt.
         /// </summary>
         internal static string GAMEMODE {
@@ -894,15 +885,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Último registo de chat ähnelt.
-        /// </summary>
-        internal static string LAST_CHATLOG {
-            get {
-                return ResourceManager.GetString("LAST_CHATLOG", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Latitude and longitude ähnelt.
         /// </summary>
         internal static string LATITUDE_LONGITUDE {
@@ -980,6 +962,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string MAXIMAL_PLAYERS {
             get {
                 return ResourceManager.GetString("MAXIMAL_PLAYERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Mídia ähnelt.
+        /// </summary>
+        internal static string MEDIA {
+            get {
+                return ResourceManager.GetString("MEDIA", resourceCulture);
             }
         }
         
@@ -1425,15 +1416,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Posições Guardadas ähnelt.
-        /// </summary>
-        internal static string SAVED_POSITIONS {
-            get {
-                return ResourceManager.GetString("SAVED_POSITIONS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Search on... ähnelt.
         /// </summary>
         internal static string SEARCH_ON {
@@ -1622,11 +1604,11 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Filtros: ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Filtros de servidores: ähnelt.
         /// </summary>
-        internal static string SERVERS_FILTER {
+        internal static string SERVERS_FILTERS {
             get {
-                return ResourceManager.GetString("SERVERS_FILTER", resourceCulture);
+                return ResourceManager.GetString("SERVERS_FILTERS", resourceCulture);
             }
         }
         

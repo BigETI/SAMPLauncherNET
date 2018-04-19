@@ -38,7 +38,7 @@ namespace SAMPLauncherNET
                 Text = Translator.GetTranslation("EDIT_API_TITLE");
                 apiNameSingleLineTextField.Text = api.Name;
                 EServerListType type;
-                if (!Enum.TryParse(api.Type, out type))
+                if (!(Enum.TryParse(api.Type, out type)))
                 {
                     type = EServerListType.Favourites;
                 }

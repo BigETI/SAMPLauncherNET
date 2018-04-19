@@ -64,7 +64,7 @@
             this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.playersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.serversDataSet = new System.Data.DataSet();
+            this.mainDataSet = new System.Data.DataSet();
             this.playersDataTable = new System.Data.DataTable();
             this.playerDataColumn = new System.Data.DataColumn();
             this.scoreDataColumn = new System.Data.DataColumn();
@@ -91,7 +91,7 @@
             this.serverSplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playersGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.serversDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesGridView)).BeginInit();
@@ -479,12 +479,12 @@
             // playersBindingSource
             // 
             this.playersBindingSource.DataMember = "Players";
-            this.playersBindingSource.DataSource = this.serversDataSet;
+            this.playersBindingSource.DataSource = this.mainDataSet;
             // 
-            // serversDataSet
+            // mainDataSet
             // 
-            this.serversDataSet.DataSetName = "serversDataSet";
-            this.serversDataSet.Tables.AddRange(new System.Data.DataTable[] {
+            this.mainDataSet.DataSetName = "mainDataSet";
+            this.mainDataSet.Tables.AddRange(new System.Data.DataTable[] {
             this.playersDataTable,
             this.rulesDataTable});
             // 
@@ -606,7 +606,7 @@
             // rulesBindingSource
             // 
             this.rulesBindingSource.DataMember = "Rules";
-            this.rulesBindingSource.DataSource = this.serversDataSet;
+            this.rulesBindingSource.DataSource = this.mainDataSet;
             // 
             // updateTimer
             // 
@@ -639,7 +639,7 @@
             this.serverSplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.playersGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.serversDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playersDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesGridView)).EndInit();
@@ -663,7 +663,7 @@
         private MaterialSkin.Controls.MaterialLabel languageLabel;
         private MaterialSkin.Controls.MaterialLabel ipAndPortLabel;
         private MaterialSkin.Controls.MaterialLabel pingLabel;
-        private System.Data.DataSet serversDataSet;
+        private System.Data.DataSet mainDataSet;
         private System.Data.DataTable playersDataTable;
         private System.Data.DataColumn playerDataColumn;
         private System.Data.DataColumn scoreDataColumn;

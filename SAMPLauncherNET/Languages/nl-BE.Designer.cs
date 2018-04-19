@@ -453,15 +453,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Gallerij ähnelt.
-        /// </summary>
-        internal static string GALLERY {
-            get {
-                return ResourceManager.GetString("GALLERY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Gamemode ähnelt.
         /// </summary>
         internal static string GAMEMODE {
@@ -588,15 +579,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Laatste chatlog ähnelt.
-        /// </summary>
-        internal static string LAST_CHATLOG {
-            get {
-                return ResourceManager.GetString("LAST_CHATLOG", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Start debug mode ähnelt.
         /// </summary>
         internal static string LAUNCH_DEBUG_MODE {
@@ -620,6 +602,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string LAUNCHER_TITLE {
             get {
                 return ResourceManager.GetString("LAUNCHER_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Media ähnelt.
+        /// </summary>
+        internal static string MEDIA {
+            get {
+                return ResourceManager.GetString("MEDIA", resourceCulture);
             }
         }
         
@@ -885,15 +876,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Opgeslagen posities ähnelt.
-        /// </summary>
-        internal static string SAVED_POSITIONS {
-            get {
-                return ResourceManager.GetString("SAVED_POSITIONS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Selecteer een server lijst ähnelt.
         /// </summary>
         internal static string SELECT_API {
@@ -995,7 +977,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Server filter ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Servers filters ähnelt.
         /// </summary>
         internal static string SERVERS_FILTER {
             get {

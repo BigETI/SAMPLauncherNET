@@ -632,15 +632,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Галерея ähnelt.
-        /// </summary>
-        internal static string GALLERY {
-            get {
-                return ResourceManager.GetString("GALLERY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Игровой режим ähnelt.
         /// </summary>
         internal static string GAMEMODE {
@@ -812,15 +803,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Лог чата ähnelt.
-        /// </summary>
-        internal static string LAST_CHATLOG {
-            get {
-                return ResourceManager.GetString("LAST_CHATLOG", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Широта и долгота ähnelt.
         /// </summary>
         internal static string LATITUDE_LONGITUDE {
@@ -902,6 +884,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die СМИ ähnelt.
+        /// </summary>
+        internal static string MEDIA {
+            get {
+                return ResourceManager.GetString("MEDIA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Message hole limit ähnelt.
         /// </summary>
         internal static string MESSAGE_HOLE_LIMIT {
@@ -934,6 +925,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string MINIMUM_CONNECTION_TIME {
             get {
                 return ResourceManager.GetString("MINIMUM_CONNECTION_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Игровой мод ähnelt.
+        /// </summary>
+        internal static string MODE {
+            get {
+                return ResourceManager.GetString("MODE", resourceCulture);
             }
         }
         
@@ -1096,6 +1096,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string PING {
             get {
                 return ResourceManager.GetString("PING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ник ähnelt.
+        /// </summary>
+        internal static string PLAYER {
+            get {
+                return ResourceManager.GetString("PLAYER", resourceCulture);
             }
         }
         
@@ -1289,6 +1298,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Правило ähnelt.
+        /// </summary>
+        internal static string RULE {
+            get {
+                return ResourceManager.GetString("RULE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Русский ähnelt.
         /// </summary>
         internal static string RUSSIAN {
@@ -1307,11 +1325,11 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Сохраненные позиции ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Счёт ähnelt.
         /// </summary>
-        internal static string SAVED_POSITIONS {
+        internal static string SCORE {
             get {
-                return ResourceManager.GetString("SAVED_POSITIONS", resourceCulture);
+                return ResourceManager.GetString("SCORE", resourceCulture);
             }
         }
         
@@ -1480,11 +1498,11 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Фильтр списка серверов ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die фильтры серверов ähnelt.
         /// </summary>
-        internal static string SERVERS_FILTER {
+        internal static string SERVERS_FILTERS {
             get {
-                return ResourceManager.GetString("SERVERS_FILTER", resourceCulture);
+                return ResourceManager.GetString("SERVERS_FILTERS", resourceCulture);
             }
         }
         
@@ -1651,11 +1669,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Использовать Discord Rich Presence ähnelt.
+        /// </summary>
+        internal static string USE_DISCORD_RICH_PRESENCE {
+            get {
+                return ResourceManager.GetString("USE_DISCORD_RICH_PRESENCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Имя пользователя ähnelt.
         /// </summary>
         internal static string USERNAME {
             get {
                 return ResourceManager.GetString("USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Значение ähnelt.
+        /// </summary>
+        internal static string VALUE {
+            get {
+                return ResourceManager.GetString("VALUE", resourceCulture);
             }
         }
         

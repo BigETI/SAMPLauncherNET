@@ -131,7 +131,7 @@ namespace SAMPLauncherNET
                     }
                     else
                     {
-                        DownloadProgressForm dpf = new DownloadProgressForm(asset.BrowserDownloadURL, SAMPCTLArchiveFileName);
+                        DownloadProgressForm dpf = new DownloadProgressForm(asset.BrowserDownloadURL, Path.GetFullPath(SAMPCTLDownloadPath));
                         ret = (dpf.ShowDialog() == DialogResult.OK);
                     }
                 }

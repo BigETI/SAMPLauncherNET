@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Net;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading;
@@ -56,6 +57,11 @@ namespace SAMPLauncherNET
         public static readonly string ServerListAPIPath = "./api.json";
 
         /// <summary>
+        /// Plugins data path
+        /// </summary>
+        public static readonly string PluginsDataPath = "./plugins.json";
+
+        /// <summary>
         /// Developer tools config file name
         /// </summary>
         public static readonly string DeveloperToolsConfigFileName = "samp.json";
@@ -106,14 +112,29 @@ namespace SAMPLauncherNET
         public static readonly DataContractJsonSerializer launcherConfigSerializer = new DataContractJsonSerializer(typeof(LauncherConfigDataContract));
 
         /// <summary>
-        /// API JSON serializer
+        /// API serializer
         /// </summary>
-        public static readonly DataContractJsonSerializer apiJSONSerializer = new DataContractJsonSerializer(typeof(APIDataContract[]));
+        public static readonly DataContractJsonSerializer apiSerializer = new DataContractJsonSerializer(typeof(APIDataContract[]));
+
+        /// <summary>
+        /// Plugins data serializer
+        /// </summary>
+        public static readonly DataContractJsonSerializer pluginsDataSerializer = new DataContractJsonSerializer(typeof(PluginDataContract[]));
 
         /// <summary>
         /// Developer tools serializer
         /// </summary>
         public static readonly DataContractJsonSerializer developerToolsConfigSerializer = new DataContractJsonSerializer(typeof(DeveloperToolsConfigDataContract));
+
+        /// <summary>
+        /// API
+        /// </summary>
+        public static List<ServerListConnector> api;
+
+        /// <summary>
+        /// Plugins data
+        /// </summary>
+        public static PluginDataContract[] pluginsData;
 
         /// <summary>
         /// Last server process
@@ -172,47 +193,127 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Is GTA San Andreas running
+        /// </summary>
+        public static bool IsGTASanAndreasRunning
+        {
+            get
+            {
+                Process[] processes = Process.GetProcessesByName("gta_sa");
+                return ((processes == null) ? false : (processes.Length > 0));
+            }
+        }
+
+        /// <summary>
         /// API I/O
         /// </summary>
         public static List<ServerListConnector> APIIO
         {
             get
             {
-                List<ServerListConnector> ret = new List<ServerListConnector>();
-                try
+                if (api == null)
                 {
-                    using (FileStream stream = File.Open(ServerListAPIPath, FileMode.Open))
+                    api = new List<ServerListConnector>();
+                    try
                     {
-                        APIDataContract[] api = (APIDataContract[])(apiJSONSerializer.ReadObject(stream));
-                        foreach (APIDataContract apidc in api)
+                        if (File.Exists(ServerListAPIPath))
                         {
-                            ret.Add(new ServerListConnector(apidc));
+                            using (FileStream stream = File.Open(ServerListAPIPath, FileMode.Open))
+                            {
+                                APIDataContract[] api_arr = (APIDataContract[])(apiSerializer.ReadObject(stream));
+                                foreach (APIDataContract apidc in api_arr)
+                                {
+                                    api.Add(new ServerListConnector(apidc));
+                                }
+                            }
+                        }
+                        else
+                        {
+                            api = RevertAPIs();
                         }
                     }
+                    catch (Exception e)
+                    {
+                        api = RevertAPIs();
+                        Console.Error.WriteLine(e.Message);
+                    }
                 }
-                catch
-                {
-                    ret = RevertAPIs();
-                }
-                return ret;
+                return new List<ServerListConnector>(api);
             }
             set
             {
                 if (value != null)
                 {
-                    APIDataContract[] api = new APIDataContract[value.Count];
-                    for (int i = 0; i < api.Length; i++)
+                    APIDataContract[] api_arr = new APIDataContract[value.Count];
+                    api = value;
+                    for (int i = 0; i < api_arr.Length; i++)
                     {
-                        api[i] = value[i].APIDataContract;
+                        api_arr[i] = api[i].APIDataContract;
                     }
                     try
                     {
-                        foreach (ServerListConnector connector in value)
+                        using (FileStream stream = File.Open(ServerListAPIPath, FileMode.Create))
                         {
-                            using (FileStream stream = File.Open(ServerListAPIPath, FileMode.Create))
+                            apiSerializer.WriteObject(stream, api_arr);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Error.WriteLine(e.Message);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Plugins data IO
+        /// </summary>
+        public static PluginDataContract[] PluginsDataIO
+        {
+            get
+            {
+                if (pluginsData == null)
+                {
+                    try
+                    {
+                        if (File.Exists(PluginsDataPath))
+                        {
+                            using (FileStream stream = File.Open(PluginsDataPath, FileMode.Open))
                             {
-                                apiJSONSerializer.WriteObject(stream, api);
+                                pluginsData = pluginsDataSerializer.ReadObject(stream) as PluginDataContract[];
                             }
+                        }
+                        else
+                        {
+                            RevertPluginsData();
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Error.WriteLine(e.Message);
+                    }
+                }
+                if (pluginsData == null)
+                {
+                    pluginsData = new PluginDataContract[0];
+                    PluginsDataIO = pluginsData;
+                }
+                return pluginsData;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    pluginsData = value;
+                    try
+                    {
+                        if (File.Exists(PluginsDataPath))
+                        {
+                            File.Delete(PluginsDataPath);
+                        }
+                        using (FileStream stream = File.Open(PluginsDataPath, FileMode.Create))
+                        {
+                            pluginsDataSerializer.WriteObject(stream, pluginsData);
                         }
                     }
                     catch (Exception e)
@@ -387,20 +488,140 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Check if GTA San Andreas is launchable
+        /// </summary>
+        public static bool CheckIfGTASanAndreasIsLaunchable
+        {
+            get
+            {
+                bool ret = true;
+                if (IsGTASanAndreasRunning)
+                {
+                    ret = (MessageBox.Show(Translator.GetTranslation("GTA_SA_IS_RUNNING"), Translator.GetTranslation("GTA_SA_IS_RUNNING_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
+                    if (ret)
+                    {
+                        CloseGTASanAndreas();
+                    }
+                }
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// Close GTA San Andreas
+        /// </summary>
+        public static void CloseGTASanAndreas()
+        {
+            Process[] processes = Process.GetProcessesByName("gta_sa");
+            if (processes != null)
+            {
+                foreach (Process process in processes)
+                {
+                    try
+                    {
+                        process.Kill();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Error.WriteLine(e.Message);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Revert APIs
         /// </summary>
-        /// <returns></returns>
+        /// <returns>APIs</returns>
         public static List<ServerListConnector> RevertAPIs()
         {
-            List<ServerListConnector> ret = new List<ServerListConnector>();
-            ret.Add(new ServerListConnector("{$SHOW_FAVOURITES$}", EServerListType.Favourites, FavouritesPath));
-            ret.Add(new ServerListConnector("{$SHOW_LEGACY_FAVOURITES$}", EServerListType.LegacyFavourites, LegacyFavouritesPath));
-            ret.Add(new ServerListConnector("{$SHOW_LEGACY_HOSTED_LIST$}", EServerListType.LegacySAMP, "{$HOSTED_LIST_URL$}"));
-            ret.Add(new ServerListConnector("{$SHOW_LEGACY_MASTER_LIST$}", EServerListType.LegacySAMP, "{$MASTER_LIST_URL$}"));
-            ret.Add(new ServerListConnector("{$SHOW_LEGACY_OFFICIAL_LIST$}", EServerListType.LegacySAMP, "{$OFFICIAL_LIST_URL$}"));
-            ret.Add(new ServerListConnector("{$SHOW_SOUTHCLAWS_LIST$}", EServerListType.BackendRESTful, "http://api.samp.southcla.ws/v2/servers"));
-            ret.Add(new ServerListConnector("{$SHOW_SACNR_LIST$}", EServerListType.LegacySAMP, "http://monitor.sacnr.com/list/masterlist.txt"));
+            List<ServerListConnector> ret = null;
+            try
+            {
+                using (WebClientEx wc = new WebClientEx(3000))
+                {
+                    wc.Headers.Set(HttpRequestHeader.Accept, "application/json");
+                    wc.Headers.Set(HttpRequestHeader.UserAgent, "Mozilla/3.0 (compatible; SA:MP launcher .NET)");
+                    try
+                    {
+                        using (MemoryStream stream = new MemoryStream(wc.DownloadData(GitHubProjectURL + "/master/api.json")))
+                        {
+                            APIDataContract[] api_arr = apiSerializer.ReadObject(stream) as APIDataContract[];
+                            ret = new List<ServerListConnector>();
+                            ret.Add(new ServerListConnector("{$SHOW_FAVOURITES$}", EServerListType.Favourites, FavouritesPath));
+                            ret.Add(new ServerListConnector("{$SHOW_LEGACY_FAVOURITES$}", EServerListType.LegacyFavourites, LegacyFavouritesPath));
+                            ret.Add(new ServerListConnector("{$SHOW_LEGACY_HOSTED_LIST$}", EServerListType.LegacySAMP, "{$HOSTED_LIST_URL$}"));
+                            ret.Add(new ServerListConnector("{$SHOW_LEGACY_MASTER_LIST$}", EServerListType.LegacySAMP, "{$MASTER_LIST_URL$}"));
+                            ret.Add(new ServerListConnector("{$SHOW_LEGACY_OFFICIAL_LIST$}", EServerListType.LegacySAMP, "{$OFFICIAL_LIST_URL$}"));
+                            foreach (APIDataContract apidc in api_arr)
+                            {
+                                ret.Add(new ServerListConnector(apidc));
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Error.WriteLine(e.Message);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+            }
+            if (ret == null)
+            {
+                ret = new List<ServerListConnector>();
+                ret.Add(new ServerListConnector("{$SHOW_FAVOURITES$}", EServerListType.Favourites, FavouritesPath));
+                ret.Add(new ServerListConnector("{$SHOW_LEGACY_FAVOURITES$}", EServerListType.LegacyFavourites, LegacyFavouritesPath));
+                ret.Add(new ServerListConnector("{$SHOW_LEGACY_HOSTED_LIST$}", EServerListType.LegacySAMP, "{$HOSTED_LIST_URL$}"));
+                ret.Add(new ServerListConnector("{$SHOW_LEGACY_MASTER_LIST$}", EServerListType.LegacySAMP, "{$MASTER_LIST_URL$}"));
+                ret.Add(new ServerListConnector("{$SHOW_LEGACY_OFFICIAL_LIST$}", EServerListType.LegacySAMP, "{$OFFICIAL_LIST_URL$}"));
+                ret.Add(new ServerListConnector("{$SHOW_SOUTHCLAWS_LIST$}", EServerListType.BackendRESTful, "http://api.samp.southcla.ws/v2/servers"));
+                ret.Add(new ServerListConnector("{$SHOW_SACNR_LIST$}", EServerListType.LegacySAMP, "http://monitor.sacnr.com/list/masterlist.txt"));
+            }
             APIIO = ret;
+            return ret;
+        }
+
+        /// <summary>
+        /// Revert plugins data
+        /// </summary>
+        /// <returns>Plugins data</returns>
+        public static PluginDataContract[] RevertPluginsData()
+        {
+            PluginDataContract[] ret = null;
+            try
+            {
+                using (WebClientEx wc = new WebClientEx(3000))
+                {
+                    wc.Headers.Set(HttpRequestHeader.Accept, "application/json");
+                    wc.Headers.Set(HttpRequestHeader.UserAgent, "Mozilla/3.0 (compatible; SA:MP launcher .NET)");
+                    try
+                    {
+                        using (MemoryStream stream = new MemoryStream(wc.DownloadData(GitHubProjectURL + "/master/plugins.json")))
+                        {
+                            ret = pluginsDataSerializer.ReadObject(stream) as PluginDataContract[];
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Error.WriteLine(e.Message);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+            }
+            if (ret == null)
+            {
+                ret = new PluginDataContract[]
+                {
+                    new PluginDataContract("SA:MP Discord Rich Presence plugin", EPluginProvider.GitHub, "https://github.com/Hual/samp-discord-plugin", true, EUpdateFrequency.WhenNewer)
+                };
+            }
+            PluginsDataIO = ret;
             return ret;
         }
 
@@ -447,9 +668,9 @@ namespace SAMPLauncherNET
         /// <param name="rconPassword">RCON password</param>
         /// <param name="debug">Debug mode</param>
         /// <param name="quitWhenDone">Quit when done</param>
-        /// <param name="useDiscordRichPresence">Use Discord Rich Presence</param>
+        /// <param name="plugins">Plugins</param>
         /// <param name="f">Form to close</param>
-        public static void LaunchSAMP(Server server, string username, string serverPassword, string rconPassword, bool debug, bool quitWhenDone, bool useDiscordRichPresence, Form f)
+        public static void LaunchSAMP(Server server, string username, string serverPassword, string rconPassword, bool debug, bool quitWhenDone, PluginDataContract[] plugins, Form f)
         {
             if ((server != null) || debug)
             {
@@ -463,21 +684,32 @@ namespace SAMPLauncherNET
                         {
                             Kernel32.PROCESS_INFORMATION process_info;
                             Kernel32.STARTUPINFO startup_info = new Kernel32.STARTUPINFO();
-                            if (Kernel32.CreateProcess(GTASAExe, debug ? "-d" : "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)), IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
+                            if (CheckIfGTASanAndreasIsLaunchable)
                             {
-                                InjectPlugin(SAMPDLLPath, process_info.hProcess, load_library_w);
-                                if (useDiscordRichPresence)
+                                if (Kernel32.CreateProcess(GTASAExe, debug ? "-d" : "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)), IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
                                 {
-                                    if (SAMPDiscordPluginProvider.Update())
+                                    InjectPlugin(SAMPDLLPath, process_info.hProcess, load_library_w);
+                                    PluginDataContract[] load_plugins = ((plugins == null) ? PluginsDataIO : plugins);
+                                    foreach (PluginDataContract plugin in load_plugins)
                                     {
-                                        InjectPlugin(Path.Combine(Directory.GetCurrentDirectory(), SAMPDiscordPluginProvider.SAMPDiscordPluginPath), process_info.hProcess, load_library_w);
+                                        if (plugin != null)
+                                        {
+                                            if (plugin.Enabled)
+                                            {
+                                                InstalledPlugin installed_plugin = PluginProvider.Update(plugin);
+                                                if (installed_plugin != null)
+                                                {
+                                                    InjectPlugin(installed_plugin.Path, process_info.hProcess, load_library_w);
+                                                }
+                                            }
+                                        }
                                     }
-                                }
-                                Kernel32.ResumeThread(process_info.hThread);
-                                Kernel32.CloseHandle(process_info.hProcess);
-                                if (quitWhenDone)
-                                {
-                                    f.Close();
+                                    Kernel32.ResumeThread(process_info.hThread);
+                                    Kernel32.CloseHandle(process_info.hProcess);
+                                    if (quitWhenDone)
+                                    {
+                                        f.Close();
+                                    }
                                 }
                             }
                         }
@@ -550,7 +782,7 @@ namespace SAMPLauncherNET
         {
             try
             {
-                LaunchSAMP(null, "", null, null, true, quitWhenDone, false, f);
+                LaunchSAMP(null, "", null, null, true, quitWhenDone, PluginsDataIO, f);
             }
             catch (Exception e)
             {
@@ -567,7 +799,7 @@ namespace SAMPLauncherNET
         {
             if (version != null)
             {
-                DownloadProgressForm dpf = new DownloadProgressForm(useInstaller ? version.InstallationURI : version.ZipURI, useInstaller ? "install.exe" : "client.zip");
+                DownloadProgressForm dpf = new DownloadProgressForm(useInstaller ? version.InstallationURI : version.ZipURI, Path.GetFullPath("./downloads/" + (useInstaller ? "install.exe" : "client.zip")));
                 if (dpf.ShowDialog() == DialogResult.OK)
                 {
                     SAMPProvider.ResetVersionCache();
@@ -625,17 +857,20 @@ namespace SAMPLauncherNET
         /// <param name="f">Form tom close</param>
         public static void LaunchSingleplayerMode(bool quitWhenDone, Form f)
         {
-            try
+            if (CheckIfGTASanAndreasIsLaunchable)
             {
-                Process.Start(GTASAExe);
-                if (quitWhenDone)
+                try
                 {
-                    f.Close();
+                    Process.Start(GTASAExe);
+                    if (quitWhenDone)
+                    {
+                        f.Close();
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                Console.Error.WriteLine(e.Message);
+                catch (Exception e)
+                {
+                    Console.Error.WriteLine(e.Message);
+                }
             }
         }
 

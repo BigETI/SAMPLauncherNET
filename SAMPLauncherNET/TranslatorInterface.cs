@@ -17,17 +17,27 @@ namespace SAMPLauncherNET
         private readonly Language[] languages = new [] { new Language("DUTCH", "nl-BE"), new Language("ENGLISH", "en-GB"), new Language("GEORGIAN", "ge-GE"), new Language("GERMAN", "de-DE"), new Language("PORTUGUESE", "pt-PT"), new Language("PORTUGUESE_BRAZIL", "pt-BR"), new Language("RUSSIAN", "ru-RU") };
 
         /// <summary>
+        /// Launcher configuration
+        /// </summary>
+        private LauncherConfigDataContract launcherConfig;
+
+        /// <summary>
         /// Language
         /// </summary>
         public string Language
         {
             get
             {
-                return Properties.Settings.Default.Language;
+                if (launcherConfig == null)
+                {
+                    launcherConfig = SAMP.LauncherConfigIO;
+                }
+                return launcherConfig.Language;
             }
             set
             {
-                Properties.Settings.Default["Language"] = value;
+                launcherConfig.Language = value;
+                SAMP.LauncherConfigIO = launcherConfig;
             }
         }
 
@@ -69,7 +79,11 @@ namespace SAMPLauncherNET
         /// </summary>
         public void SaveSettings()
         {
-            Properties.Settings.Default.Save();
+            if (launcherConfig == null)
+            {
+                launcherConfig = SAMP.LauncherConfigIO;
+            }
+            SAMP.LauncherConfigIO = launcherConfig;
         }
     }
 }

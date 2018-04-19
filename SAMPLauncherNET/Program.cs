@@ -161,6 +161,20 @@ namespace SAMPLauncherNET
             {
                 Console.Error.WriteLine(e.Message);
             }*/
+            /*try
+            {
+                DataContractJsonSerializer s = new DataContractJsonSerializer(typeof(PluginDataContract[]));
+                PluginDataContract[] plugins = new PluginDataContract[1];
+                plugins[0] = new PluginDataContract("SA:MP Discord Rich Presence plugin", EPluginProvider.GitHub, "https://github.com/Hual/samp-discord-plugin", true, EUpdateFrequency.WhenNewer);
+                using (FileStream stream = File.Open("./plugins.json", FileMode.Create))
+                {
+                    s.WriteObject(stream, plugins);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+            }*/
             UpdateTask update = new UpdateTask("https://raw.githubusercontent.com/BigETI/SAMPLauncherNET/master/update.json", Application.ExecutablePath);
             bool start_update = false;
             if (update.IsUpdateAvailable)
