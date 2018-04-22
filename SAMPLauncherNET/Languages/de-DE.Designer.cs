@@ -318,6 +318,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Chatlog ähnelt.
+        /// </summary>
+        internal static string CHATLOG {
+            get {
+                return ResourceManager.GetString("CHATLOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Kopiere HTML ähnelt.
         /// </summary>
         internal static string CHATLOG_COPY_HTML {
@@ -426,7 +435,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Schließen, wenn ausgeführt ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Schließen bei Start ähnelt.
         /// </summary>
         internal static string CLOSE_WHEN_LAUNCHED {
             get {
@@ -534,6 +543,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Erstelle Sitzungsinformationen ähnelt.
+        /// </summary>
+        internal static string CREATE_SESSIONS_LOG {
+            get {
+                return ResourceManager.GetString("CREATE_SESSIONS_LOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Protokolliere Anfragen in Datenbank ähnelt.
         /// </summary>
         internal static string DATABASE_LOG_QUERIES {
@@ -552,11 +570,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Datum und Uhrzeit ähnelt.
+        /// </summary>
+        internal static string DATE_AND_TIME {
+            get {
+                return ResourceManager.GetString("DATE_AND_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Debug Modus ähnelt.
         /// </summary>
         internal static string DEBUG_MODE {
             get {
                 return ResourceManager.GetString("DEBUG_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Löschen ähnelt.
+        /// </summary>
+        internal static string DELETE {
+            get {
+                return ResourceManager.GetString("DELETE", resourceCulture);
             }
         }
         
@@ -840,6 +876,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Spielversion ähnelt.
+        /// </summary>
+        internal static string GAME_VERSION {
+            get {
+                return ResourceManager.GetString("GAME_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Spielmodus ähnelt.
         /// </summary>
         internal static string GAMEMODE {
@@ -1094,6 +1139,17 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Serverliste wird geladen.
+        ///
+        ///Das kann eine Weile dauern... ähnelt.
+        /// </summary>
+        internal static string LOADING {
+            get {
+                return ResourceManager.GetString("LOADING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Protokolliere Anfragen ähnelt.
         /// </summary>
         internal static string LOG_QUERIES {
@@ -1288,6 +1344,17 @@ namespace SAMPLauncherNET.Languages {
         internal static string NO_NAMETAG_STATUS {
             get {
                 return ResourceManager.GetString("NO_NAMETAG_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Keine Sitzungsinformationen wurden aufgenommen.
+        ///
+        ///Siehe Optionen um dies zu aktivieren. ähnelt.
+        /// </summary>
+        internal static string NO_SESSION_LOG {
+            get {
+                return ResourceManager.GetString("NO_SESSION_LOG", resourceCulture);
             }
         }
         
@@ -2085,7 +2152,34 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Sessions ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Sitzung ähnelt.
+        /// </summary>
+        internal static string SESSION {
+            get {
+                return ResourceManager.GetString("SESSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Möchtest du wirklich diese Sitzung verwerfen? ähnelt.
+        /// </summary>
+        internal static string SESSION_DELETE {
+            get {
+                return ResourceManager.GetString("SESSION_DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sitzung verwerfen ähnelt.
+        /// </summary>
+        internal static string SESSION_DELETE_TITLE {
+            get {
+                return ResourceManager.GetString("SESSION_DELETE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sitzungen ähnelt.
         /// </summary>
         internal static string SESSIONS {
             get {
@@ -2288,6 +2382,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string TEMPORARY_USERNAME {
             get {
                 return ResourceManager.GetString("TEMPORARY_USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zeit ähnelt.
+        /// </summary>
+        internal static string TIME_SPEND {
+            get {
+                return ResourceManager.GetString("TIME_SPEND", resourceCulture);
             }
         }
         

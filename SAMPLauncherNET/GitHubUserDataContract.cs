@@ -118,10 +118,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string Login
         {
-            get
-            {
-                return login;
-            }
+            get => login;
         }
 
         /// <summary>
@@ -129,10 +126,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public int ID
         {
-            get
-            {
-                return id;
-            }
+            get => id;
         }
 
         /// <summary>
@@ -140,10 +134,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string AvatarURL
         {
-            get
-            {
-                return avatarURL;
-            }
+            get => avatarURL;
         }
 
         /// <summary>
@@ -151,10 +142,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string GravatarURL
         {
-            get
-            {
-                return gravatarURL;
-            }
+            get => gravatarURL;
         }
 
         /// <summary>
@@ -162,10 +150,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string URL
         {
-            get
-            {
-                return url;
-            }
+            get => url;
         }
 
         /// <summary>
@@ -173,10 +158,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string HTMLURL
         {
-            get
-            {
-                return htmlURL;
-            }
+            get => htmlURL;
         }
 
         /// <summary>
@@ -184,10 +166,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string FollowersURL
         {
-            get
-            {
-                return followersURL;
-            }
+            get => followersURL;
         }
 
         /// <summary>
@@ -195,10 +174,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string FollowingURL
         {
-            get
-            {
-                return followingURL;
-            }
+            get => followingURL;
         }
 
         /// <summary>
@@ -206,10 +182,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string GistsURL
         {
-            get
-            {
-                return gistsURL;
-            }
+            get => gistsURL;
         }
 
         /// <summary>
@@ -217,10 +190,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string StarredURL
         {
-            get
-            {
-                return starredURL;
-            }
+            get => starredURL;
         }
 
         /// <summary>
@@ -228,10 +198,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string SubscriptionsURL
         {
-            get
-            {
-                return subscriptionsURL;
-            }
+            get => subscriptionsURL;
         }
 
         /// <summary>
@@ -239,10 +206,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string OrganizationsURL
         {
-            get
-            {
-                return organizationsURL;
-            }
+            get => organizationsURL;
         }
 
         /// <summary>
@@ -250,10 +214,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string ReposURL
         {
-            get
-            {
-                return reposURL;
-            }
+            get => reposURL;
         }
 
         /// <summary>
@@ -261,10 +222,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string EventsURL
         {
-            get
-            {
-                return eventsURL;
-            }
+            get => eventsURL;
         }
 
         /// <summary>
@@ -272,10 +230,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string ReceivedEventsURL
         {
-            get
-            {
-                return receivedEventsURL;
-            }
+            get => receivedEventsURL;
         }
 
         /// <summary>
@@ -283,10 +238,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string Type
         {
-            get
-            {
-                return type;
-            }
+            get => type;
         }
 
         /// <summary>
@@ -294,10 +246,48 @@ namespace SAMPLauncherNET
         /// </summary>
         public string SiteAdmin
         {
-            get
-            {
-                return siteAdmin;
-            }
+            get => siteAdmin;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="login">Login</param>
+        /// <param name="id">ID</param>
+        /// <param name="avatarURL">Avatar URL</param>
+        /// <param name="gravatarURL">Gravatr URL</param>
+        /// <param name="url">URL</param>
+        /// <param name="htmlURL">HTML URL</param>
+        /// <param name="followersURL">Follower URL</param>
+        /// <param name="followingURL">Following URL</param>
+        /// <param name="gistsURL">Gists URL</param>
+        /// <param name="starredURL">Starred URL</param>
+        /// <param name="subscriptionsURL">Subscriptional URL</param>
+        /// <param name="organizationsURL">Organization URL</param>
+        /// <param name="reposURL">Repos URL</param>
+        /// <param name="eventsURL">Event URL</param>
+        /// <param name="receivedEventsURL">Recieved events URL</param>
+        /// <param name="type">Type</param>
+        /// <param name="siteAdmin">Site admin</param>
+        public GitHubUserDataContract(string login, int id, string avatarURL, string gravatarURL, string url, string htmlURL, string followersURL, string followingURL, string gistsURL, string starredURL, string subscriptionsURL, string organizationsURL, string reposURL, string eventsURL, string receivedEventsURL, string type, string siteAdmin)
+        {
+            this.login = login;
+            this.id = id;
+            this.avatarURL = avatarURL;
+            this.gravatarURL = gravatarURL;
+            this.url = url;
+            this.htmlURL = htmlURL;
+            this.followersURL = followersURL;
+            this.followingURL = followingURL;
+            this.gistsURL = gistsURL;
+            this.starredURL = starredURL;
+            this.subscriptionsURL = subscriptionsURL;
+            this.organizationsURL = organizationsURL;
+            this.reposURL = reposURL;
+            this.eventsURL = eventsURL;
+            this.receivedEventsURL = receivedEventsURL;
+            this.type = type;
+            this.siteAdmin = siteAdmin;
         }
     }
 }

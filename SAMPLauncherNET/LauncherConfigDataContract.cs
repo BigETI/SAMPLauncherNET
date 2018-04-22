@@ -60,10 +60,10 @@ namespace SAMPLauncherNET
         private bool dontCloseWhenLaunched;
 
         /// <summary>
-        /// Don't create session logs
+        /// Create session logs
         /// </summary>
         [DataMember]
-        private bool dontCreateSessionsLog;
+        private bool createSessionsLog;
 
         /// <summary>
         /// Language
@@ -188,17 +188,17 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Don't create session logs
+        /// Create session logs
         /// </summary>
-        public bool DontCreateSessionsLog
+        public bool CreateSessionsLog
         {
             get
             {
-                return dontCreateSessionsLog;
+                return createSessionsLog;
             }
             set
             {
-                dontCreateSessionsLog = value;
+                createSessionsLog = value;
             }
         }
 
@@ -221,8 +221,8 @@ namespace SAMPLauncherNET
         /// <param name="showChatlogTimestamp">Show chatlog timestamp</param>
         /// <param name="showUsernameDialog">Show username dialog</param>
         /// <param name="dontCloseWhenLaunched">Don't close when launched</param>
-        /// <param name="dontCreateSessionsLog">Don't create sessions log</param>
-        public LauncherConfigDataContract(string language, int lastSelectedServerListAPI, string developmentDirectory, bool showChatlogColorCodes, bool showChatlogColored, bool showChatlogTimestamp, bool showUsernameDialog, bool dontCloseWhenLaunched, bool dontCreateSessionsLog)
+        /// <param name="createSessionsLog">Create sessions log</param>
+        public LauncherConfigDataContract(string language, int lastSelectedServerListAPI, string developmentDirectory, bool showChatlogColorCodes, bool showChatlogColored, bool showChatlogTimestamp, bool showUsernameDialog, bool dontCloseWhenLaunched, bool createSessionsLog)
         {
             this.language = language;
             this.lastSelectedServerListAPI = lastSelectedServerListAPI;
@@ -232,7 +232,7 @@ namespace SAMPLauncherNET
             this.showChatlogTimestamp = showChatlogTimestamp;
             this.showUsernameDialog = showUsernameDialog;
             this.dontCloseWhenLaunched = dontCloseWhenLaunched;
-            this.dontCreateSessionsLog = dontCreateSessionsLog;
+            this.createSessionsLog = createSessionsLog;
         }
     }
 }

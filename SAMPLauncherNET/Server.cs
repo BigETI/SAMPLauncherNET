@@ -868,10 +868,10 @@ namespace SAMPLauncherNET
             try
             {
                 EndPoint endpoint = new IPEndPoint(IPAddress, port);
-                byte[] rBuffer = new byte[3402];
-                socket.ReceiveFrom(rBuffer, ref endpoint);
+                byte[] buffer = new byte[3402];
+                socket.ReceiveFrom(buffer, ref endpoint);
                 timestamp[1] = DateTime.Now;
-                using (MemoryStream stream = new MemoryStream(rBuffer))
+                using (MemoryStream stream = new MemoryStream(buffer))
                 {
                     using (BinaryReader reader = new BinaryReader(stream))
                     {

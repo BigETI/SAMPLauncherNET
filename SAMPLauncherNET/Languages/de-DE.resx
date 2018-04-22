@@ -203,6 +203,9 @@ Das Projekt befindet sich auf</value>
   <data name="CANCEL_DOWNLOAD_TITLE" xml:space="preserve">
     <value>Download abbrechen</value>
   </data>
+  <data name="CHATLOG" xml:space="preserve">
+    <value>Chatlog</value>
+  </data>
   <data name="CHATLOG_COPY_HTML" xml:space="preserve">
     <value>Kopiere HTML</value>
   </data>
@@ -243,7 +246,7 @@ Das Projekt befindet sich auf</value>
     <value>Stadt</value>
   </data>
   <data name="CLOSE_WHEN_LAUNCHED" xml:space="preserve">
-    <value>Schließen, wenn ausgeführt</value>
+    <value>Schließen bei Start</value>
   </data>
   <data name="CONNECT" xml:space="preserve">
     <value>Verbinden</value>
@@ -278,14 +281,23 @@ Das Projekt befindet sich auf</value>
   <data name="COUNTRY" xml:space="preserve">
     <value>Land</value>
   </data>
+  <data name="CREATE_SESSIONS_LOG" xml:space="preserve">
+    <value>Erstelle Sitzungsinformationen</value>
+  </data>
   <data name="DATABASE_LOGGING" xml:space="preserve">
     <value>In datenbank protokollieren</value>
   </data>
   <data name="DATABASE_LOG_QUERIES" xml:space="preserve">
     <value>Protokolliere Anfragen in Datenbank</value>
   </data>
+  <data name="DATE_AND_TIME" xml:space="preserve">
+    <value>Datum und Uhrzeit</value>
+  </data>
   <data name="DEBUG_MODE" xml:space="preserve">
     <value>Debug Modus</value>
+  </data>
+  <data name="DELETE" xml:space="preserve">
+    <value>Löschen</value>
   </data>
   <data name="DELETE_SELECTED_IMAGES" xml:space="preserve">
     <value>Möchetst du wirklich die ausgewählten Bilder unwideruflich löschen?</value>
@@ -389,6 +401,9 @@ Das Projekt befindet sich auf</value>
   <data name="GAMEMODE_TEXT" xml:space="preserve">
     <value>Spielmodus Text</value>
   </data>
+  <data name="GAME_VERSION" xml:space="preserve">
+    <value>Spielversion</value>
+  </data>
   <data name="GEORGIAN" xml:space="preserve">
     <value>Georgisch (ქართული)</value>
   </data>
@@ -466,6 +481,11 @@ Möchtest du fortfahren?</value>
   <data name="LAUNCH_SINGLEPLAYER" xml:space="preserve">
     <value>Singleplayer starten</value>
   </data>
+  <data name="LOADING" xml:space="preserve">
+    <value>Serverliste wird geladen.
+
+Das kann eine Weile dauern...</value>
+  </data>
   <data name="LOG_QUERIES" xml:space="preserve">
     <value>Protokolliere Anfragen</value>
   </data>
@@ -534,6 +554,11 @@ Möchtest du fortfahren?</value>
   </data>
   <data name="NO_NAMETAG_STATUS" xml:space="preserve">
     <value>Kein Namensschildstatus</value>
+  </data>
+  <data name="NO_SESSION_LOG" xml:space="preserve">
+    <value>Keine Sitzungsinformationen wurden aufgenommen.
+
+Siehe Optionen um dies zu aktivieren.</value>
   </data>
   <data name="NO_SIGN" xml:space="preserve">
     <value>Kein Zeichen</value>
@@ -803,8 +828,17 @@ Möchtest du fortfahren?</value>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
     <value>Server Passwort Einagefeld ist leer.</value>
   </data>
+  <data name="SESSION" xml:space="preserve">
+    <value>San Andreas Multiplayer - Sitzung</value>
+  </data>
   <data name="SESSIONS" xml:space="preserve">
-    <value>Sessions</value>
+    <value>Sitzungen</value>
+  </data>
+  <data name="SESSION_DELETE" xml:space="preserve">
+    <value>Möchtest du wirklich diese Sitzung verwerfen?</value>
+  </data>
+  <data name="SESSION_DELETE_TITLE" xml:space="preserve">
+    <value>Sitzung verwerfen</value>
   </data>
   <data name="SHOW_ADDITIONAL_CONFIGURATIONS" xml:space="preserve">
     <value>Zeige weitere Konfigurationen</value>
@@ -874,6 +908,9 @@ Möchtest du fortfahren?</value>
   </data>
   <data name="TIMESTAMP" xml:space="preserve">
     <value>Zeitstempel</value>
+  </data>
+  <data name="TIME_SPEND" xml:space="preserve">
+    <value>Zeit</value>
   </data>
   <data name="TIME_ZONE" xml:space="preserve">
     <value>Zeitzone</value>

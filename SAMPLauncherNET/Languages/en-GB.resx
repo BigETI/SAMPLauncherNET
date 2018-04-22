@@ -203,6 +203,9 @@ This project is located at</value>
   <data name="CANCEL_DOWNLOAD_TITLE" xml:space="preserve">
     <value>Cancel download</value>
   </data>
+  <data name="CHATLOG" xml:space="preserve">
+    <value>Chatlog</value>
+  </data>
   <data name="CHATLOG_COPY_HTML" xml:space="preserve">
     <value>Copy HTML</value>
   </data>
@@ -278,14 +281,23 @@ This project is located at</value>
   <data name="COUNTRY" xml:space="preserve">
     <value>Country</value>
   </data>
+  <data name="CREATE_SESSIONS_LOG" xml:space="preserve">
+    <value>Create sessions log</value>
+  </data>
   <data name="DATABASE_LOGGING" xml:space="preserve">
     <value>Enable database logging</value>
   </data>
   <data name="DATABASE_LOG_QUERIES" xml:space="preserve">
     <value>Database log queries</value>
   </data>
+  <data name="DATE_AND_TIME" xml:space="preserve">
+    <value>Date and time</value>
+  </data>
   <data name="DEBUG_MODE" xml:space="preserve">
     <value>Debug mode</value>
+  </data>
+  <data name="DELETE" xml:space="preserve">
+    <value>Delete</value>
   </data>
   <data name="DELETE_SELECTED_IMAGES" xml:space="preserve">
     <value>Do you really want to delete the selected images?</value>
@@ -389,6 +401,9 @@ This project is located at</value>
   <data name="GAMEMODE_TEXT" xml:space="preserve">
     <value>Gamemode text</value>
   </data>
+  <data name="GAME_VERSION" xml:space="preserve">
+    <value>Game version</value>
+  </data>
   <data name="GEORGIAN" xml:space="preserve">
     <value>Georgian (ქართული)</value>
   </data>
@@ -466,6 +481,11 @@ Do you want to continue?</value>
   <data name="LAUNCH_SINGLEPLAYER" xml:space="preserve">
     <value>Launch singleplayer</value>
   </data>
+  <data name="LOADING" xml:space="preserve">
+    <value>Server list is loading.
+
+This can take a while...</value>
+  </data>
   <data name="LOG_QUERIES" xml:space="preserve">
     <value>Log queries</value>
   </data>
@@ -534,6 +554,11 @@ Do you want to continue?</value>
   </data>
   <data name="NO_NAMETAG_STATUS" xml:space="preserve">
     <value>No nametag status</value>
+  </data>
+  <data name="NO_SESSION_LOG" xml:space="preserve">
+    <value>No sessions log were created.
+
+See options to enable that feature.</value>
   </data>
   <data name="NO_SIGN" xml:space="preserve">
     <value>No sign</value>
@@ -800,8 +825,17 @@ Do you want to continue?</value>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
     <value>Server password field is empty</value>
   </data>
+  <data name="SESSION" xml:space="preserve">
+    <value>San Andreas Multiplayer - Session</value>
+  </data>
   <data name="SESSIONS" xml:space="preserve">
     <value>Sessions</value>
+  </data>
+  <data name="SESSION_DELETE" xml:space="preserve">
+    <value>Do you really want to discard this session?</value>
+  </data>
+  <data name="SESSION_DELETE_TITLE" xml:space="preserve">
+    <value>Discard session</value>
   </data>
   <data name="SHOW_ADDITIONAL_CONFIGURATIONS" xml:space="preserve">
     <value>Show additional configurations</value>
@@ -871,6 +905,9 @@ Do you want to continue?</value>
   </data>
   <data name="TIMESTAMP" xml:space="preserve">
     <value>Timestamp</value>
+  </data>
+  <data name="TIME_SPEND" xml:space="preserve">
+    <value>Time</value>
   </data>
   <data name="TIME_ZONE" xml:space="preserve">
     <value>Time zone</value>

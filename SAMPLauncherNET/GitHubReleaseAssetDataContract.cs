@@ -88,10 +88,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string URL
         {
-            get
-            {
-                return url;
-            }
+            get => url;
         }
 
         /// <summary>
@@ -99,10 +96,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public int ID
         {
-            get
-            {
-                return id;
-            }
+            get => id;
         }
 
         /// <summary>
@@ -110,10 +104,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string Name
         {
-            get
-            {
-                return name;
-            }
+            get => name;
         }
 
         /// <summary>
@@ -121,10 +112,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string Label
         {
-            get
-            {
-                return label;
-            }
+            get => label;
         }
 
         /// <summary>
@@ -132,10 +120,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public GitHubUserDataContract Uploader
         {
-            get
-            {
-                return uploader;
-            }
+            get => uploader;
         }
 
         /// <summary>
@@ -143,10 +128,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string ContentType
         {
-            get
-            {
-                return contentType;
-            }
+            get => contentType;
         }
 
         /// <summary>
@@ -154,10 +136,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string State
         {
-            get
-            {
-                return state;
-            }
+            get => state;
         }
 
         /// <summary>
@@ -165,10 +144,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public int Size
         {
-            get
-            {
-                return size;
-            }
+            get => size;
         }
 
         /// <summary>
@@ -176,10 +152,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public int DownloadCount
         {
-            get
-            {
-                return downloadCount;
-            }
+            get => downloadCount;
         }
 
         /// <summary>
@@ -187,10 +160,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string CreatedAt
         {
-            get
-            {
-                return createdAt;
-            }
+            get => createdAt;
         }
 
         /// <summary>
@@ -198,10 +168,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string UpdatedAt
         {
-            get
-            {
-                return updatedAt;
-            }
+            get => updatedAt;
         }
 
         /// <summary>
@@ -209,10 +176,38 @@ namespace SAMPLauncherNET
         /// </summary>
         public string BrowserDownloadURL
         {
-            get
-            {
-                return browserDownloadURL;
-            }
+            get => browserDownloadURL;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="url">URL</param>
+        /// <param name="id">ID</param>
+        /// <param name="name">Name</param>
+        /// <param name="label">Label</param>
+        /// <param name="uploader">Uploader</param>
+        /// <param name="contentType">Content type</param>
+        /// <param name="state">State</param>
+        /// <param name="size">Size</param>
+        /// <param name="downloadCount">Download count</param>
+        /// <param name="createdAt">Created at</param>
+        /// <param name="updatedAt">Updated at</param>
+        /// <param name="browserDownloadURL">Browser download URL</param>
+        public GitHubReleaseAssetDataContract(string url, int id, string name, string label, GitHubUserDataContract uploader, string contentType, string state, int size, int downloadCount, string createdAt, string updatedAt, string browserDownloadURL)
+        {
+            this.url = url;
+            this.id = id;
+            this.name = name;
+            this.label = label;
+            this.uploader = uploader;
+            this.contentType = contentType;
+            this.state = state;
+            this.size = size;
+            this.downloadCount = downloadCount;
+            this.createdAt = createdAt;
+            this.updatedAt = updatedAt;
+            this.browserDownloadURL = browserDownloadURL;
         }
     }
 }

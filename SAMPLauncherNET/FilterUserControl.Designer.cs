@@ -30,13 +30,8 @@
         {
             this.filterTextSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.filterRadioGroupFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.filterHostnameRadioButton = new MaterialSkin.Controls.MaterialRadioButton();
-            this.filterModeRadioButton = new MaterialSkin.Controls.MaterialRadioButton();
-            this.filterLanguageRadioButton = new MaterialSkin.Controls.MaterialRadioButton();
-            this.filterIPAndPortRadioButton = new MaterialSkin.Controls.MaterialRadioButton();
             this.filterUseRegexCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.deletePictureBox = new System.Windows.Forms.PictureBox();
-            this.filterRadioGroupFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deletePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,87 +60,14 @@
             this.filterRadioGroupFlowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.filterRadioGroupFlowLayoutPanel.Controls.Add(this.filterHostnameRadioButton);
-            this.filterRadioGroupFlowLayoutPanel.Controls.Add(this.filterModeRadioButton);
-            this.filterRadioGroupFlowLayoutPanel.Controls.Add(this.filterLanguageRadioButton);
-            this.filterRadioGroupFlowLayoutPanel.Controls.Add(this.filterIPAndPortRadioButton);
             this.filterRadioGroupFlowLayoutPanel.Location = new System.Drawing.Point(0, 32);
             this.filterRadioGroupFlowLayoutPanel.Name = "filterRadioGroupFlowLayoutPanel";
             this.filterRadioGroupFlowLayoutPanel.Size = new System.Drawing.Size(800, 30);
             this.filterRadioGroupFlowLayoutPanel.TabIndex = 6;
             // 
-            // filterHostnameRadioButton
-            // 
-            this.filterHostnameRadioButton.AutoSize = true;
-            this.filterHostnameRadioButton.Checked = true;
-            this.filterHostnameRadioButton.Depth = 0;
-            this.filterHostnameRadioButton.Font = new System.Drawing.Font("Roboto", 10F);
-            this.filterHostnameRadioButton.Location = new System.Drawing.Point(0, 0);
-            this.filterHostnameRadioButton.Margin = new System.Windows.Forms.Padding(0);
-            this.filterHostnameRadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.filterHostnameRadioButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.filterHostnameRadioButton.Name = "filterHostnameRadioButton";
-            this.filterHostnameRadioButton.Ripple = true;
-            this.filterHostnameRadioButton.Size = new System.Drawing.Size(178, 30);
-            this.filterHostnameRadioButton.TabIndex = 2;
-            this.filterHostnameRadioButton.TabStop = true;
-            this.filterHostnameRadioButton.Text = "{$FILTER_HOSTNAME$}";
-            this.filterHostnameRadioButton.UseVisualStyleBackColor = true;
-            this.filterHostnameRadioButton.CheckedChanged += new System.EventHandler(this.filterGenericRadioButton_CheckedChanged);
-            // 
-            // filterModeRadioButton
-            // 
-            this.filterModeRadioButton.AutoSize = true;
-            this.filterModeRadioButton.Depth = 0;
-            this.filterModeRadioButton.Font = new System.Drawing.Font("Roboto", 10F);
-            this.filterModeRadioButton.Location = new System.Drawing.Point(178, 0);
-            this.filterModeRadioButton.Margin = new System.Windows.Forms.Padding(0);
-            this.filterModeRadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.filterModeRadioButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.filterModeRadioButton.Name = "filterModeRadioButton";
-            this.filterModeRadioButton.Ripple = true;
-            this.filterModeRadioButton.Size = new System.Drawing.Size(142, 30);
-            this.filterModeRadioButton.TabIndex = 3;
-            this.filterModeRadioButton.Text = "{$FILTER_MODE$}";
-            this.filterModeRadioButton.UseVisualStyleBackColor = true;
-            this.filterModeRadioButton.CheckedChanged += new System.EventHandler(this.filterGenericRadioButton_CheckedChanged);
-            // 
-            // filterLanguageRadioButton
-            // 
-            this.filterLanguageRadioButton.AutoSize = true;
-            this.filterLanguageRadioButton.Depth = 0;
-            this.filterLanguageRadioButton.Font = new System.Drawing.Font("Roboto", 10F);
-            this.filterLanguageRadioButton.Location = new System.Drawing.Point(320, 0);
-            this.filterLanguageRadioButton.Margin = new System.Windows.Forms.Padding(0);
-            this.filterLanguageRadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.filterLanguageRadioButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.filterLanguageRadioButton.Name = "filterLanguageRadioButton";
-            this.filterLanguageRadioButton.Ripple = true;
-            this.filterLanguageRadioButton.Size = new System.Drawing.Size(174, 30);
-            this.filterLanguageRadioButton.TabIndex = 4;
-            this.filterLanguageRadioButton.Text = "{$FILTER_LANGUAGE$}";
-            this.filterLanguageRadioButton.UseVisualStyleBackColor = true;
-            this.filterLanguageRadioButton.CheckedChanged += new System.EventHandler(this.filterGenericRadioButton_CheckedChanged);
-            // 
-            // filterIPAndPortRadioButton
-            // 
-            this.filterIPAndPortRadioButton.AutoSize = true;
-            this.filterIPAndPortRadioButton.Depth = 0;
-            this.filterIPAndPortRadioButton.Font = new System.Drawing.Font("Roboto", 10F);
-            this.filterIPAndPortRadioButton.Location = new System.Drawing.Point(494, 0);
-            this.filterIPAndPortRadioButton.Margin = new System.Windows.Forms.Padding(0);
-            this.filterIPAndPortRadioButton.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.filterIPAndPortRadioButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.filterIPAndPortRadioButton.Name = "filterIPAndPortRadioButton";
-            this.filterIPAndPortRadioButton.Ripple = true;
-            this.filterIPAndPortRadioButton.Size = new System.Drawing.Size(192, 30);
-            this.filterIPAndPortRadioButton.TabIndex = 5;
-            this.filterIPAndPortRadioButton.Text = "{$FILTER_IP_AND_PORT$}";
-            this.filterIPAndPortRadioButton.UseVisualStyleBackColor = true;
-            this.filterIPAndPortRadioButton.CheckedChanged += new System.EventHandler(this.filterGenericRadioButton_CheckedChanged);
-            // 
             // filterUseRegexCheckBox
             // 
+            this.filterUseRegexCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.filterUseRegexCheckBox.AutoSize = true;
             this.filterUseRegexCheckBox.Depth = 0;
             this.filterUseRegexCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
@@ -185,8 +107,6 @@
             this.Controls.Add(this.filterTextSingleLineTextField);
             this.Name = "FilterUserControl";
             this.Size = new System.Drawing.Size(800, 95);
-            this.filterRadioGroupFlowLayoutPanel.ResumeLayout(false);
-            this.filterRadioGroupFlowLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deletePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -197,10 +117,6 @@
 
         private MaterialSkin.Controls.MaterialSingleLineTextField filterTextSingleLineTextField;
         private System.Windows.Forms.FlowLayoutPanel filterRadioGroupFlowLayoutPanel;
-        private MaterialSkin.Controls.MaterialRadioButton filterHostnameRadioButton;
-        private MaterialSkin.Controls.MaterialRadioButton filterModeRadioButton;
-        private MaterialSkin.Controls.MaterialRadioButton filterLanguageRadioButton;
-        private MaterialSkin.Controls.MaterialRadioButton filterIPAndPortRadioButton;
         private MaterialSkin.Controls.MaterialCheckBox filterUseRegexCheckBox;
         private System.Windows.Forms.PictureBox deletePictureBox;
     }

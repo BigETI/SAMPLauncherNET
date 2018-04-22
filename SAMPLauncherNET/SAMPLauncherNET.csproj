@@ -122,7 +122,6 @@
       <DependentUpon>DownloadProgressForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EChatlogFormatType.cs" />
-    <Compile Include="EFilterType.cs" />
     <Compile Include="EPluginProvider.cs" />
     <Compile Include="EServerListType.cs" />
     <Compile Include="ERequestType.cs" />
@@ -148,12 +147,21 @@
       <DependentUpon>FavouriteListsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FileResource.cs" />
+    <Compile Include="FileState.cs" />
+    <Compile Include="FilterOption.cs" />
     <Compile Include="FilterUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="FilterUserControl.Designer.cs">
       <DependentUpon>FilterUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MediaState.cs" />
     <Compile Include="OnFilterEventHandler.cs" />
     <Compile Include="GeoLocationProvider.cs" />
     <Compile Include="GeoLocator.cs" />
@@ -185,6 +193,28 @@
     </Compile>
     <Compile Include="SAMPCTLProvider.cs" />
     <Compile Include="PluginProvider.cs" />
+    <Compile Include="Session.cs" />
+    <Compile Include="SessionDataContract.cs" />
+    <Compile Include="SessionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SessionForm.Designer.cs">
+      <DependentUpon>SessionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SessionProvider.cs" />
+    <Compile Include="SessionsCache.cs" />
+    <Compile Include="SessionServerUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SessionServerUserControl.Designer.cs">
+      <DependentUpon>SessionServerUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SessionUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SessionUserControl.Designer.cs">
+      <DependentUpon>SessionUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThumbnailsCache.cs" />
     <Compile Include="IndexedServerListConnector.cs" />
     <Compile Include="Kernel32.cs" />
@@ -306,6 +336,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>pt-BR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,6 +352,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RCONPasswordForm.resx">
       <DependentUpon>RCONPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SessionForm.resx">
+      <DependentUpon>SessionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SessionServerUserControl.resx">
+      <DependentUpon>SessionServerUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SessionUserControl.resx">
+      <DependentUpon>SessionUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
   </ItemGroup>

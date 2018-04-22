@@ -4,6 +4,7 @@ using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 /// <summary>
 /// SA:MP launcher .NET namespace
@@ -61,6 +62,24 @@ namespace SAMPLauncherNET
                     if (i != null)
                     {
                         i.Dispose();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Dispose all
+        /// </summary>
+        /// <param name="controls">Controls</param>
+        public static void DisposeAll(Control.ControlCollection controls)
+        {
+            if (controls != null)
+            {
+                foreach (Control control in controls)
+                {
+                    if (control != null)
+                    {
+                        control.Dispose();
                     }
                 }
             }
@@ -233,6 +252,33 @@ namespace SAMPLauncherNET
             g.Clear(Color.Transparent);
             g.InterpolationMode = InterpolationMode.HighQualityBilinear;
             g.DrawImage(image, new Rectangle(new Point((GalleryImageSize.Width - sz.Width) / 2, (GalleryImageSize.Height - sz.Height) / 2), sz), new Rectangle(0, 0, image.Width, image.Height), GraphicsUnit.Pixel);
+            return ret;
+        }
+
+        /// <summary>
+        /// Save text file
+        /// </summary>
+        /// <param name="fileName">File name</param>
+        /// <param name="text">Text</param>
+        public static bool SaveTextFile(string fileName, string text)
+        {
+            bool ret = false;
+            try
+            {
+                if (File.Exists(fileName))
+                {
+                    File.Delete(fileName);
+                }
+                using (StreamWriter writer = new StreamWriter(fileName))
+                {
+                    writer.Write(text);
+                    ret = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex.Message);
+            }
             return ret;
         }
     }

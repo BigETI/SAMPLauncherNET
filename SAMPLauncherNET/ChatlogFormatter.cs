@@ -37,12 +37,12 @@ namespace SAMPLauncherNET
                         if (!showColorCodes)
                         {
                             regex = new Regex(@"\{([0-9a-f]{6})\}", RegexOptions.IgnoreCase);
-                            regex.Replace(plain_text, "");
+                            plain_text = regex.Replace(plain_text, "");
                         }
                         if (!showTimestamp)
                         {
                             regex = new Regex(@"\[[0-9]{2}:[0-9]{2}:[0-9]{2}\][^\S\n]*");
-                            regex.Replace(plain_text, "");
+                            plain_text = regex.Replace(plain_text, "");
                         }
                         ret.Append(plain_text);
                         break;

@@ -118,10 +118,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string URL
         {
-            get
-            {
-                return url;
-            }
+            get => url;
         }
 
         /// <summary>
@@ -129,10 +126,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string AssetsURL
         {
-            get
-            {
-                return assetsURL;
-            }
+            get => assetsURL;
         }
 
         /// <summary>
@@ -140,10 +134,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string UploadURL
         {
-            get
-            {
-                return uploadURL;
-            }
+            get => uploadURL;
         }
 
         /// <summary>
@@ -151,10 +142,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string HTMLURL
         {
-            get
-            {
-                return htmlURL;
-            }
+            get => htmlURL;
         }
 
         /// <summary>
@@ -162,10 +150,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public int ID
         {
-            get
-            {
-                return id;
-            }
+            get => id;
         }
 
         /// <summary>
@@ -173,10 +158,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string TagName
         {
-            get
-            {
-                return tagName;
-            }
+            get => tagName;
         }
 
         /// <summary>
@@ -184,10 +166,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string TargetCommitish
         {
-            get
-            {
-                return targetCommitish;
-            }
+            get => targetCommitish;
         }
 
         /// <summary>
@@ -195,10 +174,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string Name
         {
-            get
-            {
-                return name;
-            }
+            get => name;
         }
 
         /// <summary>
@@ -206,10 +182,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public bool Draft
         {
-            get
-            {
-                return draft;
-            }
+            get => draft;
         }
 
         /// <summary>
@@ -217,10 +190,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public GitHubUserDataContract Author
         {
-            get
-            {
-                return author;
-            }
+            get => author;
         }
 
         /// <summary>
@@ -228,10 +198,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public bool Prerelease
         {
-            get
-            {
-                return prerelease;
-            }
+            get => prerelease;
         }
 
         /// <summary>
@@ -239,10 +206,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string CreatedAt
         {
-            get
-            {
-                return createdAt;
-            }
+            get => createdAt;
         }
 
         /// <summary>
@@ -250,10 +214,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string PublishedAt
         {
-            get
-            {
-                return publishedAt;
-            }
+            get => publishedAt;
         }
 
         /// <summary>
@@ -261,10 +222,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public GitHubReleaseAssetDataContract[] Assets
         {
-            get
-            {
-                return assets;
-            }
+            get => assets;
         }
 
         /// <summary>
@@ -272,10 +230,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string TarballURL
         {
-            get
-            {
-                return tarballURL;
-            }
+            get => tarballURL;
         }
 
         /// <summary>
@@ -283,10 +238,7 @@ namespace SAMPLauncherNET
         /// </summary>
         public string ZipballURL
         {
-            get
-            {
-                return zipballURL;
-            }
+            get => zipballURL;
         }
 
         /// <summary>
@@ -294,10 +246,48 @@ namespace SAMPLauncherNET
         /// </summary>
         public string Body
         {
-            get
-            {
-                return body;
-            }
+            get => body;
+        }
+
+        /// <summary>
+        /// Constrcutor
+        /// </summary>
+        /// <param name="url">URL</param>
+        /// <param name="assetsURL">Assets URL</param>
+        /// <param name="uploadURL">Upload URL</param>
+        /// <param name="htmlURL">HTML URL</param>
+        /// <param name="id">ID</param>
+        /// <param name="tagName">Tag name</param>
+        /// <param name="targetCommitish">Target commitish</param>
+        /// <param name="name">Name</param>
+        /// <param name="draft">Draft</param>
+        /// <param name="author">Author</param>
+        /// <param name="prerelease">Pre-release</param>
+        /// <param name="createdAt">Created at</param>
+        /// <param name="publishedAt">Published at</param>
+        /// <param name="assets">Assets</param>
+        /// <param name="tarballURL">Tarball URL</param>
+        /// <param name="zipballURL">ZIPball URL</param>
+        /// <param name="body">Body</param>
+        public GitHubLatestReleaseDataContract(string url, string assetsURL, string uploadURL, string htmlURL, int id, string tagName, string targetCommitish, string name, bool draft, GitHubUserDataContract author, bool prerelease, string createdAt, string publishedAt, GitHubReleaseAssetDataContract[] assets, string tarballURL, string zipballURL, string body)
+        {
+            this.url = url;
+            this.assetsURL = assetsURL;
+            this.uploadURL = uploadURL;
+            this.htmlURL = htmlURL;
+            this.id = id;
+            this.tagName = tagName;
+            this.targetCommitish = targetCommitish;
+            this.name = name;
+            this.draft = draft;
+            this.author = author;
+            this.prerelease = prerelease;
+            this.createdAt = createdAt;
+            this.publishedAt = publishedAt;
+            this.assets = assets;
+            this.tarballURL = tarballURL;
+            this.zipballURL = zipballURL;
+            this.body = body;
         }
     }
 }

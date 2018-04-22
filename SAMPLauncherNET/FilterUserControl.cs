@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using WinFormsTranslator;
@@ -16,21 +18,35 @@ namespace SAMPLauncherNET
         /// <summary>
         /// On filter filter event
         /// </summary>
-        public EventHandler OnFilterFilterEvent;
+        public event EventHandler FilterFilterEvent;
 
         /// <summary>
         /// On filter delete event
         /// </summary>
-        public EventHandler OnFilterDeleteEvent;
+        public event EventHandler FilterDeleteEvent;
 
         /// <summary>
-        /// FIlter text
+        /// Material radio button
+        /// </summary>
+        private List<MaterialRadioButton> radioButtons = new List<MaterialRadioButton>();
+
+        /// <summary>
+        /// Filter options
+        /// </summary>
+        private FilterOption[] filterOptions = new FilterOption[0];
+
+        /// <summary>
+        /// Filter text
         /// </summary>
         public string FilterText
         {
-            get
+            get => (UseRegex ? filterTextSingleLineTextField.Text.Trim() : EscapeFilterString(filterTextSingleLineTextField.Text.Trim()));
+            set
             {
-                return (UseRegex ? filterTextSingleLineTextField.Text.Trim() : EscapeFilterString(filterTextSingleLineTextField.Text.Trim()));
+                if (value != null)
+                {
+                    filterTextSingleLineTextField.Text = value;
+                }
             }
         }
 
@@ -48,34 +64,87 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Filter type
         /// </summary>
-        public EFilterType FilterType
+        public string Field
         {
             get
             {
-                EFilterType ret = EFilterType.Hostname;
-                if (filterModeRadioButton.Checked)
+                string ret = null;
+                foreach (MaterialRadioButton radio_button in radioButtons)
                 {
-                    ret = EFilterType.Mode;
+                    if (radio_button.Checked)
+                    {
+                        ret = (string)(radio_button.Tag);
+                    }
                 }
-                else if (filterLanguageRadioButton.Checked)
+                if (ret == null)
                 {
-                    ret = EFilterType.Language;
-                }
-                else if (filterIPAndPortRadioButton.Checked)
-                {
-                    ret = EFilterType.IPAndPort;
+                    ret = "";
                 }
                 return ret;
             }
         }
 
         /// <summary>
-        /// Default constructor
+        /// Constructor
         /// </summary>
+        /// <param name="filterOptions">Filter options</param>
         public FilterUserControl()
         {
             InitializeComponent();
             Translator.LoadTranslation(this);
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="filterOptions">Filter options</param>
+        public FilterOption[] FilterOptions
+        {
+            get => filterOptions;
+            set
+            {
+                filterRadioGroupFlowLayoutPanel.Controls.Clear();
+                radioButtons.Clear();
+                if (value == null)
+                {
+                    filterOptions = new FilterOption[0];
+                }
+                else
+                {
+                    uint i = 0U;
+                    List<FilterOption> options = new List<FilterOption>();
+                    foreach (FilterOption filter_option in value)
+                    {
+                        if (filter_option != null)
+                        {
+                            MaterialRadioButton radio_button = new MaterialRadioButton();
+                            filterRadioGroupFlowLayoutPanel.Controls.Add(radio_button);
+                            radio_button.AutoSize = true;
+                            radio_button.Checked = (i == 0U);
+                            radio_button.Depth = 0;
+                            radio_button.Font = new System.Drawing.Font("Roboto", 10F);
+                            radio_button.Location = new System.Drawing.Point(0, 0);
+                            radio_button.Margin = new Padding(0);
+                            radio_button.MouseLocation = new System.Drawing.Point(-1, -1);
+                            radio_button.MouseState = MaterialSkin.MouseState.HOVER;
+                            radio_button.Name = "filterRadioButton" + i;
+                            radio_button.Ripple = true;
+                            radio_button.Size = new System.Drawing.Size(178, 30);
+                            radio_button.TabIndex = (int)i;
+                            radio_button.TabStop = true;
+                            radio_button.Text = filter_option.DisplayName;
+                            radio_button.UseVisualStyleBackColor = true;
+                            radio_button.CheckedChanged += filterGenericRadioButton_CheckedChanged;
+                            radio_button.Tag = filter_option.Field;
+                            radioButtons.Add(radio_button);
+                            options.Add(filter_option);
+                        }
+                        ++i;
+                    }
+                    filterOptions = options.ToArray();
+                    Translator.LoadTranslation(filterRadioGroupFlowLayoutPanel);
+                }
+            }
         }
 
         /// <summary>
@@ -117,9 +186,9 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void filterSingleLineTextField_TextChanged(object sender, EventArgs e)
         {
-            if (OnFilterFilterEvent != null)
+            if (FilterFilterEvent != null)
             {
-                OnFilterFilterEvent.Invoke(this, e);
+                FilterFilterEvent.Invoke(this, e);
             }
         }
 
@@ -130,9 +199,9 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void filterGenericRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (OnFilterFilterEvent != null)
+            if (FilterFilterEvent != null)
             {
-                OnFilterFilterEvent.Invoke(this, e);
+                FilterFilterEvent.Invoke(this, e);
             }
         }
 
@@ -143,9 +212,9 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void deletePictureBox_Click(object sender, EventArgs e)
         {
-            if (OnFilterDeleteEvent != null)
+            if (FilterDeleteEvent != null)
             {
-                OnFilterDeleteEvent.Invoke(this, e);
+                FilterDeleteEvent.Invoke(this, e);
             }
         }
 
@@ -156,9 +225,9 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void filterUseRegexCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (OnFilterFilterEvent != null)
+            if (FilterFilterEvent != null)
             {
-                OnFilterFilterEvent.Invoke(this, e);
+                FilterFilterEvent.Invoke(this, e);
             }
         }
 

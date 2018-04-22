@@ -23,6 +23,10 @@ namespace SAMPLauncherNET
     /// </summary>
     public partial class MainForm : MaterialForm
     {
+        /// <summary>
+        /// Loading form
+        /// </summary>
+        private LoadingForm loadingForm;
 
         /// <summary>
         /// Load servers
@@ -90,6 +94,21 @@ namespace SAMPLauncherNET
         private uint lastGalleryImageIndex;
 
         /// <summary>
+        /// Loaded sessions
+        /// </summary>
+        private List<Session> loadedSessions = new List<Session>();
+
+        /// <summary>
+        /// Sessions thread
+        /// </summary>
+        private Thread sessionsThread;
+
+        /// <summary>
+        /// Last media state
+        /// </summary>
+        private MediaState lastMediaState;
+
+        /// <summary>
         /// Selected browser
         /// </summary>
         public Server SelectedServer
@@ -99,7 +118,7 @@ namespace SAMPLauncherNET
                 Server ret = null;
                 foreach (DataGridViewRow dgvr in serversGridView.SelectedRows)
                 {
-                    if (dgvr.Cells[dgvr.Cells.Count - 1].Value != null)
+                    if (dgvr.Cells[dgvr.Cells.Count - 3].Value != null)
                     {
                         string ipp = dgvr.Cells[dgvr.Cells.Count - 3].Value.ToString();
                         if (registeredServers.ContainsKey(ipp))
@@ -175,6 +194,9 @@ namespace SAMPLauncherNET
             apiGridView.Columns[1].HeaderText = Translator.GetTranslation("NAME");
             apiGridView.Columns[2].HeaderText = Translator.GetTranslation("TYPE");
             apiGridView.Columns[3].HeaderText = Translator.GetTranslation("ENDPOINT");
+            sessionsDataGridView.Columns[1].HeaderText = Translator.GetTranslation("USERNAME");
+            sessionsDataGridView.Columns[2].HeaderText = Translator.GetTranslation("HOSTNAME");
+            sessionsDataGridView.Columns[3].HeaderText = Translator.GetTranslation("IP_AND_PORT");
             usernameSingleLineTextField.Hint = Translator.GetTranslation("USERNAME") + "...";
             usernameSingleLineTextField.Text = SAMP.Username;
 
@@ -200,19 +222,18 @@ namespace SAMPLauncherNET
 
             galleryFileSystemWatcher.Path = SAMP.GalleryPath;
             textFileSystemWatcher.Path = SAMP.ConfigPath;
-
-            //lastChatlogRichTextBox.Rtf = @"{\rtf1\ansi\f0\pard" + Environment.NewLine + SAMP.Chatlog + Environment.NewLine + "}";
-            /*string[] last_chatlog = SAMP.Chatlog.Split(Environment.NewLine.ToCharArray());
-            if (last_chatlog != null)
+            try
             {
-                lastChatlogRichTextBox.Lines = last_chatlog;
+                if (!(Directory.Exists(SessionProvider.SessionsDirectory)))
+                {
+                    Directory.CreateDirectory(SessionProvider.SessionsDirectory);
+                }
+                sessionsFileSystemWatcher.Path = SessionProvider.SessionsDirectory;
             }
-            last_chatlog = lastChatlogRichTextBox.Rtf.Split(new string[] { "\\line" }, StringSplitOptions.None);
-            if (last_chatlog != null)
+            catch (Exception e)
             {
-                lastChatlogRichTextBox.Lines = last_chatlog;
-            }*/
-
+                Console.Error.WriteLine(e.Message);
+            }
             savedPositionsTextBox.Text = SAMP.SavedPositions;
             ReloadVersions();
             ReloadSAMPConfig();
@@ -260,6 +281,30 @@ namespace SAMPLauncherNET
                 }
             });
             serversThread.Start();
+        }
+
+        /// <summary>
+        /// Show loading window
+        /// </summary>
+        private void ShowLoadingForm(EventHandler onShown)
+        {
+            HideLoadingForm();
+            loadingForm = new LoadingForm();
+            loadingForm.Location = new Point(Location.X + ((Size.Width - loadingForm.Size.Width) / 2), Location.Y + ((Size.Height - loadingForm.Size.Height) / 2));
+            loadingForm.Shown += onShown;
+            loadingForm.Show();
+        }
+
+        /// <summary>
+        /// Hide loading window
+        /// </summary>
+        private void HideLoadingForm()
+        {
+            if (loadingForm != null)
+            {
+                loadingForm.Close();
+                loadingForm = null;
+            }
         }
 
         /// <summary>
@@ -370,12 +415,18 @@ namespace SAMPLauncherNET
                     ServerListConnector slc = apis[index];
                     if (slc.NotLoaded)
                     {
-                        slc.NotLoaded = false;
-                        Dictionary<string, Server> l = slc.ServerListIO;
-                        foreach (Server server in l.Values)
+                        ShowLoadingForm((sender, e) =>
                         {
-                            loadServers.Add(new KeyValuePair<Server, int>(server, index));
-                        }
+                            lock (loadServers)
+                            {
+                                slc.NotLoaded = false;
+                                Dictionary<string, Server> l = slc.ServerListIO;
+                                foreach (Server server in l.Values)
+                                {
+                                    loadServers.Add(new KeyValuePair<Server, int>(server, index));
+                                }
+                            }
+                        });
                     }
                 }
                 UpdateServerListFilters();
@@ -390,14 +441,21 @@ namespace SAMPLauncherNET
         private void AddFilterControl()
         {
             FilterUserControl filter = new FilterUserControl();
+            filter.FilterOptions = new FilterOption[]
+            {
+                new FilterOption("Hostname", "{$FILTER_HOSTNAME$}"),
+                new FilterOption("Mode", "{$FILTER_MODE$}"),
+                new FilterOption("Language", "{$FILTER_LANGUAGE$}"),
+                new FilterOption("IP and port", "{$FILTER_IP_AND_PORT$}")
+            };
             filtersInnerPanel.Controls.Add(filter);
             filters.Add(filter);
             filter.Dock = DockStyle.Top;
-            filter.OnFilterFilterEvent += (sender, e) =>
+            filter.FilterFilterEvent += (sender, e) =>
             {
                 UpdateServerListFilters();
             };
-            filter.OnFilterDeleteEvent += (sender, e) =>
+            filter.FilterDeleteEvent += (sender, e) =>
             {
                 if (sender is FilterUserControl)
                 {
@@ -484,7 +542,7 @@ namespace SAMPLauncherNET
         {
             foreach (DataGridViewRow dgvr in serversGridView.SelectedRows)
             {
-                if (dgvr.Cells[dgvr.Cells.Count - 1].Value != null)
+                if (dgvr.Cells[dgvr.Cells.Count - 3].Value != null)
                 {
                     string ipp = dgvr.Cells[dgvr.Cells.Count - 3].Value.ToString();
                     if (registeredServers.ContainsKey(ipp))
@@ -637,22 +695,23 @@ namespace SAMPLauncherNET
                     {
                         try
                         {
-                            Regex regex = new Regex(filter.FilterText);
+                            Regex regex = new Regex(ft);
+                            bool first = true;
                             foreach (Server server in registeredServers.Values)
                             {
                                 string match_str = null;
-                                switch (filter.FilterType)
+                                switch (filter.Field)
                                 {
-                                    case EFilterType.Hostname:
+                                    case "Hostname":
                                         match_str = server.HostnameCached;
                                         break;
-                                    case EFilterType.Mode:
+                                    case "Mode":
                                         match_str = server.GamemodeCached;
                                         break;
-                                    case EFilterType.Language:
+                                    case "Language":
                                         match_str = server.LanguageCached;
                                         break;
-                                    case EFilterType.IPAndPort:
+                                    case "IP and port":
                                         match_str = server.IPPortString;
                                         break;
                                 }
@@ -660,11 +719,28 @@ namespace SAMPLauncherNET
                                 {
                                     if (regex.IsMatch(match_str))
                                     {
-                                        str.Append(" AND `IP and port` = '");
+                                        if (first)
+                                        {
+                                            str.Append(" AND `IP and port` IN (");
+                                            first = false;
+                                        }
+                                        else
+                                        {
+                                            str.Append(", ");
+                                        }
+                                        str.Append("'");
                                         str.Append(server.IPPortString);
                                         str.Append("'");
                                     }
                                 }
+                            }
+                            if (first)
+                            {
+                                str.Append(" AND `IP and port` NOT '%'");
+                            }
+                            else
+                            {
+                                str.Append(")");
                             }
                         }
                         catch (Exception e)
@@ -674,26 +750,11 @@ namespace SAMPLauncherNET
                     }
                     else
                     {
-                        string type = null;
-                        switch (filter.FilterType)
-                        {
-                            case EFilterType.Hostname:
-                                type = "Hostname";
-                                break;
-                            case EFilterType.Mode:
-                                type = "Mode";
-                                break;
-                            case EFilterType.Language:
-                                type = "Language";
-                                break;
-                            case EFilterType.IPAndPort:
-                                type = "IP and port";
-                                break;
-                        }
-                        if (type != null)
+                        string field = filter.Field;
+                        if (field.Length > 0)
                         {
                             str.Append(" AND `");
-                            str.Append(type);
+                            str.Append(field);
                             str.Append("` LIKE '%");
                             str.Append(filter.FilterText);
                             str.Append("%'");
@@ -703,6 +764,7 @@ namespace SAMPLauncherNET
             }
             try
             {
+                Console.WriteLine(str.ToString());
                 serversBindingSource.Filter = str.ToString();
             }
             catch (Exception e)
@@ -734,10 +796,103 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Update sessions data filter
+        /// </summary>
+        private void UpdateSessionsDataFilter()
+        {
+            StringBuilder str = new StringBuilder();
+            string ft = sessionsFilterUserControl.FilterText;
+            if (ft.Length > 0)
+            {
+                if (sessionsFilterUserControl.UseRegex)
+                {
+                    try
+                    {
+                        Regex regex = new Regex(ft);
+                        bool first = true;
+                        foreach (Server server in registeredServers.Values)
+                        {
+                            string match_str = null;
+                            switch (sessionsFilterUserControl.Field)
+                            {
+                                case "Hostname":
+                                    match_str = server.HostnameCached;
+                                    break;
+                                case "Mode":
+                                    match_str = server.GamemodeCached;
+                                    break;
+                                case "Language":
+                                    match_str = server.LanguageCached;
+                                    break;
+                                case "IP and port":
+                                    match_str = server.IPPortString;
+                                    break;
+                            }
+                            if (match_str != null)
+                            {
+                                if (regex.IsMatch(match_str))
+                                {
+                                    if (first)
+                                    {
+                                        str.Append("`IP and port` IN (");
+                                        first = false;
+                                    }
+                                    else
+                                    {
+                                        str.Append(", ");
+                                    }
+                                    str.Append("'");
+                                    str.Append(server.IPPortString);
+                                    str.Append("'");
+                                }
+                            }
+                        }
+                        if (first)
+                        {
+                            str.Append("`IP and port` NOT '%'");
+                        }
+                        else
+                        {
+                            str.Append(")");
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Error.WriteLine(e.Message);
+                    }
+                }
+                else
+                {
+                    string field = sessionsFilterUserControl.Field;
+                    if (field.Length > 0)
+                    {
+                        str.Append("`");
+                        str.Append(field);
+                        str.Append("` LIKE '%");
+                        str.Append(sessionsFilterUserControl.FilterText);
+                        str.Append("%'");
+                    }
+                }
+            }
+            try
+            {
+                Console.WriteLine(str.ToString());
+                sessionsBindingSource.Filter = str.ToString();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
         /// Connect
         /// </summary>
+        /// <param name="server">Server</param>
         /// <param name="rconPassword">RCON password</param>
-        private void Connect(Server server = null, string rconPassword = null, bool quitWhenDone = false)
+        /// <param name="quitWhenDone">Quit when done</param>
+        /// <param name="createSessionLog">Create session log</param>
+        private void Connect(Server server = null, string rconPassword = null, bool quitWhenDone = false, bool createSessionLog = false)
         {
             Server s = server;
             if (s == null)
@@ -762,7 +917,8 @@ namespace SAMPLauncherNET
                     DialogResult = DialogResult.None;
                     if (result == DialogResult.OK)
                     {
-                        SAMP.LaunchSAMP(s, cf.Username, s.HasPassword ? cf.ServerPassword : null, rconPassword, false, quitWhenDone, SAMP.PluginsDataIO, this);
+                        SAMP.LaunchSAMP(s, cf.Username, s.HasPassword ? cf.ServerPassword : null, rconPassword, false, quitWhenDone, createSessionLog, SAMP.PluginsDataIO, this);
+                        lastMediaState = SAMP.LastMediaState;
                     }
                 }
                 else
@@ -770,11 +926,34 @@ namespace SAMPLauncherNET
                     string username = usernameSingleLineTextField.Text.Trim();
                     if (username.Length > 0)
                     {
-                        SAMP.LaunchSAMP(s, usernameSingleLineTextField.Text.Trim(), null, rconPassword, false, quitWhenDone, SAMP.PluginsDataIO, this);
+                        SAMP.LaunchSAMP(s, usernameSingleLineTextField.Text.Trim(), null, rconPassword, false, quitWhenDone, createSessionLog, SAMP.PluginsDataIO, this);
+                        lastMediaState = SAMP.LastMediaState;
                     }
                     else
                     {
                         MessageBox.Show(Translator.GetTranslation("PLEASE_TYPE_IN_USERNAME"), Translator.GetTranslation("INPUT_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Connect using session
+        /// </summary>
+        /// <param name="session">Session</param>
+        public void ConnectUsingSession(Session session)
+        {
+            if (session != null)
+            {
+                using (Server server = new Server(session.IPPort, false))
+                {
+                    if (server.IsValid)
+                    {
+                        Connect(server, null, closeWhenLaunchedCheckBox.Checked, createSessionsLogCheckBox.Checked);
+                    }
+                    else
+                    {
+                        Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked, createSessionLog: createSessionsLogCheckBox.Checked);
                     }
                 }
             }
@@ -813,6 +992,7 @@ namespace SAMPLauncherNET
             chatlogTimestampCheckBox.Checked = lcdc.ShowChatlogTimestamp;
             showUsernameDialogCheckBox.Checked = lcdc.ShowUsernameDialog;
             closeWhenLaunchedCheckBox.Checked = !(lcdc.DontCloseWhenLaunched);
+            createSessionsLogCheckBox.Checked = lcdc.CreateSessionsLog;
         }
 
         /// <summary>
@@ -860,10 +1040,17 @@ namespace SAMPLauncherNET
         {
             foreach (ListViewItem item in galleryListView.SelectedItems)
             {
-                string file_name = (string)(item.Tag);
-                if (File.Exists(file_name))
+                try
                 {
-                    Process.Start(file_name);
+                    string file_name = (string)(item.Tag);
+                    if (File.Exists(file_name))
+                    {
+                        Process.Start(file_name);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -900,6 +1087,59 @@ namespace SAMPLauncherNET
                     }
                     galleryFileSystemWatcher.EnableRaisingEvents = true;
                     ReloadGallery();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reload sessions data
+        /// </summary>
+        private void ReloadSessionsData()
+        {
+            if (sessionsThread != null)
+            {
+                sessionsThread.Abort();
+            }
+            sessionsDataTable.Clear();
+            loadedSessions.Clear();
+            sessionsThread = new Thread(() =>
+            {
+                foreach (Session session in SessionProvider.Sessions)
+                {
+                    lock (loadedSessions)
+                    {
+                        loadedSessions.Add(session);
+                    }
+                }
+            });
+            sessionsThread.Start();
+        }
+
+        /// <summary>
+        /// Reload selected session data
+        /// </summary>
+        private void ReloadSelectedSessionData()
+        {
+            foreach (DataGridViewRow dgvr in sessionsDataGridView.SelectedRows)
+            {
+                if (dgvr.Cells[0].Value != null)
+                {
+                    string path = dgvr.Cells[0].Value.ToString();
+                    Session session = SessionsCache.GetSession(path);
+                    if (session != null)
+                    {
+                        Utils.DisposeAll(sessionSplitContainer.Panel1.Controls);
+                        sessionSplitContainer.Panel1.Controls.Clear();
+                        SessionUserControl suc = new SessionUserControl(session);
+                        sessionSplitContainer.Panel1.Controls.Add(suc);
+                        suc.Dock = DockStyle.Fill;
+                        Utils.DisposeAll(sessionSplitContainer.Panel2.Controls);
+                        sessionSplitContainer.Panel2.Controls.Clear();
+                        SessionServerUserControl ssuc = new SessionServerUserControl(session, this);
+                        sessionSplitContainer.Panel2.Controls.Add(ssuc);
+                        ssuc.Dock = DockStyle.Fill;
+                        break;
+                    }
                 }
             }
         }
@@ -1223,39 +1463,97 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Save text file
-        /// </summary>
-        /// <param name="fileName">File name</param>
-        /// <param name="text">Text</param>
-        private static bool SaveTextFile(string fileName, string text)
-        {
-            bool ret = false;
-            try
-            {
-                if (File.Exists(fileName))
-                {
-                    File.Delete(fileName);
-                }
-                using (StreamWriter writer = new StreamWriter(fileName))
-                {
-                    writer.Write(text);
-                    ret = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return ret;
-        }
-
-        /// <summary>
         /// Multi-threaded lists timer tick event
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">Event arguments</param>
         private void multithreadedListsTimer_Tick(object sender, EventArgs e)
         {
+            if ((lastMediaState != null) && (SAMP.LastSessionData != null))
+            {
+                try
+                {
+                    if (!(SAMP.IsGTASanAndreasRunning))
+                    {
+                        string chatlog_path = null;
+                        string saved_positions_path = null;
+                        List<string> screenshot_paths = new List<string>();
+                        string[] paths = lastMediaState.GetModifiedAdded();
+                        foreach (string path in paths)
+                        {
+                            if (path.ToLower().EndsWith(".png"))
+                            {
+                                screenshot_paths.Add(path);
+                            }
+                            else if (path.ToLower().EndsWith("chatlog.txt"))
+                            {
+                                chatlog_path = path;
+                            }
+                            else if (path.ToLower().EndsWith("savedpositions.txt"))
+                            {
+                                saved_positions_path = path;
+                            }
+                        }
+                        uint id = 0U;
+                        string session_path;
+                        do
+                        {
+                            session_path = Path.Combine(SessionProvider.SessionsDirectory, id + ".samp-session");
+                            ++id;
+                        }
+                        while (File.Exists(session_path));
+                        Session session = null;
+                        using (Server server = new Server(SAMP.LastSessionData.IPPort, true))
+                        {
+                            if (server.IsValid)
+                            {
+                                string hostname = server.Hostname;
+                                string mode = server.Gamemode;
+                                string language = server.Language;
+                                session = Session.Create(session_path, SAMP.LastSessionData.DateTime, DateTime.Now - SAMP.LastSessionData.DateTime, SAMPProvider.CurrentVersion.Name, SAMP.LastSessionData.Username, SAMP.LastSessionData.IPPort, (hostname.Length > 0) ? hostname : SAMP.LastSessionData.Hostname, (mode.Length > 0) ? mode : SAMP.LastSessionData.Mode, (language.Length > 0) ? language : SAMP.LastSessionData.Language, screenshot_paths.ToArray(), chatlog_path, saved_positions_path);
+                            }
+                            else
+                            {
+                                session = Session.Create(session_path, SAMP.LastSessionData.DateTime, DateTime.Now - SAMP.LastSessionData.DateTime, SAMPProvider.CurrentVersion.Name, SAMP.LastSessionData.Username, SAMP.LastSessionData.IPPort, SAMP.LastSessionData.Hostname, SAMP.LastSessionData.Mode, SAMP.LastSessionData.Language, screenshot_paths.ToArray(), chatlog_path, saved_positions_path);
+                            }
+                        }
+                        lastMediaState = null;
+                        if (session != null)
+                        {
+                            SessionForm sf = new SessionForm(session);
+                            DialogResult result = sf.ShowDialog();
+                            DialogResult = DialogResult.None;
+                            if (result == DialogResult.No)
+                            {
+                                try
+                                {
+                                    if (File.Exists(session.Path))
+                                    {
+                                        File.Delete(session.Path);
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                SessionsCache.Remove(session);
+                            }
+                            if (closeWhenLaunchedCheckBox.Checked)
+                            {
+                                Close();
+                            }
+                            else
+                            {
+                                WindowState = FormWindowState.Maximized;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine(ex.Message);
+                }
+            }
             List<ServerListConnector> apis = SAMP.APIIO;
             lock (loadedServers)
             {
@@ -1302,13 +1600,24 @@ namespace SAMPLauncherNET
                     if (queryFirstServer)
                     {
                         queryFirstServer = !(EnterRow());
+                        if (!queryFirstServer)
+                        {
+                            HideLoadingForm();
+                        }
                     }
                     if ((kv.Value >= 0) && (kv.Value < apis.Count))
                     {
                         ++apis[kv.Value].ServerCount;
                     }
                 }
-                loadedServers.Clear();
+                if (loadedServers.Count <= 0)
+                {
+                    HideLoadingForm();
+                }
+                else
+                {
+                    loadedServers.Clear();
+                }
                 UpdateServerCount();
             }
             if (rowThreadSuccess)
@@ -1316,17 +1625,38 @@ namespace SAMPLauncherNET
                 rowThreadSuccess = false;
                 ReloadSelectedServerRow();
             }
-
             lock (loadedGallery)
             {
                 foreach (KeyValuePair<string, Image> kv in loadedGallery)
                 {
                     galleryImageList.Images.Add(kv.Value);
-                    ListViewItem lvi = galleryListView.Items.Add(kv.Key.Substring(SAMP.GalleryPath.Length + 1), (int)lastGalleryImageIndex);
+                    ListViewItem lvi = galleryListView.Items.Add(Path.GetFileName(kv.Key), (int)lastGalleryImageIndex);
                     lvi.Tag = kv.Key;
                     ++lastGalleryImageIndex;
                 }
                 loadedGallery.Clear();
+            }
+            lock (loadedSessions)
+            {
+                foreach (Session session in loadedSessions)
+                {
+                    DataRow dr = sessionsDataTable.NewRow();
+                    object[] data = new object[7];
+                    data[0] = session.Path;
+                    data[1] = session.Username;
+                    data[2] = session.Hostname;
+                    data[3] = session.IPPort;
+                    data[4] = session.Chatlog;
+                    data[5] = session.Mode;
+                    data[6] = session.Language;
+                    dr.ItemArray = data;
+                    sessionsDataTable.Rows.Add(dr);
+                }
+                if (loadedSessions.Count > 0)
+                {
+                    ReloadSelectedSessionData();
+                }
+                loadedSessions.Clear();
             }
         }
 
@@ -1341,6 +1671,19 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Main form location changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void MainForm_LocationChanged(object sender, EventArgs e)
+        {
+            if (loadingForm != null)
+            {
+                loadingForm.Location = new Point(Location.X + ((Size.Width - loadingForm.Size.Width) / 2), Location.Y + ((Size.Height - loadingForm.Size.Height) / 2));
+            }
+        }
+
+        /// <summary>
         /// Form closed event
         /// </summary>
         /// <param name="sender">Sender</param>
@@ -1348,7 +1691,7 @@ namespace SAMPLauncherNET
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             int lang_index = languagesComboBox.SelectedIndex;
-            LauncherConfigDataContract lcdc = new LauncherConfigDataContract((lang_index >= 0) ? (new List<Language>(Translator.TranslatorInterface.Languages))[lang_index].Culture : "en-GB", selectedAPIIndex, developmentDirectorySingleLineTextField.Text, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked, showUsernameDialogCheckBox.Checked, !(closeWhenLaunchedCheckBox.Checked), !(createSessionsLogCheckBox.Checked));
+            LauncherConfigDataContract lcdc = new LauncherConfigDataContract((lang_index >= 0) ? (new List<Language>(Translator.TranslatorInterface.Languages))[lang_index].Culture : "en-GB", selectedAPIIndex, developmentDirectorySingleLineTextField.Text, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked, showUsernameDialogCheckBox.Checked, !(closeWhenLaunchedCheckBox.Checked), createSessionsLogCheckBox.Checked);
             SAMP.LauncherConfigIO = lcdc;
             SaveDeveloperToolsConfig();
             lock (loadServers)
@@ -1385,6 +1728,11 @@ namespace SAMPLauncherNET
             {
                 galleryThread.Abort();
                 galleryThread = null;
+            }
+            if (sessionsThread != null)
+            {
+                sessionsThread.Abort();
+                sessionsThread = null;
             }
             SAMP.CloseLastServer();
             ThumbnailsCache.Clear();
@@ -1463,6 +1811,13 @@ namespace SAMPLauncherNET
                     ReloadGallery();
                 }
             }
+            else if (mainTabControl.SelectedTab == sessionsPage)
+            {
+                if (sessionsThread == null)
+                {
+                    ReloadSessionsData();
+                }
+            }
         }
 
         /// <summary>
@@ -1472,10 +1827,8 @@ namespace SAMPLauncherNET
         /// <param name="e">File system event arguments</param>
         private void galleryFileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
-            Debug.WriteLine("galleryFileSystemWatcher_Changed begin");
             ThumbnailsCache.RemoveFromCache(e.FullPath);
             ReloadGallery();
-            Debug.WriteLine("galleryFileSystemWatcher_Changed end");
         }
 
         /// <summary>
@@ -1485,9 +1838,7 @@ namespace SAMPLauncherNET
         /// <param name="e">File system event arguments</param>
         private void galleryFileSystemWatcher_Created(object sender, FileSystemEventArgs e)
         {
-            Debug.WriteLine("galleryFileSystemWatcher_Created begin");
             ReloadGallery();
-            Debug.WriteLine("galleryFileSystemWatcher_Created end");
         }
 
         /// <summary>
@@ -1497,10 +1848,8 @@ namespace SAMPLauncherNET
         /// <param name="e">File system event arguments</param>
         private void galleryFileSystemWatcher_Deleted(object sender, FileSystemEventArgs e)
         {
-            Debug.WriteLine("galleryFileSystemWatcher_Deleted begin");
             ThumbnailsCache.RemoveFromCache(e.FullPath);
             ReloadGallery();
-            Debug.WriteLine("galleryFileSystemWatcher_Deleted end");
         }
 
         /// <summary>
@@ -1578,7 +1927,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void connectButton_Click(object sender, EventArgs e)
         {
-            Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked);
+            Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked, createSessionLog: createSessionsLogCheckBox.Checked);
         }
 
         /// <summary>
@@ -1588,7 +1937,8 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void launchDebugModeButton_Click(object sender, EventArgs e)
         {
-            SAMP.LaunchSAMPDebugMode(closeWhenLaunchedCheckBox.Checked, this);
+            SAMP.LaunchSAMPDebugMode(closeWhenLaunchedCheckBox.Checked, createSessionsLogCheckBox.Checked, this);
+            lastMediaState = SAMP.LastMediaState;
         }
 
         /// <summary>
@@ -1789,7 +2139,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void connectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked);
+            Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked, createSessionLog: createSessionsLogCheckBox.Checked);
         }
 
         /// <summary>
@@ -1804,7 +2154,7 @@ namespace SAMPLauncherNET
             DialogResult = DialogResult.None;
             if (result == DialogResult.OK)
             {
-                Connect(null, rconf.RCONPassword, closeWhenLaunchedCheckBox.Checked);
+                Connect(null, rconf.RCONPassword, closeWhenLaunchedCheckBox.Checked, createSessionLog: createSessionsLogCheckBox.Checked);
             }
         }
 
@@ -1817,7 +2167,7 @@ namespace SAMPLauncherNET
         {
             if (e.RowIndex >= 0)
             {
-                Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked);
+                Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked, createSessionLog: createSessionsLogCheckBox.Checked);
             }
         }
 
@@ -1952,7 +2302,7 @@ namespace SAMPLauncherNET
             if (result == DialogResult.OK)
             {
                 Server server = new Server(chf.HostAndPort, false);
-                Connect(server, quitWhenDone: closeWhenLaunchedCheckBox.Checked);
+                Connect(server, quitWhenDone: closeWhenLaunchedCheckBox.Checked, createSessionLog: createSessionsLogCheckBox.Checked);
                 server.Dispose();
             }
         }
@@ -2178,7 +2528,7 @@ namespace SAMPLauncherNET
         private void developerToolsConnectToTestServerButton_Click(object sender, EventArgs e)
         {
             DeveloperToolsConfigDataContract dtcdc = SAMP.DeveloperToolsConfigIO;
-            Connect(new Server("127.0.0.1:" + dtcdc.Port, false), dtcdc.RCONPassword);
+            Connect(new Server("127.0.0.1:" + dtcdc.Port, false), dtcdc.RCONPassword, createSessionLog: createSessionsLogCheckBox.Checked);
         }
 
         /// <summary>
@@ -2489,7 +2839,7 @@ namespace SAMPLauncherNET
             DialogResult = DialogResult.None;
             if (result == DialogResult.OK)
             {
-                SaveTextFile(lastChatlogSaveFileDialog.FileName, ChatlogFormatter.Format(SAMP.Chatlog, EChatlogFormatType.Plain, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked));
+                Utils.SaveTextFile(lastChatlogSaveFileDialog.FileName, ChatlogFormatter.Format(SAMP.Chatlog, EChatlogFormatType.Plain, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked));
             }
         }
 
@@ -2505,7 +2855,7 @@ namespace SAMPLauncherNET
             DialogResult = DialogResult.None;
             if (result == DialogResult.OK)
             {
-                SaveTextFile(lastChatlogSaveFileDialog.FileName, SAMP.Chatlog);
+                Utils.SaveTextFile(lastChatlogSaveFileDialog.FileName, SAMP.Chatlog);
             }
         }
 
@@ -2521,7 +2871,7 @@ namespace SAMPLauncherNET
             DialogResult = DialogResult.None;
             if (result == DialogResult.OK)
             {
-                SaveTextFile(lastChatlogSaveFileDialog.FileName, ChatlogFormatter.Format(SAMP.Chatlog, EChatlogFormatType.HTML, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked));
+                Utils.SaveTextFile(lastChatlogSaveFileDialog.FileName, ChatlogFormatter.Format(SAMP.Chatlog, EChatlogFormatType.HTML, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked));
             }
         }
 
@@ -2537,7 +2887,7 @@ namespace SAMPLauncherNET
             DialogResult = DialogResult.None;
             if (result == DialogResult.OK)
             {
-                SaveTextFile(lastChatlogSaveFileDialog.FileName, ChatlogFormatter.Format(SAMP.Chatlog, EChatlogFormatType.RTF, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked));
+                Utils.SaveTextFile(lastChatlogSaveFileDialog.FileName, ChatlogFormatter.Format(SAMP.Chatlog, EChatlogFormatType.RTF, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked));
             }
         }
 
@@ -2581,6 +2931,76 @@ namespace SAMPLauncherNET
         private void reloadServerListsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ReloadAPIs(selectAPIComboBox.SelectedIndex);
+        }
+
+        /// <summary>
+        /// Sessions file system watcher changed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">File system event arguments</param>
+        private void sessionsFileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
+        {
+            ReloadSessionsData();
+        }
+
+        /// <summary>
+        /// Sessions file system watcher created event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">File system event arguments</param>
+        private void sessionsFileSystemWatcher_Created(object sender, FileSystemEventArgs e)
+        {
+            ReloadSessionsData();
+        }
+
+        /// <summary>
+        /// Sessions file system watcher deleted event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">File system event arguments</param>
+        private void sessionsFileSystemWatcher_Deleted(object sender, FileSystemEventArgs e)
+        {
+            ReloadSessionsData();
+        }
+
+        /// <summary>
+        /// Sessions file system watcher renamed event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">File system event arguments</param>
+        private void sessionsFileSystemWatcher_Renamed(object sender, RenamedEventArgs e)
+        {
+            ReloadSessionsData();
+        }
+
+        /// <summary>
+        /// Sessions data grid view row enter event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void sessionsDataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            ReloadSelectedSessionData();
+        }
+
+        /// <summary>
+        /// Sessions filter user control filter filter event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void sessionsFilterUserControl_FilterFilterEvent(object sender, EventArgs e)
+        {
+            UpdateSessionsDataFilter();
+        }
+
+        /// <summary>
+        /// Sessions filter user control filter delete event
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
+        private void sessionsFilterUserControl_FilterDeleteEvent(object sender, EventArgs e)
+        {
+            sessionsFilterUserControl.FilterText = "";
         }
     }
 }

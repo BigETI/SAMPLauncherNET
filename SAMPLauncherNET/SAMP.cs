@@ -142,6 +142,38 @@ namespace SAMPLauncherNET
         private static Process lastServerProcess;
 
         /// <summary>
+        /// Last media state
+        /// </summary>
+        private static MediaState lastMediaState;
+
+        /// <summary>
+        /// Last session data
+        /// </summary>
+        private static SessionDataContract lastSessionData;
+
+        /// <summary>
+        /// Last media state
+        /// </summary>
+        public static MediaState LastMediaState
+        {
+            get
+            {
+                return lastMediaState;
+            }
+        }
+
+        /// <summary>
+        /// Last session data
+        /// </summary>
+        public static SessionDataContract LastSessionData
+        {
+            get
+            {
+                return lastSessionData;
+            }
+        }
+
+        /// <summary>
         /// Username
         /// </summary>
         public static string Username
@@ -668,9 +700,10 @@ namespace SAMPLauncherNET
         /// <param name="rconPassword">RCON password</param>
         /// <param name="debug">Debug mode</param>
         /// <param name="quitWhenDone">Quit when done</param>
+        /// <param name="createSessionLog">Create session log</param>
         /// <param name="plugins">Plugins</param>
         /// <param name="f">Form to close</param>
-        public static void LaunchSAMP(Server server, string username, string serverPassword, string rconPassword, bool debug, bool quitWhenDone, PluginDataContract[] plugins, Form f)
+        public static void LaunchSAMP(Server server, string username, string serverPassword, string rconPassword, bool debug, bool quitWhenDone, bool createSessionLog, PluginDataContract[] plugins, Form f)
         {
             if ((server != null) || debug)
             {
@@ -686,7 +719,13 @@ namespace SAMPLauncherNET
                             Kernel32.STARTUPINFO startup_info = new Kernel32.STARTUPINFO();
                             if (CheckIfGTASanAndreasIsLaunchable)
                             {
-                                if (Kernel32.CreateProcess(GTASAExe, debug ? "-d" : "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + username + ((serverPassword == null) ? "" : (" -z " + serverPassword)), IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
+                                string modified_username = ((username == null) ? "" : username.Trim().Replace(' ', '_'));
+                                if (createSessionLog)
+                                {
+                                    lastMediaState = SessionProvider.GetCurrentMediaState();
+                                    lastSessionData = new SessionDataContract(DateTime.Now, TimeSpan.Zero, SAMPProvider.CurrentVersion.Name, modified_username, (server == null) ? "" : server.IPPortString, (server == null) ? "" : server.Hostname, (server == null) ? "" : server.Gamemode, (server == null) ? "" : server.Language);
+                                }
+                                if (Kernel32.CreateProcess(GTASAExe, debug ? "-d" : "-c " + ((rconPassword == null) ? "" : rconPassword) + " -h " + server.IPv4AddressString + " -p " + server.Port + " -n " + modified_username + ((serverPassword == null) ? "" : (" -z " + serverPassword)), IntPtr.Zero, IntPtr.Zero, false, /* DETACHED_PROCESS */ 0x8 | /* CREATE_SUSPENDED */ 0x4, IntPtr.Zero, ExeDir, ref startup_info, out process_info))
                                 {
                                     InjectPlugin(SAMPDLLPath, process_info.hProcess, load_library_w);
                                     PluginDataContract[] load_plugins = ((plugins == null) ? PluginsDataIO : plugins);
@@ -706,9 +745,13 @@ namespace SAMPLauncherNET
                                     }
                                     Kernel32.ResumeThread(process_info.hThread);
                                     Kernel32.CloseHandle(process_info.hProcess);
-                                    if (quitWhenDone)
+                                    if ((f != null))
                                     {
-                                        f.Close();
+                                        if (quitWhenDone && (!createSessionLog))
+                                        {
+                                            f.Close();
+                                        }
+                                        f.WindowState = FormWindowState.Minimized;
                                     }
                                 }
                             }
@@ -777,12 +820,13 @@ namespace SAMPLauncherNET
         /// Launch SA:MP debug mode
         /// </summary>
         /// <param name="quitWhenDone">Quit when done</param>
+        /// <param name="createSessionLog">Create session log</param>
         /// <param name="f">Form to close</param>
-        public static void LaunchSAMPDebugMode(bool quitWhenDone, Form f)
+        public static void LaunchSAMPDebugMode(bool quitWhenDone, bool createSessionLog, Form f)
         {
             try
             {
-                LaunchSAMP(null, "", null, null, true, quitWhenDone, PluginsDataIO, f);
+                LaunchSAMP(null, "", null, null, true, quitWhenDone, createSessionLog, PluginsDataIO, f);
             }
             catch (Exception e)
             {

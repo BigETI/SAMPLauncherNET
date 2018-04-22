@@ -38,13 +38,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            SAMPLauncherNET.FilterOption filterOption1 = new SAMPLauncherNET.FilterOption();
+            SAMPLauncherNET.FilterOption filterOption2 = new SAMPLauncherNET.FilterOption();
+            SAMPLauncherNET.FilterOption filterOption3 = new SAMPLauncherNET.FilterOption();
+            SAMPLauncherNET.FilterOption filterOption4 = new SAMPLauncherNET.FilterOption();
+            SAMPLauncherNET.FilterOption filterOption5 = new SAMPLauncherNET.FilterOption();
+            SAMPLauncherNET.FilterOption filterOption6 = new SAMPLauncherNET.FilterOption();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.serversPage = new System.Windows.Forms.TabPage();
             this.serversLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -107,11 +116,12 @@
             this.dataColumn4 = new System.Data.DataColumn();
             this.sessionsDataTable = new System.Data.DataTable();
             this.dataColumn5 = new System.Data.DataColumn();
+            this.dataColumn6 = new System.Data.DataColumn();
             this.dataColumn7 = new System.Data.DataColumn();
             this.dataColumn8 = new System.Data.DataColumn();
             this.dataColumn9 = new System.Data.DataColumn();
-            this.dataColumn6 = new System.Data.DataColumn();
             this.dataColumn10 = new System.Data.DataColumn();
+            this.dataColumn19 = new System.Data.DataColumn();
             this.pluginsDataTable = new System.Data.DataTable();
             this.dataColumn11 = new System.Data.DataColumn();
             this.dataColumn12 = new System.Data.DataColumn();
@@ -129,7 +139,7 @@
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inputFilterLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.serverButtonsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.serverCountLabel = new MaterialSkin.Controls.MaterialLabel();
             this.connectButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.connectToHostButton = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -178,11 +188,18 @@
             this.sessionsPage = new System.Windows.Forms.TabPage();
             this.sessionsSplitContainer = new System.Windows.Forms.SplitContainer();
             this.sessionsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.sessionsInnerSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.chatlogGallerySplitContainer = new System.Windows.Forms.SplitContainer();
-            this.chatlogSessionTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.gallerySessionTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.sessionServerInfoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.sessionsDataGridView = new System.Windows.Forms.DataGridView();
+            this.pathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hostnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iPAndPortDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chatlogDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.languageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sessionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sessionsFilterUserControl = new SAMPLauncherNET.FilterUserControl();
+            this.sessionSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.noSessionMaterialLabel = new MaterialSkin.Controls.MaterialLabel();
             this.versionsPage = new System.Windows.Forms.TabPage();
             this.versionsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.versionButtonsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -287,7 +304,6 @@
             this.textFileSystemWatcher = new System.IO.FileSystemWatcher();
             this.usernameSingleLineTextField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.usernamePanel = new System.Windows.Forms.Panel();
-            this.sessionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lastChatlogSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.pluginsDataContextMenuStrip = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.addNewPluginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -295,6 +311,7 @@
             this.removeSelectedPluginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.revertPluginListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sessionsFileSystemWatcher = new System.IO.FileSystemWatcher();
             this.mainTabControl.SuspendLayout();
             this.serversPage.SuspendLayout();
             this.serversLayoutPanel.SuspendLayout();
@@ -321,7 +338,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rulesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesBindingSource)).BeginInit();
             this.inputFilterLayoutPanel.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.serverButtonsFlowLayoutPanel.SuspendLayout();
             this.filtersPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addServersFilterPictureBox)).BeginInit();
             this.footerTableLayoutPanel.SuspendLayout();
@@ -350,14 +367,12 @@
             this.sessionsSplitContainer.Panel1.SuspendLayout();
             this.sessionsSplitContainer.Panel2.SuspendLayout();
             this.sessionsSplitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sessionsInnerSplitContainer)).BeginInit();
-            this.sessionsInnerSplitContainer.Panel1.SuspendLayout();
-            this.sessionsInnerSplitContainer.Panel2.SuspendLayout();
-            this.sessionsInnerSplitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chatlogGallerySplitContainer)).BeginInit();
-            this.chatlogGallerySplitContainer.Panel1.SuspendLayout();
-            this.chatlogGallerySplitContainer.Panel2.SuspendLayout();
-            this.chatlogGallerySplitContainer.SuspendLayout();
+            this.sessionsTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionSplitContainer)).BeginInit();
+            this.sessionSplitContainer.Panel1.SuspendLayout();
+            this.sessionSplitContainer.SuspendLayout();
             this.versionsPage.SuspendLayout();
             this.versionsTableLayoutPanel.SuspendLayout();
             this.versionButtonsFlowLayoutPanel.SuspendLayout();
@@ -396,8 +411,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.galleryFileSystemWatcher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textFileSystemWatcher)).BeginInit();
             this.usernamePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sessionsBindingSource)).BeginInit();
             this.pluginsDataContextMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsFileSystemWatcher)).BeginInit();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -948,17 +963,23 @@
             // 
             this.sessionsDataTable.Columns.AddRange(new System.Data.DataColumn[] {
             this.dataColumn5,
+            this.dataColumn6,
             this.dataColumn7,
             this.dataColumn8,
             this.dataColumn9,
-            this.dataColumn6,
-            this.dataColumn10});
+            this.dataColumn10,
+            this.dataColumn19});
             this.sessionsDataTable.TableName = "Sessions";
             // 
             // dataColumn5
             // 
-            this.dataColumn5.ColumnName = "Username";
+            this.dataColumn5.ColumnName = "Path";
             this.dataColumn5.DefaultValue = "";
+            // 
+            // dataColumn6
+            // 
+            this.dataColumn6.ColumnName = "Username";
+            this.dataColumn6.DefaultValue = "";
             // 
             // dataColumn7
             // 
@@ -967,23 +988,23 @@
             // 
             // dataColumn8
             // 
-            this.dataColumn8.ColumnName = "Mode";
+            this.dataColumn8.ColumnName = "IP and port";
             this.dataColumn8.DefaultValue = "";
             // 
             // dataColumn9
             // 
-            this.dataColumn9.ColumnName = "Language";
+            this.dataColumn9.ColumnName = "Chatlog";
             this.dataColumn9.DefaultValue = "";
-            // 
-            // dataColumn6
-            // 
-            this.dataColumn6.ColumnName = "IP and port";
-            this.dataColumn6.DefaultValue = "";
             // 
             // dataColumn10
             // 
-            this.dataColumn10.ColumnName = "Date and time";
-            this.dataColumn10.DataType = typeof(System.DateTime);
+            this.dataColumn10.ColumnName = "Mode";
+            this.dataColumn10.DefaultValue = "";
+            // 
+            // dataColumn19
+            // 
+            this.dataColumn19.ColumnName = "Language";
+            this.dataColumn19.DefaultValue = "";
             // 
             // pluginsDataTable
             // 
@@ -1195,7 +1216,7 @@
             this.inputFilterLayoutPanel.ColumnCount = 2;
             this.inputFilterLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 431F));
             this.inputFilterLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.inputFilterLayoutPanel.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.inputFilterLayoutPanel.Controls.Add(this.serverButtonsFlowLayoutPanel, 0, 0);
             this.inputFilterLayoutPanel.Controls.Add(this.filtersPanel, 1, 0);
             this.inputFilterLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inputFilterLayoutPanel.Location = new System.Drawing.Point(3, 337);
@@ -1205,23 +1226,23 @@
             this.inputFilterLayoutPanel.Size = new System.Drawing.Size(1170, 145);
             this.inputFilterLayoutPanel.TabIndex = 3;
             // 
-            // flowLayoutPanel1
+            // serverButtonsFlowLayoutPanel
             // 
-            this.flowLayoutPanel1.Controls.Add(this.serverCountLabel);
-            this.flowLayoutPanel1.Controls.Add(this.connectButton);
-            this.flowLayoutPanel1.Controls.Add(this.connectToHostButton);
-            this.flowLayoutPanel1.Controls.Add(this.closeWhenLaunchedCheckBox);
-            this.flowLayoutPanel1.Controls.Add(this.selectAPILabel);
-            this.flowLayoutPanel1.Controls.Add(this.selectAPIComboBox);
-            this.flowLayoutPanel1.Controls.Add(this.launchDebugModeButton);
-            this.flowLayoutPanel1.Controls.Add(this.launchSingleplayerButton);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(425, 139);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.serverButtonsFlowLayoutPanel.Controls.Add(this.serverCountLabel);
+            this.serverButtonsFlowLayoutPanel.Controls.Add(this.connectButton);
+            this.serverButtonsFlowLayoutPanel.Controls.Add(this.connectToHostButton);
+            this.serverButtonsFlowLayoutPanel.Controls.Add(this.closeWhenLaunchedCheckBox);
+            this.serverButtonsFlowLayoutPanel.Controls.Add(this.selectAPILabel);
+            this.serverButtonsFlowLayoutPanel.Controls.Add(this.selectAPIComboBox);
+            this.serverButtonsFlowLayoutPanel.Controls.Add(this.launchDebugModeButton);
+            this.serverButtonsFlowLayoutPanel.Controls.Add(this.launchSingleplayerButton);
+            this.serverButtonsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.serverButtonsFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.serverButtonsFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.serverButtonsFlowLayoutPanel.Name = "serverButtonsFlowLayoutPanel";
+            this.serverButtonsFlowLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.serverButtonsFlowLayoutPanel.Size = new System.Drawing.Size(425, 139);
+            this.serverButtonsFlowLayoutPanel.TabIndex = 1;
             // 
             // serverCountLabel
             // 
@@ -1796,16 +1817,18 @@
             // 
             // savedPositionsTextBox
             // 
+            this.savedPositionsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.savedPositionsTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.savedPositionsTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.savedPositionsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.savedPositionsTextBox.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.savedPositionsTextBox.Location = new System.Drawing.Point(0, 0);
+            this.savedPositionsTextBox.Location = new System.Drawing.Point(2, 0);
             this.savedPositionsTextBox.Multiline = true;
             this.savedPositionsTextBox.Name = "savedPositionsTextBox";
             this.savedPositionsTextBox.ReadOnly = true;
             this.savedPositionsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.savedPositionsTextBox.Size = new System.Drawing.Size(1182, 134);
+            this.savedPositionsTextBox.Size = new System.Drawing.Size(1178, 134);
             this.savedPositionsTextBox.TabIndex = 3;
             // 
             // sessionsPage
@@ -1832,7 +1855,7 @@
             // 
             // sessionsSplitContainer.Panel2
             // 
-            this.sessionsSplitContainer.Panel2.Controls.Add(this.sessionsInnerSplitContainer);
+            this.sessionsSplitContainer.Panel2.Controls.Add(this.sessionSplitContainer);
             this.sessionsSplitContainer.Size = new System.Drawing.Size(1176, 535);
             this.sessionsSplitContainer.SplitterDistance = 392;
             this.sessionsSplitContainer.TabIndex = 0;
@@ -1841,88 +1864,190 @@
             // 
             this.sessionsTableLayoutPanel.ColumnCount = 1;
             this.sessionsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.sessionsTableLayoutPanel.Controls.Add(this.sessionsDataGridView, 0, 1);
+            this.sessionsTableLayoutPanel.Controls.Add(this.sessionsFilterUserControl, 0, 0);
             this.sessionsTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sessionsTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.sessionsTableLayoutPanel.Name = "sessionsTableLayoutPanel";
             this.sessionsTableLayoutPanel.RowCount = 2;
-            this.sessionsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.sessionsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.sessionsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.sessionsTableLayoutPanel.Size = new System.Drawing.Size(392, 535);
             this.sessionsTableLayoutPanel.TabIndex = 0;
             // 
-            // sessionsInnerSplitContainer
+            // sessionsDataGridView
             // 
-            this.sessionsInnerSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sessionsInnerSplitContainer.Location = new System.Drawing.Point(0, 0);
-            this.sessionsInnerSplitContainer.Name = "sessionsInnerSplitContainer";
+            this.sessionsDataGridView.AllowUserToAddRows = false;
+            this.sessionsDataGridView.AllowUserToDeleteRows = false;
+            this.sessionsDataGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.sessionsDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.sessionsDataGridView.AutoGenerateColumns = false;
+            this.sessionsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.sessionsDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.sessionsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.sessionsDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.sessionsDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.sessionsDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.sessionsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.sessionsDataGridView.ColumnHeadersHeight = 32;
+            this.sessionsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.sessionsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pathDataGridViewTextBoxColumn,
+            this.usernameDataGridViewTextBoxColumn,
+            this.hostnameDataGridViewTextBoxColumn1,
+            this.iPAndPortDataGridViewTextBoxColumn1,
+            this.chatlogDataGridViewTextBoxColumn,
+            this.modeDataGridViewTextBoxColumn1,
+            this.languageDataGridViewTextBoxColumn1});
+            this.sessionsDataGridView.DataSource = this.sessionsBindingSource;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.sessionsDataGridView.DefaultCellStyle = dataGridViewCellStyle12;
+            this.sessionsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sessionsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.sessionsDataGridView.EnableHeadersVisualStyles = false;
+            this.sessionsDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            this.sessionsDataGridView.Location = new System.Drawing.Point(3, 133);
+            this.sessionsDataGridView.MultiSelect = false;
+            this.sessionsDataGridView.Name = "sessionsDataGridView";
+            this.sessionsDataGridView.ReadOnly = true;
+            this.sessionsDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.sessionsDataGridView.RowHeadersVisible = false;
+            this.sessionsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.sessionsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.sessionsDataGridView.Size = new System.Drawing.Size(386, 399);
+            this.sessionsDataGridView.TabIndex = 1;
+            this.sessionsDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
+            this.sessionsDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.sessionsDataGridView_RowEnter);
             // 
-            // sessionsInnerSplitContainer.Panel1
+            // pathDataGridViewTextBoxColumn
             // 
-            this.sessionsInnerSplitContainer.Panel1.Controls.Add(this.chatlogGallerySplitContainer);
+            this.pathDataGridViewTextBoxColumn.DataPropertyName = "Path";
+            this.pathDataGridViewTextBoxColumn.HeaderText = "Path";
+            this.pathDataGridViewTextBoxColumn.Name = "pathDataGridViewTextBoxColumn";
+            this.pathDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pathDataGridViewTextBoxColumn.Visible = false;
             // 
-            // sessionsInnerSplitContainer.Panel2
+            // usernameDataGridViewTextBoxColumn
             // 
-            this.sessionsInnerSplitContainer.Panel2.Controls.Add(this.sessionServerInfoTableLayoutPanel);
-            this.sessionsInnerSplitContainer.Size = new System.Drawing.Size(780, 535);
-            this.sessionsInnerSplitContainer.SplitterDistance = 260;
-            this.sessionsInnerSplitContainer.TabIndex = 0;
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // chatlogGallerySplitContainer
+            // hostnameDataGridViewTextBoxColumn1
             // 
-            this.chatlogGallerySplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chatlogGallerySplitContainer.Location = new System.Drawing.Point(0, 0);
-            this.chatlogGallerySplitContainer.Name = "chatlogGallerySplitContainer";
-            this.chatlogGallerySplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.hostnameDataGridViewTextBoxColumn1.DataPropertyName = "Hostname";
+            this.hostnameDataGridViewTextBoxColumn1.HeaderText = "Hostname";
+            this.hostnameDataGridViewTextBoxColumn1.Name = "hostnameDataGridViewTextBoxColumn1";
+            this.hostnameDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // chatlogGallerySplitContainer.Panel1
+            // iPAndPortDataGridViewTextBoxColumn1
             // 
-            this.chatlogGallerySplitContainer.Panel1.Controls.Add(this.chatlogSessionTableLayoutPanel);
+            this.iPAndPortDataGridViewTextBoxColumn1.DataPropertyName = "IP and port";
+            this.iPAndPortDataGridViewTextBoxColumn1.HeaderText = "IP and port";
+            this.iPAndPortDataGridViewTextBoxColumn1.Name = "iPAndPortDataGridViewTextBoxColumn1";
+            this.iPAndPortDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // chatlogGallerySplitContainer.Panel2
+            // chatlogDataGridViewTextBoxColumn
             // 
-            this.chatlogGallerySplitContainer.Panel2.Controls.Add(this.gallerySessionTableLayoutPanel);
-            this.chatlogGallerySplitContainer.Size = new System.Drawing.Size(260, 535);
-            this.chatlogGallerySplitContainer.SplitterDistance = 264;
-            this.chatlogGallerySplitContainer.TabIndex = 0;
+            this.chatlogDataGridViewTextBoxColumn.DataPropertyName = "Chatlog";
+            this.chatlogDataGridViewTextBoxColumn.HeaderText = "Chatlog";
+            this.chatlogDataGridViewTextBoxColumn.Name = "chatlogDataGridViewTextBoxColumn";
+            this.chatlogDataGridViewTextBoxColumn.ReadOnly = true;
+            this.chatlogDataGridViewTextBoxColumn.Visible = false;
             // 
-            // chatlogSessionTableLayoutPanel
+            // modeDataGridViewTextBoxColumn1
             // 
-            this.chatlogSessionTableLayoutPanel.ColumnCount = 1;
-            this.chatlogSessionTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.chatlogSessionTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chatlogSessionTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.chatlogSessionTableLayoutPanel.Name = "chatlogSessionTableLayoutPanel";
-            this.chatlogSessionTableLayoutPanel.RowCount = 2;
-            this.chatlogSessionTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.chatlogSessionTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.chatlogSessionTableLayoutPanel.Size = new System.Drawing.Size(260, 264);
-            this.chatlogSessionTableLayoutPanel.TabIndex = 0;
+            this.modeDataGridViewTextBoxColumn1.DataPropertyName = "Mode";
+            this.modeDataGridViewTextBoxColumn1.HeaderText = "Mode";
+            this.modeDataGridViewTextBoxColumn1.Name = "modeDataGridViewTextBoxColumn1";
+            this.modeDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.modeDataGridViewTextBoxColumn1.Visible = false;
             // 
-            // gallerySessionTableLayoutPanel
+            // languageDataGridViewTextBoxColumn1
             // 
-            this.gallerySessionTableLayoutPanel.ColumnCount = 1;
-            this.gallerySessionTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.gallerySessionTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gallerySessionTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.gallerySessionTableLayoutPanel.Name = "gallerySessionTableLayoutPanel";
-            this.gallerySessionTableLayoutPanel.RowCount = 2;
-            this.gallerySessionTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.gallerySessionTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.gallerySessionTableLayoutPanel.Size = new System.Drawing.Size(260, 267);
-            this.gallerySessionTableLayoutPanel.TabIndex = 0;
+            this.languageDataGridViewTextBoxColumn1.DataPropertyName = "Language";
+            this.languageDataGridViewTextBoxColumn1.HeaderText = "Language";
+            this.languageDataGridViewTextBoxColumn1.Name = "languageDataGridViewTextBoxColumn1";
+            this.languageDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.languageDataGridViewTextBoxColumn1.Visible = false;
             // 
-            // sessionServerInfoTableLayoutPanel
+            // sessionsBindingSource
             // 
-            this.sessionServerInfoTableLayoutPanel.ColumnCount = 1;
-            this.sessionServerInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.sessionServerInfoTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sessionServerInfoTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.sessionServerInfoTableLayoutPanel.Name = "sessionServerInfoTableLayoutPanel";
-            this.sessionServerInfoTableLayoutPanel.RowCount = 2;
-            this.sessionServerInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.sessionServerInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.sessionServerInfoTableLayoutPanel.Size = new System.Drawing.Size(516, 535);
-            this.sessionServerInfoTableLayoutPanel.TabIndex = 0;
+            this.sessionsBindingSource.DataMember = "Sessions";
+            this.sessionsBindingSource.DataSource = this.mainDataSet;
+            this.sessionsBindingSource.Sort = "Path DESC";
+            // 
+            // sessionsFilterUserControl
+            // 
+            this.sessionsFilterUserControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.sessionsFilterUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            filterOption1.DisplayName = "{$CHATLOG$}";
+            filterOption1.Field = "Chatlog";
+            filterOption2.DisplayName = "{$HOSTNAME$}";
+            filterOption2.Field = "Hostname";
+            filterOption3.DisplayName = "{$IP_AND_PORT$}";
+            filterOption3.Field = "IP and port";
+            filterOption4.DisplayName = "{$MODE$}";
+            filterOption4.Field = "Mode";
+            filterOption5.DisplayName = "{$LANGUAGE$}";
+            filterOption5.Field = "Language";
+            filterOption6.DisplayName = "{$USERNAME$}";
+            filterOption6.Field = "Username";
+            this.sessionsFilterUserControl.FilterOptions = new SAMPLauncherNET.FilterOption[] {
+        filterOption1,
+        filterOption2,
+        filterOption3,
+        filterOption4,
+        filterOption5,
+        filterOption6};
+            this.sessionsFilterUserControl.Location = new System.Drawing.Point(3, 3);
+            this.sessionsFilterUserControl.Name = "sessionsFilterUserControl";
+            this.sessionsFilterUserControl.Size = new System.Drawing.Size(386, 124);
+            this.sessionsFilterUserControl.TabIndex = 2;
+            this.sessionsFilterUserControl.FilterFilterEvent += new System.EventHandler(this.sessionsFilterUserControl_FilterFilterEvent);
+            this.sessionsFilterUserControl.FilterDeleteEvent += new System.EventHandler(this.sessionsFilterUserControl_FilterDeleteEvent);
+            // 
+            // sessionSplitContainer
+            // 
+            this.sessionSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sessionSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.sessionSplitContainer.Name = "sessionSplitContainer";
+            // 
+            // sessionSplitContainer.Panel1
+            // 
+            this.sessionSplitContainer.Panel1.Controls.Add(this.noSessionMaterialLabel);
+            this.sessionSplitContainer.Size = new System.Drawing.Size(780, 535);
+            this.sessionSplitContainer.SplitterDistance = 500;
+            this.sessionSplitContainer.TabIndex = 0;
+            // 
+            // noSessionMaterialLabel
+            // 
+            this.noSessionMaterialLabel.Depth = 0;
+            this.noSessionMaterialLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.noSessionMaterialLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.noSessionMaterialLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.noSessionMaterialLabel.Location = new System.Drawing.Point(0, 0);
+            this.noSessionMaterialLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.noSessionMaterialLabel.Name = "noSessionMaterialLabel";
+            this.noSessionMaterialLabel.Size = new System.Drawing.Size(500, 535);
+            this.noSessionMaterialLabel.TabIndex = 1;
+            this.noSessionMaterialLabel.Text = "{$NO_SESSION_LOG$}";
+            this.noSessionMaterialLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // versionsPage
             // 
@@ -2042,8 +2167,8 @@
             this.pluginsGridView.AllowUserToAddRows = false;
             this.pluginsGridView.AllowUserToDeleteRows = false;
             this.pluginsGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.pluginsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.pluginsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.pluginsGridView.AutoGenerateColumns = false;
             this.pluginsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.pluginsGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -2051,14 +2176,14 @@
             this.pluginsGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.pluginsGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.pluginsGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.pluginsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.pluginsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.pluginsGridView.ColumnHeadersHeight = 32;
             this.pluginsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.pluginsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2069,14 +2194,14 @@
             this.uRIDataGridViewTextBoxColumn,
             this.updateFrequencyDataGridViewTextBoxColumn});
             this.pluginsGridView.DataSource = this.pluginsBindingSource;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.pluginsGridView.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.pluginsGridView.DefaultCellStyle = dataGridViewCellStyle15;
             this.pluginsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pluginsGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.pluginsGridView.EnableHeadersVisualStyles = false;
@@ -2229,8 +2354,8 @@
             this.apiGridView.AllowUserToAddRows = false;
             this.apiGridView.AllowUserToDeleteRows = false;
             this.apiGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.apiGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.apiGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.apiGridView.AutoGenerateColumns = false;
             this.apiGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.apiGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -2238,14 +2363,14 @@
             this.apiGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.apiGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.apiGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.apiGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.apiGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.apiGridView.ColumnHeadersHeight = 32;
             this.apiGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.apiGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2255,14 +2380,14 @@
             this.endpointDataGridViewTextBoxColumn});
             this.apiGridView.ContextMenuStrip = this.apiContextMenuStrip;
             this.apiGridView.DataSource = this.apiBindingSource;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.apiGridView.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.apiGridView.DefaultCellStyle = dataGridViewCellStyle18;
             this.apiGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.apiGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.apiGridView.EnableHeadersVisualStyles = false;
@@ -3405,11 +3530,6 @@
             this.usernamePanel.Size = new System.Drawing.Size(176, 30);
             this.usernamePanel.TabIndex = 20;
             // 
-            // sessionsBindingSource
-            // 
-            this.sessionsBindingSource.DataMember = "Sessions";
-            this.sessionsBindingSource.DataSource = this.mainDataSet;
-            // 
             // pluginsDataContextMenuStrip
             // 
             this.pluginsDataContextMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -3457,6 +3577,15 @@
             this.revertPluginListToolStripMenuItem.Text = "{$REVERT_PLUGIN_LIST_TITLE$}";
             this.revertPluginListToolStripMenuItem.Click += new System.EventHandler(this.revertPluginListToolStripMenuItem_Click);
             // 
+            // sessionsFileSystemWatcher
+            // 
+            this.sessionsFileSystemWatcher.EnableRaisingEvents = true;
+            this.sessionsFileSystemWatcher.SynchronizingObject = this;
+            this.sessionsFileSystemWatcher.Changed += new System.IO.FileSystemEventHandler(this.sessionsFileSystemWatcher_Changed);
+            this.sessionsFileSystemWatcher.Created += new System.IO.FileSystemEventHandler(this.sessionsFileSystemWatcher_Created);
+            this.sessionsFileSystemWatcher.Deleted += new System.IO.FileSystemEventHandler(this.sessionsFileSystemWatcher_Deleted);
+            this.sessionsFileSystemWatcher.Renamed += new System.IO.RenamedEventHandler(this.sessionsFileSystemWatcher_Renamed);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3470,6 +3599,7 @@
             this.Name = "MainForm";
             this.Text = "{$LAUNCHER_TITLE$}";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.LocationChanged += new System.EventHandler(this.MainForm_LocationChanged);
             this.mainTabControl.ResumeLayout(false);
             this.serversPage.ResumeLayout(false);
             this.serversLayoutPanel.ResumeLayout(false);
@@ -3496,8 +3626,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.rulesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesBindingSource)).EndInit();
             this.inputFilterLayoutPanel.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            this.serverButtonsFlowLayoutPanel.ResumeLayout(false);
+            this.serverButtonsFlowLayoutPanel.PerformLayout();
             this.filtersPanel.ResumeLayout(false);
             this.filtersPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addServersFilterPictureBox)).EndInit();
@@ -3530,14 +3660,12 @@
             this.sessionsSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sessionsSplitContainer)).EndInit();
             this.sessionsSplitContainer.ResumeLayout(false);
-            this.sessionsInnerSplitContainer.Panel1.ResumeLayout(false);
-            this.sessionsInnerSplitContainer.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.sessionsInnerSplitContainer)).EndInit();
-            this.sessionsInnerSplitContainer.ResumeLayout(false);
-            this.chatlogGallerySplitContainer.Panel1.ResumeLayout(false);
-            this.chatlogGallerySplitContainer.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chatlogGallerySplitContainer)).EndInit();
-            this.chatlogGallerySplitContainer.ResumeLayout(false);
+            this.sessionsTableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsBindingSource)).EndInit();
+            this.sessionSplitContainer.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sessionSplitContainer)).EndInit();
+            this.sessionSplitContainer.ResumeLayout(false);
             this.versionsPage.ResumeLayout(false);
             this.versionsTableLayoutPanel.ResumeLayout(false);
             this.versionButtonsFlowLayoutPanel.ResumeLayout(false);
@@ -3579,8 +3707,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.galleryFileSystemWatcher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textFileSystemWatcher)).EndInit();
             this.usernamePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.sessionsBindingSource)).EndInit();
             this.pluginsDataContextMenuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sessionsFileSystemWatcher)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3619,7 +3747,7 @@
         private System.Windows.Forms.BindingSource rulesBindingSource;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.TableLayoutPanel inputFilterLayoutPanel;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel serverButtonsFlowLayoutPanel;
         private MaterialSkin.Controls.MaterialLabel serverCountLabel;
         private MaterialSkin.Controls.MaterialRaisedButton connectButton;
         private MaterialSkin.Controls.MaterialRaisedButton launchSingleplayerButton;
@@ -3770,18 +3898,7 @@
         private System.Windows.Forms.TabPage sessionsPage;
         private System.Windows.Forms.SplitContainer sessionsSplitContainer;
         private System.Windows.Forms.TableLayoutPanel sessionsTableLayoutPanel;
-        private System.Windows.Forms.SplitContainer sessionsInnerSplitContainer;
-        private System.Windows.Forms.SplitContainer chatlogGallerySplitContainer;
-        private System.Windows.Forms.TableLayoutPanel chatlogSessionTableLayoutPanel;
-        private System.Windows.Forms.TableLayoutPanel gallerySessionTableLayoutPanel;
-        private System.Windows.Forms.TableLayoutPanel sessionServerInfoTableLayoutPanel;
         private System.Data.DataTable sessionsDataTable;
-        private System.Data.DataColumn dataColumn5;
-        private System.Data.DataColumn dataColumn7;
-        private System.Data.DataColumn dataColumn8;
-        private System.Data.DataColumn dataColumn9;
-        private System.Data.DataColumn dataColumn6;
-        private System.Data.DataColumn dataColumn10;
         private System.Windows.Forms.BindingSource sessionsBindingSource;
         private MaterialSkin.Controls.MaterialCheckBox chatlogColorCodesCheckBox;
         private MaterialSkin.Controls.MaterialCheckBox chatlogColoredCheckBox;
@@ -3837,5 +3954,24 @@
         private System.Data.DataColumn dataColumn18;
         private System.Windows.Forms.ToolStripSeparator serversToolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem reloadServerListsToolStripMenuItem;
+        private System.Windows.Forms.DataGridView sessionsDataGridView;
+        private System.IO.FileSystemWatcher sessionsFileSystemWatcher;
+        private System.Windows.Forms.SplitContainer sessionSplitContainer;
+        private MaterialSkin.Controls.MaterialLabel noSessionMaterialLabel;
+        private System.Data.DataColumn dataColumn5;
+        private System.Data.DataColumn dataColumn6;
+        private System.Data.DataColumn dataColumn7;
+        private System.Data.DataColumn dataColumn8;
+        private System.Data.DataColumn dataColumn9;
+        private System.Data.DataColumn dataColumn10;
+        private System.Data.DataColumn dataColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pathDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hostnameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iPAndPortDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chatlogDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn languageDataGridViewTextBoxColumn1;
+        private FilterUserControl sessionsFilterUserControl;
     }
 }
