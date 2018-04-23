@@ -68,7 +68,7 @@ namespace SAMPLauncherNET
         /// <returns>Media state</returns>
         public static MediaState GetCurrentMediaState()
         {
-            return new MediaState(SAMP.GalleryPath, SAMP.ChatlogPath, SAMP.SavedPositions);
+            return new MediaState(SAMP.GalleryPath, SAMP.ChatlogPath, SAMP.SavedPositionsPath);
         }
     }
 }

@@ -96,7 +96,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Loaded sessions
         /// </summary>
-        private List<Session> loadedSessions = new List<Session>();
+        private List<object[]> loadedSessions = new List<object[]>();
 
         /// <summary>
         /// Sessions thread
@@ -1108,7 +1108,16 @@ namespace SAMPLauncherNET
                 {
                     lock (loadedSessions)
                     {
-                        loadedSessions.Add(session);
+                        object[] data = new object[8];
+                        data[0] = session.Path;
+                        data[1] = session.Username;
+                        data[2] = session.Hostname;
+                        data[3] = session.IPPort;
+                        data[4] = session.Chatlog;
+                        data[5] = session.Mode;
+                        data[6] = session.Language;
+                        data[7] = session.DateTime;
+                        loadedSessions.Add(data);
                     }
                 }
             });
@@ -1494,12 +1503,10 @@ namespace SAMPLauncherNET
                                 saved_positions_path = path;
                             }
                         }
-                        uint id = 0U;
                         string session_path;
                         do
                         {
-                            session_path = Path.Combine(SessionProvider.SessionsDirectory, id + ".samp-session");
-                            ++id;
+                            session_path = Path.Combine(SessionProvider.SessionsDirectory, Guid.NewGuid().ToString() + ".samp-session");
                         }
                         while (File.Exists(session_path));
                         Session session = null;
@@ -1638,17 +1645,9 @@ namespace SAMPLauncherNET
             }
             lock (loadedSessions)
             {
-                foreach (Session session in loadedSessions)
+                foreach (object[] data in loadedSessions)
                 {
                     DataRow dr = sessionsDataTable.NewRow();
-                    object[] data = new object[7];
-                    data[0] = session.Path;
-                    data[1] = session.Username;
-                    data[2] = session.Hostname;
-                    data[3] = session.IPPort;
-                    data[4] = session.Chatlog;
-                    data[5] = session.Mode;
-                    data[6] = session.Language;
                     dr.ItemArray = data;
                     sessionsDataTable.Rows.Add(dr);
                 }

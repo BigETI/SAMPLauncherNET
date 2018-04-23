@@ -23,6 +23,25 @@ namespace SAMPLauncherNET
         private Dictionary<string, FileState> fileStates = new Dictionary<string, FileState>();
 
         /// <summary>
+        /// Media state
+        /// </summary>
+        public MediaState(params string[] paths)
+        {
+            if (paths == null)
+            {
+                this.paths = new string[0];
+            }
+            if (paths != null)
+            {
+                this.paths = paths;
+                foreach (string path in paths)
+                {
+                    AddFilesState(path);
+                }
+            }
+        }
+
+        /// <summary>
         /// Add files state
         /// </summary>
         /// <param name="path">Path</param>
@@ -52,25 +71,6 @@ namespace SAMPLauncherNET
             catch (Exception e)
             {
                 Console.Error.WriteLine(e.Message);
-            }
-        }
-
-        /// <summary>
-        /// Media state
-        /// </summary>
-        public MediaState(params string[] paths)
-        {
-            if (paths == null)
-            {
-                this.paths = new string[0];
-            }
-            if (paths != null)
-            {
-                this.paths = paths;
-                foreach (string path in paths)
-                {
-                    AddFilesState(path);
-                }
             }
         }
 

@@ -88,7 +88,6 @@ namespace SAMPLauncherNET
                             loadedGallery.Add(screenshot.Key, thumbnail);
                         }
                     }
-                    screenshot.Value.Dispose();
                 }
             });
             galleryThread.Start();

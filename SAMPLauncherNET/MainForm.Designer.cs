@@ -41,12 +41,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            SAMPLauncherNET.FilterOption filterOption1 = new SAMPLauncherNET.FilterOption();
-            SAMPLauncherNET.FilterOption filterOption2 = new SAMPLauncherNET.FilterOption();
-            SAMPLauncherNET.FilterOption filterOption3 = new SAMPLauncherNET.FilterOption();
-            SAMPLauncherNET.FilterOption filterOption4 = new SAMPLauncherNET.FilterOption();
-            SAMPLauncherNET.FilterOption filterOption5 = new SAMPLauncherNET.FilterOption();
-            SAMPLauncherNET.FilterOption filterOption6 = new SAMPLauncherNET.FilterOption();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -54,6 +48,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            SAMPLauncherNET.FilterOption filterOption1 = new SAMPLauncherNET.FilterOption();
+            SAMPLauncherNET.FilterOption filterOption2 = new SAMPLauncherNET.FilterOption();
+            SAMPLauncherNET.FilterOption filterOption3 = new SAMPLauncherNET.FilterOption();
+            SAMPLauncherNET.FilterOption filterOption4 = new SAMPLauncherNET.FilterOption();
+            SAMPLauncherNET.FilterOption filterOption5 = new SAMPLauncherNET.FilterOption();
+            SAMPLauncherNET.FilterOption filterOption6 = new SAMPLauncherNET.FilterOption();
             this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.serversPage = new System.Windows.Forms.TabPage();
             this.serversLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -122,6 +122,7 @@
             this.dataColumn9 = new System.Data.DataColumn();
             this.dataColumn10 = new System.Data.DataColumn();
             this.dataColumn19 = new System.Data.DataColumn();
+            this.dataColumn20 = new System.Data.DataColumn();
             this.pluginsDataTable = new System.Data.DataTable();
             this.dataColumn11 = new System.Data.DataColumn();
             this.dataColumn12 = new System.Data.DataColumn();
@@ -196,8 +197,8 @@
             this.chatlogDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.languageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateAndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sessionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sessionsFilterUserControl = new SAMPLauncherNET.FilterUserControl();
             this.sessionSplitContainer = new System.Windows.Forms.SplitContainer();
             this.noSessionMaterialLabel = new MaterialSkin.Controls.MaterialLabel();
             this.versionsPage = new System.Windows.Forms.TabPage();
@@ -312,6 +313,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.revertPluginListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sessionsFileSystemWatcher = new System.IO.FileSystemWatcher();
+            this.sessionsFilterUserControl = new SAMPLauncherNET.FilterUserControl();
             this.mainTabControl.SuspendLayout();
             this.serversPage.SuspendLayout();
             this.serversLayoutPanel.SuspendLayout();
@@ -968,7 +970,8 @@
             this.dataColumn8,
             this.dataColumn9,
             this.dataColumn10,
-            this.dataColumn19});
+            this.dataColumn19,
+            this.dataColumn20});
             this.sessionsDataTable.TableName = "Sessions";
             // 
             // dataColumn5
@@ -1005,6 +1008,11 @@
             // 
             this.dataColumn19.ColumnName = "Language";
             this.dataColumn19.DefaultValue = "";
+            // 
+            // dataColumn20
+            // 
+            this.dataColumn20.ColumnName = "DateAndTime";
+            this.dataColumn20.DataType = typeof(System.DateTime);
             // 
             // pluginsDataTable
             // 
@@ -1906,7 +1914,8 @@
             this.iPAndPortDataGridViewTextBoxColumn1,
             this.chatlogDataGridViewTextBoxColumn,
             this.modeDataGridViewTextBoxColumn1,
-            this.languageDataGridViewTextBoxColumn1});
+            this.languageDataGridViewTextBoxColumn1,
+            this.DateAndTime});
             this.sessionsDataGridView.DataSource = this.sessionsBindingSource;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -1986,41 +1995,19 @@
             this.languageDataGridViewTextBoxColumn1.ReadOnly = true;
             this.languageDataGridViewTextBoxColumn1.Visible = false;
             // 
+            // DateAndTime
+            // 
+            this.DateAndTime.DataPropertyName = "DateAndTime";
+            this.DateAndTime.HeaderText = "DateAndTime";
+            this.DateAndTime.Name = "DateAndTime";
+            this.DateAndTime.ReadOnly = true;
+            this.DateAndTime.Visible = false;
+            // 
             // sessionsBindingSource
             // 
             this.sessionsBindingSource.DataMember = "Sessions";
             this.sessionsBindingSource.DataSource = this.mainDataSet;
-            this.sessionsBindingSource.Sort = "Path DESC";
-            // 
-            // sessionsFilterUserControl
-            // 
-            this.sessionsFilterUserControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.sessionsFilterUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            filterOption1.DisplayName = "{$CHATLOG$}";
-            filterOption1.Field = "Chatlog";
-            filterOption2.DisplayName = "{$HOSTNAME$}";
-            filterOption2.Field = "Hostname";
-            filterOption3.DisplayName = "{$IP_AND_PORT$}";
-            filterOption3.Field = "IP and port";
-            filterOption4.DisplayName = "{$MODE$}";
-            filterOption4.Field = "Mode";
-            filterOption5.DisplayName = "{$LANGUAGE$}";
-            filterOption5.Field = "Language";
-            filterOption6.DisplayName = "{$USERNAME$}";
-            filterOption6.Field = "Username";
-            this.sessionsFilterUserControl.FilterOptions = new SAMPLauncherNET.FilterOption[] {
-        filterOption1,
-        filterOption2,
-        filterOption3,
-        filterOption4,
-        filterOption5,
-        filterOption6};
-            this.sessionsFilterUserControl.Location = new System.Drawing.Point(3, 3);
-            this.sessionsFilterUserControl.Name = "sessionsFilterUserControl";
-            this.sessionsFilterUserControl.Size = new System.Drawing.Size(386, 124);
-            this.sessionsFilterUserControl.TabIndex = 2;
-            this.sessionsFilterUserControl.FilterFilterEvent += new System.EventHandler(this.sessionsFilterUserControl_FilterFilterEvent);
-            this.sessionsFilterUserControl.FilterDeleteEvent += new System.EventHandler(this.sessionsFilterUserControl_FilterDeleteEvent);
+            this.sessionsBindingSource.Sort = "DateAndTime DESC";
             // 
             // sessionSplitContainer
             // 
@@ -3586,6 +3573,37 @@
             this.sessionsFileSystemWatcher.Deleted += new System.IO.FileSystemEventHandler(this.sessionsFileSystemWatcher_Deleted);
             this.sessionsFileSystemWatcher.Renamed += new System.IO.RenamedEventHandler(this.sessionsFileSystemWatcher_Renamed);
             // 
+            // sessionsFilterUserControl
+            // 
+            this.sessionsFilterUserControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.sessionsFilterUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            filterOption1.DisplayName = "{$CHATLOG$}";
+            filterOption1.Field = "Chatlog";
+            filterOption2.DisplayName = "{$HOSTNAME$}";
+            filterOption2.Field = "Hostname";
+            filterOption3.DisplayName = "{$IP_AND_PORT$}";
+            filterOption3.Field = "IP and port";
+            filterOption4.DisplayName = "{$MODE$}";
+            filterOption4.Field = "Mode";
+            filterOption5.DisplayName = "{$LANGUAGE$}";
+            filterOption5.Field = "Language";
+            filterOption6.DisplayName = "{$USERNAME$}";
+            filterOption6.Field = "Username";
+            this.sessionsFilterUserControl.FilterOptions = new SAMPLauncherNET.FilterOption[] {
+        filterOption1,
+        filterOption2,
+        filterOption3,
+        filterOption4,
+        filterOption5,
+        filterOption6};
+            this.sessionsFilterUserControl.FilterText = "";
+            this.sessionsFilterUserControl.Location = new System.Drawing.Point(3, 3);
+            this.sessionsFilterUserControl.Name = "sessionsFilterUserControl";
+            this.sessionsFilterUserControl.Size = new System.Drawing.Size(386, 124);
+            this.sessionsFilterUserControl.TabIndex = 2;
+            this.sessionsFilterUserControl.FilterFilterEvent += new System.EventHandler(this.sessionsFilterUserControl_FilterFilterEvent);
+            this.sessionsFilterUserControl.FilterDeleteEvent += new System.EventHandler(this.sessionsFilterUserControl_FilterDeleteEvent);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3965,6 +3983,7 @@
         private System.Data.DataColumn dataColumn9;
         private System.Data.DataColumn dataColumn10;
         private System.Data.DataColumn dataColumn19;
+        private System.Data.DataColumn dataColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn pathDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hostnameDataGridViewTextBoxColumn1;
@@ -3972,6 +3991,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn chatlogDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn languageDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateAndTime;
         private FilterUserControl sessionsFilterUserControl;
     }
 }

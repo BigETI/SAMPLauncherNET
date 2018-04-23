@@ -13,7 +13,7 @@ namespace SAMPLauncherNET
     /// <summary>
     /// Session class
     /// </summary>
-    public class Session
+    public class Session : IDisposable
     {
         /// <summary>
         /// Session data
@@ -24,6 +24,21 @@ namespace SAMPLauncherNET
         /// Path
         /// </summary>
         private string path;
+
+        /// <summary>
+        /// Chatlog
+        /// </summary>
+        private string chatlog;
+
+        /// <summary>
+        /// Saved positons
+        /// </summary>
+        private string savedPositions;
+
+        /// <summary>
+        /// Screenshots
+        /// </summary>
+        private Dictionary<string, Image> screenshots;
 
         /// <summary>
         /// Serializer
@@ -147,33 +162,35 @@ namespace SAMPLauncherNET
         {
             get
             {
-                string ret = null;
-                if (File.Exists(path))
+                if (chatlog == null)
                 {
-                    try
+                    if (File.Exists(path))
                     {
-                        using (ZipArchive archive = ZipFile.Open(path, ZipArchiveMode.Read))
+                        try
                         {
-                            ZipArchiveEntry entry = archive.GetEntry("chatlog.txt");
-                            if (entry != null)
+                            using (ZipArchive archive = ZipFile.Open(path, ZipArchiveMode.Read))
                             {
-                                using (StreamReader reader = new StreamReader(entry.Open()))
+                                ZipArchiveEntry entry = archive.GetEntry("chatlog.txt");
+                                if (entry != null)
                                 {
-                                    ret = reader.ReadToEnd();
+                                    using (StreamReader reader = new StreamReader(entry.Open()))
+                                    {
+                                        chatlog = reader.ReadToEnd();
+                                    }
                                 }
                             }
                         }
-                    }
-                    catch (Exception e)
-                    {
-                        Console.Error.WriteLine(e.Message);
+                        catch (Exception e)
+                        {
+                            Console.Error.WriteLine(e.Message);
+                        }
                     }
                 }
-                if (ret == null)
+                if (chatlog == null)
                 {
-                    ret = "";
+                    chatlog = "";
                 }
-                return ret;
+                return chatlog;
             }
         }
 
@@ -184,19 +201,77 @@ namespace SAMPLauncherNET
         {
             get
             {
-                string ret = null;
-                if (File.Exists(path))
+                if (savedPositions == null)
                 {
+                    if (File.Exists(path))
+                    {
+                        try
+                        {
+                            using (ZipArchive archive = ZipFile.Open(path, ZipArchiveMode.Read))
+                            {
+                                ZipArchiveEntry entry = archive.GetEntry("saved-positions.txt");
+                                if (entry != null)
+                                {
+                                    using (StreamReader reader = new StreamReader(entry.Open()))
+                                    {
+                                        savedPositions = reader.ReadToEnd();
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Console.Error.WriteLine(e.Message);
+                        }
+                    }
+                }
+                if (savedPositions == null)
+                {
+                    savedPositions = "";
+                }
+                return savedPositions;
+            }
+        }
+
+        /// <summary>
+        /// Screenshots
+        /// </summary>
+        public IDictionary<string, Image> Screenshots
+        {
+            get
+            {
+                if (screenshots == null)
+                {
+                    screenshots = new Dictionary<string, Image>();
                     try
                     {
-                        using (ZipArchive archive = ZipFile.Open(path, ZipArchiveMode.Read))
+                        if (path != null)
                         {
-                            ZipArchiveEntry entry = archive.GetEntry("saved-positions.txt");
-                            if (entry != null)
+                            if (File.Exists(path))
                             {
-                                using (StreamReader reader = new StreamReader(entry.Open()))
+                                using (ZipArchive archive = ZipFile.Open(path, ZipArchiveMode.Read))
                                 {
-                                    ret = reader.ReadToEnd();
+                                    foreach (ZipArchiveEntry entry in archive.Entries)
+                                    {
+                                        if (entry.FullName.StartsWith("screenshots/") && entry.FullName.EndsWith(".png"))
+                                        {
+                                            try
+                                            {
+                                                using (Stream stream = entry.Open())
+                                                {
+                                                    Image image = Image.FromStream(stream);
+                                                    if (image != null)
+                                                    {
+                                                        screenshots.Add(entry.FullName, image);
+                                                    }
+                                                }
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                Console.Error.WriteLine(e.Message);
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -206,60 +281,7 @@ namespace SAMPLauncherNET
                         Console.Error.WriteLine(e.Message);
                     }
                 }
-                if (ret == null)
-                {
-                    ret = "";
-                }
-                return ret;
-            }
-        }
-
-        /// <summary>
-        /// Screenshots
-        /// </summary>
-        public Dictionary<string, Image> Screenshots
-        {
-            get
-            {
-                Dictionary<string, Image> ret = new Dictionary<string, Image>();
-                try
-                {
-                    if (path != null)
-                    {
-                        if (File.Exists(path))
-                        {
-                            using (ZipArchive archive = ZipFile.Open(path, ZipArchiveMode.Read))
-                            {
-                                foreach (ZipArchiveEntry entry in archive.Entries)
-                                {
-                                    if (entry.FullName.StartsWith("screenshots/") && entry.FullName.EndsWith(".png"))
-                                    {
-                                        try
-                                        {
-                                            using (Stream stream = entry.Open())
-                                            {
-                                                Image image = Image.FromStream(stream);
-                                                if (image != null)
-                                                {
-                                                    ret.Add(entry.FullName, image);
-                                                }
-                                            }
-                                        }
-                                        catch (Exception e)
-                                        {
-                                            Console.Error.WriteLine(e.Message);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    Console.Error.WriteLine(e.Message);
-                }
-                return ret;
+                return screenshots;
             }
         }
 
@@ -390,6 +412,22 @@ namespace SAMPLauncherNET
                 Console.Error.WriteLine(e.Message);
             }
             return ret;
+        }
+
+        /// <summary>
+        /// Dispose
+        /// </summary>
+        public void Dispose()
+        {
+            if (screenshots != null)
+            {
+                foreach (Image screenshot in screenshots.Values)
+                {
+                    screenshot.Dispose();
+                }
+                screenshots.Clear();
+                screenshots = null;
+            }
         }
     }
 }
