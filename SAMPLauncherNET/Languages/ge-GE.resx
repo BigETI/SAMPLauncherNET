@@ -127,17 +127,32 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
 ეს პროგრამა არის უფასო და ლიცენზირებულია GPLv3-ით.
 </value>
   </data>
+  <data name="ACKNOWLEDGES_LIMIT" xml:space="preserve">
+    <value>აღიარებს ლიმიტს</value>
+  </data>
   <data name="ADDRESS" xml:space="preserve">
-    <value>Address</value>
+    <value>მისამართი</value>
+  </data>
+  <data name="ADD_ADDRESS_TO_FAVOURITE_LIST" xml:space="preserve">
+    <value>მისამართი მიმართავს</value>
+  </data>
+  <data name="ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - მისამართი მიმართავს</value>
   </data>
   <data name="ADD_NEW_API" xml:space="preserve">
     <value>ახალი API-ს დამატება</value>
+  </data>
+  <data name="ADD_NEW_PLUGIN" xml:space="preserve">
+    <value>ახალი მოდულის დამატება</value>
   </data>
   <data name="ADD_SERVER_TO_FAVOURITES" xml:space="preserve">
     <value>სერვერის რჩეულებში დამატება</value>
   </data>
   <data name="ALREADY_IN_FAVOURITES" xml:space="preserve">
     <value>სერვერი უკვე არის რჩეულებში</value>
+  </data>
+  <data name="ANNOUNCE" xml:space="preserve">
+    <value>გამოაცხადეთ სერვერი</value>
   </data>
   <data name="API" xml:space="preserve">
     <value>API</value>
@@ -166,14 +181,71 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="API_TYPE_MISSING" xml:space="preserve">
     <value>თუ შეიძლება აირჩიეთ API-ს ტიპი.</value>
   </data>
+  <data name="API_TYPE_MISSING_TITLE" xml:space="preserve">
+    <value>API ტიპის აკლია</value>
+  </data>
+  <data name="ASSEMBLY_VERSION" xml:space="preserve">
+    <value>ასამბლეის ვერსია</value>
+  </data>
   <data name="AUDIO_MESSAGE_OFF" xml:space="preserve">
     <value>აუდიო მესიჯების გათიშვა</value>
   </data>
   <data name="AUDIO_PROXY_OFF" xml:space="preserve">
     <value>აუდიო პროქსიების გათიშვა</value>
   </data>
+  <data name="BIND" xml:space="preserve">
+    <value>აკავშირებს IP მისამართი</value>
+  </data>
   <data name="CANCEL" xml:space="preserve">
     <value>შეჩერება</value>
+  </data>
+  <data name="CANCEL_DOWNLOAD" xml:space="preserve">
+    <value>ნამდვილად გსურთ ჩამოტვირთოთ ჩამოტვირთვა?</value>
+  </data>
+  <data name="CANCEL_DOWNLOAD_TITLE" xml:space="preserve">
+    <value>ჩამოტვირთვის გაუქმება</value>
+  </data>
+  <data name="CHATLOG" xml:space="preserve">
+    <value>Chatlog</value>
+  </data>
+  <data name="CHATLOG_COPY_HTML" xml:space="preserve">
+    <value>HTML- ის კოპირება</value>
+  </data>
+  <data name="CHATLOG_COPY_ORIGINAL_TEXT" xml:space="preserve">
+    <value>ორიგინალური ტექსტის კოპირება</value>
+  </data>
+  <data name="CHATLOG_COPY_RTF" xml:space="preserve">
+    <value>დააკოპირეთ RTF</value>
+  </data>
+  <data name="CHATLOG_COPY_TEXT" xml:space="preserve">
+    <value>ტექსტის კოპირება</value>
+  </data>
+  <data name="CHATLOG_OPTION_COLORED" xml:space="preserve">
+    <value>ფერადი</value>
+  </data>
+  <data name="CHATLOG_OPTION_COLOR_CODES" xml:space="preserve">
+    <value>ფერი კოდები</value>
+  </data>
+  <data name="CHATLOG_OPTION_TIMESTAMP" xml:space="preserve">
+    <value>დროის სარტყელი</value>
+  </data>
+  <data name="CHATLOG_SAVE_HTML_AS" xml:space="preserve">
+    <value>HTML- ის შენახვა...</value>
+  </data>
+  <data name="CHATLOG_SAVE_ORIGINAL_TEXT_AS" xml:space="preserve">
+    <value>ორიგინალური ტექსტის შენახვა როგორც...</value>
+  </data>
+  <data name="CHATLOG_SAVE_RTF_AS" xml:space="preserve">
+    <value>შენახვა RTF როგორც...</value>
+  </data>
+  <data name="CHATLOG_SAVE_TEXT_AS" xml:space="preserve">
+    <value>ტექსტის შენახვა...</value>
+  </data>
+  <data name="CHAT_LOGGING" xml:space="preserve">
+    <value>ჩაწერეთ ჩეთი</value>
+  </data>
+  <data name="CITY" xml:space="preserve">
+    <value>ქალაქი</value>
   </data>
   <data name="CLOSE_WHEN_LAUNCHED" xml:space="preserve">
     <value>დახურვა როცა ჩაირთვება</value>
@@ -181,17 +253,53 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="CONNECT" xml:space="preserve">
     <value>დაკავშირება</value>
   </data>
+  <data name="CONNECTION_COOKIES" xml:space="preserve">
+    <value>კავშირი ქუქი-ფაილების დაშვება</value>
+  </data>
+  <data name="CONNECTION_SEED_TIME" xml:space="preserve">
+    <value>კენჭისყრის დრო</value>
+  </data>
   <data name="CONNECT_NOW" xml:space="preserve">
     <value>ახლა დაკავშირება</value>
   </data>
   <data name="CONNECT_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - დაკავშირება</value>
   </data>
+  <data name="CONNECT_TO_ADDRESS" xml:space="preserve">
+    <value>დაკავშირება მიმართეთ</value>
+  </data>
+  <data name="CONNECT_TO_ADDRESS_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - დაკავშირება მიმართეთ</value>
+  </data>
+  <data name="CONNECT_TO_TEST_SERVER" xml:space="preserve">
+    <value>დაუკავშირდით სერვერს</value>
+  </data>
   <data name="CONNECT_WITH_RCON" xml:space="preserve">
     <value>RCON-ით დაკავშირება</value>
   </data>
+  <data name="COOKIE_LOGGING" xml:space="preserve">
+    <value>ბმულების ხეების ჩართვა</value>
+  </data>
+  <data name="COUNTRY" xml:space="preserve">
+    <value>ქვეყანა</value>
+  </data>
+  <data name="CREATE_SESSIONS_LOG" xml:space="preserve">
+    <value>შექმენით სხდომების ჟურნალი</value>
+  </data>
+  <data name="DATABASE_LOGGING" xml:space="preserve">
+    <value>მონაცემთა ბაზის ხედის ჩართვა</value>
+  </data>
+  <data name="DATABASE_LOG_QUERIES" xml:space="preserve">
+    <value>მონაცემთა ბაზის ჟურნალი შეკითხვებს</value>
+  </data>
+  <data name="DATE_AND_TIME" xml:space="preserve">
+    <value>თარიღი და დრო</value>
+  </data>
   <data name="DEBUG_MODE" xml:space="preserve">
     <value>დებაგ მოდი</value>
+  </data>
+  <data name="DELETE" xml:space="preserve">
+    <value>წაშლა</value>
   </data>
   <data name="DELETE_SELECTED_IMAGES" xml:space="preserve">
     <value>დარწმუნებული ხართ რომ გსურთ მონიშნული სურათების წაშლა?</value>
@@ -199,11 +307,29 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="DELETE_SELECTED_IMAGES_TITLE" xml:space="preserve">
     <value>მონიშნული სურათების წაშლა</value>
   </data>
+  <data name="DEVELOPER_TOOLS" xml:space="preserve">
+    <value>შემქმნელი ინსტრუმენტები</value>
+  </data>
+  <data name="DEVELOPER_TOOLS_CONFIGURATION_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - შემქმნელი ინსტრუმენტების კონფიგურაცია</value>
+  </data>
+  <data name="DEVELOPMENT_DIRECTORY" xml:space="preserve">
+    <value>განვითარების დირექტორია</value>
+  </data>
   <data name="DIRECT_MODE" xml:space="preserve">
     <value>ეკრან-ზე Textdraw-ების რენდერირების სტილი (ნელი)</value>
   </data>
   <data name="DISABLE_HEAD_MOVE" xml:space="preserve">
     <value>თავის მოძრაობის გათიშვა</value>
+  </data>
+  <data name="DOWNLOAD_FAILED_TITLE" xml:space="preserve">
+    <value>ჩამოტვირთვა ვერ მოხერხდა</value>
+  </data>
+  <data name="DOWNLOAD_PROGRESS" xml:space="preserve">
+    <value>ჩამოტვირთვისას</value>
+  </data>
+  <data name="DOWNLOAD_PROGRESS_TITLE" xml:space="preserve">
+    <value>პროგრესის ჩამოტვირთვა</value>
   </data>
   <data name="DUTCH" xml:space="preserve">
     <value>ჰოლანდიური (Nederlands)</value>
@@ -211,8 +337,17 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="EDIT_API_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - API-ს დარედაქტირება</value>
   </data>
+  <data name="EDIT_PLUGIN_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - რედაქტირება მოდული</value>
+  </data>
   <data name="EDIT_SELECTED_API" xml:space="preserve">
     <value>მონიშნული API-ს დარედაქტირება</value>
+  </data>
+  <data name="EDIT_SELECTED_PLUGIN" xml:space="preserve">
+    <value>შერჩეული მოდულის რედაქტირება</value>
+  </data>
+  <data name="ENDPOINT" xml:space="preserve">
+    <value>საბოლოო წერტილი</value>
   </data>
   <data name="ENGLISH" xml:space="preserve">
     <value>ინგლისური (English)</value>
@@ -229,17 +364,26 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="FAVOURITE_LIST_NOT_SELECTED_TITLE" xml:space="preserve">
     <value>რჩეული სერვერების სია არ არის მონიშნული</value>
   </data>
+  <data name="FILE_VERSION" xml:space="preserve">
+    <value>ფაილის ვერსია</value>
+  </data>
+  <data name="FILTERSCRIPTS" xml:space="preserve">
+    <value>ფილტრები</value>
+  </data>
   <data name="FILTER_HOSTNAME" xml:space="preserve">
-    <value>Filter hostname</value>
+    <value>ფილტრი ჰოსტის სახელი</value>
   </data>
   <data name="FILTER_IP_AND_PORT" xml:space="preserve">
-    <value>Filter IP და port</value>
+    <value>ფილტრი IP და პორტი</value>
   </data>
   <data name="FILTER_LANGUAGE" xml:space="preserve">
-    <value>Filter ენა</value>
+    <value>ფილტრის ენა</value>
   </data>
   <data name="FILTER_MODE" xml:space="preserve">
-    <value>Filter მოდი</value>
+    <value>ფილტრის რეჟიმი</value>
+  </data>
+  <data name="FILTER_USE_REGEX" xml:space="preserve">
+    <value>გამოიყენეთ regex</value>
   </data>
   <data name="FONT_FACE" xml:space="preserve">
     <value>ფონტი</value>
@@ -253,6 +397,15 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="GAMEMODE" xml:space="preserve">
     <value>გეიმმოდი</value>
   </data>
+  <data name="GAMEMODES" xml:space="preserve">
+    <value>თამაშის რეჟიმები</value>
+  </data>
+  <data name="GAMEMODE_TEXT" xml:space="preserve">
+    <value>Gamemode ტექსტი</value>
+  </data>
+  <data name="GAME_VERSION" xml:space="preserve">
+    <value>თამაშის ვერსია</value>
+  </data>
   <data name="GEORGIAN" xml:space="preserve">
     <value>ქართული</value>
   </data>
@@ -262,8 +415,22 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="GITHUB_PROJECT" xml:space="preserve">
     <value>პროექტი GitHub-ზე SAMPLauncherNET</value>
   </data>
+  <data name="GTA_SA_IS_RUNNING" xml:space="preserve">
+    <value>ამჟამად GTA San Andreas- ის ინსტალაცია მიმდინარეობს. ის შეწყდება ახალი ინსტანციის შექმნის დაწყებამდე.
+
+გინდა გააგრძელო?</value>
+  </data>
+  <data name="GTA_SA_IS_RUNNING_TITLE" xml:space="preserve">
+    <value>GTA San Andreas არის გაშვებული</value>
+  </data>
   <data name="HOSTNAME" xml:space="preserve">
     <value>სერვერის სახელი</value>
+  </data>
+  <data name="HOST_AND_PORT" xml:space="preserve">
+    <value>მასპინძელი და პორტი</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
   </data>
   <data name="IME" xml:space="preserve">
     <value>ჩაწერის მეთოდის აქტივაცია</value>
@@ -283,11 +450,29 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="INSERT_USERNAME_HERE" xml:space="preserve">
     <value>ჩაწერეთ მოთამაშის სახელი...</value>
   </data>
+  <data name="INSTALL_VERSION" xml:space="preserve">
+    <value>ნამდვილად გსურთ დააყენოთ {0}?</value>
+  </data>
+  <data name="INSTALL_VERSION_TITLE" xml:space="preserve">
+    <value>დააინსტალირეთ ვერსია</value>
+  </data>
+  <data name="IN_CAR_RATE" xml:space="preserve">
+    <value>მანქანის ტკივილის განაკვეთი</value>
+  </data>
   <data name="IP_AND_PORT" xml:space="preserve">
     <value>IP და პორტი</value>
   </data>
+  <data name="LAG_COMPENSATION_MODE" xml:space="preserve">
+    <value>Lag კომპენსაციის რეჟიმში</value>
+  </data>
   <data name="LANGUAGE" xml:space="preserve">
     <value>ენა</value>
+  </data>
+  <data name="LAN_MODE" xml:space="preserve">
+    <value>LAN რეჟიმი</value>
+  </data>
+  <data name="LATITUDE_LONGITUDE" xml:space="preserve">
+    <value>გრძედი და გრძედი</value>
   </data>
   <data name="LAUNCHER_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - ლაუნჩერი</value>
@@ -298,11 +483,49 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="LAUNCH_SINGLEPLAYER" xml:space="preserve">
     <value>ჩართეთ singleplayer</value>
   </data>
+  <data name="LOADING" xml:space="preserve">
+    <value>სერვერის სია იტვირთება.
+
+ამას დრო სჭირდება...</value>
+  </data>
+  <data name="LOG_QUERIES" xml:space="preserve">
+    <value>შესვლა შეკითხვებს</value>
+  </data>
+  <data name="LOG_TIME_FORMAT" xml:space="preserve">
+    <value>შესვლა დროის ფორმატში</value>
+  </data>
+  <data name="MAP_NAME" xml:space="preserve">
+    <value>რუკის სახელი</value>
+  </data>
+  <data name="MAXIMAL_NPCS" xml:space="preserve">
+    <value>მაქსიმალური NPCs</value>
+  </data>
+  <data name="MAXIMAL_PLAYERS" xml:space="preserve">
+    <value>მაქსიმალური მოთამაშეები</value>
+  </data>
   <data name="MEDIA" xml:space="preserve">
     <value>მედია</value>
   </data>
+  <data name="MESSAGES_LIMIT" xml:space="preserve">
+    <value>შეტყობინებები ზღუდავს</value>
+  </data>
+  <data name="MESSAGE_HOLE_LIMIT" xml:space="preserve">
+    <value>შეტყობინება ხვრელი ლიმიტი</value>
+  </data>
+  <data name="METRO_CODE" xml:space="preserve">
+    <value>მეტრო კოდი</value>
+  </data>
+  <data name="MINIMUM_CONNECTION_TIME" xml:space="preserve">
+    <value>მინიმალური კავშირი დრო</value>
+  </data>
+  <data name="MODE" xml:space="preserve">
+    <value>რეჟიმი</value>
+  </data>
   <data name="MULTI_CORE" xml:space="preserve">
     <value>მულტი კორი</value>
+  </data>
+  <data name="NAME" xml:space="preserve">
+    <value>სახელი</value>
   </data>
   <data name="NEED_HELP_FORUMS" xml:space="preserve">
     <value>გჭირდებათ დახმარება? შემოუერთდით SA-MP-ის ფორუმს...</value>
@@ -310,8 +533,17 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="NEW_API_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - ახალი API-ს დამატება</value>
   </data>
+  <data name="NEW_PLUGIN_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - ახალი მოდულის დამატება</value>
+  </data>
   <data name="NOT_IN_FAVOURITES" xml:space="preserve">
     <value>არ არის რჩეულებში</value>
+  </data>
+  <data name="NO_ADDRESS_SPECIFIED" xml:space="preserve">
+    <value>გთხოვთ მიუთითოთ მისამართი, რომ დაამატოთ თქვენი ფავორიტების სია.</value>
+  </data>
+  <data name="NO_ADDRESS_SPECIFIED_TITLE" xml:space="preserve">
+    <value>მისამართი მითითებული არ არის</value>
   </data>
   <data name="NO_CHATLOG_FOUND" xml:space="preserve">
     <value>ჩატ ლოგები არ მოიძებნება...</value>
@@ -325,10 +557,30 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="NO_NAMETAG_STATUS" xml:space="preserve">
     <value>ნეიმთაგის სტატუსის გათიშვა</value>
   </data>
+  <data name="NO_SESSION_LOG" xml:space="preserve">
+    <value>არ შეიქმნა სესიების ჟურნალი.
+
+იხილეთ ფუნქციები.</value>
+  </data>
+  <data name="NO_SIGN" xml:space="preserve">
+    <value>არ ნიშანი</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>ოკ</value>
   </data>
+  <data name="ON_FOOT_RATE" xml:space="preserve">
+    <value>ფეხით Tick კურსი</value>
+  </data>
+  <data name="OPEN_DIRECTORY" xml:space="preserve">
+    <value>ღია დირექტორია</value>
+  </data>
+  <data name="OPEN_IN_EXPLORER" xml:space="preserve">
+    <value>გახსენით ექსპლორში</value>
+  </data>
   <data name="OPTIONS" xml:space="preserve">
+    <value>პარამეტრები</value>
+  </data>
+  <data name="OPTIONS1" xml:space="preserve">
     <value>პარამეტრები</value>
   </data>
   <data name="OPTIONS_TITLE" xml:space="preserve">
@@ -337,14 +589,80 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="PAGE_SIZE" xml:space="preserve">
     <value>გვერდის ზომა</value>
   </data>
+  <data name="PASSWORD" xml:space="preserve">
+    <value>პაროლი</value>
+  </data>
+  <data name="PATCH_VERSION" xml:space="preserve">
+    <value>მართლა გინდა რომ გსურთ თქვენი ვერსია {0}?</value>
+  </data>
+  <data name="PATCH_VERSION_TITLE" xml:space="preserve">
+    <value>Patch ვერსია</value>
+  </data>
   <data name="PING" xml:space="preserve">
     <value>პინგი</value>
+  </data>
+  <data name="PLAYER" xml:space="preserve">
+    <value>მოთამაშე</value>
   </data>
   <data name="PLAYERS" xml:space="preserve">
     <value>მოთამაშეები</value>
   </data>
+  <data name="PLAYER_TIME_OUT" xml:space="preserve">
+    <value>მოთამაშის დრო ამოიწურა</value>
+  </data>
   <data name="PLEASE_TYPE_IN_USERNAME" xml:space="preserve">
     <value>ჩაწრეთ თქვენი ნიკნეიმი.</value>
+  </data>
+  <data name="PLUGINS" xml:space="preserve">
+    <value>მოდულები</value>
+  </data>
+  <data name="PLUGIN_COPY_ERROR" xml:space="preserve">
+    <value>მოდული ვერ გადანაწილდა.</value>
+  </data>
+  <data name="PLUGIN_ENABLED" xml:space="preserve">
+    <value>მოდულის ჩართვა</value>
+  </data>
+  <data name="PLUGIN_ERROR_TITLE" xml:space="preserve">
+    <value>მოდულის შეცდომა</value>
+  </data>
+  <data name="PLUGIN_NAME" xml:space="preserve">
+    <value>მოდულის სახელი</value>
+  </data>
+  <data name="PLUGIN_NAME_MISSING" xml:space="preserve">
+    <value>გთხოვთ შეიყვანოთ API სახელი.</value>
+  </data>
+  <data name="PLUGIN_NAME_MISSING_TITLE" xml:space="preserve">
+    <value>მოდულის სახელი აკლია</value>
+  </data>
+  <data name="PLUGIN_PROVIDER" xml:space="preserve">
+    <value>მოდული პროვაიდერი</value>
+  </data>
+  <data name="PLUGIN_PROVIDER_MISSING" xml:space="preserve">
+    <value>გთხოვთ მიუთითოთ მოდული პროვაიდერი</value>
+  </data>
+  <data name="PLUGIN_PROVIDER_MISSING_TITLE" xml:space="preserve">
+    <value>მოდული პროვაიდერი აკლია</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY" xml:space="preserve">
+    <value>მოდულის განახლების სიხშირე</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY_MISSING" xml:space="preserve">
+    <value>გთხოვთ მიუთითოთ მოდულის განახლების სიხშირე</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE" xml:space="preserve">
+    <value>მოდულის განახლების სიხშირე აკლია</value>
+  </data>
+  <data name="PLUGIN_URI" xml:space="preserve">
+    <value>მოდული URI</value>
+  </data>
+  <data name="PLUGIN_URI_MISSING" xml:space="preserve">
+    <value>გთხოვთ მიუთითოთ მოდული URI</value>
+  </data>
+  <data name="PLUGIN_URI_MISSING_TITLE" xml:space="preserve">
+    <value>მოდულის URI აკლია</value>
+  </data>
+  <data name="PORT" xml:space="preserve">
+    <value>პორტი</value>
   </data>
   <data name="PORTUGUESE" xml:space="preserve">
     <value>პორტუგალიური (Português)</value>
@@ -352,11 +670,26 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="PORTUGUESE_BRAZIL" xml:space="preserve">
     <value>პორტუგალიური ბრაზილია (Português de Brasil)</value>
   </data>
+  <data name="PRODUCT_VERSION" xml:space="preserve">
+    <value>პროდუქტის ვერსია</value>
+  </data>
+  <data name="QUERY" xml:space="preserve">
+    <value>შეკითხვის ჩართვა</value>
+  </data>
+  <data name="RCON" xml:space="preserve">
+    <value>ჩართეთ RCON</value>
+  </data>
   <data name="RCON_PASSWORD" xml:space="preserve">
     <value>RCON-ის პაროლი</value>
   </data>
   <data name="RCON_PASSWORD_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - RCON-ის პაროლი</value>
+  </data>
+  <data name="REGION" xml:space="preserve">
+    <value>რეგიონი</value>
+  </data>
+  <data name="RELOAD_SERVER_LISTS" xml:space="preserve">
+    <value>გადატვირთვის სერვერის სიები</value>
   </data>
   <data name="REMOVE_API" xml:space="preserve">
     <value>დარწმუნებული ხართ რომ გსურთ მიმდინარე API-ს წაშლა?</value>
@@ -364,8 +697,17 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="REMOVE_API_TITLE" xml:space="preserve">
     <value>მონიშნული API-ს წაშლა</value>
   </data>
+  <data name="REMOVE_PLUGIN" xml:space="preserve">
+    <value>გსურთ ნამდვილად გსურთ ამოიღოთ შერჩეული მოდული?</value>
+  </data>
+  <data name="REMOVE_PLUGIN_TITLE" xml:space="preserve">
+    <value>წაშლა შერჩეული მოდული</value>
+  </data>
   <data name="REMOVE_SELECTED_API" xml:space="preserve">
     <value>მონიშნული API-ს წაშლა</value>
+  </data>
+  <data name="REMOVE_SELECTED_PLUGIN" xml:space="preserve">
+    <value>წაშლა შერჩეული მოდული</value>
   </data>
   <data name="REMOVE_SERVER_FROM_FAVOURITES" xml:space="preserve">
     <value>დარწმუნებული ხართ რომ გსურთ ამ სერვერის რჩეულებიდან წაშლა?</value>
@@ -382,11 +724,61 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="REVERT_CONFIG" xml:space="preserve">
     <value>შეცვლის პარამეტრები</value>
   </data>
+  <data name="REVERT_PLUGIN_LIST" xml:space="preserve">
+    <value>ნამდვილად გსურთ შეცვალოთ მოდულის სიის შეცვლა?</value>
+  </data>
+  <data name="REVERT_PLUGIN_LIST_TITLE" xml:space="preserve">
+    <value>მოდულის სიის დაბრუნება</value>
+  </data>
+  <data name="RULE" xml:space="preserve">
+    <value>წესი</value>
+  </data>
   <data name="RUSSIAN" xml:space="preserve">
     <value>რუსული (Русский)</value>
   </data>
+  <data name="SAMPCTL_ERROR_TITLE" xml:space="preserve">
+    <value>sampctl შეცდომა</value>
+  </data>
+  <data name="SAMPCTL_MISSING" xml:space="preserve">
+    <value>დააინსტალირეთ "sampctl" სერვერის გასაშვებად {0}.
+
+გნებავთ ეწვიოთ ამ ვებ გვერდს?</value>
+  </data>
+  <data name="SAMPCTL_MISSING_ASSET" xml:space="preserve">
+    <value>sampctl არ შეიძლება გადმოწერილი ახლავე.</value>
+  </data>
+  <data name="SAMPCTL_MISSING_TITLE" xml:space="preserve">
+    <value>"sampctl" ინსტალაცია აკლია</value>
+  </data>
+  <data name="SAMPCTL_UNZIP_ERROR" xml:space="preserve">
+    <value>არ შეიძლება შეუძლებელი იყოს sampctl.</value>
+  </data>
   <data name="SAVE" xml:space="preserve">
     <value>შენახვა</value>
+  </data>
+  <data name="SCORE" xml:space="preserve">
+    <value>ანგარიში</value>
+  </data>
+  <data name="SEARCH_ON" xml:space="preserve">
+    <value>ძიება...</value>
+  </data>
+  <data name="SEARCH_ON_BING" xml:space="preserve">
+    <value>Bing</value>
+  </data>
+  <data name="SEARCH_ON_DUCK_DUCK_GO" xml:space="preserve">
+    <value>DuckDuckGo</value>
+  </data>
+  <data name="SEARCH_ON_GOOGLE" xml:space="preserve">
+    <value>Google</value>
+  </data>
+  <data name="SEARCH_ON_YAHOO" xml:space="preserve">
+    <value>Yahoo</value>
+  </data>
+  <data name="SEARCH_ON_YANDEX" xml:space="preserve">
+    <value>Yandex</value>
+  </data>
+  <data name="SEARCH_ON_YOU_TUBE" xml:space="preserve">
+    <value>YouTube</value>
   </data>
   <data name="SELECT_API" xml:space="preserve">
     <value>სერვერების სიის არჩევა</value>
@@ -402,6 +794,18 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   </data>
   <data name="SELECT_SERVER_LIST" xml:space="preserve">
     <value>აირჩიეთ სერვერის სია</value>
+  </data>
+  <data name="SELECT_VERSION" xml:space="preserve">
+    <value>თქვენ შეარჩიეთ {0}, რომელიც უნდა იყოს დამონტაჟებული ან ხელით დამონტაჟებული.
+
+მართლა გსურთ გინდათ პატჩი ან ხელით დააყენოთ {0}?
+
+დააჭირეთ "დიახ"
+პრესა "არა" ინსტალაცია.
+პრესა "გაუქმება", რათა გააუქმოს ეს ქმედება.</value>
+  </data>
+  <data name="SELECT_VERSION_TITLE" xml:space="preserve">
+    <value>Patch ან ხელით დააყენოთ ვერსია</value>
   </data>
   <data name="SERVERS" xml:space="preserve">
     <value>სერვერები</value>
@@ -424,14 +828,41 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
     <value>სერვერის პაროლი ცარიელია</value>
   </data>
+  <data name="SESSION" xml:space="preserve">
+    <value>San Andreas Multiplayer - სხდომა</value>
+  </data>
+  <data name="SESSIONS" xml:space="preserve">
+    <value>სესიები</value>
+  </data>
+  <data name="SESSION_DELETE" xml:space="preserve">
+    <value>ნამდვილად გსურთ ამ სესიის გაუქმება?</value>
+  </data>
+  <data name="SESSION_DELETE_TITLE" xml:space="preserve">
+    <value>სესიის გაუქმება</value>
+  </data>
+  <data name="SHOW_ADDITIONAL_CONFIGURATIONS" xml:space="preserve">
+    <value>დამატებითი კონფიგურაციის ჩვენება</value>
+  </data>
+  <data name="SHOW_EMPTY_SERVERS" xml:space="preserve">
+    <value>ცარიელი სერვერების ჩვენება</value>
+  </data>
   <data name="SHOW_EXTENDED_SERVER_INFORMATION" xml:space="preserve">
     <value>სერვერის დამატებითი ინფორმაცია</value>
   </data>
   <data name="SHOW_FAVOURITES" xml:space="preserve">
     <value>რჩეულები</value>
   </data>
+  <data name="SHOW_FULL_SERVERS" xml:space="preserve">
+    <value>სრული სერვერების ჩვენება</value>
+  </data>
   <data name="SHOW_GALLERY" xml:space="preserve">
     <value>გალერიის ნახვა...</value>
+  </data>
+  <data name="SHOW_IN_GOOGLE_MAPS" xml:space="preserve">
+    <value>აჩვენეთ Google Maps- ში</value>
+  </data>
+  <data name="SHOW_IN_OPEN_STREET_MAP" xml:space="preserve">
+    <value>აჩვენეთ OpenStreetMap- ში</value>
   </data>
   <data name="SHOW_LAST_CHATLOG" xml:space="preserve">
     <value>ბოლო ჩატლოგის ნახვა...</value>
@@ -445,13 +876,78 @@ SAMPLauncher NET არის SA-MP-ის ახალი სტილის �
   <data name="SHOW_LEGACY_MASTER_LIST" xml:space="preserve">
     <value>მასტერ სია</value>
   </data>
+  <data name="SHOW_LEGACY_OFFICIAL_LIST" xml:space="preserve">
+    <value>ოფიციალური სია</value>
+  </data>
+  <data name="SHOW_SACNR_LIST" xml:space="preserve">
+    <value>SACNR</value>
+  </data>
+  <data name="SHOW_SOUTHCLAWS_LIST" xml:space="preserve">
+    <value>სამხრეთკლასის სიაში</value>
+  </data>
+  <data name="SHOW_USERNAME_DIALOG" xml:space="preserve">
+    <value>მომხმარებლის სახელი დიალოგის ჩვენება</value>
+  </data>
+  <data name="SLEEP" xml:space="preserve">
+    <value>ძილი დრო</value>
+  </data>
+  <data name="START_SERVER" xml:space="preserve">
+    <value>სერვერის დაწყება</value>
+  </data>
+  <data name="STOP_SERVER" xml:space="preserve">
+    <value>სერვერის შეჩერება</value>
+  </data>
+  <data name="STREAM_DISTANCE" xml:space="preserve">
+    <value>ნაკადი მანძილი</value>
+  </data>
+  <data name="STREAM_RATE" xml:space="preserve">
+    <value>ნაკადის სიჩქარე</value>
+  </data>
   <data name="TEMPORARY_USERNAME" xml:space="preserve">
     <value>არ შეინახო ნიკნეიმი</value>
   </data>
   <data name="TIMESTAMP" xml:space="preserve">
     <value>დრო</value>
   </data>
+  <data name="TIME_SPEND" xml:space="preserve">
+    <value>დრო</value>
+  </data>
+  <data name="TIME_ZONE" xml:space="preserve">
+    <value>დროის სარტყელი</value>
+  </data>
+  <data name="TYPE" xml:space="preserve">
+    <value>ტიპი</value>
+  </data>
   <data name="USERNAME" xml:space="preserve">
     <value>ნიკნეიმი</value>
+  </data>
+  <data name="USERNAME_WARNING" xml:space="preserve">
+    <value>უკვე არის თქვენი მოთამაშე სახელით.
+
+ნამდვილად გსურთ გაგრძელება?</value>
+  </data>
+  <data name="USERNAME_WARNING_TITLE" xml:space="preserve">
+    <value>სახელი გაფრთხილება</value>
+  </data>
+  <data name="VALUE" xml:space="preserve">
+    <value>ღირებულება</value>
+  </data>
+  <data name="VERSIONS" xml:space="preserve">
+    <value>ვერსიები</value>
+  </data>
+  <data name="VISIT_WEBSITE" xml:space="preserve">
+    <value>ეწვიეთ ვებსაიტს</value>
+  </data>
+  <data name="VISIT_WEBSITE_MESSAGE" xml:space="preserve">
+    <value>ნამდვილად გსურთ ეწვიოთ ამ ვებსაიტს?</value>
+  </data>
+  <data name="VISIT_WEBSITE_TITLE" xml:space="preserve">
+    <value>ვიზიტი</value>
+  </data>
+  <data name="WEAPON_RATE" xml:space="preserve">
+    <value>იარაღის სიჩქარე</value>
+  </data>
+  <data name="WEBSITE_URL" xml:space="preserve">
+    <value>საიტი URL</value>
   </data>
 </root>

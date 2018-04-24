@@ -2413,15 +2413,6 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Use Discord Rich Presence ähnelt.
-        /// </summary>
-        internal static string USE_DISCORD_RICH_PRESENCE {
-            get {
-                return ResourceManager.GetString("USE_DISCORD_RICH_PRESENCE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Username ähnelt.
         /// </summary>
         internal static string USERNAME {

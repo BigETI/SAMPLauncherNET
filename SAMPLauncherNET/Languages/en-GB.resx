@@ -926,9 +926,6 @@ Do you really want to continue?</value>
   <data name="USERNAME_WARNING_TITLE" xml:space="preserve">
     <value>Username warning</value>
   </data>
-  <data name="USE_DISCORD_RICH_PRESENCE" xml:space="preserve">
-    <value>Use Discord Rich Presence</value>
-  </data>
   <data name="VALUE" xml:space="preserve">
     <value>Value</value>
   </data>

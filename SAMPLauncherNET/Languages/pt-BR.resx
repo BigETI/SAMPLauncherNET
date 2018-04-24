@@ -131,8 +131,17 @@ Este projeto é localizado em</value>
   <data name="ACKNOWLEDGES_LIMIT" xml:space="preserve">
     <value>Acknowledges limit</value>
   </data>
+  <data name="ADD_ADDRESS_TO_FAVOURITE_LIST" xml:space="preserve">
+    <value>Marcar como Favorito</value>
+  </data>
+  <data name="ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Marcar como Favorito</value>
+  </data>
   <data name="ADD_NEW_API" xml:space="preserve">
     <value>Adicionar nova API</value>
+  </data>
+  <data name="ADD_NEW_PLUGIN" xml:space="preserve">
+    <value>Adicionar novo plugin</value>
   </data>
   <data name="ADD_SERVER_TO_FAVOURITES" xml:space="preserve">
     <value>Adicionar servidor aos favoritos</value>
@@ -188,6 +197,48 @@ Este projeto é localizado em</value>
   <data name="CANCEL" xml:space="preserve">
     <value>Cancelar</value>
   </data>
+  <data name="CANCEL_DOWNLOAD" xml:space="preserve">
+    <value>Queres mesmo cancelar o download?</value>
+  </data>
+  <data name="CANCEL_DOWNLOAD_TITLE" xml:space="preserve">
+    <value>Cancelar download</value>
+  </data>
+  <data name="CHATLOG" xml:space="preserve">
+    <value>Chatlog</value>
+  </data>
+  <data name="CHATLOG_COPY_HTML" xml:space="preserve">
+    <value>Copiar HTML</value>
+  </data>
+  <data name="CHATLOG_COPY_ORIGINAL_TEXT" xml:space="preserve">
+    <value>Copie o texto original</value>
+  </data>
+  <data name="CHATLOG_COPY_RTF" xml:space="preserve">
+    <value>Copiar RTF</value>
+  </data>
+  <data name="CHATLOG_COPY_TEXT" xml:space="preserve">
+    <value>Copiar texto</value>
+  </data>
+  <data name="CHATLOG_OPTION_COLORED" xml:space="preserve">
+    <value>Colori</value>
+  </data>
+  <data name="CHATLOG_OPTION_COLOR_CODES" xml:space="preserve">
+    <value>Códigos de cores</value>
+  </data>
+  <data name="CHATLOG_OPTION_TIMESTAMP" xml:space="preserve">
+    <value>Timestamp</value>
+  </data>
+  <data name="CHATLOG_SAVE_HTML_AS" xml:space="preserve">
+    <value>Salvar HTML como...</value>
+  </data>
+  <data name="CHATLOG_SAVE_ORIGINAL_TEXT_AS" xml:space="preserve">
+    <value>Salvar o texto original como...</value>
+  </data>
+  <data name="CHATLOG_SAVE_RTF_AS" xml:space="preserve">
+    <value>Salvar RTF como...</value>
+  </data>
+  <data name="CHATLOG_SAVE_TEXT_AS" xml:space="preserve">
+    <value>Salvar texto como...</value>
+  </data>
   <data name="CHAT_LOGGING" xml:space="preserve">
     <value>Habilitar chat logging</value>
   </data>
@@ -230,14 +281,23 @@ Este projeto é localizado em</value>
   <data name="COUNTRY" xml:space="preserve">
     <value>Pais</value>
   </data>
+  <data name="CREATE_SESSIONS_LOG" xml:space="preserve">
+    <value>Criar log de sessões</value>
+  </data>
   <data name="DATABASE_LOGGING" xml:space="preserve">
     <value>Habilitar logging do banco de dados</value>
   </data>
   <data name="DATABASE_LOG_QUERIES" xml:space="preserve">
     <value>Log de consultas do banco de dados</value>
   </data>
+  <data name="DATE_AND_TIME" xml:space="preserve">
+    <value>Data e hora</value>
+  </data>
   <data name="DEBUG_MODE" xml:space="preserve">
     <value>Modo de depuração</value>
+  </data>
+  <data name="DELETE" xml:space="preserve">
+    <value>Excluir</value>
   </data>
   <data name="DELETE_SELECTED_IMAGES" xml:space="preserve">
     <value>Você realmente deseja deletar as imagens selecionadas?</value>
@@ -260,14 +320,32 @@ Este projeto é localizado em</value>
   <data name="DISABLE_HEAD_MOVE" xml:space="preserve">
     <value>Desabilitar movimento da cabeça</value>
   </data>
+  <data name="DOWNLOAD_FAILED_TITLE" xml:space="preserve">
+    <value>Download falhado</value>
+  </data>
+  <data name="DOWNLOAD_PROGRESS" xml:space="preserve">
+    <value>A efectuar o download</value>
+  </data>
+  <data name="DOWNLOAD_PROGRESS_TITLE" xml:space="preserve">
+    <value>Progresso do download</value>
+  </data>
   <data name="DUTCH" xml:space="preserve">
     <value>Holandês (Nederlands)</value>
   </data>
   <data name="EDIT_API_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Editar API</value>
   </data>
+  <data name="EDIT_PLUGIN_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Editar plugin</value>
+  </data>
   <data name="EDIT_SELECTED_API" xml:space="preserve">
     <value>Editar API selecionada</value>
+  </data>
+  <data name="EDIT_SELECTED_PLUGIN" xml:space="preserve">
+    <value>Editar o plugin selecionado</value>
+  </data>
+  <data name="ENDPOINT" xml:space="preserve">
+    <value>Endpoint</value>
   </data>
   <data name="ENGLISH" xml:space="preserve">
     <value>Inglês (English)</value>
@@ -302,6 +380,9 @@ Este projeto é localizado em</value>
   <data name="FILTER_MODE" xml:space="preserve">
     <value>Filtrar modo</value>
   </data>
+  <data name="FILTER_USE_REGEX" xml:space="preserve">
+    <value>Use regex</value>
+  </data>
   <data name="FONT_FACE" xml:space="preserve">
     <value>Font-face</value>
   </data>
@@ -320,6 +401,9 @@ Este projeto é localizado em</value>
   <data name="GAMEMODE_TEXT" xml:space="preserve">
     <value>Gamemode text</value>
   </data>
+  <data name="GAME_VERSION" xml:space="preserve">
+    <value>Versão do jogo</value>
+  </data>
   <data name="GEORGIAN" xml:space="preserve">
     <value>Georgiano (ქართული)</value>
   </data>
@@ -329,11 +413,22 @@ Este projeto é localizado em</value>
   <data name="GITHUB_PROJECT" xml:space="preserve">
     <value>Projeto github SAMPLauncherNET</value>
   </data>
+  <data name="GTA_SA_IS_RUNNING" xml:space="preserve">
+    <value>Uma instância do GTA San Andreas está funcionando agora. Ele será finalizado antes que uma nova instância seja criada.
+
+Você quer continuar?</value>
+  </data>
+  <data name="GTA_SA_IS_RUNNING_TITLE" xml:space="preserve">
+    <value>GTA San Andreas está funcionando</value>
+  </data>
   <data name="HOSTNAME" xml:space="preserve">
     <value>Hostname</value>
   </data>
   <data name="HOST_AND_PORT" xml:space="preserve">
     <value>Host e porta</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>identidade</value>
   </data>
   <data name="IME" xml:space="preserve">
     <value>Enable IME (Input Method Editor)</value>
@@ -352,6 +447,12 @@ Este projeto é localizado em</value>
   </data>
   <data name="INSERT_USERNAME_HERE" xml:space="preserve">
     <value>Insira o nome do jogador aqui...</value>
+  </data>
+  <data name="INSTALL_VERSION" xml:space="preserve">
+    <value>Queres mesmo instalar {0}?</value>
+  </data>
+  <data name="INSTALL_VERSION_TITLE" xml:space="preserve">
+    <value>Versão</value>
   </data>
   <data name="IN_CAR_RATE" xml:space="preserve">
     <value>In car tick rate</value>
@@ -379,6 +480,11 @@ Este projeto é localizado em</value>
   </data>
   <data name="LAUNCH_SINGLEPLAYER" xml:space="preserve">
     <value>Iniciar singleplayer</value>
+  </data>
+  <data name="LOADING" xml:space="preserve">
+    <value>Lista de servidores está sendo carregada.
+
+Isso pode demorar um pouco...</value>
   </data>
   <data name="LOG_QUERIES" xml:space="preserve">
     <value>Log queries</value>
@@ -410,8 +516,14 @@ Este projeto é localizado em</value>
   <data name="MINIMUM_CONNECTION_TIME" xml:space="preserve">
     <value>Minimum connection time</value>
   </data>
+  <data name="MODE" xml:space="preserve">
+    <value>moda</value>
+  </data>
   <data name="MULTI_CORE" xml:space="preserve">
     <value>Multi core</value>
+  </data>
+  <data name="NAME" xml:space="preserve">
+    <value>Nome</value>
   </data>
   <data name="NEED_HELP_FORUMS" xml:space="preserve">
     <value>Precisa de ajuda? Visite o fórum SA:MP...</value>
@@ -419,8 +531,17 @@ Este projeto é localizado em</value>
   <data name="NEW_API_TITLE" xml:space="preserve">
     <value>San Andreas Multiplayer - Adiconar nova API</value>
   </data>
+  <data name="NEW_PLUGIN_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Adicionar novo plugin</value>
+  </data>
   <data name="NOT_IN_FAVOURITES" xml:space="preserve">
     <value>Not in favourites</value>
+  </data>
+  <data name="NO_ADDRESS_SPECIFIED" xml:space="preserve">
+    <value>Please specify an address to add to your favourites list.</value>
+  </data>
+  <data name="NO_ADDRESS_SPECIFIED_TITLE" xml:space="preserve">
+    <value>Nenhum endereço especificado</value>
   </data>
   <data name="NO_CHATLOG_FOUND" xml:space="preserve">
     <value>No chatlog found...</value>
@@ -433,6 +554,11 @@ Este projeto é localizado em</value>
   </data>
   <data name="NO_NAMETAG_STATUS" xml:space="preserve">
     <value>No nametag status</value>
+  </data>
+  <data name="NO_SESSION_LOG" xml:space="preserve">
+    <value>Nenhum log de sessões foi criado.
+
+Veja as opções para ativar esse recurso.</value>
   </data>
   <data name="NO_SIGN" xml:space="preserve">
     <value>No sign</value>
@@ -461,8 +587,17 @@ Este projeto é localizado em</value>
   <data name="PASSWORD" xml:space="preserve">
     <value>Senha</value>
   </data>
+  <data name="PATCH_VERSION" xml:space="preserve">
+    <value>Do you really want to patch your version to {0}?</value>
+  </data>
+  <data name="PATCH_VERSION_TITLE" xml:space="preserve">
+    <value>Patch version</value>
+  </data>
   <data name="PING" xml:space="preserve">
     <value>Ping</value>
+  </data>
+  <data name="PLAYER" xml:space="preserve">
+    <value>Jogador</value>
   </data>
   <data name="PLAYERS" xml:space="preserve">
     <value>Players</value>
@@ -475,6 +610,51 @@ Este projeto é localizado em</value>
   </data>
   <data name="PLUGINS" xml:space="preserve">
     <value>Plugins</value>
+  </data>
+  <data name="PLUGIN_COPY_ERROR" xml:space="preserve">
+    <value>Plugin não pode ser copiado.</value>
+  </data>
+  <data name="PLUGIN_ENABLED" xml:space="preserve">
+    <value>Ativar plugin</value>
+  </data>
+  <data name="PLUGIN_ERROR_TITLE" xml:space="preserve">
+    <value>Erro de plug-in</value>
+  </data>
+  <data name="PLUGIN_NAME" xml:space="preserve">
+    <value>Nome do plugin</value>
+  </data>
+  <data name="PLUGIN_NAME_MISSING" xml:space="preserve">
+    <value>Por favor, insira um nome de API.</value>
+  </data>
+  <data name="PLUGIN_NAME_MISSING_TITLE" xml:space="preserve">
+    <value>Nome do plug-in ausente</value>
+  </data>
+  <data name="PLUGIN_PROVIDER" xml:space="preserve">
+    <value>Provedor de plugins</value>
+  </data>
+  <data name="PLUGIN_PROVIDER_MISSING" xml:space="preserve">
+    <value>Por favor especifique um provedor de plugin</value>
+  </data>
+  <data name="PLUGIN_PROVIDER_MISSING_TITLE" xml:space="preserve">
+    <value>Provedor de plug-ins ausente</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY" xml:space="preserve">
+    <value>Frequência de atualização de plugins</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY_MISSING" xml:space="preserve">
+    <value>Por favor especifique uma frequência de atualização de plugins</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE" xml:space="preserve">
+    <value>Frequência de atualização de plug-in ausente</value>
+  </data>
+  <data name="PLUGIN_URI" xml:space="preserve">
+    <value>URI de plug-in</value>
+  </data>
+  <data name="PLUGIN_URI_MISSING" xml:space="preserve">
+    <value>Por favor especifique um plugin URI</value>
+  </data>
+  <data name="PLUGIN_URI_MISSING_TITLE" xml:space="preserve">
+    <value>URI de plug-in ausente</value>
   </data>
   <data name="PORT" xml:space="preserve">
     <value>Port</value>
@@ -503,14 +683,26 @@ Este projeto é localizado em</value>
   <data name="REGION" xml:space="preserve">
     <value>Region</value>
   </data>
+  <data name="RELOAD_SERVER_LISTS" xml:space="preserve">
+    <value>Recarregar listas de servidores</value>
+  </data>
   <data name="REMOVE_API" xml:space="preserve">
     <value>Do you really want to remove the selected API?</value>
   </data>
   <data name="REMOVE_API_TITLE" xml:space="preserve">
     <value>Remove selected API</value>
   </data>
+  <data name="REMOVE_PLUGIN" xml:space="preserve">
+    <value>Você realmente quer remover o plugin selecionado?</value>
+  </data>
+  <data name="REMOVE_PLUGIN_TITLE" xml:space="preserve">
+    <value>Remover o plugin selecionado</value>
+  </data>
   <data name="REMOVE_SELECTED_API" xml:space="preserve">
     <value>Remove selected API</value>
+  </data>
+  <data name="REMOVE_SELECTED_PLUGIN" xml:space="preserve">
+    <value>Remover o plugin selecionado</value>
   </data>
   <data name="REMOVE_SERVER_FROM_FAVOURITES" xml:space="preserve">
     <value>Do you really want to remove this server from your favourites?</value>
@@ -527,11 +719,40 @@ Este projeto é localizado em</value>
   <data name="REVERT_CONFIG" xml:space="preserve">
     <value>Revert config</value>
   </data>
+  <data name="REVERT_PLUGIN_LIST" xml:space="preserve">
+    <value>Você realmente quer reverter a lista de plugins para o padrão?</value>
+  </data>
+  <data name="REVERT_PLUGIN_LIST_TITLE" xml:space="preserve">
+    <value>Reverter a lista de plugins</value>
+  </data>
+  <data name="RULE" xml:space="preserve">
+    <value>Regra</value>
+  </data>
   <data name="RUSSIAN" xml:space="preserve">
     <value>Russian (Русский)</value>
   </data>
+  <data name="SAMPCTL_ERROR_TITLE" xml:space="preserve">
+    <value>erro sampctl</value>
+  </data>
+  <data name="SAMPCTL_MISSING" xml:space="preserve">
+    <value>Instale "sampctl" de {0} para executar um servidor.
+
+Você quer visitar este site agora?</value>
+  </data>
+  <data name="SAMPCTL_MISSING_ASSET" xml:space="preserve">
+    <value>O sampctl não pode ser baixado agora.</value>
+  </data>
+  <data name="SAMPCTL_MISSING_TITLE" xml:space="preserve">
+    <value>A instalação "sampctl" está ausente</value>
+  </data>
+  <data name="SAMPCTL_UNZIP_ERROR" xml:space="preserve">
+    <value>O sampctl não pode ser descompactado.</value>
+  </data>
   <data name="SAVE" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="SCORE" xml:space="preserve">
+    <value>Ponto</value>
   </data>
   <data name="SEARCH_ON" xml:space="preserve">
     <value>Search on...</value>
@@ -569,6 +790,18 @@ Este projeto é localizado em</value>
   <data name="SELECT_SERVER_LIST" xml:space="preserve">
     <value>Select server list</value>
   </data>
+  <data name="SELECT_VERSION" xml:space="preserve">
+    <value>You have selected {0} to be patched or manually installed.
+
+Do you really want to patch or manually install {0}?
+
+Press "Yes" to patch.
+Press "No" to install.
+Press "Cancel" to cancel this action.</value>
+  </data>
+  <data name="SELECT_VERSION_TITLE" xml:space="preserve">
+    <value>Patch or manually install version</value>
+  </data>
   <data name="SERVERS" xml:space="preserve">
     <value>Servers</value>
   </data>
@@ -592,14 +825,32 @@ Do you want to continue?</value>
   <data name="SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE" xml:space="preserve">
     <value>Server password field is empty</value>
   </data>
+  <data name="SESSION" xml:space="preserve">
+    <value>San Andreas Multiplayer - Sessão</value>
+  </data>
+  <data name="SESSIONS" xml:space="preserve">
+    <value>Sessões</value>
+  </data>
+  <data name="SESSION_DELETE" xml:space="preserve">
+    <value>Você realmente quer descartar esta sessão?</value>
+  </data>
+  <data name="SESSION_DELETE_TITLE" xml:space="preserve">
+    <value>Rejeitar sessão</value>
+  </data>
   <data name="SHOW_ADDITIONAL_CONFIGURATIONS" xml:space="preserve">
     <value>Show additional configurations</value>
+  </data>
+  <data name="SHOW_EMPTY_SERVERS" xml:space="preserve">
+    <value>Mostrar servidores vazios</value>
   </data>
   <data name="SHOW_EXTENDED_SERVER_INFORMATION" xml:space="preserve">
     <value>Extended server information</value>
   </data>
   <data name="SHOW_FAVOURITES" xml:space="preserve">
     <value>Favourites</value>
+  </data>
+  <data name="SHOW_FULL_SERVERS" xml:space="preserve">
+    <value>Mostrar servidores completos</value>
   </data>
   <data name="SHOW_GALLERY" xml:space="preserve">
     <value>Show gallery...</value>
@@ -622,6 +873,18 @@ Do you want to continue?</value>
   <data name="SHOW_LEGACY_MASTER_LIST" xml:space="preserve">
     <value>Master list</value>
   </data>
+  <data name="SHOW_LEGACY_OFFICIAL_LIST" xml:space="preserve">
+    <value>Lista oficial</value>
+  </data>
+  <data name="SHOW_SACNR_LIST" xml:space="preserve">
+    <value>SACNR</value>
+  </data>
+  <data name="SHOW_SOUTHCLAWS_LIST" xml:space="preserve">
+    <value>Lista do Southclaw</value>
+  </data>
+  <data name="SHOW_USERNAME_DIALOG" xml:space="preserve">
+    <value>Mostrar caixa de diálogo de nome de usuário</value>
+  </data>
   <data name="SLEEP" xml:space="preserve">
     <value>Sleep time</value>
   </data>
@@ -643,11 +906,31 @@ Do you want to continue?</value>
   <data name="TIMESTAMP" xml:space="preserve">
     <value>Timestamp</value>
   </data>
+  <data name="TIME_SPEND" xml:space="preserve">
+    <value>Tempo</value>
+  </data>
   <data name="TIME_ZONE" xml:space="preserve">
     <value>Time zone</value>
   </data>
+  <data name="TYPE" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="USERNAME_WARNING" xml:space="preserve">
+    <value>Já existe um jogador com seu nome de usuário.
+
+Você realmente quer continuar?</value>
+  </data>
+  <data name="USERNAME_WARNING_TITLE" xml:space="preserve">
+    <value>Aviso de nome de usuário</value>
+  </data>
+  <data name="VALUE" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="VERSIONS" xml:space="preserve">
+    <value>Versões</value>
   </data>
   <data name="VISIT_WEBSITE" xml:space="preserve">
     <value>Visit website</value>

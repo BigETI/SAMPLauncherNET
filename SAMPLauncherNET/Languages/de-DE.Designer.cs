@@ -318,7 +318,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Chatlog ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Chat Protokoll ähnelt.
         /// </summary>
         internal static string CHATLOG {
             get {

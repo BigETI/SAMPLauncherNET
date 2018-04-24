@@ -83,11 +83,47 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die აღიარებს ლიმიტს ähnelt.
+        /// </summary>
+        internal static string ACKNOWLEDGES_LIMIT {
+            get {
+                return ResourceManager.GetString("ACKNOWLEDGES_LIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მისამართი მიმართავს ähnelt.
+        /// </summary>
+        internal static string ADD_ADDRESS_TO_FAVOURITE_LIST {
+            get {
+                return ResourceManager.GetString("ADD_ADDRESS_TO_FAVOURITE_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - მისამართი მიმართავს ähnelt.
+        /// </summary>
+        internal static string ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE {
+            get {
+                return ResourceManager.GetString("ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ახალი API-ს დამატება ähnelt.
         /// </summary>
         internal static string ADD_NEW_API {
             get {
                 return ResourceManager.GetString("ADD_NEW_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ახალი მოდულის დამატება ähnelt.
+        /// </summary>
+        internal static string ADD_NEW_PLUGIN {
+            get {
+                return ResourceManager.GetString("ADD_NEW_PLUGIN", resourceCulture);
             }
         }
         
@@ -101,7 +137,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Address ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die მისამართი ähnelt.
         /// </summary>
         internal static string ADDRESS {
             get {
@@ -115,6 +151,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string ALREADY_IN_FAVOURITES {
             get {
                 return ResourceManager.GetString("ALREADY_IN_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die გამოაცხადეთ სერვერი ähnelt.
+        /// </summary>
+        internal static string ANNOUNCE {
+            get {
+                return ResourceManager.GetString("ANNOUNCE", resourceCulture);
             }
         }
         
@@ -200,6 +245,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die API ტიპის აკლია ähnelt.
+        /// </summary>
+        internal static string API_TYPE_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("API_TYPE_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ასამბლეის ვერსია ähnelt.
+        /// </summary>
+        internal static string ASSEMBLY_VERSION {
+            get {
+                return ResourceManager.GetString("ASSEMBLY_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die აუდიო მესიჯების გათიშვა ähnelt.
         /// </summary>
         internal static string AUDIO_MESSAGE_OFF {
@@ -218,11 +281,164 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die აკავშირებს IP მისამართი ähnelt.
+        /// </summary>
+        internal static string BIND {
+            get {
+                return ResourceManager.GetString("BIND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die შეჩერება ähnelt.
         /// </summary>
         internal static string CANCEL {
             get {
                 return ResourceManager.GetString("CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ნამდვილად გსურთ ჩამოტვირთოთ ჩამოტვირთვა? ähnelt.
+        /// </summary>
+        internal static string CANCEL_DOWNLOAD {
+            get {
+                return ResourceManager.GetString("CANCEL_DOWNLOAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ჩამოტვირთვის გაუქმება ähnelt.
+        /// </summary>
+        internal static string CANCEL_DOWNLOAD_TITLE {
+            get {
+                return ResourceManager.GetString("CANCEL_DOWNLOAD_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ჩაწერეთ ჩეთი ähnelt.
+        /// </summary>
+        internal static string CHAT_LOGGING {
+            get {
+                return ResourceManager.GetString("CHAT_LOGGING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Chatlog ähnelt.
+        /// </summary>
+        internal static string CHATLOG {
+            get {
+                return ResourceManager.GetString("CHATLOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die HTML- ის კოპირება ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_HTML {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_HTML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ორიგინალური ტექსტის კოპირება ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_ORIGINAL_TEXT {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_ORIGINAL_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die დააკოპირეთ RTF ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_RTF {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_RTF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ტექსტის კოპირება ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_TEXT {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ფერი კოდები ähnelt.
+        /// </summary>
+        internal static string CHATLOG_OPTION_COLOR_CODES {
+            get {
+                return ResourceManager.GetString("CHATLOG_OPTION_COLOR_CODES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ფერადი ähnelt.
+        /// </summary>
+        internal static string CHATLOG_OPTION_COLORED {
+            get {
+                return ResourceManager.GetString("CHATLOG_OPTION_COLORED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die დროის სარტყელი ähnelt.
+        /// </summary>
+        internal static string CHATLOG_OPTION_TIMESTAMP {
+            get {
+                return ResourceManager.GetString("CHATLOG_OPTION_TIMESTAMP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die HTML- ის შენახვა... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_HTML_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_HTML_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ორიგინალური ტექსტის შენახვა როგორც... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_ORIGINAL_TEXT_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_ORIGINAL_TEXT_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die შენახვა RTF როგორც... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_RTF_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_RTF_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ტექსტის შენახვა... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_TEXT_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_TEXT_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ქალაქი ähnelt.
+        /// </summary>
+        internal static string CITY {
+            get {
+                return ResourceManager.GetString("CITY", resourceCulture);
             }
         }
         
@@ -263,6 +479,33 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die დაკავშირება მიმართეთ ähnelt.
+        /// </summary>
+        internal static string CONNECT_TO_ADDRESS {
+            get {
+                return ResourceManager.GetString("CONNECT_TO_ADDRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - დაკავშირება მიმართეთ ähnelt.
+        /// </summary>
+        internal static string CONNECT_TO_ADDRESS_TITLE {
+            get {
+                return ResourceManager.GetString("CONNECT_TO_ADDRESS_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die დაუკავშირდით სერვერს ähnelt.
+        /// </summary>
+        internal static string CONNECT_TO_TEST_SERVER {
+            get {
+                return ResourceManager.GetString("CONNECT_TO_TEST_SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die RCON-ით დაკავშირება ähnelt.
         /// </summary>
         internal static string CONNECT_WITH_RCON {
@@ -272,11 +515,92 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die კავშირი ქუქი-ფაილების დაშვება ähnelt.
+        /// </summary>
+        internal static string CONNECTION_COOKIES {
+            get {
+                return ResourceManager.GetString("CONNECTION_COOKIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die კენჭისყრის დრო ähnelt.
+        /// </summary>
+        internal static string CONNECTION_SEED_TIME {
+            get {
+                return ResourceManager.GetString("CONNECTION_SEED_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ბმულების ხეების ჩართვა ähnelt.
+        /// </summary>
+        internal static string COOKIE_LOGGING {
+            get {
+                return ResourceManager.GetString("COOKIE_LOGGING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ქვეყანა ähnelt.
+        /// </summary>
+        internal static string COUNTRY {
+            get {
+                return ResourceManager.GetString("COUNTRY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die შექმენით სხდომების ჟურნალი ähnelt.
+        /// </summary>
+        internal static string CREATE_SESSIONS_LOG {
+            get {
+                return ResourceManager.GetString("CREATE_SESSIONS_LOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მონაცემთა ბაზის ჟურნალი შეკითხვებს ähnelt.
+        /// </summary>
+        internal static string DATABASE_LOG_QUERIES {
+            get {
+                return ResourceManager.GetString("DATABASE_LOG_QUERIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მონაცემთა ბაზის ხედის ჩართვა ähnelt.
+        /// </summary>
+        internal static string DATABASE_LOGGING {
+            get {
+                return ResourceManager.GetString("DATABASE_LOGGING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die თარიღი და დრო ähnelt.
+        /// </summary>
+        internal static string DATE_AND_TIME {
+            get {
+                return ResourceManager.GetString("DATE_AND_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die დებაგ მოდი ähnelt.
         /// </summary>
         internal static string DEBUG_MODE {
             get {
                 return ResourceManager.GetString("DEBUG_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die წაშლა ähnelt.
+        /// </summary>
+        internal static string DELETE {
+            get {
+                return ResourceManager.GetString("DELETE", resourceCulture);
             }
         }
         
@@ -299,6 +623,33 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die შემქმნელი ინსტრუმენტები ähnelt.
+        /// </summary>
+        internal static string DEVELOPER_TOOLS {
+            get {
+                return ResourceManager.GetString("DEVELOPER_TOOLS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - შემქმნელი ინსტრუმენტების კონფიგურაცია ähnelt.
+        /// </summary>
+        internal static string DEVELOPER_TOOLS_CONFIGURATION_TITLE {
+            get {
+                return ResourceManager.GetString("DEVELOPER_TOOLS_CONFIGURATION_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die განვითარების დირექტორია ähnelt.
+        /// </summary>
+        internal static string DEVELOPMENT_DIRECTORY {
+            get {
+                return ResourceManager.GetString("DEVELOPMENT_DIRECTORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ეკრან-ზე Textdraw-ების რენდერირების სტილი (ნელი) ähnelt.
         /// </summary>
         internal static string DIRECT_MODE {
@@ -313,6 +664,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string DISABLE_HEAD_MOVE {
             get {
                 return ResourceManager.GetString("DISABLE_HEAD_MOVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ჩამოტვირთვა ვერ მოხერხდა ähnelt.
+        /// </summary>
+        internal static string DOWNLOAD_FAILED_TITLE {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_FAILED_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ჩამოტვირთვისას ähnelt.
+        /// </summary>
+        internal static string DOWNLOAD_PROGRESS {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_PROGRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die პროგრესის ჩამოტვირთვა ähnelt.
+        /// </summary>
+        internal static string DOWNLOAD_PROGRESS_TITLE {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_PROGRESS_TITLE", resourceCulture);
             }
         }
         
@@ -335,11 +713,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - რედაქტირება მოდული ähnelt.
+        /// </summary>
+        internal static string EDIT_PLUGIN_TITLE {
+            get {
+                return ResourceManager.GetString("EDIT_PLUGIN_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die მონიშნული API-ს დარედაქტირება ähnelt.
         /// </summary>
         internal static string EDIT_SELECTED_API {
             get {
                 return ResourceManager.GetString("EDIT_SELECTED_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die შერჩეული მოდულის რედაქტირება ähnelt.
+        /// </summary>
+        internal static string EDIT_SELECTED_PLUGIN {
+            get {
+                return ResourceManager.GetString("EDIT_SELECTED_PLUGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die საბოლოო წერტილი ähnelt.
+        /// </summary>
+        internal static string ENDPOINT {
+            get {
+                return ResourceManager.GetString("ENDPOINT", resourceCulture);
             }
         }
         
@@ -389,7 +794,16 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Filter hostname ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ფაილის ვერსია ähnelt.
+        /// </summary>
+        internal static string FILE_VERSION {
+            get {
+                return ResourceManager.GetString("FILE_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ფილტრი ჰოსტის სახელი ähnelt.
         /// </summary>
         internal static string FILTER_HOSTNAME {
             get {
@@ -398,7 +812,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Filter IP და port ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ფილტრი IP და პორტი ähnelt.
         /// </summary>
         internal static string FILTER_IP_AND_PORT {
             get {
@@ -407,7 +821,7 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Filter ენა ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ფილტრის ენა ähnelt.
         /// </summary>
         internal static string FILTER_LANGUAGE {
             get {
@@ -416,11 +830,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Filter მოდი ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ფილტრის რეჟიმი ähnelt.
         /// </summary>
         internal static string FILTER_MODE {
             get {
                 return ResourceManager.GetString("FILTER_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die გამოიყენეთ regex ähnelt.
+        /// </summary>
+        internal static string FILTER_USE_REGEX {
+            get {
+                return ResourceManager.GetString("FILTER_USE_REGEX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ფილტრები ähnelt.
+        /// </summary>
+        internal static string FILTERSCRIPTS {
+            get {
+                return ResourceManager.GetString("FILTERSCRIPTS", resourceCulture);
             }
         }
         
@@ -452,11 +884,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die თამაშის ვერსია ähnelt.
+        /// </summary>
+        internal static string GAME_VERSION {
+            get {
+                return ResourceManager.GetString("GAME_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die გეიმმოდი ähnelt.
         /// </summary>
         internal static string GAMEMODE {
             get {
                 return ResourceManager.GetString("GAMEMODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Gamemode ტექსტი ähnelt.
+        /// </summary>
+        internal static string GAMEMODE_TEXT {
+            get {
+                return ResourceManager.GetString("GAMEMODE_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die თამაშის რეჟიმები ähnelt.
+        /// </summary>
+        internal static string GAMEMODES {
+            get {
+                return ResourceManager.GetString("GAMEMODES", resourceCulture);
             }
         }
         
@@ -488,6 +947,35 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ამჟამად GTA San Andreas- ის ინსტალაცია მიმდინარეობს. ის შეწყდება ახალი ინსტანციის შექმნის დაწყებამდე.
+        ///
+        ///გინდა გააგრძელო? ähnelt.
+        /// </summary>
+        internal static string GTA_SA_IS_RUNNING {
+            get {
+                return ResourceManager.GetString("GTA_SA_IS_RUNNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die GTA San Andreas არის გაშვებული ähnelt.
+        /// </summary>
+        internal static string GTA_SA_IS_RUNNING_TITLE {
+            get {
+                return ResourceManager.GetString("GTA_SA_IS_RUNNING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მასპინძელი და პორტი ähnelt.
+        /// </summary>
+        internal static string HOST_AND_PORT {
+            get {
+                return ResourceManager.GetString("HOST_AND_PORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die სერვერის სახელი ähnelt.
         /// </summary>
         internal static string HOSTNAME {
@@ -497,11 +985,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ID ähnelt.
+        /// </summary>
+        internal static string ID {
+            get {
+                return ResourceManager.GetString("ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ჩაწერის მეთოდის აქტივაცია ähnelt.
         /// </summary>
         internal static string IME {
             get {
                 return ResourceManager.GetString("IME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მანქანის ტკივილის განაკვეთი ähnelt.
+        /// </summary>
+        internal static string IN_CAR_RATE {
+            get {
+                return ResourceManager.GetString("IN_CAR_RATE", resourceCulture);
             }
         }
         
@@ -551,6 +1057,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ნამდვილად გსურთ დააყენოთ {0}? ähnelt.
+        /// </summary>
+        internal static string INSTALL_VERSION {
+            get {
+                return ResourceManager.GetString("INSTALL_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die დააინსტალირეთ ვერსია ähnelt.
+        /// </summary>
+        internal static string INSTALL_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("INSTALL_VERSION_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die IP და პორტი ähnelt.
         /// </summary>
         internal static string IP_AND_PORT {
@@ -560,11 +1084,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lag კომპენსაციის რეჟიმში ähnelt.
+        /// </summary>
+        internal static string LAG_COMPENSATION_MODE {
+            get {
+                return ResourceManager.GetString("LAG_COMPENSATION_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die LAN რეჟიმი ähnelt.
+        /// </summary>
+        internal static string LAN_MODE {
+            get {
+                return ResourceManager.GetString("LAN_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ენა ähnelt.
         /// </summary>
         internal static string LANGUAGE {
             get {
                 return ResourceManager.GetString("LANGUAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die გრძედი და გრძედი ähnelt.
+        /// </summary>
+        internal static string LATITUDE_LONGITUDE {
+            get {
+                return ResourceManager.GetString("LATITUDE_LONGITUDE", resourceCulture);
             }
         }
         
@@ -596,6 +1147,62 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die სერვერის სია იტვირთება.
+        ///
+        ///ამას დრო სჭირდება... ähnelt.
+        /// </summary>
+        internal static string LOADING {
+            get {
+                return ResourceManager.GetString("LOADING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die შესვლა შეკითხვებს ähnelt.
+        /// </summary>
+        internal static string LOG_QUERIES {
+            get {
+                return ResourceManager.GetString("LOG_QUERIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die შესვლა დროის ფორმატში ähnelt.
+        /// </summary>
+        internal static string LOG_TIME_FORMAT {
+            get {
+                return ResourceManager.GetString("LOG_TIME_FORMAT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die რუკის სახელი ähnelt.
+        /// </summary>
+        internal static string MAP_NAME {
+            get {
+                return ResourceManager.GetString("MAP_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მაქსიმალური NPCs ähnelt.
+        /// </summary>
+        internal static string MAXIMAL_NPCS {
+            get {
+                return ResourceManager.GetString("MAXIMAL_NPCS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მაქსიმალური მოთამაშეები ähnelt.
+        /// </summary>
+        internal static string MAXIMAL_PLAYERS {
+            get {
+                return ResourceManager.GetString("MAXIMAL_PLAYERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die მედია ähnelt.
         /// </summary>
         internal static string MEDIA {
@@ -605,11 +1212,65 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die შეტყობინება ხვრელი ლიმიტი ähnelt.
+        /// </summary>
+        internal static string MESSAGE_HOLE_LIMIT {
+            get {
+                return ResourceManager.GetString("MESSAGE_HOLE_LIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die შეტყობინებები ზღუდავს ähnelt.
+        /// </summary>
+        internal static string MESSAGES_LIMIT {
+            get {
+                return ResourceManager.GetString("MESSAGES_LIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მეტრო კოდი ähnelt.
+        /// </summary>
+        internal static string METRO_CODE {
+            get {
+                return ResourceManager.GetString("METRO_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მინიმალური კავშირი დრო ähnelt.
+        /// </summary>
+        internal static string MINIMUM_CONNECTION_TIME {
+            get {
+                return ResourceManager.GetString("MINIMUM_CONNECTION_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die რეჟიმი ähnelt.
+        /// </summary>
+        internal static string MODE {
+            get {
+                return ResourceManager.GetString("MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die მულტი კორი ähnelt.
         /// </summary>
         internal static string MULTI_CORE {
             get {
                 return ResourceManager.GetString("MULTI_CORE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die სახელი ähnelt.
+        /// </summary>
+        internal static string NAME {
+            get {
+                return ResourceManager.GetString("NAME", resourceCulture);
             }
         }
         
@@ -628,6 +1289,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string NEW_API_TITLE {
             get {
                 return ResourceManager.GetString("NEW_API_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - ახალი მოდულის დამატება ähnelt.
+        /// </summary>
+        internal static string NEW_PLUGIN_TITLE {
+            get {
+                return ResourceManager.GetString("NEW_PLUGIN_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die გთხოვთ მიუთითოთ მისამართი, რომ დაამატოთ თქვენი ფავორიტების სია. ähnelt.
+        /// </summary>
+        internal static string NO_ADDRESS_SPECIFIED {
+            get {
+                return ResourceManager.GetString("NO_ADDRESS_SPECIFIED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მისამართი მითითებული არ არის ähnelt.
+        /// </summary>
+        internal static string NO_ADDRESS_SPECIFIED_TITLE {
+            get {
+                return ResourceManager.GetString("NO_ADDRESS_SPECIFIED_TITLE", resourceCulture);
             }
         }
         
@@ -668,6 +1356,26 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die არ შეიქმნა სესიების ჟურნალი.
+        ///
+        ///იხილეთ ფუნქციები. ähnelt.
+        /// </summary>
+        internal static string NO_SESSION_LOG {
+            get {
+                return ResourceManager.GetString("NO_SESSION_LOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die არ ნიშანი ähnelt.
+        /// </summary>
+        internal static string NO_SIGN {
+            get {
+                return ResourceManager.GetString("NO_SIGN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die არ არის რჩეულებში ähnelt.
         /// </summary>
         internal static string NOT_IN_FAVOURITES {
@@ -682,6 +1390,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string OK {
             get {
                 return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ფეხით Tick კურსი ähnelt.
+        /// </summary>
+        internal static string ON_FOOT_RATE {
+            get {
+                return ResourceManager.GetString("ON_FOOT_RATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ღია დირექტორია ähnelt.
+        /// </summary>
+        internal static string OPEN_DIRECTORY {
+            get {
+                return ResourceManager.GetString("OPEN_DIRECTORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die გახსენით ექსპლორში ähnelt.
+        /// </summary>
+        internal static string OPEN_IN_EXPLORER {
+            get {
+                return ResourceManager.GetString("OPEN_IN_EXPLORER", resourceCulture);
             }
         }
         
@@ -704,6 +1439,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die პარამეტრები ähnelt.
+        /// </summary>
+        internal static string OPTIONS1 {
+            get {
+                return ResourceManager.GetString("OPTIONS1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die გვერდის ზომა ähnelt.
         /// </summary>
         internal static string PAGE_SIZE {
@@ -713,11 +1457,56 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die პაროლი ähnelt.
+        /// </summary>
+        internal static string PASSWORD {
+            get {
+                return ResourceManager.GetString("PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მართლა გინდა რომ გსურთ თქვენი ვერსია {0}? ähnelt.
+        /// </summary>
+        internal static string PATCH_VERSION {
+            get {
+                return ResourceManager.GetString("PATCH_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Patch ვერსია ähnelt.
+        /// </summary>
+        internal static string PATCH_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("PATCH_VERSION_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die პინგი ähnelt.
         /// </summary>
         internal static string PING {
             get {
                 return ResourceManager.GetString("PING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოთამაშე ähnelt.
+        /// </summary>
+        internal static string PLAYER {
+            get {
+                return ResourceManager.GetString("PLAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოთამაშის დრო ამოიწურა ähnelt.
+        /// </summary>
+        internal static string PLAYER_TIME_OUT {
+            get {
+                return ResourceManager.GetString("PLAYER_TIME_OUT", resourceCulture);
             }
         }
         
@@ -740,6 +1529,159 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოდული ვერ გადანაწილდა. ähnelt.
+        /// </summary>
+        internal static string PLUGIN_COPY_ERROR {
+            get {
+                return ResourceManager.GetString("PLUGIN_COPY_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოდულის ჩართვა ähnelt.
+        /// </summary>
+        internal static string PLUGIN_ENABLED {
+            get {
+                return ResourceManager.GetString("PLUGIN_ENABLED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოდულის შეცდომა ähnelt.
+        /// </summary>
+        internal static string PLUGIN_ERROR_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_ERROR_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოდულის სახელი ähnelt.
+        /// </summary>
+        internal static string PLUGIN_NAME {
+            get {
+                return ResourceManager.GetString("PLUGIN_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die გთხოვთ შეიყვანოთ API სახელი. ähnelt.
+        /// </summary>
+        internal static string PLUGIN_NAME_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_NAME_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოდულის სახელი აკლია ähnelt.
+        /// </summary>
+        internal static string PLUGIN_NAME_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_NAME_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოდული პროვაიდერი ähnelt.
+        /// </summary>
+        internal static string PLUGIN_PROVIDER {
+            get {
+                return ResourceManager.GetString("PLUGIN_PROVIDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die გთხოვთ მიუთითოთ მოდული პროვაიდერი ähnelt.
+        /// </summary>
+        internal static string PLUGIN_PROVIDER_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_PROVIDER_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოდული პროვაიდერი აკლია ähnelt.
+        /// </summary>
+        internal static string PLUGIN_PROVIDER_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_PROVIDER_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოდულის განახლების სიხშირე ähnelt.
+        /// </summary>
+        internal static string PLUGIN_UPDATE_FREQUENCY {
+            get {
+                return ResourceManager.GetString("PLUGIN_UPDATE_FREQUENCY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die გთხოვთ მიუთითოთ მოდულის განახლების სიხშირე ähnelt.
+        /// </summary>
+        internal static string PLUGIN_UPDATE_FREQUENCY_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_UPDATE_FREQUENCY_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოდულის განახლების სიხშირე აკლია ähnelt.
+        /// </summary>
+        internal static string PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოდული URI ähnelt.
+        /// </summary>
+        internal static string PLUGIN_URI {
+            get {
+                return ResourceManager.GetString("PLUGIN_URI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die გთხოვთ მიუთითოთ მოდული URI ähnelt.
+        /// </summary>
+        internal static string PLUGIN_URI_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_URI_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოდულის URI აკლია ähnelt.
+        /// </summary>
+        internal static string PLUGIN_URI_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_URI_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოდულები ähnelt.
+        /// </summary>
+        internal static string PLUGINS {
+            get {
+                return ResourceManager.GetString("PLUGINS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die პორტი ähnelt.
+        /// </summary>
+        internal static string PORT {
+            get {
+                return ResourceManager.GetString("PORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die პორტუგალიური (Português) ähnelt.
         /// </summary>
         internal static string PORTUGUESE {
@@ -754,6 +1696,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string PORTUGUESE_BRAZIL {
             get {
                 return ResourceManager.GetString("PORTUGUESE_BRAZIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die პროდუქტის ვერსია ähnelt.
+        /// </summary>
+        internal static string PRODUCT_VERSION {
+            get {
+                return ResourceManager.GetString("PRODUCT_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die შეკითხვის ჩართვა ähnelt.
+        /// </summary>
+        internal static string QUERY {
+            get {
+                return ResourceManager.GetString("QUERY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ჩართეთ RCON ähnelt.
+        /// </summary>
+        internal static string RCON {
+            get {
+                return ResourceManager.GetString("RCON", resourceCulture);
             }
         }
         
@@ -776,6 +1745,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die რეგიონი ähnelt.
+        /// </summary>
+        internal static string REGION {
+            get {
+                return ResourceManager.GetString("REGION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die გადატვირთვის სერვერის სიები ähnelt.
+        /// </summary>
+        internal static string RELOAD_SERVER_LISTS {
+            get {
+                return ResourceManager.GetString("RELOAD_SERVER_LISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die დარწმუნებული ხართ რომ გსურთ მიმდინარე API-ს წაშლა? ähnelt.
         /// </summary>
         internal static string REMOVE_API {
@@ -794,11 +1781,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die გსურთ ნამდვილად გსურთ ამოიღოთ შერჩეული მოდული? ähnelt.
+        /// </summary>
+        internal static string REMOVE_PLUGIN {
+            get {
+                return ResourceManager.GetString("REMOVE_PLUGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die წაშლა შერჩეული მოდული ähnelt.
+        /// </summary>
+        internal static string REMOVE_PLUGIN_TITLE {
+            get {
+                return ResourceManager.GetString("REMOVE_PLUGIN_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die მონიშნული API-ს წაშლა ähnelt.
         /// </summary>
         internal static string REMOVE_SELECTED_API {
             get {
                 return ResourceManager.GetString("REMOVE_SELECTED_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die წაშლა შერჩეული მოდული ähnelt.
+        /// </summary>
+        internal static string REMOVE_SELECTED_PLUGIN {
+            get {
+                return ResourceManager.GetString("REMOVE_SELECTED_PLUGIN", resourceCulture);
             }
         }
         
@@ -848,6 +1862,33 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ნამდვილად გსურთ შეცვალოთ მოდულის სიის შეცვლა? ähnelt.
+        /// </summary>
+        internal static string REVERT_PLUGIN_LIST {
+            get {
+                return ResourceManager.GetString("REVERT_PLUGIN_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მოდულის სიის დაბრუნება ähnelt.
+        /// </summary>
+        internal static string REVERT_PLUGIN_LIST_TITLE {
+            get {
+                return ResourceManager.GetString("REVERT_PLUGIN_LIST_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die წესი ähnelt.
+        /// </summary>
+        internal static string RULE {
+            get {
+                return ResourceManager.GetString("RULE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die რუსული (Русский) ähnelt.
         /// </summary>
         internal static string RUSSIAN {
@@ -857,11 +1898,130 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die sampctl შეცდომა ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_ERROR_TITLE {
+            get {
+                return ResourceManager.GetString("SAMPCTL_ERROR_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die დააინსტალირეთ &quot;sampctl&quot; სერვერის გასაშვებად {0}.
+        ///
+        ///გნებავთ ეწვიოთ ამ ვებ გვერდს? ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die sampctl არ შეიძლება გადმოწერილი ახლავე. ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING_ASSET {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING_ASSET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &quot;sampctl&quot; ინსტალაცია აკლია ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die არ შეიძლება შეუძლებელი იყოს sampctl. ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_UNZIP_ERROR {
+            get {
+                return ResourceManager.GetString("SAMPCTL_UNZIP_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die შენახვა ähnelt.
         /// </summary>
         internal static string SAVE {
             get {
                 return ResourceManager.GetString("SAVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ანგარიში ähnelt.
+        /// </summary>
+        internal static string SCORE {
+            get {
+                return ResourceManager.GetString("SCORE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ძიება... ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON {
+            get {
+                return ResourceManager.GetString("SEARCH_ON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bing ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_BING {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_BING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die DuckDuckGo ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_DUCK_DUCK_GO {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_DUCK_DUCK_GO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Google ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_GOOGLE {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_GOOGLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Yahoo ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_YAHOO {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_YAHOO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Yandex ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_YANDEX {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_YANDEX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die YouTube ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_YOU_TUBE {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_YOU_TUBE", resourceCulture);
             }
         }
         
@@ -907,6 +2067,30 @@ namespace SAMPLauncherNET.Languages {
         internal static string SELECT_SERVER_LIST {
             get {
                 return ResourceManager.GetString("SELECT_SERVER_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die თქვენ შეარჩიეთ {0}, რომელიც უნდა იყოს დამონტაჟებული ან ხელით დამონტაჟებული.
+        ///
+        ///მართლა გსურთ გინდათ პატჩი ან ხელით დააყენოთ {0}?
+        ///
+        ///დააჭირეთ &quot;დიახ&quot;
+        ///პრესა &quot;არა&quot; ინსტალაცია.
+        ///პრესა &quot;გაუქმება&quot;, რათა გააუქმოს ეს ქმედება. ähnelt.
+        /// </summary>
+        internal static string SELECT_VERSION {
+            get {
+                return ResourceManager.GetString("SELECT_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Patch ან ხელით დააყენოთ ვერსია ähnelt.
+        /// </summary>
+        internal static string SELECT_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("SELECT_VERSION_TITLE", resourceCulture);
             }
         }
         
@@ -974,6 +2158,60 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - სხდომა ähnelt.
+        /// </summary>
+        internal static string SESSION {
+            get {
+                return ResourceManager.GetString("SESSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ნამდვილად გსურთ ამ სესიის გაუქმება? ähnelt.
+        /// </summary>
+        internal static string SESSION_DELETE {
+            get {
+                return ResourceManager.GetString("SESSION_DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die სესიის გაუქმება ähnelt.
+        /// </summary>
+        internal static string SESSION_DELETE_TITLE {
+            get {
+                return ResourceManager.GetString("SESSION_DELETE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die სესიები ähnelt.
+        /// </summary>
+        internal static string SESSIONS {
+            get {
+                return ResourceManager.GetString("SESSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die დამატებითი კონფიგურაციის ჩვენება ähnelt.
+        /// </summary>
+        internal static string SHOW_ADDITIONAL_CONFIGURATIONS {
+            get {
+                return ResourceManager.GetString("SHOW_ADDITIONAL_CONFIGURATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ცარიელი სერვერების ჩვენება ähnelt.
+        /// </summary>
+        internal static string SHOW_EMPTY_SERVERS {
+            get {
+                return ResourceManager.GetString("SHOW_EMPTY_SERVERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die სერვერის დამატებითი ინფორმაცია ähnelt.
         /// </summary>
         internal static string SHOW_EXTENDED_SERVER_INFORMATION {
@@ -992,11 +2230,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die სრული სერვერების ჩვენება ähnelt.
+        /// </summary>
+        internal static string SHOW_FULL_SERVERS {
+            get {
+                return ResourceManager.GetString("SHOW_FULL_SERVERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die გალერიის ნახვა... ähnelt.
         /// </summary>
         internal static string SHOW_GALLERY {
             get {
                 return ResourceManager.GetString("SHOW_GALLERY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die აჩვენეთ Google Maps- ში ähnelt.
+        /// </summary>
+        internal static string SHOW_IN_GOOGLE_MAPS {
+            get {
+                return ResourceManager.GetString("SHOW_IN_GOOGLE_MAPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die აჩვენეთ OpenStreetMap- ში ähnelt.
+        /// </summary>
+        internal static string SHOW_IN_OPEN_STREET_MAP {
+            get {
+                return ResourceManager.GetString("SHOW_IN_OPEN_STREET_MAP", resourceCulture);
             }
         }
         
@@ -1037,11 +2302,110 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ოფიციალური სია ähnelt.
+        /// </summary>
+        internal static string SHOW_LEGACY_OFFICIAL_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_LEGACY_OFFICIAL_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SACNR ähnelt.
+        /// </summary>
+        internal static string SHOW_SACNR_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_SACNR_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die სამხრეთკლასის სიაში ähnelt.
+        /// </summary>
+        internal static string SHOW_SOUTHCLAWS_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_SOUTHCLAWS_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die მომხმარებლის სახელი დიალოგის ჩვენება ähnelt.
+        /// </summary>
+        internal static string SHOW_USERNAME_DIALOG {
+            get {
+                return ResourceManager.GetString("SHOW_USERNAME_DIALOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ძილი დრო ähnelt.
+        /// </summary>
+        internal static string SLEEP {
+            get {
+                return ResourceManager.GetString("SLEEP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die სერვერის დაწყება ähnelt.
+        /// </summary>
+        internal static string START_SERVER {
+            get {
+                return ResourceManager.GetString("START_SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die სერვერის შეჩერება ähnelt.
+        /// </summary>
+        internal static string STOP_SERVER {
+            get {
+                return ResourceManager.GetString("STOP_SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ნაკადი მანძილი ähnelt.
+        /// </summary>
+        internal static string STREAM_DISTANCE {
+            get {
+                return ResourceManager.GetString("STREAM_DISTANCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ნაკადის სიჩქარე ähnelt.
+        /// </summary>
+        internal static string STREAM_RATE {
+            get {
+                return ResourceManager.GetString("STREAM_RATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die არ შეინახო ნიკნეიმი ähnelt.
         /// </summary>
         internal static string TEMPORARY_USERNAME {
             get {
                 return ResourceManager.GetString("TEMPORARY_USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die დრო ähnelt.
+        /// </summary>
+        internal static string TIME_SPEND {
+            get {
+                return ResourceManager.GetString("TIME_SPEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die დროის სარტყელი ähnelt.
+        /// </summary>
+        internal static string TIME_ZONE {
+            get {
+                return ResourceManager.GetString("TIME_ZONE", resourceCulture);
             }
         }
         
@@ -1055,11 +2419,103 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ტიპი ähnelt.
+        /// </summary>
+        internal static string TYPE {
+            get {
+                return ResourceManager.GetString("TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ნიკნეიმი ähnelt.
         /// </summary>
         internal static string USERNAME {
             get {
                 return ResourceManager.GetString("USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die უკვე არის თქვენი მოთამაშე სახელით.
+        ///
+        ///ნამდვილად გსურთ გაგრძელება? ähnelt.
+        /// </summary>
+        internal static string USERNAME_WARNING {
+            get {
+                return ResourceManager.GetString("USERNAME_WARNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die სახელი გაფრთხილება ähnelt.
+        /// </summary>
+        internal static string USERNAME_WARNING_TITLE {
+            get {
+                return ResourceManager.GetString("USERNAME_WARNING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ღირებულება ähnelt.
+        /// </summary>
+        internal static string VALUE {
+            get {
+                return ResourceManager.GetString("VALUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ვერსიები ähnelt.
+        /// </summary>
+        internal static string VERSIONS {
+            get {
+                return ResourceManager.GetString("VERSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ეწვიეთ ვებსაიტს ähnelt.
+        /// </summary>
+        internal static string VISIT_WEBSITE {
+            get {
+                return ResourceManager.GetString("VISIT_WEBSITE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ნამდვილად გსურთ ეწვიოთ ამ ვებსაიტს? ähnelt.
+        /// </summary>
+        internal static string VISIT_WEBSITE_MESSAGE {
+            get {
+                return ResourceManager.GetString("VISIT_WEBSITE_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ვიზიტი ähnelt.
+        /// </summary>
+        internal static string VISIT_WEBSITE_TITLE {
+            get {
+                return ResourceManager.GetString("VISIT_WEBSITE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die იარაღის სიჩქარე ähnelt.
+        /// </summary>
+        internal static string WEAPON_RATE {
+            get {
+                return ResourceManager.GetString("WEAPON_RATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die საიტი URL ähnelt.
+        /// </summary>
+        internal static string WEBSITE_URL {
+            get {
+                return ResourceManager.GetString("WEBSITE_URL", resourceCulture);
             }
         }
     }

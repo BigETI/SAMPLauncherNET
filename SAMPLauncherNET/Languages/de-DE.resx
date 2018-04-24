@@ -204,7 +204,7 @@ Das Projekt befindet sich auf</value>
     <value>Download abbrechen</value>
   </data>
   <data name="CHATLOG" xml:space="preserve">
-    <value>Chatlog</value>
+    <value>Chat Protokoll</value>
   </data>
   <data name="CHATLOG_COPY_HTML" xml:space="preserve">
     <value>Kopiere HTML</value>

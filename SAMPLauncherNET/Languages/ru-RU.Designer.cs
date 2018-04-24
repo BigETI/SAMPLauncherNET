@@ -92,11 +92,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Адрес для избранных ähnelt.
+        /// </summary>
+        internal static string ADD_ADDRESS_TO_FAVOURITE_LIST {
+            get {
+                return ResourceManager.GetString("ADD_ADDRESS_TO_FAVOURITE_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Адрес для избранных ähnelt.
+        /// </summary>
+        internal static string ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE {
+            get {
+                return ResourceManager.GetString("ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Добавить новый API ähnelt.
         /// </summary>
         internal static string ADD_NEW_API {
             get {
                 return ResourceManager.GetString("ADD_NEW_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Добавить новый плагин ähnelt.
+        /// </summary>
+        internal static string ADD_NEW_PLUGIN {
+            get {
+                return ResourceManager.GetString("ADD_NEW_PLUGIN", resourceCulture);
             }
         }
         
@@ -263,11 +290,137 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Вы действительно хотите отменить загрузку? ähnelt.
+        /// </summary>
+        internal static string CANCEL_DOWNLOAD {
+            get {
+                return ResourceManager.GetString("CANCEL_DOWNLOAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Отменить загрузку ähnelt.
+        /// </summary>
+        internal static string CANCEL_DOWNLOAD_TITLE {
+            get {
+                return ResourceManager.GetString("CANCEL_DOWNLOAD_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Включить логирование чата ähnelt.
         /// </summary>
         internal static string CHAT_LOGGING {
             get {
                 return ResourceManager.GetString("CHAT_LOGGING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Chatlog ähnelt.
+        /// </summary>
+        internal static string CHATLOG {
+            get {
+                return ResourceManager.GetString("CHATLOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Скопировать HTML ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_HTML {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_HTML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Скопировать исходный текст ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_ORIGINAL_TEXT {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_ORIGINAL_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Скопировать RTF ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_RTF {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_RTF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Копировать текст ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_TEXT {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Цветовые коды ähnelt.
+        /// </summary>
+        internal static string CHATLOG_OPTION_COLOR_CODES {
+            get {
+                return ResourceManager.GetString("CHATLOG_OPTION_COLOR_CODES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die цветной ähnelt.
+        /// </summary>
+        internal static string CHATLOG_OPTION_COLORED {
+            get {
+                return ResourceManager.GetString("CHATLOG_OPTION_COLORED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Отметка ähnelt.
+        /// </summary>
+        internal static string CHATLOG_OPTION_TIMESTAMP {
+            get {
+                return ResourceManager.GetString("CHATLOG_OPTION_TIMESTAMP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Сохранить HTML как... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_HTML_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_HTML_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Сохранить исходный текст как... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_ORIGINAL_TEXT_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_ORIGINAL_TEXT_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Сохранить RTF как... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_RTF_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_RTF_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Сохранить текст как... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_TEXT_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_TEXT_AS", resourceCulture);
             }
         }
         
@@ -389,6 +542,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Создание журнала сеансов ähnelt.
+        /// </summary>
+        internal static string CREATE_SESSIONS_LOG {
+            get {
+                return ResourceManager.GetString("CREATE_SESSIONS_LOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Логирование запросов к базе данных ähnelt.
         /// </summary>
         internal static string DATABASE_LOG_QUERIES {
@@ -407,11 +569,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Дата и время ähnelt.
+        /// </summary>
+        internal static string DATE_AND_TIME {
+            get {
+                return ResourceManager.GetString("DATE_AND_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Режим отладки ähnelt.
         /// </summary>
         internal static string DEBUG_MODE {
             get {
                 return ResourceManager.GetString("DEBUG_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Удалить ähnelt.
+        /// </summary>
+        internal static string DELETE {
+            get {
+                return ResourceManager.GetString("DELETE", resourceCulture);
             }
         }
         
@@ -479,6 +659,33 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ошибка загрузки ähnelt.
+        /// </summary>
+        internal static string DOWNLOAD_FAILED_TITLE {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_FAILED_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die загрузка ähnelt.
+        /// </summary>
+        internal static string DOWNLOAD_PROGRESS {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_PROGRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Прогресс загрузки ähnelt.
+        /// </summary>
+        internal static string DOWNLOAD_PROGRESS_TITLE {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_PROGRESS_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Голландский (Nederlands) ähnelt.
         /// </summary>
         internal static string DUTCH {
@@ -497,11 +704,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Изменить плагин ähnelt.
+        /// </summary>
+        internal static string EDIT_PLUGIN_TITLE {
+            get {
+                return ResourceManager.GetString("EDIT_PLUGIN_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Редактировать выбранный API ähnelt.
         /// </summary>
         internal static string EDIT_SELECTED_API {
             get {
                 return ResourceManager.GetString("EDIT_SELECTED_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Редактировать выбранный плагин ähnelt.
+        /// </summary>
+        internal static string EDIT_SELECTED_PLUGIN {
+            get {
+                return ResourceManager.GetString("EDIT_SELECTED_PLUGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Конечная точка ähnelt.
+        /// </summary>
+        internal static string ENDPOINT {
+            get {
+                return ResourceManager.GetString("ENDPOINT", resourceCulture);
             }
         }
         
@@ -596,6 +830,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Использовать регулярное выражение ähnelt.
+        /// </summary>
+        internal static string FILTER_USE_REGEX {
+            get {
+                return ResourceManager.GetString("FILTER_USE_REGEX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Filterscripts ähnelt.
         /// </summary>
         internal static string FILTERSCRIPTS {
@@ -628,6 +871,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string FPS_LIMIT {
             get {
                 return ResourceManager.GetString("FPS_LIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Игровая версия ähnelt.
+        /// </summary>
+        internal static string GAME_VERSION {
+            get {
+                return ResourceManager.GetString("GAME_VERSION", resourceCulture);
             }
         }
         
@@ -686,6 +938,26 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Экземпляр GTA San Andreas работает прямо сейчас. Он будет завершен до создания нового экземпляра.
+        ///
+        ///Вы хотите продолжить? ähnelt.
+        /// </summary>
+        internal static string GTA_SA_IS_RUNNING {
+            get {
+                return ResourceManager.GetString("GTA_SA_IS_RUNNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die GTA San Andreas работает ähnelt.
+        /// </summary>
+        internal static string GTA_SA_IS_RUNNING_TITLE {
+            get {
+                return ResourceManager.GetString("GTA_SA_IS_RUNNING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Хост и порт ähnelt.
         /// </summary>
         internal static string HOST_AND_PORT {
@@ -700,6 +972,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string HOSTNAME {
             get {
                 return ResourceManager.GetString("HOSTNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Я БЫ ähnelt.
+        /// </summary>
+        internal static string ID {
+            get {
+                return ResourceManager.GetString("ID", resourceCulture);
             }
         }
         
@@ -763,6 +1044,24 @@ namespace SAMPLauncherNET.Languages {
         internal static string INSERT_USERNAME_HERE {
             get {
                 return ResourceManager.GetString("INSERT_USERNAME_HERE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Вы действительно хотите установить {0}? ähnelt.
+        /// </summary>
+        internal static string INSTALL_VERSION {
+            get {
+                return ResourceManager.GetString("INSTALL_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Установить версию ähnelt.
+        /// </summary>
+        internal static string INSTALL_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("INSTALL_VERSION_TITLE", resourceCulture);
             }
         }
         
@@ -835,6 +1134,17 @@ namespace SAMPLauncherNET.Languages {
         internal static string LAUNCHER_TITLE {
             get {
                 return ResourceManager.GetString("LAUNCHER_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Загружается список серверов.
+        ///
+        ///Это может занять некоторое время ... ähnelt.
+        /// </summary>
+        internal static string LOADING {
+            get {
+                return ResourceManager.GetString("LOADING", resourceCulture);
             }
         }
         
@@ -947,6 +1257,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die имя ähnelt.
+        /// </summary>
+        internal static string NAME {
+            get {
+                return ResourceManager.GetString("NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Вам нужна помощь? Присоединяйтесь форумам SA:MP... ähnelt.
         /// </summary>
         internal static string NEED_HELP_FORUMS {
@@ -961,6 +1280,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string NEW_API_TITLE {
             get {
                 return ResourceManager.GetString("NEW_API_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Добавить новый плагин ähnelt.
+        /// </summary>
+        internal static string NEW_PLUGIN_TITLE {
+            get {
+                return ResourceManager.GetString("NEW_PLUGIN_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Укажите адрес для добавления в список избранных. ähnelt.
+        /// </summary>
+        internal static string NO_ADDRESS_SPECIFIED {
+            get {
+                return ResourceManager.GetString("NO_ADDRESS_SPECIFIED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Не указан адрес ähnelt.
+        /// </summary>
+        internal static string NO_ADDRESS_SPECIFIED_TITLE {
+            get {
+                return ResourceManager.GetString("NO_ADDRESS_SPECIFIED_TITLE", resourceCulture);
             }
         }
         
@@ -997,6 +1343,17 @@ namespace SAMPLauncherNET.Languages {
         internal static string NO_NAMETAG_STATUS {
             get {
                 return ResourceManager.GetString("NO_NAMETAG_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Журнал сеансов сеансов не создан.
+        ///
+        ///См. Параметры для включения этой функции. ähnelt.
+        /// </summary>
+        internal static string NO_SESSION_LOG {
+            get {
+                return ResourceManager.GetString("NO_SESSION_LOG", resourceCulture);
             }
         }
         
@@ -1091,6 +1448,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Вы действительно хотите исправить свою версию до {0}? ähnelt.
+        /// </summary>
+        internal static string PATCH_VERSION {
+            get {
+                return ResourceManager.GetString("PATCH_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Патч версия ähnelt.
+        /// </summary>
+        internal static string PATCH_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("PATCH_VERSION_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Пинг ähnelt.
         /// </summary>
         internal static string PING {
@@ -1132,6 +1507,141 @@ namespace SAMPLauncherNET.Languages {
         internal static string PLEASE_TYPE_IN_USERNAME {
             get {
                 return ResourceManager.GetString("PLEASE_TYPE_IN_USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Плагин не может быть скопирован. ähnelt.
+        /// </summary>
+        internal static string PLUGIN_COPY_ERROR {
+            get {
+                return ResourceManager.GetString("PLUGIN_COPY_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Включить плагин ähnelt.
+        /// </summary>
+        internal static string PLUGIN_ENABLED {
+            get {
+                return ResourceManager.GetString("PLUGIN_ENABLED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ошибка плагина ähnelt.
+        /// </summary>
+        internal static string PLUGIN_ERROR_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_ERROR_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Имя плагина ähnelt.
+        /// </summary>
+        internal static string PLUGIN_NAME {
+            get {
+                return ResourceManager.GetString("PLUGIN_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Введите имя API. ähnelt.
+        /// </summary>
+        internal static string PLUGIN_NAME_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_NAME_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Имя плагина отсутствует ähnelt.
+        /// </summary>
+        internal static string PLUGIN_NAME_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_NAME_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Поставщик плагинов ähnelt.
+        /// </summary>
+        internal static string PLUGIN_PROVIDER {
+            get {
+                return ResourceManager.GetString("PLUGIN_PROVIDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Укажите поставщика плагинов ähnelt.
+        /// </summary>
+        internal static string PLUGIN_PROVIDER_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_PROVIDER_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Отсутствует провайдер плагинов ähnelt.
+        /// </summary>
+        internal static string PLUGIN_PROVIDER_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_PROVIDER_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Частота обновления плагина ähnelt.
+        /// </summary>
+        internal static string PLUGIN_UPDATE_FREQUENCY {
+            get {
+                return ResourceManager.GetString("PLUGIN_UPDATE_FREQUENCY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Укажите частоту обновления плагина ähnelt.
+        /// </summary>
+        internal static string PLUGIN_UPDATE_FREQUENCY_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_UPDATE_FREQUENCY_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Частота обновления плагина отсутствует ähnelt.
+        /// </summary>
+        internal static string PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die URI плагина ähnelt.
+        /// </summary>
+        internal static string PLUGIN_URI {
+            get {
+                return ResourceManager.GetString("PLUGIN_URI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Укажите URL-адрес плагина ähnelt.
+        /// </summary>
+        internal static string PLUGIN_URI_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_URI_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Отсутствует URI плагина ähnelt.
+        /// </summary>
+        internal static string PLUGIN_URI_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_URI_MISSING_TITLE", resourceCulture);
             }
         }
         
@@ -1226,6 +1736,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Обновить списки серверов ähnelt.
+        /// </summary>
+        internal static string RELOAD_SERVER_LISTS {
+            get {
+                return ResourceManager.GetString("RELOAD_SERVER_LISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Вы действительно хотите удалить выбранный API? ähnelt.
         /// </summary>
         internal static string REMOVE_API {
@@ -1244,11 +1763,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Вы действительно хотите удалить выбранный плагин? ähnelt.
+        /// </summary>
+        internal static string REMOVE_PLUGIN {
+            get {
+                return ResourceManager.GetString("REMOVE_PLUGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Удалить выбранный плагин ähnelt.
+        /// </summary>
+        internal static string REMOVE_PLUGIN_TITLE {
+            get {
+                return ResourceManager.GetString("REMOVE_PLUGIN_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Удалить выбранный API ähnelt.
         /// </summary>
         internal static string REMOVE_SELECTED_API {
             get {
                 return ResourceManager.GetString("REMOVE_SELECTED_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Удалить выбранный плагин ähnelt.
+        /// </summary>
+        internal static string REMOVE_SELECTED_PLUGIN {
+            get {
+                return ResourceManager.GetString("REMOVE_SELECTED_PLUGIN", resourceCulture);
             }
         }
         
@@ -1298,6 +1844,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Вы действительно хотите вернуть список плагинов по умолчанию? ähnelt.
+        /// </summary>
+        internal static string REVERT_PLUGIN_LIST {
+            get {
+                return ResourceManager.GetString("REVERT_PLUGIN_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Отменить список плагинов ähnelt.
+        /// </summary>
+        internal static string REVERT_PLUGIN_LIST_TITLE {
+            get {
+                return ResourceManager.GetString("REVERT_PLUGIN_LIST_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Правило ähnelt.
         /// </summary>
         internal static string RULE {
@@ -1312,6 +1876,53 @@ namespace SAMPLauncherNET.Languages {
         internal static string RUSSIAN {
             get {
                 return ResourceManager.GetString("RUSSIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ошибка sampctl ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_ERROR_TITLE {
+            get {
+                return ResourceManager.GetString("SAMPCTL_ERROR_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Установите «sampctl» из {0}, чтобы запустить сервер.
+        ///
+        ///Вы хотите посетить этот сайт сейчас? ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die sampctl не может быть загружен прямо сейчас. ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING_ASSET {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING_ASSET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Отсутствует установка «sampctl» ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die sampctl нельзя распаковать. ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_UNZIP_ERROR {
+            get {
+                return ResourceManager.GetString("SAMPCTL_UNZIP_ERROR", resourceCulture);
             }
         }
         
@@ -1442,6 +2053,30 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Вы выбрали {0} для исправления или установки вручную.
+        ///
+        ///Вы действительно хотите установить или установить вручную {0}?
+        ///
+        ///Нажмите «Да» для исправления.
+        ///Нажмите «Нет» для установки.
+        ///Нажмите «Отмена», чтобы отменить это действие. ähnelt.
+        /// </summary>
+        internal static string SELECT_VERSION {
+            get {
+                return ResourceManager.GetString("SELECT_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Патч или ручная установка версии ähnelt.
+        /// </summary>
+        internal static string SELECT_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("SELECT_VERSION_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Этот сервер уже находится в избранных. ähnelt.
         /// </summary>
         internal static string SERVER_ALREADY_IN_FAVOURITES {
@@ -1507,11 +2142,56 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - сессия ähnelt.
+        /// </summary>
+        internal static string SESSION {
+            get {
+                return ResourceManager.GetString("SESSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Вы действительно хотите отказаться от этой сессии? ähnelt.
+        /// </summary>
+        internal static string SESSION_DELETE {
+            get {
+                return ResourceManager.GetString("SESSION_DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Отменить сеанс ähnelt.
+        /// </summary>
+        internal static string SESSION_DELETE_TITLE {
+            get {
+                return ResourceManager.GetString("SESSION_DELETE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die сессии ähnelt.
+        /// </summary>
+        internal static string SESSIONS {
+            get {
+                return ResourceManager.GetString("SESSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Показать дополнительные настройки ähnelt.
         /// </summary>
         internal static string SHOW_ADDITIONAL_CONFIGURATIONS {
             get {
                 return ResourceManager.GetString("SHOW_ADDITIONAL_CONFIGURATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Показать пустые серверы ähnelt.
+        /// </summary>
+        internal static string SHOW_EMPTY_SERVERS {
+            get {
+                return ResourceManager.GetString("SHOW_EMPTY_SERVERS", resourceCulture);
             }
         }
         
@@ -1530,6 +2210,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string SHOW_FAVOURITES {
             get {
                 return ResourceManager.GetString("SHOW_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Показать полные серверы ähnelt.
+        /// </summary>
+        internal static string SHOW_FULL_SERVERS {
+            get {
+                return ResourceManager.GetString("SHOW_FULL_SERVERS", resourceCulture);
             }
         }
         
@@ -1597,6 +2286,42 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Официальный список ähnelt.
+        /// </summary>
+        internal static string SHOW_LEGACY_OFFICIAL_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_LEGACY_OFFICIAL_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SACNR ähnelt.
+        /// </summary>
+        internal static string SHOW_SACNR_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_SACNR_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Список Southclaw ähnelt.
+        /// </summary>
+        internal static string SHOW_SOUTHCLAWS_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_SOUTHCLAWS_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Показать диалоговое окно имени пользователя ähnelt.
+        /// </summary>
+        internal static string SHOW_USERNAME_DIALOG {
+            get {
+                return ResourceManager.GetString("SHOW_USERNAME_DIALOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Время сна ähnelt.
         /// </summary>
         internal static string SLEEP {
@@ -1651,6 +2376,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Время ähnelt.
+        /// </summary>
+        internal static string TIME_SPEND {
+            get {
+                return ResourceManager.GetString("TIME_SPEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Временная зона ähnelt.
         /// </summary>
         internal static string TIME_ZONE {
@@ -1669,11 +2403,11 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Использовать Discord Rich Presence ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Тип ähnelt.
         /// </summary>
-        internal static string USE_DISCORD_RICH_PRESENCE {
+        internal static string TYPE {
             get {
-                return ResourceManager.GetString("USE_DISCORD_RICH_PRESENCE", resourceCulture);
+                return ResourceManager.GetString("TYPE", resourceCulture);
             }
         }
         
@@ -1683,6 +2417,26 @@ namespace SAMPLauncherNET.Languages {
         internal static string USERNAME {
             get {
                 return ResourceManager.GetString("USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Уже есть игрок с вашим именем пользователя.
+        ///
+        ///Вы действительно хотите продолжить? ähnelt.
+        /// </summary>
+        internal static string USERNAME_WARNING {
+            get {
+                return ResourceManager.GetString("USERNAME_WARNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Предупреждение пользователя ähnelt.
+        /// </summary>
+        internal static string USERNAME_WARNING_TITLE {
+            get {
+                return ResourceManager.GetString("USERNAME_WARNING_TITLE", resourceCulture);
             }
         }
         

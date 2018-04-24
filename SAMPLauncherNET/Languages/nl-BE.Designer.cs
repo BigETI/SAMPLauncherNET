@@ -84,11 +84,47 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Erkent limiet ähnelt.
+        /// </summary>
+        internal static string ACKNOWLEDGES_LIMIT {
+            get {
+                return ResourceManager.GetString("ACKNOWLEDGES_LIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Adres voor favorieten ähnelt.
+        /// </summary>
+        internal static string ADD_ADDRESS_TO_FAVOURITE_LIST {
+            get {
+                return ResourceManager.GetString("ADD_ADDRESS_TO_FAVOURITE_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Adres voor favorieten ähnelt.
+        /// </summary>
+        internal static string ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE {
+            get {
+                return ResourceManager.GetString("ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Voeg nieuwe API toe ähnelt.
         /// </summary>
         internal static string ADD_NEW_API {
             get {
                 return ResourceManager.GetString("ADD_NEW_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Voeg een nieuwe plugin toe ähnelt.
+        /// </summary>
+        internal static string ADD_NEW_PLUGIN {
+            get {
+                return ResourceManager.GetString("ADD_NEW_PLUGIN", resourceCulture);
             }
         }
         
@@ -107,6 +143,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string ALREADY_IN_FAVOURITES {
             get {
                 return ResourceManager.GetString("ALREADY_IN_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kondig server aan ähnelt.
+        /// </summary>
+        internal static string ANNOUNCE {
+            get {
+                return ResourceManager.GetString("ANNOUNCE", resourceCulture);
             }
         }
         
@@ -201,6 +246,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Assemblage versie ähnelt.
+        /// </summary>
+        internal static string ASSEMBLY_VERSION {
+            get {
+                return ResourceManager.GetString("ASSEMBLY_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Audio bericht uit ähnelt.
         /// </summary>
         internal static string AUDIO_MESSAGE_OFF {
@@ -219,11 +273,164 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bind het IP-adres ähnelt.
+        /// </summary>
+        internal static string BIND {
+            get {
+                return ResourceManager.GetString("BIND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Annuleer ähnelt.
         /// </summary>
         internal static string CANCEL {
             get {
                 return ResourceManager.GetString("CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wilt u de download echt annuleren? ähnelt.
+        /// </summary>
+        internal static string CANCEL_DOWNLOAD {
+            get {
+                return ResourceManager.GetString("CANCEL_DOWNLOAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Annuleer de download ähnelt.
+        /// </summary>
+        internal static string CANCEL_DOWNLOAD_TITLE {
+            get {
+                return ResourceManager.GetString("CANCEL_DOWNLOAD_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Chatregistratie inschakelen ähnelt.
+        /// </summary>
+        internal static string CHAT_LOGGING {
+            get {
+                return ResourceManager.GetString("CHAT_LOGGING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Chatgeschiedenis ähnelt.
+        /// </summary>
+        internal static string CHATLOG {
+            get {
+                return ResourceManager.GetString("CHATLOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die HTML kopiëren ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_HTML {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_HTML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kopieer de originele tekst ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_ORIGINAL_TEXT {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_ORIGINAL_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kopieer RTF ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_RTF {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_RTF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kopieer tekst ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_TEXT {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kleurcodes ähnelt.
+        /// </summary>
+        internal static string CHATLOG_OPTION_COLOR_CODES {
+            get {
+                return ResourceManager.GetString("CHATLOG_OPTION_COLOR_CODES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die gekleurde ähnelt.
+        /// </summary>
+        internal static string CHATLOG_OPTION_COLORED {
+            get {
+                return ResourceManager.GetString("CHATLOG_OPTION_COLORED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Tijdstempel ähnelt.
+        /// </summary>
+        internal static string CHATLOG_OPTION_TIMESTAMP {
+            get {
+                return ResourceManager.GetString("CHATLOG_OPTION_TIMESTAMP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sla HTML op als... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_HTML_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_HTML_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sla originele tekst op als... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_ORIGINAL_TEXT_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_ORIGINAL_TEXT_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sla RTF op als... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_RTF_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_RTF_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Tekst opslaan als... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_TEXT_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_TEXT_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Stad ähnelt.
+        /// </summary>
+        internal static string CITY {
+            get {
+                return ResourceManager.GetString("CITY", resourceCulture);
             }
         }
         
@@ -264,6 +471,33 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Verbind met adres ähnelt.
+        /// </summary>
+        internal static string CONNECT_TO_ADDRESS {
+            get {
+                return ResourceManager.GetString("CONNECT_TO_ADDRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Verbind met adres ähnelt.
+        /// </summary>
+        internal static string CONNECT_TO_ADDRESS_TITLE {
+            get {
+                return ResourceManager.GetString("CONNECT_TO_ADDRESS_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Maak verbinding met de testserver ähnelt.
+        /// </summary>
+        internal static string CONNECT_TO_TEST_SERVER {
+            get {
+                return ResourceManager.GetString("CONNECT_TO_TEST_SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Connecteer met RCON ähnelt.
         /// </summary>
         internal static string CONNECT_WITH_RCON {
@@ -273,11 +507,92 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Verbindingscookies toestaan ähnelt.
+        /// </summary>
+        internal static string CONNECTION_COOKIES {
+            get {
+                return ResourceManager.GetString("CONNECTION_COOKIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Aansluiting zaaitijd ähnelt.
+        /// </summary>
+        internal static string CONNECTION_SEED_TIME {
+            get {
+                return ResourceManager.GetString("CONNECTION_SEED_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Schakel cookieregistratie in ähnelt.
+        /// </summary>
+        internal static string COOKIE_LOGGING {
+            get {
+                return ResourceManager.GetString("COOKIE_LOGGING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Land ähnelt.
+        /// </summary>
+        internal static string COUNTRY {
+            get {
+                return ResourceManager.GetString("COUNTRY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Maak sessielogboek ähnelt.
+        /// </summary>
+        internal static string CREATE_SESSIONS_LOG {
+            get {
+                return ResourceManager.GetString("CREATE_SESSIONS_LOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Database log query&apos;s ähnelt.
+        /// </summary>
+        internal static string DATABASE_LOG_QUERIES {
+            get {
+                return ResourceManager.GetString("DATABASE_LOG_QUERIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Schakel databaselogging in ähnelt.
+        /// </summary>
+        internal static string DATABASE_LOGGING {
+            get {
+                return ResourceManager.GetString("DATABASE_LOGGING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Datum en tijd ähnelt.
+        /// </summary>
+        internal static string DATE_AND_TIME {
+            get {
+                return ResourceManager.GetString("DATE_AND_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Debug mode ähnelt.
         /// </summary>
         internal static string DEBUG_MODE {
             get {
                 return ResourceManager.GetString("DEBUG_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Verwijder ähnelt.
+        /// </summary>
+        internal static string DELETE {
+            get {
+                return ResourceManager.GetString("DELETE", resourceCulture);
             }
         }
         
@@ -300,6 +615,33 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ontwikkelaarstools ähnelt.
+        /// </summary>
+        internal static string DEVELOPER_TOOLS {
+            get {
+                return ResourceManager.GetString("DEVELOPER_TOOLS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Configuratie van ontwikkelaarstools ähnelt.
+        /// </summary>
+        internal static string DEVELOPER_TOOLS_CONFIGURATION_TITLE {
+            get {
+                return ResourceManager.GetString("DEVELOPER_TOOLS_CONFIGURATION_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ontwikkelingsdirectory ähnelt.
+        /// </summary>
+        internal static string DEVELOPMENT_DIRECTORY {
+            get {
+                return ResourceManager.GetString("DEVELOPMENT_DIRECTORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Leid naar scherm textdraw render methode (langzaam) ähnelt.
         /// </summary>
         internal static string DIRECT_MODE {
@@ -314,6 +656,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string DISABLE_HEAD_MOVE {
             get {
                 return ResourceManager.GetString("DISABLE_HEAD_MOVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Download mislukt ähnelt.
+        /// </summary>
+        internal static string DOWNLOAD_FAILED_TITLE {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_FAILED_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Downloaden ähnelt.
+        /// </summary>
+        internal static string DOWNLOAD_PROGRESS {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_PROGRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Voortgang downloaden ähnelt.
+        /// </summary>
+        internal static string DOWNLOAD_PROGRESS_TITLE {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_PROGRESS_TITLE", resourceCulture);
             }
         }
         
@@ -336,11 +705,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Bewerk plugin ähnelt.
+        /// </summary>
+        internal static string EDIT_PLUGIN_TITLE {
+            get {
+                return ResourceManager.GetString("EDIT_PLUGIN_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Wijzig geselecteerde API ähnelt.
         /// </summary>
         internal static string EDIT_SELECTED_API {
             get {
                 return ResourceManager.GetString("EDIT_SELECTED_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bewerk geselecteerde plug-in ähnelt.
+        /// </summary>
+        internal static string EDIT_SELECTED_PLUGIN {
+            get {
+                return ResourceManager.GetString("EDIT_SELECTED_PLUGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Eindpunt ähnelt.
+        /// </summary>
+        internal static string ENDPOINT {
+            get {
+                return ResourceManager.GetString("ENDPOINT", resourceCulture);
             }
         }
         
@@ -390,6 +786,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bestandsversie ähnelt.
+        /// </summary>
+        internal static string FILE_VERSION {
+            get {
+                return ResourceManager.GetString("FILE_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Filter hostname ähnelt.
         /// </summary>
         internal static string FILTER_HOSTNAME {
@@ -426,6 +831,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Gebruik regex ähnelt.
+        /// </summary>
+        internal static string FILTER_USE_REGEX {
+            get {
+                return ResourceManager.GetString("FILTER_USE_REGEX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Filter scripts ähnelt.
+        /// </summary>
+        internal static string FILTERSCRIPTS {
+            get {
+                return ResourceManager.GetString("FILTERSCRIPTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Font-face ähnelt.
         /// </summary>
         internal static string FONT_FACE {
@@ -453,11 +876,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Game-versie ähnelt.
+        /// </summary>
+        internal static string GAME_VERSION {
+            get {
+                return ResourceManager.GetString("GAME_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Gamemode ähnelt.
         /// </summary>
         internal static string GAMEMODE {
             get {
                 return ResourceManager.GetString("GAMEMODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Gamemode tekst ähnelt.
+        /// </summary>
+        internal static string GAMEMODE_TEXT {
+            get {
+                return ResourceManager.GetString("GAMEMODE_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Gamemodes ähnelt.
+        /// </summary>
+        internal static string GAMEMODES {
+            get {
+                return ResourceManager.GetString("GAMEMODES", resourceCulture);
             }
         }
         
@@ -489,6 +939,26 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Een exemplaar van GTA San Andreas wordt nu uitgevoerd. Het wordt beëindigd voordat een nieuw exemplaar wordt gemaakt.
+        ///
+        ///Wil je doorgaan? ähnelt.
+        /// </summary>
+        internal static string GTA_SA_IS_RUNNING {
+            get {
+                return ResourceManager.GetString("GTA_SA_IS_RUNNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die GTA San Andreas is aan het rennen ähnelt.
+        /// </summary>
+        internal static string GTA_SA_IS_RUNNING_TITLE {
+            get {
+                return ResourceManager.GetString("GTA_SA_IS_RUNNING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Host en haven ähnelt.
         /// </summary>
         internal static string HOST_AND_PORT {
@@ -507,11 +977,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ID ähnelt.
+        /// </summary>
+        internal static string ID {
+            get {
+                return ResourceManager.GetString("ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Schakel IME (Input Method Editor) in ähnelt.
         /// </summary>
         internal static string IME {
             get {
                 return ResourceManager.GetString("IME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die In tick rate van de auto ähnelt.
+        /// </summary>
+        internal static string IN_CAR_RATE {
+            get {
+                return ResourceManager.GetString("IN_CAR_RATE", resourceCulture);
             }
         }
         
@@ -561,6 +1049,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wilt u echt {0} installeren? ähnelt.
+        /// </summary>
+        internal static string INSTALL_VERSION {
+            get {
+                return ResourceManager.GetString("INSTALL_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Installeer versie ähnelt.
+        /// </summary>
+        internal static string INSTALL_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("INSTALL_VERSION_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die IP and poort ähnelt.
         /// </summary>
         internal static string IP_AND_PORT {
@@ -570,11 +1076,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lag compensatiemodus ähnelt.
+        /// </summary>
+        internal static string LAG_COMPENSATION_MODE {
+            get {
+                return ResourceManager.GetString("LAG_COMPENSATION_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die LAN-modus ähnelt.
+        /// </summary>
+        internal static string LAN_MODE {
+            get {
+                return ResourceManager.GetString("LAN_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Taal ähnelt.
         /// </summary>
         internal static string LANGUAGE {
             get {
                 return ResourceManager.GetString("LANGUAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Breedtegraad en lengtegraad ähnelt.
+        /// </summary>
+        internal static string LATITUDE_LONGITUDE {
+            get {
+                return ResourceManager.GetString("LATITUDE_LONGITUDE", resourceCulture);
             }
         }
         
@@ -606,6 +1139,62 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Serverlijst wordt geladen.
+        ///
+        ///Dit kan even duren ... ähnelt.
+        /// </summary>
+        internal static string LOADING {
+            get {
+                return ResourceManager.GetString("LOADING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Log vragen ähnelt.
+        /// </summary>
+        internal static string LOG_QUERIES {
+            get {
+                return ResourceManager.GetString("LOG_QUERIES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Log time format ähnelt.
+        /// </summary>
+        internal static string LOG_TIME_FORMAT {
+            get {
+                return ResourceManager.GetString("LOG_TIME_FORMAT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kaart naam ähnelt.
+        /// </summary>
+        internal static string MAP_NAME {
+            get {
+                return ResourceManager.GetString("MAP_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Maximale NPC&apos;s ähnelt.
+        /// </summary>
+        internal static string MAXIMAL_NPCS {
+            get {
+                return ResourceManager.GetString("MAXIMAL_NPCS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Maximale spelers ähnelt.
+        /// </summary>
+        internal static string MAXIMAL_PLAYERS {
+            get {
+                return ResourceManager.GetString("MAXIMAL_PLAYERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Media ähnelt.
         /// </summary>
         internal static string MEDIA {
@@ -615,11 +1204,65 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Limiet berichtberichten ähnelt.
+        /// </summary>
+        internal static string MESSAGE_HOLE_LIMIT {
+            get {
+                return ResourceManager.GetString("MESSAGE_HOLE_LIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Berichten beperken ähnelt.
+        /// </summary>
+        internal static string MESSAGES_LIMIT {
+            get {
+                return ResourceManager.GetString("MESSAGES_LIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Metro code ähnelt.
+        /// </summary>
+        internal static string METRO_CODE {
+            get {
+                return ResourceManager.GetString("METRO_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Minimale verbindingstijd ähnelt.
+        /// </summary>
+        internal static string MINIMUM_CONNECTION_TIME {
+            get {
+                return ResourceManager.GetString("MINIMUM_CONNECTION_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Mode ähnelt.
+        /// </summary>
+        internal static string MODE {
+            get {
+                return ResourceManager.GetString("MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Multi core ähnelt.
         /// </summary>
         internal static string MULTI_CORE {
             get {
                 return ResourceManager.GetString("MULTI_CORE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Naam ähnelt.
+        /// </summary>
+        internal static string NAME {
+            get {
+                return ResourceManager.GetString("NAME", resourceCulture);
             }
         }
         
@@ -638,6 +1281,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string NEW_API_TITLE {
             get {
                 return ResourceManager.GetString("NEW_API_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Voeg een nieuwe plugin toe ähnelt.
+        /// </summary>
+        internal static string NEW_PLUGIN_TITLE {
+            get {
+                return ResourceManager.GetString("NEW_PLUGIN_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Geef een adres op om toe te voegen aan uw favorietenlijst. ähnelt.
+        /// </summary>
+        internal static string NO_ADDRESS_SPECIFIED {
+            get {
+                return ResourceManager.GetString("NO_ADDRESS_SPECIFIED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Geen adres opgegeven ähnelt.
+        /// </summary>
+        internal static string NO_ADDRESS_SPECIFIED_TITLE {
+            get {
+                return ResourceManager.GetString("NO_ADDRESS_SPECIFIED_TITLE", resourceCulture);
             }
         }
         
@@ -678,6 +1348,26 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Er is geen sessielogboek gemaakt.
+        ///
+        ///Zie opties om die functie in te schakelen. ähnelt.
+        /// </summary>
+        internal static string NO_SESSION_LOG {
+            get {
+                return ResourceManager.GetString("NO_SESSION_LOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Geen teken ähnelt.
+        /// </summary>
+        internal static string NO_SIGN {
+            get {
+                return ResourceManager.GetString("NO_SIGN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Niet in favorieten ähnelt.
         /// </summary>
         internal static string NOT_IN_FAVOURITES {
@@ -692,6 +1382,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string OK {
             get {
                 return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Te voet tick rate ähnelt.
+        /// </summary>
+        internal static string ON_FOOT_RATE {
+            get {
+                return ResourceManager.GetString("ON_FOOT_RATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Open de map ähnelt.
+        /// </summary>
+        internal static string OPEN_DIRECTORY {
+            get {
+                return ResourceManager.GetString("OPEN_DIRECTORY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Openen in verkenner ähnelt.
+        /// </summary>
+        internal static string OPEN_IN_EXPLORER {
+            get {
+                return ResourceManager.GetString("OPEN_IN_EXPLORER", resourceCulture);
             }
         }
         
@@ -723,11 +1440,56 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wachtwoord ähnelt.
+        /// </summary>
+        internal static string PASSWORD {
+            get {
+                return ResourceManager.GetString("PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wilt u uw versie echt naar {0} patchen? ähnelt.
+        /// </summary>
+        internal static string PATCH_VERSION {
+            get {
+                return ResourceManager.GetString("PATCH_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Patch-versie ähnelt.
+        /// </summary>
+        internal static string PATCH_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("PATCH_VERSION_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ping ähnelt.
         /// </summary>
         internal static string PING {
             get {
                 return ResourceManager.GetString("PING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Speler ähnelt.
+        /// </summary>
+        internal static string PLAYER {
+            get {
+                return ResourceManager.GetString("PLAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Time-out van speler ähnelt.
+        /// </summary>
+        internal static string PLAYER_TIME_OUT {
+            get {
+                return ResourceManager.GetString("PLAYER_TIME_OUT", resourceCulture);
             }
         }
         
@@ -750,6 +1512,159 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Plugin kan niet worden gekopieerd. ähnelt.
+        /// </summary>
+        internal static string PLUGIN_COPY_ERROR {
+            get {
+                return ResourceManager.GetString("PLUGIN_COPY_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Schakel plug-in in ähnelt.
+        /// </summary>
+        internal static string PLUGIN_ENABLED {
+            get {
+                return ResourceManager.GetString("PLUGIN_ENABLED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Plugin-fout ähnelt.
+        /// </summary>
+        internal static string PLUGIN_ERROR_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_ERROR_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Plugin naam ähnelt.
+        /// </summary>
+        internal static string PLUGIN_NAME {
+            get {
+                return ResourceManager.GetString("PLUGIN_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Voer een API-naam in. ähnelt.
+        /// </summary>
+        internal static string PLUGIN_NAME_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_NAME_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Naam van plug-in ontbreekt ähnelt.
+        /// </summary>
+        internal static string PLUGIN_NAME_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_NAME_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Plugin-provider ähnelt.
+        /// </summary>
+        internal static string PLUGIN_PROVIDER {
+            get {
+                return ResourceManager.GetString("PLUGIN_PROVIDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Geef een pluginprovider op ähnelt.
+        /// </summary>
+        internal static string PLUGIN_PROVIDER_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_PROVIDER_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Plugin-provider ontbreekt ähnelt.
+        /// </summary>
+        internal static string PLUGIN_PROVIDER_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_PROVIDER_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Update-frequentie van plug-in ähnelt.
+        /// </summary>
+        internal static string PLUGIN_UPDATE_FREQUENCY {
+            get {
+                return ResourceManager.GetString("PLUGIN_UPDATE_FREQUENCY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Geef een update-frequentie voor de plug-in op ähnelt.
+        /// </summary>
+        internal static string PLUGIN_UPDATE_FREQUENCY_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_UPDATE_FREQUENCY_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Update-frequentie van plug-in ontbreekt ähnelt.
+        /// </summary>
+        internal static string PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die URI plug-in ähnelt.
+        /// </summary>
+        internal static string PLUGIN_URI {
+            get {
+                return ResourceManager.GetString("PLUGIN_URI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Geef een plug-in URI op ähnelt.
+        /// </summary>
+        internal static string PLUGIN_URI_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_URI_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Plug-in URI ontbreekt ähnelt.
+        /// </summary>
+        internal static string PLUGIN_URI_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_URI_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Plugins ähnelt.
+        /// </summary>
+        internal static string PLUGINS {
+            get {
+                return ResourceManager.GetString("PLUGINS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Port ähnelt.
+        /// </summary>
+        internal static string PORT {
+            get {
+                return ResourceManager.GetString("PORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Portugees (Português) ähnelt.
         /// </summary>
         internal static string PORTUGUESE {
@@ -764,6 +1679,33 @@ namespace SAMPLauncherNET.Languages {
         internal static string PORTUGUESE_BRAZIL {
             get {
                 return ResourceManager.GetString("PORTUGUESE_BRAZIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Product versie ähnelt.
+        /// </summary>
+        internal static string PRODUCT_VERSION {
+            get {
+                return ResourceManager.GetString("PRODUCT_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Schakel vraag in ähnelt.
+        /// </summary>
+        internal static string QUERY {
+            get {
+                return ResourceManager.GetString("QUERY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Schakel RCON in ähnelt.
+        /// </summary>
+        internal static string RCON {
+            get {
+                return ResourceManager.GetString("RCON", resourceCulture);
             }
         }
         
@@ -786,6 +1728,24 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Regio ähnelt.
+        /// </summary>
+        internal static string REGION {
+            get {
+                return ResourceManager.GetString("REGION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Herlaad serverlijsten ähnelt.
+        /// </summary>
+        internal static string RELOAD_SERVER_LISTS {
+            get {
+                return ResourceManager.GetString("RELOAD_SERVER_LISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Wil je de geselecteerde API echt verwijderen? ähnelt.
         /// </summary>
         internal static string REMOVE_API {
@@ -804,11 +1764,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wilt u echt de geselecteerde plug-in verwijderen? ähnelt.
+        /// </summary>
+        internal static string REMOVE_PLUGIN {
+            get {
+                return ResourceManager.GetString("REMOVE_PLUGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Verwijder de geselecteerde plug-in ähnelt.
+        /// </summary>
+        internal static string REMOVE_PLUGIN_TITLE {
+            get {
+                return ResourceManager.GetString("REMOVE_PLUGIN_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Verwijder geselecteerde API ähnelt.
         /// </summary>
         internal static string REMOVE_SELECTED_API {
             get {
                 return ResourceManager.GetString("REMOVE_SELECTED_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Verwijder de geselecteerde plug-in ähnelt.
+        /// </summary>
+        internal static string REMOVE_SELECTED_PLUGIN {
+            get {
+                return ResourceManager.GetString("REMOVE_SELECTED_PLUGIN", resourceCulture);
             }
         }
         
@@ -858,6 +1845,33 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wilt u echt de pluginlijst terugzetten naar de standaardwaarde? ähnelt.
+        /// </summary>
+        internal static string REVERT_PLUGIN_LIST {
+            get {
+                return ResourceManager.GetString("REVERT_PLUGIN_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zet de plugin lijst terug ähnelt.
+        /// </summary>
+        internal static string REVERT_PLUGIN_LIST_TITLE {
+            get {
+                return ResourceManager.GetString("REVERT_PLUGIN_LIST_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Regel ähnelt.
+        /// </summary>
+        internal static string RULE {
+            get {
+                return ResourceManager.GetString("RULE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Russisch (Русский) ähnelt.
         /// </summary>
         internal static string RUSSIAN {
@@ -867,11 +1881,130 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die sampctl-fout ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_ERROR_TITLE {
+            get {
+                return ResourceManager.GetString("SAMPCTL_ERROR_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Installeer &quot;sampctl&quot; van {0} om een server te draaien.
+        ///
+        ///Wilt u deze website nu bezoeken? ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die sampctl kan momenteel niet worden gedownload. ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING_ASSET {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING_ASSET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Installatie &quot;sampctl&quot; ontbreekt ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die sampctl kan niet worden uitgepakt. ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_UNZIP_ERROR {
+            get {
+                return ResourceManager.GetString("SAMPCTL_UNZIP_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Opslaan ähnelt.
         /// </summary>
         internal static string SAVE {
             get {
                 return ResourceManager.GetString("SAVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Partituur ähnelt.
+        /// </summary>
+        internal static string SCORE {
+            get {
+                return ResourceManager.GetString("SCORE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zoek door... ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON {
+            get {
+                return ResourceManager.GetString("SEARCH_ON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bing ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_BING {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_BING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die DuckDuckGo ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_DUCK_DUCK_GO {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_DUCK_DUCK_GO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Google ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_GOOGLE {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_GOOGLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Yahoo ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_YAHOO {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_YAHOO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Yandex ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_YANDEX {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_YANDEX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die YouTube ähnelt.
+        /// </summary>
+        internal static string SEARCH_ON_YOU_TUBE {
+            get {
+                return ResourceManager.GetString("SEARCH_ON_YOU_TUBE", resourceCulture);
             }
         }
         
@@ -917,6 +2050,30 @@ namespace SAMPLauncherNET.Languages {
         internal static string SELECT_SERVER_LIST {
             get {
                 return ResourceManager.GetString("SELECT_SERVER_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die U hebt geselecteerd dat {0} moet worden aangepast of handmatig moet worden geïnstalleerd.
+        ///
+        ///Wilt u echt {0} patchen of handmatig installeren?
+        ///
+        ///Druk op &quot;Ja&quot; om te patchen.
+        ///Druk op &quot;Nee&quot; om te installeren.
+        ///Druk op &quot;Annuleren&quot; om deze actie te annuleren. ähnelt.
+        /// </summary>
+        internal static string SELECT_VERSION {
+            get {
+                return ResourceManager.GetString("SELECT_VERSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Patch of handmatig versie installeren ähnelt.
+        /// </summary>
+        internal static string SELECT_VERSION_TITLE {
+            get {
+                return ResourceManager.GetString("SELECT_VERSION_TITLE", resourceCulture);
             }
         }
         
@@ -986,6 +2143,69 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Servers filters ähnelt.
+        /// </summary>
+        internal static string SERVERS_FILTERS {
+            get {
+                return ResourceManager.GetString("SERVERS_FILTERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Sessie ähnelt.
+        /// </summary>
+        internal static string SESSION {
+            get {
+                return ResourceManager.GetString("SESSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wilt u deze sessie echt verwijderen? ähnelt.
+        /// </summary>
+        internal static string SESSION_DELETE {
+            get {
+                return ResourceManager.GetString("SESSION_DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Gooi de sessie weg ähnelt.
+        /// </summary>
+        internal static string SESSION_DELETE_TITLE {
+            get {
+                return ResourceManager.GetString("SESSION_DELETE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sessions ähnelt.
+        /// </summary>
+        internal static string SESSIONS {
+            get {
+                return ResourceManager.GetString("SESSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Toon extra configuraties ähnelt.
+        /// </summary>
+        internal static string SHOW_ADDITIONAL_CONFIGURATIONS {
+            get {
+                return ResourceManager.GetString("SHOW_ADDITIONAL_CONFIGURATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Toon lege servers ähnelt.
+        /// </summary>
+        internal static string SHOW_EMPTY_SERVERS {
+            get {
+                return ResourceManager.GetString("SHOW_EMPTY_SERVERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Uitgebreide server informatie ähnelt.
         /// </summary>
         internal static string SHOW_EXTENDED_SERVER_INFORMATION {
@@ -1004,11 +2224,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Toon volledige servers ähnelt.
+        /// </summary>
+        internal static string SHOW_FULL_SERVERS {
+            get {
+                return ResourceManager.GetString("SHOW_FULL_SERVERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Toon gallerij... ähnelt.
         /// </summary>
         internal static string SHOW_GALLERY {
             get {
                 return ResourceManager.GetString("SHOW_GALLERY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Weergeven in Google Maps ähnelt.
+        /// </summary>
+        internal static string SHOW_IN_GOOGLE_MAPS {
+            get {
+                return ResourceManager.GetString("SHOW_IN_GOOGLE_MAPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Weergeven in OpenStreetMap ähnelt.
+        /// </summary>
+        internal static string SHOW_IN_OPEN_STREET_MAP {
+            get {
+                return ResourceManager.GetString("SHOW_IN_OPEN_STREET_MAP", resourceCulture);
             }
         }
         
@@ -1049,11 +2296,110 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Officiële lijst ähnelt.
+        /// </summary>
+        internal static string SHOW_LEGACY_OFFICIAL_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_LEGACY_OFFICIAL_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SACNR ähnelt.
+        /// </summary>
+        internal static string SHOW_SACNR_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_SACNR_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Southclaw&apos;s lijst ähnelt.
+        /// </summary>
+        internal static string SHOW_SOUTHCLAWS_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_SOUTHCLAWS_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Toon gebruikersnaam dialoogvenster ähnelt.
+        /// </summary>
+        internal static string SHOW_USERNAME_DIALOG {
+            get {
+                return ResourceManager.GetString("SHOW_USERNAME_DIALOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bedtijd ähnelt.
+        /// </summary>
+        internal static string SLEEP {
+            get {
+                return ResourceManager.GetString("SLEEP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Opstartserver ähnelt.
+        /// </summary>
+        internal static string START_SERVER {
+            get {
+                return ResourceManager.GetString("START_SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Stop server ähnelt.
+        /// </summary>
+        internal static string STOP_SERVER {
+            get {
+                return ResourceManager.GetString("STOP_SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Stream afstand ähnelt.
+        /// </summary>
+        internal static string STREAM_DISTANCE {
+            get {
+                return ResourceManager.GetString("STREAM_DISTANCE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Streamsnelheid ähnelt.
+        /// </summary>
+        internal static string STREAM_RATE {
+            get {
+                return ResourceManager.GetString("STREAM_RATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Sla gebruikersnaam niet op ähnelt.
         /// </summary>
         internal static string TEMPORARY_USERNAME {
             get {
                 return ResourceManager.GetString("TEMPORARY_USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Tijd ähnelt.
+        /// </summary>
+        internal static string TIME_SPEND {
+            get {
+                return ResourceManager.GetString("TIME_SPEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Tijdzone ähnelt.
+        /// </summary>
+        internal static string TIME_ZONE {
+            get {
+                return ResourceManager.GetString("TIME_ZONE", resourceCulture);
             }
         }
         
@@ -1067,11 +2413,103 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Type ähnelt.
+        /// </summary>
+        internal static string TYPE {
+            get {
+                return ResourceManager.GetString("TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Gebruikersnaam ähnelt.
         /// </summary>
         internal static string USERNAME {
             get {
                 return ResourceManager.GetString("USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Er is al een speler met je gebruikersnaam.
+        ///
+        ///Wil je echt doorgaan? ähnelt.
+        /// </summary>
+        internal static string USERNAME_WARNING {
+            get {
+                return ResourceManager.GetString("USERNAME_WARNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Gebruikersnaam waarschuwing ähnelt.
+        /// </summary>
+        internal static string USERNAME_WARNING_TITLE {
+            get {
+                return ResourceManager.GetString("USERNAME_WARNING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Waarde ähnelt.
+        /// </summary>
+        internal static string VALUE {
+            get {
+                return ResourceManager.GetString("VALUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Versies ähnelt.
+        /// </summary>
+        internal static string VERSIONS {
+            get {
+                return ResourceManager.GetString("VERSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bezoek website ähnelt.
+        /// </summary>
+        internal static string VISIT_WEBSITE {
+            get {
+                return ResourceManager.GetString("VISIT_WEBSITE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wilt u echt deze website bezoeken? ähnelt.
+        /// </summary>
+        internal static string VISIT_WEBSITE_MESSAGE {
+            get {
+                return ResourceManager.GetString("VISIT_WEBSITE_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bezoek ähnelt.
+        /// </summary>
+        internal static string VISIT_WEBSITE_TITLE {
+            get {
+                return ResourceManager.GetString("VISIT_WEBSITE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wapen snelheid ähnelt.
+        /// </summary>
+        internal static string WEAPON_RATE {
+            get {
+                return ResourceManager.GetString("WEAPON_RATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Website-URL ähnelt.
+        /// </summary>
+        internal static string WEBSITE_URL {
+            get {
+                return ResourceManager.GetString("WEBSITE_URL", resourceCulture);
             }
         }
     }

@@ -87,137 +87,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APIDataContract.cs" />
-    <Compile Include="APIForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="APIForm.Designer.cs">
-      <DependentUpon>APIForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BackendRESTfulServer.cs" />
-    <Compile Include="ChatlogFormatter.cs" />
-    <Compile Include="ConnectForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConnectForm.Designer.cs">
-      <DependentUpon>ConnectForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConnectHostForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConnectHostForm.Designer.cs">
-      <DependentUpon>ConnectHostForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DeveloperToolsConfigDataContract.cs" />
-    <Compile Include="DeveloperToolsConfigForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeveloperToolsConfigForm.Designer.cs">
-      <DependentUpon>DeveloperToolsConfigForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DownloadProgressForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DownloadProgressForm.Designer.cs">
-      <DependentUpon>DownloadProgressForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EChatlogFormatType.cs" />
-    <Compile Include="EPluginProvider.cs" />
-    <Compile Include="EServerListType.cs" />
-    <Compile Include="ERequestType.cs" />
-    <Compile Include="EUpdateFrequency.cs" />
-    <Compile Include="ExtendedServerInformationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ExtendedServerInformationForm.Designer.cs">
-      <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FavouriteDataContract.cs" />
-    <Compile Include="AddAddressToFavouriteListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddAddressToFavouriteListForm.Designer.cs">
-      <DependentUpon>AddAddressToFavouriteListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FavouriteServer.cs" />
-    <Compile Include="FavouriteListsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FavouriteListsForm.Designer.cs">
-      <DependentUpon>FavouriteListsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FileResource.cs" />
-    <Compile Include="FileState.cs" />
-    <Compile Include="FilterOption.cs" />
-    <Compile Include="FilterUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FilterUserControl.Designer.cs">
-      <DependentUpon>FilterUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoadingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoadingForm.Designer.cs">
-      <DependentUpon>LoadingForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MediaState.cs" />
-    <Compile Include="OnFilterEventHandler.cs" />
-    <Compile Include="GeoLocationProvider.cs" />
-    <Compile Include="GeoLocator.cs" />
-    <Compile Include="GitHubLatestReleaseDataContract.cs" />
-    <Compile Include="GitHubReleaseAssetDataContract.cs" />
-    <Compile Include="GitHubUserDataContract.cs" />
-    <Compile Include="InstalledPlugin.cs" />
-    <Compile Include="Languages\pt-PT.Designer.cs">
-      <DependentUpon>pt-PT.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="PluginDataContract.cs" />
-    <Compile Include="PluginDataForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PluginDataForm.Designer.cs">
-      <DependentUpon>PluginDataForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Languages\pt-PT.Designer.cs">
+      <DependentUpon>pt-PT.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="SAMPCTLProvider.cs" />
-    <Compile Include="PluginProvider.cs" />
-    <Compile Include="Session.cs" />
-    <Compile Include="SessionDataContract.cs" />
-    <Compile Include="SessionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SessionForm.Designer.cs">
-      <DependentUpon>SessionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SessionProvider.cs" />
-    <Compile Include="SessionsCache.cs" />
-    <Compile Include="SessionServerUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SessionServerUserControl.Designer.cs">
-      <DependentUpon>SessionServerUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SessionUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SessionUserControl.Designer.cs">
-      <DependentUpon>SessionUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ThumbnailsCache.cs" />
-    <Compile Include="IndexedServerListConnector.cs" />
-    <Compile Include="Kernel32.cs" />
     <Compile Include="Languages\de-DE.Designer.cs">
       <DependentUpon>de-DE.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -248,66 +132,152 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>pt-BR.resx</DependentUpon>
     </Compile>
-    <Compile Include="LauncherConfigDataContract.cs" />
-    <Compile Include="FreeGeoIPDataContract.cs" />
-    <Compile Include="GeoLocationData.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\APIDataContract.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\BackendRESTfulServer.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\BackendRESTfulServerDataContract.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\ChatlogFormatter.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\DeveloperToolsConfigDataContract.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\EChatlogFormatType.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\EPluginProvider.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\ERequestType.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\EServerListType.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\EUpdateFrequency.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\FavouriteDataContract.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\FavouriteServer.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\FileResource.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\FileState.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\FilterOption.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\FreeGeoIPDataContract.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\GeoLocationData.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\GeoLocationProvider.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\GeoLocator.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\IndexedServerListConnector.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\InstalledPlugin.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\Kernel32.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\LauncherConfigDataContract.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\MediaState.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\OnFilterEventHandler.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\Player.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\PlayerCountString.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\PluginDataContract.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\PluginProvider.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\Program.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\RequestsRequired.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\SAMP.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\SAMPConfig.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\SAMPCTLProvider.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\SAMPProvider.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\SAMPVersionDataContract.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\Server.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\ServerListConnector.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\Session.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\SessionDataContract.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\SessionProvider.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\SessionsCache.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\TaskbarProgress.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\ThumbnailsCache.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\TranslatorInterface.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\Utils.cs" />
+    <Compile Include="Source\SAMPLauncherNET\UI\Controls\FilterUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Controls\FilterUserControl.Designer.cs">
+      <DependentUpon>FilterUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Controls\SessionServerUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Controls\SessionServerUserControl.Designer.cs">
+      <DependentUpon>SessionServerUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Controls\SessionUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Controls\SessionUserControl.Designer.cs">
+      <DependentUpon>SessionUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\AddAddressToFavouriteListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\AddAddressToFavouriteListForm.Designer.cs">
+      <DependentUpon>AddAddressToFavouriteListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\APIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\APIForm.Designer.cs">
+      <DependentUpon>APIForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\ConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\ConnectForm.Designer.cs">
+      <DependentUpon>ConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\ConnectHostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\ConnectHostForm.Designer.cs">
+      <DependentUpon>ConnectHostForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\DeveloperToolsConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\DeveloperToolsConfigForm.Designer.cs">
+      <DependentUpon>DeveloperToolsConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\DownloadProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\DownloadProgressForm.Designer.cs">
+      <DependentUpon>DownloadProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\ExtendedServerInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\ExtendedServerInformationForm.Designer.cs">
+      <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\FavouriteListsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\FavouriteListsForm.Designer.cs">
+      <DependentUpon>FavouriteListsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Player.cs" />
-    <Compile Include="PlayerCountString.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RCONPasswordForm.cs">
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\PluginDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RCONPasswordForm.Designer.cs">
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\PluginDataForm.Designer.cs">
+      <DependentUpon>PluginDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\RCONPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\RCONPasswordForm.Designer.cs">
       <DependentUpon>RCONPasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RequestsRequired.cs" />
-    <Compile Include="SAMPConfig.cs" />
-    <Compile Include="SAMPProvider.cs" />
-    <Compile Include="SAMPVersionDataContract.cs" />
-    <Compile Include="Server.cs" />
-    <Compile Include="ServerListConnector.cs" />
-    <Compile Include="BackendRESTfulServerDataContract.cs" />
-    <Compile Include="TaskbarProgress.cs" />
-    <Compile Include="TranslatorInterface.cs" />
-    <Compile Include="SAMP.cs" />
-    <Compile Include="Utils.cs" />
-    <Compile Include="WebClientEx.cs">
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\SessionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\UI\Forms\SessionForm.Designer.cs">
+      <DependentUpon>SessionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\SAMPLauncherNET\Core\WebClientEx.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="APIForm.resx">
-      <DependentUpon>APIForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConnectForm.resx">
-      <DependentUpon>ConnectForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConnectHostForm.resx">
-      <DependentUpon>ConnectHostForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeveloperToolsConfigForm.resx">
-      <DependentUpon>DeveloperToolsConfigForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DownloadProgressForm.resx">
-      <DependentUpon>DownloadProgressForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ExtendedServerInformationForm.resx">
-      <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddAddressToFavouriteListForm.resx">
-      <DependentUpon>AddAddressToFavouriteListForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FavouriteListsForm.resx">
-      <DependentUpon>FavouriteListsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FilterUserControl.resx">
-      <DependentUpon>FilterUserControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Languages\de-DE.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>de-DE.Designer.cs</LastGenOutput>
@@ -336,31 +306,58 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>pt-BR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoadingForm.resx">
-      <DependentUpon>LoadingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PluginDataForm.resx">
-      <DependentUpon>PluginDataForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RCONPasswordForm.resx">
-      <DependentUpon>RCONPasswordForm.cs</DependentUpon>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Controls\FilterUserControl.resx">
+      <DependentUpon>FilterUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SessionForm.resx">
-      <DependentUpon>SessionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SessionServerUserControl.resx">
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Controls\SessionServerUserControl.resx">
       <DependentUpon>SessionServerUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SessionUserControl.resx">
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Controls\SessionUserControl.resx">
       <DependentUpon>SessionUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\AddAddressToFavouriteListForm.resx">
+      <DependentUpon>AddAddressToFavouriteListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\APIForm.resx">
+      <DependentUpon>APIForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\ConnectForm.resx">
+      <DependentUpon>ConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\ConnectHostForm.resx">
+      <DependentUpon>ConnectHostForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\DeveloperToolsConfigForm.resx">
+      <DependentUpon>DeveloperToolsConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\DownloadProgressForm.resx">
+      <DependentUpon>DownloadProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\ExtendedServerInformationForm.resx">
+      <DependentUpon>ExtendedServerInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\FavouriteListsForm.resx">
+      <DependentUpon>FavouriteListsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\PluginDataForm.resx">
+      <DependentUpon>PluginDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\RCONPasswordForm.resx">
+      <DependentUpon>RCONPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\SessionForm.resx">
+      <DependentUpon>SessionForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
   </ItemGroup>
@@ -381,23 +378,35 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="SAMPLauncherNETUpdater.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="SAMPLauncherNETUpdater.exe.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="view_icon.png" />
-    <None Include="samp_logo.png" />
-    <None Include="github_icon.png" />
-    <None Include="delete_icon.png" />
-    <None Include="open_folder_icon.png" />
-    <None Include="github_large_icon.png" />
-    <None Include="new_icon.png" />
-    <None Include="edit_icon.png" />
-    <None Include="install_icon.png" />
-    <None Include="patch_icon.png" />
+    <None Include="Images\view_icon.png" />
+    <None Include="Images\samp_logo.png" />
+    <None Include="Images\github_icon.png" />
+    <None Include="Images\delete_icon.png" />
+    <None Include="Images\open_folder_icon.png" />
+    <None Include="Images\github_large_icon.png" />
+    <None Include="Images\new_icon.png" />
+    <None Include="Images\edit_icon.png" />
+    <None Include="Images\install_icon.png" />
+    <None Include="Images\patch_icon.png" />
+    <EmbeddedResource Include="PreBuilds\SAMPLauncherNETUpdater.exe" />
     <Content Include="samp.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- Code to merge the assemblies into one -->
+  <UsingTask TaskName="ILMerge.MSBuild.Tasks.ILMerge" AssemblyFile="$(SolutionDir)\packages\ILMerge.MSBuild.Tasks.1.0.0.3\tools\ILMerge.MSBuild.Tasks.dll" />
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <MergeAsm Include="$(OutputPath)$(TargetFileName)" />
+      <MergeAsm Include="$(OutputPath)ICSharpCode.SharpZipLib.dll" />
+      <MergeAsm Include="$(OutputPath)INIEngine.dll" />
+      <MergeAsm Include="$(OutputPath)MaterialSkin.dll" />
+      <MergeAsm Include="$(OutputPath)UpdaterNET.dll" />
+      <MergeAsm Include="$(OutputPath)WinFormsTranslator.dll" />
+    </ItemGroup>
+    <PropertyGroup>
+      <MergedAssembly>$(ProjectDir)$(OutDir)SAMPLauncherNET.exe</MergedAssembly>
+    </PropertyGroup>
+    <Message Text="ILMerge @(MergeAsm) -&gt; $(MergedAssembly)" Importance="high" />
+    <ILMerge InputAssemblies="@(MergeAsm)" OutputFile="$(MergedAssembly)" TargetKind="SameAsPrimaryAssembly" />
+  </Target>
 </Project>

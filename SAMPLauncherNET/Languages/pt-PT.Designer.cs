@@ -120,6 +120,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Adicionar novo plugin ähnelt.
+        /// </summary>
+        internal static string ADD_NEW_PLUGIN {
+            get {
+                return ResourceManager.GetString("ADD_NEW_PLUGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Marcar como Favotiro ähnelt.
         /// </summary>
         internal static string ADD_SERVER_TO_FAVOURITES {
@@ -309,6 +318,114 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Chatlog ähnelt.
+        /// </summary>
+        internal static string CHATLOG {
+            get {
+                return ResourceManager.GetString("CHATLOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Copiar HTML ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_HTML {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_HTML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Copie o texto original ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_ORIGINAL_TEXT {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_ORIGINAL_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Copiar RTF ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_RTF {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_RTF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Copiar texto ähnelt.
+        /// </summary>
+        internal static string CHATLOG_COPY_TEXT {
+            get {
+                return ResourceManager.GetString("CHATLOG_COPY_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Códigos de cores ähnelt.
+        /// </summary>
+        internal static string CHATLOG_OPTION_COLOR_CODES {
+            get {
+                return ResourceManager.GetString("CHATLOG_OPTION_COLOR_CODES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Colori ähnelt.
+        /// </summary>
+        internal static string CHATLOG_OPTION_COLORED {
+            get {
+                return ResourceManager.GetString("CHATLOG_OPTION_COLORED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Timestamp ähnelt.
+        /// </summary>
+        internal static string CHATLOG_OPTION_TIMESTAMP {
+            get {
+                return ResourceManager.GetString("CHATLOG_OPTION_TIMESTAMP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Salvar HTML como... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_HTML_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_HTML_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Salvar o texto original como... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_ORIGINAL_TEXT_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_ORIGINAL_TEXT_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Salvar RTF como... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_RTF_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_RTF_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Salvar texto como... ähnelt.
+        /// </summary>
+        internal static string CHATLOG_SAVE_TEXT_AS {
+            get {
+                return ResourceManager.GetString("CHATLOG_SAVE_TEXT_AS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Cidade ähnelt.
         /// </summary>
         internal static string CITY {
@@ -426,6 +543,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Criar log de sessões ähnelt.
+        /// </summary>
+        internal static string CREATE_SESSIONS_LOG {
+            get {
+                return ResourceManager.GetString("CREATE_SESSIONS_LOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Database log queries ähnelt.
         /// </summary>
         internal static string DATABASE_LOG_QUERIES {
@@ -444,11 +570,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Data e hora ähnelt.
+        /// </summary>
+        internal static string DATE_AND_TIME {
+            get {
+                return ResourceManager.GetString("DATE_AND_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Modo de depuração ähnelt.
         /// </summary>
         internal static string DEBUG_MODE {
             get {
                 return ResourceManager.GetString("DEBUG_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Excluir ähnelt.
+        /// </summary>
+        internal static string DELETE {
+            get {
+                return ResourceManager.GetString("DELETE", resourceCulture);
             }
         }
         
@@ -561,11 +705,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Editar plugin ähnelt.
+        /// </summary>
+        internal static string EDIT_PLUGIN_TITLE {
+            get {
+                return ResourceManager.GetString("EDIT_PLUGIN_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Editar API selecionada ähnelt.
         /// </summary>
         internal static string EDIT_SELECTED_API {
             get {
                 return ResourceManager.GetString("EDIT_SELECTED_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Editar o plugin selecionado ähnelt.
+        /// </summary>
+        internal static string EDIT_SELECTED_PLUGIN {
+            get {
+                return ResourceManager.GetString("EDIT_SELECTED_PLUGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Endpoint ähnelt.
+        /// </summary>
+        internal static string ENDPOINT {
+            get {
+                return ResourceManager.GetString("ENDPOINT", resourceCulture);
             }
         }
         
@@ -660,6 +831,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Use regex ähnelt.
+        /// </summary>
+        internal static string FILTER_USE_REGEX {
+            get {
+                return ResourceManager.GetString("FILTER_USE_REGEX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Filterscripts ähnelt.
         /// </summary>
         internal static string FILTERSCRIPTS {
@@ -692,6 +872,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string FPS_LIMIT {
             get {
                 return ResourceManager.GetString("FPS_LIMIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Versão do jogo ähnelt.
+        /// </summary>
+        internal static string GAME_VERSION {
+            get {
+                return ResourceManager.GetString("GAME_VERSION", resourceCulture);
             }
         }
         
@@ -750,6 +939,26 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Uma instância do GTA San Andreas está funcionando agora. Ele será finalizado antes que uma nova instância seja criada.
+        ///
+        ///Você quer continuar? ähnelt.
+        /// </summary>
+        internal static string GTA_SA_IS_RUNNING {
+            get {
+                return ResourceManager.GetString("GTA_SA_IS_RUNNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die GTA San Andreas está funcionando ähnelt.
+        /// </summary>
+        internal static string GTA_SA_IS_RUNNING_TITLE {
+            get {
+                return ResourceManager.GetString("GTA_SA_IS_RUNNING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die IP/Host e Porta: ähnelt.
         /// </summary>
         internal static string HOST_AND_PORT {
@@ -764,6 +973,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string HOSTNAME {
             get {
                 return ResourceManager.GetString("HOSTNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die identidade ähnelt.
+        /// </summary>
+        internal static string ID {
+            get {
+                return ResourceManager.GetString("ID", resourceCulture);
             }
         }
         
@@ -921,6 +1139,17 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lista de servidores está sendo carregada.
+        ///
+        ///Isso pode demorar um pouco... ähnelt.
+        /// </summary>
+        internal static string LOADING {
+            get {
+                return ResourceManager.GetString("LOADING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Log queries ähnelt.
         /// </summary>
         internal static string LOG_QUERIES {
@@ -1011,11 +1240,29 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die moda ähnelt.
+        /// </summary>
+        internal static string MODE {
+            get {
+                return ResourceManager.GetString("MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Multi core ähnelt.
         /// </summary>
         internal static string MULTI_CORE {
             get {
                 return ResourceManager.GetString("MULTI_CORE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Nome ähnelt.
+        /// </summary>
+        internal static string NAME {
+            get {
+                return ResourceManager.GetString("NAME", resourceCulture);
             }
         }
         
@@ -1034,6 +1281,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string NEW_API_TITLE {
             get {
                 return ResourceManager.GetString("NEW_API_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Adicionar novo plugin ähnelt.
+        /// </summary>
+        internal static string NEW_PLUGIN_TITLE {
+            get {
+                return ResourceManager.GetString("NEW_PLUGIN_TITLE", resourceCulture);
             }
         }
         
@@ -1088,6 +1344,17 @@ namespace SAMPLauncherNET.Languages {
         internal static string NO_NAMETAG_STATUS {
             get {
                 return ResourceManager.GetString("NO_NAMETAG_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Nenhum log de sessões foi criado.
+        ///
+        ///Veja as opções para ativar esse recurso. ähnelt.
+        /// </summary>
+        internal static string NO_SESSION_LOG {
+            get {
+                return ResourceManager.GetString("NO_SESSION_LOG", resourceCulture);
             }
         }
         
@@ -1209,6 +1476,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Jogador ähnelt.
+        /// </summary>
+        internal static string PLAYER {
+            get {
+                return ResourceManager.GetString("PLAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Player time out ähnelt.
         /// </summary>
         internal static string PLAYER_TIME_OUT {
@@ -1232,6 +1508,141 @@ namespace SAMPLauncherNET.Languages {
         internal static string PLEASE_TYPE_IN_USERNAME {
             get {
                 return ResourceManager.GetString("PLEASE_TYPE_IN_USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Plugin não pode ser copiado. ähnelt.
+        /// </summary>
+        internal static string PLUGIN_COPY_ERROR {
+            get {
+                return ResourceManager.GetString("PLUGIN_COPY_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ativar plugin ähnelt.
+        /// </summary>
+        internal static string PLUGIN_ENABLED {
+            get {
+                return ResourceManager.GetString("PLUGIN_ENABLED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Erro de plug-in ähnelt.
+        /// </summary>
+        internal static string PLUGIN_ERROR_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_ERROR_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Nome do plugin ähnelt.
+        /// </summary>
+        internal static string PLUGIN_NAME {
+            get {
+                return ResourceManager.GetString("PLUGIN_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Por favor, insira um nome de API. ähnelt.
+        /// </summary>
+        internal static string PLUGIN_NAME_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_NAME_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Nome do plug-in ausente ähnelt.
+        /// </summary>
+        internal static string PLUGIN_NAME_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_NAME_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Provedor de plugins ähnelt.
+        /// </summary>
+        internal static string PLUGIN_PROVIDER {
+            get {
+                return ResourceManager.GetString("PLUGIN_PROVIDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Por favor especifique um provedor de plugin ähnelt.
+        /// </summary>
+        internal static string PLUGIN_PROVIDER_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_PROVIDER_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Provedor de plug-ins ausente ähnelt.
+        /// </summary>
+        internal static string PLUGIN_PROVIDER_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_PROVIDER_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Frequência de atualização de plugins ähnelt.
+        /// </summary>
+        internal static string PLUGIN_UPDATE_FREQUENCY {
+            get {
+                return ResourceManager.GetString("PLUGIN_UPDATE_FREQUENCY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Por favor especifique uma frequência de atualização de plugins ähnelt.
+        /// </summary>
+        internal static string PLUGIN_UPDATE_FREQUENCY_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_UPDATE_FREQUENCY_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Frequência de atualização de plug-in ausente ähnelt.
+        /// </summary>
+        internal static string PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die URI de plug-in ähnelt.
+        /// </summary>
+        internal static string PLUGIN_URI {
+            get {
+                return ResourceManager.GetString("PLUGIN_URI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Por favor especifique um plugin URI ähnelt.
+        /// </summary>
+        internal static string PLUGIN_URI_MISSING {
+            get {
+                return ResourceManager.GetString("PLUGIN_URI_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die URI de plug-in ausente ähnelt.
+        /// </summary>
+        internal static string PLUGIN_URI_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("PLUGIN_URI_MISSING_TITLE", resourceCulture);
             }
         }
         
@@ -1326,6 +1737,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Recarregar listas de servidores ähnelt.
+        /// </summary>
+        internal static string RELOAD_SERVER_LISTS {
+            get {
+                return ResourceManager.GetString("RELOAD_SERVER_LISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Queres mesmo eliminar a API selecionada? ähnelt.
         /// </summary>
         internal static string REMOVE_API {
@@ -1344,11 +1764,38 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Você realmente quer remover o plugin selecionado? ähnelt.
+        /// </summary>
+        internal static string REMOVE_PLUGIN {
+            get {
+                return ResourceManager.GetString("REMOVE_PLUGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remover o plugin selecionado ähnelt.
+        /// </summary>
+        internal static string REMOVE_PLUGIN_TITLE {
+            get {
+                return ResourceManager.GetString("REMOVE_PLUGIN_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Eliminar API selecionada ähnelt.
         /// </summary>
         internal static string REMOVE_SELECTED_API {
             get {
                 return ResourceManager.GetString("REMOVE_SELECTED_API", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remover o plugin selecionado ähnelt.
+        /// </summary>
+        internal static string REMOVE_SELECTED_PLUGIN {
+            get {
+                return ResourceManager.GetString("REMOVE_SELECTED_PLUGIN", resourceCulture);
             }
         }
         
@@ -1398,6 +1845,33 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Você realmente quer reverter a lista de plugins para o padrão? ähnelt.
+        /// </summary>
+        internal static string REVERT_PLUGIN_LIST {
+            get {
+                return ResourceManager.GetString("REVERT_PLUGIN_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Reverter a lista de plugins ähnelt.
+        /// </summary>
+        internal static string REVERT_PLUGIN_LIST_TITLE {
+            get {
+                return ResourceManager.GetString("REVERT_PLUGIN_LIST_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Regra ähnelt.
+        /// </summary>
+        internal static string RULE {
+            get {
+                return ResourceManager.GetString("RULE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Russian (Русский) ähnelt.
         /// </summary>
         internal static string RUSSIAN {
@@ -1407,11 +1881,67 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die erro sampctl ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_ERROR_TITLE {
+            get {
+                return ResourceManager.GetString("SAMPCTL_ERROR_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Instale &quot;sampctl&quot; de {0} para executar um servidor.
+        ///
+        ///Você quer visitar este site agora? ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die O sampctl não pode ser baixado agora. ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING_ASSET {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING_ASSET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die A instalação &quot;sampctl&quot; está ausente ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_MISSING_TITLE {
+            get {
+                return ResourceManager.GetString("SAMPCTL_MISSING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die O sampctl não pode ser descompactado. ähnelt.
+        /// </summary>
+        internal static string SAMPCTL_UNZIP_ERROR {
+            get {
+                return ResourceManager.GetString("SAMPCTL_UNZIP_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Guardar ähnelt.
         /// </summary>
         internal static string SAVE {
             get {
                 return ResourceManager.GetString("SAVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ponto ähnelt.
+        /// </summary>
+        internal static string SCORE {
+            get {
+                return ResourceManager.GetString("SCORE", resourceCulture);
             }
         }
         
@@ -1613,11 +2143,56 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die San Andreas Multiplayer - Sessão ähnelt.
+        /// </summary>
+        internal static string SESSION {
+            get {
+                return ResourceManager.GetString("SESSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Você realmente quer descartar esta sessão? ähnelt.
+        /// </summary>
+        internal static string SESSION_DELETE {
+            get {
+                return ResourceManager.GetString("SESSION_DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rejeitar sessão ähnelt.
+        /// </summary>
+        internal static string SESSION_DELETE_TITLE {
+            get {
+                return ResourceManager.GetString("SESSION_DELETE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sessões ähnelt.
+        /// </summary>
+        internal static string SESSIONS {
+            get {
+                return ResourceManager.GetString("SESSIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Configurações Adicionais ähnelt.
         /// </summary>
         internal static string SHOW_ADDITIONAL_CONFIGURATIONS {
             get {
                 return ResourceManager.GetString("SHOW_ADDITIONAL_CONFIGURATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Mostrar servidores vazios ähnelt.
+        /// </summary>
+        internal static string SHOW_EMPTY_SERVERS {
+            get {
+                return ResourceManager.GetString("SHOW_EMPTY_SERVERS", resourceCulture);
             }
         }
         
@@ -1636,6 +2211,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string SHOW_FAVOURITES {
             get {
                 return ResourceManager.GetString("SHOW_FAVOURITES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Mostrar servidores completos ähnelt.
+        /// </summary>
+        internal static string SHOW_FULL_SERVERS {
+            get {
+                return ResourceManager.GetString("SHOW_FULL_SERVERS", resourceCulture);
             }
         }
         
@@ -1703,6 +2287,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lista oficial ähnelt.
+        /// </summary>
+        internal static string SHOW_LEGACY_OFFICIAL_LIST {
+            get {
+                return ResourceManager.GetString("SHOW_LEGACY_OFFICIAL_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die SACNR ähnelt.
         /// </summary>
         internal static string SHOW_SACNR_LIST {
@@ -1717,6 +2310,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string SHOW_SOUTHCLAWS_LIST {
             get {
                 return ResourceManager.GetString("SHOW_SOUTHCLAWS_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Mostrar caixa de diálogo de nome de usuário ähnelt.
+        /// </summary>
+        internal static string SHOW_USERNAME_DIALOG {
+            get {
+                return ResourceManager.GetString("SHOW_USERNAME_DIALOG", resourceCulture);
             }
         }
         
@@ -1775,6 +2377,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Tempo ähnelt.
+        /// </summary>
+        internal static string TIME_SPEND {
+            get {
+                return ResourceManager.GetString("TIME_SPEND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Time zone ähnelt.
         /// </summary>
         internal static string TIME_ZONE {
@@ -1793,11 +2404,49 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Tipo ähnelt.
+        /// </summary>
+        internal static string TYPE {
+            get {
+                return ResourceManager.GetString("TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Nickname: ähnelt.
         /// </summary>
         internal static string USERNAME {
             get {
                 return ResourceManager.GetString("USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Já existe um jogador com seu nome de usuário.
+        ///
+        ///Você realmente quer continuar? ähnelt.
+        /// </summary>
+        internal static string USERNAME_WARNING {
+            get {
+                return ResourceManager.GetString("USERNAME_WARNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Aviso de nome de usuário ähnelt.
+        /// </summary>
+        internal static string USERNAME_WARNING_TITLE {
+            get {
+                return ResourceManager.GetString("USERNAME_WARNING_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Valor ähnelt.
+        /// </summary>
+        internal static string VALUE {
+            get {
+                return ResourceManager.GetString("VALUE", resourceCulture);
             }
         }
         

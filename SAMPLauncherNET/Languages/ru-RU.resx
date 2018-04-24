@@ -666,9 +666,6 @@
   <data name="PORTUGUESE_BRAZIL" xml:space="preserve">
     <value>португальский Бразилия (Português de Brasil)</value>
   </data>
-  <data name="USE_DISCORD_RICH_PRESENCE" xml:space="preserve">
-    <value>Использовать Discord Rich Presence</value>
-  </data>
   <data name="PLAYER" xml:space="preserve">
     <value>Ник</value>
   </data>
@@ -683,5 +680,270 @@
   </data>
   <data name="RULE" xml:space="preserve">
     <value>Правило</value>
+  </data>
+  <data name="ADD_ADDRESS_TO_FAVOURITE_LIST" xml:space="preserve">
+    <value>Адрес для избранных</value>
+  </data>
+  <data name="ADD_ADDRESS_TO_FAVOURITE_LIST_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Адрес для избранных</value>
+  </data>
+  <data name="ADD_NEW_PLUGIN" xml:space="preserve">
+    <value>Добавить новый плагин</value>
+  </data>
+  <data name="CANCEL_DOWNLOAD" xml:space="preserve">
+    <value>Вы действительно хотите отменить загрузку?</value>
+  </data>
+  <data name="CANCEL_DOWNLOAD_TITLE" xml:space="preserve">
+    <value>Отменить загрузку</value>
+  </data>
+  <data name="CHATLOG" xml:space="preserve">
+    <value>Chatlog</value>
+  </data>
+  <data name="CHATLOG_COPY_HTML" xml:space="preserve">
+    <value>Скопировать HTML</value>
+  </data>
+  <data name="CHATLOG_COPY_ORIGINAL_TEXT" xml:space="preserve">
+    <value>Скопировать исходный текст</value>
+  </data>
+  <data name="CHATLOG_COPY_RTF" xml:space="preserve">
+    <value>Скопировать RTF</value>
+  </data>
+  <data name="CHATLOG_COPY_TEXT" xml:space="preserve">
+    <value>Копировать текст</value>
+  </data>
+  <data name="CHATLOG_OPTION_COLORED" xml:space="preserve">
+    <value>цветной</value>
+  </data>
+  <data name="CHATLOG_OPTION_COLOR_CODES" xml:space="preserve">
+    <value>Цветовые коды</value>
+  </data>
+  <data name="CHATLOG_OPTION_TIMESTAMP" xml:space="preserve">
+    <value>Отметка</value>
+  </data>
+  <data name="CHATLOG_SAVE_HTML_AS" xml:space="preserve">
+    <value>Сохранить HTML как...</value>
+  </data>
+  <data name="CHATLOG_SAVE_ORIGINAL_TEXT_AS" xml:space="preserve">
+    <value>Сохранить исходный текст как...</value>
+  </data>
+  <data name="CHATLOG_SAVE_RTF_AS" xml:space="preserve">
+    <value>Сохранить RTF как...</value>
+  </data>
+  <data name="CHATLOG_SAVE_TEXT_AS" xml:space="preserve">
+    <value>Сохранить текст как...</value>
+  </data>
+  <data name="CREATE_SESSIONS_LOG" xml:space="preserve">
+    <value>Создание журнала сеансов</value>
+  </data>
+  <data name="DATE_AND_TIME" xml:space="preserve">
+    <value>Дата и время</value>
+  </data>
+  <data name="DELETE" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="DOWNLOAD_FAILED_TITLE" xml:space="preserve">
+    <value>Ошибка загрузки</value>
+  </data>
+  <data name="DOWNLOAD_PROGRESS" xml:space="preserve">
+    <value>загрузка</value>
+  </data>
+  <data name="DOWNLOAD_PROGRESS_TITLE" xml:space="preserve">
+    <value>Прогресс загрузки</value>
+  </data>
+  <data name="EDIT_PLUGIN_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Изменить плагин</value>
+  </data>
+  <data name="EDIT_SELECTED_PLUGIN" xml:space="preserve">
+    <value>Редактировать выбранный плагин</value>
+  </data>
+  <data name="ENDPOINT" xml:space="preserve">
+    <value>Конечная точка</value>
+  </data>
+  <data name="FILTER_USE_REGEX" xml:space="preserve">
+    <value>Использовать регулярное выражение</value>
+  </data>
+  <data name="GAME_VERSION" xml:space="preserve">
+    <value>Игровая версия</value>
+  </data>
+  <data name="GTA_SA_IS_RUNNING" xml:space="preserve">
+    <value>Экземпляр GTA San Andreas работает прямо сейчас. Он будет завершен до создания нового экземпляра.
+
+Вы хотите продолжить?</value>
+  </data>
+  <data name="GTA_SA_IS_RUNNING_TITLE" xml:space="preserve">
+    <value>GTA San Andreas работает</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>Я БЫ</value>
+  </data>
+  <data name="INSTALL_VERSION" xml:space="preserve">
+    <value>Вы действительно хотите установить {0}?</value>
+  </data>
+  <data name="INSTALL_VERSION_TITLE" xml:space="preserve">
+    <value>Установить версию</value>
+  </data>
+  <data name="LOADING" xml:space="preserve">
+    <value>Загружается список серверов.
+
+Это может занять некоторое время ...</value>
+  </data>
+  <data name="NAME" xml:space="preserve">
+    <value>имя</value>
+  </data>
+  <data name="NEW_PLUGIN_TITLE" xml:space="preserve">
+    <value>San Andreas Multiplayer - Добавить новый плагин</value>
+  </data>
+  <data name="NO_ADDRESS_SPECIFIED" xml:space="preserve">
+    <value>Укажите адрес для добавления в список избранных.</value>
+  </data>
+  <data name="NO_ADDRESS_SPECIFIED_TITLE" xml:space="preserve">
+    <value>Не указан адрес</value>
+  </data>
+  <data name="NO_SESSION_LOG" xml:space="preserve">
+    <value>Журнал сеансов сеансов не создан.
+
+См. Параметры для включения этой функции.</value>
+  </data>
+  <data name="PATCH_VERSION" xml:space="preserve">
+    <value>Вы действительно хотите исправить свою версию до {0}?</value>
+  </data>
+  <data name="PATCH_VERSION_TITLE" xml:space="preserve">
+    <value>Патч версия</value>
+  </data>
+  <data name="PLUGIN_COPY_ERROR" xml:space="preserve">
+    <value>Плагин не может быть скопирован.</value>
+  </data>
+  <data name="PLUGIN_ENABLED" xml:space="preserve">
+    <value>Включить плагин</value>
+  </data>
+  <data name="PLUGIN_ERROR_TITLE" xml:space="preserve">
+    <value>Ошибка плагина</value>
+  </data>
+  <data name="PLUGIN_NAME" xml:space="preserve">
+    <value>Имя плагина</value>
+  </data>
+  <data name="PLUGIN_NAME_MISSING" xml:space="preserve">
+    <value>Введите имя API.</value>
+  </data>
+  <data name="PLUGIN_NAME_MISSING_TITLE" xml:space="preserve">
+    <value>Имя плагина отсутствует</value>
+  </data>
+  <data name="PLUGIN_PROVIDER" xml:space="preserve">
+    <value>Поставщик плагинов</value>
+  </data>
+  <data name="PLUGIN_PROVIDER_MISSING" xml:space="preserve">
+    <value>Укажите поставщика плагинов</value>
+  </data>
+  <data name="PLUGIN_PROVIDER_MISSING_TITLE" xml:space="preserve">
+    <value>Отсутствует провайдер плагинов</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY" xml:space="preserve">
+    <value>Частота обновления плагина</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY_MISSING" xml:space="preserve">
+    <value>Укажите частоту обновления плагина</value>
+  </data>
+  <data name="PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE" xml:space="preserve">
+    <value>Частота обновления плагина отсутствует</value>
+  </data>
+  <data name="PLUGIN_URI" xml:space="preserve">
+    <value>URI плагина</value>
+  </data>
+  <data name="PLUGIN_URI_MISSING" xml:space="preserve">
+    <value>Укажите URL-адрес плагина</value>
+  </data>
+  <data name="PLUGIN_URI_MISSING_TITLE" xml:space="preserve">
+    <value>Отсутствует URI плагина</value>
+  </data>
+  <data name="RELOAD_SERVER_LISTS" xml:space="preserve">
+    <value>Обновить списки серверов</value>
+  </data>
+  <data name="REMOVE_PLUGIN" xml:space="preserve">
+    <value>Вы действительно хотите удалить выбранный плагин?</value>
+  </data>
+  <data name="REMOVE_PLUGIN_TITLE" xml:space="preserve">
+    <value>Удалить выбранный плагин</value>
+  </data>
+  <data name="REMOVE_SELECTED_PLUGIN" xml:space="preserve">
+    <value>Удалить выбранный плагин</value>
+  </data>
+  <data name="REVERT_PLUGIN_LIST" xml:space="preserve">
+    <value>Вы действительно хотите вернуть список плагинов по умолчанию?</value>
+  </data>
+  <data name="REVERT_PLUGIN_LIST_TITLE" xml:space="preserve">
+    <value>Отменить список плагинов</value>
+  </data>
+  <data name="SAMPCTL_ERROR_TITLE" xml:space="preserve">
+    <value>Ошибка sampctl</value>
+  </data>
+  <data name="SAMPCTL_MISSING" xml:space="preserve">
+    <value>Установите «sampctl» из {0}, чтобы запустить сервер.
+
+Вы хотите посетить этот сайт сейчас?</value>
+  </data>
+  <data name="SAMPCTL_MISSING_ASSET" xml:space="preserve">
+    <value>sampctl не может быть загружен прямо сейчас.</value>
+  </data>
+  <data name="SAMPCTL_MISSING_TITLE" xml:space="preserve">
+    <value>Отсутствует установка «sampctl»</value>
+  </data>
+  <data name="SAMPCTL_UNZIP_ERROR" xml:space="preserve">
+    <value>sampctl нельзя распаковать.</value>
+  </data>
+  <data name="SELECT_VERSION" xml:space="preserve">
+    <value>Вы выбрали {0} для исправления или установки вручную.
+
+Вы действительно хотите установить или установить вручную {0}?
+
+Нажмите «Да» для исправления.
+Нажмите «Нет» для установки.
+Нажмите «Отмена», чтобы отменить это действие.</value>
+  </data>
+  <data name="SELECT_VERSION_TITLE" xml:space="preserve">
+    <value>Патч или ручная установка версии</value>
+  </data>
+  <data name="SESSION" xml:space="preserve">
+    <value>San Andreas Multiplayer - сессия</value>
+  </data>
+  <data name="SESSIONS" xml:space="preserve">
+    <value>сессии</value>
+  </data>
+  <data name="SESSION_DELETE" xml:space="preserve">
+    <value>Вы действительно хотите отказаться от этой сессии?</value>
+  </data>
+  <data name="SESSION_DELETE_TITLE" xml:space="preserve">
+    <value>Отменить сеанс</value>
+  </data>
+  <data name="SHOW_EMPTY_SERVERS" xml:space="preserve">
+    <value>Показать пустые серверы</value>
+  </data>
+  <data name="SHOW_FULL_SERVERS" xml:space="preserve">
+    <value>Показать полные серверы</value>
+  </data>
+  <data name="SHOW_LEGACY_OFFICIAL_LIST" xml:space="preserve">
+    <value>Официальный список</value>
+  </data>
+  <data name="SHOW_SACNR_LIST" xml:space="preserve">
+    <value>SACNR</value>
+  </data>
+  <data name="SHOW_SOUTHCLAWS_LIST" xml:space="preserve">
+    <value>Список Southclaw</value>
+  </data>
+  <data name="SHOW_USERNAME_DIALOG" xml:space="preserve">
+    <value>Показать диалоговое окно имени пользователя</value>
+  </data>
+  <data name="TIME_SPEND" xml:space="preserve">
+    <value>Время</value>
+  </data>
+  <data name="TYPE" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="USERNAME_WARNING" xml:space="preserve">
+    <value>Уже есть игрок с вашим именем пользователя.
+
+Вы действительно хотите продолжить?</value>
+  </data>
+  <data name="USERNAME_WARNING_TITLE" xml:space="preserve">
+    <value>Предупреждение пользователя</value>
   </data>
 </root>

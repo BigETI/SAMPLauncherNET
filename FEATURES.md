@@ -13,8 +13,10 @@ With the use of the Material Design layout the launcher looks modern.
 ### Multi-language support
 If you prefer a different language than the english language, you can easily change the language of the launcher.
 
-### Discord Rich Presence
-Show at your Discord profile where you are playing using the [SA:MP Discord Rich Presence plugin](https://github.com/Hual/samp-discord-plugin) integration.
+### ASI plugin loader and manager
+Load or manage any GTA San Andreas compatible ASI plugin within this launcher.
+Supported and listed ASI plugins by default:
+	- [SA:MP Discord Rich Presence plugin](https://github.com/Hual/samp-discord-plugin)
 
 ### Multi-threaded query mechanism
 Fast server listing, where hundreds of SA:MP servers can be queried at the same time.
@@ -31,14 +33,12 @@ Search anything related to a SA:MP server easily on popular search engines.
 ### Debug mode and singleplayer
 You can launch SA:MP debug mode or Grand Theft Auto San Andreas with a click on a button.
 
-### Gallery
-Manage your screenshots from this launcher.
+### Media
+The media tab allows to manage screenshots, look up the last chatlog and saved positions.
 
-### Last chatlog
-If you would like to know what happened the last time you joined a server, you can look it up in the last chatlog.
-
-### Saved positions
-Look up your saved positions on the fly.
+### Sessions data
+A very important feature for users who want to record session based data.
+This can be enabled at the launcher options.
 
 ### Version changer
 Change your SA:MP version to your needs by applying a patch or installing manually.
@@ -89,3 +89,5 @@ Make your server development workflow easier by configuring, starting and joinin
 ![Screenshot](screenshots/screenshot017.png)
 
 ![Screenshot](screenshots/screenshot018.png)
+
+![Screenshot](screenshots/screenshot019.png)
