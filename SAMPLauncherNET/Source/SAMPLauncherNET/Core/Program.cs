@@ -152,13 +152,9 @@ namespace SAMPLauncherNET
         [STAThread]
         static void Main()
         {
+#if !DEBUG
             GitHubUpdateTask update = new GitHubUpdateTask("BigETI", "SAMPLauncherNET");
-            bool start_update = false;
             if (update.IsUpdateAvailable)
-            {
-                start_update = (MessageBox.Show("A new update for SA:MP Launcher .NET is available.\r\nVersion: " + update.Version + "\r\n\r\nDo you want to install it now?", "Update available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes);
-            }
-            if (start_update)
             {
                 if (Utils.ExportResource("SAMPLauncherNET.PreBuilds.SAMPLauncherNETUpdater.exe", Path.Combine(Environment.CurrentDirectory, "SAMPLauncherNETUpdater.exe")))
                 {
@@ -174,6 +170,7 @@ namespace SAMPLauncherNET
             }
             else
             {
+#endif
                 try
                 {
                     Translator.TranslatorInterface = new TranslatorInterface();
@@ -196,6 +193,7 @@ namespace SAMPLauncherNET
                 {
                     MessageBox.Show("A fatal error has occured:\r\n\r\n" + e.Message, "Fatal error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+#if !DEBUG
             }
             if (installerPath != null)
             {
@@ -204,6 +202,7 @@ namespace SAMPLauncherNET
                     Thread.Sleep(200);
                 }
             }
+#endif
             Application.Exit();
         }
     }

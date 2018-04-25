@@ -922,9 +922,9 @@ namespace SAMPLauncherNET
                                                 hasPassword = (reader.ReadByte() != 0);
                                                 playerCount = reader.ReadUInt16();
                                                 maxPlayers = reader.ReadUInt16();
-                                                hostname = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
-                                                gamemode = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
-                                                language = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
+                                                hostname = Utils.GuessedStringEncoding(reader.ReadBytes(reader.ReadInt32()));
+                                                gamemode = Utils.GuessedStringEncoding(reader.ReadBytes(reader.ReadInt32()));
+                                                language = Utils.GuessedStringEncoding(reader.ReadBytes(reader.ReadInt32()));
                                                 requestsRequired[ERequestType.Information] = false;
                                                 break;
 
@@ -938,8 +938,8 @@ namespace SAMPLauncherNET
                                                     {
                                                         for (int i = 0; i < rc; i++)
                                                         {
-                                                            k = Encoding.Default.GetString(reader.ReadBytes(reader.ReadByte()));
-                                                            rules.Add(k, Encoding.Default.GetString(reader.ReadBytes(reader.ReadByte())));
+                                                            k = Utils.GuessedStringEncoding(reader.ReadBytes(reader.ReadByte()));
+                                                            rules.Add(k, Utils.GuessedStringEncoding(reader.ReadBytes(reader.ReadByte())));
                                                         }
                                                     }
                                                     catch (Exception e)
@@ -961,7 +961,7 @@ namespace SAMPLauncherNET
                                                         for (int i = 0; i < pc; i++)
                                                         {
                                                             // Name and score
-                                                            k = Encoding.Default.GetString(reader.ReadBytes(reader.ReadByte()));
+                                                            k = Utils.GuessedStringEncoding(reader.ReadBytes(reader.ReadByte()));
                                                             clients.Add(k, reader.ReadInt32());
                                                         }
                                                     }
@@ -987,7 +987,7 @@ namespace SAMPLauncherNET
                                                         for (ushort i = 0; i != playerCount; i++)
                                                         {
                                                             id = reader.ReadByte();
-                                                            pn = Encoding.Default.GetString(reader.ReadBytes(reader.ReadByte()));
+                                                            pn = Utils.GuessedStringEncoding(reader.ReadBytes(reader.ReadByte()));
                                                             s = reader.ReadInt32();
                                                             p = reader.ReadUInt32();
                                                             players.Add(id, new Player(id, pn, s, p));

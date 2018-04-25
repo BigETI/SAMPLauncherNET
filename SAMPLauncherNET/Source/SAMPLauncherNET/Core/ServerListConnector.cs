@@ -236,7 +236,7 @@ namespace SAMPLauncherNET
                                                 {
                                                     string ip = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
                                                     ushort port = (ushort)(reader.ReadUInt32());
-                                                    string cn = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
+                                                    string cn = Utils.GuessedStringEncoding(reader.ReadBytes(reader.ReadInt32()));
                                                     string sp = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
                                                     string rp = Encoding.Default.GetString(reader.ReadBytes(reader.ReadInt32()));
                                                     ip = ip + ":" + port;

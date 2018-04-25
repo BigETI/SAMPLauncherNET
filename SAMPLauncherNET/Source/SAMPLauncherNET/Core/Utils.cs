@@ -6,6 +6,9 @@ using System.IO;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Reflection;
+using Ude;
+using System.Text;
+using System.Threading;
 
 /// <summary>
 /// SA:MP launcher .NET namespace
@@ -21,6 +24,11 @@ namespace SAMPLauncherNET
         /// Gallery image size
         /// </summary>
         public static readonly Size GalleryImageSize = new Size(256, 256);
+
+        /// <summary>
+        /// Charset detector
+        /// </summary>
+        private static readonly CharsetDetector charsetDetector = new CharsetDetector();
 
         /// <summary>
         /// Are arrays equal
@@ -117,6 +125,54 @@ namespace SAMPLauncherNET
         public static string NAString(string str)
         {
             return ((str == null) ? "N/A" : ((str.Length > 0) ? str : "N/A"));
+        }
+
+        /// <summary>
+        /// Guessed string encoding
+        /// </summary>
+        /// <param name="bytes">Bytes to encode</param>
+        /// <returns>Encoded string</returns>
+        public static string GuessedStringEncoding(byte[] bytes)
+        {
+            string ret = null;
+            if (bytes != null)
+            {
+                charsetDetector.Reset();
+                charsetDetector.Feed(bytes, 0, bytes.Length);
+                charsetDetector.DataEnd();
+                try
+                {
+                    string charset_name = charsetDetector.Charset;
+                    if (charset_name != null)
+                    {
+                        Encoding encoding = Encoding.GetEncoding(charset_name);
+                        if (encoding != null)
+                        {
+                            ret = encoding.GetString(bytes);
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.Error.WriteLine(e.Message);
+                }
+                if (ret == null)
+                {
+                    try
+                    {
+                        ret = Encoding.Default.GetString(bytes);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Error.WriteLine(e.Message);
+                    }
+                }
+            }
+            if (ret == null)
+            {
+                ret = "";
+            }
+            return ret;
         }
 
         /// <summary>

@@ -32,8 +32,12 @@ Note: You don't need to commit `TranslatorInterface.cs`.
 You can change anything within the source code to contribute.
 
 ## Projects associated with this project
+- https://github.com/BigETI/INIEngine
 - https://github.com/BigETI/UpdaterNET
 - https://github.com/BigETI/WinFormsTranslator
+- https://github.com/errepi/ude
+- https://github.com/icsharpcode/SharpZipLib
+- https://github.com/IgnaceMaes/MaterialSkin
 - https://github.com/Hual/samp-discord-plugin
 - https://github.com/Southclaws/samp-servers-api
 - https://github.com/Southclaws/sampctl
