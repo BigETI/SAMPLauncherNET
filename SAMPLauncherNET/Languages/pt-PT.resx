@@ -888,6 +888,9 @@ Do you want to continue?</value>
   <data name="SLEEP" xml:space="preserve">
     <value>Sleep time</value>
   </data>
+  <data name="SPANISH" xml:space="preserve">
+    <value>Espanhol (Español)</value>
+  </data>
   <data name="START_SERVER" xml:space="preserve">
     <value>Iníciar Servidor</value>
   </data>

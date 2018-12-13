@@ -946,4 +946,7 @@
   <data name="USERNAME_WARNING_TITLE" xml:space="preserve">
     <value>Предупреждение пользователя</value>
   </data>
+  <data name="SPANISH" xml:space="preserve">
+    <value>испанский (Español)</value>
+  </data>
 </root>

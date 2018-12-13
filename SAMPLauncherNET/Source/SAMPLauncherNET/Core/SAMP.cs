@@ -609,7 +609,7 @@ namespace SAMPLauncherNET
                 ret.Add(new ServerListConnector("{$SHOW_LEGACY_HOSTED_LIST$}", EServerListType.LegacySAMP, "{$HOSTED_LIST_URL$}"));
                 ret.Add(new ServerListConnector("{$SHOW_LEGACY_MASTER_LIST$}", EServerListType.LegacySAMP, "{$MASTER_LIST_URL$}"));
                 ret.Add(new ServerListConnector("{$SHOW_LEGACY_OFFICIAL_LIST$}", EServerListType.LegacySAMP, "{$OFFICIAL_LIST_URL$}"));
-                ret.Add(new ServerListConnector("{$SHOW_SOUTHCLAWS_LIST$}", EServerListType.BackendRESTful, "http://api.samp.southcla.ws/v2/servers"));
+                ret.Add(new ServerListConnector("{$SHOW_SOUTHCLAWS_LIST$}", EServerListType.BackendRESTful, "https://api.samp-servers.net/v2/servers"));
                 ret.Add(new ServerListConnector("{$SHOW_SACNR_LIST$}", EServerListType.LegacySAMP, "http://monitor.sacnr.com/list/masterlist.txt"));
             }
             APIIO = ret;

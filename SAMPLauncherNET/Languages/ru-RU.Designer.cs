@@ -2331,6 +2331,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die испанский (Español) ähnelt.
+        /// </summary>
+        internal static string SPANISH {
+            get {
+                return ResourceManager.GetString("SPANISH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Запустить сервер ähnelt.
         /// </summary>
         internal static string START_SERVER {

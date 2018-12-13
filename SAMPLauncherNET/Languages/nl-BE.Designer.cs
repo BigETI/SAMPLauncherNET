@@ -2341,6 +2341,15 @@ namespace SAMPLauncherNET.Languages {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Spaans (Español) ähnelt.
+        /// </summary>
+        internal static string SPANISH {
+            get {
+                return ResourceManager.GetString("SPANISH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Opstartserver ähnelt.
         /// </summary>
         internal static string START_SERVER {

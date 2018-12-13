@@ -891,6 +891,9 @@ Doorgaan?</value>
   <data name="SLEEP" xml:space="preserve">
     <value>Bedtijd</value>
   </data>
+  <data name="SPANISH" xml:space="preserve">
+    <value>Spaans (Español)</value>
+  </data>
   <data name="START_SERVER" xml:space="preserve">
     <value>Opstartserver</value>
   </data>

@@ -796,7 +796,7 @@ Möchtest du diese Webseite jetzt besuchen?</value>
   <data name="SELECT_VERSION" xml:space="preserve">
     <value>Du hast {0} ausgewählt um es zu patchen oder manuell zu installieren.
 
-Möchtest du wirklich {0} patchen oder manuell installieren {0}?
+Möchtest du wirklich nach {0} patchen oder manuell installieren?
 
 Drücke "Ja" um es zu patchen.
 Drücke "Nein" um es manuell zu installieren.
@@ -890,6 +890,9 @@ Möchtest du fortfahren?</value>
   </data>
   <data name="SLEEP" xml:space="preserve">
     <value>Server Tick Zeit</value>
+  </data>
+  <data name="SPANISH" xml:space="preserve">
+    <value>Spanisch</value>
   </data>
   <data name="START_SERVER" xml:space="preserve">
     <value>Server starten</value>

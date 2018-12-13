@@ -2065,7 +2065,7 @@ namespace SAMPLauncherNET.Languages {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Du hast {0} ausgewählt um es zu patchen oder manuell zu installieren.
         ///
-        ///Möchtest du wirklich {0} patchen oder manuell installieren {0}?
+        ///Möchtest du wirklich nach {0} patchen oder manuell installieren?
         ///
         ///Drücke &quot;Ja&quot; um es zu patchen.
         ///Drücke &quot;Nein&quot; um es manuell zu installieren.
@@ -2337,6 +2337,15 @@ namespace SAMPLauncherNET.Languages {
         internal static string SLEEP {
             get {
                 return ResourceManager.GetString("SLEEP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Spanisch ähnelt.
+        /// </summary>
+        internal static string SPANISH {
+            get {
+                return ResourceManager.GetString("SPANISH", resourceCulture);
             }
         }
         

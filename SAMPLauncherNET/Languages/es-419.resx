@@ -348,7 +348,7 @@ Este proyecto se encuentra en</value>
     <value>Endpoint</value>
   </data>
   <data name="ENGLISH" xml:space="preserve">
-    <value>Íngles</value>
+    <value>Íngles (English)</value>
   </data>
   <data name="ERROR" xml:space="preserve">
     <value>Error</value>
@@ -887,6 +887,9 @@ Presione "Cancelar" para cancelar esta operación.</value>
   </data>
   <data name="SLEEP" xml:space="preserve">
     <value>Sleep time</value>
+  </data>
+  <data name="SPANISH" xml:space="preserve">
+    <value>Español</value>
   </data>
   <data name="START_SERVER" xml:space="preserve">
     <value>Iniciar servidor</value>

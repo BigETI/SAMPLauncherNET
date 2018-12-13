@@ -296,6 +296,6 @@ __pycache__/
 
 *.cache
 SAMPLauncherNET/obj/Debug/SAMPLauncherNET.csproj.FileListAbsolute.txt
-./SAMPLauncherNET/bin/
-./SAMPLauncherNET/obj/
-./SAMPLauncherNET/PreBuilds/
+SAMPLauncherNET/bin/
+SAMPLauncherNET/obj/
+SAMPLauncherNET/PreBuilds/
