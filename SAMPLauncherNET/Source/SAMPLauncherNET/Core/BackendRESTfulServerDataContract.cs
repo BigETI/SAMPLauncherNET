@@ -54,12 +54,22 @@ namespace SAMPLauncherNET
         private bool hasPassword = false;
 
         /// <summary>
+        /// Version
+        /// </summary>
+        [DataMember(Name = "vn")]
+        private string version = "";
+
+        /// <summary>
         /// Host
         /// </summary>
         public string Host
         {
             get
             {
+                if (host == null)
+                {
+                    host = "";
+                }
                 return host;
             }
         }
@@ -71,6 +81,10 @@ namespace SAMPLauncherNET
         {
             get
             {
+                if (hostname == null)
+                {
+                    hostname = "";
+                }
                 return hostname;
             }
         }
@@ -104,6 +118,10 @@ namespace SAMPLauncherNET
         {
             get
             {
+                if (gamemode == null)
+                {
+                    gamemode = "";
+                }
                 return gamemode;
             }
         }
@@ -115,6 +133,10 @@ namespace SAMPLauncherNET
         {
             get
             {
+                if (language == null)
+                {
+                    language = "";
+                }
                 return language;
             }
         }
@@ -127,6 +149,21 @@ namespace SAMPLauncherNET
             get
             {
                 return hasPassword;
+            }
+        }
+
+        /// <summary>
+        /// Version
+        /// </summary>
+        public string Version
+        {
+            get
+            {
+                if (version == null)
+                {
+                    version = "";
+                }
+                return version;
             }
         }
     }

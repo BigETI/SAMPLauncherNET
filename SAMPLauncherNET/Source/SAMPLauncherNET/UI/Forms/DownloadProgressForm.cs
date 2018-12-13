@@ -117,6 +117,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception ex)
             {
+                Console.Error.WriteLine(ex);
                 MessageBox.Show(ex.Message, "Download error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 notFinished = false;
                 Close();

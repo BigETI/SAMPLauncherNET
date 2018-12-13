@@ -136,6 +136,7 @@ namespace SAMPLauncherNET.UI
                         }
                         catch (Exception e)
                         {
+                            Console.Error.WriteLine(e);
                             MessageBox.Show(e.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
@@ -143,7 +144,7 @@ namespace SAMPLauncherNET.UI
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
             foreach (KeyValuePair<string, Process> process in processes)
             {
@@ -157,7 +158,7 @@ namespace SAMPLauncherNET.UI
                 }
                 catch (Exception e)
                 {
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
             }
         }
@@ -194,7 +195,7 @@ namespace SAMPLauncherNET.UI
                             }
                             catch (Exception e)
                             {
-                                Console.Error.WriteLine(e.Message);
+                                Console.Error.WriteLine(e);
                             }
                         }
                     }
@@ -327,6 +328,7 @@ namespace SAMPLauncherNET.UI
                                     }
                                     catch (Exception ex)
                                     {
+                                        Console.Error.WriteLine(ex);
                                         MessageBox.Show(ex.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
@@ -334,14 +336,14 @@ namespace SAMPLauncherNET.UI
                         }
                         catch (Exception ex)
                         {
-                            Console.Error.WriteLine(ex.Message);
+                            Console.Error.WriteLine(ex);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.Error.WriteLine(ex.Message);
+                Console.Error.WriteLine(ex);
             }
         }
 

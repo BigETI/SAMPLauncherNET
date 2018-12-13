@@ -12,16 +12,19 @@ namespace SAMPLauncherNET
         /// Constructor
         /// </summary>
         /// <param name="serverData">Server data</param>
-        public BackendRESTfulServer(BackendRESTfulServerDataContract serverData) : base(serverData.Host, true)
+        public BackendRESTfulServer(BackendRESTfulServerDataContract serverData) : base(serverData.Host, false)
         {
             requestsRequired.Lock(ERequestType.Information);
-            hostname = serverData.Hostname;
+            if (serverData.Hostname.Trim().Length > 0)
+            {
+                hostname = serverData.Hostname;
+            }
             gamemode = serverData.Gamemode;
             playerCount = serverData.PlayerCount;
             maxPlayers = serverData.MaxPlayers;
             hasPassword = serverData.HasPassword;
             language = serverData.Language;
-            FetchDataAsync(ERequestType.Ping);
+            //FetchDataAsync(ERequestType.Ping);
         }
     }
 }

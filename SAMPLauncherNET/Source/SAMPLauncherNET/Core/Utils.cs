@@ -154,7 +154,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
                 if (ret == null)
                 {
@@ -164,7 +164,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
@@ -219,7 +219,7 @@ namespace SAMPLauncherNET
             catch (Exception e)
             {
                 ret = false;
-                Debug.WriteLine(e.Message);
+                Debug.WriteLine(e);
             }
             return ret;
         }
@@ -334,7 +334,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception ex)
             {
-                Console.Error.WriteLine(ex.Message);
+                Console.Error.WriteLine(ex);
             }
             return ret;
         }
@@ -368,7 +368,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
             return ret;
         }

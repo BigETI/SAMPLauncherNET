@@ -123,7 +123,7 @@ namespace SAMPLauncherNET
                     {
                         lock (pingList)
                         {
-                            pingList.Add(server.Ping);
+                            pingList.Add(server.PingCached);
                             while (pingList.Count > PingCountLimit)
                             {
                                 pingList.RemoveAt(0);
@@ -143,17 +143,17 @@ namespace SAMPLauncherNET
                     {
                         lock (hostname)
                         {
-                            hostname = server.Hostname;
-                            playerCount = server.PlayerCount;
-                            maxPlayers = server.MaxPlayers;
+                            hostname = server.HostnameCached;
+                            playerCount = server.PlayerCountCached;
+                            maxPlayers = server.MaxPlayersCached;
                         }
                         lock (gamemode)
                         {
-                            gamemode = server.Gamemode;
+                            gamemode = server.GamemodeCached;
                         }
                         lock (language)
                         {
-                            language = server.Language;
+                            language = server.LanguageCached;
                         }
                     }
                     Thread.Sleep(2000);

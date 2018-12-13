@@ -58,7 +58,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
             return ret;
         }

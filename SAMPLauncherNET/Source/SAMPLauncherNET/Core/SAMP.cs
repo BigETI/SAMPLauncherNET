@@ -187,7 +187,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
                 return ret;
             }
@@ -199,7 +199,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
             }
         }
@@ -218,7 +218,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
                 return ret;
             }
@@ -267,7 +267,7 @@ namespace SAMPLauncherNET
                     catch (Exception e)
                     {
                         api = RevertAPIs();
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
                 return new List<ServerListConnector>(api);
@@ -291,7 +291,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
@@ -322,7 +322,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
                 if (pluginsData == null)
@@ -350,7 +350,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
@@ -376,7 +376,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
                 return ret;
             }
@@ -402,7 +402,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
                 return ret;
             }
@@ -427,7 +427,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
                 if (ret == null)
@@ -449,7 +449,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
@@ -486,7 +486,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
                 if (ret == null)
@@ -513,7 +513,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
@@ -555,7 +555,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
@@ -593,13 +593,13 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
             if (ret == null)
             {
@@ -638,13 +638,13 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
             if (ret == null)
             {
@@ -775,7 +775,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
             }
         }
@@ -797,6 +797,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
+                    Console.Error.WriteLine(e);
                     MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -810,7 +811,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
@@ -830,7 +831,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
         }
 
@@ -879,7 +880,7 @@ namespace SAMPLauncherNET
                                         }
                                         catch (Exception e)
                                         {
-                                            Console.Error.WriteLine(e.Message);
+                                            Console.Error.WriteLine(e);
                                         }
                                     }
                                 }
@@ -888,6 +889,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
+                        Console.Error.WriteLine(e);
                         MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -913,7 +915,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
             }
         }
@@ -929,7 +931,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
         }
 
@@ -955,7 +957,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
         }
 
@@ -970,7 +972,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
         }
     }

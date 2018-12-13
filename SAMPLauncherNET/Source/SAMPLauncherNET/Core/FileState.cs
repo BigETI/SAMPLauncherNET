@@ -59,7 +59,7 @@ namespace SAMPLauncherNET
                 catch (Exception e)
                 {
                     lastWriteDateTime = DateTime.Now;
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
             }
             else

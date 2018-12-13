@@ -59,7 +59,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
                 return ret;
             }
@@ -113,7 +113,8 @@ namespace SAMPLauncherNET
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -140,7 +141,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception ex)
                 {
-                    Console.Error.WriteLine(ex.Message);
+                    Console.Error.WriteLine(ex);
                 }
             }
             isDownloading = false;
@@ -164,6 +165,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
+                        Console.Error.WriteLine(e);
                         MessageBox.Show(e.Message, "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                     }
                 }
@@ -191,6 +193,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
+                    Console.Error.WriteLine(e);
                     MessageBox.Show("A fatal error has occured:\r\n\r\n" + e.Message, "Fatal error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 #if !DEBUG

@@ -198,7 +198,7 @@ namespace SAMPLauncherNET
                             {
                                 wc.Headers.Set(HttpRequestHeader.ContentType, APIHTTPContentType);
                                 wc.Headers.Set(HttpRequestHeader.Accept, APIHTTPAccept);
-                                wc.Headers.Set(HttpRequestHeader.UserAgent, SAMPProvider.UserAgent);
+                                wc.Headers.Set(HttpRequestHeader.UserAgent, /* User agent of Firefox */ "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0" /*SAMPProvider.UserAgent*/);
                                 using (MemoryStream stream = new MemoryStream(wc.DownloadData(Endpoint)))
                                 {
                                     BackendRESTfulServerDataContract[] servers = serverListJSONSerializer.ReadObject(stream) as BackendRESTfulServerDataContract[];
@@ -273,7 +273,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
                 maxServers = (uint)(ret.Count);
                 return ret;
@@ -298,7 +298,7 @@ namespace SAMPLauncherNET
                         }
                         catch (Exception e)
                         {
-                            Console.Error.WriteLine(e.Message);
+                            Console.Error.WriteLine(e);
                         }
                         maxServers = (uint)(value.Count);
                     }
@@ -348,7 +348,7 @@ namespace SAMPLauncherNET
                         }
                         catch (Exception e)
                         {
-                            Console.Error.WriteLine(e.Message);
+                            Console.Error.WriteLine(e);
                         }
                         maxServers = (uint)(value.Count);
                     }

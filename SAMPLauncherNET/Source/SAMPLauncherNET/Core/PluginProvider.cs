@@ -51,6 +51,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
+                        Console.Error.WriteLine(e);
                         MessageBox.Show(e.Message, Translator.GetTranslation("PLUGIN_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -70,6 +71,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
+                        Console.Error.WriteLine(e);
                         MessageBox.Show(e.Message, Translator.GetTranslation("PLUGIN_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -211,6 +213,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
+                        Console.Error.WriteLine(e);
                         MessageBox.Show(e.Message, Translator.GetTranslation("PLUGIN_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -244,6 +247,7 @@ namespace SAMPLauncherNET
                             }
                             catch (Exception e)
                             {
+                                Console.Error.WriteLine(e);
                                 MessageBox.Show(e.Message, Translator.GetTranslation("PLUGIN_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }

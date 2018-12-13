@@ -36,6 +36,10 @@ namespace SAMPLauncherNET
         {
             get
             {
+                if (host == null)
+                {
+                    host = "";
+                }
                 return host;
             }
         }
@@ -47,6 +51,10 @@ namespace SAMPLauncherNET
         {
             get
             {
+                if (hostname == null)
+                {
+                    hostname = "";
+                }
                 return hostname;
             }
         }
@@ -58,6 +66,10 @@ namespace SAMPLauncherNET
         {
             get
             {
+                if (mode == null)
+                {
+                    mode = "";
+                }
                 return mode;
             }
         }

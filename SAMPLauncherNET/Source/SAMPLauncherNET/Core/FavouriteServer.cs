@@ -50,8 +50,14 @@ namespace SAMPLauncherNET
         /// <param name="rconPassword">RCON password</param>
         public FavouriteServer(string ipAddressAndPortString, string cachedHostname, string cachedGamemode, string serverPassword, string rconPassword) : base(ipAddressAndPortString, false)
         {
-            requestsRequired[ERequestType.Information] = false;
-            hostname = cachedHostname;
+            //requestsRequired[ERequestType.Information] = false;
+            if (cachedHostname != null)
+            {
+                if (cachedHostname.Trim().Length > 0)
+                {
+                    hostname = cachedHostname;
+                }
+            }
             gamemode = cachedGamemode;
             this.serverPassword = serverPassword;
             this.rconPassword = rconPassword;
@@ -65,8 +71,11 @@ namespace SAMPLauncherNET
         /// <param name="fdc">Favorite data contract</param>
         public FavouriteServer(FavouriteDataContract fdc) : base(fdc.Host, false)
         {
-            requestsRequired[ERequestType.Information] = false;
-            hostname = fdc.Hostname;
+            //requestsRequired[ERequestType.Information] = false;
+            if (fdc.Hostname.Trim().Length > 0)
+            {
+                hostname = fdc.Hostname;
+            }
             serverPassword = "";
             rconPassword = "";
             FetchDataAsync(ERequestType.Ping);

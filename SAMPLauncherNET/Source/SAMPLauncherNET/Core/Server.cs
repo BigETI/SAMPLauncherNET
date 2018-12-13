@@ -6,7 +6,6 @@ using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 
 /// <summary>
 /// SA:MP launcher .NET namespace
@@ -21,7 +20,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// IPv4 regular expression
         /// </summary>
-        private static Regex ipv4regex = new Regex(@"\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b");
+        private static readonly Regex ipv4regex = new Regex(@"\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b");
 
         /// <summary>
         /// Socket
@@ -66,42 +65,42 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Player count
         /// </summary>
-        protected ushort playerCount;
+        protected ushort playerCount = ushort.MaxValue;
 
         /// <summary>
         /// Maximal players
         /// </summary>
-        protected ushort maxPlayers;
+        protected ushort maxPlayers = ushort.MaxValue;
 
         /// <summary>
         /// Hostname
         /// </summary>
-        protected string hostname = "";
+        protected string hostname;
 
         /// <summary>
         /// Gamemode
         /// </summary>
-        protected string gamemode = "";
+        protected string gamemode;
 
         /// <summary>
         /// Language
         /// </summary>
-        protected string language = "";
+        protected string language;
 
         /// <summary>
         /// Rules
         /// </summary>
-        private readonly Dictionary<string, string> rules = new Dictionary<string, string>();
+        private Dictionary<string, string> rules;
 
         /// <summary>
         /// Clients
         /// </summary>
-        private readonly Dictionary<string, int> clients = new Dictionary<string, int>();
+        private Dictionary<string, int> clients;
 
         /// <summary>
         /// Players
         /// </summary>
-        private readonly Dictionary<byte, Player> players = new Dictionary<byte, Player>();
+        private Dictionary<byte, Player> players;
 
         /// <summary>
         /// Random numbers
@@ -111,7 +110,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Ping
         /// </summary>
-        private uint ping;
+        private uint ping = uint.MaxValue;
 
         /// <summary>
         /// Threads
@@ -186,7 +185,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
                 return ipAddress;
@@ -200,19 +199,8 @@ namespace SAMPLauncherNET
         {
             get
             {
-                SendQueryWhenRequired(ERequestType.Information);
+                SendQueryWhenExpired(ERequestType.Information, 5000U);
                 return hasPassword;
-            }
-        }
-
-        /// <summary>
-        /// Has password asynchronous
-        /// </summary>
-        public Task<bool> HasPasswordAsync
-        {
-            get
-            {
-                return Task.Factory.StartNew(() => HasPassword);
             }
         }
 
@@ -223,19 +211,15 @@ namespace SAMPLauncherNET
         {
             get
             {
-                SendQueryWhenRequired(ERequestType.Information);
-                return playerCount;
-            }
-        }
-
-        /// <summary>
-        /// Player count asynchronous
-        /// </summary>
-        public Task<ushort> PlayerCountAsync
-        {
-            get
-            {
-                return Task.Factory.StartNew(() => PlayerCount);
+                if (playerCount == ushort.MaxValue)
+                {
+                    SendQueryWhenRequired(ERequestType.Information);
+                }
+                else
+                {
+                    SendQueryWhenExpired(ERequestType.Information, 5000U);
+                }
+                return PlayerCountCached;
             }
         }
 
@@ -246,7 +230,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                return playerCount;
+                return ((playerCount == ushort.MaxValue) ? (ushort)0 : playerCount);
             }
         }
 
@@ -257,19 +241,15 @@ namespace SAMPLauncherNET
         {
             get
             {
-                SendQueryWhenRequired(ERequestType.Information);
-                return maxPlayers;
-            }
-        }
-
-        /// <summary>
-        /// Maximal players asynchronous
-        /// </summary>
-        public Task<ushort> MaxPlayersAsync
-        {
-            get
-            {
-                return Task.Factory.StartNew(() => MaxPlayers);
+                if (maxPlayers == ushort.MaxValue)
+                {
+                    SendQueryWhenRequired(ERequestType.Information);
+                }
+                else
+                {
+                    SendQueryWhenExpired(ERequestType.Information, 5000U);
+                }
+                return MaxPlayersCached;
             }
         }
 
@@ -280,7 +260,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                return maxPlayers;
+                return ((maxPlayers == ushort.MaxValue) ? (ushort)0 : maxPlayers);
             }
         }
 
@@ -291,8 +271,15 @@ namespace SAMPLauncherNET
         {
             get
             {
-                SendQueryWhenRequired(ERequestType.Information);
-                return hostname;
+                if (hostname == null)
+                {
+                    SendQueryWhenRequired(ERequestType.Information);
+                }
+                else
+                {
+                    SendQueryWhenExpired(ERequestType.Information, 5000U);
+                }
+                return HostnameCached;
             }
         }
 
@@ -303,18 +290,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                return hostname;
-            }
-        }
-
-        /// <summary>
-        /// Hostname asynchronous
-        /// </summary>
-        public Task<string> HostnameAsync
-        {
-            get
-            {
-                return Task.Factory.StartNew(() => Hostname);
+                return ((hostname == null) ? (IPPortString + " ...") : hostname);
             }
         }
 
@@ -325,8 +301,15 @@ namespace SAMPLauncherNET
         {
             get
             {
-                SendQueryWhenRequired(ERequestType.Information);
-                return gamemode;
+                if (gamemode == null)
+                {
+                    SendQueryWhenRequired(ERequestType.Information);
+                }
+                else
+                {
+                    SendQueryWhenExpired(ERequestType.Information, 5000U);
+                }
+                return GamemodeCached;
             }
         }
 
@@ -337,18 +320,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                return gamemode;
-            }
-        }
-
-        /// <summary>
-        /// Gamemode asynchronous
-        /// </summary>
-        public Task<string> GamemodeAsync
-        {
-            get
-            {
-                return Task.Factory.StartNew(() => Gamemode);
+                return ((gamemode == null) ? "" : gamemode);
             }
         }
 
@@ -359,8 +331,15 @@ namespace SAMPLauncherNET
         {
             get
             {
-                SendQueryWhenRequired(ERequestType.Information);
-                return language;
+                if (language == null)
+                {
+                    SendQueryWhenRequired(ERequestType.Information);
+                }
+                else
+                {
+                    SendQueryWhenExpired(ERequestType.Information, 5000U);
+                }
+                return LanguageCached;
             }
         }
 
@@ -371,7 +350,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                return language;
+                return ((language == null) ? "" : language);
             }
         }
 
@@ -387,116 +366,94 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Language asynchronous
-        /// </summary>
-        public Task<string> LanguageAsync
-        {
-            get
-            {
-                return Task.Factory.StartNew(() => Language);
-            }
-        }
-
-        /// <summary>
         /// Rule keys
         /// </summary>
-        public Dictionary<string, string>.KeyCollection RuleKeys
+        public string[] RuleKeys
         {
             get
             {
-                SendQueryWhenRequired(ERequestType.Rules);
-                return rules.Keys;
-            }
-        }
-
-        /// <summary>
-        /// Rule keys asynchronous
-        /// </summary>
-        public Task<Dictionary<string, string>.KeyCollection> RuleKeysAsync
-        {
-            get
-            {
-                return Task.Factory.StartNew(() => RuleKeys);
+                string[] ret = null;
+                if (rules == null)
+                {
+                    SendQueryWhenRequired(ERequestType.Rules);
+                }
+                else
+                {
+                    SendQueryWhenExpired(ERequestType.Rules, 5000U);
+                }
+                List<string> list = new List<string>(rules.Keys);
+                ret = list.ToArray();
+                list.Clear();
+                return ret;
             }
         }
 
         /// <summary>
         /// Client keys
         /// </summary>
-        public Dictionary<string, int>.KeyCollection ClientKeys
+        public string[] ClientKeys
         {
             get
             {
-                SendQueryWhenRequired(ERequestType.Clients);
-                return clients.Keys;
-            }
-        }
-
-        /// <summary>
-        /// Client keys asynchronous
-        /// </summary>
-        public Task<Dictionary<string, int>.KeyCollection> ClientKeysAsync
-        {
-            get
-            {
-                return Task.Factory.StartNew(() => ClientKeys);
+                string[] ret = null;
+                if (clients == null)
+                {
+                    SendQueryWhenRequired(ERequestType.Clients);
+                }
+                else
+                {
+                    SendQueryWhenExpired(ERequestType.Clients, 5000U);
+                }
+                List<string> list = new List<string>(clients.Keys);
+                ret = list.ToArray();
+                list.Clear();
+                return ret;
             }
         }
 
         /// <summary>
         /// Player keys
         /// </summary>
-        public Dictionary<byte, Player>.KeyCollection PlayerKeys
+        public byte[] PlayerKeys
         {
             get
             {
-                SendQueryWhenRequired(ERequestType.DetailedClients);
-                return players.Keys;
-            }
-        }
-
-        /// <summary>
-        /// Player keys asynchronous
-        /// </summary>
-        public Task<Dictionary<byte, Player>.KeyCollection> PlayerKeysAsync
-        {
-            get
-            {
-                return Task.Factory.StartNew(() => PlayerKeys);
+                byte[] ret = null;
+                if (players == null)
+                {
+                    SendQueryWhenRequired(ERequestType.DetailedClients);
+                }
+                else
+                {
+                    SendQueryWhenExpired(ERequestType.DetailedClients, 5000U);
+                }
+                List<byte> list = new List<byte>(players.Keys);
+                ret = list.ToArray();
+                list.Clear();
+                return ret;
             }
         }
 
         /// <summary>
         /// Player values
         /// </summary>
-        public Dictionary<byte, Player>.ValueCollection PlayerValues
+        public Player[] PlayerValues
         {
             get
             {
-                SendQueryWhenRequired(ERequestType.DetailedClients);
-                return players.Values;
-            }
-        }
-
-        /// <summary>
-        /// Player values asynchronous
-        /// </summary>
-        public Task<Dictionary<byte, Player>.ValueCollection> PlayerValuesAsync
-        {
-            get
-            {
-                return Task.Factory.StartNew(() => PlayerValues);
-            }
-        }
-
-        /// <summary>
-        /// Geo location asynchronous
-        /// </summary>
-        public Task<GeoLocationData> GeoLocationAsync
-        {
-            get
-            {
-                return GeoLocator.LocateAsync(IPv4AddressString);
+                Player[] ret = null;
+                if (players == null)
+                {
+                    SendQueryWhenRequired(ERequestType.DetailedClients);
+                }
+                else
+                {
+                    SendQueryWhenExpired(ERequestType.DetailedClients, 5000U);
+                }
+                List<Player> list = new List<Player>(players.Values);
+                ret = list.ToArray();
+                list.Clear();
+                return ret;
             }
         }
 
@@ -507,19 +464,26 @@ namespace SAMPLauncherNET
         {
             get
             {
-                SendQueryWhenRequired(ERequestType.Ping);
-                return ping;
+                if (ping == uint.MaxValue)
+                {
+                    SendQueryWhenRequired(ERequestType.Ping);
+                }
+                else
+                {
+                    SendQueryWhenExpired(ERequestType.Ping, 5000U);
+                }
+                return PingCached;
             }
         }
 
         /// <summary>
-        /// Ping asynchronous
+        /// Ping cached
         /// </summary>
-        public Task<uint> PingAsync
+        public uint PingCached
         {
             get
             {
-                return Task.Factory.StartNew(() => Ping);
+                return ping;
             }
         }
 
@@ -554,7 +518,7 @@ namespace SAMPLauncherNET
         {
             try
             {
-                string[] hp = hostAndPort.Trim().Split(new [] { ':' });
+                string[] hp = hostAndPort.Trim().Split(new[] { ':' });
                 IPAddress[] ips = null;
                 if ((hp.Length == 1) || (hp.Length == 2))
                 {
@@ -568,7 +532,7 @@ namespace SAMPLauncherNET
                         {
                             if (ipv4regex.IsMatch(ip.ToString()))
                             {
-                                string[] parts = ip.MapToIPv4().ToString().Trim().Split(new [] { '.' });
+                                string[] parts = ip.MapToIPv4().ToString().Trim().Split(new[] { '.' });
                                 uint n;
                                 if (parts.Length == 4)
                                 {
@@ -622,7 +586,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
         }
 
@@ -686,7 +650,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
@@ -771,7 +735,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
@@ -792,7 +756,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
@@ -877,7 +841,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
             return ret;
         }
@@ -933,7 +897,8 @@ namespace SAMPLauncherNET
                                                 {
                                                     int rc = reader.ReadInt16();
                                                     string k;
-                                                    rules.Clear();
+                                                    Dictionary<string, string> rules = new Dictionary<string, string>();
+                                                    Dictionary<string, string> old_rules = this.rules;
                                                     try
                                                     {
                                                         for (int i = 0; i < rc; i++)
@@ -944,9 +909,11 @@ namespace SAMPLauncherNET
                                                     }
                                                     catch (Exception e)
                                                     {
-                                                        Console.Error.WriteLine(e.Message);
+                                                        Console.Error.WriteLine(e);
                                                     }
                                                     requestsRequired[ERequestType.Rules] = false;
+                                                    this.rules = rules;
+                                                    old_rules.Clear();
                                                 }
                                                 break;
 
@@ -955,7 +922,8 @@ namespace SAMPLauncherNET
                                                 {
                                                     int pc = reader.ReadInt16();
                                                     string k;
-                                                    clients.Clear();
+                                                    Dictionary<string, int> clients = new Dictionary<string, int>();
+                                                    Dictionary<string, int> old_clients = this.clients;
                                                     try
                                                     {
                                                         for (int i = 0; i < pc; i++)
@@ -967,9 +935,11 @@ namespace SAMPLauncherNET
                                                     }
                                                     catch (Exception e)
                                                     {
-                                                        Console.Error.WriteLine(e.Message);
+                                                        Console.Error.WriteLine(e);
                                                     }
                                                     requestsRequired[ERequestType.Clients] = false;
+                                                    this.clients = clients;
+                                                    old_clients.Clear();
                                                 }
                                                 break;
 
@@ -981,7 +951,8 @@ namespace SAMPLauncherNET
                                                     int s;
                                                     uint p;
                                                     playerCount = reader.ReadUInt16();
-                                                    players.Clear();
+                                                    Dictionary<byte, Player> players = new Dictionary<byte, Player>();
+                                                    Dictionary<byte, Player> old_players = this.players;
                                                     try
                                                     {
                                                         for (ushort i = 0; i != playerCount; i++)
@@ -995,9 +966,11 @@ namespace SAMPLauncherNET
                                                     }
                                                     catch (Exception e)
                                                     {
-                                                        Console.Error.WriteLine(e.Message);
+                                                        Console.Error.WriteLine(e);
                                                     }
                                                     requestsRequired[ERequestType.DetailedClients] = false;
+                                                    this.players = players;
+                                                    old_players.Clear();
                                                 }
                                                 break;
                                         }
@@ -1010,7 +983,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
         }
 
@@ -1035,9 +1008,12 @@ namespace SAMPLauncherNET
         {
             string ret = "";
             SendQueryWhenRequired(ERequestType.Rules);
-            if (rules.ContainsKey(ruleName))
+            if (rules != null)
             {
-                ret = rules[ruleName];
+                if (rules.ContainsKey(ruleName))
+                {
+                    ret = rules[ruleName];
+                }
             }
             return ret;
         }
@@ -1051,9 +1027,12 @@ namespace SAMPLauncherNET
         {
             int ret = 0;
             SendQueryWhenRequired(ERequestType.Clients);
-            if (clients.ContainsKey(clientName))
+            if (clients != null)
             {
-                ret = clients[clientName];
+                if (clients.ContainsKey(clientName))
+                {
+                    ret = clients[clientName];
+                }
             }
             return ret;
         }
@@ -1067,9 +1046,12 @@ namespace SAMPLauncherNET
         {
             Player ret = null;
             SendQueryWhenRequired(ERequestType.DetailedClients);
-            if (players.ContainsKey(id))
+            if (players != null)
             {
-                ret = players[id];
+                if (players.ContainsKey(id))
+                {
+                    ret = players[id];
+                }
             }
             return ret;
         }

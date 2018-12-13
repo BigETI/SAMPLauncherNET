@@ -84,7 +84,7 @@ namespace SAMPLauncherNET
                                 }
                                 catch (Exception e)
                                 {
-                                    Console.Error.WriteLine(e.Message);
+                                    Console.Error.WriteLine(e);
                                 }
                             }
                             string upper_match = match.Value.ToUpper();
@@ -102,7 +102,7 @@ namespace SAMPLauncherNET
                             }
                             catch (Exception e)
                             {
-                                Console.Error.WriteLine(e.Message);
+                                Console.Error.WriteLine(e);
                             }
                         }
                         ret.Append(@"}\highlight2");
@@ -177,14 +177,14 @@ namespace SAMPLauncherNET
                                     }
                                     catch (Exception e)
                                     {
-                                        Console.Error.WriteLine(e.Message);
+                                        Console.Error.WriteLine(e);
                                     }
                                 }
                             }
                         }
                         catch (Exception e)
                         {
-                            Console.Error.WriteLine(e.Message);
+                            Console.Error.WriteLine(e);
                         }
                         if (formatType == EChatlogFormatType.HTML)
                         {
@@ -196,7 +196,7 @@ namespace SAMPLauncherNET
             catch (Exception e)
             {
                 ret.Clear();
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
             return ret.ToString();
         }

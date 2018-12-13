@@ -38,10 +38,22 @@ namespace SAMPLauncherNETUpdater.UI
         /// <summary>
         /// Close application
         /// </summary>
+        /// <param name="launchExe">Launch executable</param>
+        private static void CloseApp(bool launchExe)
+        {
+            if (launchExe)
+            {
+                Process.Start("SAMPLauncherNET.exe");
+            }
+            Application.Exit();
+        }
+
+        /// <summary>
+        /// Close application
+        /// </summary>
         private static void CloseApp()
         {
-            Process.Start("SAMPLauncherNET.exe");
-            Application.Exit();
+            CloseApp(true);
         }
 
         /// <summary>
@@ -51,16 +63,25 @@ namespace SAMPLauncherNETUpdater.UI
         /// <param name="e">Event arguments</param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            GitHubUpdateTask update = new GitHubUpdateTask("BigETI", "SAMPLauncherNET", @".*\.exe", RegexOptions.IgnoreCase);
-            update.DownloadProgressChanged += OnDownloadProgressChanged;
-            update.UpdateTaskFinished += OnUpdateTaskFinished;
-            if (update.IsUpdateAvailable)
+            try
             {
-                update.InstallUpdates();
+                GitHubUpdateTask update = new GitHubUpdateTask("BigETI", "SAMPLauncherNET", @".*\.exe", RegexOptions.IgnoreCase);
+                update.DownloadProgressChanged += OnDownloadProgressChanged;
+                update.UpdateTaskFinished += OnUpdateTaskFinished;
+                if (update.IsUpdateAvailable)
+                {
+                    update.InstallUpdates();
+                }
+                else
+                {
+                    CloseApp();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                CloseApp();
+                Console.Error.WriteLine(ex);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CloseApp(false);
             }
         }
 
@@ -71,9 +92,18 @@ namespace SAMPLauncherNETUpdater.UI
         /// <param name="e">Download progress changed event arguments</param>
         private void OnDownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            downloadProgressBar.Maximum = (int)(e.TotalBytesToReceive);
-            downloadProgressBar.Value = (int)(e.BytesReceived);
-            TaskbarProgress.SetValue(this, e.BytesReceived, e.TotalBytesToReceive);
+            try
+            {
+                downloadProgressBar.Maximum = (int)(e.TotalBytesToReceive);
+                downloadProgressBar.Value = (int)(e.BytesReceived);
+                TaskbarProgress.SetValue(this, e.BytesReceived, e.TotalBytesToReceive);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CloseApp(false);
+            }
         }
 
         /// <summary>
@@ -83,26 +113,51 @@ namespace SAMPLauncherNETUpdater.UI
         /// <param name="e">Update task finished event arguments</param>
         private void OnUpdateTaskFinished(object sender, UpdateTaskFinishedEventArgs e)
         {
-            if (e.IsError)
+            try
             {
-                MessageBox.Show(e.Error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                bool launch_exe = true;
+                if (e.IsError)
+                {
+                    launch_exe = false;
+                    MessageBox.Show(e.Error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (e.IsCanceled)
+                {
+                    launch_exe = false;
+                    MessageBox.Show("Update has been canceled!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                CloseApp(launch_exe);
             }
-            CloseApp();
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CloseApp(false);
+            }
         }
 
         /// <summary>
         /// Animation timer tick event
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void animationTimer_Tick(object sender, EventArgs e)
         {
-            animationState++;
-            if (animationState > 3U)
+            try
             {
-                animationState = 0U;
+                animationState++;
+                if (animationState > 3U)
+                {
+                    animationState = 0U;
+                }
+                progressLabel.Text = "Updating" + new string('.', (int)animationState);
             }
-            progressLabel.Text = "Updating" + new string('.', (int)animationState);
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CloseApp(false);
+            }
         }
 
         /// <summary>
@@ -112,12 +167,21 @@ namespace SAMPLauncherNETUpdater.UI
         /// <param name="e">Form closing event arguments</param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            bool cancel = false;
-            if (e.CloseReason == CloseReason.UserClosing)
+            try
             {
-                cancel = (MessageBox.Show("Do you really want to cancel the update?", "Cancel update", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
+                bool cancel = false;
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    cancel = (MessageBox.Show("Do you really want to cancel the update?", "Cancel update", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
+                }
+                e.Cancel = cancel;
             }
-            e.Cancel = cancel;
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CloseApp(false);
+            }
         }
     }
 }

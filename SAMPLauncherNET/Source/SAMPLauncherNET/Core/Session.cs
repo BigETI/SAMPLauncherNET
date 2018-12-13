@@ -187,7 +187,7 @@ namespace SAMPLauncherNET
                         }
                         catch (Exception e)
                         {
-                            Console.Error.WriteLine(e.Message);
+                            Console.Error.WriteLine(e);
                         }
                     }
                 }
@@ -226,7 +226,7 @@ namespace SAMPLauncherNET
                         }
                         catch (Exception e)
                         {
-                            Console.Error.WriteLine(e.Message);
+                            Console.Error.WriteLine(e);
                         }
                     }
                 }
@@ -273,7 +273,7 @@ namespace SAMPLauncherNET
                                             }
                                             catch (Exception e)
                                             {
-                                                Console.Error.WriteLine(e.Message);
+                                                Console.Error.WriteLine(e);
                                             }
                                         }
                                     }
@@ -283,7 +283,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
                 return screenshots;
@@ -396,7 +396,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
-                        Console.Error.WriteLine(e.Message);
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
@@ -437,7 +437,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
             return ret;
         }

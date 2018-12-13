@@ -88,6 +88,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
+                        Console.Error.WriteLine(e);
                         MessageBox.Show(e.Message, Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -107,6 +108,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
+                        Console.Error.WriteLine(e);
                         MessageBox.Show(e.Message, Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -187,6 +189,7 @@ namespace SAMPLauncherNET
                     }
                     catch (Exception e)
                     {
+                        Console.Error.WriteLine(e);
                         MessageBox.Show(e.Message, Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     if (ret)
@@ -205,6 +208,7 @@ namespace SAMPLauncherNET
                         catch (Exception e)
                         {
                             ret = false;
+                            Console.Error.WriteLine(e);
                             MessageBox.Show(e.Message, Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }

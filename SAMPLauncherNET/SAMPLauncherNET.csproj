@@ -166,6 +166,7 @@
     <Compile Include="Source\SAMPLauncherNET\Core\LauncherConfigDataContract.cs" />
     <Compile Include="Source\SAMPLauncherNET\Core\MediaState.cs" />
     <Compile Include="Source\SAMPLauncherNET\Core\OnFilterEventHandler.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\PingString.cs" />
     <Compile Include="Source\SAMPLauncherNET\Core\Player.cs" />
     <Compile Include="Source\SAMPLauncherNET\Core\PlayerCountString.cs" />
     <Compile Include="Source\SAMPLauncherNET\Core\PluginDataContract.cs" />
@@ -412,7 +413,7 @@
       <MergeAsm Include="$(OutputPath)ICSharpCode.SharpZipLib.dll" />
       <MergeAsm Include="$(OutputPath)INIEngine.dll" />
       <MergeAsm Include="$(OutputPath)MaterialSkin.dll" />
-	  <MergeAsm Include="$(OutputPath)Ude.dll" />
+      <MergeAsm Include="$(OutputPath)Ude.dll" />
       <MergeAsm Include="$(OutputPath)UpdaterNET.dll" />
       <MergeAsm Include="$(OutputPath)WinFormsTranslator.dll" />
     </ItemGroup>

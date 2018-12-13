@@ -233,7 +233,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                Console.Error.WriteLine(e);
             }
             savedPositionsTextBox.Text = SAMP.SavedPositions;
             ReloadVersions();
@@ -558,7 +558,7 @@ namespace SAMPLauncherNET
                         }
                         if (server.IsDataFetched(ERequestType.Ping))
                         {
-                            dgvr.Cells[1].Value = server.Ping;
+                            dgvr.Cells[1].Value = server.PingCached;
                         }
                         if (server.IsDataFetched(ERequestType.Information))
                         {
@@ -594,6 +594,7 @@ namespace SAMPLauncherNET
                     break;
                 }
                 playersDataTable.Clear();
+                playersGridView.Refresh();
                 try
                 {
                     int i = 0;
@@ -614,7 +615,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
                 if (cs)
                 {
@@ -628,6 +629,7 @@ namespace SAMPLauncherNET
                     break;
                 }
                 rulesDataTable.Clear();
+                rulesGridView.Refresh();
                 try
                 {
                     int i = 0;
@@ -648,7 +650,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
-                    Console.Error.WriteLine(e.Message);
+                    Console.Error.WriteLine(e);
                 }
                 if (cs)
                 {
@@ -755,7 +757,7 @@ namespace SAMPLauncherNET
                         }
                         catch (Exception e)
                         {
-                            Console.Error.WriteLine(e.Message);
+                            Console.Error.WriteLine(e);
                         }
                     }
                     else
@@ -779,6 +781,7 @@ namespace SAMPLauncherNET
             }
             catch (Exception e)
             {
+                Console.Error.WriteLine(e);
                 MessageBox.Show(e.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             EnterServersRow();
@@ -970,6 +973,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception e)
                 {
+                    Console.Error.WriteLine(e);
                     MessageBox.Show(e.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -1002,7 +1006,7 @@ namespace SAMPLauncherNET
                         }
                         catch (Exception e)
                         {
-                            Console.Error.WriteLine(e.Message);
+                            Console.Error.WriteLine(e);
                         }
                     }
                     galleryFileSystemWatcher.EnableRaisingEvents = true;
@@ -1461,6 +1465,7 @@ namespace SAMPLauncherNET
                                 }
                                 catch (Exception ex)
                                 {
+                                    Console.Error.WriteLine(ex);
                                     MessageBox.Show(ex.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 SessionsCache.Remove(session);
@@ -1478,7 +1483,7 @@ namespace SAMPLauncherNET
                 }
                 catch (Exception ex)
                 {
-                    Console.Error.WriteLine(ex.Message);
+                    Console.Error.WriteLine(ex);
                 }
             }
             List<ServerListConnector> apis = SAMP.APIIO;
@@ -1489,17 +1494,19 @@ namespace SAMPLauncherNET
                     DataRow dr = serversDataTable.NewRow();
                     object[] row = new object[9];
                     row[0] = kv.Value;
-                    if (kv.Key.IsDataFetched(ERequestType.Ping))
+                    /*if (kv.Key.IsDataFetched(ERequestType.Ping))
                     {
                         row[1] = kv.Key.Ping;
                     }
                     else
                     {
                         row[1] = 1000U;
-                    }
+                    }*/
+                    row[1] = new PingString(kv.Key.PingCached);
+
                     ushort player_count = 0;
                     ushort max_players = 0;
-                    if (kv.Key.IsDataFetched(ERequestType.Information))
+                    /*if (kv.Key.IsDataFetched(ERequestType.Information))
                     {
                         row[2] = kv.Key.Hostname;
                         player_count = kv.Key.PlayerCount;
@@ -1514,7 +1521,14 @@ namespace SAMPLauncherNET
                         row[3] = "0/0";
                         row[4] = "-";
                         row[5] = "-";
-                    }
+                    }*/
+                    row[2] = kv.Key.HostnameCached;
+                    player_count = kv.Key.PlayerCountCached;
+                    max_players = kv.Key.MaxPlayersCached;
+                    row[3] = new PlayerCountString(player_count, max_players);
+                    row[4] = kv.Key.GamemodeCached;
+                    row[5] = kv.Key.LanguageCached;
+
                     row[6] = kv.Key.IPPortString;
                     row[7] = (player_count <= 0);
                     row[8] = (player_count >= max_players);
