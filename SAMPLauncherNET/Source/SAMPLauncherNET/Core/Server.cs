@@ -633,32 +633,20 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
-        /// Send query when required
-        /// </summary>
-        /// <param name="requestType">Request type</param>
-        /// <returns>Success</returns>
-        private bool SendQueryWhenRequired(ERequestResponseType requestType)
-        {
-            bool ret = true;
-            if (requestsRequired[requestType])
-            {
-                ret = SendQuery(requestType);
-            }
-            return ret;
-        }
-
-        /// <summary>
         /// Send query when expired
         /// </summary>
         /// <param name="requestType">Request type</param>
         /// <param name="milliseconds">Milliseconds</param>
-        public void SendQueryWhenExpired(ERequestResponseType requestType, uint milliseconds)
+        /// <returns>"true" if attempted sending query, othewrwise "false"</returns>
+        public bool SendQueryWhenExpiredAsync(ERequestResponseType requestType, uint milliseconds)
         {
             uint t = (uint)(DateTime.Now.Subtract(requestsRequired.GetLastRequestTime(requestType)).TotalMilliseconds);
-            if (t >= milliseconds)
+            bool ret = (t >= milliseconds);
+            if (ret)
             {
                 SendQueryAsync(requestType);
             }
+            return ret;
         }
 
         /// <summary>

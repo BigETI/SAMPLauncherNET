@@ -4,17 +4,16 @@
 namespace SAMPLauncherNET
 {
     /// <summary>
-    /// Backend restful API server class
+    /// SA:MP servers API server class
     /// </summary>
-    public class SAMPAPIServer : Server
+    public class SAMPServersAPIServer : Server
     {
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="serverData">Server data</param>
-        public SAMPAPIServer(SAMPAPIServerDataContract serverData) : base(serverData.Host, false)
+        public SAMPServersAPIServer(SAMPServersAPIServerDataContract serverData) : base(serverData.Host, false)
         {
-            requestsRequired.Lock(ERequestResponseType.Information);
             if (serverData.Hostname.Trim().Length > 0)
             {
                 hostname = serverData.Hostname;
@@ -24,7 +23,8 @@ namespace SAMPLauncherNET
             maxPlayers = serverData.MaxPlayers;
             hasPassword = serverData.HasPassword;
             language = serverData.Language;
-            //FetchDataAsync(ERequestType.Ping);
+            FetchDataAsync(ERequestResponseType.Ping);
+            FetchDataAsync(ERequestResponseType.Information);
         }
     }
 }

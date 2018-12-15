@@ -19,7 +19,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Server list JSON serializer
         /// </summary>
-        private static DataContractJsonSerializer serverListJSONSerializer = new DataContractJsonSerializer(typeof(SAMPAPIServerDataContract[]));
+        private static DataContractJsonSerializer serverListJSONSerializer = new DataContractJsonSerializer(typeof(SAMPServersAPIServerDataContract[]));
 
         /// <summary>
         /// Favourites list JSON serializer
@@ -199,14 +199,15 @@ namespace SAMPLauncherNET
                                 wc.Headers.Set(HttpRequestHeader.ContentType, APIHTTPContentType);
                                 wc.Headers.Set(HttpRequestHeader.Accept, APIHTTPAccept);
                                 wc.Headers.Set(HttpRequestHeader.UserAgent, /* User agent of Firefox */ "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0" /*SAMPProvider.UserAgent*/);
+                                //wc.Headers.Set(HttpRequestHeader.UserAgent, SAMPProvider.UserAgent);
                                 using (MemoryStream stream = new MemoryStream(wc.DownloadData(Endpoint)))
                                 {
-                                    SAMPAPIServerDataContract[] servers = serverListJSONSerializer.ReadObject(stream) as SAMPAPIServerDataContract[];
+                                    SAMPServersAPIServerDataContract[] servers = serverListJSONSerializer.ReadObject(stream) as SAMPServersAPIServerDataContract[];
                                     if (servers != null)
                                     {
-                                        foreach (SAMPAPIServerDataContract sdc in servers)
+                                        foreach (SAMPServersAPIServerDataContract sdc in servers)
                                         {
-                                            SAMPAPIServer server = new SAMPAPIServer(sdc);
+                                            SAMPServersAPIServer server = new SAMPServersAPIServer(sdc);
                                             if (server.IsValid)
                                             {
                                                 if (!(ret.ContainsKey(server.IPPortString)))

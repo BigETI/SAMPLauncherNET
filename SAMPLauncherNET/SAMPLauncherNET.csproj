@@ -142,8 +142,8 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\SAMPLauncherNET\Core\APIDataContract.cs" />
-    <Compile Include="Source\SAMPLauncherNET\Core\SAMPAPIServer.cs" />
-    <Compile Include="Source\SAMPLauncherNET\Core\SAMPAPIServerDataContract.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\SAMPServersAPIServer.cs" />
+    <Compile Include="Source\SAMPLauncherNET\Core\SAMPServersAPIServerDataContract.cs" />
     <Compile Include="Source\SAMPLauncherNET\Core\ChatlogFormatter.cs" />
     <Compile Include="Source\SAMPLauncherNET\Core\DeveloperToolsConfigDataContract.cs" />
     <Compile Include="Source\SAMPLauncherNET\Core\EChatlogFormatType.cs" />

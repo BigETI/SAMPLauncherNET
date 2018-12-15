@@ -260,11 +260,12 @@ namespace SAMPLauncherNET
                 while (keepRunning)
                 {
                     List<ServerListEntry> server_list_entries = new List<ServerListEntry>();
+                    List<ServerListEntry> remove_server_list_entries = new List<ServerListEntry>();
                     lock (loadServers)
                     {
                         foreach (ServerListEntry server_list_entry in loadServers)
                         {
-                            if ((server_list_entry.Server is FavouriteServer) || (server_list_entry.Server is SAMPAPIServer))
+                            if (server_list_entry.Server is FavouriteServer)
                             {
                                 server_list_entries.Add(server_list_entry);
                             }
@@ -276,8 +277,14 @@ namespace SAMPLauncherNET
                                 }
                                 else
                                 {
-                                    server_list_entry.Server.SendQueryWhenExpired(ERequestResponseType.Ping, 5000U);
-                                    server_list_entry.Server.SendQueryWhenExpired(ERequestResponseType.Information, 5000U);
+                                    if (server_list_entry.Tries > 2U)
+                                    {
+                                        remove_server_list_entries.Add(server_list_entry);
+                                    }
+                                    else
+                                    {
+                                        server_list_entry.TrySendQuery();
+                                    }
                                 }
                             }
                         }
@@ -285,12 +292,18 @@ namespace SAMPLauncherNET
                         {
                             loadServers.Remove(server_list_entry);
                         }
+                        foreach (ServerListEntry server_list_entry in remove_server_list_entries)
+                        {
+                            loadServers.Remove(server_list_entry);
+                            server_list_entry.Dispose();
+                        }
                     }
                     lock (loadedServers)
                     {
                         loadedServers.AddRange(server_list_entries);
                     }
                     server_list_entries.Clear();
+                    remove_server_list_entries.Clear();
                     Thread.Sleep(50);
                 }
             });

@@ -201,30 +201,6 @@ namespace SAMPLauncherNET
                 if (ret == 0)
                 {
                     ret = string.Compare(other.name, name, StringComparison.InvariantCulture);
-                    /*if (ret == 0)
-                    {
-                        ret = string.Compare(other.internetTabURI, internetTabURI, StringComparison.InvariantCulture);
-                        if (ret == 0)
-                        {
-                            ret = string.Compare(other.hostedTabURI, hostedTabURI, StringComparison.InvariantCulture);
-                            if (ret == 0)
-                            {
-                                ret = string.Compare(other.userAgent, userAgent, StringComparison.InvariantCulture);
-                                if (ret == 0)
-                                {
-                                    ret = string.Compare(other.zipURI, zipURI, StringComparison.InvariantCulture);
-                                    if (ret == 0)
-                                    {
-                                        ret = string.Compare(other.installationURI, installationURI, StringComparison.InvariantCulture);
-                                        if (ret == 0)
-                                        {
-                                            ret = string.Compare(other.sampDLLSHA512, sampDLLSHA512, StringComparison.InvariantCulture);
-                                        }
-                                    }
-                                }
-                            }
-                }
-                }*/
                 }
             }
             return ret;

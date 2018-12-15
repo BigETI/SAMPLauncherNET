@@ -21,6 +21,11 @@ namespace SAMPLauncherNET
         private readonly int serverListIndex;
 
         /// <summary>
+        /// Tries
+        /// </summary>
+        private uint tries;
+
+        /// <summary>
         /// Server
         /// </summary>
         public Server Server { get => server; }
@@ -31,6 +36,11 @@ namespace SAMPLauncherNET
         public int ServerListIndex { get => serverListIndex; }
 
         /// <summary>
+        /// Tries
+        /// </summary>
+        public uint Tries { get => tries; }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="server">Server</param>
@@ -39,6 +49,29 @@ namespace SAMPLauncherNET
         {
             this.server = server;
             this.serverListIndex = serverListIndex;
+        }
+
+        /// <summary>
+        /// Try send query
+        /// </summary>
+        public void TrySendQuery()
+        {
+            if (server != null)
+            {
+                bool tried = false;
+                if (server.SendQueryWhenExpiredAsync(ERequestResponseType.Ping, 5000U))
+                {
+                    tried = true;
+                }
+                if (server.SendQueryWhenExpiredAsync(ERequestResponseType.Information, 5000U))
+                {
+                    tried = true;
+                }
+                if (tried)
+                {
+                    ++tries;
+                }
+            }
         }
 
         /// <summary>
