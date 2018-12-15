@@ -4,9 +4,9 @@
 namespace SAMPLauncherNET
 {
     /// <summary>
-    /// Request type enumerator
+    /// Request or response type enumerator
     /// </summary>
-    public enum ERequestType
+    public enum ERequestResponseType
     {
         /// <summary>
         /// Ping
@@ -31,11 +31,6 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Detailed clients
         /// </summary>
-        DetailedClients,
-
-        /// <summary>
-        /// Number of items in this enumerator
-        /// </summary>
-        NumOfItems
+        DetailedClients
     }
 }

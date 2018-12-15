@@ -32,17 +32,22 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Load servers
         /// </summary>
-        private readonly List<KeyValuePair<Server, int>> loadServers = new List<KeyValuePair<Server, int>>();
+        private readonly List<ServerListEntry> loadServers = new List<ServerListEntry>();
 
         /// <summary>
         /// Loaded servers
         /// </summary>
-        private readonly List<KeyValuePair<Server, int>> loadedServers = new List<KeyValuePair<Server, int>>();
+        private readonly List<ServerListEntry> loadedServers = new List<ServerListEntry>();
 
         /// <summary>
         /// Registered servers
         /// </summary>
         private readonly Dictionary<string, Server> registeredServers = new Dictionary<string, Server>();
+
+        /// <summary>
+        /// Update server list entries
+        /// </summary>
+        private Dictionary<Server, HashSet<ERequestResponseType>> updateServerListEntries = new Dictionary<Server, HashSet<ERequestResponseType>>();
 
         /// <summary>
         /// Servers thread
@@ -108,6 +113,13 @@ namespace SAMPLauncherNET
         /// Last media state
         /// </summary>
         private MediaState lastMediaState;
+
+        /// <summary>
+        /// Keep running
+        /// </summary>
+        private bool keepRunning = true;
+
+        //private Dictionary<>
 
         /// <summary>
         /// Selected browser
@@ -245,40 +257,41 @@ namespace SAMPLauncherNET
             FixFilterControls();
             serversThread = new Thread(() =>
             {
-                while (true)
+                while (keepRunning)
                 {
-                    List<KeyValuePair<Server, int>> rlist = new List<KeyValuePair<Server, int>>();
+                    List<ServerListEntry> server_list_entries = new List<ServerListEntry>();
                     lock (loadServers)
                     {
-                        foreach (KeyValuePair<Server, int> kv in loadServers)
+                        foreach (ServerListEntry server_list_entry in loadServers)
                         {
-                            if ((kv.Key is FavouriteServer) || (kv.Key is BackendRESTfulServer))
+                            if ((server_list_entry.Server is FavouriteServer) || (server_list_entry.Server is SAMPAPIServer))
                             {
-                                rlist.Add(kv);
+                                server_list_entries.Add(server_list_entry);
                             }
                             else
                             {
-                                if (kv.Key.IsDataFetched(ERequestType.Ping) || kv.Key.IsDataFetched(ERequestType.Information))
+                                if (server_list_entry.Server.IsDataFetched(ERequestResponseType.Ping) || server_list_entry.Server.IsDataFetched(ERequestResponseType.Information))
                                 {
-                                    rlist.Add(kv);
+                                    server_list_entries.Add(server_list_entry);
                                 }
                                 else
                                 {
-                                    kv.Key.SendQueryWhenExpired(ERequestType.Ping, 5000U);
-                                    kv.Key.SendQueryWhenExpired(ERequestType.Information, 5000U);
+                                    server_list_entry.Server.SendQueryWhenExpired(ERequestResponseType.Ping, 5000U);
+                                    server_list_entry.Server.SendQueryWhenExpired(ERequestResponseType.Information, 5000U);
                                 }
                             }
                         }
-                        foreach (KeyValuePair<Server, int> kv in rlist)
+                        foreach (ServerListEntry server_list_entry in server_list_entries)
                         {
-                            loadServers.Remove(kv);
+                            loadServers.Remove(server_list_entry);
                         }
                     }
                     lock (loadedServers)
                     {
-                        loadedServers.AddRange(rlist);
+                        loadedServers.AddRange(server_list_entries);
                     }
-                    rlist.Clear();
+                    server_list_entries.Clear();
+                    Thread.Sleep(50);
                 }
             });
             serversThread.Start();
@@ -355,10 +368,18 @@ namespace SAMPLauncherNET
             apiDataTable.Clear();
             lock (loadServers)
             {
+                foreach (ServerListEntry server_list_entry in loadServers)
+                {
+                    server_list_entry.Dispose();
+                }
                 loadServers.Clear();
             }
             lock (loadedServers)
             {
+                foreach (ServerListEntry server_list_entry in loadedServers)
+                {
+                    server_list_entry.Dispose();
+                }
                 loadedServers.Clear();
             }
             lock (registeredServers)
@@ -424,7 +445,7 @@ namespace SAMPLauncherNET
                                 Dictionary<string, Server> l = slc.ServerListIO;
                                 foreach (Server server in l.Values)
                                 {
-                                    loadServers.Add(new KeyValuePair<Server, int>(server, index));
+                                    loadServers.Add(new ServerListEntry(server, index));
                                 }
                             }
                         });
@@ -524,10 +545,7 @@ namespace SAMPLauncherNET
             Server server = SelectedServer;
             if (server != null)
             {
-                if (server.IsDataFetched(ERequestType.Ping) && server.IsDataFetched(ERequestType.Information) && server.IsDataFetched(ERequestType.Rules) && server.IsDataFetched(ERequestType.Clients))
-                {
-                    ReloadSelectedServerRow();
-                }
+                ReloadSelectedServerRow();
                 serversRowThread = new Thread(() => RequestServerInfo(server));
                 serversRowThread.Start();
                 ret = true;
@@ -540,38 +558,48 @@ namespace SAMPLauncherNET
         /// </summary>
         private void ReloadSelectedServerRow()
         {
+            // TODO
             foreach (DataGridViewRow dgvr in serversGridView.SelectedRows)
             {
-                if (dgvr.Cells[dgvr.Cells.Count - 3].Value != null)
+                object ip_port_object = dgvr.Cells[dgvr.Cells.Count - 3].Value;
+                if (ip_port_object != null)
                 {
-                    string ipp = dgvr.Cells[dgvr.Cells.Count - 3].Value.ToString();
-                    if (registeredServers.ContainsKey(ipp))
+                    string ip_port = ip_port_object.ToString();
+                    if (registeredServers.ContainsKey(ip_port))
                     {
-                        Server server = registeredServers[ipp];
-                        DateTime timestamp = DateTime.Now;
-                        while ((!server.IsDataFetched(ERequestType.Ping)) && (!server.IsDataFetched(ERequestType.Information)))
+                        Server server = registeredServers[ip_port];
+                        if (server != null)
                         {
-                            if (DateTime.Now.Subtract(timestamp).TotalMilliseconds >= 1000)
+                            DataRow[] data_rows = serversDataTable.Select("`IP and port`='" + ip_port + "'");
+                            if (data_rows != null)
                             {
-                                break;
+                                foreach (DataRow data_row in data_rows)
+                                {
+                                    if (data_row != null)
+                                    {
+                                        data_row.BeginEdit();
+                                        object[] row = data_row.ItemArray;
+                                        if (server.IsDataFetched(ERequestResponseType.Ping))
+                                        {
+                                            row[1] = new PingString(server.Ping);
+                                        }
+                                        if (server.IsDataFetched(ERequestResponseType.Information))
+                                        {
+                                            row[2] = server.Hostname;
+                                            uint player_count = server.PlayerCount;
+                                            uint max_players = server.MaxPlayers;
+                                            row[3] = new PlayerCountString(player_count, max_players);
+                                            row[4] = server.Gamemode;
+                                            row[5] = server.Language;
+                                            row[7] = (player_count == 0U);
+                                            row[8] = (player_count >= max_players);
+                                        }
+                                        data_row.EndEdit();
+                                    }
+                                }
+                                ReloadServerInfo();
                             }
                         }
-                        if (server.IsDataFetched(ERequestType.Ping))
-                        {
-                            dgvr.Cells[1].Value = server.PingCached;
-                        }
-                        if (server.IsDataFetched(ERequestType.Information))
-                        {
-                            dgvr.Cells[2].Value = server.HostnameCached;
-                            ushort player_count = server.PlayerCountCached;
-                            ushort max_players = server.MaxPlayersCached;
-                            dgvr.Cells[3].Value = new PlayerCountString(player_count, max_players);
-                            dgvr.Cells[4].Value = server.GamemodeCached;
-                            dgvr.Cells[5].Value = server.LanguageCached;
-                            dgvr.Cells[7].Value = (player_count <= 0);
-                            dgvr.Cells[8].Value = (player_count >= max_players);
-                        }
-                        ReloadServerInfo();
                     }
                 }
                 break;
@@ -666,20 +694,23 @@ namespace SAMPLauncherNET
         private void RequestServerInfo(Server server)
         {
             uint count = 0U;
-            while (true)
+            while (keepRunning)
             {
                 if ((count % 4U) == 0U)
                 {
-                    server.FetchMultiData(new ERequestType[] { ERequestType.Ping, ERequestType.Information, ERequestType.Clients, ERequestType.Rules });
-                    serversRowThreadSuccess = (server.IsDataFetched(ERequestType.Ping) || server.IsDataFetched(ERequestType.Information) || server.IsDataFetched(ERequestType.Clients) || server.IsDataFetched(ERequestType.Rules));
+                    server.FetchMultiData(new ERequestResponseType[] { ERequestResponseType.Ping, ERequestResponseType.Information, ERequestResponseType.Clients, ERequestResponseType.Rules });
+                    serversRowThreadSuccess = (server.IsDataFetched(ERequestResponseType.Ping) || server.IsDataFetched(ERequestResponseType.Information) || server.IsDataFetched(ERequestResponseType.Clients) || server.IsDataFetched(ERequestResponseType.Rules));
                     count = 0U;
                 }
                 else
                 {
-                    server.FetchData(ERequestType.Ping);
+                    server.FetchData(ERequestResponseType.Ping);
                 }
                 ++count;
-                Thread.Sleep(1000);
+                if (keepRunning)
+                {
+                    Thread.Sleep(1000);
+                }
             }
         }
 
@@ -715,13 +746,13 @@ namespace SAMPLauncherNET
                                 switch (filter.Field)
                                 {
                                     case "Hostname":
-                                        match_str = server.HostnameCached;
+                                        match_str = server.Hostname;
                                         break;
                                     case "Mode":
-                                        match_str = server.GamemodeCached;
+                                        match_str = server.Gamemode;
                                         break;
                                     case "Language":
-                                        match_str = server.LanguageCached;
+                                        match_str = server.Language;
                                         break;
                                     case "IP and port":
                                         match_str = server.IPPortString;
@@ -803,7 +834,7 @@ namespace SAMPLauncherNET
             {
                 foreach (Server server in servers.Values)
                 {
-                    loadServers.Add(new KeyValuePair<Server, int>(server, index));
+                    loadServers.Add(new ServerListEntry(server, index));
                 }
             }
         }
@@ -1489,55 +1520,45 @@ namespace SAMPLauncherNET
             List<ServerListConnector> apis = SAMP.APIIO;
             lock (loadedServers)
             {
-                foreach (KeyValuePair<Server, int> kv in loadedServers)
+                foreach (ServerListEntry server_list_entry in loadedServers)
                 {
                     DataRow dr = serversDataTable.NewRow();
                     object[] row = new object[9];
-                    row[0] = kv.Value;
-                    /*if (kv.Key.IsDataFetched(ERequestType.Ping))
-                    {
-                        row[1] = kv.Key.Ping;
-                    }
-                    else
-                    {
-                        row[1] = 1000U;
-                    }*/
-                    row[1] = new PingString(kv.Key.PingCached);
-
-                    ushort player_count = 0;
-                    ushort max_players = 0;
-                    /*if (kv.Key.IsDataFetched(ERequestType.Information))
-                    {
-                        row[2] = kv.Key.Hostname;
-                        player_count = kv.Key.PlayerCount;
-                        max_players = kv.Key.MaxPlayers;
-                        row[3] = new PlayerCountString(player_count, max_players);
-                        row[4] = kv.Key.Gamemode;
-                        row[5] = kv.Key.Language;
-                    }
-                    else
-                    {
-                        row[2] = "-";
-                        row[3] = "0/0";
-                        row[4] = "-";
-                        row[5] = "-";
-                    }*/
-                    row[2] = kv.Key.HostnameCached;
-                    player_count = kv.Key.PlayerCountCached;
-                    max_players = kv.Key.MaxPlayersCached;
+                    ushort player_count = server_list_entry.Server.PlayerCount;
+                    ushort max_players = server_list_entry.Server.MaxPlayers;
+                    row[0] = server_list_entry.ServerListIndex;
+                    row[1] = new PingString(server_list_entry.Server.Ping);
+                    row[2] = server_list_entry.Server.Hostname;
                     row[3] = new PlayerCountString(player_count, max_players);
-                    row[4] = kv.Key.GamemodeCached;
-                    row[5] = kv.Key.LanguageCached;
-
-                    row[6] = kv.Key.IPPortString;
+                    row[4] = server_list_entry.Server.Gamemode;
+                    row[5] = server_list_entry.Server.Language;
+                    row[6] = server_list_entry.Server.IPPortString;
                     row[7] = (player_count <= 0);
                     row[8] = (player_count >= max_players);
                     dr.ItemArray = row;
                     serversDataTable.Rows.Add(dr);
-                    if (!(registeredServers.ContainsKey(kv.Key.IPPortString)))
+                    if (!(registeredServers.ContainsKey(server_list_entry.Server.IPPortString)))
                     {
-                        registeredServers.Add(kv.Key.IPPortString, kv.Key);
+                        registeredServers.Add(server_list_entry.Server.IPPortString, server_list_entry.Server);
                     }
+                    server_list_entry.Server.OnResponse += (server, response) =>
+                    {
+                        lock (updateServerListEntries)
+                        {
+                            string ip_port = server.IPPortString;
+                            HashSet<ERequestResponseType> responses = null;
+                            if (updateServerListEntries.ContainsKey(server))
+                            {
+                                responses = updateServerListEntries[server];
+                            }
+                            else
+                            {
+                                responses = new HashSet<ERequestResponseType>();
+                                updateServerListEntries.Add(server, responses);
+                            }
+                            responses.Add(response);
+                        }
+                    };
                     if (queryFirstServer)
                     {
                         queryFirstServer = !(EnterServersRow());
@@ -1546,9 +1567,9 @@ namespace SAMPLauncherNET
                             HideLoadingForm();
                         }
                     }
-                    if ((kv.Value >= 0) && (kv.Value < apis.Count))
+                    if ((server_list_entry.ServerListIndex >= 0) && (server_list_entry.ServerListIndex < apis.Count))
                     {
-                        ++apis[kv.Value].ServerCount;
+                        ++apis[server_list_entry.ServerListIndex].ServerCount;
                     }
                 }
                 if (loadedServers.Count <= 0)
@@ -1591,6 +1612,48 @@ namespace SAMPLauncherNET
                 }
                 loadedSessions.Clear();
             }
+            lock (updateServerListEntries)
+            {
+                foreach (KeyValuePair<Server, HashSet<ERequestResponseType>> kv in updateServerListEntries)
+                {
+                    DataRow[] data_rows = serversDataTable.Select("`IP and port`='" + kv.Key + "'");
+                    if (data_rows != null)
+                    {
+                        foreach (DataRow data_row in data_rows)
+                        {
+                            if (data_row != null)
+                            {
+                                data_row.BeginEdit();
+                                object[] row_data = data_row.ItemArray;
+                                foreach (ERequestResponseType response in kv.Value)
+                                {
+                                    switch (response)
+                                    {
+                                        case ERequestResponseType.Ping:
+                                            row_data[1] = new PingString(kv.Key.Ping);
+                                            break;
+                                        case ERequestResponseType.Information:
+                                            {
+                                                uint player_count = kv.Key.PlayerCount;
+                                                uint max_players = kv.Key.MaxPlayers;
+                                                row_data[2] = kv.Key.Hostname;
+                                                row_data[3] = new PlayerCountString(player_count, kv.Key.MaxPlayers);
+                                                row_data[4] = kv.Key.Gamemode;
+                                                row_data[5] = kv.Key.Language;
+                                                row_data[7] = (player_count <= 0);
+                                                row_data[8] = (player_count >= max_players);
+                                            }
+                                            break;
+                                    }
+                                }
+                                data_row.EndEdit();
+                                kv.Value.Clear();
+                            }
+                        }
+                    }
+                }
+                updateServerListEntries.Clear();
+            }
         }
 
         /// <summary>
@@ -1627,19 +1690,20 @@ namespace SAMPLauncherNET
             LauncherConfigDataContract lcdc = new LauncherConfigDataContract((lang_index >= 0) ? (new List<Language>(Translator.TranslatorInterface.Languages))[lang_index].Culture : "en-GB", selectedAPIIndex, developmentDirectorySingleLineTextField.Text, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked, !(showUsernameDialogCheckBox.Checked), !(closeWhenLaunchedCheckBox.Checked), createSessionsLogCheckBox.Checked);
             SAMP.LauncherConfigIO = lcdc;
             SaveDeveloperToolsConfig();
+            keepRunning = false;
             lock (loadServers)
             {
-                foreach (KeyValuePair<Server, int> kv in loadServers)
+                foreach (ServerListEntry server_list_entry in loadServers)
                 {
-                    kv.Key.Dispose();
+                    server_list_entry.Dispose();
                 }
                 loadServers.Clear();
             }
             lock (loadedServers)
             {
-                foreach (KeyValuePair<Server, int> kv in loadedServers)
+                foreach (ServerListEntry server_list_entry in loadedServers)
                 {
-                    kv.Key.Dispose();
+                    server_list_entry.Dispose();
                 }
                 loadedServers.Clear();
             }
@@ -1649,12 +1713,12 @@ namespace SAMPLauncherNET
             }
             if (serversThread != null)
             {
-                serversThread.Abort();
+                serversThread.Join();
                 serversThread = null;
             }
             if (serversRowThread != null)
             {
-                serversRowThread.Abort();
+                serversRowThread.Join();
                 serversRowThread = null;
             }
             if (galleryThread != null)
@@ -2046,7 +2110,7 @@ namespace SAMPLauncherNET
                         }
                         else
                         {
-                            servers.Add(server.IPPortString, server.ToFavouriteServer(server.Hostname, server.Gamemode, "", ""));
+                            servers.Add(server.IPPortString, server.ToFavouriteServer("", ""));
                             slc.ServerListIO = servers;
                             ReloadFavourites(servers, islc.Index);
                         }

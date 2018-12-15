@@ -6,10 +6,10 @@
 namespace SAMPLauncherNET
 {
     /// <summary>
-    /// Server data contract class
+    /// SA:MP API server data contract class
     /// </summary>
     [DataContract]
-    public class BackendRESTfulServerDataContract
+    public class SAMPAPIServerDataContract
     {
         /// <summary>
         /// Host

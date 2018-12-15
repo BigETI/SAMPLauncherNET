@@ -851,6 +851,7 @@
             // hostnameDataColumn
             // 
             this.hostnameDataColumn.ColumnName = "Ping";
+            this.hostnameDataColumn.DataType = typeof(object);
             this.hostnameDataColumn.DefaultValue = "-";
             // 
             // playersDataColumn

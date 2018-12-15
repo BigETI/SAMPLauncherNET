@@ -19,7 +19,7 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Server list JSON serializer
         /// </summary>
-        private static DataContractJsonSerializer serverListJSONSerializer = new DataContractJsonSerializer(typeof(BackendRESTfulServerDataContract[]));
+        private static DataContractJsonSerializer serverListJSONSerializer = new DataContractJsonSerializer(typeof(SAMPAPIServerDataContract[]));
 
         /// <summary>
         /// Favourites list JSON serializer
@@ -201,12 +201,12 @@ namespace SAMPLauncherNET
                                 wc.Headers.Set(HttpRequestHeader.UserAgent, /* User agent of Firefox */ "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0" /*SAMPProvider.UserAgent*/);
                                 using (MemoryStream stream = new MemoryStream(wc.DownloadData(Endpoint)))
                                 {
-                                    BackendRESTfulServerDataContract[] servers = serverListJSONSerializer.ReadObject(stream) as BackendRESTfulServerDataContract[];
+                                    SAMPAPIServerDataContract[] servers = serverListJSONSerializer.ReadObject(stream) as SAMPAPIServerDataContract[];
                                     if (servers != null)
                                     {
-                                        foreach (BackendRESTfulServerDataContract sdc in servers)
+                                        foreach (SAMPAPIServerDataContract sdc in servers)
                                         {
-                                            BackendRESTfulServer server = new BackendRESTfulServer(sdc);
+                                            SAMPAPIServer server = new SAMPAPIServer(sdc);
                                             if (server.IsValid)
                                             {
                                                 if (!(ret.ContainsKey(server.IPPortString)))

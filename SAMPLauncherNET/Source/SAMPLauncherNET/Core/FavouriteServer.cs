@@ -61,8 +61,8 @@ namespace SAMPLauncherNET
             gamemode = cachedGamemode;
             this.serverPassword = serverPassword;
             this.rconPassword = rconPassword;
-            FetchDataAsync(ERequestType.Ping);
-            FetchDataAsync(ERequestType.Information);
+            FetchDataAsync(ERequestResponseType.Ping);
+            FetchDataAsync(ERequestResponseType.Information);
         }
         
         /// <summary>
@@ -78,8 +78,8 @@ namespace SAMPLauncherNET
             }
             serverPassword = "";
             rconPassword = "";
-            FetchDataAsync(ERequestType.Ping);
-            FetchDataAsync(ERequestType.Information);
+            FetchDataAsync(ERequestResponseType.Ping);
+            FetchDataAsync(ERequestResponseType.Information);
         }
     }
 }

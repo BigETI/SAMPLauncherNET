@@ -11,6 +11,11 @@ namespace SAMPLauncherNET
     public class RequestsRequired
     {
         /// <summary>
+        /// Request type count
+        /// </summary>
+        private static readonly int requestTypeCount = Enum.GetValues(typeof(ERequestResponseType)).Length;
+
+        /// <summary>
         /// Values
         /// </summary>
         private readonly bool[] values;
@@ -35,7 +40,7 @@ namespace SAMPLauncherNET
         /// </summary>
         /// <param name="requestType">Request type</param>
         /// <returns>Request required</returns>
-        public bool this[ERequestType requestType]
+        public bool this[ERequestResponseType requestType]
         {
             get
             {
@@ -55,7 +60,7 @@ namespace SAMPLauncherNET
         /// </summary>
         /// <param name="requestType">Request type</param>
         /// <returns>Operation code</returns>
-        public static char GetOpCode(ERequestType requestType)
+        public static char GetOpCode(ERequestResponseType requestType)
         {
             return opCodes[(int)requestType];
         }
@@ -68,7 +73,7 @@ namespace SAMPLauncherNET
         {
             int i;
             DateTime now = DateTime.Now;
-            values = new bool[(int)(ERequestType.NumOfItems)];
+            values = new bool[requestTypeCount];
             lastRequestTime = new DateTime[values.Length];
             available = new bool[values.Length];
             for (i = 0; i < values.Length; i++)
@@ -84,7 +89,7 @@ namespace SAMPLauncherNET
         /// </summary>
         /// <param name="requestType">Request type</param>
         /// <returns>Last request time</returns>
-        public DateTime GetLastRequestTime(ERequestType requestType)
+        public DateTime GetLastRequestTime(ERequestResponseType requestType)
         {
             return lastRequestTime[(int)requestType];
         }
@@ -93,7 +98,7 @@ namespace SAMPLauncherNET
         /// Set last request time
         /// </summary>
         /// <param name="requestType">Request type</param>
-        public void SetLastRequestTime(ERequestType requestType)
+        public void SetLastRequestTime(ERequestResponseType requestType)
         {
             lastRequestTime[(int)requestType] = DateTime.Now;
         }
@@ -102,7 +107,7 @@ namespace SAMPLauncherNET
         /// Lock
         /// </summary>
         /// <param name="requestType">Request type</param>
-        public void Lock(ERequestType requestType)
+        public void Lock(ERequestResponseType requestType)
         {
             available[(int)requestType] = false;
             values[(int)requestType] = false;

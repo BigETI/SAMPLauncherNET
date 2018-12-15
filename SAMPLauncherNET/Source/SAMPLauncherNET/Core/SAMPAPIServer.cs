@@ -6,15 +6,15 @@ namespace SAMPLauncherNET
     /// <summary>
     /// Backend restful API server class
     /// </summary>
-    public class BackendRESTfulServer : Server
+    public class SAMPAPIServer : Server
     {
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="serverData">Server data</param>
-        public BackendRESTfulServer(BackendRESTfulServerDataContract serverData) : base(serverData.Host, false)
+        public SAMPAPIServer(SAMPAPIServerDataContract serverData) : base(serverData.Host, false)
         {
-            requestsRequired.Lock(ERequestType.Information);
+            requestsRequired.Lock(ERequestResponseType.Information);
             if (serverData.Hostname.Trim().Length > 0)
             {
                 hostname = serverData.Hostname;

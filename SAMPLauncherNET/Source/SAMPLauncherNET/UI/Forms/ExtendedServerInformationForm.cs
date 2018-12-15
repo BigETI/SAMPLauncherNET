@@ -118,12 +118,12 @@ namespace SAMPLauncherNET
             {
                 while (true)
                 {
-                    server.FetchData(ERequestType.Ping);
-                    if (server.IsDataFetched(ERequestType.Ping))
+                    server.FetchData(ERequestResponseType.Ping);
+                    if (server.IsDataFetched(ERequestResponseType.Ping))
                     {
                         lock (pingList)
                         {
-                            pingList.Add(server.PingCached);
+                            pingList.Add(server.Ping);
                             while (pingList.Count > PingCountLimit)
                             {
                                 pingList.RemoveAt(0);
@@ -138,22 +138,22 @@ namespace SAMPLauncherNET
             {
                 while (true)
                 {
-                    server.FetchData(ERequestType.Information);
-                    if (server.IsDataFetched(ERequestType.Information))
+                    server.FetchData(ERequestResponseType.Information);
+                    if (server.IsDataFetched(ERequestResponseType.Information))
                     {
                         lock (hostname)
                         {
-                            hostname = server.HostnameCached;
-                            playerCount = server.PlayerCountCached;
-                            maxPlayers = server.MaxPlayersCached;
+                            hostname = server.Hostname;
+                            playerCount = server.PlayerCount;
+                            maxPlayers = server.MaxPlayers;
                         }
                         lock (gamemode)
                         {
-                            gamemode = server.GamemodeCached;
+                            gamemode = server.Gamemode;
                         }
                         lock (language)
                         {
-                            language = server.LanguageCached;
+                            language = server.Language;
                         }
                     }
                     Thread.Sleep(2000);
@@ -164,8 +164,8 @@ namespace SAMPLauncherNET
             {
                 while (true)
                 {
-                    server.FetchData(ERequestType.DetailedClients);
-                    if (server.IsDataFetched(ERequestType.DetailedClients))
+                    server.FetchData(ERequestResponseType.DetailedClients);
+                    if (server.IsDataFetched(ERequestResponseType.DetailedClients))
                     {
                         lock (players)
                         {
@@ -181,8 +181,8 @@ namespace SAMPLauncherNET
             {
                 while (true)
                 {
-                    server.FetchData(ERequestType.Rules);
-                    if (server.IsDataFetched(ERequestType.Rules))
+                    server.FetchData(ERequestResponseType.Rules);
+                    if (server.IsDataFetched(ERequestResponseType.Rules))
                     {
                         lock (rules)
                         {

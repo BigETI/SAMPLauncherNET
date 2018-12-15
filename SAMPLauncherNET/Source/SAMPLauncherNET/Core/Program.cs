@@ -173,29 +173,29 @@ namespace SAMPLauncherNET
             else
             {
 #endif
-                try
+            try
+            {
+                Translator.TranslatorInterface = new TranslatorInterface();
+                if (IsSAMPInstalled)
                 {
-                    Translator.TranslatorInterface = new TranslatorInterface();
-                    if (IsSAMPInstalled)
+                    if (!Directory.Exists(ConfigPath + "\\screens"))
                     {
-                        if (!Directory.Exists(ConfigPath + "\\screens"))
-                        {
-                            Directory.CreateDirectory(ConfigPath + "\\screens");
-                        }
-                        Application.EnableVisualStyles();
-                        Application.SetCompatibleTextRenderingDefault(false);
-                        Application.Run(new MainForm());
+                        Directory.CreateDirectory(ConfigPath + "\\screens");
                     }
-                    else
-                    {
-                        LaunchLatestSAMPInstaller();
-                    }
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new MainForm());
                 }
-                catch (Exception e)
+                else
                 {
-                    Console.Error.WriteLine(e);
-                    MessageBox.Show("A fatal error has occured:\r\n\r\n" + e.Message, "Fatal error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LaunchLatestSAMPInstaller();
                 }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e);
+                MessageBox.Show("A fatal error has occured:\r\n\r\n" + e.Message, "Fatal error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 #if !DEBUG
             }
             if (installerPath != null)

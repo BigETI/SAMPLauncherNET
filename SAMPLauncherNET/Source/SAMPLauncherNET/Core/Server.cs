@@ -15,7 +15,7 @@ namespace SAMPLauncherNET
     /// <summary>
     /// Server class
     /// </summary>
-    public class Server : IDisposable
+    public class Server : IComparable, IComparable<Server>, IDisposable
     {
         /// <summary>
         /// IPv4 regular expression
@@ -65,12 +65,12 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Player count
         /// </summary>
-        protected ushort playerCount = ushort.MaxValue;
+        protected ushort playerCount;
 
         /// <summary>
         /// Maximal players
         /// </summary>
-        protected ushort maxPlayers = ushort.MaxValue;
+        protected ushort maxPlayers;
 
         /// <summary>
         /// Hostname
@@ -80,27 +80,27 @@ namespace SAMPLauncherNET
         /// <summary>
         /// Gamemode
         /// </summary>
-        protected string gamemode;
+        protected string gamemode = "";
 
         /// <summary>
         /// Language
         /// </summary>
-        protected string language;
+        protected string language = "";
 
         /// <summary>
         /// Rules
         /// </summary>
-        private Dictionary<string, string> rules;
+        private Dictionary<string, string> rules = new Dictionary<string, string>();
 
         /// <summary>
         /// Clients
         /// </summary>
-        private Dictionary<string, int> clients;
+        private Dictionary<string, int> clients = new Dictionary<string, int>();
 
         /// <summary>
         /// Players
         /// </summary>
-        private Dictionary<byte, Player> players;
+        private Dictionary<byte, Player> players = new Dictionary<byte, Player>();
 
         /// <summary>
         /// Random numbers
@@ -116,6 +116,11 @@ namespace SAMPLauncherNET
         /// Threads
         /// </summary>
         private Thread[] threads = new Thread[5];
+
+        /// <summary>
+        /// On server response
+        /// </summary>
+        public event ServerResponseDelegate OnResponse;
 
         /// <summary>
         /// IPv4 address
@@ -199,7 +204,6 @@ namespace SAMPLauncherNET
         {
             get
             {
-                SendQueryWhenExpired(ERequestType.Information, 5000U);
                 return hasPassword;
             }
         }
@@ -211,26 +215,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                if (playerCount == ushort.MaxValue)
-                {
-                    SendQueryWhenRequired(ERequestType.Information);
-                }
-                else
-                {
-                    SendQueryWhenExpired(ERequestType.Information, 5000U);
-                }
-                return PlayerCountCached;
-            }
-        }
-
-        /// <summary>
-        /// Player count cached
-        /// </summary>
-        public ushort PlayerCountCached
-        {
-            get
-            {
-                return ((playerCount == ushort.MaxValue) ? (ushort)0 : playerCount);
+                return playerCount;
             }
         }
 
@@ -241,26 +226,7 @@ namespace SAMPLauncherNET
         {
             get
             {
-                if (maxPlayers == ushort.MaxValue)
-                {
-                    SendQueryWhenRequired(ERequestType.Information);
-                }
-                else
-                {
-                    SendQueryWhenExpired(ERequestType.Information, 5000U);
-                }
-                return MaxPlayersCached;
-            }
-        }
-
-        /// <summary>
-        /// Maximal players cached
-        /// </summary>
-        public ushort MaxPlayersCached
-        {
-            get
-            {
-                return ((maxPlayers == ushort.MaxValue) ? (ushort)0 : maxPlayers);
+                return maxPlayers;
             }
         }
 
@@ -268,25 +234,6 @@ namespace SAMPLauncherNET
         /// Hostname
         /// </summary>
         public string Hostname
-        {
-            get
-            {
-                if (hostname == null)
-                {
-                    SendQueryWhenRequired(ERequestType.Information);
-                }
-                else
-                {
-                    SendQueryWhenExpired(ERequestType.Information, 5000U);
-                }
-                return HostnameCached;
-            }
-        }
-
-        /// <summary>
-        /// Hostname cached
-        /// </summary>
-        public string HostnameCached
         {
             get
             {
@@ -303,24 +250,9 @@ namespace SAMPLauncherNET
             {
                 if (gamemode == null)
                 {
-                    SendQueryWhenRequired(ERequestType.Information);
+                    gamemode = "";
                 }
-                else
-                {
-                    SendQueryWhenExpired(ERequestType.Information, 5000U);
-                }
-                return GamemodeCached;
-            }
-        }
-
-        /// <summary>
-        /// Gamemode cached
-        /// </summary>
-        public string GamemodeCached
-        {
-            get
-            {
-                return ((gamemode == null) ? "" : gamemode);
+                return gamemode;
             }
         }
 
@@ -333,24 +265,9 @@ namespace SAMPLauncherNET
             {
                 if (language == null)
                 {
-                    SendQueryWhenRequired(ERequestType.Information);
+                    language = "";
                 }
-                else
-                {
-                    SendQueryWhenExpired(ERequestType.Information, 5000U);
-                }
-                return LanguageCached;
-            }
-        }
-
-        /// <summary>
-        /// Language cached
-        /// </summary>
-        public string LanguageCached
-        {
-            get
-            {
-                return ((language == null) ? "" : language);
+                return language;
             }
         }
 
@@ -372,18 +289,8 @@ namespace SAMPLauncherNET
         {
             get
             {
-                string[] ret = null;
-                if (rules == null)
-                {
-                    SendQueryWhenRequired(ERequestType.Rules);
-                }
-                else
-                {
-                    SendQueryWhenExpired(ERequestType.Rules, 5000U);
-                }
-                List<string> list = new List<string>(rules.Keys);
-                ret = list.ToArray();
-                list.Clear();
+                string[] ret = new string[rules.Keys.Count];
+                rules.Keys.CopyTo(ret, 0);
                 return ret;
             }
         }
@@ -395,18 +302,8 @@ namespace SAMPLauncherNET
         {
             get
             {
-                string[] ret = null;
-                if (clients == null)
-                {
-                    SendQueryWhenRequired(ERequestType.Clients);
-                }
-                else
-                {
-                    SendQueryWhenExpired(ERequestType.Clients, 5000U);
-                }
-                List<string> list = new List<string>(clients.Keys);
-                ret = list.ToArray();
-                list.Clear();
+                string[] ret = new string[clients.Keys.Count];
+                clients.Keys.CopyTo(ret, 0);
                 return ret;
             }
         }
@@ -418,18 +315,8 @@ namespace SAMPLauncherNET
         {
             get
             {
-                byte[] ret = null;
-                if (players == null)
-                {
-                    SendQueryWhenRequired(ERequestType.DetailedClients);
-                }
-                else
-                {
-                    SendQueryWhenExpired(ERequestType.DetailedClients, 5000U);
-                }
-                List<byte> list = new List<byte>(players.Keys);
-                ret = list.ToArray();
-                list.Clear();
+                byte[] ret = new byte[players.Keys.Count];
+                players.Keys.CopyTo(ret, 0);
                 return ret;
             }
         }
@@ -441,18 +328,8 @@ namespace SAMPLauncherNET
         {
             get
             {
-                Player[] ret = null;
-                if (players == null)
-                {
-                    SendQueryWhenRequired(ERequestType.DetailedClients);
-                }
-                else
-                {
-                    SendQueryWhenExpired(ERequestType.DetailedClients, 5000U);
-                }
-                List<Player> list = new List<Player>(players.Values);
-                ret = list.ToArray();
-                list.Clear();
+                Player[] ret = new Player[players.Values.Count];
+                players.Values.CopyTo(ret, 0);
                 return ret;
             }
         }
@@ -461,25 +338,6 @@ namespace SAMPLauncherNET
         /// Ping
         /// </summary>
         public uint Ping
-        {
-            get
-            {
-                if (ping == uint.MaxValue)
-                {
-                    SendQueryWhenRequired(ERequestType.Ping);
-                }
-                else
-                {
-                    SendQueryWhenExpired(ERequestType.Ping, 5000U);
-                }
-                return PingCached;
-            }
-        }
-
-        /// <summary>
-        /// Ping cached
-        /// </summary>
-        public uint PingCached
         {
             get
             {
@@ -567,8 +425,8 @@ namespace SAMPLauncherNET
                                             socket.ReceiveTimeout = 1000;
                                             if (fetchData)
                                             {
-                                                FetchDataAsync(ERequestType.Ping);
-                                                FetchDataAsync(ERequestType.Information);
+                                                FetchDataAsync(ERequestResponseType.Ping);
+                                                FetchDataAsync(ERequestResponseType.Information);
                                             }
                                         }
                                         else
@@ -595,7 +453,7 @@ namespace SAMPLauncherNET
         /// </summary>
         /// <param name="requestType">Request type</param>
         /// <returns>Data fetched</returns>
-        public bool IsDataFetched(ERequestType requestType)
+        public bool IsDataFetched(ERequestResponseType requestType)
         {
             return !(requestsRequired[requestType]);
         }
@@ -619,11 +477,11 @@ namespace SAMPLauncherNET
             threads = new Thread[5];
             lock (threads)
             {
-                threads[0] = new Thread(() => SendQuery(ERequestType.Ping));
-                threads[1] = new Thread(() => SendQuery(ERequestType.Information));
-                threads[2] = new Thread(() => SendQuery(ERequestType.Rules));
-                threads[3] = new Thread(() => SendQuery(ERequestType.Clients));
-                threads[4] = new Thread(() => SendQuery(ERequestType.DetailedClients));
+                threads[0] = new Thread(() => SendQuery(ERequestResponseType.Ping));
+                threads[1] = new Thread(() => SendQuery(ERequestResponseType.Information));
+                threads[2] = new Thread(() => SendQuery(ERequestResponseType.Rules));
+                threads[3] = new Thread(() => SendQuery(ERequestResponseType.Clients));
+                threads[4] = new Thread(() => SendQuery(ERequestResponseType.DetailedClients));
                 StartAllThreads();
             }
         }
@@ -632,10 +490,10 @@ namespace SAMPLauncherNET
         /// Fetch multiple data
         /// </summary>
         /// <param name="requestTypes">Request types</param>
-        public void FetchMultiData(ERequestType[] requestTypes)
+        public void FetchMultiData(ERequestResponseType[] requestTypes)
         {
-            Dictionary<ERequestType, Thread> ts = new Dictionary<ERequestType, Thread>();
-            foreach (ERequestType rt in requestTypes)
+            Dictionary<ERequestResponseType, Thread> ts = new Dictionary<ERequestResponseType, Thread>();
+            foreach (ERequestResponseType rt in requestTypes)
             {
                 if (!(ts.ContainsKey(rt)))
                 {
@@ -664,7 +522,7 @@ namespace SAMPLauncherNET
         /// Fetch data
         /// </summary>
         /// <param name="requestType">Request type</param>
-        public void FetchData(ERequestType requestType)
+        public void FetchData(ERequestResponseType requestType)
         {
             AbortThread(requestType);
             requestsRequired[requestType] = true;
@@ -675,7 +533,7 @@ namespace SAMPLauncherNET
         /// Fetch data asynchronous
         /// </summary>
         /// <param name="requestType">Request type</param>
-        public void FetchDataAsync(ERequestType requestType)
+        public void FetchDataAsync(ERequestResponseType requestType)
         {
             AbortThread(requestType);
             requestsRequired[requestType] = true;
@@ -686,7 +544,7 @@ namespace SAMPLauncherNET
         /// Abort thread
         /// </summary>
         /// <param name="requestType"></param>
-        private void AbortThread(ERequestType requestType)
+        private void AbortThread(ERequestResponseType requestType)
         {
             lock (threads)
             {
@@ -766,7 +624,7 @@ namespace SAMPLauncherNET
         /// Send query asynchronous
         /// </summary>
         /// <param name="requestType">Request type</param>
-        private void SendQueryAsync(ERequestType requestType)
+        private void SendQueryAsync(ERequestResponseType requestType)
         {
             int index = (int)requestType;
             threads[index] = new Thread(() => SendQuery(requestType));
@@ -779,7 +637,7 @@ namespace SAMPLauncherNET
         /// </summary>
         /// <param name="requestType">Request type</param>
         /// <returns>Success</returns>
-        private bool SendQueryWhenRequired(ERequestType requestType)
+        private bool SendQueryWhenRequired(ERequestResponseType requestType)
         {
             bool ret = true;
             if (requestsRequired[requestType])
@@ -794,7 +652,7 @@ namespace SAMPLauncherNET
         /// </summary>
         /// <param name="requestType">Request type</param>
         /// <param name="milliseconds">Milliseconds</param>
-        public void SendQueryWhenExpired(ERequestType requestType, uint milliseconds)
+        public void SendQueryWhenExpired(ERequestResponseType requestType, uint milliseconds)
         {
             uint t = (uint)(DateTime.Now.Subtract(requestsRequired.GetLastRequestTime(requestType)).TotalMilliseconds);
             if (t >= milliseconds)
@@ -808,7 +666,7 @@ namespace SAMPLauncherNET
         /// </summary>
         /// <param name="requestType">Request type</param>
         /// <returns>Success</returns>
-        private bool SendQuery(ERequestType requestType)
+        private bool SendQuery(ERequestResponseType requestType)
         {
             bool ret = false;
             requestsRequired.SetLastRequestTime(requestType);
@@ -877,7 +735,8 @@ namespace SAMPLauncherNET
                                                 if (Utils.AreEqual(randomNumbers, reader.ReadBytes(4)))
                                                 {
                                                     ping = (uint)(timestamp[1].Subtract(timestamp[0]).TotalMilliseconds);
-                                                    requestsRequired[ERequestType.Ping] = false;
+                                                    requestsRequired[ERequestResponseType.Ping] = false;
+                                                    OnResponse?.Invoke(this, ERequestResponseType.Ping);
                                                 }
                                                 break;
 
@@ -889,7 +748,8 @@ namespace SAMPLauncherNET
                                                 hostname = Utils.GuessedStringEncoding(reader.ReadBytes(reader.ReadInt32()));
                                                 gamemode = Utils.GuessedStringEncoding(reader.ReadBytes(reader.ReadInt32()));
                                                 language = Utils.GuessedStringEncoding(reader.ReadBytes(reader.ReadInt32()));
-                                                requestsRequired[ERequestType.Information] = false;
+                                                requestsRequired[ERequestResponseType.Information] = false;
+                                                OnResponse?.Invoke(this, ERequestResponseType.Information);
                                                 break;
 
                                             // Rules
@@ -911,9 +771,10 @@ namespace SAMPLauncherNET
                                                     {
                                                         Console.Error.WriteLine(e);
                                                     }
-                                                    requestsRequired[ERequestType.Rules] = false;
+                                                    requestsRequired[ERequestResponseType.Rules] = false;
                                                     this.rules = rules;
                                                     old_rules.Clear();
+                                                    OnResponse?.Invoke(this, ERequestResponseType.Rules);
                                                 }
                                                 break;
 
@@ -937,9 +798,10 @@ namespace SAMPLauncherNET
                                                     {
                                                         Console.Error.WriteLine(e);
                                                     }
-                                                    requestsRequired[ERequestType.Clients] = false;
+                                                    requestsRequired[ERequestResponseType.Clients] = false;
                                                     this.clients = clients;
                                                     old_clients.Clear();
+                                                    OnResponse?.Invoke(this, ERequestResponseType.Clients);
                                                 }
                                                 break;
 
@@ -968,9 +830,10 @@ namespace SAMPLauncherNET
                                                     {
                                                         Console.Error.WriteLine(e);
                                                     }
-                                                    requestsRequired[ERequestType.DetailedClients] = false;
+                                                    requestsRequired[ERequestResponseType.DetailedClients] = false;
                                                     this.players = players;
                                                     old_players.Clear();
+                                                    OnResponse?.Invoke(this, ERequestResponseType.DetailedClients);
                                                 }
                                                 break;
                                         }
@@ -992,11 +855,11 @@ namespace SAMPLauncherNET
         /// </summary>
         public void ForceRequest()
         {
-            requestsRequired[ERequestType.Ping] = true;
-            requestsRequired[ERequestType.Information] = true;
-            requestsRequired[ERequestType.Rules] = true;
-            requestsRequired[ERequestType.Clients] = true;
-            requestsRequired[ERequestType.DetailedClients] = true;
+            requestsRequired[ERequestResponseType.Ping] = true;
+            requestsRequired[ERequestResponseType.Information] = true;
+            requestsRequired[ERequestResponseType.Rules] = true;
+            requestsRequired[ERequestResponseType.Clients] = true;
+            requestsRequired[ERequestResponseType.DetailedClients] = true;
         }
 
         /// <summary>
@@ -1007,7 +870,6 @@ namespace SAMPLauncherNET
         public string GetRuleValue(string ruleName)
         {
             string ret = "";
-            SendQueryWhenRequired(ERequestType.Rules);
             if (rules != null)
             {
                 if (rules.ContainsKey(ruleName))
@@ -1026,7 +888,6 @@ namespace SAMPLauncherNET
         public int GetScoreFromClient(string clientName)
         {
             int ret = 0;
-            SendQueryWhenRequired(ERequestType.Clients);
             if (clients != null)
             {
                 if (clients.ContainsKey(clientName))
@@ -1045,7 +906,6 @@ namespace SAMPLauncherNET
         public Player GetPlayer(byte id)
         {
             Player ret = null;
-            SendQueryWhenRequired(ERequestType.DetailedClients);
             if (players != null)
             {
                 if (players.ContainsKey(id))
@@ -1059,14 +919,23 @@ namespace SAMPLauncherNET
         /// <summary>
         /// To favourites server
         /// </summary>
-        /// <param name="cachedName">Cached name</param>
-        /// <param name="cachedGamemode">Cahced gamemode</param>
         /// <param name="serverPassword">Server password</param>
         /// <param name="rconPassword">RCON password</param>
         /// <returns></returns>
-        public FavouriteServer ToFavouriteServer(string cachedName, string cachedGamemode, string serverPassword, string rconPassword)
+        public FavouriteServer ToFavouriteServer(string serverPassword, string rconPassword)
         {
-            return new FavouriteServer(IPPortString, cachedName, cachedGamemode, serverPassword, rconPassword);
+            return new FavouriteServer(IPPortString, hostname, gamemode, serverPassword, rconPassword);
+        }
+
+        /// <summary>
+        /// To favourites server
+        /// </summary>
+        /// <param name="serverPassword">Server password</param>
+        /// <param name="rconPassword">RCON password</param>
+        /// <returns></returns>
+        public FavouriteServer ToFavouriteServer()
+        {
+            return ToFavouriteServer("", "");
         }
 
         /// <summary>
@@ -1080,6 +949,31 @@ namespace SAMPLauncherNET
                 socket.Dispose();
                 socket = null;
             }
+        }
+
+        /// <summary>
+        /// Compare to
+        /// </summary>
+        /// <param name="obj">Object</param>
+        /// <returns>Comparison result</returns>
+        public int CompareTo(object obj)
+        {
+            return ((obj is Server) ? CompareTo((Server)obj) : -1);
+        }
+
+        /// <summary>
+        /// Compare to
+        /// </summary>
+        /// <param name="other">Other</param>
+        /// <returns>Comparison result</returns>
+        public int CompareTo(Server other)
+        {
+            int ret = -1;
+            if (other != null)
+            {
+                ret = IPPortString.CompareTo(other.IPPortString);
+            }
+            return ret;
         }
     }
 }
