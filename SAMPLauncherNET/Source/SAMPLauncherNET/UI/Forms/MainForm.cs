@@ -594,6 +594,7 @@ namespace SAMPLauncherNET
                                             row[7] = (player_count == 0U);
                                             row[8] = (player_count >= max_players);
                                         }
+                                        data_row.ItemArray = row;
                                         data_row.EndEdit();
                                     }
                                 }
@@ -1624,28 +1625,29 @@ namespace SAMPLauncherNET
                             if (data_row != null)
                             {
                                 data_row.BeginEdit();
-                                object[] row_data = data_row.ItemArray;
+                                object[] row = data_row.ItemArray;
                                 foreach (ERequestResponseType response in kv.Value)
                                 {
                                     switch (response)
                                     {
                                         case ERequestResponseType.Ping:
-                                            row_data[1] = new PingString(kv.Key.Ping);
+                                            row[1] = new PingString(kv.Key.Ping);
                                             break;
                                         case ERequestResponseType.Information:
                                             {
                                                 uint player_count = kv.Key.PlayerCount;
                                                 uint max_players = kv.Key.MaxPlayers;
-                                                row_data[2] = kv.Key.Hostname;
-                                                row_data[3] = new PlayerCountString(player_count, kv.Key.MaxPlayers);
-                                                row_data[4] = kv.Key.Gamemode;
-                                                row_data[5] = kv.Key.Language;
-                                                row_data[7] = (player_count <= 0);
-                                                row_data[8] = (player_count >= max_players);
+                                                row[2] = kv.Key.Hostname;
+                                                row[3] = new PlayerCountString(player_count, max_players);
+                                                row[4] = kv.Key.Gamemode;
+                                                row[5] = kv.Key.Language;
+                                                row[7] = (player_count <= 0);
+                                                row[8] = (player_count >= max_players);
                                             }
                                             break;
                                     }
                                 }
+                                data_row.ItemArray = row;
                                 data_row.EndEdit();
                                 kv.Value.Clear();
                             }
