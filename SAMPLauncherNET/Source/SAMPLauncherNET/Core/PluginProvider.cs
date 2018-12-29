@@ -44,7 +44,7 @@ namespace SAMPLauncherNET
                 {
                     try
                     {
-                        using (FileStream stream = File.Open(infoPath, FileMode.Open))
+                        using (FileStream stream = File.Open(infoPath, FileMode.Open, FileAccess.Read))
                         {
                             lastReleaseInfo = serializer.ReadObject(stream) as GitHubLatestReleaseDataContract;
                         }

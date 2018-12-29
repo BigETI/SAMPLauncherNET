@@ -250,7 +250,7 @@ namespace SAMPLauncherNET
                     {
                         if (File.Exists(ServerListAPIPath))
                         {
-                            using (FileStream stream = File.Open(ServerListAPIPath, FileMode.Open))
+                            using (FileStream stream = File.Open(ServerListAPIPath, FileMode.Open, FileAccess.Read))
                             {
                                 APIDataContract[] api_arr = (APIDataContract[])(apiSerializer.ReadObject(stream));
                                 foreach (APIDataContract apidc in api_arr)
@@ -310,7 +310,7 @@ namespace SAMPLauncherNET
                     {
                         if (File.Exists(PluginsDataPath))
                         {
-                            using (FileStream stream = File.Open(PluginsDataPath, FileMode.Open))
+                            using (FileStream stream = File.Open(PluginsDataPath, FileMode.Open, FileAccess.Read))
                             {
                                 pluginsData = pluginsDataSerializer.ReadObject(stream) as PluginDataContract[];
                             }
@@ -366,7 +366,7 @@ namespace SAMPLauncherNET
                 string ret = "";
                 try
                 {
-                    using (FileStream fs = File.Open(ChatlogPath, FileMode.Open))
+                    using (FileStream fs = File.Open(ChatlogPath, FileMode.Open, FileAccess.Read))
                     {
                         using (StreamReader sr = new StreamReader(fs, Encoding.Default))
                         {
@@ -392,7 +392,7 @@ namespace SAMPLauncherNET
                 string ret = "";
                 try
                 {
-                    using (FileStream fs = File.Open(SavedPositionsPath, FileMode.Open))
+                    using (FileStream fs = File.Open(SavedPositionsPath, FileMode.Open, FileAccess.Read))
                     {
                         using (StreamReader sr = new StreamReader(fs, Encoding.Default))
                         {

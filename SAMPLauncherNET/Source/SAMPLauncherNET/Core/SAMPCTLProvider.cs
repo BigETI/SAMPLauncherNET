@@ -81,7 +81,7 @@ namespace SAMPLauncherNET
                 {
                     try
                     {
-                        using (FileStream stream = File.Open(SAMPCTLInfoPath, FileMode.Open))
+                        using (FileStream stream = File.Open(SAMPCTLInfoPath, FileMode.Open, FileAccess.Read))
                         {
                             lastReleaseInfo = serializer.ReadObject(stream) as GitHubLatestReleaseDataContract;
                         }
@@ -148,7 +148,7 @@ namespace SAMPLauncherNET
                     {
                         if (File.Exists(SAMPCTLDownloadPath))
                         {
-                            using (FileStream archive_file_stream = File.Open(SAMPCTLDownloadPath, FileMode.Open))
+                            using (FileStream archive_file_stream = File.Open(SAMPCTLDownloadPath, FileMode.Open, FileAccess.Read))
                             {
                                 using (GZipInputStream gzip_stream = new GZipInputStream(archive_file_stream))
                                 {

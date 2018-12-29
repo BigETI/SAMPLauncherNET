@@ -184,7 +184,7 @@ namespace SAMPLauncherNET
                     switch (serverListType)
                     {
                         case EServerListType.Favourites:
-                            using (FileStream stream = File.Open(Endpoint, FileMode.Open))
+                            using (FileStream stream = File.Open(Endpoint, FileMode.Open, FileAccess.Read))
                             {
                                 FavouriteDataContract[] favourites = (FavouriteDataContract[])(favouriteListJSONSerializer.ReadObject(stream));
                                 foreach (FavouriteDataContract fdc in favourites)
@@ -221,7 +221,7 @@ namespace SAMPLauncherNET
                             }
                             break;
                         case EServerListType.LegacyFavourites:
-                            using (FileStream stream = File.Open(Endpoint, FileMode.Open))
+                            using (FileStream stream = File.Open(Endpoint, FileMode.Open, FileAccess.Read))
                             {
                                 using (BinaryReader reader = new BinaryReader(stream))
                                 {

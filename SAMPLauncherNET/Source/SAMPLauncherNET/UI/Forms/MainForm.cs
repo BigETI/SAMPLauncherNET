@@ -2281,9 +2281,17 @@ namespace SAMPLauncherNET
         /// <param name="e">Key event arguments</param>
         private void serversGridView_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete)
+            switch (e.KeyCode)
             {
-                RemoveSelectionFromFavourites(false);
+                case Keys.Delete:
+                    RemoveSelectionFromFavourites(false);
+                    break;
+                case Keys.Return:
+                    if (SelectedServer != null)
+                    {
+                        Connect(quitWhenDone: closeWhenLaunchedCheckBox.Checked, createSessionLog: createSessionsLogCheckBox.Checked);
+                    }
+                    break;
             }
         }
 

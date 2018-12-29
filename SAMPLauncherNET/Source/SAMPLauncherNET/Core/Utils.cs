@@ -211,7 +211,7 @@ namespace SAMPLauncherNET
             bool ret = true;
             try
             {
-                using (File.Open(path, FileMode.Open))
+                using (File.Open(path, FileMode.Open, FileAccess.Read))
                 {
                     //
                 }
