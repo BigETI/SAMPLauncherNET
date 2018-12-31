@@ -129,9 +129,9 @@ namespace SAMPLauncherNET
                             case EPluginProvider.URI:
                                 if (uri.IsFile)
                                 {
-                                    if (!(File.Exists(plugin.URI)))
+                                    if (File.Exists(plugin.Path))
                                     {
-                                        ret = new InstalledPlugin(plugin.URI);
+                                        ret = new InstalledPlugin(plugin.Path);
                                     }
                                 }
                                 else
@@ -148,10 +148,6 @@ namespace SAMPLauncherNET
                                             }
                                             else
                                             {
-                                                if (File.Exists(download_path))
-                                                {
-                                                    File.Delete(download_path);
-                                                }
                                                 download_url = plugin.URI;
                                             }
                                             break;

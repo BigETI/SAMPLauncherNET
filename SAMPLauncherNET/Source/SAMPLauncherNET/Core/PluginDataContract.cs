@@ -64,6 +64,11 @@ namespace SAMPLauncherNET
         private bool updateFrequencyItemParsed;
 
         /// <summary>
+        /// Path
+        /// </summary>
+        private string path;
+
+        /// <summary>
         /// Name
         /// </summary>
         public string Name
@@ -149,6 +154,33 @@ namespace SAMPLauncherNET
                 {
                     name = value;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Path
+        /// </summary>
+        public string Path
+        {
+            get
+            {
+                if (path == null)
+                {
+                    try
+                    {
+                        Uri uri = new Uri(URI);
+                        path = (uri.IsFile ? uri.AbsolutePath : uri.AbsoluteUri);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Error.WriteLine(e);
+                    }
+                    if (path == null)
+                    {
+                        path = "";
+                    }
+                }
+                return path;
             }
         }
 
