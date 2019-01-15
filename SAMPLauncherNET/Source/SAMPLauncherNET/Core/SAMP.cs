@@ -650,7 +650,7 @@ namespace SAMPLauncherNET
             {
                 ret = new PluginDataContract[]
                 {
-                    new PluginDataContract("SA:MP Discord Rich Presence plugin", EPluginProvider.GitHub, "https://github.com/Hual/samp-discord-plugin", true, EUpdateFrequency.WhenNewer)
+                    new PluginDataContract("SA:MP Discord Rich Presence plugin", EPluginProvider.GitHub, "https://github.com/Hual/samp-discord-plugin", false, EUpdateFrequency.WhenNewer)
                 };
             }
             PluginsDataIO = ret;

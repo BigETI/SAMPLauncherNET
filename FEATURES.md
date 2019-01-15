@@ -15,6 +15,7 @@ If you prefer a different language than the english language, you can easily cha
 
 ### ASI plugin loader and manager
 Load or manage any GTA San Andreas compatible ASI plugin within this launcher.
+Enable plugins in the plugins manager tab.
 Supported and listed ASI plugins by default:
 	- [SA:MP Discord Rich Presence plugin](https://github.com/Hual/samp-discord-plugin)
 
