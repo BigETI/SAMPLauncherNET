@@ -1,0 +1,11 @@
+[
+    { "name": "CSLDashboard" },
+    { "name": "CSLServers" },
+    { "name": "CSLMedia" },
+    { "name": "CSLSAMPVersions" },
+    { "name": "CSLASIPlugins" },
+    { "name": "CSLDeveloperTools" },
+    { "name": "CSLSettings" },
+    { "name": "CSLPasswords" },
+    { "name": "CSLAbout" }
+]
