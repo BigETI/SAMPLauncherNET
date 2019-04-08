@@ -10,10 +10,15 @@ using System.Windows;
 namespace CSL
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Main window class
     /// </summary>
     public partial class MainWindow : Window, ICSL
     {
+        /// <summary>
+        /// Configuration path
+        /// </summary>
+        private static readonly string ConfigurationPath = Path.Combine(Path.Combine(Environment.CurrentDirectory, "config"), "csl.json");
+
         /// <summary>
         /// Modules
         /// </summary>
@@ -101,22 +106,42 @@ namespace CSL
             }
         }
 
+        private static void CreateDirectory(string directory)
+        {
+            if (directory != null)
+            {
+                try
+                {
+                    if (!(Directory.Exists(directory)))
+                    {
+                        Directory.CreateDirectory(directory);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.Error.WriteLine(e);
+                }
+            }
+        }
+
         /// <summary>
         /// Default constructor
         /// </summary>
         public MainWindow()
         {
             InitializeComponent();
-            GlobalConfiguration.Load(Path.Combine(Environment.CurrentDirectory, "config.json"));
+            CreateDirectory("." + Path.DirectorySeparatorChar + "config");
+            CreateDirectory("." + Path.DirectorySeparatorChar + "resources");
+            GlobalConfiguration.Load(ConfigurationPath);
             ModulesData[] modules_data = ModulesProvider.LoadAll(configuration.ModulesPath);
             List<ICSLModule> modules = new List<ICSLModule>();
             List<ICSLPage> pages = new List<ICSLPage>();
             lookupModules.Clear();
             foreach (ModulesData md in modules_data)
             {
-                if (!(lookupModules.ContainsKey(md.Name)))
+                if (!(lookupModules.ContainsKey(md.Data.Name)))
                 {
-                    lookupModules.Add(md.Name, md);
+                    lookupModules.Add(md.Data.Name, md);
                     modules.AddRange(md.Modules);
                     pages.AddRange(md.Pages);
                 }
@@ -188,10 +213,10 @@ namespace CSL
         #region Events
 
         /// <summary>
-        /// WIndow closed event
+        /// Window closed event
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event arguments</param>
         private void Window_Closed(object sender, EventArgs e)
         {
             foreach (ICSLModule module in ModulesReference)
@@ -202,8 +227,14 @@ namespace CSL
                 }
             }
             modules = null;
+            GlobalConfiguration.Save(ConfigurationPath);
         }
 
         #endregion
+
+        public ISAMPServer GetSAMPServer(string hostAndPort, bool fetchData)
+        {
+            return new SAMPServer(hostAndPort, fetchData);
+        }
     }
 }

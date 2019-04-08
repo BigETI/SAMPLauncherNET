@@ -35,6 +35,9 @@
     <Reference Include="CSLPI">
       <HintPath>..\CSLPI\bin\Release\CSLPI.dll</HintPath>
     </Reference>
+    <Reference Include="INIEngine">
+      <HintPath>..\libs\INIEngine.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors">
       <HintPath>..\packages\MaterialDesignColors.1.1.1\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>

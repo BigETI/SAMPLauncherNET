@@ -1,11 +1,65 @@
 [
-    { "name": "CSLDashboard" },
-    { "name": "CSLServers" },
-    { "name": "CSLMedia" },
-    { "name": "CSLSAMPVersions" },
-    { "name": "CSLASIPlugins" },
-    { "name": "CSLDeveloperTools" },
-    { "name": "CSLSettings" },
-    { "name": "CSLPasswords" },
-    { "name": "CSLAbout" }
+  {
+    "name": "CSL dashboard",
+    "author": "Ethem Kurt",
+    "url": "https://github.com/BigETI/CSL",
+    "path": "CSLDashboard.dll",
+    "isEnabled": true
+  },
+  {
+    "name": "CSL servers",
+    "author": "Ethem Kurt",
+    "url": "https://github.com/BigETI/CSL",
+    "path": "CSLServers.dll",
+    "isEnabled": true
+  },
+  {
+    "name": "CSL media",
+    "author": "Ethem Kurt",
+    "url": "https://github.com/BigETI/CSL",
+    "path": "CSLMedia.dll",
+    "isEnabled": true
+  },
+  {
+    "name": "CSL SA:MP versions",
+    "author": "Ethem Kurt",
+    "url": "https://github.com/BigETI/CSL",
+    "path": "CSLSAMPVersions.dll",
+    "isEnabled": true
+  },
+  {
+    "name": "CSL ASI plugins",
+    "author": "Ethem Kurt",
+    "url": "https://github.com/BigETI/CSL",
+    "path": "CSLASIPlugins.dll",
+    "isEnabled": true
+  },
+  {
+    "name": "CSL developer tools",
+    "author": "Ethem Kurt",
+    "url": "https://github.com/BigETI/CSL",
+    "path": "CSLDeveloperTools.dll",
+    "isEnabled": true
+  },
+  {
+    "name": "CSL settings",
+    "author": "Ethem Kurt",
+    "url": "https://github.com/BigETI/CSL",
+    "path": "CSLSettings.dll",
+    "isEnabled": true
+  },
+  {
+    "name": "CSL passwords",
+    "author": "Ethem Kurt",
+    "url": "https://github.com/BigETI/CSL",
+    "path": "CSLPasswords.dll",
+    "isEnabled": true
+  },
+  {
+    "name": "CSL about",
+    "author": "Ethem Kurt",
+    "url": "https://github.com/BigETI/CSL",
+    "path": "CSLAbout.dll",
+    "isEnabled": true
+  }
 ]

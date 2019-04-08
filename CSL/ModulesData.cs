@@ -11,9 +11,24 @@ namespace CSL
     internal struct ModulesData
     {
         /// <summary>
-        /// Community San Andreas Multiplayer Launcher modules name
+        /// Data
         /// </summary>
-        private string name;
+        private ModulesDataContract data;
+
+        /// <summary>
+        /// Assembly version
+        /// </summary>
+        private string assemblyVersion;
+
+        /// <summary>
+        /// File version
+        /// </summary>
+        private string fileVersion;
+
+        /// <summary>
+        /// Product version
+        /// </summary>
+        private string productVersion;
 
         /// <summary>
         /// Community San Andreas Multiplayer Launcher modules
@@ -26,17 +41,17 @@ namespace CSL
         private ICSLPage[] pages;
 
         /// <summary>
-        /// Community San Andreas Multiplayer Launcher modules name
+        /// Data
         /// </summary>
-        public string Name
+        public ModulesDataContract Data
         {
             get
             {
-                if (name == null)
+                if (data == null)
                 {
-                    name = "";
+                    data = new ModulesDataContract();
                 }
-                return name;
+                return data;
             }
         }
 
@@ -73,12 +88,18 @@ namespace CSL
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="name">Name</param>
-        /// <param name="module">Module</param>
-        /// <param name="pages">Pages</param>
-        internal ModulesData(string name, ICSLModule[] modules, ICSLPage[] pages)
+        /// <param name="data">Data</param>
+        /// <param name="assemblyVersion">Assembly version</param>
+        /// <param name="fileVersion">File version</param>
+        /// <param name="productVersion">Product version</param>
+        /// <param name="modules">Community San Andreas Multiplayer Launcher modules</param>
+        /// <param name="pages">Community San Andreas Multiplayer Launcher pages</param>
+        internal ModulesData(ModulesDataContract data, string assemblyVersion, string fileVersion, string productVersion, ICSLModule[] modules, ICSLPage[] pages)
         {
-            this.name = name;
+            this.data = data;
+            this.assemblyVersion = assemblyVersion;
+            this.fileVersion = fileVersion;
+            this.productVersion = productVersion;
             this.modules = modules;
             this.pages = pages;
         }

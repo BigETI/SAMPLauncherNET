@@ -1,4 +1,6 @@
 ﻿using CSLPI;
+using System;
+using System.IO;
 using System.Windows.Controls;
 
 /// <summary>
@@ -11,6 +13,11 @@ namespace CSLDashboard
     /// </summary>
     public partial class DashboardUserControl : UserControl, ICSLModule, ICSLPage
     {
+        /// <summary>
+        /// Configuration path
+        /// </summary>
+        private static readonly string ConfigurationPath = Path.Combine(Path.Combine(Environment.CurrentDirectory, "config"), "dashboard.json");
+
         /// <summary>
         /// Community San Andreas Multiplayer Launcher
         /// </summary>
@@ -27,6 +34,7 @@ namespace CSLDashboard
         public DashboardUserControl()
         {
             InitializeComponent();
+            ModuleConfiguration.Load(ConfigurationPath);
         }
 
         /// <summary>
@@ -63,7 +71,7 @@ namespace CSLDashboard
         /// </summary>
         public void Exit()
         {
-            // ...
+            ModuleConfiguration.Save(ConfigurationPath);
         }
     }
 }

@@ -35,8 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CGLL">
+      <HintPath>libs\CGLL.dll</HintPath>
+    </Reference>
     <Reference Include="CSLPI">
       <HintPath>..\CSLPI\bin\Release\CSLPI.dll</HintPath>
+    </Reference>
+    <Reference Include="INIEngine">
+      <HintPath>..\libs\INIEngine.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.1\lib\net45\MaterialDesignColors.dll</HintPath>
@@ -56,6 +62,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Ude">
+      <HintPath>libs\Ude.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -64,6 +73,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FavouriteDataContract.cs" />
+    <Compile Include="FavouriteSAMPServer.cs" />
+    <Compile Include="FreeGeoIPDataContract.cs" />
+    <Compile Include="GeoLocation.cs" />
+    <Compile Include="GeoLocationProvider.cs" />
+    <Compile Include="GeoLocator.cs" />
+    <Compile Include="RequestsRequired.cs" />
+    <Compile Include="SAMP.cs" />
+    <Compile Include="SAMPServer.cs" />
+    <Compile Include="SAMPServerPlayer.cs" />
+    <Compile Include="SAMPServerResponseDelegate.cs" />
+    <Compile Include="SAMPVersionDataContract.cs" />
+    <Compile Include="SAMPVersionProvider.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="WebClientEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -113,5 +139,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

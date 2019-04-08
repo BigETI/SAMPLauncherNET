@@ -1,4 +1,6 @@
 ﻿using CSLPI;
+using System;
+using System.IO;
 using System.Windows.Controls;
 
 /// <summary>
@@ -11,6 +13,11 @@ namespace CSLSettings
     /// </summary>
     public partial class SettingsPage : UserControl, ICSLModule, ICSLPage
     {
+        /// <summary>
+        /// Configuration path
+        /// </summary>
+        private static readonly string ConfigurationPath = Path.Combine(Path.Combine(Environment.CurrentDirectory, "config"), "settings.json");
+
         /// <summary>
         /// Community San Andreas Multiplayer Launcher
         /// </summary>
@@ -47,6 +54,7 @@ namespace CSLSettings
         public SettingsPage()
         {
             InitializeComponent();
+            ModuleConfiguration.Load(ConfigurationPath);
         }
 
         /// <summary>
@@ -63,7 +71,7 @@ namespace CSLSettings
         /// </summary>
         public void Exit()
         {
-            // ...
+            ModuleConfiguration.Save(ConfigurationPath);
         }
     }
 }

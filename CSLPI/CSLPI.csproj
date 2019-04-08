@@ -42,10 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSLConfigurationAttribute.cs" />
+    <Compile Include="CSLEventDelegate.cs" />
+    <Compile Include="ERequestResponseType.cs" />
     <Compile Include="ICSL.cs" />
     <Compile Include="ACSLConfiguration.cs" />
     <Compile Include="ICSLModule.cs" />
     <Compile Include="ICSLPage.cs" />
+    <Compile Include="IFavouriteSAMPServer.cs" />
+    <Compile Include="IGeoLocation.cs" />
+    <Compile Include="ISAMPServer.cs" />
+    <Compile Include="ISAMPServerPlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

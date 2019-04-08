@@ -1,6 +1,7 @@
 ﻿using CSLPI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization.Json;
@@ -76,53 +77,56 @@ namespace CSL
                         {
                             if (load_module != null)
                             {
-                                string modules_path = (load_module.Name.ToLower().EndsWith(".dll") ? load_module.Name : (load_module.Name + ".dll"));
-                                string modules_full_path = Path.GetFullPath(Path.Combine(modulesDirectory, modules_path));
-                                try
+                                if (load_module.IsEnabled)
                                 {
-                                    Assembly assembly = Assembly.LoadFile(modules_full_path);
-                                    if (assembly != null)
+                                    try
                                     {
-                                        List<ICSLModule> modules = new List<ICSLModule>();
-                                        List<ICSLPage> pages = new List<ICSLPage>();
-                                        Type[] types = assembly.GetExportedTypes();
-                                        if (types != null)
+                                        string modules_full_path = Path.GetFullPath(Path.Combine(modulesDirectory, load_module.Path));
+                                        Assembly assembly = Assembly.LoadFile(modules_full_path);
+                                        if (assembly != null)
                                         {
-                                            foreach (Type type in types)
+                                            List<ICSLModule> modules = new List<ICSLModule>();
+                                            List<ICSLPage> pages = new List<ICSLPage>();
+                                            Type[] types = assembly.GetExportedTypes();
+                                            if (types != null)
                                             {
-                                                if (type != null)
+                                                foreach (Type type in types)
                                                 {
-                                                    if (type.IsClass)
+                                                    if (type != null)
                                                     {
-                                                        object instance = null;
-                                                        if (typeof(ICSLModule).IsAssignableFrom(type))
+                                                        if (type.IsClass)
                                                         {
-                                                            ICSLModule module = GetInstance<ICSLModule>(type, ref instance);
-                                                            if (module != null)
+                                                            object instance = null;
+                                                            if (typeof(ICSLModule).IsAssignableFrom(type))
                                                             {
-                                                                modules.Add(module);
+                                                                ICSLModule module = GetInstance<ICSLModule>(type, ref instance);
+                                                                if (module != null)
+                                                                {
+                                                                    modules.Add(module);
+                                                                }
                                                             }
-                                                        }
-                                                        if (typeof(ICSLPage).IsAssignableFrom(type) && typeof(UIElement).IsAssignableFrom(type))
-                                                        {
-                                                            ICSLPage page = GetInstance<ICSLPage>(type, ref instance);
-                                                            if (page != null)
+                                                            if (typeof(ICSLPage).IsAssignableFrom(type) && typeof(UIElement).IsAssignableFrom(type))
                                                             {
-                                                                pages.Add(page);
+                                                                ICSLPage page = GetInstance<ICSLPage>(type, ref instance);
+                                                                if (page != null)
+                                                                {
+                                                                    pages.Add(page);
+                                                                }
                                                             }
                                                         }
                                                     }
                                                 }
                                             }
+                                            FileVersionInfo file_version_info = FileVersionInfo.GetVersionInfo(assembly.Location);
+                                            modules_data.Add(new ModulesData(load_module, assembly.GetName().Version.ToString(), file_version_info.FileVersion, file_version_info.ProductVersion, modules.ToArray(), pages.ToArray()));
+                                            modules.Clear();
+                                            pages.Clear();
                                         }
-                                        modules_data.Add(new ModulesData(Path.GetFileNameWithoutExtension(modules_path), modules.ToArray(), pages.ToArray()));
-                                        modules.Clear();
-                                        pages.Clear();
                                     }
-                                }
-                                catch (Exception e)
-                                {
-                                    Console.Error.WriteLine(e);
+                                    catch (Exception e)
+                                    {
+                                        Console.Error.WriteLine(e);
+                                    }
                                 }
                             }
                         }

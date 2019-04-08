@@ -1,4 +1,6 @@
 ﻿using CSLPI;
+using System;
+using System.IO;
 using System.Windows.Controls;
 
 /// <summary>
@@ -11,6 +13,11 @@ namespace CSLSAMPVersions
     /// </summary>
     public partial class SAMPVersionsPage : UserControl, ICSLModule, ICSLPage
     {
+        /// <summary>
+        /// Configuration path
+        /// </summary>
+        private static readonly string ConfigurationPath = Path.Combine(Path.Combine(Environment.CurrentDirectory, "config"), "samp_versions.json");
+
         /// <summary>
         /// Community San Andreas Multiplayer Launcher
         /// </summary>
@@ -47,6 +54,7 @@ namespace CSLSAMPVersions
         public SAMPVersionsPage()
         {
             InitializeComponent();
+            ModuleConfiguration.Load(ConfigurationPath);
         }
 
         /// <summary>
@@ -63,7 +71,7 @@ namespace CSLSAMPVersions
         /// </summary>
         public void Exit()
         {
-            // ...
+            ModuleConfiguration.Save(ConfigurationPath);
         }
     }
 }

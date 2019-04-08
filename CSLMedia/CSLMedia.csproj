@@ -64,6 +64,7 @@
     </Page>
     <Compile Include="Configuration.cs" />
     <Compile Include="ConfigurationDataContract.cs" />
+    <Compile Include="Media.cs" />
     <Compile Include="MediaPage.xaml.cs">
       <DependentUpon>MediaPage.xaml</DependentUpon>
       <SubType>Code</SubType>

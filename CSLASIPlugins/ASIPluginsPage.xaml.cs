@@ -1,4 +1,6 @@
 ﻿using CSLPI;
+using System;
+using System.IO;
 using System.Windows.Controls;
 
 /// <summary>
@@ -11,6 +13,11 @@ namespace CSLASIPlugins
     /// </summary>
     public partial class ASIPluginsPage : UserControl, ICSLModule, ICSLPage
     {
+        /// <summary>
+        /// Configuration path
+        /// </summary>
+        private static readonly string ConfigurationPath = Path.Combine(Path.Combine(Environment.CurrentDirectory, "config"), "asi_plugins.json");
+
         /// <summary>
         /// Community San Andreas Multiplayer Launcher
         /// </summary>
@@ -47,6 +54,7 @@ namespace CSLASIPlugins
         public ASIPluginsPage()
         {
             InitializeComponent();
+            ModuleConfiguration.Load(ConfigurationPath);
         }
 
         /// <summary>
@@ -63,7 +71,7 @@ namespace CSLASIPlugins
         /// </summary>
         public void Exit()
         {
-            // ...
+            ModuleConfiguration.Save(ConfigurationPath);
         }
     }
 }

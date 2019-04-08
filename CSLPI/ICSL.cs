@@ -36,5 +36,13 @@ namespace CSLPI
         /// <param name="pagesName">Modules name</param>
         /// <returns>Community San Andreas Multiplayer launcher pages</returns>
         ICSLPage[] GetPagesByName(string pagesName);
+
+        /// <summary>
+        /// Get San Andreas Multiplayer server
+        /// </summary>
+        /// <param name="hostAndPort">Host and port</param>
+        /// <param name="fetchData">Fetch data</param>
+        /// <returns></returns>
+        ISAMPServer GetSAMPServer(string hostAndPort, bool fetchData);
     }
 }

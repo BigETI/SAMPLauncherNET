@@ -14,6 +14,11 @@ namespace CSLSettings
     internal class Configuration : ACSLConfiguration
     {
         /// <summary>
+        /// San Andreas Multiplayer configuration path
+        /// </summary>
+        public static readonly string SAMPConfigurationPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + Path.DirectorySeparatorChar + "GTA San Andreas User Files" + Path.DirectorySeparatorChar + "SAMP" + Path.DirectorySeparatorChar + "sa-mp.cfg";
+
+        /// <summary>
         /// Serializer
         /// </summary>
         private DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(ConfigurationDataContract));
