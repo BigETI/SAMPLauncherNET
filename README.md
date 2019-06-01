@@ -21,12 +21,11 @@ Check out the launcher [features](https://github.com/BigETI/SAMPLauncherNET/blob
 Fork this project, commit your changes and create a pull request.
 
 ### Translation
-Translation files are located at https://github.com/BigETI/SAMPLauncherNET/tree/master/SAMPLauncherNET/Languages ,
-pick up `en-GB.resx` and `en-GB.Designer.cs`,
-create a copy in Visual Studio and rename it to the language's `language tag` you want to translate.
+Translation files are located at https://github.com/BigETI/SAMPLauncherNET/tree/master/SAMPLauncherNET/languages ,
+pick up `en-GB.json`, create a copy
+and rename it to the language's `language tag` you want to translate.
 https://msdn.microsoft.com/en-us/library/cc233982.aspx
 For example the `language tag` of spanish in Spain is `es-ES`.
-Note: You don't need to commit `TranslatorInterface.cs`.
 
 ### Code
 You can change anything within the source code to contribute.

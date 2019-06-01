@@ -30,7 +30,7 @@ namespace SAMPLauncherNET
         public ConnectHostForm(Server server)
         {
             InitializeComponent();
-            Translator.LoadTranslation(this);
+            Utils.Translator.TranslateControls(this);
             if (server != null)
             {
                 hostAndPortSingleLineTextField.Text = server.IPPortString;

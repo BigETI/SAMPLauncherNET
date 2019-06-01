@@ -44,7 +44,7 @@ namespace SAMPLauncherNET
         {
             InitializeComponent();
             //Translator.LoadTranslation(this);
-            loadingText = Translator.GetTranslation("LOADING");
+            loadingText = Utils.Translator.GetTranslation("LOADING");
             //Size sz = TextRenderer.MeasureText(loadingText, loadingTextFont);
             loadingTextPoint = new Point(Size.Width / 2, Size.Height / 2);
             loadingTextFormat = new StringFormat();

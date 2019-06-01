@@ -34,7 +34,7 @@ namespace SAMPLauncherNET
         {
             this.session = session;
             InitializeComponent();
-            Translator.LoadTranslation(this);
+            Utils.Translator.TranslateControls(this);
             SessionUserControl suc = new SessionUserControl(session);
             mainTableLayoutPanel.Controls.Add(suc, 0, 0);
             suc.Dock = DockStyle.Fill;
@@ -58,7 +58,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(Translator.GetTranslation("SESSION_DELETE"), Translator.GetTranslation("SESSION_DELETE_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show(Utils.Translator.GetTranslation("SESSION_DELETE"), Utils.Translator.GetTranslation("SESSION_DELETE_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             DialogResult = DialogResult.None;
             if (result == DialogResult.Yes)
             {

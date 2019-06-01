@@ -46,7 +46,7 @@ namespace SAMPLauncherNET.UI
         {
             this.session = session;
             InitializeComponent();
-            Translator.LoadTranslation(this);
+            Utils.Translator.TranslateControls(this);
             if (session != null)
             {
                 lastChatlogRichTextBox.Rtf = ChatlogFormatter.Format(session.Chatlog, EChatlogFormatType.RTF, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked);
@@ -137,7 +137,7 @@ namespace SAMPLauncherNET.UI
                         catch (Exception e)
                         {
                             Console.Error.WriteLine(e);
-                            MessageBox.Show(e.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(e.Message, Utils.Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -179,7 +179,7 @@ namespace SAMPLauncherNET.UI
             }
             if (paths.Count > 0)
             {
-                if (MessageBox.Show(Translator.GetTranslation("DELETE_SELECTED_IMAGES"), Translator.GetTranslation("DELETE_SELECTED_IMAGES_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show(Utils.Translator.GetTranslation("DELETE_SELECTED_IMAGES"), Utils.Translator.GetTranslation("DELETE_SELECTED_IMAGES_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     using (ZipArchive archive = ZipFile.Open(session.Path, ZipArchiveMode.Update))
                     {
@@ -329,7 +329,7 @@ namespace SAMPLauncherNET.UI
                                     catch (Exception ex)
                                     {
                                         Console.Error.WriteLine(ex);
-                                        MessageBox.Show(ex.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        MessageBox.Show(ex.Message, Utils.Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
                             }

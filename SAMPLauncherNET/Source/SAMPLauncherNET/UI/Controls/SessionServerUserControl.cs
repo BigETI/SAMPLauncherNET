@@ -92,14 +92,14 @@ namespace SAMPLauncherNET.UI
             this.session = session;
             this.mainForm = mainForm;
             InitializeComponent();
-            Translator.LoadTranslation(this);
-            usernameTranslated = Translator.GetTranslation("USERNAME");
-            gameVersionTranslated = Translator.GetTranslation("GAME_VERSION");
-            hostnameTranslated = Translator.GetTranslation("HOSTNAME");
-            gamemodeTranslated = Translator.GetTranslation("GAMEMODE");
-            languageTranslated = Translator.GetTranslation("LANGUAGE");
-            dateAndTimeTranslated = Translator.GetTranslation("DATE_AND_TIME");
-            timeSpendTranslated = Translator.GetTranslation("TIME_SPEND");
+            Utils.Translator.TranslateControls(this);
+            usernameTranslated = Utils.Translator.GetTranslation("USERNAME");
+            gameVersionTranslated = Utils.Translator.GetTranslation("GAME_VERSION");
+            hostnameTranslated = Utils.Translator.GetTranslation("HOSTNAME");
+            gamemodeTranslated = Utils.Translator.GetTranslation("GAMEMODE");
+            languageTranslated = Utils.Translator.GetTranslation("LANGUAGE");
+            dateAndTimeTranslated = Utils.Translator.GetTranslation("DATE_AND_TIME");
+            timeSpendTranslated = Utils.Translator.GetTranslation("TIME_SPEND");
 
             hostname = session.Hostname;
             mode = session.Mode;

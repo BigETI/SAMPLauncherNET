@@ -271,6 +271,7 @@
             this.developerToolsConnectToTestServerButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.optionsPage = new System.Windows.Forms.TabPage();
             this.optionsPanel = new System.Windows.Forms.Panel();
+            this.doNotCheckForUpdatesCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.createSessionsLogCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.showUsernameDialogCheckBox = new MaterialSkin.Controls.MaterialCheckBox();
             this.revertConfigButton = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -436,7 +437,7 @@
             this.mainTabControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(1190, 578);
+            this.mainTabControl.Size = new System.Drawing.Size(1190, 598);
             this.mainTabControl.TabIndex = 2;
             this.mainTabControl.SelectedIndexChanged += new System.EventHandler(this.mainTabControl_SelectedIndexChanged);
             // 
@@ -447,7 +448,7 @@
             this.serversPage.Location = new System.Drawing.Point(4, 22);
             this.serversPage.Name = "serversPage";
             this.serversPage.Padding = new System.Windows.Forms.Padding(3);
-            this.serversPage.Size = new System.Drawing.Size(1182, 552);
+            this.serversPage.Size = new System.Drawing.Size(1182, 572);
             this.serversPage.TabIndex = 0;
             this.serversPage.Text = "{$SERVERS$}";
             // 
@@ -466,7 +467,7 @@
             this.serversLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.serversLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 151F));
             this.serversLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.serversLayoutPanel.Size = new System.Drawing.Size(1176, 546);
+            this.serversLayoutPanel.Size = new System.Drawing.Size(1176, 566);
             this.serversLayoutPanel.TabIndex = 0;
             // 
             // serversSplitContainer
@@ -483,7 +484,7 @@
             // serversSplitContainer.Panel2
             // 
             this.serversSplitContainer.Panel2.Controls.Add(this.serverInfoSplitContainer);
-            this.serversSplitContainer.Size = new System.Drawing.Size(1170, 339);
+            this.serversSplitContainer.Size = new System.Drawing.Size(1170, 359);
             this.serversSplitContainer.SplitterDistance = 909;
             this.serversSplitContainer.TabIndex = 2;
             // 
@@ -543,7 +544,7 @@
             this.serversGridView.RowHeadersVisible = false;
             this.serversGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.serversGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.serversGridView.Size = new System.Drawing.Size(907, 337);
+            this.serversGridView.Size = new System.Drawing.Size(907, 357);
             this.serversGridView.TabIndex = 0;
             this.serversGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.serversGridView_CellDoubleClick);
             this.serversGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
@@ -1072,8 +1073,8 @@
             // serverInfoSplitContainer.Panel2
             // 
             this.serverInfoSplitContainer.Panel2.Controls.Add(this.rulesGridView);
-            this.serverInfoSplitContainer.Size = new System.Drawing.Size(257, 339);
-            this.serverInfoSplitContainer.SplitterDistance = 223;
+            this.serverInfoSplitContainer.Size = new System.Drawing.Size(257, 359);
+            this.serverInfoSplitContainer.SplitterDistance = 236;
             this.serverInfoSplitContainer.TabIndex = 0;
             // 
             // playersGridView
@@ -1124,7 +1125,7 @@
             this.playersGridView.RowHeadersVisible = false;
             this.playersGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.playersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.playersGridView.Size = new System.Drawing.Size(255, 221);
+            this.playersGridView.Size = new System.Drawing.Size(255, 234);
             this.playersGridView.TabIndex = 1;
             this.playersGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             // 
@@ -1195,7 +1196,7 @@
             this.rulesGridView.RowHeadersVisible = false;
             this.rulesGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.rulesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.rulesGridView.Size = new System.Drawing.Size(255, 110);
+            this.rulesGridView.Size = new System.Drawing.Size(255, 117);
             this.rulesGridView.TabIndex = 1;
             this.rulesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rulesGridView_CellDoubleClick);
             this.rulesGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
@@ -1227,7 +1228,7 @@
             this.inputFilterLayoutPanel.Controls.Add(this.serverButtonsFlowLayoutPanel, 0, 0);
             this.inputFilterLayoutPanel.Controls.Add(this.filtersPanel, 1, 0);
             this.inputFilterLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inputFilterLayoutPanel.Location = new System.Drawing.Point(3, 348);
+            this.inputFilterLayoutPanel.Location = new System.Drawing.Point(3, 368);
             this.inputFilterLayoutPanel.Name = "inputFilterLayoutPanel";
             this.inputFilterLayoutPanel.RowCount = 1;
             this.inputFilterLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1429,7 +1430,7 @@
             this.footerTableLayoutPanel.Controls.Add(this.gitHubProjectLayoutPanel, 0, 0);
             this.footerTableLayoutPanel.Controls.Add(this.languageLayoutPanel, 1, 0);
             this.footerTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.footerTableLayoutPanel.Location = new System.Drawing.Point(3, 499);
+            this.footerTableLayoutPanel.Location = new System.Drawing.Point(3, 519);
             this.footerTableLayoutPanel.Name = "footerTableLayoutPanel";
             this.footerTableLayoutPanel.RowCount = 1;
             this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1505,7 +1506,7 @@
             this.mediaPage.Controls.Add(this.mediaSplitContainer);
             this.mediaPage.Location = new System.Drawing.Point(4, 22);
             this.mediaPage.Name = "mediaPage";
-            this.mediaPage.Size = new System.Drawing.Size(1182, 552);
+            this.mediaPage.Size = new System.Drawing.Size(1182, 572);
             this.mediaPage.TabIndex = 2;
             this.mediaPage.Text = "{$MEDIA$}";
             this.mediaPage.UseVisualStyleBackColor = true;
@@ -1525,8 +1526,8 @@
             // mediaSplitContainer.Panel2
             // 
             this.mediaSplitContainer.Panel2.Controls.Add(this.savedPositionsTextBox);
-            this.mediaSplitContainer.Size = new System.Drawing.Size(1182, 552);
-            this.mediaSplitContainer.SplitterDistance = 411;
+            this.mediaSplitContainer.Size = new System.Drawing.Size(1182, 572);
+            this.mediaSplitContainer.SplitterDistance = 425;
             this.mediaSplitContainer.TabIndex = 5;
             // 
             // mediaInnerSplitContainer
@@ -1544,7 +1545,7 @@
             // mediaInnerSplitContainer.Panel2
             // 
             this.mediaInnerSplitContainer.Panel2.Controls.Add(this.galleryTableLayoutPanel);
-            this.mediaInnerSplitContainer.Size = new System.Drawing.Size(1182, 411);
+            this.mediaInnerSplitContainer.Size = new System.Drawing.Size(1182, 425);
             this.mediaInnerSplitContainer.SplitterDistance = 800;
             this.mediaInnerSplitContainer.TabIndex = 4;
             // 
@@ -1561,7 +1562,7 @@
             this.lastChatlogTableLayoutPanel.RowCount = 2;
             this.lastChatlogTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.lastChatlogTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.lastChatlogTableLayoutPanel.Size = new System.Drawing.Size(800, 411);
+            this.lastChatlogTableLayoutPanel.Size = new System.Drawing.Size(800, 425);
             this.lastChatlogTableLayoutPanel.TabIndex = 1;
             // 
             // lastChatlogRichTextBox
@@ -1576,7 +1577,7 @@
             this.lastChatlogRichTextBox.Name = "lastChatlogRichTextBox";
             this.lastChatlogRichTextBox.ReadOnly = true;
             this.lastChatlogRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.lastChatlogRichTextBox.Size = new System.Drawing.Size(794, 361);
+            this.lastChatlogRichTextBox.Size = new System.Drawing.Size(794, 375);
             this.lastChatlogRichTextBox.TabIndex = 0;
             this.lastChatlogRichTextBox.Text = "";
             this.lastChatlogRichTextBox.WordWrap = false;
@@ -1747,7 +1748,7 @@
             this.galleryTableLayoutPanel.RowCount = 2;
             this.galleryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.galleryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.galleryTableLayoutPanel.Size = new System.Drawing.Size(378, 411);
+            this.galleryTableLayoutPanel.Size = new System.Drawing.Size(378, 425);
             this.galleryTableLayoutPanel.TabIndex = 0;
             // 
             // galleryMenuLayoutPanel
@@ -1810,7 +1811,7 @@
             this.galleryListView.LargeImageList = this.galleryImageList;
             this.galleryListView.Location = new System.Drawing.Point(3, 47);
             this.galleryListView.Name = "galleryListView";
-            this.galleryListView.Size = new System.Drawing.Size(372, 361);
+            this.galleryListView.Size = new System.Drawing.Size(372, 375);
             this.galleryListView.SmallImageList = this.galleryImageList;
             this.galleryListView.TabIndex = 1;
             this.galleryListView.UseCompatibleStateImageBehavior = false;
@@ -1836,7 +1837,7 @@
             this.savedPositionsTextBox.Name = "savedPositionsTextBox";
             this.savedPositionsTextBox.ReadOnly = true;
             this.savedPositionsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.savedPositionsTextBox.Size = new System.Drawing.Size(1178, 137);
+            this.savedPositionsTextBox.Size = new System.Drawing.Size(1178, 143);
             this.savedPositionsTextBox.TabIndex = 3;
             // 
             // sessionsPage
@@ -1845,7 +1846,7 @@
             this.sessionsPage.Location = new System.Drawing.Point(4, 22);
             this.sessionsPage.Name = "sessionsPage";
             this.sessionsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.sessionsPage.Size = new System.Drawing.Size(1182, 552);
+            this.sessionsPage.Size = new System.Drawing.Size(1182, 572);
             this.sessionsPage.TabIndex = 9;
             this.sessionsPage.Text = "{$SESSIONS$}";
             this.sessionsPage.UseVisualStyleBackColor = true;
@@ -1864,7 +1865,7 @@
             // sessionsSplitContainer.Panel2
             // 
             this.sessionsSplitContainer.Panel2.Controls.Add(this.sessionSplitContainer);
-            this.sessionsSplitContainer.Size = new System.Drawing.Size(1176, 546);
+            this.sessionsSplitContainer.Size = new System.Drawing.Size(1176, 566);
             this.sessionsSplitContainer.SplitterDistance = 392;
             this.sessionsSplitContainer.TabIndex = 0;
             // 
@@ -1880,7 +1881,7 @@
             this.sessionsTableLayoutPanel.RowCount = 2;
             this.sessionsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.sessionsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.sessionsTableLayoutPanel.Size = new System.Drawing.Size(392, 546);
+            this.sessionsTableLayoutPanel.Size = new System.Drawing.Size(392, 566);
             this.sessionsTableLayoutPanel.TabIndex = 0;
             // 
             // sessionsDataGridView
@@ -1937,7 +1938,7 @@
             this.sessionsDataGridView.RowHeadersVisible = false;
             this.sessionsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.sessionsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.sessionsDataGridView.Size = new System.Drawing.Size(386, 410);
+            this.sessionsDataGridView.Size = new System.Drawing.Size(386, 430);
             this.sessionsDataGridView.TabIndex = 1;
             this.sessionsDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             this.sessionsDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.sessionsDataGridView_RowEnter);
@@ -2050,7 +2051,7 @@
             // sessionSplitContainer.Panel1
             // 
             this.sessionSplitContainer.Panel1.Controls.Add(this.noSessionMaterialLabel);
-            this.sessionSplitContainer.Size = new System.Drawing.Size(780, 546);
+            this.sessionSplitContainer.Size = new System.Drawing.Size(780, 566);
             this.sessionSplitContainer.SplitterDistance = 500;
             this.sessionSplitContainer.TabIndex = 0;
             // 
@@ -2063,7 +2064,7 @@
             this.noSessionMaterialLabel.Location = new System.Drawing.Point(0, 0);
             this.noSessionMaterialLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.noSessionMaterialLabel.Name = "noSessionMaterialLabel";
-            this.noSessionMaterialLabel.Size = new System.Drawing.Size(500, 546);
+            this.noSessionMaterialLabel.Size = new System.Drawing.Size(500, 566);
             this.noSessionMaterialLabel.TabIndex = 1;
             this.noSessionMaterialLabel.Text = "{$NO_SESSION_LOG$}";
             this.noSessionMaterialLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2073,7 +2074,7 @@
             this.versionsPage.Controls.Add(this.versionsTableLayoutPanel);
             this.versionsPage.Location = new System.Drawing.Point(4, 22);
             this.versionsPage.Name = "versionsPage";
-            this.versionsPage.Size = new System.Drawing.Size(1182, 552);
+            this.versionsPage.Size = new System.Drawing.Size(1182, 572);
             this.versionsPage.TabIndex = 8;
             this.versionsPage.Text = "{$VERSIONS$}";
             this.versionsPage.UseVisualStyleBackColor = true;
@@ -2091,7 +2092,7 @@
             this.versionsTableLayoutPanel.RowCount = 2;
             this.versionsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.versionsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.versionsTableLayoutPanel.Size = new System.Drawing.Size(1182, 552);
+            this.versionsTableLayoutPanel.Size = new System.Drawing.Size(1182, 572);
             this.versionsTableLayoutPanel.TabIndex = 0;
             // 
             // versionButtonsFlowLayoutPanel
@@ -2141,7 +2142,7 @@
             this.versionsListView.Location = new System.Drawing.Point(3, 47);
             this.versionsListView.MultiSelect = false;
             this.versionsListView.Name = "versionsListView";
-            this.versionsListView.Size = new System.Drawing.Size(1176, 502);
+            this.versionsListView.Size = new System.Drawing.Size(1176, 522);
             this.versionsListView.SmallImageList = this.versionsImageList;
             this.versionsListView.TabIndex = 1;
             this.versionsListView.UseCompatibleStateImageBehavior = false;
@@ -2159,7 +2160,7 @@
             this.pluginsPage.Controls.Add(this.pluginsTableLayoutPanel);
             this.pluginsPage.Location = new System.Drawing.Point(4, 22);
             this.pluginsPage.Name = "pluginsPage";
-            this.pluginsPage.Size = new System.Drawing.Size(1182, 552);
+            this.pluginsPage.Size = new System.Drawing.Size(1182, 572);
             this.pluginsPage.TabIndex = 5;
             this.pluginsPage.Text = "{$PLUGINS$}";
             this.pluginsPage.UseVisualStyleBackColor = true;
@@ -2178,7 +2179,7 @@
             this.pluginsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.pluginsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pluginsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pluginsTableLayoutPanel.Size = new System.Drawing.Size(1182, 552);
+            this.pluginsTableLayoutPanel.Size = new System.Drawing.Size(1182, 572);
             this.pluginsTableLayoutPanel.TabIndex = 0;
             // 
             // pluginsGridView
@@ -2233,7 +2234,7 @@
             this.pluginsGridView.RowHeadersVisible = false;
             this.pluginsGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.pluginsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.pluginsGridView.Size = new System.Drawing.Size(1176, 502);
+            this.pluginsGridView.Size = new System.Drawing.Size(1176, 522);
             this.pluginsGridView.TabIndex = 4;
             this.pluginsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pluginsGridView_CellContentClick);
             this.pluginsGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
@@ -2347,7 +2348,7 @@
             this.apiPage.Controls.Add(this.apiLayoutPanel);
             this.apiPage.Location = new System.Drawing.Point(4, 22);
             this.apiPage.Name = "apiPage";
-            this.apiPage.Size = new System.Drawing.Size(1182, 552);
+            this.apiPage.Size = new System.Drawing.Size(1182, 572);
             this.apiPage.TabIndex = 3;
             this.apiPage.Text = "{$API$}";
             this.apiPage.UseVisualStyleBackColor = true;
@@ -2365,7 +2366,7 @@
             this.apiLayoutPanel.RowCount = 2;
             this.apiLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.apiLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.apiLayoutPanel.Size = new System.Drawing.Size(1182, 552);
+            this.apiLayoutPanel.Size = new System.Drawing.Size(1182, 572);
             this.apiLayoutPanel.TabIndex = 3;
             // 
             // apiGridView
@@ -2419,7 +2420,7 @@
             this.apiGridView.RowHeadersVisible = false;
             this.apiGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.apiGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.apiGridView.Size = new System.Drawing.Size(1176, 502);
+            this.apiGridView.Size = new System.Drawing.Size(1176, 522);
             this.apiGridView.TabIndex = 3;
             this.apiGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.genericGridView_DataError);
             this.apiGridView.DoubleClick += new System.EventHandler(this.apiGridView_DoubleClick);
@@ -2561,7 +2562,7 @@
             this.developerToolsPage.Location = new System.Drawing.Point(4, 22);
             this.developerToolsPage.Name = "developerToolsPage";
             this.developerToolsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.developerToolsPage.Size = new System.Drawing.Size(1182, 552);
+            this.developerToolsPage.Size = new System.Drawing.Size(1182, 572);
             this.developerToolsPage.TabIndex = 7;
             this.developerToolsPage.Text = "{$DEVELOPER_TOOLS$}";
             this.developerToolsPage.UseVisualStyleBackColor = true;
@@ -2579,7 +2580,7 @@
             this.developerToolsMainLayoutPanel.RowCount = 2;
             this.developerToolsMainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.developerToolsMainLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 289F));
-            this.developerToolsMainLayoutPanel.Size = new System.Drawing.Size(1176, 546);
+            this.developerToolsMainLayoutPanel.Size = new System.Drawing.Size(1176, 566);
             this.developerToolsMainLayoutPanel.TabIndex = 0;
             // 
             // developerToolsFilesLayoutPanel
@@ -2596,7 +2597,7 @@
             this.developerToolsFilesLayoutPanel.Name = "developerToolsFilesLayoutPanel";
             this.developerToolsFilesLayoutPanel.RowCount = 1;
             this.developerToolsFilesLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.developerToolsFilesLayoutPanel.Size = new System.Drawing.Size(1170, 251);
+            this.developerToolsFilesLayoutPanel.Size = new System.Drawing.Size(1170, 271);
             this.developerToolsFilesLayoutPanel.TabIndex = 0;
             // 
             // developerToolsFilterscriptPanel
@@ -2606,7 +2607,7 @@
             this.developerToolsFilterscriptPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.developerToolsFilterscriptPanel.Location = new System.Drawing.Point(393, 3);
             this.developerToolsFilterscriptPanel.Name = "developerToolsFilterscriptPanel";
-            this.developerToolsFilterscriptPanel.Size = new System.Drawing.Size(384, 245);
+            this.developerToolsFilterscriptPanel.Size = new System.Drawing.Size(384, 265);
             this.developerToolsFilterscriptPanel.TabIndex = 2;
             // 
             // developerToolsFilterscriptsCheckedListBox
@@ -2618,7 +2619,7 @@
             this.developerToolsFilterscriptsCheckedListBox.FormattingEnabled = true;
             this.developerToolsFilterscriptsCheckedListBox.Location = new System.Drawing.Point(0, 19);
             this.developerToolsFilterscriptsCheckedListBox.Name = "developerToolsFilterscriptsCheckedListBox";
-            this.developerToolsFilterscriptsCheckedListBox.Size = new System.Drawing.Size(384, 226);
+            this.developerToolsFilterscriptsCheckedListBox.Size = new System.Drawing.Size(384, 246);
             this.developerToolsFilterscriptsCheckedListBox.TabIndex = 4;
             this.toolTip.SetToolTip(this.developerToolsFilterscriptsCheckedListBox, "Select filterscripts");
             // 
@@ -2643,7 +2644,7 @@
             this.developerToolsGamemodesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.developerToolsGamemodesPanel.Location = new System.Drawing.Point(3, 3);
             this.developerToolsGamemodesPanel.Name = "developerToolsGamemodesPanel";
-            this.developerToolsGamemodesPanel.Size = new System.Drawing.Size(384, 245);
+            this.developerToolsGamemodesPanel.Size = new System.Drawing.Size(384, 265);
             this.developerToolsGamemodesPanel.TabIndex = 0;
             // 
             // developerToolsGamemodesCheckedListBox
@@ -2655,7 +2656,7 @@
             this.developerToolsGamemodesCheckedListBox.FormattingEnabled = true;
             this.developerToolsGamemodesCheckedListBox.Location = new System.Drawing.Point(0, 19);
             this.developerToolsGamemodesCheckedListBox.Name = "developerToolsGamemodesCheckedListBox";
-            this.developerToolsGamemodesCheckedListBox.Size = new System.Drawing.Size(384, 226);
+            this.developerToolsGamemodesCheckedListBox.Size = new System.Drawing.Size(384, 246);
             this.developerToolsGamemodesCheckedListBox.TabIndex = 3;
             this.toolTip.SetToolTip(this.developerToolsGamemodesCheckedListBox, "Select gamemodes");
             // 
@@ -2680,7 +2681,7 @@
             this.developerToolsPluginsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.developerToolsPluginsPanel.Location = new System.Drawing.Point(783, 3);
             this.developerToolsPluginsPanel.Name = "developerToolsPluginsPanel";
-            this.developerToolsPluginsPanel.Size = new System.Drawing.Size(384, 245);
+            this.developerToolsPluginsPanel.Size = new System.Drawing.Size(384, 265);
             this.developerToolsPluginsPanel.TabIndex = 1;
             // 
             // developerToolsPluginsCheckedListBox
@@ -2692,7 +2693,7 @@
             this.developerToolsPluginsCheckedListBox.FormattingEnabled = true;
             this.developerToolsPluginsCheckedListBox.Location = new System.Drawing.Point(0, 19);
             this.developerToolsPluginsCheckedListBox.Name = "developerToolsPluginsCheckedListBox";
-            this.developerToolsPluginsCheckedListBox.Size = new System.Drawing.Size(384, 226);
+            this.developerToolsPluginsCheckedListBox.Size = new System.Drawing.Size(384, 246);
             this.developerToolsPluginsCheckedListBox.TabIndex = 4;
             this.toolTip.SetToolTip(this.developerToolsPluginsCheckedListBox, "Select plugins");
             // 
@@ -2728,7 +2729,7 @@
             this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.stopServerButton);
             this.developerToolsConfigFlowLayoutPanel.Controls.Add(this.developerToolsConnectToTestServerButton);
             this.developerToolsConfigFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.developerToolsConfigFlowLayoutPanel.Location = new System.Drawing.Point(3, 260);
+            this.developerToolsConfigFlowLayoutPanel.Location = new System.Drawing.Point(3, 280);
             this.developerToolsConfigFlowLayoutPanel.Name = "developerToolsConfigFlowLayoutPanel";
             this.developerToolsConfigFlowLayoutPanel.Size = new System.Drawing.Size(1170, 283);
             this.developerToolsConfigFlowLayoutPanel.TabIndex = 1;
@@ -2983,7 +2984,7 @@
             this.optionsPage.Location = new System.Drawing.Point(4, 22);
             this.optionsPage.Name = "optionsPage";
             this.optionsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.optionsPage.Size = new System.Drawing.Size(1182, 552);
+            this.optionsPage.Size = new System.Drawing.Size(1182, 572);
             this.optionsPage.TabIndex = 1;
             this.optionsPage.Text = "{$OPTIONS$}";
             this.optionsPage.UseVisualStyleBackColor = true;
@@ -2991,6 +2992,7 @@
             // optionsPanel
             // 
             this.optionsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.optionsPanel.Controls.Add(this.doNotCheckForUpdatesCheckBox);
             this.optionsPanel.Controls.Add(this.createSessionsLogCheckBox);
             this.optionsPanel.Controls.Add(this.showUsernameDialogCheckBox);
             this.optionsPanel.Controls.Add(this.revertConfigButton);
@@ -3014,8 +3016,25 @@
             this.optionsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.optionsPanel.Location = new System.Drawing.Point(3, 3);
             this.optionsPanel.Name = "optionsPanel";
-            this.optionsPanel.Size = new System.Drawing.Size(1176, 546);
+            this.optionsPanel.Size = new System.Drawing.Size(1176, 566);
             this.optionsPanel.TabIndex = 0;
+            // 
+            // doNotCheckForUpdatesCheckBox
+            // 
+            this.doNotCheckForUpdatesCheckBox.AutoSize = true;
+            this.doNotCheckForUpdatesCheckBox.Depth = 0;
+            this.doNotCheckForUpdatesCheckBox.Font = new System.Drawing.Font("Roboto", 10F);
+            this.doNotCheckForUpdatesCheckBox.Location = new System.Drawing.Point(3, 493);
+            this.doNotCheckForUpdatesCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.doNotCheckForUpdatesCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.doNotCheckForUpdatesCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.doNotCheckForUpdatesCheckBox.Name = "doNotCheckForUpdatesCheckBox";
+            this.doNotCheckForUpdatesCheckBox.Ripple = true;
+            this.doNotCheckForUpdatesCheckBox.Size = new System.Drawing.Size(256, 30);
+            this.doNotCheckForUpdatesCheckBox.TabIndex = 35;
+            this.doNotCheckForUpdatesCheckBox.Text = "{$DO_NOT_CHECK_FOR_UPDATES$}";
+            this.toolTip.SetToolTip(this.doNotCheckForUpdatesCheckBox, "Create sessions log after game session");
+            this.doNotCheckForUpdatesCheckBox.UseVisualStyleBackColor = true;
             // 
             // createSessionsLogCheckBox
             // 
@@ -3059,7 +3078,7 @@
             this.revertConfigButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.revertConfigButton.Depth = 0;
             this.revertConfigButton.Icon = null;
-            this.revertConfigButton.Location = new System.Drawing.Point(1022, 507);
+            this.revertConfigButton.Location = new System.Drawing.Point(1022, 527);
             this.revertConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.revertConfigButton.Name = "revertConfigButton";
             this.revertConfigButton.Primary = true;
@@ -3077,7 +3096,7 @@
             this.saveConfigButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.saveConfigButton.Depth = 0;
             this.saveConfigButton.Icon = null;
-            this.saveConfigButton.Location = new System.Drawing.Point(3, 507);
+            this.saveConfigButton.Location = new System.Drawing.Point(3, 527);
             this.saveConfigButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.saveConfigButton.Name = "saveConfigButton";
             this.saveConfigButton.Primary = true;
@@ -3379,7 +3398,7 @@
             this.aboutPage.Controls.Add(this.aboutFlowLayoutPanel);
             this.aboutPage.Location = new System.Drawing.Point(4, 22);
             this.aboutPage.Name = "aboutPage";
-            this.aboutPage.Size = new System.Drawing.Size(1182, 552);
+            this.aboutPage.Size = new System.Drawing.Size(1182, 572);
             this.aboutPage.TabIndex = 4;
             this.aboutPage.Text = "{$ABOUT$}";
             this.aboutPage.UseVisualStyleBackColor = true;
@@ -3397,7 +3416,7 @@
             this.aboutFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.aboutFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.aboutFlowLayoutPanel.Name = "aboutFlowLayoutPanel";
-            this.aboutFlowLayoutPanel.Size = new System.Drawing.Size(1182, 552);
+            this.aboutFlowLayoutPanel.Size = new System.Drawing.Size(1182, 572);
             this.aboutFlowLayoutPanel.TabIndex = 0;
             // 
             // gitHubProjectLargePictureBox
@@ -3610,7 +3629,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.ClientSize = new System.Drawing.Size(1200, 720);
             this.Controls.Add(this.usernamePanel);
             this.Controls.Add(this.mainTabSelector);
             this.Controls.Add(this.mainTabControl);
@@ -3994,5 +4013,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn languageDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateAndTime;
         private SAMPLauncherNET.UI.FilterUserControl sessionsFilterUserControl;
+        private MaterialSkin.Controls.MaterialCheckBox doNotCheckForUpdatesCheckBox;
     }
 }

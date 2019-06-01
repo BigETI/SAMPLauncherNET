@@ -66,7 +66,7 @@ namespace SAMPLauncherNET
         public DeveloperToolsConfigForm(DeveloperToolsConfigDataContract developerToolsConfigDataContract)
         {
             InitializeComponent();
-            Translator.LoadTranslation(this);
+            Utils.Translator.TranslateControls(this);
             acknowledgesLimitSingleLineTextField.Text = developerToolsConfigDataContract.AcknowledgesLimit.ToString();
             announceCheckBox.Checked = developerToolsConfigDataContract.Announce;
             bindSingleLineTextField.Text = developerToolsConfigDataContract.Bind;

@@ -58,7 +58,7 @@ namespace SAMPLauncherNET
             this.path = path;
             directory = System.IO.Path.GetDirectoryName(path);
             InitializeComponent();
-            Translator.LoadTranslation(this);
+            Utils.Translator.TranslateControls(this);
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace SAMPLauncherNET
         {
             if (e.Error != null)
             {
-                MessageBox.Show(e.Error.Message, Translator.GetTranslation("DOWNLOAD_FAILED_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Error.Message, Utils.Translator.GetTranslation("DOWNLOAD_FAILED_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (!(e.Cancelled))
             {
@@ -136,7 +136,7 @@ namespace SAMPLauncherNET
             {
                 if (e.CloseReason == CloseReason.UserClosing)
                 {
-                    e.Cancel = (MessageBox.Show(Translator.GetTranslation("CANCEL_DOWNLOAD"), Translator.GetTranslation("CANCEL_DOWNLOAD_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No);
+                    e.Cancel = (MessageBox.Show(Utils.Translator.GetTranslation("CANCEL_DOWNLOAD"), Utils.Translator.GetTranslation("CANCEL_DOWNLOAD_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No);
                 }
             }
         }

@@ -229,7 +229,7 @@ namespace SAMPLauncherNET.UI
                 catch (Exception e)
                 {
                     Console.Error.WriteLine(e);
-                    MessageBox.Show(e.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(e.Message, Utils.Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -241,7 +241,7 @@ namespace SAMPLauncherNET.UI
         public FilterUserControl()
         {
             InitializeComponent();
-            Translator.LoadTranslation(this);
+            Utils.Translator.TranslateControls(this);
         }
 
         /// <summary>
@@ -292,7 +292,7 @@ namespace SAMPLauncherNET.UI
                         ++i;
                     }
                     filterOptions = options.ToArray();
-                    Translator.LoadTranslation(filterRadioGroupFlowLayoutPanel);
+                    Utils.Translator.TranslateControls(filterRadioGroupFlowLayoutPanel);
                 }
             }
         }

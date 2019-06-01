@@ -30,7 +30,7 @@ namespace SAMPLauncherNET
         public RCONPasswordForm()
         {
             InitializeComponent();
-            Translator.LoadTranslation(this);
+            Utils.Translator.TranslateControls(this);
         }
 
         /// <summary>

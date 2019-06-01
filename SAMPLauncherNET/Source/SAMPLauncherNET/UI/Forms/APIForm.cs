@@ -31,11 +31,11 @@ namespace SAMPLauncherNET
         public APIForm(APIDataContract api)
         {
             InitializeComponent();
-            Translator.LoadTranslation(this);
+            Utils.Translator.TranslateControls(this);
             Translator.EnumToComboBox(apiTypeComboBox, new EServerListType[] { EServerListType.Error });
             if (api != null)
             {
-                Text = Translator.GetTranslation("EDIT_API_TITLE");
+                Text = Utils.Translator.GetTranslation("EDIT_API_TITLE");
                 apiNameSingleLineTextField.Text = api.Name;
                 EServerListType type;
                 if (!(Enum.TryParse(api.Type, out type)))
@@ -54,19 +54,19 @@ namespace SAMPLauncherNET
         {
             if (apiNameSingleLineTextField.Text.Trim().Length <= 0)
             {
-                MessageBox.Show(Translator.GetTranslation("API_NAME_MISSING"), Translator.GetTranslation("API_NAME_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Utils.Translator.GetTranslation("API_NAME_MISSING"), Utils.Translator.GetTranslation("API_NAME_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 if (apiTypeComboBox.SelectedIndex < 0)
                 {
-                    MessageBox.Show(Translator.GetTranslation("API_TYPE_MISSING"), Translator.GetTranslation("API_TYPE_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Utils.Translator.GetTranslation("API_TYPE_MISSING"), Utils.Translator.GetTranslation("API_TYPE_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     if (apiEndpointSingleLineTextField.Text.Trim().Length <= 0)
                     {
-                        MessageBox.Show(Translator.GetTranslation("API_ENDPOINT_MISSING"), Translator.GetTranslation("API_ENDPOINT_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Utils.Translator.GetTranslation("API_ENDPOINT_MISSING"), Utils.Translator.GetTranslation("API_ENDPOINT_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {

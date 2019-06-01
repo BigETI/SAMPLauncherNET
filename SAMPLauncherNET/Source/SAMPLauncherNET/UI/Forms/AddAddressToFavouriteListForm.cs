@@ -44,7 +44,7 @@ namespace SAMPLauncherNET
         public AddAddressToFavouriteListForm(IEnumerable<IndexedServerListConnector> favouriteLists)
         {
             InitializeComponent();
-            Translator.LoadTranslation(this);
+            Utils.Translator.TranslateControls(this);
             favouritesListComboBox.Items.AddRange(favouriteLists.ToArray());
         }
 
@@ -57,11 +57,11 @@ namespace SAMPLauncherNET
         {
             if (SelectedServerListConnector == null)
             {
-                MessageBox.Show(Translator.GetTranslation("FAVOURITE_LIST_NOT_SELECTED"), Translator.GetTranslation("FAVOURITE_LIST_NOT_SELECTED_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Utils.Translator.GetTranslation("FAVOURITE_LIST_NOT_SELECTED"), Utils.Translator.GetTranslation("FAVOURITE_LIST_NOT_SELECTED_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (Address.Trim().Length <= 0)
             {
-                MessageBox.Show(Translator.GetTranslation("NO_ADDRESS_SPECIFIED"), Translator.GetTranslation("NO_ADDRESS_SPECIFIED_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Utils.Translator.GetTranslation("NO_ADDRESS_SPECIFIED"), Utils.Translator.GetTranslation("NO_ADDRESS_SPECIFIED_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

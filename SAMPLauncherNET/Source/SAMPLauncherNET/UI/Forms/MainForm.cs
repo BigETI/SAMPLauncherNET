@@ -191,33 +191,42 @@ namespace SAMPLauncherNET
         {
             InitializeComponent();
             Size sz = revertConfigButton.Size;
-            Translator.LoadTranslation(this);
+            Utils.Translator.TranslateControls(this);
             revertConfigButton.Location = new Point(revertConfigButton.Location.X + (sz.Width - revertConfigButton.Size.Width), revertConfigButton.Location.Y);
-            Translator.EnumerableToComboBox(languagesComboBox, Translator.TranslatorInterface.Languages);
-            serversGridView.Columns[1].HeaderText = Translator.GetTranslation("PING");
-            serversGridView.Columns[2].HeaderText = Translator.GetTranslation("HOSTNAME");
-            serversGridView.Columns[3].HeaderText = Translator.GetTranslation("PLAYERS");
-            serversGridView.Columns[4].HeaderText = Translator.GetTranslation("MODE");
-            serversGridView.Columns[5].HeaderText = Translator.GetTranslation("LANGUAGE");
-            serversGridView.Columns[6].HeaderText = Translator.GetTranslation("IP_AND_PORT");
-            playersGridView.Columns[0].HeaderText = Translator.GetTranslation("PLAYER");
-            playersGridView.Columns[1].HeaderText = Translator.GetTranslation("SCORE");
-            rulesGridView.Columns[0].HeaderText = Translator.GetTranslation("RULE");
-            rulesGridView.Columns[1].HeaderText = Translator.GetTranslation("VALUE");
-            apiGridView.Columns[1].HeaderText = Translator.GetTranslation("NAME");
-            apiGridView.Columns[2].HeaderText = Translator.GetTranslation("TYPE");
-            apiGridView.Columns[3].HeaderText = Translator.GetTranslation("ENDPOINT");
-            sessionsDataGridView.Columns[1].HeaderText = Translator.GetTranslation("USERNAME");
-            sessionsDataGridView.Columns[2].HeaderText = Translator.GetTranslation("HOSTNAME");
-            sessionsDataGridView.Columns[3].HeaderText = Translator.GetTranslation("IP_AND_PORT");
-            usernameSingleLineTextField.Hint = Translator.GetTranslation("USERNAME") + "...";
+            List<string> languages = new List<string>();
+            foreach (LanguageData language in Utils.Translator.Languages.Values)
+            {
+                if (language != null)
+                {
+                    languages.Add(Utils.Translator.GetTranslation(language.Language));
+                }
+            }
+            Translator.EnumerableToComboBox(languagesComboBox, languages);
+            languages.Clear();
+            serversGridView.Columns[1].HeaderText = Utils.Translator.GetTranslation("PING");
+            serversGridView.Columns[2].HeaderText = Utils.Translator.GetTranslation("HOSTNAME");
+            serversGridView.Columns[3].HeaderText = Utils.Translator.GetTranslation("PLAYERS");
+            serversGridView.Columns[4].HeaderText = Utils.Translator.GetTranslation("MODE");
+            serversGridView.Columns[5].HeaderText = Utils.Translator.GetTranslation("LANGUAGE");
+            serversGridView.Columns[6].HeaderText = Utils.Translator.GetTranslation("IP_AND_PORT");
+            playersGridView.Columns[0].HeaderText = Utils.Translator.GetTranslation("PLAYER");
+            playersGridView.Columns[1].HeaderText = Utils.Translator.GetTranslation("SCORE");
+            rulesGridView.Columns[0].HeaderText = Utils.Translator.GetTranslation("RULE");
+            rulesGridView.Columns[1].HeaderText = Utils.Translator.GetTranslation("VALUE");
+            apiGridView.Columns[1].HeaderText = Utils.Translator.GetTranslation("NAME");
+            apiGridView.Columns[2].HeaderText = Utils.Translator.GetTranslation("TYPE");
+            apiGridView.Columns[3].HeaderText = Utils.Translator.GetTranslation("ENDPOINT");
+            sessionsDataGridView.Columns[1].HeaderText = Utils.Translator.GetTranslation("USERNAME");
+            sessionsDataGridView.Columns[2].HeaderText = Utils.Translator.GetTranslation("HOSTNAME");
+            sessionsDataGridView.Columns[3].HeaderText = Utils.Translator.GetTranslation("IP_AND_PORT");
+            usernameSingleLineTextField.Hint = Utils.Translator.GetTranslation("USERNAME") + "...";
             usernameSingleLineTextField.Text = SAMP.Username;
 
             int i = 0;
             string lang = SAMP.LauncherConfigIO.Language;
-            foreach (Language language in Translator.TranslatorInterface.Languages)
+            foreach (string language in Utils.Translator.Languages.Keys)
             {
-                if (language.Culture == lang)
+                if (language == lang)
                 {
                     languagesComboBox.SelectedIndex = i;
                     break;
@@ -358,7 +367,7 @@ namespace SAMPLauncherNET
                 {
                     if (trimmed_name.StartsWith("{$") && trimmed_name.EndsWith("$}"))
                     {
-                        plugin.TranslatableText = Translator.GetTranslation(trimmed_name.Substring(2, trimmed_name.Length - 4));
+                        plugin.TranslatableText = Utils.Translator.GetTranslation(trimmed_name.Substring(2, trimmed_name.Length - 4));
                     }
                 }
                 dr.ItemArray = new object[] { i, plugin.Enabled, plugin.Name, plugin.Provider.ToString(), plugin.URI, plugin.UpdateFrequency.ToString() };
@@ -421,7 +430,7 @@ namespace SAMPLauncherNET
                     {
                         if (trimmed_name.StartsWith("{$") && trimmed_name.EndsWith("$}"))
                         {
-                            slc.TranslatableText = Translator.GetTranslation(trimmed_name.Substring(2, trimmed_name.Length - 4));
+                            slc.TranslatableText = Utils.Translator.GetTranslation(trimmed_name.Substring(2, trimmed_name.Length - 4));
                         }
                     }
                     dr.ItemArray = new object[] { i, slc.Name, slc.ServerListType.ToString(), slc.Endpoint };
@@ -539,7 +548,7 @@ namespace SAMPLauncherNET
             {
                 c = apis[index].ServerCount;
             }
-            serverCountLabel.Text = Translator.GetTranslation("SERVERS") + ": " + c;
+            serverCountLabel.Text = Utils.Translator.GetTranslation("SERVERS") + ": " + c;
         }
 
         /// <summary>
@@ -827,7 +836,7 @@ namespace SAMPLauncherNET
             catch (Exception e)
             {
                 Console.Error.WriteLine(e);
-                MessageBox.Show(e.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Message, Utils.Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             EnterServersRow();
         }
@@ -874,7 +883,7 @@ namespace SAMPLauncherNET
                 {
                     if (player.Name.ToLower() == SAMP.Username.ToLower())
                     {
-                        success = (MessageBox.Show(Translator.GetTranslation("USERNAME_WARNING"), Translator.GetTranslation("USERNAME_WARNING_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
+                        success = (MessageBox.Show(Utils.Translator.GetTranslation("USERNAME_WARNING"), Utils.Translator.GetTranslation("USERNAME_WARNING_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
                         break;
                     }
                 }
@@ -899,7 +908,7 @@ namespace SAMPLauncherNET
                     }
                     else
                     {
-                        MessageBox.Show(Translator.GetTranslation("PLEASE_TYPE_IN_USERNAME"), Translator.GetTranslation("INPUT_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Utils.Translator.GetTranslation("PLEASE_TYPE_IN_USERNAME"), Utils.Translator.GetTranslation("INPUT_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -937,7 +946,7 @@ namespace SAMPLauncherNET
             {
                 url = "http://" + url;
             }
-            if (MessageBox.Show(url + "\r\n\r\n" + Translator.GetTranslation("VISIT_WEBSITE_MESSAGE"), Translator.GetTranslation("VISIT_WEBSITE_TITLE") + " " + url, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show(url + "\r\n\r\n" + Utils.Translator.GetTranslation("VISIT_WEBSITE_MESSAGE"), Utils.Translator.GetTranslation("VISIT_WEBSITE_TITLE") + " " + url, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 Process.Start(url);
             }
@@ -961,6 +970,7 @@ namespace SAMPLauncherNET
             showUsernameDialogCheckBox.Checked = !(lcdc.DontShowUsernameDialog);
             closeWhenLaunchedCheckBox.Checked = !(lcdc.DontCloseWhenLaunched);
             createSessionsLogCheckBox.Checked = lcdc.CreateSessionsLog;
+            doNotCheckForUpdatesCheckBox.Checked = lcdc.DoNotCheckForUpdates;
         }
 
         /// <summary>
@@ -1019,7 +1029,7 @@ namespace SAMPLauncherNET
                 catch (Exception e)
                 {
                     Console.Error.WriteLine(e);
-                    MessageBox.Show(e.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(e.Message, Utils.Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -1040,7 +1050,7 @@ namespace SAMPLauncherNET
             }
             if (files.Count > 0)
             {
-                if (MessageBox.Show(Translator.GetTranslation("DELETE_SELECTED_IMAGES"), Translator.GetTranslation("DELETE_SELECTED_IMAGES_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show(Utils.Translator.GetTranslation("DELETE_SELECTED_IMAGES"), Utils.Translator.GetTranslation("DELETE_SELECTED_IMAGES_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     galleryFileSystemWatcher.EnableRaisingEvents = false;
                     foreach (string file in files)
@@ -1308,7 +1318,7 @@ namespace SAMPLauncherNET
         /// </summary>
         private void RemoveSelectedPluginData()
         {
-            if (MessageBox.Show(Translator.GetTranslation("REMOVE_PLUGIN"), Translator.GetTranslation("REMOVE_PLUGIN_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show(Utils.Translator.GetTranslation("REMOVE_PLUGIN"), Utils.Translator.GetTranslation("REMOVE_PLUGIN_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 List<PluginDataContract> rl = new List<PluginDataContract>();
                 List<PluginDataContract> plugins_result = new List<PluginDataContract>(SAMP.PluginsDataIO);
@@ -1385,7 +1395,7 @@ namespace SAMPLauncherNET
         /// </summary>
         private void RemoveSelectedAPI()
         {
-            if (MessageBox.Show(Translator.GetTranslation("REMOVE_API"), Translator.GetTranslation("REMOVE_API_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show(Utils.Translator.GetTranslation("REMOVE_API"), Utils.Translator.GetTranslation("REMOVE_API_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 List<ServerListConnector> rl = new List<ServerListConnector>();
                 List<ServerListConnector> apis_result = SAMP.APIIO;
@@ -1421,7 +1431,7 @@ namespace SAMPLauncherNET
                 Server server = SelectedServer;
                 if (server != null)
                 {
-                    if (MessageBox.Show(Translator.GetTranslation("REMOVE_SERVER_FROM_FAVOURITES"), Translator.GetTranslation("REMOVE_SERVER_FROM_FAVOURITES_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    if (MessageBox.Show(Utils.Translator.GetTranslation("REMOVE_SERVER_FROM_FAVOURITES"), Utils.Translator.GetTranslation("REMOVE_SERVER_FROM_FAVOURITES_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         List<ServerListConnector> apis = SAMP.APIIO;
                         Dictionary<string, Server> servers = apis[selectedAPIIndex].ServerListIO;
@@ -1436,7 +1446,7 @@ namespace SAMPLauncherNET
             }
             else if (promptWhenError)
             {
-                MessageBox.Show(Translator.GetTranslation("SERVER_NOT_IN_FAVOURITES"), Translator.GetTranslation("NOT_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Utils.Translator.GetTranslation("SERVER_NOT_IN_FAVOURITES"), Utils.Translator.GetTranslation("NOT_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1511,7 +1521,7 @@ namespace SAMPLauncherNET
                                 catch (Exception ex)
                                 {
                                     Console.Error.WriteLine(ex);
-                                    MessageBox.Show(ex.Message, Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show(ex.Message, Utils.Translator.GetTranslation("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 SessionsCache.Remove(session);
                             }
@@ -1702,7 +1712,7 @@ namespace SAMPLauncherNET
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             int lang_index = languagesComboBox.SelectedIndex;
-            LauncherConfigDataContract lcdc = new LauncherConfigDataContract((lang_index >= 0) ? (new List<Language>(Translator.TranslatorInterface.Languages))[lang_index].Culture : "en-GB", selectedAPIIndex, developmentDirectorySingleLineTextField.Text, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked, !(showUsernameDialogCheckBox.Checked), !(closeWhenLaunchedCheckBox.Checked), createSessionsLogCheckBox.Checked);
+            LauncherConfigDataContract lcdc = new LauncherConfigDataContract((lang_index >= 0) ? (new List<string>(Utils.Translator.Languages.Keys))[lang_index] : "en-GB", selectedAPIIndex, developmentDirectorySingleLineTextField.Text, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked, !(showUsernameDialogCheckBox.Checked), !(closeWhenLaunchedCheckBox.Checked), createSessionsLogCheckBox.Checked, doNotCheckForUpdatesCheckBox.Checked);
             SAMP.LauncherConfigIO = lcdc;
             SaveDeveloperToolsConfig();
             keepRunning = false;
@@ -1760,9 +1770,13 @@ namespace SAMPLauncherNET
             int i = languagesComboBox.SelectedIndex;
             if (i >= 0)
             {
-                List<Language> langs = new List<Language>(Translator.TranslatorInterface.Languages);
-                if (Translator.ChangeLanguage(langs[i]))
+                List<string> langs = new List<string>(Utils.Translator.Languages.Keys);
+                string language = langs[i];
+                langs.Clear();
+                if (SAMP.LauncherConfigIO.Language != language)
                 {
+                    SAMP.LauncherConfigIO.Language = language;
+                    SAMP.LauncherConfigIO = SAMP.LauncherConfigIO;
                     Application.Restart();
                 }
             }
@@ -2096,7 +2110,7 @@ namespace SAMPLauncherNET
                 }
                 if (connectors.Count <= 0)
                 {
-                    MessageBox.Show(Translator.GetTranslation("NO_FAVOURITES"), Translator.GetTranslation("NO_FAVOURITES_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Utils.Translator.GetTranslation("NO_FAVOURITES"), Utils.Translator.GetTranslation("NO_FAVOURITES_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -2121,7 +2135,7 @@ namespace SAMPLauncherNET
                         Dictionary<string, Server> servers = slc.ServerListIO;
                         if (servers.ContainsKey(server.IPPortString))
                         {
-                            MessageBox.Show(Translator.GetTranslation("SERVER_ALREADY_IN_FAVOURITES"), Translator.GetTranslation("ALREADY_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Utils.Translator.GetTranslation("SERVER_ALREADY_IN_FAVOURITES"), Utils.Translator.GetTranslation("ALREADY_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
@@ -2302,7 +2316,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void revertAPIListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(Translator.GetTranslation("REVERT_API_LIST"), Translator.GetTranslation("REVERT_API_LIST_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show(Utils.Translator.GetTranslation("REVERT_API_LIST"), Utils.Translator.GetTranslation("REVERT_API_LIST_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 SAMP.RevertAPIs();
                 ReloadAPIs();
@@ -2565,7 +2579,7 @@ namespace SAMPLauncherNET
                     SAMPVersionDataContract version = (SAMPVersionDataContract)(item.Tag);
                     if (SAMPProvider.CurrentVersion != version)
                     {
-                        if (MessageBox.Show(string.Format(Translator.GetTranslation("PATCH_VERSION"), version.Name), Translator.GetTranslation("PATCH_VERSION_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        if (MessageBox.Show(string.Format(Utils.Translator.GetTranslation("PATCH_VERSION"), version.Name), Utils.Translator.GetTranslation("PATCH_VERSION_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             SAMP.ChangeSAMPVersion(version, false);
                             ReloadVersions();
@@ -2590,7 +2604,7 @@ namespace SAMPLauncherNET
                     SAMPVersionDataContract version = (SAMPVersionDataContract)(item.Tag);
                     if (SAMPProvider.CurrentVersion != version)
                     {
-                        if (MessageBox.Show(string.Format(Translator.GetTranslation("INSTALL_VERSION"), version.Name), Translator.GetTranslation("INSTALL_VERSION_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        if (MessageBox.Show(string.Format(Utils.Translator.GetTranslation("INSTALL_VERSION"), version.Name), Utils.Translator.GetTranslation("INSTALL_VERSION_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             SAMP.ChangeSAMPVersion(version, true);
                             ReloadVersions();
@@ -2615,7 +2629,7 @@ namespace SAMPLauncherNET
                     SAMPVersionDataContract version = (SAMPVersionDataContract)(item.Tag);
                     if (SAMPProvider.CurrentVersion != version)
                     {
-                        switch (MessageBox.Show(string.Format(Translator.GetTranslation("SELECT_VERSION"), version.Name), Translator.GetTranslation("SELECT_VERSION_TITLE"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning))
+                        switch (MessageBox.Show(string.Format(Utils.Translator.GetTranslation("SELECT_VERSION"), version.Name), Utils.Translator.GetTranslation("SELECT_VERSION_TITLE"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning))
                         {
                             case DialogResult.Yes:
                                 SAMP.ChangeSAMPVersion(version, false);
@@ -2650,7 +2664,7 @@ namespace SAMPLauncherNET
                 FavouriteServer server = new FavouriteServer(aatflf.Address, "", "", "", "");
                 if (servers.ContainsKey(server.IPPortString))
                 {
-                    MessageBox.Show(Translator.GetTranslation("SERVER_ALREADY_IN_FAVOURITES"), Translator.GetTranslation("ALREADY_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Utils.Translator.GetTranslation("SERVER_ALREADY_IN_FAVOURITES"), Utils.Translator.GetTranslation("ALREADY_IN_FAVOURITES"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -2800,7 +2814,7 @@ namespace SAMPLauncherNET
         /// <param name="e">Event arguments</param>
         private void revertPluginListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(Translator.GetTranslation("REVERT_PLUGIN_LIST"), Translator.GetTranslation("REVERT_PLUGIN_LIST_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show(Utils.Translator.GetTranslation("REVERT_PLUGIN_LIST"), Utils.Translator.GetTranslation("REVERT_PLUGIN_LIST_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 SAMP.RevertPluginsData();
                 ReloadPluginsData();

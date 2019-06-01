@@ -66,6 +66,12 @@ namespace SAMPLauncherNET
         private bool createSessionsLog;
 
         /// <summary>
+        /// Do not check for updates
+        /// </summary>
+        [DataMember]
+        private bool doNotCheckForUpdates;
+
+        /// <summary>
         /// Language
         /// </summary>
         public string Language
@@ -203,6 +209,21 @@ namespace SAMPLauncherNET
         }
 
         /// <summary>
+        /// Do not check for updates
+        /// </summary>
+        public bool DoNotCheckForUpdates
+        {
+            get
+            {
+                return doNotCheckForUpdates;
+            }
+            set
+            {
+                doNotCheckForUpdates = value;
+            }
+        }
+
+        /// <summary>
         /// Default constructor
         /// </summary>
         public LauncherConfigDataContract()
@@ -222,7 +243,8 @@ namespace SAMPLauncherNET
         /// <param name="dontShowUsernameDialog">Don't show username dialog</param>
         /// <param name="dontCloseWhenLaunched">Don't close when launched</param>
         /// <param name="createSessionsLog">Create sessions log</param>
-        public LauncherConfigDataContract(string language, int lastSelectedServerListAPI, string developmentDirectory, bool showChatlogColorCodes, bool showChatlogColored, bool showChatlogTimestamp, bool dontShowUsernameDialog, bool dontCloseWhenLaunched, bool createSessionsLog)
+        /// <param name="doNotCheckForUpdates">Do not check for updates</param>
+        public LauncherConfigDataContract(string language, int lastSelectedServerListAPI, string developmentDirectory, bool showChatlogColorCodes, bool showChatlogColored, bool showChatlogTimestamp, bool dontShowUsernameDialog, bool dontCloseWhenLaunched, bool createSessionsLog, bool doNotCheckForUpdates)
         {
             this.language = language;
             this.lastSelectedServerListAPI = lastSelectedServerListAPI;
@@ -233,6 +255,7 @@ namespace SAMPLauncherNET
             this.dontShowUsernameDialog = dontShowUsernameDialog;
             this.dontCloseWhenLaunched = dontCloseWhenLaunched;
             this.createSessionsLog = createSessionsLog;
+            this.doNotCheckForUpdates = doNotCheckForUpdates;
         }
     }
 }

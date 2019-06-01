@@ -529,7 +529,7 @@ namespace SAMPLauncherNET
                 bool ret = true;
                 if (IsGTASanAndreasRunning)
                 {
-                    ret = (MessageBox.Show(Translator.GetTranslation("GTA_SA_IS_RUNNING"), Translator.GetTranslation("GTA_SA_IS_RUNNING_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
+                    ret = (MessageBox.Show(Utils.Translator.GetTranslation("GTA_SA_IS_RUNNING"), Utils.Translator.GetTranslation("GTA_SA_IS_RUNNING_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
                     if (ret)
                     {
                         CloseGTASanAndreas();
@@ -803,7 +803,7 @@ namespace SAMPLauncherNET
             }
             else
             {
-                if (MessageBox.Show(string.Format(Translator.GetTranslation("SAMPCTL_MISSING"), SAMPCTLProvider.SAMPCTLURI), Translator.GetTranslation("SAMPCTL_MISSING_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show(string.Format(Utils.Translator.GetTranslation("SAMPCTL_MISSING"), SAMPCTLProvider.SAMPCTLURI), Utils.Translator.GetTranslation("SAMPCTL_MISSING_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     try
                     {

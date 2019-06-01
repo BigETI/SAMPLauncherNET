@@ -106,14 +106,14 @@ namespace SAMPLauncherNET
         {
             this.server = server;
             InitializeComponent();
-            Translator.LoadTranslation(this);
-            playersGridView.Columns[0].HeaderText = Translator.GetTranslation("ID");
-            playersGridView.Columns[1].HeaderText = Translator.GetTranslation("PLAYER");
-            playersGridView.Columns[2].HeaderText = Translator.GetTranslation("SCORE");
-            playersGridView.Columns[3].HeaderText = Translator.GetTranslation("PING");
-            rulesGridView.Columns[0].HeaderText = Translator.GetTranslation("RULE");
-            rulesGridView.Columns[1].HeaderText = Translator.GetTranslation("VALUE");
-            ipAndPortLabel.Text = Translator.GetTranslation("IP_AND_PORT") + ": " + server.IPPortString;
+            Utils.Translator.TranslateControls(this);
+            playersGridView.Columns[0].HeaderText = Utils.Translator.GetTranslation("ID");
+            playersGridView.Columns[1].HeaderText = Utils.Translator.GetTranslation("PLAYER");
+            playersGridView.Columns[2].HeaderText = Utils.Translator.GetTranslation("SCORE");
+            playersGridView.Columns[3].HeaderText = Utils.Translator.GetTranslation("PING");
+            rulesGridView.Columns[0].HeaderText = Utils.Translator.GetTranslation("RULE");
+            rulesGridView.Columns[1].HeaderText = Utils.Translator.GetTranslation("VALUE");
+            ipAndPortLabel.Text = Utils.Translator.GetTranslation("IP_AND_PORT") + ": " + server.IPPortString;
             serverPingThread = new Thread(() =>
             {
                 while (true)
@@ -241,21 +241,21 @@ namespace SAMPLauncherNET
                 pingChart.Series[0].Points.DataBindY(pingList);
                 if (pingList.Count > 0)
                 {
-                    pingLabel.Text = Translator.GetTranslation("PING") + ": " + pingList[pingList.Count - 1] + " ms";
+                    pingLabel.Text = Utils.Translator.GetTranslation("PING") + ": " + pingList[pingList.Count - 1] + " ms";
                 }
             }
             lock (hostname)
             {
-                hostnameLabel.Text = Translator.GetTranslation("HOSTNAME") + ": " + hostname;
-                playersLabel.Text = Translator.GetTranslation("PLAYERS") + ": " + playerCount + "/" + maxPlayers;
+                hostnameLabel.Text = Utils.Translator.GetTranslation("HOSTNAME") + ": " + hostname;
+                playersLabel.Text = Utils.Translator.GetTranslation("PLAYERS") + ": " + playerCount + "/" + maxPlayers;
             }
             lock (gamemode)
             {
-                gamemodeLabel.Text = Translator.GetTranslation("GAMEMODE") + ": " + gamemode;
+                gamemodeLabel.Text = Utils.Translator.GetTranslation("GAMEMODE") + ": " + gamemode;
             }
             lock (gamemode)
             {
-                languageLabel.Text = Translator.GetTranslation("LANGUAGE") + ": " + language;
+                languageLabel.Text = Utils.Translator.GetTranslation("LANGUAGE") + ": " + language;
             }
             lock (players)
             {
@@ -322,12 +322,12 @@ namespace SAMPLauncherNET
             if ((geoLocation == null) && geoLocationAsync.IsCompleted)
             {
                 geoLocation = geoLocationAsync.Result;
-                countryLabel.Text = Translator.GetTranslation("COUNTRY") + ": " + geoLocation.CountryName + " (" + geoLocation.CountryCode + ")";
-                regionLabel.Text = Translator.GetTranslation("REGION") + ": " + geoLocation.RegionName + " (" + geoLocation.RegionCode + ")";
-                cityLabel.Text = Translator.GetTranslation("CITY") + ": " + geoLocation.ZIPCode + " " + geoLocation.City;
-                timeZoneLabel.Text = Translator.GetTranslation("TIME_ZONE") + ": " + geoLocation.TimeZone;
-                latitudeLongitudeLabel.Text = Translator.GetTranslation("LATITUDE_LONGITUDE") + ": " + geoLocation.Latitude + "; " + geoLocation.Longitude;
-                metroCodeLabel.Text = Translator.GetTranslation("METRO_CODE") + ": " + geoLocation.MetroCode;
+                countryLabel.Text = Utils.Translator.GetTranslation("COUNTRY") + ": " + geoLocation.CountryName + " (" + geoLocation.CountryCode + ")";
+                regionLabel.Text = Utils.Translator.GetTranslation("REGION") + ": " + geoLocation.RegionName + " (" + geoLocation.RegionCode + ")";
+                cityLabel.Text = Utils.Translator.GetTranslation("CITY") + ": " + geoLocation.ZIPCode + " " + geoLocation.City;
+                timeZoneLabel.Text = Utils.Translator.GetTranslation("TIME_ZONE") + ": " + geoLocation.TimeZone;
+                latitudeLongitudeLabel.Text = Utils.Translator.GetTranslation("LATITUDE_LONGITUDE") + ": " + geoLocation.Latitude + "; " + geoLocation.Longitude;
+                metroCodeLabel.Text = Utils.Translator.GetTranslation("METRO_CODE") + ": " + geoLocation.MetroCode;
             }
         }
 

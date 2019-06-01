@@ -5,11 +5,12 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Reflection;
 using System.Runtime.Serialization.Json;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using UpdaterNET;
-using WinFormsTranslator;
 
 /// <summary>
 /// SA:MP launcher .NET namespace
@@ -153,38 +154,41 @@ namespace SAMPLauncherNET
         [STAThread]
         static void Main()
         {
-#if !DEBUG
-            GitHubUpdateTask update = new GitHubUpdateTask("BigETI", "SAMPLauncherNET");
-            if (update.IsUpdateAvailable)
-            {
-                if (Utils.ExportResource("SAMPLauncherNET.PreBuilds.SAMPLauncherNETUpdater.exe", Path.Combine(Environment.CurrentDirectory, "SAMPLauncherNETUpdater.exe")))
-                {
-                    try
-                    {
-                        Process.Start("SAMPLauncherNETUpdater.exe");
-                    }
-                    catch (Exception e)
-                    {
-                        Console.Error.WriteLine(e);
-                        MessageBox.Show(e.Message, "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            else
-            {
-#endif
             try
             {
-                Translator.TranslatorInterface = new TranslatorInterface();
                 if (IsSAMPInstalled)
                 {
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
                     if (!Directory.Exists(ConfigPath + "\\screens"))
                     {
                         Directory.CreateDirectory(ConfigPath + "\\screens");
                     }
-                    Application.EnableVisualStyles();
-                    Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new MainForm());
+                    bool init = true;
+                    if (!(SAMP.LauncherConfigIO.DoNotCheckForUpdates))
+                    {
+                        GitHubUpdateTask update = new GitHubUpdateTask("BigETI", "SAMPLauncherNET", @".*\.exe", RegexOptions.IgnoreCase);
+                        if (update.Version != Assembly.GetExecutingAssembly().GetName().Version.ToString())
+                        {
+                            UpdateNotificationForm update_notification_form = new UpdateNotificationForm(update.Version);
+                            if (update_notification_form.ShowDialog() == DialogResult.Yes)
+                            {
+                                init = false;
+                                try
+                                {
+                                    Process.Start("https://github.com/BigETI/SAMPLauncherNET/releases/tag/" + update.Version);
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.Error.WriteLine(e);
+                                }
+                            }
+                        }
+                    }
+                    if (init)
+                    {
+                        Application.Run(new MainForm());
+                    }
                 }
                 else
                 {
@@ -194,9 +198,7 @@ namespace SAMPLauncherNET
             catch (Exception e)
             {
                 Console.Error.WriteLine(e);
-                MessageBox.Show("A fatal error has occured:\r\n\r\n" + e.Message, "Fatal error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-#if !DEBUG
+                MessageBox.Show("A fatal error has occured:" + Environment.NewLine + Environment.NewLine + e, "Fatal error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (installerPath != null)
             {
@@ -205,7 +207,6 @@ namespace SAMPLauncherNET
                     Thread.Sleep(200);
                 }
             }
-#endif
             Application.Exit();
         }
     }

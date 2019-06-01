@@ -32,7 +32,7 @@ namespace SAMPLauncherNET
         public FavouriteListsForm(List<IndexedServerListConnector> favouriteLists)
         {
             InitializeComponent();
-            Translator.LoadTranslation(this);
+            Utils.Translator.TranslateControls(this);
             favouritesListComboBox.Items.AddRange(favouriteLists.ToArray());
         }
 
@@ -45,7 +45,7 @@ namespace SAMPLauncherNET
         {
             if (SelectedServerListConnector == null)
             {
-                MessageBox.Show(Translator.GetTranslation("FAVOURITE_LIST_NOT_SELECTED"), Translator.GetTranslation("FAVOURITE_LIST_NOT_SELECTED_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Utils.Translator.GetTranslation("FAVOURITE_LIST_NOT_SELECTED"), Utils.Translator.GetTranslation("FAVOURITE_LIST_NOT_SELECTED_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

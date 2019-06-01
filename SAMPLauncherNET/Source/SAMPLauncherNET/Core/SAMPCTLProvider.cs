@@ -89,7 +89,7 @@ namespace SAMPLauncherNET
                     catch (Exception e)
                     {
                         Console.Error.WriteLine(e);
-                        MessageBox.Show(e.Message, Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(e.Message, Utils.Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -109,7 +109,7 @@ namespace SAMPLauncherNET
                     catch (Exception e)
                     {
                         Console.Error.WriteLine(e);
-                        MessageBox.Show(e.Message, Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(e.Message, Utils.Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -130,7 +130,7 @@ namespace SAMPLauncherNET
                     }
                     if (asset == null)
                     {
-                        MessageBox.Show(Translator.GetTranslation("SAMPCTL_MISSING_ASSET"), Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Utils.Translator.GetTranslation("SAMPCTL_MISSING_ASSET"), Utils.Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -184,13 +184,13 @@ namespace SAMPLauncherNET
                         }
                         if (!ret)
                         {
-                            MessageBox.Show(Translator.GetTranslation("SAMPCTL_UNZIP_ERROR"), Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Utils.Translator.GetTranslation("SAMPCTL_UNZIP_ERROR"), Utils.Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     catch (Exception e)
                     {
                         Console.Error.WriteLine(e);
-                        MessageBox.Show(e.Message, Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(e.Message, Utils.Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     if (ret)
                     {
@@ -209,7 +209,7 @@ namespace SAMPLauncherNET
                         {
                             ret = false;
                             Console.Error.WriteLine(e);
-                            MessageBox.Show(e.Message, Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(e.Message, Utils.Translator.GetTranslation("SAMPCTL_ERROR_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

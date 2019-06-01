@@ -31,12 +31,12 @@ namespace SAMPLauncherNET
         public PluginDataForm(PluginDataContract pluginData)
         {
             InitializeComponent();
-            Translator.LoadTranslation(this);
+            Utils.Translator.TranslateControls(this);
             Translator.EnumToComboBox<EPluginProvider>(pluginProviderComboBox);
             Translator.EnumToComboBox<EUpdateFrequency>(pluginUpdateFrequencyComboBox);
             if (pluginData != null)
             {
-                Text = Translator.GetTranslation("EDIT_PLUGIN_TITLE");
+                Text = Utils.Translator.GetTranslation("EDIT_PLUGIN_TITLE");
                 pluginEnabledCheckBox.Checked = pluginData.Enabled;
                 pluginNameSingleLineTextField.Text = pluginData.Name;
                 pluginProviderComboBox.SelectedIndex = (int)(pluginData.Provider);
@@ -52,25 +52,25 @@ namespace SAMPLauncherNET
         {
             if (pluginNameSingleLineTextField.Text.Trim().Length <= 0)
             {
-                MessageBox.Show(Translator.GetTranslation("PLUGIN_NAME_MISSING"), Translator.GetTranslation("PLUGIN_NAME_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Utils.Translator.GetTranslation("PLUGIN_NAME_MISSING"), Utils.Translator.GetTranslation("PLUGIN_NAME_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 if (pluginProviderComboBox.SelectedIndex < 0)
                 {
-                    MessageBox.Show(Translator.GetTranslation("PLUGIN_PROVIDER_MISSING"), Translator.GetTranslation("PLUGIN_PROVIDER_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Utils.Translator.GetTranslation("PLUGIN_PROVIDER_MISSING"), Utils.Translator.GetTranslation("PLUGIN_PROVIDER_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     if (pluginURISingleLineTextField.Text.Trim().Length <= 0)
                     {
-                        MessageBox.Show(Translator.GetTranslation("PLUGIN_URI_MISSING"), Translator.GetTranslation("PLUGIN_URI_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Utils.Translator.GetTranslation("PLUGIN_URI_MISSING"), Utils.Translator.GetTranslation("PLUGIN_URI_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
                         if (pluginUpdateFrequencyComboBox.SelectedIndex < 0)
                         {
-                            MessageBox.Show(Translator.GetTranslation("PLUGIN_UPDATE_FREQUENCY_MISSING"), Translator.GetTranslation("PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(Utils.Translator.GetTranslation("PLUGIN_UPDATE_FREQUENCY_MISSING"), Utils.Translator.GetTranslation("PLUGIN_UPDATE_FREQUENCY_MISSING_TITLE"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {

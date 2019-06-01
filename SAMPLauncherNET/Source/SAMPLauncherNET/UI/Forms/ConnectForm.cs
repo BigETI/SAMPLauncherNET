@@ -43,7 +43,7 @@ namespace SAMPLauncherNET
         public ConnectForm(bool noPasswordMode)
         {
             InitializeComponent();
-            Translator.LoadTranslation(this);
+            Utils.Translator.TranslateControls(this);
             usernameSingleLineTextField.Text = SAMP.Username;
             if (noPasswordMode)
             {
@@ -62,14 +62,14 @@ namespace SAMPLauncherNET
         {
             if (Username.Length <= 0)
             {
-                MessageBox.Show(Translator.GetTranslation("PLEASE_TYPE_IN_USERNAME"), Translator.GetTranslation("INPUT_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Utils.Translator.GetTranslation("PLEASE_TYPE_IN_USERNAME"), Utils.Translator.GetTranslation("INPUT_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 bool success = true;
                 if (serverPasswordSingleLineTextField.Visible && (ServerPassword.Trim().Length <= 0))
                 {
-                    success = (MessageBox.Show(Translator.GetTranslation("SERVER_PASSWORD_FIELD_IS_EMPTY"), Translator.GetTranslation("SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
+                    success = (MessageBox.Show(Utils.Translator.GetTranslation("SERVER_PASSWORD_FIELD_IS_EMPTY"), Utils.Translator.GetTranslation("SERVER_PASSWORD_FIELD_IS_EMPTY_TITLE"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
                 }
                 if (success)
                 {

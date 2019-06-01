@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.IO;
 using System.Diagnostics;
-using System.Windows.Forms;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Reflection;
-using Ude;
 using System.Text;
-using System.Threading;
+using System.Windows.Forms;
+using Ude;
+using WinFormsTranslator;
 
 /// <summary>
 /// SA:MP launcher .NET namespace
@@ -20,6 +20,26 @@ namespace SAMPLauncherNET
     /// </summary>
     public static class Utils
     {
+        /// <summary>
+        /// Translator
+        /// </summary>
+        private static Translator translator;
+
+        /// <summary>
+        /// Translator
+        /// </summary>
+        public static Translator Translator
+        {
+            get
+            {
+                if (translator == null)
+                {
+                    translator = new Translator(SAMP.LauncherConfigIO.Language, "en-GB");
+                }
+                return translator;
+            }
+        }
+
         /// <summary>
         /// Gallery image size
         /// </summary>
