@@ -1712,7 +1712,10 @@ namespace SAMPLauncherNET
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             int lang_index = languagesComboBox.SelectedIndex;
-            LauncherConfigDataContract lcdc = new LauncherConfigDataContract((lang_index >= 0) ? (new List<string>(Utils.Translator.Languages.Keys))[lang_index] : "en-GB", selectedAPIIndex, developmentDirectorySingleLineTextField.Text, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked, !(showUsernameDialogCheckBox.Checked), !(closeWhenLaunchedCheckBox.Checked), createSessionsLogCheckBox.Checked, doNotCheckForUpdatesCheckBox.Checked);
+            List<string> languages = new List<string>(Utils.Translator.Languages.Keys);
+            string language = ((lang_index >= 0) && (lang_index < languages.Count)) ? languages[lang_index] : "en-GB";
+            languages.Clear();
+            LauncherConfigDataContract lcdc = new LauncherConfigDataContract(language, selectedAPIIndex, developmentDirectorySingleLineTextField.Text, chatlogColorCodesCheckBox.Checked, chatlogColoredCheckBox.Checked, chatlogTimestampCheckBox.Checked, !(showUsernameDialogCheckBox.Checked), !(closeWhenLaunchedCheckBox.Checked), createSessionsLogCheckBox.Checked, doNotCheckForUpdatesCheckBox.Checked);
             SAMP.LauncherConfigIO = lcdc;
             SaveDeveloperToolsConfig();
             keepRunning = false;
@@ -1771,14 +1774,17 @@ namespace SAMPLauncherNET
             if (i >= 0)
             {
                 List<string> langs = new List<string>(Utils.Translator.Languages.Keys);
-                string language = langs[i];
-                langs.Clear();
-                if (SAMP.LauncherConfigIO.Language != language)
+                if (i < langs.Count)
                 {
-                    SAMP.LauncherConfigIO.Language = language;
-                    SAMP.LauncherConfigIO = SAMP.LauncherConfigIO;
-                    Application.Restart();
+                    string language = langs[i];
+                    if (SAMP.LauncherConfigIO.Language != language)
+                    {
+                        SAMP.LauncherConfigIO.Language = language;
+                        SAMP.LauncherConfigIO = SAMP.LauncherConfigIO;
+                        Application.Restart();
+                    }
                 }
+                langs.Clear();
             }
         }
 

@@ -316,33 +316,15 @@
     <EmbeddedResource Include="Source\SAMPLauncherNET\UI\Forms\UpdateNotificationForm.resx">
       <DependentUpon>UpdateNotificationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="languages\de-DE.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="languages\en-GB.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="languages\es-419.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="languages\ge-GE.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="languages\nl-BE.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="languages\pt-BR.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="languages\pt-PT.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="languages\ru-RU.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="languages\uk-UA.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <EmbeddedResource Include="languages\de-DE.json" />
+    <EmbeddedResource Include="languages\en-GB.json" />
+    <EmbeddedResource Include="languages\es-419.json" />
+    <EmbeddedResource Include="languages\ge-GE.json" />
+    <EmbeddedResource Include="languages\nl-BE.json" />
+    <EmbeddedResource Include="languages\pt-BR.json" />
+    <EmbeddedResource Include="languages\pt-PT.json" />
+    <EmbeddedResource Include="languages\ru-RU.json" />
+    <EmbeddedResource Include="languages\uk-UA.json" />
     <None Include="packages.config" />
     <None Include="SAMPLauncherNET.pfx" />
   </ItemGroup>

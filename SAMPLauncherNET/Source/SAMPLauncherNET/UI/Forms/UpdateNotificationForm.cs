@@ -24,7 +24,11 @@ namespace SAMPLauncherNET
             material_skin_manager.AddFormToManage(this);
             material_skin_manager.Theme = MaterialSkinManager.Themes.DARK;
             material_skin_manager.ColorScheme = new ColorScheme(Primary.Blue700, Primary.Blue800, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
-            updateNotificationLabel.Text = string.Format(Utils.Translator.GetTranslation("UPDATE_NOTIFICATION"), version);
+            string update_notification;
+            if (Utils.Translator.TryTranslate("{$UPDATE_NOTIFICATION$}", out update_notification))
+            {
+                updateNotificationLabel.Text = string.Format(update_notification, version);
+            }
         }
 
         /// <summary>

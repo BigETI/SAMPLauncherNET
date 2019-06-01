@@ -23,14 +23,19 @@ namespace SAMPLauncherNET
     static class Program
     {
         /// <summary>
+        /// Languages directory
+        /// </summary>
+        private static readonly string languagesDirectory = "./languages";
+
+        /// <summary>
         /// Registry key (dirty approach, can't access SAMP.RegistryKey)
         /// </summary>
-        private const string RegistryKey = "HKEY_CURRENT_USER\\SOFTWARE\\SAMP";
+        private const string registryKey = "HKEY_CURRENT_USER\\SOFTWARE\\SAMP";
 
         /// <summary>
         /// Configuration path (dirty approach, can't access SAMP.ConfigPath)
         /// </summary>
-        private static readonly string ConfigPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\GTA San Andreas User Files\\SAMP";
+        private static readonly string configPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\GTA San Andreas User Files\\SAMP";
 
         /// <summary>
         /// Installer path
@@ -52,10 +57,10 @@ namespace SAMPLauncherNET
                 bool ret = false;
                 try
                 {
-                    ret = (Registry.GetValue(RegistryKey, "gta_sa_exe", null) != null) && Directory.Exists(ConfigPath);
-                    if (ret && (Registry.GetValue(RegistryKey, "PlayerName", null) == null))
+                    ret = (Registry.GetValue(registryKey, "gta_sa_exe", null) != null) && Directory.Exists(configPath);
+                    if (ret && (Registry.GetValue(registryKey, "PlayerName", null) == null))
                     {
-                        Registry.SetValue(RegistryKey, "PlayerName", "", RegistryValueKind.String);
+                        Registry.SetValue(registryKey, "PlayerName", "", RegistryValueKind.String);
                     }
                 }
                 catch (Exception e)
@@ -156,13 +161,49 @@ namespace SAMPLauncherNET
         {
             try
             {
+                try
+                {
+                    if (!(Directory.Exists(languagesDirectory)))
+                    {
+                        Directory.CreateDirectory(languagesDirectory);
+                        string[] resources = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+                        if (resources != null)
+                        {
+                            Regex regex = new Regex(Assembly.GetExecutingAssembly().GetName().Name + @"\.languages\..*\.json", RegexOptions.IgnoreCase);
+                            int prefix_len = (Assembly.GetExecutingAssembly().GetName().Name + ".languages.").Length;
+                            foreach (string resource in resources)
+                            {
+                                if (resource != null)
+                                {
+                                    if (regex.IsMatch(resource))
+                                    {
+                                        using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource))
+                                        {
+                                            if (stream != null)
+                                            {
+                                                using (FileStream file_stream = File.Open(Path.Combine(languagesDirectory, resource.Substring(prefix_len)), FileMode.Create, FileAccess.Write))
+                                                {
+                                                    stream.CopyTo(file_stream);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.Error.WriteLine(e);
+                }
                 if (IsSAMPInstalled)
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    if (!Directory.Exists(ConfigPath + "\\screens"))
+                    if (!Directory.Exists(configPath + "\\screens"))
                     {
-                        Directory.CreateDirectory(ConfigPath + "\\screens");
+                        Directory.CreateDirectory(configPath + "\\screens");
                     }
                     bool init = true;
                     if (!(SAMP.LauncherConfigIO.DoNotCheckForUpdates))
