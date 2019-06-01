@@ -167,7 +167,7 @@ namespace SAMPLauncherNET
                     bool init = true;
                     if (!(SAMP.LauncherConfigIO.DoNotCheckForUpdates))
                     {
-                        GitHubUpdateTask update = new GitHubUpdateTask("BigETI", "SAMPLauncherNET", @".*\.exe", RegexOptions.IgnoreCase);
+                        GitHubUpdateTask update = new GitHubUpdateTask("BigETI", "SAMPLauncherNET");
                         if (update.Version != Assembly.GetExecutingAssembly().GetName().Version.ToString())
                         {
                             UpdateNotificationForm update_notification_form = new UpdateNotificationForm(update.Version);
